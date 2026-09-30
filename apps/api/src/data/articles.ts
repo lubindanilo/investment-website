@@ -91318,7 +91318,553 @@ const articleTaiwanIAQualitePrix2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026];
+const articleHDvsLOW2026: Article = {
+  "slug": "home-depot-lowes-comparatif-cash-2026",
+  "date": "2026-09-30",
+  "updated": "2026-09-30",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Home Depot (HD) ou Lowe's (LOW) : le cash tranche",
+      "excerpt": "Deux géants de la rénovation aux États-Unis, une même note de qualité, des rayons presque identiques. Pourtant, le cash de l'un a reculé de 30 % en deux ans pendant que celui de l'autre tient bon. Voilà ce que ça change pour le prix.",
+      "metaDescription": "Home Depot ou Lowe's : même note de qualité, mais un cash qui recule chez l'un et tient chez l'autre. Mon comparatif des deux actions, chiffres à l'appui.",
+      "answer": "Home Depot et Lowe's obtiennent la même note de qualité, 5 sur 10, et échouent sur les mêmes critères : croissance molle, marges qui se tassent. Ce qui les sépare, c'est le cash. Celui de Home Depot a reculé de 30 % en deux ans et l'action reste chère. Lowe's coûte moins, mais son bilan est plus chargé.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Si tu as déjà rénové une salle de bain aux États-Unis, tu as poussé un chariot dans une allée de Home Depot ou de Lowe's. Les deux enseignes vendent la même perceuse, la même peinture, le même carrelage, souvent à quelques centimes d'écart. Un acheteur pressé ne fait pas la différence, et pendant longtemps la Bourse non plus : les deux actions montaient et descendaient ensemble, au rythme des taux d'intérêt et du marché immobilier."
+        },
+        {
+          "type": "p",
+          "text": "Home Depot exploite 2 364 magasins et emploie plus de 470 000 personnes ; Lowe's en emploie environ 276 000. La première pèse 290 milliards de dollars en Bourse, la seconde 105 milliards. Cet écart de taille est connu de tous. Ce qui l'est moins, c'est ce qui se passe une fois qu'on ouvre les comptes : depuis deux ans, les deux sociétés ne racontent plus la même histoire."
+        },
+        {
+          "type": "p",
+          "text": "Je juge une action en deux temps. D'abord la qualité du business, notée sur dix critères (marges, croissance, dette, rendement du capital), sans regarder le prix. Ensuite le prix, avec le P/FCF : le prix de l'action divisé par le free cash flow par action, c'est-à-dire le cash qui reste vraiment une fois les factures et les investissements payés. Un P/FCF de 20 veut dire que tu paies vingt ans de ce cash. Voyons ce que donnent nos deux rivales."
+        },
+        {
+          "type": "h2",
+          "text": "Qu'est-ce qui rapproche vraiment les deux géants ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Mesure",
+            "Home Depot (HD)",
+            "Lowe's (LOW)"
+          ],
+          "rows": [
+            [
+              "Note de qualité",
+              "5 sur 10",
+              "5 sur 10"
+            ],
+            [
+              "Cours / capitalisation",
+              "288 $ / 290 Md$",
+              "187 $ / 105 Md$"
+            ],
+            [
+              "Marge nette",
+              "8,4 %",
+              "7,3 %"
+            ],
+            [
+              "Marge de cash (free cash flow / ventes)",
+              "8,6 %",
+              "7,5 %"
+            ],
+            [
+              "Croissance annuelle des ventes sur 5 ans",
+              "+2,3 %",
+              "-2,9 %"
+            ],
+            [
+              "Croissance annuelle du cash par action sur 5 ans",
+              "+4,8 %",
+              "+5,4 %"
+            ],
+            [
+              "Évolution annuelle du nombre d'actions",
+              "-1,1 %",
+              "-3,7 %"
+            ],
+            [
+              "Rendement du capital investi (Cash ROCE)",
+              "28,2 %",
+              "21,9 %"
+            ],
+            [
+              "Dette nette en années de cash",
+              "3,5 ans",
+              "5,1 ans"
+            ],
+            [
+              "P/FCF (rang dans son historique)",
+              "19,9× (71ᵉ percentile)",
+              "15,6× (56ᵉ percentile)"
+            ],
+            [
+              "Rendement du dividende",
+              "3,2 %",
+              "2,7 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le tableau montre d'abord des ressemblances. Les deux sociétés échouent sur les mêmes critères de ma grille : des ventes qui progressent à peine (ou reculent), un cash par action qui grandit moins de 10 % par an, et des marges qui se compressent, c'est-à-dire des coûts qui grossissent plus vite que les revenus. Ce sont deux machines rentables, mais matures, dont la croissance dépend d'un marché immobilier américain au ralenti."
+        },
+        {
+          "type": "p",
+          "text": "Le Cash ROCE mesure combien de cash l'entreprise dégage pour chaque dollar investi dans son activité ; au-dessus de 15 %, c'est excellent. Les deux passent haut la main, Home Depot un cran devant. Là où elles se séparent, c'est sur le bilan (3,5 ans de cash pour rembourser la dette nette, contre 5,1 ans chez Lowe's) et sur la trajectoire du cash, que le tableau ne montre pas. Pour comprendre le rendement du capital, j'ai détaillé le critère dans [mon article sur le ROIC](/blog/roic-critere-qualite-methode-lubin-rendement-capital)."
+        },
+        {
+          "type": "h2",
+          "text": "Home Depot : pourquoi son cash a-t-il reculé de 30 % ?"
+        },
+        {
+          "type": "p",
+          "text": "Le free cash flow de Home Depot était de 17,9 milliards de dollars sur l'exercice clos fin janvier 2024, puis de 16,3 milliards, puis de 12,6 milliards sur l'exercice clos le 1ᵉʳ février 2026. C'est un recul de près de 30 % en deux ans, alors que les ventes ont continué de grimper, de 152,7 à 164,7 milliards. Un chiffre d'affaires qui monte pendant que le cash s'effondre, c'est le signal qui m'intéresse le plus."
+        },
+        {
+          "type": "p",
+          "text": "L'explication principale tient en deux sigles : SRS et GMS. Home Depot a acquis SRS, un distributeur de matériaux pour couvreurs, paysagistes et installateurs de piscines, puis [GMS, annoncé le 30 juin 2025](https://www.cnbc.com/2025/06/30/home-depot-srs-distribution-buys-gms.html), spécialiste des plaques de plâtre et des plafonds. L'ensemble compte plus de 1 250 sites. L'idée est de vendre aux professionnels du bâtiment, qui achètent plus, plus souvent et de façon moins dépendante des humeurs du particulier."
+        },
+        {
+          "type": "p",
+          "text": "Mais un distributeur pour professionnels ne fonctionne pas comme un magasin où le client paie à la caisse. Les artisans achètent en général à crédit (j'en déduis, du moins, à la lecture de ces chiffres), il faut donc financer des stocks importants et attendre d'être payé. C'est ce que montre le délai d'encaissement net de Home Depot : 58 jours, en allongement de près de 4 jours par an, selon mes données. Chaque jour de plus, ce sont plusieurs centaines de millions de dollars immobilisés dans les stocks et les créances au lieu de finir en cash (ordre de grandeur : 165 milliards de ventes divisés par 365 jours). Ajoute à cela [l'amortissement des actifs achetés](https://ir.homedepot.com/news-releases/2026/08-18-2026-110040463), 125 millions de dollars sur le seul deuxième trimestre, soit environ 0,50 $ de bénéfice par action sur l'année selon l'entreprise."
+        },
+        {
+          "type": "p",
+          "text": "Le prix, maintenant, en trois temps. Home Depot se valorise 19,9 fois son cash, plus cher que dans environ 71 % de son propre historique. Pourquoi ? Parce que la Bourse paie la qualité et l'attente d'un rebond : quand les ventes de logements repartiront (elles sont gelées depuis quatre ans, selon un article de Yahoo Finance du 27 septembre 2026), l'action pourrait en profiter. Est-ce justifié ? Pas tout à fait. Au deuxième trimestre, arrêté au 2 août 2026, les ventes ont progressé de 5,7 % à 47,9 milliards, mais de 1,7 % seulement à magasins comparables (les magasins ouverts depuis plus d'un an, hors acquisitions), et l'entreprise maintient une croissance du bénéfice ajusté par action de 0 à 4 % pour l'année. Payer vingt ans de cash pour une croissance annoncée aussi faible laisse peu de marge."
+        },
+        {
+          "type": "p",
+          "text": "Mon modèle est brutal sur ce dossier : il estime un prix d'achat de 47 $ contre 288 $ de cours, soit une surcote de 84 %. Il faut lire ce chiffre avec prudence. Il extrapole la baisse récente du cash par action (environ 17 % par an), une hypothèse punitive. Ce que je retiens, c'est la direction : chère, et avec un cash qui recule. Le dividende, lui, absorbe environ 73 % du free cash flow du dernier exercice (9,32 $ par action sur environ 995 millions d'actions, soit 9,3 milliards, face à 12,6 milliards), un niveau qui laisse moins de marge qu'il n'y paraît avec un rendement de 3,2 %."
+        },
+        {
+          "type": "h2",
+          "text": "Lowe's : un cash qui tient, un bilan qui se tend"
+        },
+        {
+          "type": "p",
+          "text": "Lowe's raconte l'histoire inverse à première vue. Ses ventes sont passées de 97,1 milliards (exercice clos en février 2023) à 86,3 milliards (janvier 2026), soit un recul de 11 %. Mais son free cash flow est resté stable autour de 7,7 milliards sur les deux derniers exercices, après 6,2 milliards en février 2024. Et comme l'entreprise a réduit son nombre d'actions de 631 à 560 millions en trois ans, le cash par action progresse de 5,4 % par an sur cinq ans."
+        },
+        {
+          "type": "p",
+          "text": "C'est le mécanisme du rachat d'actions : en rachetant ses propres titres, l'entreprise se répartit le même cash entre moins d'actionnaires. C'est efficace tant que la dette ne s'emballe pas. Or la dette nette de Lowe's représente 5,1 années de cash. Je n'ai pas la ventilation exacte, mais le rapprochement entre des rachats soutenus et un endettement élevé suggère qu'une partie a été financée par emprunt (inféré, à vérifier dans les comptes). La presse titrait d'ailleurs le 24 septembre 2026 sur un retour des rachats visé pour 2027, ce qui laisse entendre qu'ils sont freinés aujourd'hui."
+        },
+        {
+          "type": "p",
+          "text": "Le deuxième trimestre est clair sur la faiblesse de fond. Lowe's a publié [un chiffre d'affaires de 25,96 milliards de dollars, en hausse de plus de 8 %](https://www.ttnews.com/articles/lowes-earnings-q2-2026), mais seulement +0,2 % à magasins comparables, et a ramené son objectif annuel à des ventes comparables stables (contre jusqu'à +2 % espérés). L'écart entre +8 % et +0,2 % vient des acquisitions : Artisan Design Group, puis [Foundation Building Materials pour 8,8 milliards de dollars](https://www.retaildive.com/news/lowes-acquire-foundation-building-materials-pro-business/758228/). Même stratégie que Home Depot, même dépendance au cycle immobilier, mais avec un bilan plus chargé pour l'encaisser. La clientèle professionnelle résiste, celle du bricolage recule."
+        },
+        {
+          "type": "p",
+          "text": "Côté prix, Lowe's se valorise 15,6 fois son cash, plus cher que dans 56 % de son historique, donc dans la moyenne haute plutôt qu'en zone de bonne affaire. Mon modèle donne un prix d'achat de 161 $ contre 187 $, une surcote de 14 %. Là aussi, une réserve : il suppose une croissance du cash de 12 % par an, extrapolée des deux dernières années, ce qui paraît optimiste quand la direction elle-même parle de ventes comparables plates. Home Depot et Lowe's sont donc jugées avec deux hypothèses opposées, l'une trop dure, l'autre trop douce."
+        },
+        {
+          "type": "h2",
+          "text": "Lequel passe le mieux mon filtre du prix ?"
+        },
+        {
+          "type": "p",
+          "text": "Aucun des deux ne passe aujourd'hui. Les deux sont au-dessus de mon prix d'achat, et les deux ont besoin d'un marché immobilier qui redémarre. Si je devais les départager, je dirais ceci : Lowe's est moins chère et son cash par action progresse, mais elle porte plus de dette et ses ventes reculent ; Home Depot a le meilleur bilan et le meilleur rendement du capital, mais son cash a chuté et l'action se valorise plus cher que la moitié de son histoire."
+        },
+        {
+          "type": "p",
+          "text": "Ce qui me ferait changer d'avis est simple. Chez Home Depot, un free cash flow qui repasse au-dessus de 16 milliards de dollars, preuve que les acquisitions rapportent, ou un cours qui redescend. Chez Lowe's, une dette nette ramenée sous quatre années de cash. Les risques communs sont l'immobilier américain, les taux d'intérêt et l'écart entre clients professionnels et particuliers ; ces titres cotent en dollars et ne sont pas éligibles au PEA. C'est ce tri, la qualité d'un côté, le prix de l'autre, que je voulais pouvoir faire pour n'importe quelle action : c'est pour ça que j'ai construit mon outil, et tu peux lancer toi-même [la comparaison HD contre LOW](/comparer/hd-vs-low) ou lire la fiche de [Home Depot](/analyse/HD) et celle de [Lowe's](/analyse/LOW)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Home Depot ou Lowe's : laquelle est la meilleure entreprise ?",
+          "a": "Sur ma grille, elles obtiennent la même note de qualité, 5 sur 10. Home Depot a un meilleur rendement du capital (28 % contre 22 %) et moins de dette, Lowe's un cash par action un peu plus dynamique. Aucune ne se détache nettement."
+        },
+        {
+          "q": "Pourquoi le cash de Home Depot a-t-il autant reculé ?",
+          "a": "Le free cash flow est passé de 17,9 à 12,6 milliards de dollars en deux exercices. Les acquisitions de SRS et GMS immobilisent du cash dans les stocks et les créances, car les clients professionnels paient à crédit, et les amortissements pèsent sur le bénéfice."
+        },
+        {
+          "q": "Lowe's est-elle moins chère que Home Depot ?",
+          "a": "Oui, elle se valorise 15,6 fois son cash contre 19,9 fois. Mais elle reste au-dessus de mon prix d'achat estimé, avec une surcote de 14 %, et sa dette est plus lourde (5,1 années de cash contre 3,5)."
+        },
+        {
+          "q": "Peut-on acheter Home Depot ou Lowe's dans un PEA ?",
+          "a": "Non. Le PEA est réservé aux sociétés européennes. Ces deux actions américaines se logent dans un compte-titres ordinaire, avec un risque de change sur le dollar."
+        }
+      ],
+      "tags": [
+        "Home Depot",
+        "Lowe's",
+        "Comparatif",
+        "Distribution",
+        "Immobilier américain"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (30 septembre 2026), vérifiés en direct via mon outil d'analyse le jour de la rédaction, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Home Depot (HD) or Lowe's (LOW): cash settles it",
+      "excerpt": "Two US home improvement giants, the same quality score, almost identical aisles. Yet one's cash has fallen 30% in two years while the other's holds up. Here is what that changes for the price.",
+      "metaDescription": "Home Depot or Lowe's: same quality score, but cash is shrinking at one and holding at the other. My side by side comparison of both stocks, with the numbers.",
+      "answer": "Home Depot and Lowe's earn the same quality score, 5 out of 10, and fail the same criteria: soft growth, squeezed margins. What separates them is cash. Home Depot's fell 30% in two years and the stock is still expensive. Lowe's costs less, but its balance sheet carries more debt.",
+      "body": [
+        {
+          "type": "p",
+          "text": "If you have ever renovated a bathroom in the United States, you have pushed a cart down a Home Depot or Lowe's aisle. Both chains sell the same drill, the same paint, the same tile, often a few cents apart. A hurried shopper cannot tell them apart, and for a long time the stock market could not either: both shares rose and fell together with interest rates and the housing market."
+        },
+        {
+          "type": "p",
+          "text": "Home Depot runs 2,364 stores and employs more than 470,000 people; Lowe's employs about 276,000. The first is worth $290 billion on the stock market, the second $105 billion. That size gap is well known. What is less known is what you find when you open the accounts: for two years, the two companies have stopped telling the same story."
+        },
+        {
+          "type": "p",
+          "text": "I judge a stock in two steps. First the quality of the business, scored on ten criteria (margins, growth, debt, return on capital), without looking at the price. Then the price, using P/FCF: the share price divided by free cash flow per share, meaning the cash that is really left after bills and investments are paid. A P/FCF of 20 means you pay twenty years of that cash. Let's see what our two rivals show."
+        },
+        {
+          "type": "h2",
+          "text": "What do the two giants really have in common?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "Home Depot (HD)",
+            "Lowe's (LOW)"
+          ],
+          "rows": [
+            [
+              "Quality score",
+              "5 out of 10",
+              "5 out of 10"
+            ],
+            [
+              "Share price / market cap",
+              "$288 / $290bn",
+              "$187 / $105bn"
+            ],
+            [
+              "Net margin",
+              "8.4%",
+              "7.3%"
+            ],
+            [
+              "Cash margin (free cash flow / sales)",
+              "8.6%",
+              "7.5%"
+            ],
+            [
+              "Annual sales growth over 5 years",
+              "+2.3%",
+              "-2.9%"
+            ],
+            [
+              "Annual cash per share growth over 5 years",
+              "+4.8%",
+              "+5.4%"
+            ],
+            [
+              "Yearly change in share count",
+              "-1.1%",
+              "-3.7%"
+            ],
+            [
+              "Return on invested capital (Cash ROCE)",
+              "28.2%",
+              "21.9%"
+            ],
+            [
+              "Net debt in years of cash",
+              "3.5 years",
+              "5.1 years"
+            ],
+            [
+              "P/FCF (rank in its own history)",
+              "19.9× (71st percentile)",
+              "15.6× (56th percentile)"
+            ],
+            [
+              "Dividend yield",
+              "3.2%",
+              "2.7%"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The table shows similarities first. Both companies fail the same criteria in my grid: sales barely growing (or shrinking), cash per share growing less than 10% a year, and squeezed margins, meaning costs growing faster than revenue. These are two profitable but mature machines whose growth depends on a slow US housing market."
+        },
+        {
+          "type": "p",
+          "text": "Cash ROCE measures how much cash a company produces for each dollar invested in its operations; above 15% is excellent. Both clear the bar easily, Home Depot a notch higher. Where they split is the balance sheet (3.5 years of cash to repay net debt, against 5.1 years at Lowe's) and the cash trajectory, which the table does not show. I explain the return on capital criterion in [my article on ROIC](/blog/roic-critere-qualite-methode-lubin-rendement-capital)."
+        },
+        {
+          "type": "h2",
+          "text": "Home Depot: why did its cash fall 30%?"
+        },
+        {
+          "type": "p",
+          "text": "Home Depot's free cash flow was $17.9 billion in the fiscal year ended late January 2024, then $16.3 billion, then $12.6 billion in the year ended February 1, 2026. That is a drop of almost 30% in two years, while sales kept climbing, from $152.7 billion to $164.7 billion. Revenue rising while cash collapses is the signal that interests me most."
+        },
+        {
+          "type": "p",
+          "text": "The main explanation fits in two acronyms: SRS and GMS. Home Depot acquired SRS, a materials distributor for roofers, landscapers and pool installers, then [GMS, announced on June 30, 2025](https://www.cnbc.com/2025/06/30/home-depot-srs-distribution-buys-gms.html), a specialist in drywall and ceilings. Together they operate more than 1,250 sites. The idea is to sell to construction professionals, who buy more, more often, and depend less on the mood of individual homeowners."
+        },
+        {
+          "type": "p",
+          "text": "But a distributor for professionals does not work like a store where the customer pays at the register. Contractors generally buy on credit (that is my reading of these figures, at least), so large inventories must be financed and payment awaited. That is what Home Depot's net cash cycle shows: 58 days, lengthening by nearly 4 days a year, according to my data. Each extra day ties up several hundred million dollars in inventory and receivables instead of ending up as cash (order of magnitude: $165 billion of sales divided by 365 days). Add [the amortization of acquired assets](https://ir.homedepot.com/news-releases/2026/08-18-2026-110040463), $125 million in the second quarter alone, or about $0.50 of earnings per share over the year according to the company."
+        },
+        {
+          "type": "p",
+          "text": "Now the price, in three steps. Home Depot trades at 19.9 times its cash, more expensive than about 71% of its own history. Why? Because the market pays for quality and for the expectation of a rebound: when home sales pick up again (they have been frozen for four years, according to a Yahoo Finance article of September 27, 2026), the stock could benefit. Is that justified? Not quite. In the second quarter, ended August 2, 2026, sales rose 5.7% to $47.9 billion, but only 1.7% on a same store basis (stores open for more than a year, excluding acquisitions), and the company keeps its guidance of 0 to 4% adjusted earnings per share growth for the year. Paying twenty years of cash for growth guided that low leaves little room for error."
+        },
+        {
+          "type": "p",
+          "text": "My model is harsh on this one: it estimates a buy price of $47 against a $288 share price, a 84% overvaluation. Read that figure with caution. It extrapolates the recent decline in cash per share (about 17% a year), a punitive assumption. What I keep is the direction: expensive, with shrinking cash. The dividend, for its part, absorbs about 73% of last year's free cash flow ($9.32 per share on about 995 million shares, or $9.3 billion, against $12.6 billion), a level that leaves less room than a 3.2% yield suggests."
+        },
+        {
+          "type": "h2",
+          "text": "Lowe's: cash holds, the balance sheet tightens"
+        },
+        {
+          "type": "p",
+          "text": "At first sight Lowe's tells the opposite story. Its sales went from $97.1 billion (fiscal year ended February 2023) to $86.3 billion (January 2026), an 11% drop. But its free cash flow has stayed steady around $7.7 billion for the last two years, after $6.2 billion in February 2024. And since the company cut its share count from 631 to 560 million in three years, cash per share grows 5.4% a year over five years."
+        },
+        {
+          "type": "p",
+          "text": "That is the share buyback mechanism: by buying back its own stock, a company splits the same cash among fewer shareholders. It works as long as debt does not run away. Lowe's net debt stands at 5.1 years of cash. I do not have the exact breakdown, but the combination of sustained buybacks and high debt suggests part of it was financed by borrowing (inferred, to be checked in the accounts). The press ran a headline on September 24, 2026 about buybacks being targeted to return in 2027, which implies they are slowed today."
+        },
+        {
+          "type": "p",
+          "text": "The second quarter is clear about the underlying weakness. Lowe's reported [sales of $25.96 billion, up more than 8%](https://www.ttnews.com/articles/lowes-earnings-q2-2026), but only +0.2% on a same store basis, and cut its annual target to flat comparable sales (against up to +2% hoped for). The gap between +8% and +0.2% comes from acquisitions: Artisan Design Group, then [Foundation Building Materials for $8.8 billion](https://www.retaildive.com/news/lowes-acquire-foundation-building-materials-pro-business/758228/). Same strategy as Home Depot, same dependence on the housing cycle, but with a heavier balance sheet to absorb it. Professional customers are holding up, DIY is shrinking."
+        },
+        {
+          "type": "p",
+          "text": "On price, Lowe's trades at 15.6 times its cash, more expensive than 56% of its history, so upper middle rather than bargain territory. My model gives a buy price of $161 against $187, a 14% overvaluation. Again a caveat: it assumes cash growth of 12% a year, extrapolated from the last two years, which looks optimistic when management itself talks about flat comparable sales. Home Depot and Lowe's are thus judged with two opposite assumptions, one too harsh, the other too soft."
+        },
+        {
+          "type": "h2",
+          "text": "Which one passes my price filter better?"
+        },
+        {
+          "type": "p",
+          "text": "Neither passes today. Both are above my buy price, and both need a housing market that restarts. If I had to separate them, I would say this: Lowe's is cheaper and its cash per share is growing, but it carries more debt and its sales are shrinking; Home Depot has the better balance sheet and the better return on capital, but its cash has dropped and the stock is more expensive than half of its history."
+        },
+        {
+          "type": "p",
+          "text": "What would change my mind is simple. At Home Depot, free cash flow climbing back above $16 billion, proof that the acquisitions pay off, or a lower share price. At Lowe's, net debt brought under four years of cash. The shared risks are US housing, interest rates and the gap between professional and individual customers; both stocks trade in dollars and are not eligible for the French PEA. This sorting, quality on one side, price on the other, is what I wanted to be able to do for any stock: that is why I built my tool, and you can run [the HD versus LOW comparison](/comparer/hd-vs-low) yourself or read the pages for [Home Depot](/analyse/HD) and [Lowe's](/analyse/LOW)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Home Depot or Lowe's: which is the better company?",
+          "a": "On my grid they earn the same quality score, 5 out of 10. Home Depot has a better return on capital (28% against 22%) and less debt, Lowe's slightly livelier cash per share. Neither stands clearly apart."
+        },
+        {
+          "q": "Why has Home Depot's cash fallen so much?",
+          "a": "Free cash flow went from $17.9 to $12.6 billion in two fiscal years. The SRS and GMS acquisitions tie up cash in inventory and receivables, because professional customers pay on credit, and amortization weighs on earnings."
+        },
+        {
+          "q": "Is Lowe's cheaper than Home Depot?",
+          "a": "Yes, it trades at 15.6 times its cash against 19.9 times. But it remains above my estimated buy price, with a 14% overvaluation, and its debt is heavier (5.1 years of cash against 3.5)."
+        },
+        {
+          "q": "Can you hold Home Depot or Lowe's in a PEA?",
+          "a": "No. The PEA is reserved for European companies. These two US stocks go in an ordinary brokerage account, with currency risk on the dollar."
+        }
+      ],
+      "tags": [
+        "Home Depot",
+        "Lowe's",
+        "Comparison",
+        "Retail",
+        "US housing"
+      ],
+      "disclaimer": "This analysis is for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (September 30, 2026), checked live with my analysis tool the day this was written, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you this so you can read this analysis with that in mind. Do your own research."
+    },
+    "es": {
+      "title": "Home Depot (HD) o Lowe's (LOW): el efectivo decide",
+      "excerpt": "Dos gigantes estadounidenses de la reforma del hogar, la misma nota de calidad, pasillos casi idénticos. Sin embargo, el efectivo de uno ha caído un 30 % en dos años mientras el del otro resiste. Esto es lo que cambia para el precio.",
+      "metaDescription": "Home Depot o Lowe's: misma nota de calidad, pero un efectivo que cae en una y aguanta en la otra. Mi comparativa de las dos acciones, con cifras.",
+      "answer": "Home Depot y Lowe's obtienen la misma nota de calidad, 5 sobre 10, y fallan en los mismos criterios: crecimiento flojo, márgenes que se estrechan. Lo que las separa es el efectivo. El de Home Depot ha caído un 30 % en dos años y la acción sigue cara. Lowe's cuesta menos, pero su balance está más cargado.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Si alguna vez has reformado un baño en Estados Unidos, has empujado un carrito por un pasillo de Home Depot o de Lowe's. Las dos cadenas venden el mismo taladro, la misma pintura, los mismos azulejos, a menudo con centavos de diferencia. Un comprador con prisa no nota la diferencia, y durante mucho tiempo la Bolsa tampoco: las dos acciones subían y bajaban juntas, al ritmo de los tipos de interés y del mercado inmobiliario."
+        },
+        {
+          "type": "p",
+          "text": "Home Depot tiene 2364 tiendas y más de 470 000 empleados; Lowe's emplea a unas 276 000 personas. La primera vale 290 000 millones de dólares en Bolsa, la segunda 105 000 millones. Esa diferencia de tamaño la conoce todo el mundo. Lo que se conoce menos es lo que ocurre al abrir las cuentas: desde hace dos años, las dos empresas ya no cuentan la misma historia."
+        },
+        {
+          "type": "p",
+          "text": "Juzgo una acción en dos tiempos. Primero la calidad del negocio, puntuada con diez criterios (márgenes, crecimiento, deuda, rentabilidad del capital), sin mirar el precio. Después el precio, con el P/FCF: el precio de la acción dividido por el flujo de caja libre por acción, es decir, el efectivo que queda de verdad una vez pagadas las facturas y las inversiones. Un P/FCF de 20 significa que pagas veinte años de ese efectivo. Veamos qué muestran nuestras dos rivales."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué acerca realmente a los dos gigantes?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Medida",
+            "Home Depot (HD)",
+            "Lowe's (LOW)"
+          ],
+          "rows": [
+            [
+              "Nota de calidad",
+              "5 sobre 10",
+              "5 sobre 10"
+            ],
+            [
+              "Cotización / capitalización",
+              "288 $ / 290 000 M$",
+              "187 $ / 105 000 M$"
+            ],
+            [
+              "Margen neto",
+              "8,4 %",
+              "7,3 %"
+            ],
+            [
+              "Margen de efectivo (flujo de caja libre / ventas)",
+              "8,6 %",
+              "7,5 %"
+            ],
+            [
+              "Crecimiento anual de las ventas en 5 años",
+              "+2,3 %",
+              "-2,9 %"
+            ],
+            [
+              "Crecimiento anual del efectivo por acción en 5 años",
+              "+4,8 %",
+              "+5,4 %"
+            ],
+            [
+              "Variación anual del número de acciones",
+              "-1,1 %",
+              "-3,7 %"
+            ],
+            [
+              "Rentabilidad del capital invertido (Cash ROCE)",
+              "28,2 %",
+              "21,9 %"
+            ],
+            [
+              "Deuda neta en años de efectivo",
+              "3,5 años",
+              "5,1 años"
+            ],
+            [
+              "P/FCF (posición en su historial)",
+              "19,9× (percentil 71)",
+              "15,6× (percentil 56)"
+            ],
+            [
+              "Rentabilidad por dividendo",
+              "3,2 %",
+              "2,7 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La tabla muestra primero parecidos. Las dos empresas fallan en los mismos criterios de mi rejilla: ventas que apenas crecen (o retroceden), un efectivo por acción que crece menos del 10 % anual y márgenes que se comprimen, es decir, costes que crecen más rápido que los ingresos. Son dos máquinas rentables pero maduras, cuyo crecimiento depende de un mercado inmobiliario estadounidense lento."
+        },
+        {
+          "type": "p",
+          "text": "El Cash ROCE mide cuánto efectivo genera la empresa por cada dólar invertido en su actividad; por encima del 15 % es excelente. Las dos lo superan de sobra, Home Depot un escalón por delante. Donde se separan es en el balance (3,5 años de efectivo para devolver la deuda neta, frente a 5,1 años en Lowe's) y en la trayectoria del efectivo, que la tabla no muestra. Detallo el criterio de rentabilidad del capital en [mi artículo sobre el ROIC](/blog/roic-critere-qualite-methode-lubin-rendement-capital)."
+        },
+        {
+          "type": "h2",
+          "text": "Home Depot: ¿por qué ha caído su efectivo un 30 %?"
+        },
+        {
+          "type": "p",
+          "text": "El flujo de caja libre de Home Depot fue de 17 900 millones de dólares en el ejercicio cerrado a finales de enero de 2024, luego de 16 300 millones y después de 12 600 millones en el ejercicio cerrado el 1 de febrero de 2026. Es una caída de casi el 30 % en dos años, mientras las ventas seguían subiendo, de 152 700 a 164 700 millones. Unos ingresos que suben mientras el efectivo se hunde son la señal que más me interesa."
+        },
+        {
+          "type": "p",
+          "text": "La explicación principal cabe en dos siglas: SRS y GMS. Home Depot adquirió SRS, un distribuidor de materiales para tejadistas, paisajistas e instaladores de piscinas, y después [GMS, anunciada el 30 de junio de 2025](https://www.cnbc.com/2025/06/30/home-depot-srs-distribution-buys-gms.html), especialista en placas de yeso y techos. Juntas suman más de 1250 centros. La idea es vender a los profesionales de la construcción, que compran más, con más frecuencia y dependen menos del ánimo del particular."
+        },
+        {
+          "type": "p",
+          "text": "Pero un distribuidor para profesionales no funciona como una tienda donde el cliente paga en caja. Los contratistas suelen comprar a crédito (es mi lectura de estas cifras, al menos), así que hay que financiar grandes existencias y esperar el cobro. Eso muestra el ciclo de cobro neto de Home Depot: 58 días, alargándose casi 4 días al año, según mis datos. Cada día extra inmoviliza varios cientos de millones de dólares en existencias y cuentas por cobrar en lugar de convertirse en efectivo (orden de magnitud: 165 000 millones de ventas divididos entre 365 días). Añade [la amortización de los activos adquiridos](https://ir.homedepot.com/news-releases/2026/08-18-2026-110040463), 125 millones de dólares solo en el segundo trimestre, unos 0,50 $ de beneficio por acción en el año según la empresa."
+        },
+        {
+          "type": "p",
+          "text": "Ahora el precio, en tres tiempos. Home Depot cotiza a 19,9 veces su efectivo, más caro que en cerca del 71 % de su propio historial. ¿Por qué? Porque el mercado paga la calidad y la espera de un rebote: cuando las ventas de viviendas se reactiven (llevan cuatro años congeladas, según un artículo de Yahoo Finance del 27 de septiembre de 2026), la acción podría beneficiarse. ¿Está justificado? No del todo. En el segundo trimestre, cerrado el 2 de agosto de 2026, las ventas subieron un 5,7 % hasta 47 900 millones, pero solo un 1,7 % a tiendas comparables (abiertas desde hace más de un año, sin adquisiciones), y la empresa mantiene un crecimiento del beneficio ajustado por acción de 0 a 4 % para el año. Pagar veinte años de efectivo por un crecimiento previsto tan bajo deja poco margen."
+        },
+        {
+          "type": "p",
+          "text": "Mi modelo es duro con este caso: estima un precio de compra de 47 $ frente a una cotización de 288 $, una sobrevaloración del 84 %. Conviene leer esa cifra con cautela. Extrapola la caída reciente del efectivo por acción (cerca del 17 % anual), una hipótesis punitiva. Lo que retengo es la dirección: cara, y con un efectivo que retrocede. El dividendo, por su parte, absorbe cerca del 73 % del flujo de caja libre del último ejercicio (9,32 $ por acción sobre unos 995 millones de acciones, es decir, 9300 millones, frente a 12 600 millones), un nivel que deja menos margen de lo que sugiere una rentabilidad del 3,2 %."
+        },
+        {
+          "type": "h2",
+          "text": "Lowe's: el efectivo aguanta, el balance se tensa"
+        },
+        {
+          "type": "p",
+          "text": "A primera vista, Lowe's cuenta la historia contraria. Sus ventas pasaron de 97 100 millones (ejercicio cerrado en febrero de 2023) a 86 300 millones (enero de 2026), un retroceso del 11 %. Pero su flujo de caja libre se ha mantenido estable en torno a 7700 millones en los dos últimos ejercicios, tras 6200 millones en febrero de 2024. Y como la empresa redujo su número de acciones de 631 a 560 millones en tres años, el efectivo por acción crece un 5,4 % anual en cinco años."
+        },
+        {
+          "type": "p",
+          "text": "Es el mecanismo de la recompra de acciones: al recomprar sus propios títulos, la empresa reparte el mismo efectivo entre menos accionistas. Funciona mientras la deuda no se dispare. Ahora bien, la deuda neta de Lowe's equivale a 5,1 años de efectivo. No tengo el desglose exacto, pero la combinación de recompras sostenidas y deuda elevada sugiere que parte se financió con préstamos (inferido, por comprobar en las cuentas). La prensa titulaba el 24 de septiembre de 2026 sobre un retorno de las recompras previsto para 2027, lo que da a entender que hoy están frenadas."
+        },
+        {
+          "type": "p",
+          "text": "El segundo trimestre es claro sobre la debilidad de fondo. Lowe's publicó [unas ventas de 25 960 millones de dólares, un alza de más del 8 %](https://www.ttnews.com/articles/lowes-earnings-q2-2026), pero solo +0,2 % a tiendas comparables, y rebajó su objetivo anual a ventas comparables estables (frente a hasta +2 % esperado). La diferencia entre +8 % y +0,2 % viene de las adquisiciones: Artisan Design Group y después [Foundation Building Materials por 8800 millones de dólares](https://www.retaildive.com/news/lowes-acquire-foundation-building-materials-pro-business/758228/). Misma estrategia que Home Depot, misma dependencia del ciclo inmobiliario, pero con un balance más cargado para absorberlo. La clientela profesional resiste, la del bricolaje retrocede."
+        },
+        {
+          "type": "p",
+          "text": "En precio, Lowe's cotiza a 15,6 veces su efectivo, más caro que en el 56 % de su historial, es decir, en la zona media alta y no en la de ganga. Mi modelo da un precio de compra de 161 $ frente a 187 $, una sobrevaloración del 14 %. Otra vez una reserva: supone un crecimiento del efectivo del 12 % anual, extrapolado de los dos últimos años, algo optimista cuando la propia dirección habla de ventas comparables planas. Home Depot y Lowe's se juzgan así con dos hipótesis opuestas, una demasiado dura y la otra demasiado blanda."
+        },
+        {
+          "type": "h2",
+          "text": "¿Cuál pasa mejor mi filtro de precio?"
+        },
+        {
+          "type": "p",
+          "text": "Ninguna pasa hoy. Las dos están por encima de mi precio de compra y las dos necesitan un mercado inmobiliario que arranque. Si tuviera que desempatar, diría esto: Lowe's es más barata y su efectivo por acción crece, pero carga más deuda y sus ventas retroceden; Home Depot tiene el mejor balance y la mejor rentabilidad del capital, pero su efectivo ha caído y la acción cotiza más cara que la mitad de su historia."
+        },
+        {
+          "type": "p",
+          "text": "Lo que me haría cambiar de opinión es sencillo. En Home Depot, un flujo de caja libre que vuelva por encima de 16 000 millones de dólares, prueba de que las adquisiciones rinden, o una cotización más baja. En Lowe's, una deuda neta por debajo de cuatro años de efectivo. Los riesgos comunes son la vivienda estadounidense, los tipos de interés y la brecha entre clientes profesionales y particulares; ambos títulos cotizan en dólares y no son elegibles para el PEA francés. Esta clasificación, la calidad por un lado y el precio por otro, es lo que quería poder hacer con cualquier acción: por eso construí mi herramienta, y puedes lanzar tú mismo [la comparación HD contra LOW](/comparer/hd-vs-low) o leer las fichas de [Home Depot](/analyse/HD) y de [Lowe's](/analyse/LOW)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Home Depot o Lowe's: ¿cuál es la mejor empresa?",
+          "a": "En mi rejilla obtienen la misma nota de calidad, 5 sobre 10. Home Depot tiene mejor rentabilidad del capital (28 % frente a 22 %) y menos deuda, Lowe's un efectivo por acción algo más dinámico. Ninguna destaca claramente."
+        },
+        {
+          "q": "¿Por qué ha caído tanto el efectivo de Home Depot?",
+          "a": "El flujo de caja libre pasó de 17 900 a 12 600 millones de dólares en dos ejercicios. Las adquisiciones de SRS y GMS inmovilizan efectivo en existencias y cuentas por cobrar, porque los clientes profesionales pagan a crédito, y las amortizaciones pesan sobre el beneficio."
+        },
+        {
+          "q": "¿Es Lowe's más barata que Home Depot?",
+          "a": "Sí, cotiza a 15,6 veces su efectivo frente a 19,9 veces. Pero sigue por encima de mi precio de compra estimado, con una sobrevaloración del 14 %, y su deuda es más pesada (5,1 años de efectivo frente a 3,5)."
+        },
+        {
+          "q": "¿Se puede tener Home Depot o Lowe's en un PEA?",
+          "a": "No. El PEA está reservado a empresas europeas. Estas dos acciones estadounidenses se alojan en una cuenta de valores ordinaria, con riesgo de cambio frente al dólar."
+        }
+      ],
+      "tags": [
+        "Home Depot",
+        "Lowe's",
+        "Comparativa",
+        "Distribución",
+        "Vivienda estadounidense"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a la fecha de publicación (30 de septiembre de 2026), verificadas en directo con mi herramienta de análisis el día de la redacción, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo cuento para que leas este análisis con conocimiento de causa. Haz tu propia investigación."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
