@@ -91864,7 +91864,419 @@ const articleHDvsLOW2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026];
+const articleHasbro2026: Article = {
+  "slug": "hasbro-pertes-comptables-cash-magic-2026",
+  "date": "2026-10-01",
+  "updated": "2026-10-01",
+  "readingTime": 9,
+  "ticker": "HAS",
+  "content": {
+    "fr": {
+      "title": "Hasbro (HAS) : des pertes comptables, un cash qui monte",
+      "excerpt": "Deux années de pertes en trois ans, et pourtant le cash de Hasbro a quadruplé depuis 2022. Entre dépréciations sans sortie d'argent, droits de douane et un jeu de cartes devenu machine à profits, voici ce que racontent vraiment ces chiffres.",
+      "metaDescription": "Hasbro affiche deux pertes en trois ans, mais son cash progresse. Ce que cachent ces dépréciations, ce que pèsent Magic et Donjons & Dragons, et le prix.",
+      "answer": "Les pertes de Hasbro en 2023 et 2025 viennent de dépréciations comptables, pas d'argent dépensé : le cash généré est passé de 199 à 830 millions de dollars entre 2022 et 2025. Le moteur est Magic: The Gathering. Le jouet reste fragile, et à 87,68 $ l'action est un peu au-dessus de mon prix d'achat.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Si tu as grandi avec un Monopoly sur la table du salon, tu as déjà donné de l'argent à Hasbro. Aujourd'hui, une bonne partie des bénéfices du groupe vient pourtant d'un jeu de cartes à collectionner que ses fans appellent simplement Magic. Et la ligne que tout le monde lit en premier dans ses comptes, le résultat net, est rouge : une perte d'environ 1,5 milliard de dollars en 2023, un petit profit en 2024, puis de nouveau une perte, d'environ 320 millions, en 2025."
+        },
+        {
+          "type": "p",
+          "text": "Un investisseur pressé s'arrête là et classe Hasbro parmi les entreprises en difficulté. Je pense que c'est une erreur de lecture, et surtout une occasion de comprendre un mécanisme comptable que presque personne n'explique : une perte n'est pas toujours de l'argent qui sort."
+        },
+        {
+          "type": "h2",
+          "text": "Une perte sans un dollar qui sort"
+        },
+        {
+          "type": "p",
+          "text": "Quand une entreprise rachète une autre société, elle paie rarement exactement la valeur des usines et des stocks. Elle paie aussi pour la marque, les clients, l'avenir espéré. L'écart entre le prix payé et la valeur des actifs concrets s'inscrit au bilan sous le nom de goodwill (en français, l'écart d'acquisition). Chaque année, l'entreprise doit vérifier que cet avenir espéré tient encore. Si ce n'est plus le cas, elle écrit une dépréciation : une charge comptable qui réduit le goodwill, sans qu'un seul dollar ne quitte les caisses. J'ai détaillé ce mécanisme dans mon article sur [le goodwill et le cash](/blog/goodwill-comptable-acquisitions-valeur-fcf-methode)."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro en a connu deux, de tailles énormes. En 2023, le groupe a déprécié environ 1,3 milliard de dollars d'actifs liés à eOne, le studio de cinéma et de télévision acheté en 2019 (celui de Peppa Pig) : il a finalement revendu cette activité à Lionsgate le 27 décembre 2023 pour 375 millions de dollars en numéraire, soit [environ 500 millions avec les dettes de production reprises](https://deadline.com/2023/08/lionsgate-eone-hasbro-acquisition-confirmed-1235453869/). Le prix d'achat initial était bien supérieur : la différence était déjà perdue sur le papier."
+        },
+        {
+          "type": "p",
+          "text": "En 2025, rebelote, avec une cause différente. Au deuxième trimestre, Hasbro a constaté [une dépréciation de 1 021,9 millions de dollars sur sa division jouets](https://www.sec.gov/Archives/edgar/data/46080/000004608026000011/has-20251228.htm), en raison de l'effet estimé des droits de douane et du contexte économique. Les jouets vendus par Hasbro sont en grande partie fabriqués en Chine : taxer ces importations réduit les marges futures, donc la valeur de l'avenir que le goodwill était censé représenter. Le même rapport annuel chiffre les droits de douane réellement payés en 2025 à environ 45 millions de dollars. Un coût réel, mais plus de vingt fois plus petit que la dépréciation. La perte, elle, a fait la une."
+        },
+        {
+          "type": "p",
+          "text": "Ce que ces dépréciations disent tout de même, c'est quelque chose sur la façon dont la direction a employé l'argent. La dette de Hasbro est passée de 1,70 milliard de dollars fin 2018 à 4,05 milliards fin 2019 puis 5,10 milliards fin 2020, au moment où l'entreprise a financé l'achat d'eOne : un pari sur la production audiovisuelle. Quatre ans plus tard, ce pari a été revendu autour de 500 millions de dollars. Je lis ça comme une erreur d'allocation du capital, payée par les actionnaires, et c'est exactement ce qu'une perte comptable de cette taille est censée signaler. L'erreur a coûté cher, mais elle appartient au passé : l'entreprise s'est recentrée sur ses jeux."
+        },
+        {
+          "type": "p",
+          "text": "Le goodwill de Hasbro en témoigne : il est passé de 3,47 milliards de dollars fin 2022 à 1,26 milliard fin 2025. Le bilan a été nettoyé de deux paris d'acquisition ratés. C'est un aveu d'échec sur le passé, pas un signal sur la capacité du groupe à gagner de l'argent demain. Pour cela, il faut regarder ailleurs."
+        },
+        {
+          "type": "h2",
+          "text": "Le cash dit autre chose, avec une réserve"
+        },
+        {
+          "type": "p",
+          "text": "Le free cash flow, c'est l'argent qui reste dans les caisses une fois payés les salaires, les usines et les investissements. C'est plus dur à maquiller que le bénéfice, parce qu'une dépréciation n'y change rien. Chez Hasbro, la pente est nette : 199 millions de dollars en 2022, 516 en 2023, 760 en 2024, 830 en 2025. Le cash a été multiplié par plus de quatre en trois ans, pendant que le chiffre d'affaires, lui, passait de 6,42 milliards en 2021 à 4,14 milliards en 2024 (avant de remonter à 4,70 milliards en 2025). Moins de ventes, beaucoup plus de cash : c'est le signe d'un groupe qui a élagué."
+        },
+        {
+          "type": "p",
+          "text": "Je dois pourtant tempérer ce tableau, parce qu'un chiffre qui monte n'est pas forcément un chiffre qui s'améliore partout. Entre 2023 et 2025, le cash a gagné environ 314 millions de dollars. Dans le même temps, les investissements (machines, moules, outils) ont chuté de 209 à 63 millions. Autrement dit, près de la moitié de la hausse vient de dépenses qu'on a simplement réduites. Ce n'est pas illégitime après une phase d'excès, mais ça ne se répète pas indéfiniment : on ne coupe pas deux fois le même budget."
+        },
+        {
+          "type": "p",
+          "text": "Deuxième réserve, plus récente. En divisant la capitalisation boursière de Hasbro (12,3 milliards de dollars) par son ratio actuel, j'en déduis un cash généré sur les douze derniers mois d'environ 695 millions, sous les 830 de l'exercice 2025. C'est mon calcul, pas un chiffre publié, et l'activité de Hasbro est très saisonnière (les stocks se construisent au printemps, le cash rentre à Noël), donc je n'en tire pas de conclusion forte. Mais la belle ligne droite de 2022 à 2025 n'est pas garantie de continuer."
+        },
+        {
+          "type": "p",
+          "text": "Reste le bilan. La dette totale est passée de 5,10 milliards en 2020 à 3,26 milliards en 2025. Rapportée au cash annuel, la dette nette représente environ 3,6 années de cash : confortable sans être négligeable. Le nombre d'actions, lui, n'a pas bougé (environ 140 millions depuis 2022) : Hasbro n'a pas utilisé ce cash pour racheter ses actions, mais pour se désendetter et verser un dividende de 2,80 $ par action, soit 3,2 % du cours. Ce dividende absorbe un peu plus de la moitié du cash par action (2,80 $ sur 4,96 $, mon calcul), et il ne progresse que de 0,6 % par an en moyenne sur cinq ans : un revenu stable, pas un dividende de croissance."
+        },
+        {
+          "type": "h2",
+          "text": "Magic, le vrai moteur (et ses limites)"
+        },
+        {
+          "type": "p",
+          "text": "D'où vient ce cash ? Presque entièrement de Wizards of the Coast, la filiale qui édite Magic: The Gathering et Donjons & Dragons. Le [communiqué du deuxième trimestre 2026](https://investor.hasbro.com/news-releases/news-release-details/hasbro-reports-second-quarter-2026-financial-results), publié le 21 juillet, donne l'ordre de grandeur : le chiffre d'affaires de cette division a bondi de 27,1 % à 663,8 millions de dollars, et Magic a dépassé 500 millions de dollars de ventes sur un seul trimestre pour la première fois de son histoire (545,3 millions, en hausse de 32 %), tiré par les extensions Secrets of Strixhaven et la collaboration avec Marvel."
+        },
+        {
+          "type": "p",
+          "text": "Pourquoi un jeu de cartes est-il une machine à cash ? Un joueur de Magic ne rachète pas un produit fini : il achète des paquets aléatoires, cherche les cartes rares, construit un deck, puis revient à chaque nouvelle extension. Le coût de fabrication d'un paquet est minuscule, le prix de vente élevé, et la collection a une valeur de revente qui ancre la fidélité. La marge opérationnelle de la division tourne autour de 40 %, quand la division jouets a perdu de l'argent sur le dernier trimestre publié. Même la ligne de produits Universes Beyond (des cartes à l'effigie de licences externes comme Marvel) attire des collectionneurs qui n'auraient jamais ouvert un paquet de fantasy."
+        },
+        {
+          "type": "p",
+          "text": "Cette dépendance se chiffre. Avec 545,3 millions de dollars de ventes de Magic sur un trimestre où le groupe a réalisé 1,14 milliard de chiffre d'affaires (en hausse de 16 %), un seul jeu pèse près de la moitié des ventes du groupe sur cette période (mon calcul). Quand une activité de collection tourne aussi bien, la question n'est plus de savoir si elle est bonne, mais combien de temps la ferveur des collectionneurs peut durer à ce rythme."
+        },
+        {
+          "type": "p",
+          "text": "Ce pilier a pourtant ses fragilités, et le même communiqué les montre. D'abord, la marge de la division a reculé à 40,7 % contre 46,3 % un an plus tôt, en grande partie à cause d'une dépréciation de 56,4 millions de dollars liée au recentrage du portefeuille de jeux numériques : encore une ligne comptable, mais elle rappelle que le numérique n'a pas livré ce que Hasbro espérait. Ensuite, la division jouets, elle, a certes progressé de 5 % à 463 millions de dollars, mais avec une perte opérationnelle ajustée de 7,5 millions. Hasbro a raison de relever son objectif annuel (croissance du chiffre d'affaires de 5 à 7 %, marge opérationnelle ajustée de 25 à 26 %), mais ces chiffres reposent sur un seul produit star. Si la ferveur autour de Magic retombe, ou si les collectionneurs se lassent des collaborations, il n'y a pas de deuxième moteur derrière."
+        },
+        {
+          "type": "p",
+          "text": "Il faut aussi regarder le moat, l'avantage concurrentiel, avec lucidité. Celui de Magic et de Donjons & Dragons est réel mais étroit : une communauté, des collections, des décennies d'univers que personne ne copie facilement. Le cœur jouets, lui, reste facile à imiter par des fabricants à bas coût, et des distributeurs comme Walmart ou Amazon captent une grande partie de la marge. C'est mon jugement, pas un fait mesuré, mais il résume la tension : un joyau entouré d'un métier banal."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : correct, pas bradé"
+        },
+        {
+          "type": "p",
+          "text": "Je juge le prix en trois temps. Premier temps : l'action se valorise aujourd'hui 17,7 fois son free cash flow, c'est le fameux P/FCF (le prix de l'action divisé par le cash que l'entreprise génère chaque année : à 17,7, tu paies un peu moins de dix-huit années de ce cash). Dans son propre historique, c'est plus cher qu'environ 58 % du temps, donc en zone médiane, ni creux ni sommet. Son secteur affiche une valorisation médiane proche de 16 fois."
+        },
+        {
+          "type": "p",
+          "text": "Deuxième temps : pourquoi le marché accepte ce niveau ? Parce qu'il récompense la marche en avant de Magic (record trimestriel, objectif relevé) et qu'il punit en même temps le reste : les droits de douane sur les jouets, les marges faibles de cette division, les deux grosses dépréciations qui rappellent que les acquisitions passées ont coûté cher. L'action ne se paie ni comme un jouet banal ni comme une franchise de collection intouchable, mais entre les deux, ce qui me paraît cohérent avec la réalité de l'activité."
+        },
+        {
+          "type": "p",
+          "text": "Troisième temps : est-ce justifié ? À peu près. Mon modèle exige un rendement de 15 % par an, suppose que le cash par action progresse de 13,9 % par an (une hypothèse tirée de la trajectoire récente, donc généreuse, puisqu'elle part d'un point bas de 2022 et profite de la baisse des investissements) et retient une valorisation de sortie à 17 fois le cash. Il en tire un prix d'achat de 80,15 $, contre un cours de 87,68 $ : une surcote de 8,6 %. Hasbro obtient 6 sur 10 sur ma grille de qualité (dix critères, jugés indépendamment du prix) : son cash ROCE de 39,9 %, c'est-à-dire le cash dégagé rapporté au capital investi, est excellent, mais la marge nette négative, la baisse des ventes sur cinq ans et la dette bloquent l'obtention d'une meilleure note."
+        },
+        {
+          "type": "p",
+          "text": "Ce qui me ferait changer d'avis est concret. À la baisse, un cours sous 80 $ rendrait le dossier intéressant, surtout si le cash sur douze mois se redresse vers les 830 millions de 2025. À la hausse de mon exigence, il me faudrait voir la division jouets repasser durablement dans le vert et le cash tenir sans l'aide des coupes d'investissement. Les prochains résultats tombent le 20 octobre 2026 : ce sera le premier test de la trajectoire de cash depuis le relèvement d'objectif de juillet."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro est un cas d'école de la raison pour laquelle je lis le cash avant le résultat net, et la qualité avant le prix. Comprendre cette différence sur une seule entreprise m'a pris du temps, et c'est précisément ce que j'ai voulu automatiser pour n'importe quelle action avec [ma méthode d'analyse](/methodologie). La [fiche complète de Hasbro](/analyse/HAS) donne les chiffres à jour."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi Hasbro affiche-t-elle des pertes alors que son cash augmente ?",
+          "a": "Parce que ses pertes de 2023 et 2025 viennent surtout de dépréciations comptables (environ 1,3 milliard sur eOne en 2023, 1,02 milliard sur les jouets en 2025), qui réduisent le résultat sans sortie d'argent. Le free cash flow, lui, est passé de 199 millions de dollars en 2022 à 830 millions en 2025."
+        },
+        {
+          "q": "Que pèse Magic: The Gathering dans les résultats de Hasbro ?",
+          "a": "Au deuxième trimestre 2026, Magic a réalisé 545,3 millions de dollars de ventes, plus de 500 millions sur un trimestre pour la première fois. Wizards of the Coast, la division qui l'édite, a une marge opérationnelle proche de 40 %, bien supérieure à celle des jouets."
+        },
+        {
+          "q": "Les droits de douane menacent-ils Hasbro ?",
+          "a": "Ils pèsent, mais moins qu'on le croit : environ 45 millions de dollars de coûts réels en 2025. Leur effet principal a été comptable, via la dépréciation de plus d'un milliard sur la division jouets, liée aux marges futures attendues."
+        },
+        {
+          "q": "Peut-on loger Hasbro dans un PEA ?",
+          "a": "Non. Hasbro est une société américaine cotée en dollars : elle se détient sur un compte-titres ordinaire, avec un risque de change et la fiscalité américaine sur les dividendes."
+        }
+      ],
+      "tags": [
+        "Hasbro",
+        "Magic: The Gathering",
+        "Wizards of the Coast",
+        "Dépréciation",
+        "Free cash flow"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (1er octobre 2026), susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Hasbro (HAS): accounting losses, rising cash",
+      "excerpt": "Two loss-making years out of three, and yet Hasbro's cash has quadrupled since 2022. Between write-downs that cost no money, tariffs and a card game turned profit machine, here is what these numbers really say.",
+      "metaDescription": "Hasbro posted two losses in three years, yet its cash keeps rising. What the write-downs hide, how much Magic and Dungeons & Dragons weigh, and the price.",
+      "answer": "Hasbro's losses in 2023 and 2025 come from accounting write-downs, not money spent: free cash flow rose from $199 million to $830 million between 2022 and 2025. The engine is Magic: The Gathering. Toys remain fragile, and at $87.68 the stock sits slightly above my purchase price.",
+      "body": [
+        {
+          "type": "p",
+          "text": "If you grew up with a Monopoly board on the living room table, you have already given Hasbro some of your money. Yet today a large share of the group's profit comes from a collectible card game its fans simply call Magic. And the line everyone reads first in its accounts, net income, is red: a loss of about $1.5 billion in 2023, a small profit in 2024, then another loss, of about $320 million, in 2025."
+        },
+        {
+          "type": "p",
+          "text": "A hurried investor stops there and files Hasbro under struggling companies. I think that is a misreading, and above all a chance to understand an accounting mechanism almost nobody explains: a loss is not always money going out."
+        },
+        {
+          "type": "h2",
+          "text": "A loss without a single dollar leaving"
+        },
+        {
+          "type": "p",
+          "text": "When a company buys another one, it rarely pays exactly the value of the factories and inventory. It also pays for the brand, the customers, the hoped-for future. The gap between the price paid and the value of the tangible assets sits on the balance sheet under the name goodwill. Every year the company must check that this hoped-for future still holds. If it does not, it books an impairment: an accounting charge that reduces the goodwill without a single dollar leaving the bank account. I explained this mechanism in my article on [goodwill and cash](/blog/goodwill-comptable-acquisitions-valeur-fcf-methode)."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro has had two of them, both enormous. In 2023 the group wrote down about $1.3 billion of assets tied to eOne, the film and television studio bought in 2019 (the home of Peppa Pig). It finally sold that business to Lionsgate on December 27, 2023 for $375 million in cash, or [about $500 million including the production debt taken over](https://deadline.com/2023/08/lionsgate-eone-hasbro-acquisition-confirmed-1235453869/). The original purchase price was far higher: the difference was already lost on paper."
+        },
+        {
+          "type": "p",
+          "text": "In 2025 it happened again, for a different reason. In the second quarter Hasbro recorded [a $1,021.9 million impairment on its toy division](https://www.sec.gov/Archives/edgar/data/46080/000004608026000011/has-20251228.htm), citing the estimated effect of tariffs and the economic backdrop. Most of Hasbro's toys are made in China: taxing those imports reduces future margins, and therefore the value of the future the goodwill was supposed to represent. The same annual report puts the tariffs actually paid in 2025 at about $45 million. A real cost, but more than twenty times smaller than the write-down. The loss is what made the headlines."
+        },
+        {
+          "type": "p",
+          "text": "What these write-downs do say is something about how management used the money. Hasbro's debt rose from $1.70 billion at the end of 2018 to $4.05 billion at the end of 2019 and $5.10 billion at the end of 2020, as the company financed the eOne purchase: a bet on audiovisual production. Four years later that bet was sold for about $500 million. I read it as a capital allocation mistake, paid for by shareholders, and that is exactly what an accounting loss of this size is meant to flag. The mistake was expensive, but it belongs to the past: the company has refocused on its games."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro's goodwill shows it: it went from $3.47 billion at the end of 2022 to $1.26 billion at the end of 2025. The balance sheet has been cleaned of two failed acquisition bets. It is an admission of failure about the past, not a signal about the group's ability to earn money tomorrow. For that, you have to look elsewhere."
+        },
+        {
+          "type": "h2",
+          "text": "Cash tells another story, with a caveat"
+        },
+        {
+          "type": "p",
+          "text": "Free cash flow is the money left in the till after paying salaries, factories and investments. It is harder to dress up than profit, because an impairment changes nothing there. At Hasbro the slope is clear: $199 million in 2022, $516 million in 2023, $760 million in 2024, $830 million in 2025. Cash has been multiplied by more than four in three years, while revenue went from $6.42 billion in 2021 to $4.14 billion in 2024 (before rebounding to $4.70 billion in 2025). Fewer sales, far more cash: the sign of a group that has pruned."
+        },
+        {
+          "type": "p",
+          "text": "I have to temper this picture, because a rising number is not necessarily improving everywhere. Between 2023 and 2025, cash gained about $314 million. Over the same period, investment spending (machines, molds, tooling) fell from $209 million to $63 million. In other words, nearly half of the increase comes from spending that was simply cut. That is not illegitimate after a period of excess, but it cannot repeat forever: you do not cut the same budget twice."
+        },
+        {
+          "type": "p",
+          "text": "A second, more recent caveat. Dividing Hasbro's market capitalization ($12.3 billion) by its current price-to-cash ratio, I infer cash generated over the last twelve months of about $695 million, below the $830 million of fiscal 2025. That is my own calculation, not a published figure, and Hasbro's business is very seasonal (inventory is built in spring, cash arrives at Christmas), so I draw no strong conclusion from it. But the nice straight line from 2022 to 2025 is not guaranteed to continue."
+        },
+        {
+          "type": "p",
+          "text": "Then there is the balance sheet. Total debt fell from $5.10 billion in 2020 to $3.26 billion in 2025. Relative to annual cash, net debt represents about 3.6 years of cash: comfortable without being negligible. The share count has not moved (about 140 million since 2022): Hasbro did not use this cash to buy back shares, but to pay down debt and to pay a dividend of $2.80 per share, or 3.2% of the price. That dividend absorbs a bit more than half of the cash per share ($2.80 out of $4.96, my calculation), and it has grown only 0.6% a year on average over five years: a steady income, not a growth dividend."
+        },
+        {
+          "type": "h2",
+          "text": "Magic, the real engine (and its limits)"
+        },
+        {
+          "type": "p",
+          "text": "Where does this cash come from? Almost entirely from Wizards of the Coast, the subsidiary that publishes Magic: The Gathering and Dungeons & Dragons. The [second quarter 2026 release](https://investor.hasbro.com/news-releases/news-release-details/hasbro-reports-second-quarter-2026-financial-results), published on July 21, gives the order of magnitude: the division's revenue jumped 27.1% to $663.8 million, and Magic passed $500 million of sales in a single quarter for the first time in its history ($545.3 million, up 32%), driven by the Secrets of Strixhaven set and the Marvel collaboration."
+        },
+        {
+          "type": "p",
+          "text": "Why is a card game a cash machine? A Magic player does not rebuy a finished product: they buy random packs, hunt for rare cards, build a deck, then come back for every new set. A pack costs almost nothing to make, sells at a high price, and the collection has a resale value that anchors loyalty. The division's operating margin runs around 40%, while the toy division lost money in the latest published quarter. Even the Universes Beyond line (cards featuring outside licenses such as Marvel) attracts collectors who would never have opened a fantasy pack."
+        },
+        {
+          "type": "p",
+          "text": "That dependence can be quantified. With $545.3 million of Magic sales in a quarter where the group booked $1.14 billion of revenue (up 16%), a single game weighs nearly half of the group's sales over that period (my calculation). When a collectible business runs this well, the question is no longer whether it is good, but how long collector fervor can last at this pace."
+        },
+        {
+          "type": "p",
+          "text": "This pillar has its weaknesses, and the same release shows them. First, the division's margin fell to 40.7% from 46.3% a year earlier, largely because of a $56.4 million impairment tied to refocusing the digital games portfolio: another accounting line, but a reminder that digital has not delivered what Hasbro hoped. Second, the toy division did grow 5% to $463 million, but with an adjusted operating loss of $7.5 million. Hasbro is right to raise its annual target (revenue growth of 5 to 7%, adjusted operating margin of 25 to 26%), but those numbers rest on a single star product. If the fervor around Magic fades, or collectors tire of collaborations, there is no second engine behind it."
+        },
+        {
+          "type": "p",
+          "text": "The moat, the competitive advantage, deserves a clear eye too. The one around Magic and Dungeons & Dragons is real but narrow: a community, collections, decades of universe that nobody copies easily. The toy core, meanwhile, remains easy for low-cost makers to imitate, and retailers like Walmart or Amazon capture a large part of the margin. That is my judgment, not a measured fact, but it sums up the tension: a jewel surrounded by an ordinary trade."
+        },
+        {
+          "type": "h2",
+          "text": "The price: fair, not discounted"
+        },
+        {
+          "type": "p",
+          "text": "I judge the price in three steps. First: the stock is valued today at 17.7 times its free cash flow, the famous P/FCF (the share price divided by the cash the company generates each year: at 17.7 you pay a little under eighteen years of that cash). Against its own history that is more expensive than about 58% of the time, so a middle zone, neither trough nor peak. Its sector shows a median valuation near 16 times."
+        },
+        {
+          "type": "p",
+          "text": "Second: why does the market accept this level? Because it rewards Magic's march forward (quarterly record, raised target) while punishing the rest: tariffs on toys, the thin margins of that division, and the two big write-downs that remind everyone past acquisitions were costly. The stock is priced neither as an ordinary toy maker nor as an untouchable collectible franchise, but somewhere between, which seems consistent with the reality of the business."
+        },
+        {
+          "type": "p",
+          "text": "Third: is it justified? Roughly. My model demands a 15% annual return, assumes cash per share grows 13.9% a year (a hypothesis drawn from the recent trajectory, hence generous, since it starts from a 2022 low and benefits from the investment cuts) and uses an exit valuation of 17 times cash. It produces a purchase price of $80.15 against a share price of $87.68: an 8.6% overvaluation. Hasbro scores 6 out of 10 on my quality grid (ten criteria, judged independently of price): its cash ROCE of 39.9%, meaning the cash generated relative to the capital invested, is excellent, but the negative net margin, the five-year sales decline and the debt keep it from a better score."
+        },
+        {
+          "type": "p",
+          "text": "What would change my mind is concrete. On the downside, a price under $80 would make the case interesting, especially if twelve-month cash recovers toward the $830 million of 2025. On the other side, I would need to see the toy division durably back in the black and cash hold without the help of investment cuts. The next results arrive on October 20, 2026: the first test of the cash trajectory since the July target increase."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro is a textbook case of why I read cash before net income, and quality before price. Understanding that difference on a single company took me time, and it is precisely what I wanted to automate for any stock with [my analysis method](/methodologie). The [full Hasbro page](/analyse/HAS) gives the up-to-date numbers."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why does Hasbro post losses while its cash is rising?",
+          "a": "Because its 2023 and 2025 losses come mostly from accounting write-downs (about $1.3 billion on eOne in 2023, $1.02 billion on toys in 2025), which reduce earnings without cash leaving. Free cash flow rose from $199 million in 2022 to $830 million in 2025."
+        },
+        {
+          "q": "How much does Magic: The Gathering weigh in Hasbro's results?",
+          "a": "In the second quarter of 2026 Magic generated $545.3 million of sales, more than $500 million in a quarter for the first time. Wizards of the Coast, the division that publishes it, has an operating margin near 40%, far above toys."
+        },
+        {
+          "q": "Do tariffs threaten Hasbro?",
+          "a": "They weigh, but less than people think: about $45 million of actual costs in 2025. Their main effect was accounting, through the write-down of over a billion dollars on the toy division, tied to expected future margins."
+        },
+        {
+          "q": "Can you hold Hasbro in a PEA?",
+          "a": "No. Hasbro is a US company listed in dollars: it is held in an ordinary brokerage account, with currency risk and US withholding tax on dividends."
+        }
+      ],
+      "tags": [
+        "Hasbro",
+        "Magic: The Gathering",
+        "Wizards of the Coast",
+        "Impairment",
+        "Free cash flow"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (October 1, 2026), subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you so you can read this analysis knowing that."
+    },
+    "es": {
+      "title": "Hasbro (HAS): pérdidas contables, un efectivo que sube",
+      "excerpt": "Dos años de pérdidas en tres, y aun así el efectivo de Hasbro se ha cuadruplicado desde 2022. Entre deterioros que no cuestan dinero, aranceles y un juego de cartas convertido en máquina de beneficios, esto es lo que cuentan de verdad estas cifras.",
+      "metaDescription": "Hasbro registra dos pérdidas en tres años, pero su efectivo crece. Qué ocultan los deterioros, cuánto pesan Magic y Dungeons & Dragons, y el precio.",
+      "answer": "Las pérdidas de Hasbro en 2023 y 2025 vienen de deterioros contables, no de dinero gastado: el flujo de caja libre pasó de 199 a 830 millones de dólares entre 2022 y 2025. El motor es Magic: The Gathering. Los juguetes siguen frágiles y, a 87,68 $, la acción está algo por encima de mi precio de compra.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Si creciste con un Monopoly sobre la mesa del salón, ya le has dado dinero a Hasbro. Hoy, sin embargo, buena parte de los beneficios del grupo procede de un juego de cartas coleccionables que sus aficionados llaman simplemente Magic. Y la línea que todo el mundo lee primero en sus cuentas, el resultado neto, está en rojo: una pérdida de unos 1 500 millones de dólares en 2023, un pequeño beneficio en 2024 y otra pérdida, de unos 320 millones, en 2025."
+        },
+        {
+          "type": "p",
+          "text": "Un inversor con prisa se queda ahí y archiva a Hasbro entre las empresas en apuros. Creo que es una mala lectura y, sobre todo, una ocasión para entender un mecanismo contable que casi nadie explica: una pérdida no siempre es dinero que sale."
+        },
+        {
+          "type": "h2",
+          "text": "Una pérdida sin que salga un dólar"
+        },
+        {
+          "type": "p",
+          "text": "Cuando una empresa compra a otra, rara vez paga exactamente el valor de las fábricas y las existencias. Paga también por la marca, los clientes, el futuro esperado. La diferencia entre el precio pagado y el valor de los activos tangibles figura en el balance con el nombre de fondo de comercio (goodwill). Cada año la empresa debe comprobar que ese futuro esperado sigue en pie. Si no es así, registra un deterioro: un cargo contable que reduce el fondo de comercio sin que salga un solo dólar de la caja. Detallé este mecanismo en mi artículo sobre [el fondo de comercio y el efectivo](/blog/goodwill-comptable-acquisitions-valeur-fcf-methode)."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro ha tenido dos, ambos enormes. En 2023 el grupo deterioró unos 1 300 millones de dólares de activos ligados a eOne, el estudio de cine y televisión comprado en 2019 (el de Peppa Pig). Acabó vendiendo ese negocio a Lionsgate el 27 de diciembre de 2023 por 375 millones de dólares en efectivo, es decir, [unos 500 millones con la deuda de producción asumida](https://deadline.com/2023/08/lionsgate-eone-hasbro-acquisition-confirmed-1235453869/). El precio de compra inicial era muy superior: la diferencia ya estaba perdida sobre el papel."
+        },
+        {
+          "type": "p",
+          "text": "En 2025 volvió a ocurrir, por otra causa. En el segundo trimestre Hasbro registró [un deterioro de 1 021,9 millones de dólares en su división de juguetes](https://www.sec.gov/Archives/edgar/data/46080/000004608026000011/has-20251228.htm), por el efecto estimado de los aranceles y del contexto económico. Buena parte de los juguetes de Hasbro se fabrica en China: gravar esas importaciones reduce los márgenes futuros y, por tanto, el valor del futuro que el fondo de comercio debía representar. El mismo informe anual cifra los aranceles realmente pagados en 2025 en unos 45 millones de dólares. Un coste real, pero más de veinte veces menor que el deterioro. La pérdida es lo que salió en los titulares."
+        },
+        {
+          "type": "p",
+          "text": "Lo que estos deterioros sí dicen es algo sobre cómo la dirección empleó el dinero. La deuda de Hasbro pasó de 1 700 millones de dólares a finales de 2018 a 4 050 millones a finales de 2019 y 5 100 millones a finales de 2020, cuando la empresa financió la compra de eOne: una apuesta por la producción audiovisual. Cuatro años después esa apuesta se vendió por unos 500 millones. Lo leo como un error de asignación de capital, pagado por los accionistas, y es exactamente lo que una pérdida contable de este tamaño debe señalar. El error salió caro, pero pertenece al pasado: la empresa se ha reenfocado en sus juegos."
+        },
+        {
+          "type": "p",
+          "text": "El fondo de comercio de Hasbro lo demuestra: pasó de 3 470 millones de dólares a finales de 2022 a 1 260 millones a finales de 2025. El balance se ha limpiado de dos apuestas de adquisición fallidas. Es una confesión de fracaso sobre el pasado, no una señal sobre la capacidad del grupo de ganar dinero mañana. Para eso hay que mirar en otro sitio."
+        },
+        {
+          "type": "h2",
+          "text": "El efectivo cuenta otra historia, con una reserva"
+        },
+        {
+          "type": "p",
+          "text": "El flujo de caja libre es el dinero que queda en la caja tras pagar salarios, fábricas e inversiones. Es más difícil de maquillar que el beneficio, porque un deterioro no lo cambia. En Hasbro la pendiente es clara: 199 millones de dólares en 2022, 516 en 2023, 760 en 2024, 830 en 2025. El efectivo se ha multiplicado por más de cuatro en tres años, mientras las ventas pasaban de 6 420 millones en 2021 a 4 140 millones en 2024 (antes de remontar a 4 700 millones en 2025). Menos ventas, mucho más efectivo: la señal de un grupo que ha podado."
+        },
+        {
+          "type": "p",
+          "text": "Debo matizar este cuadro, porque una cifra que sube no mejora necesariamente en todo. Entre 2023 y 2025 el efectivo ganó unos 314 millones de dólares. En el mismo periodo las inversiones (máquinas, moldes, utillaje) cayeron de 209 a 63 millones. Dicho de otro modo, casi la mitad del aumento viene de gastos que simplemente se recortaron. No es ilegítimo tras una fase de excesos, pero no se repite indefinidamente: no se recorta dos veces el mismo presupuesto."
+        },
+        {
+          "type": "p",
+          "text": "Segunda reserva, más reciente. Dividiendo la capitalización bursátil de Hasbro (12 300 millones de dólares) por su ratio actual de precio sobre efectivo, deduzco un efectivo generado en los últimos doce meses de unos 695 millones, por debajo de los 830 del ejercicio 2025. Es un cálculo mío, no una cifra publicada, y la actividad de Hasbro es muy estacional (las existencias se acumulan en primavera, el efectivo llega en Navidad), así que no saco una conclusión firme. Pero la bonita línea recta de 2022 a 2025 no está garantizada."
+        },
+        {
+          "type": "p",
+          "text": "Queda el balance. La deuda total bajó de 5 100 millones en 2020 a 3 260 millones en 2025. Respecto al efectivo anual, la deuda neta equivale a unos 3,6 años de efectivo: cómoda sin ser despreciable. El número de acciones no se ha movido (unos 140 millones desde 2022): Hasbro no usó este efectivo para recomprar acciones, sino para reducir deuda y pagar un dividendo de 2,80 $ por acción, un 3,2 % del precio. Ese dividendo absorbe algo más de la mitad del efectivo por acción (2,80 $ sobre 4,96 $, cálculo mío) y solo crece un 0,6 % anual de media en cinco años: un ingreso estable, no un dividendo de crecimiento."
+        },
+        {
+          "type": "h2",
+          "text": "Magic, el verdadero motor (y sus límites)"
+        },
+        {
+          "type": "p",
+          "text": "¿De dónde viene ese efectivo? Casi por completo de Wizards of the Coast, la filial que edita Magic: The Gathering y Dungeons & Dragons. El [comunicado del segundo trimestre de 2026](https://investor.hasbro.com/news-releases/news-release-details/hasbro-reports-second-quarter-2026-financial-results), publicado el 21 de julio, da el orden de magnitud: los ingresos de esta división saltaron un 27,1 % hasta 663,8 millones de dólares, y Magic superó los 500 millones de dólares de ventas en un solo trimestre por primera vez en su historia (545,3 millones, un 32 % más), impulsado por la expansión Secrets of Strixhaven y la colaboración con Marvel."
+        },
+        {
+          "type": "p",
+          "text": "¿Por qué un juego de cartas es una máquina de efectivo? Un jugador de Magic no recompra un producto terminado: compra sobres aleatorios, busca cartas raras, construye un mazo y vuelve con cada nueva expansión. Fabricar un sobre cuesta casi nada, se vende caro y la colección tiene un valor de reventa que ancla la fidelidad. El margen operativo de la división ronda el 40 %, mientras que la división de juguetes perdió dinero en el último trimestre publicado. Incluso la línea Universes Beyond (cartas con licencias externas como Marvel) atrae a coleccionistas que nunca habrían abierto un sobre de fantasía."
+        },
+        {
+          "type": "p",
+          "text": "Esta dependencia se puede cifrar. Con 545,3 millones de dólares de ventas de Magic en un trimestre en que el grupo facturó 1 140 millones (un 16 % más), un solo juego pesa casi la mitad de las ventas del grupo en ese periodo (cálculo mío). Cuando un negocio de coleccionismo funciona tan bien, la pregunta ya no es si es bueno, sino cuánto puede durar el fervor de los coleccionistas a este ritmo."
+        },
+        {
+          "type": "p",
+          "text": "Este pilar tiene sus fragilidades, y el mismo comunicado las muestra. Primero, el margen de la división bajó al 40,7 % frente al 46,3 % de un año antes, en buena parte por un deterioro de 56,4 millones de dólares ligado al reenfoque de la cartera de juegos digitales: otra línea contable, pero recuerda que lo digital no ha dado lo que Hasbro esperaba. Segundo, la división de juguetes creció un 5 % hasta 463 millones de dólares, pero con una pérdida operativa ajustada de 7,5 millones. Hasbro hace bien en subir su objetivo anual (crecimiento de ingresos del 5 al 7 %, margen operativo ajustado del 25 al 26 %), pero esas cifras descansan en un solo producto estrella. Si el fervor por Magic decae, o los coleccionistas se cansan de las colaboraciones, no hay un segundo motor detrás."
+        },
+        {
+          "type": "p",
+          "text": "El moat, la ventaja competitiva, merece también una mirada lúcida. El de Magic y Dungeons & Dragons es real pero estrecho: una comunidad, colecciones, décadas de universo que nadie copia fácilmente. El núcleo de juguetes, en cambio, sigue siendo fácil de imitar por fabricantes de bajo coste, y distribuidores como Walmart o Amazon se quedan con buena parte del margen. Es mi juicio, no un hecho medido, pero resume la tensión: una joya rodeada de un oficio corriente."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: razonable, no rebajado"
+        },
+        {
+          "type": "p",
+          "text": "Juzgo el precio en tres tiempos. Primero: la acción cotiza hoy a 17,7 veces su flujo de caja libre, el famoso P/FCF (el precio de la acción dividido por el efectivo que la empresa genera cada año: a 17,7 pagas algo menos de dieciocho años de ese efectivo). Frente a su propio historial, es más caro que alrededor del 58 % del tiempo, es decir, una zona media, ni suelo ni techo. Su sector tiene una valoración mediana cercana a 16 veces."
+        },
+        {
+          "type": "p",
+          "text": "Segundo: ¿por qué acepta el mercado este nivel? Porque premia el avance de Magic (récord trimestral, objetivo elevado) y castiga a la vez el resto: los aranceles sobre juguetes, los márgenes débiles de esa división y los dos grandes deterioros que recuerdan que las adquisiciones pasadas salieron caras. La acción no se valora ni como un fabricante de juguetes corriente ni como una franquicia de coleccionismo intocable, sino entre ambos, lo que me parece coherente con la realidad del negocio."
+        },
+        {
+          "type": "p",
+          "text": "Tercero: ¿está justificado? Más o menos. Mi modelo exige una rentabilidad del 15 % anual, supone que el efectivo por acción crece un 13,9 % al año (una hipótesis sacada de la trayectoria reciente, por tanto generosa, porque parte de un mínimo de 2022 y se beneficia del recorte de inversiones) y retiene una valoración de salida de 17 veces el efectivo. De ahí sale un precio de compra de 80,15 $, frente a una cotización de 87,68 $: una sobrevaloración del 8,6 %. Hasbro obtiene un 6 sobre 10 en mi rejilla de calidad (diez criterios, juzgados con independencia del precio): su cash ROCE del 39,9 %, es decir, el efectivo generado en relación con el capital invertido, es excelente, pero el margen neto negativo, la caída de ventas a cinco años y la deuda le impiden una nota mejor."
+        },
+        {
+          "type": "p",
+          "text": "Lo que me haría cambiar de opinión es concreto. A la baja, una cotización por debajo de 80 $ haría interesante el caso, sobre todo si el efectivo de doce meses se recupera hacia los 830 millones de 2025. Por el otro lado, necesitaría ver a la división de juguetes de nuevo en positivo de forma duradera y el efectivo aguantar sin la ayuda de los recortes de inversión. Los próximos resultados llegan el 20 de octubre de 2026: la primera prueba de la trayectoria del efectivo desde la subida de objetivo de julio."
+        },
+        {
+          "type": "p",
+          "text": "Hasbro es un caso de manual de por qué leo el efectivo antes que el resultado neto, y la calidad antes que el precio. Entender esa diferencia con una sola empresa me llevó tiempo, y es justo lo que quise automatizar para cualquier acción con [mi método de análisis](/methodologie). La [ficha completa de Hasbro](/analyse/HAS) da las cifras actualizadas."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué Hasbro registra pérdidas mientras su efectivo aumenta?",
+          "a": "Porque sus pérdidas de 2023 y 2025 vienen sobre todo de deterioros contables (unos 1 300 millones en eOne en 2023, 1 020 millones en juguetes en 2025), que reducen el resultado sin salida de dinero. El flujo de caja libre pasó de 199 millones de dólares en 2022 a 830 millones en 2025."
+        },
+        {
+          "q": "¿Cuánto pesa Magic: The Gathering en los resultados de Hasbro?",
+          "a": "En el segundo trimestre de 2026 Magic generó 545,3 millones de dólares de ventas, más de 500 millones en un trimestre por primera vez. Wizards of the Coast, la división que lo edita, tiene un margen operativo cercano al 40 %, muy superior al de los juguetes."
+        },
+        {
+          "q": "¿Amenazan los aranceles a Hasbro?",
+          "a": "Pesan, pero menos de lo que se cree: unos 45 millones de dólares de costes reales en 2025. Su efecto principal fue contable, mediante el deterioro de más de mil millones en la división de juguetes, ligado a los márgenes futuros esperados."
+        },
+        {
+          "q": "¿Se puede tener Hasbro en un PEA?",
+          "a": "No. Hasbro es una empresa estadounidense que cotiza en dólares: se mantiene en una cuenta de valores ordinaria, con riesgo de cambio y la retención estadounidense sobre los dividendos."
+        }
+      ],
+      "tags": [
+        "Hasbro",
+        "Magic: The Gathering",
+        "Wizards of the Coast",
+        "Deterioro",
+        "Flujo de caja libre"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a la fecha de publicación (1 de octubre de 2026), sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
