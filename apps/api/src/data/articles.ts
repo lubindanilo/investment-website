@@ -92276,7 +92276,559 @@ const articleHasbro2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026];
+const articleWallStreetPlusBas2026: Article = {
+  "slug": "wall-street-bonnes-actions-plus-bas-de-leur-histoire-2026",
+  "date": "2026-10-02",
+  "updated": "2026-10-02",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Wall Street : 4 bonnes actions au plus bas de leur histoire",
+      "excerpt": "Intuit, MercadoLibre, Mercury General et Chipotle valident presque toute ma grille de qualité, et leur prix est au plancher de ce qu'il a été ces dernières années. Mais « bas pour elle » ne veut pas dire « bon marché ».",
+      "metaDescription": "Quatre actions de Wall Street de grande qualité cotent à leur plus bas niveau historique. Deux sont vraiment bon marché, une est ambiguë, une ne l'est pas.",
+      "answer": "Quatre actions de Wall Street de grande qualité cotent près du plus bas de leur propre historique de prix : Intuit, MercadoLibre, Mercury General et Chipotle. Mais un prix bas pour soi n'est pas un prix bas dans l'absolu : Mercury General se valorise 3,9 fois son cash, Chipotle 29,6 fois.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Que veut dire « au plus bas de son histoire » ?"
+        },
+        {
+          "type": "p",
+          "text": "Ma grille note la qualité d'un business sur dix critères (marges, croissance du cash par action, dette, rendement du capital), séparément du prix. Pour le prix, j'utilise le P/FCF : le prix de l'action rapporté au cash que l'entreprise dégage vraiment une fois ses factures payées. Un P/FCF de 14 signifie que tu paies 14 ans de ce cash. Plus il est bas, plus l'action est bon marché."
+        },
+        {
+          "type": "p",
+          "text": "Le chiffre brut ne suffit pas, parce qu'une même valeur peut être chère à 30 et bon marché à 30 selon l'histoire de la société. Je regarde donc aussi où le P/FCF actuel se situe dans son propre passé : un rang de 0 veut dire que le prix n'a jamais été aussi bas dans l'historique dont je dispose (quelques années, selon la société). J'ai cherché parmi les valeurs américaines les plus notées celles qui cumulent une note élevée et ce plancher historique."
+        },
+        {
+          "type": "h2",
+          "text": "Quatre sociétés de qualité au plancher de leur propre prix"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société (ticker)",
+            "Note de qualité",
+            "P/FCF actuel",
+            "Rang dans son historique",
+            "Cours",
+            "Prix d'achat estimé"
+          ],
+          "rows": [
+            [
+              "Intuit (INTU)",
+              "10/10",
+              "13,8×",
+              "moins de 1 %",
+              "283 $",
+              "613 $"
+            ],
+            [
+              "MercadoLibre (MELI)",
+              "10/10",
+              "15,1×",
+              "le plus bas observé",
+              "1 685 $",
+              "4 820 $"
+            ],
+            [
+              "Mercury General (MCY)",
+              "10/10",
+              "3,9×",
+              "5ᵉ percentile",
+              "100 $",
+              "254 $"
+            ],
+            [
+              "Chipotle (CMG)",
+              "9/10",
+              "29,6×",
+              "le plus bas observé",
+              "32,3 $",
+              "33,9 $"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le prix d'achat estimé est celui où mon modèle donnerait un rendement annuel de 15 % en cinq ans, avec une croissance du cash par action et un multiple de sortie propres à chaque société. C'est une estimation à discuter, pas une vérité : plus la croissance supposée est élevée, plus ce prix grimpe. Regarde surtout l'écart avec le cours : très large pour trois d'entre elles, quasi nul pour Chipotle."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que le cash a fait pendant que le prix baissait"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Cash libre au départ",
+            "Cash libre en 2025 (exercice 2025 pour Intuit)",
+            "Nombre d'actions sur la période"
+          ],
+          "rows": [
+            [
+              "Intuit",
+              "3,2 Md$ (2021)",
+              "6,1 Md$",
+              "273 M à 283 M (+3,7 %)"
+            ],
+            [
+              "MercadoLibre",
+              "-0,4 Md$ (2021)",
+              "5,4 Md$",
+              "49,8 M à 50,7 M (+1,8 %)"
+            ],
+            [
+              "Mercury General",
+              "0,57 Md$ (2020), creux à 0,32 Md$ en 2022",
+              "1,03 Md$",
+              "stable à 55,4 M"
+            ],
+            [
+              "Chipotle",
+              "0,84 Md$ (2021)",
+              "1,45 Md$ (pic à 1,51 Md$ en 2024)",
+              "1 426 M à 1 343 M (-5,8 %)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Les quatre ont vu leur cash libre au minimum doubler pendant que leur prix se tassait. C'est exactement ce qui fabrique un plancher de valorisation : le cash monte, le cours ne suit pas. Une nuance sur Intuit : le nombre d'actions ne baisse pas, parce que la rémunération en actions des salariés (environ 26 % du cash libre) absorbe les rachats."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi le marché les évite : un mécanisme par société"
+        },
+        {
+          "type": "p",
+          "text": "**Intuit** a publié pour l'exercice clos le 31 juillet 2026 un chiffre d'affaires en hausse de 14 % à 21,4 Md$, avec un quatrième trimestre à 4,4 Md$ également en hausse de 14 % ([communiqué de résultats d'Intuit](https://investors.intuit.com/news-events/press-releases/detail/1320/intuit-reports-fourth-quarter-and-full-year-fiscal-2026-results-sets-fiscal-2027-guidance)). Rien d'un business qui s'effondre. Ce que le marché anticipe, c'est la peur que des agents d'IA fassent à la déclaration d'impôts et à la comptabilité ce que le logiciel a fait au papier. Mon propre test de résilience à l'IA y voit d'ailleurs une vraie fragilité : le rôle économique futur de la société est sa principale contrainte. La décote est donc un pari sur la peur, pas une évidence."
+        },
+        {
+          "type": "p",
+          "text": "**MercadoLibre** a vu son chiffre d'affaires bondir de 50 % à 10,2 Md$ au deuxième trimestre 2026, le trentième trimestre d'affilée au-dessus de 30 % de croissance, mais son résultat d'exploitation a reculé de 17 % à 683 M$, soit 6,7 % de marge ([résultats du T2 2026](https://www.businesswire.com/news/home/20260805925866/en/MercadoLibre-Inc.-Reports-Second-Quarter-2026-Financial-Results)). La direction investit volontairement dans la livraison gratuite, le crédit et le commerce transfrontalier. Le marché punit la marge qui baisse et oublie que le cash libre a presque doublé en deux ans (3,1 puis 5,4 Md$). Si ces investissements créent un avantage durable, le multiple actuel est une aubaine ; sinon, c'est une marge qui ne remontera pas."
+        },
+        {
+          "type": "p",
+          "text": "**Mercury General** assure surtout les voitures en Californie. Au deuxième trimestre 2026, son résultat net est monté de 58 % à 263,5 M$ et son ratio combiné (les sinistres et frais payés pour 100 $ de primes ; sous 100, l'assureur gagne de l'argent sur l'assurance elle-même) est passé de 92,5 % à 89,9 % ([communiqué du T2 2026](https://www.sec.gov/Archives/edgar/data/0000064996/000119312526332781/d61051dex991.htm)). Le P/FCF de 3,9 a un piège que je te dois : un assureur encaisse les primes avant de payer les sinistres, et cet argent qui dort temporairement gonfle artificiellement son cash libre. Un multiple aussi bas tient donc en partie à un effet de trésorerie, et les incendies de Californie ont montré que les réserves peuvent se creuser d'un coup."
+        },
+        {
+          "type": "p",
+          "text": "**Chipotle** a vu au deuxième trimestre ses ventes à restaurants comparables progresser de 2,2 % (1,2 % de panier moyen, 1,0 % de fréquentation), pour un chiffre d'affaires de 3,3 Md$ en hausse de 9,3 %, et a relevé sa prévision annuelle ([annonce du 29 juillet 2026](https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM)). Le marché a surtout retenu que la croissance des ventes à périmètre constant a fortement ralenti. Le cash libre, lui, plafonne depuis 2024, et mon critère sur le chiffre d'affaires par employé est le seul à échouer nettement."
+        },
+        {
+          "type": "h2",
+          "text": "Bas pour elle ne veut pas dire bon marché"
+        },
+        {
+          "type": "p",
+          "text": "C'est le point que ce classement met en lumière. Chipotle et Mercury General sont toutes deux au plancher de leur historique, mais l'une se valorise 29,6 fois son cash et l'autre 3,9 fois. À 29,6 fois, Chipotle reste une action chère : son prix actuel est à peu près celui où mon modèle donne 15 % par an, sans marge de manœuvre. L'histoire d'un titre dit où il en est par rapport à lui-même, jamais s'il est bon marché. Il faut les deux lectures, et la [marge de sécurité]](/blog/marge-securite-prix-achat-raisonnable-methode-lubin) fait le reste."
+        },
+        {
+          "type": "p",
+          "text": "Mon classement de l'intérêt, à date : MercadoLibre et Intuit portent le plus grand écart avec leur prix d'achat estimé, mais pour des raisons opposées (une marge volontairement sacrifiée, une peur de disruption que je ne sais pas mesurer). Mercury General est la moins chère en apparence, avec l'avertissement sur la trésorerie d'assureur. Chipotle est une belle entreprise payée à peu près son prix. Ces quatre valeurs cotent en dollars, hors PEA, sur un compte-titres ordinaire, et un plancher peut toujours descendre plus bas."
+        },
+        {
+          "type": "p",
+          "text": "C'est ce tri, la qualité d'abord, le prix ensuite, puis la position du prix dans son propre passé, que je voulais pouvoir faire sur n'importe quelle action : j'ai construit mon outil pour ça. Tu peux lire le détail sur les fiches [Intuit](/analyse/INTU), [MercadoLibre](/analyse/MELI), [Mercury General](/analyse/MCY) et [Chipotle](/analyse/CMG), ou relire la [méthode en deux étapes](/blog/qualite-et-valorisation-methode-lubin-deux-etapes)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Que signifie qu'une action est au plus bas de son historique de valorisation ?",
+          "a": "Son P/FCF actuel, c'est-à-dire le prix de l'action rapporté au cash qu'elle dégage, est inférieur à presque toutes les valeurs observées dans son propre passé. Cela ne dit pas qu'elle est bon marché dans l'absolu : une action peut être au plancher de son histoire en restant chère."
+        },
+        {
+          "q": "Pourquoi Mercury General affiche-t-elle un multiple aussi bas ?",
+          "a": "Une partie vient d'un effet de trésorerie propre aux assureurs : les primes sont encaissées avant le paiement des sinistres, ce qui gonfle le cash libre. Il faut donc relativiser ce 3,9× et surveiller les réserves, notamment après les incendies de Californie."
+        },
+        {
+          "q": "Peut-on acheter ces quatre actions dans un PEA ?",
+          "a": "Non. Intuit, MercadoLibre, Mercury General et Chipotle sont cotées aux États-Unis et ne sont pas éligibles au PEA français. Elles se détiennent sur un compte-titres ordinaire, avec un risque de change sur le dollar."
+        },
+        {
+          "q": "Le prix d'achat estimé est-il une prévision ?",
+          "a": "Non. C'est le prix où mon modèle donnerait 15 % de rendement annuel sur cinq ans avec des hypothèses de croissance et de multiple de sortie. Il change si ces hypothèses changent, et il faut le lire comme un ordre de grandeur."
+        }
+      ],
+      "tags": [
+        "Actions américaines",
+        "Wall Street",
+        "Valorisation",
+        "Actions de qualité",
+        "Intuit",
+        "MercadoLibre",
+        "Mercury General",
+        "Chipotle"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 2 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Wall Street: 4 Quality Stocks at Their Lowest Valuation Ever",
+      "excerpt": "Intuit, MercadoLibre, Mercury General and Chipotle pass nearly all of my quality grid, and their price sits at the floor of the last few years. But low for itself does not mean cheap.",
+      "metaDescription": "Four high-quality Wall Street stocks trade at the lowest valuation in their own history. Two are truly cheap, one is ambiguous, and one is not cheap at all.",
+      "answer": "Four high-quality Wall Street stocks trade near the bottom of their own price history: Intuit, MercadoLibre, Mercury General and Chipotle. But a low price for itself is not a low price in absolute terms: Mercury General trades at 3.9 times its cash flow, Chipotle at 29.6 times.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What does “at the bottom of its history” mean?"
+        },
+        {
+          "type": "p",
+          "text": "My grid scores a business on ten quality criteria (margins, cash flow per share growth, debt, return on capital), separately from price. For price I use P/FCF: the share price divided by the cash the company really generates once its bills are paid. A P/FCF of 14 means you pay 14 years of that cash. The lower it is, the cheaper the stock."
+        },
+        {
+          "type": "p",
+          "text": "The raw figure is not enough, because the same multiple can be expensive for one company and cheap for another. So I also look at where today's P/FCF sits in its own past: a rank of 0 means the price has never been this low in the history I have (a few years, depending on the company). I searched the top-rated US stocks for those combining a high score with this historical floor."
+        },
+        {
+          "type": "h2",
+          "text": "Four quality companies at the floor of their own price"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company (ticker)",
+            "Quality score",
+            "Current P/FCF",
+            "Rank in its history",
+            "Price",
+            "Estimated buy price"
+          ],
+          "rows": [
+            [
+              "Intuit (INTU)",
+              "10/10",
+              "13.8×",
+              "under 1%",
+              "$283",
+              "$613"
+            ],
+            [
+              "MercadoLibre (MELI)",
+              "10/10",
+              "15.1×",
+              "lowest observed",
+              "$1,685",
+              "$4,820"
+            ],
+            [
+              "Mercury General (MCY)",
+              "10/10",
+              "3.9×",
+              "5th percentile",
+              "$100",
+              "$254"
+            ],
+            [
+              "Chipotle (CMG)",
+              "9/10",
+              "29.6×",
+              "lowest observed",
+              "$32.3",
+              "$33.9"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The estimated buy price is the one at which my model would deliver a 15% annual return over five years, using a cash flow per share growth rate and exit multiple specific to each company. It is an estimate to debate, not a truth: the higher the assumed growth, the higher this price. Look mostly at the gap with the market price: very wide for three of them, almost nil for Chipotle."
+        },
+        {
+          "type": "h2",
+          "text": "What cash did while the price fell"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Free cash flow at start",
+            "Free cash flow in 2025 (fiscal 2025 for Intuit)",
+            "Share count over the period"
+          ],
+          "rows": [
+            [
+              "Intuit",
+              "$3.2B (2021)",
+              "$6.1B",
+              "273M to 283M (+3.7%)"
+            ],
+            [
+              "MercadoLibre",
+              "-$0.4B (2021)",
+              "$5.4B",
+              "49.8M to 50.7M (+1.8%)"
+            ],
+            [
+              "Mercury General",
+              "$0.57B (2020), low of $0.32B in 2022",
+              "$1.03B",
+              "flat at 55.4M"
+            ],
+            [
+              "Chipotle",
+              "$0.84B (2021)",
+              "$1.45B (peak $1.51B in 2024)",
+              "1,426M to 1,343M (-5.8%)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "All four at least doubled their free cash flow while their price eased. That is exactly what builds a valuation floor: cash climbs, the share price does not follow. One caveat on Intuit: its share count is not falling, because stock compensation for employees (about 26% of free cash flow) absorbs the buybacks."
+        },
+        {
+          "type": "h2",
+          "text": "Why the market avoids them: one mechanism each"
+        },
+        {
+          "type": "p",
+          "text": "**Intuit** reported fiscal 2026 revenue (year ended July 31, 2026) up 14% to $21.4B, with a fourth quarter of $4.4B also up 14% ([Intuit results release](https://investors.intuit.com/news-events/press-releases/detail/1320/intuit-reports-fourth-quarter-and-full-year-fiscal-2026-results-sets-fiscal-2027-guidance)). Nothing like a collapsing business. What the market prices in is the fear that AI agents will do to tax filing and bookkeeping what software did to paper. My own AI resilience test does see real fragility there: the company's future economic role is its main constraint. The discount is therefore a bet on fear, not a given."
+        },
+        {
+          "type": "p",
+          "text": "**MercadoLibre** saw revenue jump 50% to $10.2B in the second quarter of 2026, the thirtieth straight quarter above 30% growth, but operating income fell 17% to $683M, a 6.7% margin ([Q2 2026 results](https://www.businesswire.com/news/home/20260805925866/en/MercadoLibre-Inc.-Reports-Second-Quarter-2026-Financial-Results)). Management deliberately invests in free shipping, credit and cross-border trade. The market punishes the falling margin and forgets that free cash flow has nearly doubled in two years ($3.1B, then $5.4B). If those investments build a lasting edge, today's multiple is a bargain; if not, it is a margin that will not come back."
+        },
+        {
+          "type": "p",
+          "text": "**Mercury General** mostly insures cars in California. In the second quarter of 2026, net income rose 58% to $263.5M and its combined ratio (claims and costs paid per $100 of premiums; below 100, the insurer makes money on insurance itself) improved from 92.5% to 89.9% ([Q2 2026 release](https://www.sec.gov/Archives/edgar/data/0000064996/000119312526332781/d61051dex991.htm)). The 3.9 P/FCF has a trap I owe you: an insurer collects premiums before paying claims, and that temporarily idle money artificially inflates its free cash flow. A multiple this low therefore partly reflects a cash effect, and the California wildfires showed reserves can swell suddenly."
+        },
+        {
+          "type": "p",
+          "text": "**Chipotle** posted second quarter comparable restaurant sales up 2.2% (1.2% average check, 1.0% traffic), revenue of $3.3B up 9.3%, and raised its full-year guidance ([July 29, 2026 announcement](https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM)). What the market mostly kept is that same-store sales growth has slowed sharply. Free cash flow has plateaued since 2024, and my revenue per employee criterion is the only one that clearly fails."
+        },
+        {
+          "type": "h2",
+          "text": "Low for itself does not mean cheap"
+        },
+        {
+          "type": "p",
+          "text": "That is the point this ranking brings out. Chipotle and Mercury General both sit at the floor of their history, but one trades at 29.6 times its cash and the other at 3.9. At 29.6 times, Chipotle is still an expensive stock: its current price is about where my model gives 15% a year, with no room for error. A stock's history tells you where it stands against itself, never whether it is cheap. You need both readings, and a [margin of safety](/blog/marge-securite-prix-achat-raisonnable-methode-lubin) does the rest."
+        },
+        {
+          "type": "p",
+          "text": "My ranking of interest, as of today: MercadoLibre and Intuit carry the widest gap to their estimated buy price, but for opposite reasons (a deliberately sacrificed margin, a disruption fear I cannot measure). Mercury General looks cheapest, with the insurer cash warning. Chipotle is a fine company priced at about its worth. All four trade in dollars, outside the French PEA, in an ordinary securities account, and a floor can always go lower."
+        },
+        {
+          "type": "p",
+          "text": "That sorting, quality first, price second, then where the price sits in its own past, is what I wanted to do on any stock: I built my tool for it. You can read the detail on the [Intuit](/analyse/INTU), [MercadoLibre](/analyse/MELI), [Mercury General](/analyse/MCY) and [Chipotle](/analyse/CMG) pages, or reread the [two-step method](/blog/qualite-et-valorisation-methode-lubin-deux-etapes)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What does it mean for a stock to be at the bottom of its valuation history?",
+          "a": "Its current P/FCF, the share price divided by the cash it generates, is below nearly every value seen in its own past. It does not say the stock is cheap in absolute terms: a stock can sit at the floor of its history and still be expensive."
+        },
+        {
+          "q": "Why does Mercury General show such a low multiple?",
+          "a": "Part of it comes from a cash effect specific to insurers: premiums are collected before claims are paid, which inflates free cash flow. The 3.9× should be taken with caution and reserves watched, especially after the California wildfires."
+        },
+        {
+          "q": "Can you hold these four stocks in a French PEA?",
+          "a": "No. Intuit, MercadoLibre, Mercury General and Chipotle are listed in the US and are not eligible for the French PEA. They are held in an ordinary securities account, with currency risk on the dollar."
+        },
+        {
+          "q": "Is the estimated buy price a forecast?",
+          "a": "No. It is the price at which my model would give a 15% annual return over five years under growth and exit multiple assumptions. It changes if those assumptions change, and should be read as an order of magnitude."
+        }
+      ],
+      "tags": [
+        "US stocks",
+        "Wall Street",
+        "Valuation",
+        "Quality stocks",
+        "Intuit",
+        "MercadoLibre",
+        "Mercury General",
+        "Chipotle"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not predict future results. Figures as of October 2, 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that."
+    },
+    "es": {
+      "title": "Wall Street: 4 buenas acciones en su mínimo histórico",
+      "excerpt": "Intuit, MercadoLibre, Mercury General y Chipotle cumplen casi toda mi rejilla de calidad, y su precio está en el suelo de los últimos años. Pero bajo para sí misma no significa barata.",
+      "metaDescription": "Cuatro acciones de Wall Street de gran calidad cotizan en su mínimo de valoración histórico. Dos son realmente baratas, una es ambigua y otra no lo es.",
+      "answer": "Cuatro acciones de Wall Street de gran calidad cotizan cerca del mínimo de su propio historial de precio: Intuit, MercadoLibre, Mercury General y Chipotle. Pero un precio bajo para sí misma no es un precio bajo en términos absolutos: Mercury General vale 3,9 veces su caja, Chipotle 29,6 veces.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "¿Qué significa «en el mínimo de su historia»?"
+        },
+        {
+          "type": "p",
+          "text": "Mi rejilla puntúa la calidad de un negocio con diez criterios (márgenes, crecimiento del flujo de caja por acción, deuda, rentabilidad del capital), separada del precio. Para el precio uso el P/FCF: el precio de la acción dividido por la caja que la empresa genera de verdad una vez pagadas sus facturas. Un P/FCF de 14 significa que pagas 14 años de esa caja. Cuanto más bajo, más barata la acción."
+        },
+        {
+          "type": "p",
+          "text": "La cifra bruta no basta, porque un mismo múltiplo puede ser caro para una empresa y barato para otra. Por eso miro también dónde se sitúa el P/FCF actual en su propio pasado: un rango de 0 significa que el precio nunca ha sido tan bajo en el historial del que dispongo (unos años, según la empresa). Busqué entre las acciones estadounidenses mejor puntuadas las que combinan una nota alta con este suelo histórico."
+        },
+        {
+          "type": "h2",
+          "text": "Cuatro empresas de calidad en el suelo de su propio precio"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa (ticker)",
+            "Nota de calidad",
+            "P/FCF actual",
+            "Rango en su historial",
+            "Cotización",
+            "Precio de compra estimado"
+          ],
+          "rows": [
+            [
+              "Intuit (INTU)",
+              "10/10",
+              "13,8×",
+              "menos del 1 %",
+              "283 $",
+              "613 $"
+            ],
+            [
+              "MercadoLibre (MELI)",
+              "10/10",
+              "15,1×",
+              "el más bajo observado",
+              "1 685 $",
+              "4 820 $"
+            ],
+            [
+              "Mercury General (MCY)",
+              "10/10",
+              "3,9×",
+              "percentil 5",
+              "100 $",
+              "254 $"
+            ],
+            [
+              "Chipotle (CMG)",
+              "9/10",
+              "29,6×",
+              "el más bajo observado",
+              "32,3 $",
+              "33,9 $"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El precio de compra estimado es aquel con el que mi modelo daría un 15 % de rentabilidad anual a cinco años, con un crecimiento del flujo de caja por acción y un múltiplo de salida propios de cada empresa. Es una estimación para debatir, no una verdad: cuanto mayor el crecimiento supuesto, más sube este precio. Fíjate sobre todo en la distancia con la cotización: muy amplia en tres de ellas, casi nula en Chipotle."
+        },
+        {
+          "type": "h2",
+          "text": "Qué hizo la caja mientras el precio bajaba"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Caja libre al inicio",
+            "Caja libre en 2025 (ejercicio 2025 para Intuit)",
+            "Número de acciones en el periodo"
+          ],
+          "rows": [
+            [
+              "Intuit",
+              "3,2 Md$ (2021)",
+              "6,1 Md$",
+              "273 M a 283 M (+3,7 %)"
+            ],
+            [
+              "MercadoLibre",
+              "-0,4 Md$ (2021)",
+              "5,4 Md$",
+              "49,8 M a 50,7 M (+1,8 %)"
+            ],
+            [
+              "Mercury General",
+              "0,57 Md$ (2020), mínimo de 0,32 Md$ en 2022",
+              "1,03 Md$",
+              "estable en 55,4 M"
+            ],
+            [
+              "Chipotle",
+              "0,84 Md$ (2021)",
+              "1,45 Md$ (máximo de 1,51 Md$ en 2024)",
+              "1 426 M a 1 343 M (-5,8 %)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las cuatro han al menos duplicado su caja libre mientras su precio se aflojaba. Es exactamente lo que fabrica un suelo de valoración: la caja sube, la cotización no la sigue. Un matiz sobre Intuit: su número de acciones no baja, porque la remuneración en acciones de los empleados (alrededor del 26 % de la caja libre) absorbe las recompras."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué el mercado las evita: un mecanismo por empresa"
+        },
+        {
+          "type": "p",
+          "text": "**Intuit** publicó para el ejercicio cerrado el 31 de julio de 2026 unos ingresos un 14 % mayores, hasta 21,4 Md$, con un cuarto trimestre de 4,4 Md$ también un 14 % al alza ([comunicado de resultados de Intuit](https://investors.intuit.com/news-events/press-releases/detail/1320/intuit-reports-fourth-quarter-and-full-year-fiscal-2026-results-sets-fiscal-2027-guidance)). Nada que ver con un negocio que se hunde. Lo que el mercado descuenta es el miedo a que los agentes de IA hagan con la declaración de impuestos y la contabilidad lo que el software hizo con el papel. Mi propio test de resiliencia a la IA ve ahí una fragilidad real: el papel económico futuro de la empresa es su principal restricción. El descuento es, pues, una apuesta contra el miedo, no una evidencia."
+        },
+        {
+          "type": "p",
+          "text": "**MercadoLibre** vio saltar sus ingresos un 50 % hasta 10,2 Md$ en el segundo trimestre de 2026, el trigésimo trimestre seguido con más de un 30 % de crecimiento, pero su resultado operativo cayó un 17 % hasta 683 M$, un margen del 6,7 % ([resultados del T2 2026](https://www.businesswire.com/news/home/20260805925866/en/MercadoLibre-Inc.-Reports-Second-Quarter-2026-Financial-Results)). La dirección invierte deliberadamente en envío gratuito, crédito y comercio transfronterizo. El mercado castiga el margen que baja y olvida que la caja libre casi se ha duplicado en dos años (3,1 y luego 5,4 Md$). Si esas inversiones crean una ventaja duradera, el múltiplo actual es una ganga; si no, es un margen que no volverá."
+        },
+        {
+          "type": "p",
+          "text": "**Mercury General** asegura sobre todo coches en California. En el segundo trimestre de 2026, su resultado neto subió un 58 % hasta 263,5 M$ y su ratio combinado (siniestros y gastos pagados por cada 100 $ de primas; por debajo de 100, la aseguradora gana dinero con el seguro en sí) pasó del 92,5 % al 89,9 % ([comunicado del T2 2026](https://www.sec.gov/Archives/edgar/data/0000064996/000119312526332781/d61051dex991.htm)). El P/FCF de 3,9 tiene una trampa que te debo: una aseguradora cobra las primas antes de pagar los siniestros, y ese dinero temporalmente parado infla artificialmente su caja libre. Un múltiplo tan bajo se debe en parte a un efecto de tesorería, y los incendios de California mostraron que las reservas pueden engordar de golpe."
+        },
+        {
+          "type": "p",
+          "text": "**Chipotle** registró en el segundo trimestre unas ventas comparables un 2,2 % mayores (1,2 % de ticket medio, 1,0 % de afluencia), unos ingresos de 3,3 Md$ un 9,3 % al alza, y elevó su previsión anual ([anuncio del 29 de julio de 2026](https://newsroom.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM)). Lo que el mercado ha retenido sobre todo es que el crecimiento de ventas comparables se ha frenado con fuerza. La caja libre se estanca desde 2024, y mi criterio de ingresos por empleado es el único que falla claramente."
+        },
+        {
+          "type": "h2",
+          "text": "Bajo para sí misma no significa barata"
+        },
+        {
+          "type": "p",
+          "text": "Es el punto que este ranking pone de relieve. Chipotle y Mercury General están ambas en el suelo de su historial, pero una vale 29,6 veces su caja y la otra 3,9. A 29,6 veces, Chipotle sigue siendo una acción cara: su precio actual es más o menos aquel con el que mi modelo da un 15 % anual, sin margen de maniobra. La historia de un valor dice dónde está respecto a sí mismo, nunca si es barato. Hacen falta las dos lecturas, y el [margen de seguridad](/blog/marge-securite-prix-achat-raisonnable-methode-lubin) hace el resto."
+        },
+        {
+          "type": "p",
+          "text": "Mi clasificación del interés, a día de hoy: MercadoLibre e Intuit tienen la mayor distancia con su precio de compra estimado, pero por razones opuestas (un margen sacrificado a propósito, un miedo a la disrupción que no sé medir). Mercury General es la más barata en apariencia, con la advertencia de la tesorería de aseguradora. Chipotle es una gran empresa pagada más o menos por lo que vale. Las cuatro cotizan en dólares, fuera del PEA francés, en una cuenta de valores ordinaria, y un suelo siempre puede bajar más."
+        },
+        {
+          "type": "p",
+          "text": "Esa selección, primero la calidad, luego el precio, luego la posición del precio en su propio pasado, es lo que quería poder hacer con cualquier acción: construí mi herramienta para eso. Puedes leer el detalle en las fichas de [Intuit](/analyse/INTU), [MercadoLibre](/analyse/MELI), [Mercury General](/analyse/MCY) y [Chipotle](/analyse/CMG), o releer el [método en dos pasos](/blog/qualite-et-valorisation-methode-lubin-deux-etapes)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué significa que una acción esté en el mínimo de su historial de valoración?",
+          "a": "Su P/FCF actual, el precio de la acción dividido por la caja que genera, es inferior a casi todos los valores observados en su propio pasado. No dice que sea barata en términos absolutos: una acción puede estar en el suelo de su historia y seguir siendo cara."
+        },
+        {
+          "q": "¿Por qué Mercury General muestra un múltiplo tan bajo?",
+          "a": "Una parte viene de un efecto de tesorería propio de las aseguradoras: las primas se cobran antes de pagar los siniestros, lo que infla la caja libre. Hay que relativizar ese 3,9× y vigilar las reservas, sobre todo tras los incendios de California."
+        },
+        {
+          "q": "¿Se pueden tener estas cuatro acciones en un PEA francés?",
+          "a": "No. Intuit, MercadoLibre, Mercury General y Chipotle cotizan en Estados Unidos y no son elegibles para el PEA francés. Se mantienen en una cuenta de valores ordinaria, con riesgo de cambio sobre el dólar."
+        },
+        {
+          "q": "¿El precio de compra estimado es una previsión?",
+          "a": "No. Es el precio con el que mi modelo daría un 15 % de rentabilidad anual a cinco años con hipótesis de crecimiento y de múltiplo de salida. Cambia si esas hipótesis cambian, y debe leerse como un orden de magnitud."
+        }
+      ],
+      "tags": [
+        "Acciones estadounidenses",
+        "Wall Street",
+        "Valoración",
+        "Acciones de calidad",
+        "Intuit",
+        "MercadoLibre",
+        "Mercury General",
+        "Chipotle"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a 2 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
