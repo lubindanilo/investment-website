@@ -92824,7 +92824,613 @@ const articleWallStreetPlusBas2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026];
+const articleSuisse2026: Article = {
+  "slug": "actions-suisses-qualite-connue-prix-deja-paye-2026",
+  "date": "2026-10-05",
+  "updated": "2026-10-05",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Actions suisses : la qualité est connue, le prix aussi",
+      "excerpt": "Nestlé, Sika, Givaudan, Novartis, Swisscom et Partners Group : six valeurs suisses, une même question. Leur réputation de qualité est-elle déjà payée par l'acheteur ?",
+      "metaDescription": "Six actions suisses passées au crible : quatre cotent au-dessus d'un prix raisonnable. Où la qualité est déjà payée, et où il reste de la marge.",
+      "answer": "Nestlé, Sika, Givaudan et Novartis ont la réputation de la qualité, mais le prix la reflète déjà : sur six valeurs suisses passées au crible, quatre cotent au-dessus de mon prix d'achat raisonnable. Seules Swisscom et Partners Group passent en dessous, pour des raisons de doute, pas d'oubli.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Pourquoi la Suisse a-t-elle une réputation de qualité ?"
+        },
+        {
+          "type": "p",
+          "text": "Nestlé, Novartis, Sika, Givaudan : ces noms rassurent tout investisseur européen. Des marques mondiales, des dividendes versés année après année, un pays stable et un franc réputé solide. Cette réputation attire beaucoup d'acheteurs, et quand beaucoup d'acheteurs veulent la même chose, le prix monte."
+        },
+        {
+          "type": "p",
+          "text": "La question de cet article est donc simple : cette qualité est-elle encore à vendre à un prix raisonnable ? J'ai passé six valeurs suisses dans ma grille d'analyse. Elle note la qualité du business sur dix critères (marges, croissance du cash par action, dette, rendement du capital), séparément du prix. Puis elle calcule un prix d'achat raisonnable : celui qui donnerait environ 15 % de rendement par an sur cinq ans, avec des hypothèses prudentes."
+        },
+        {
+          "type": "p",
+          "text": "Pour le prix, je regarde le P/FCF : le prix de l'action rapporté au cash libre que l'entreprise dégage vraiment, une fois toutes ses factures payées. Un P/FCF de 17, c'est 17 années de ce cash. Plus il est bas, plus l'action est sous-évaluée."
+        },
+        {
+          "type": "h2",
+          "text": "Que disent les chiffres de ces six valeurs ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note de qualité",
+            "P/FCF",
+            "Marge de cash libre",
+            "Croissance des ventes par an (5 ans)",
+            "Écart avec le prix d'achat"
+          ],
+          "rows": [
+            [
+              "Nestlé",
+              "6/10",
+              "17,5×",
+              "12,2 %",
+              "0,7 %",
+              "surcote de 43,6 %"
+            ],
+            [
+              "Novartis",
+              "9/10",
+              "17,7×",
+              "26,9 %",
+              "6,5 %",
+              "surcote de 11,0 %"
+            ],
+            [
+              "Sika",
+              "6/10",
+              "22,0×",
+              "11,9 %",
+              "2,2 %",
+              "surcote de 67,9 %"
+            ],
+            [
+              "Givaudan",
+              "7/10",
+              "26,1×",
+              "16,2 %",
+              "2,8 %",
+              "surcote de 49,5 %"
+            ],
+            [
+              "Swisscom",
+              "7/10",
+              "11,1×",
+              "20,0 %",
+              "7,7 %",
+              "décote de 44,6 %"
+            ],
+            [
+              "Partners Group",
+              "7/10",
+              "10,5×",
+              "60,7 %",
+              "-1,6 %",
+              "décote de 207 % (à relativiser)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Une surcote signifie que le cours est au-dessus du prix où mon modèle donnerait le rendement visé ; une décote, qu'il est en dessous. Le tableau est net : les quatre noms les plus célèbres sont tous chers. Deux seulement, moins connus du grand public, passent sous la barre. Voyons pourquoi, un par un."
+        },
+        {
+          "type": "h2",
+          "text": "Nestlé : une icône qui ne croît plus beaucoup ?"
+        },
+        {
+          "type": "p",
+          "text": "Nestlé obtient 6 critères de qualité sur 10. Ses ventes progressent de 0,7 % par an sur cinq ans, sa marge de cash libre est de 12,2 %, et sa dette nette représente environ 4,9 années de ce cash. Le point positif : le nombre d'actions baisse de 1,7 % par an, signe que le groupe rachète ses propres titres."
+        },
+        {
+          "type": "p",
+          "text": "Le fait récent va dans le même sens. Au premier semestre 2026, publié le 23 juillet, la croissance organique (hors effets de change et d'acquisitions) atteint 3,6 %, dont 1,5 point de volumes et 2,1 points de hausses de prix, selon le [communiqué de Nestlé](https://www.nestle.com/media/pressreleases/allpressreleases/half-year-results-2026). Le bénéfice net, lui, recule de 31,4 %, d'après [FoodNavigator](https://www.foodnavigator.com/Article/2026/07/23/nestle-h1-2026-organic-growth-up-but-net-profit-falls-314/)."
+        },
+        {
+          "type": "p",
+          "text": "Je lis cela ainsi (inféré) : plus de la moitié de la croissance vient des prix, pas des volumes, et un consommateur n'accepte pas des hausses sans limite. Avec un cours de 74,86 CHF pour un prix d'achat raisonnable de 42,20 CHF, le marché paie une marque, pas une croissance. Le dividende de 4,2 % est réel, mais il ne change pas le prix d'entrée. Voir [la fiche de Nestlé](/analyse/NESN.SW)."
+        },
+        {
+          "type": "h2",
+          "text": "Sika et Givaudan : le franc fort explique-t-il tout ?"
+        },
+        {
+          "type": "p",
+          "text": "Un groupe suisse vend en dollars, en euros, en yuans, mais publie ses comptes en francs. Quand le franc monte, ces ventes converties pèsent moins lourd, même si l'activité ne bouge pas. C'est un piège de lecture classique pour les valeurs suisses, et il est visible ici."
+        },
+        {
+          "type": "p",
+          "text": "Sika (chimie de la construction) a réalisé 5,59 milliards de francs de ventes au premier semestre 2026 : -1,5 % en francs, mais +4,0 % en monnaies locales. L'entreprise a relevé sa prévision annuelle à +3 à +6 %, d'après son [communiqué du 28 juillet](https://www.sika.com/en/media/media-releases/2026/half-year-report-2026.html). Givaudan (parfums et arômes) affiche 3 799 millions de francs : -1,7 % en francs, +3,6 % à périmètre comparable. Mais sa marge d'EBITDA ajusté passe de 25,2 % à 24,3 %, et son bénéfice net recule de 19,8 % selon le [communiqué de Givaudan](https://www.givaudan.com/media/media-releases/2026/2026-half-year-results)."
+        },
+        {
+          "type": "p",
+          "text": "Donc oui, le franc explique le recul des ventes publiées. Non, il n'explique pas le prix. Sika se valorise 22 fois son cash libre, Givaudan 26 fois, alors que leurs ventes progressent de 2,2 % et 2,8 % par an sur cinq ans, et que la marge de Sika ne s'élargit pas. Ce que le marché récompense ici, c'est la régularité. Il l'a déjà payée : la surcote atteint 67,9 % pour [Sika](/analyse/SIKA.SW) et 49,5 % pour [Givaudan](/analyse/GIVN.SW)."
+        },
+        {
+          "type": "h2",
+          "text": "Novartis est-elle la seule vraie qualité, et à quel prix ?"
+        },
+        {
+          "type": "p",
+          "text": "Novartis est la mieux notée du lot : 9 critères sur 10. Sur 100 francs de ventes, environ 27 finissent en cash libre. Les ventes croissent de 6,5 % par an, le cash par action de 13,1 % par an, et le nombre d'actions baisse de 3,4 % par an grâce aux rachats."
+        },
+        {
+          "type": "p",
+          "text": "Le cours de 117,58 CHF dépasse mon prix d'achat raisonnable de 104,61 CHF d'environ 11 %. C'est la surcote la plus faible du groupe : une baisse d'une dizaine de pour cent suffirait à la ramener dans ma zone. Tout dépend, comme pour toute pharma, du renouvellement des médicaments quand les brevets tombent (risque général du secteur). J'ai détaillé le cas dans [mon article sur Novartis](/blog/novartis-nvs-faut-il-acheter-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi Swisscom et Partners Group passent-ils sous la barre ?"
+        },
+        {
+          "type": "p",
+          "text": "Swisscom se valorise 11,1 fois son cash libre, avec une marge de 20 % et une dette modérée (environ 1,2 année de cash). Sa croissance de 7,7 % par an est en grande partie achetée : le rachat de Vodafone Italia, fusionné avec Fastweb, a gonflé les ventes. Au premier semestre 2026, le chiffre d'affaires recule de 3,0 % à 7 221 millions de francs, mais l'EBITDAaL (résultat avant amortissements, après loyers) progresse de 3,3 %, avec +10,2 % en Italie grâce à 166 millions d'euros de synergies, selon [Swisscom](https://www.swisscom.ch/en/about/news/2026/08/06-report-q2-2026.html). Le marché doute de l'intégration et du poids des investissements télécoms. Le dividende est de 4,1 %."
+        },
+        {
+          "type": "p",
+          "text": "Partners Group est un gestionnaire de capital-investissement. Il vit de deux revenus : des commissions de gestion, stables car proportionnelles aux actifs gérés, et des commissions de performance, une part des plus-values quand il revend ses participations. Celles-ci tombent par à-coups. Au premier semestre 2026, elles représentent 233 millions de francs, soit 19 % des revenus, avec des cessions retardées, d'après [Partners Group](https://www.partnersgroup.com/en/shareholders/reports-and-presentations). Les actifs gérés atteignent 186 milliards de dollars (+7 %), avec une collecte record de 16 milliards."
+        },
+        {
+          "type": "p",
+          "text": "Son cash libre est très irrégulier : la marge de 60,7 % et la décote affichée de 207 % viennent de cette irrégularité. Je ne les lis pas au pied de la lettre. Un P/FCF au 3ᵉ percentile de son propre historique veut dire que le titre est rarement aussi bon marché, mais le marché attend de voir si les cessions reprennent. [Partners Group](/analyse/PGHN.SW) et [Swisscom](/analyse/SCMN.SW) sont bon marché parce qu'il y a un doute précis, pas par oubli."
+        },
+        {
+          "type": "h2",
+          "text": "Alors, la Suisse est-elle un bon terrain de chasse ?"
+        },
+        {
+          "type": "p",
+          "text": "Mon avis, tranché : pour les noms que tout le monde connaît, la qualité est payée d'avance. Deux enseignements. D'abord, la qualité réputée n'est pas la qualité mesurée : Nestlé et Sika n'obtiennent que 6 critères sur 10. Ensuite, les rares valeurs sous le prix d'achat y sont parce que le marché doute, et c'est à toi de juger si ce doute est excessif."
+        },
+        {
+          "type": "p",
+          "text": "Deux précautions pratiques. Ces titres cotent en francs suisses, donc avec un risque de change, et la Suisse n'est pas dans l'Espace économique européen : ils ne sont pas éligibles au PEA. Les dividendes subissent aussi une retenue à la source suisse de 35 %, en partie récupérable : vérifie le détail avec ton courtier."
+        },
+        {
+          "type": "p",
+          "text": "C'est le tri que je voulais pouvoir faire pour n'importe quelle action, alors je l'ai construit. Les fiches détaillent chaque critère, et [ma méthodologie](/methodologie) explique comment la note et le prix d'achat sont calculés."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Les actions suisses sont-elles chères en 2026 ?",
+          "a": "Parmi les six valeurs étudiées, quatre cotent au-dessus de mon prix d'achat raisonnable, de 11 % pour Novartis à 68 % pour Sika. Deux seulement, Swisscom et Partners Group, passent en dessous, et chacune pour une raison de doute précise."
+        },
+        {
+          "q": "Pourquoi les ventes des groupes suisses reculent-elles en francs ?",
+          "a": "Ils vendent dans de nombreuses devises et publient en francs. Quand le franc se renforce, les ventes converties baissent : Sika affiche -1,5 % en francs mais +4,0 % en monnaies locales au premier semestre 2026."
+        },
+        {
+          "q": "Peut-on acheter ces actions dans un PEA ?",
+          "a": "Non. La Suisse n'est pas dans l'Espace économique européen, donc ces titres ne sont pas éligibles au PEA. Ils se détiennent sur un compte-titres ordinaire, avec un risque de change sur le franc suisse."
+        },
+        {
+          "q": "Que veut dire un prix d'achat raisonnable ?",
+          "a": "C'est le cours où mon modèle donnerait environ 15 % de rendement par an sur cinq ans, avec des hypothèses prudentes de croissance et de valorisation de sortie. Ce n'est pas une prévision : c'est un ordre de grandeur qui change si les hypothèses changent."
+        }
+      ],
+      "tags": [
+        "Actions suisses",
+        "Valorisation",
+        "Actions de qualité",
+        "Nestlé",
+        "Sika",
+        "Givaudan",
+        "Novartis",
+        "Swisscom",
+        "Partners Group"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 5 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Swiss stocks: the quality is known, and so is the price",
+      "excerpt": "Nestlé, Sika, Givaudan, Novartis, Swisscom and Partners Group: six Swiss stocks, one question. Has their reputation for quality already been paid for by the buyer?",
+      "metaDescription": "Six Swiss stocks put through the screen: four trade above a reasonable price. Here is where the quality reputation is already priced in, and where room remains.",
+      "answer": "Nestlé, Sika, Givaudan and Novartis have a reputation for quality, but the price already reflects it: of six Swiss stocks I screened, four trade above my reasonable buy price. Only Swisscom and Partners Group sit below it, because of doubt rather than neglect.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Why does Switzerland have a reputation for quality?"
+        },
+        {
+          "type": "p",
+          "text": "Nestlé, Novartis, Sika, Givaudan: these names reassure every European investor. Global brands, dividends paid year after year, a stable country and a currency known for its strength. That reputation attracts many buyers, and when many buyers want the same thing, the price goes up."
+        },
+        {
+          "type": "p",
+          "text": "The question of this article is simple: is that quality still for sale at a reasonable price? I ran six Swiss stocks through my analysis grid. It scores the quality of the business on ten criteria (margins, growth in cash per share, debt, return on capital), separately from the price. Then it computes a reasonable buy price: the one that would deliver about 15% a year over five years, with cautious assumptions."
+        },
+        {
+          "type": "p",
+          "text": "For the price, I look at P/FCF: the share price divided by the free cash the company really generates after paying all its bills. A P/FCF of 17 means 17 years of that cash. The lower it is, the more undervalued the stock."
+        },
+        {
+          "type": "h2",
+          "text": "What do the numbers say about these six stocks?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score",
+            "P/FCF",
+            "Free cash margin",
+            "Sales growth per year (5 years)",
+            "Gap to buy price"
+          ],
+          "rows": [
+            [
+              "Nestlé",
+              "6/10",
+              "17.5×",
+              "12.2%",
+              "0.7%",
+              "premium of 43.6%"
+            ],
+            [
+              "Novartis",
+              "9/10",
+              "17.7×",
+              "26.9%",
+              "6.5%",
+              "premium of 11.0%"
+            ],
+            [
+              "Sika",
+              "6/10",
+              "22.0×",
+              "11.9%",
+              "2.2%",
+              "premium of 67.9%"
+            ],
+            [
+              "Givaudan",
+              "7/10",
+              "26.1×",
+              "16.2%",
+              "2.8%",
+              "premium of 49.5%"
+            ],
+            [
+              "Swisscom",
+              "7/10",
+              "11.1×",
+              "20.0%",
+              "7.7%",
+              "discount of 44.6%"
+            ],
+            [
+              "Partners Group",
+              "7/10",
+              "10.5×",
+              "60.7%",
+              "-1.6%",
+              "discount of 207% (take with caution)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A premium means the price is above the level where my model would deliver the target return; a discount means it is below. The table is clear: the four best-known names are all expensive. Only two, less familiar to the general public, fall under the bar. Let's see why, one by one."
+        },
+        {
+          "type": "h2",
+          "text": "Nestlé: an icon that no longer grows much?"
+        },
+        {
+          "type": "p",
+          "text": "Nestlé meets 6 of my 10 quality criteria. Sales grow 0.7% a year over five years, its free cash margin is 12.2%, and net debt is about 4.9 years of that cash. On the positive side, the share count falls 1.7% a year, a sign the group buys back its own shares."
+        },
+        {
+          "type": "p",
+          "text": "The recent facts point the same way. In the first half of 2026, published on July 23, organic growth (excluding currency and acquisition effects) reached 3.6%, of which 1.5 points from volumes and 2.1 points from price increases, according to [Nestlé's release](https://www.nestle.com/media/pressreleases/allpressreleases/half-year-results-2026). Net profit, meanwhile, fell 31.4%, per [FoodNavigator](https://www.foodnavigator.com/Article/2026/07/23/nestle-h1-2026-organic-growth-up-but-net-profit-falls-314/)."
+        },
+        {
+          "type": "p",
+          "text": "My reading (inferred): more than half of the growth comes from prices, not volumes, and consumers do not accept endless price hikes. With a share price of CHF 74.86 against a reasonable buy price of CHF 42.20, the market is paying for a brand, not for growth. The 4.2% dividend is real, but it does not change the entry price. See [the Nestlé page](/analyse/NESN.SW)."
+        },
+        {
+          "type": "h2",
+          "text": "Sika and Givaudan: does the strong franc explain everything?"
+        },
+        {
+          "type": "p",
+          "text": "A Swiss group sells in dollars, euros and yuan but reports in francs. When the franc rises, those converted sales weigh less, even if activity does not move. It is a classic reading trap for Swiss stocks, and it is visible here."
+        },
+        {
+          "type": "p",
+          "text": "Sika (construction chemicals) posted CHF 5.59 billion of sales in the first half of 2026: -1.5% in francs, but +4.0% in local currencies. It raised its full-year outlook to +3% to +6%, according to its [July 28 release](https://www.sika.com/en/media/media-releases/2026/half-year-report-2026.html). Givaudan (fragrances and flavors) reports CHF 3,799 million: -1.7% in francs, +3.6% like for like. But its adjusted EBITDA margin slips from 25.2% to 24.3%, and net profit falls 19.8%, per [Givaudan's release](https://www.givaudan.com/media/media-releases/2026/2026-half-year-results)."
+        },
+        {
+          "type": "p",
+          "text": "So yes, the franc explains the drop in reported sales. No, it does not explain the price. Sika is valued at 22 times its free cash flow and Givaudan at 26 times, while their sales grow 2.2% and 2.8% a year over five years, and Sika's margin is not widening. What the market rewards here is regularity. It has already paid for it: the premium reaches 67.9% for [Sika](/analyse/SIKA.SW) and 49.5% for [Givaudan](/analyse/GIVN.SW)."
+        },
+        {
+          "type": "h2",
+          "text": "Is Novartis the only real quality, and at what price?"
+        },
+        {
+          "type": "p",
+          "text": "Novartis is the best scored of the group: 9 criteria out of 10. Out of 100 francs of sales, about 27 end up as free cash. Sales grow 6.5% a year, cash per share 13.1% a year, and the share count falls 3.4% a year thanks to buybacks."
+        },
+        {
+          "type": "p",
+          "text": "The price of CHF 117.58 is about 11% above my reasonable buy price of CHF 104.61. That is the smallest premium of the group: a drop of around ten percent would bring it into my zone. As with any pharma company, everything depends on renewing the drug portfolio as patents expire (a general sector risk). I detailed the case in [my article on Novartis](/blog/novartis-nvs-faut-il-acheter-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Why do Swisscom and Partners Group fall under the bar?"
+        },
+        {
+          "type": "p",
+          "text": "Swisscom is valued at 11.1 times its free cash flow, with a 20% margin and moderate debt (about 1.2 years of cash). Its 7.7% annual growth is largely bought: the acquisition of Vodafone Italia, merged with Fastweb, inflated sales. In the first half of 2026, revenue fell 3.0% to CHF 7,221 million, but EBITDAaL (earnings before depreciation, after leases) rose 3.3%, with +10.2% in Italy thanks to EUR 166 million of synergies, according to [Swisscom](https://www.swisscom.ch/en/about/news/2026/08/06-report-q2-2026.html). The market doubts the integration and the weight of telecom investment. The dividend is 4.1%."
+        },
+        {
+          "type": "p",
+          "text": "Partners Group is a private equity manager. It lives on two revenue streams: management fees, stable because they are proportional to assets under management, and performance fees, a share of the gains when it sells its holdings. Those arrive in bursts. In the first half of 2026 they came to CHF 233 million, or 19% of revenue, with delayed exits, according to [Partners Group](https://www.partnersgroup.com/en/shareholders/reports-and-presentations). Assets under management reach USD 186 billion (+7%), with record fundraising of USD 16 billion."
+        },
+        {
+          "type": "p",
+          "text": "Its free cash is highly irregular: the 60.7% margin and the displayed 207% discount come from that irregularity. I do not take them literally. A P/FCF at the 3rd percentile of its own history means the stock is rarely this cheap, but the market is waiting to see whether exits resume. [Partners Group](/analyse/PGHN.SW) and [Swisscom](/analyse/SCMN.SW) are cheap because of a specific doubt, not through neglect."
+        },
+        {
+          "type": "h2",
+          "text": "So, is Switzerland a good hunting ground?"
+        },
+        {
+          "type": "p",
+          "text": "My firm view: for the names everyone knows, quality is paid for in advance. Two lessons. First, reputed quality is not measured quality: Nestlé and Sika meet only 6 criteria out of 10. Second, the rare stocks below the buy price are there because the market doubts, and it is up to you to judge whether that doubt is excessive."
+        },
+        {
+          "type": "p",
+          "text": "Two practical cautions. These stocks trade in Swiss francs, so there is currency risk, and Switzerland is not in the European Economic Area: they are not eligible for the French PEA. Dividends also suffer a 35% Swiss withholding tax, partly recoverable: check the details with your broker."
+        },
+        {
+          "type": "p",
+          "text": "This is the sorting I wanted to be able to do for any stock, so I built it. The pages detail each criterion, and [my methodology](/methodologie) explains how the score and the buy price are computed."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Are Swiss stocks expensive in 2026?",
+          "a": "Of the six stocks studied, four trade above my reasonable buy price, from 11% for Novartis to 68% for Sika. Only two, Swisscom and Partners Group, fall below it, each for a specific doubt."
+        },
+        {
+          "q": "Why are Swiss groups' sales falling in francs?",
+          "a": "They sell in many currencies and report in francs. When the franc strengthens, converted sales fall: Sika shows -1.5% in francs but +4.0% in local currencies in the first half of 2026."
+        },
+        {
+          "q": "Can you buy these stocks in a PEA?",
+          "a": "No. Switzerland is not in the European Economic Area, so these stocks are not eligible for the PEA. They are held in an ordinary brokerage account, with currency risk on the Swiss franc."
+        },
+        {
+          "q": "What does a reasonable buy price mean?",
+          "a": "It is the price at which my model would deliver about 15% a year over five years, with cautious assumptions on growth and exit valuation. It is not a forecast: it is an order of magnitude that moves if the assumptions move."
+        }
+      ],
+      "tags": [
+        "Swiss stocks",
+        "Valuation",
+        "Quality stocks",
+        "Nestlé",
+        "Sika",
+        "Givaudan",
+        "Novartis",
+        "Swisscom",
+        "Partners Group"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not predict future results. Figures as of October 5, 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that."
+    },
+    "es": {
+      "title": "Acciones suizas: la calidad es conocida, el precio también",
+      "excerpt": "Nestlé, Sika, Givaudan, Novartis, Swisscom y Partners Group: seis acciones suizas, una misma pregunta. ¿Su fama de calidad ya la paga el comprador?",
+      "metaDescription": "Seis acciones suizas bajo la lupa: cuatro cotizan por encima de un precio razonable. Dónde la fama de calidad ya está pagada y dónde queda margen.",
+      "answer": "Nestlé, Sika, Givaudan y Novartis tienen fama de calidad, pero el precio ya la refleja: de seis acciones suizas analizadas, cuatro cotizan por encima de mi precio de compra razonable. Solo Swisscom y Partners Group quedan por debajo, por dudas y no por olvido.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "¿Por qué Suiza tiene fama de calidad?"
+        },
+        {
+          "type": "p",
+          "text": "Nestlé, Novartis, Sika, Givaudan: estos nombres tranquilizan a cualquier inversor europeo. Marcas mundiales, dividendos pagados año tras año, un país estable y una moneda con fama de sólida. Esa reputación atrae a muchos compradores, y cuando muchos compradores quieren lo mismo, el precio sube."
+        },
+        {
+          "type": "p",
+          "text": "La pregunta de este artículo es sencilla: ¿esa calidad sigue a la venta a un precio razonable? Pasé seis valores suizos por mi rejilla de análisis. Puntúa la calidad del negocio con diez criterios (márgenes, crecimiento del flujo de caja por acción, deuda, rentabilidad del capital), por separado del precio. Después calcula un precio de compra razonable: el que daría cerca de un 15 % anual durante cinco años, con hipótesis prudentes."
+        },
+        {
+          "type": "p",
+          "text": "Para el precio miro el P/FCF: el precio de la acción dividido por el flujo de caja libre que la empresa genera realmente, una vez pagadas todas sus facturas. Un P/FCF de 17 son 17 años de ese flujo. Cuanto más bajo, más infravalorada está la acción."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué dicen las cifras de estas seis acciones?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad",
+            "P/FCF",
+            "Margen de caja libre",
+            "Crecimiento de ventas por año (5 años)",
+            "Diferencia con el precio de compra"
+          ],
+          "rows": [
+            [
+              "Nestlé",
+              "6/10",
+              "17,5×",
+              "12,2 %",
+              "0,7 %",
+              "sobreprecio del 43,6 %"
+            ],
+            [
+              "Novartis",
+              "9/10",
+              "17,7×",
+              "26,9 %",
+              "6,5 %",
+              "sobreprecio del 11,0 %"
+            ],
+            [
+              "Sika",
+              "6/10",
+              "22,0×",
+              "11,9 %",
+              "2,2 %",
+              "sobreprecio del 67,9 %"
+            ],
+            [
+              "Givaudan",
+              "7/10",
+              "26,1×",
+              "16,2 %",
+              "2,8 %",
+              "sobreprecio del 49,5 %"
+            ],
+            [
+              "Swisscom",
+              "7/10",
+              "11,1×",
+              "20,0 %",
+              "7,7 %",
+              "descuento del 44,6 %"
+            ],
+            [
+              "Partners Group",
+              "7/10",
+              "10,5×",
+              "60,7 %",
+              "-1,6 %",
+              "descuento del 207 % (con cautela)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Un sobreprecio significa que la cotización está por encima del nivel en que mi modelo daría la rentabilidad objetivo; un descuento, que está por debajo. La tabla es clara: los cuatro nombres más conocidos son caros. Solo dos, menos conocidos por el gran público, quedan bajo la barra. Veamos por qué, uno por uno."
+        },
+        {
+          "type": "h2",
+          "text": "Nestlé: ¿un icono que ya crece poco?"
+        },
+        {
+          "type": "p",
+          "text": "Nestlé cumple 6 de mis 10 criterios de calidad. Sus ventas crecen un 0,7 % anual en cinco años, su margen de caja libre es del 12,2 % y su deuda neta equivale a unos 4,9 años de ese flujo. Lo positivo: el número de acciones baja un 1,7 % al año, señal de que el grupo recompra sus propios títulos."
+        },
+        {
+          "type": "p",
+          "text": "El hecho reciente va en la misma línea. En el primer semestre de 2026, publicado el 23 de julio, el crecimiento orgánico (sin efectos de divisa ni adquisiciones) fue del 3,6 %, con 1,5 puntos de volumen y 2,1 puntos de subidas de precio, según el [comunicado de Nestlé](https://www.nestle.com/media/pressreleases/allpressreleases/half-year-results-2026). El beneficio neto, en cambio, cayó un 31,4 %, según [FoodNavigator](https://www.foodnavigator.com/Article/2026/07/23/nestle-h1-2026-organic-growth-up-but-net-profit-falls-314/)."
+        },
+        {
+          "type": "p",
+          "text": "Lo leo así (inferido): más de la mitad del crecimiento viene de los precios, no de los volúmenes, y el consumidor no acepta subidas sin límite. Con una cotización de 74,86 CHF frente a un precio de compra razonable de 42,20 CHF, el mercado paga una marca, no un crecimiento. El dividendo del 4,2 % es real, pero no cambia el precio de entrada. Mira [la ficha de Nestlé](/analyse/NESN.SW)."
+        },
+        {
+          "type": "h2",
+          "text": "Sika y Givaudan: ¿lo explica todo el franco fuerte?"
+        },
+        {
+          "type": "p",
+          "text": "Un grupo suizo vende en dólares, euros y yuanes, pero publica sus cuentas en francos. Cuando el franco sube, esas ventas convertidas pesan menos, aunque la actividad no se mueva. Es una trampa de lectura clásica en las acciones suizas, y aquí se ve."
+        },
+        {
+          "type": "p",
+          "text": "Sika (química de la construcción) logró 5 590 millones de francos de ventas en el primer semestre de 2026: -1,5 % en francos, pero +4,0 % en monedas locales. Elevó su previsión anual a +3 % a +6 %, según su [comunicado del 28 de julio](https://www.sika.com/en/media/media-releases/2026/half-year-report-2026.html). Givaudan (perfumes y aromas) registra 3 799 millones de francos: -1,7 % en francos, +3,6 % a perímetro comparable. Pero su margen de EBITDA ajustado baja del 25,2 % al 24,3 % y su beneficio neto cae un 19,8 %, según el [comunicado de Givaudan](https://www.givaudan.com/media/media-releases/2026/2026-half-year-results)."
+        },
+        {
+          "type": "p",
+          "text": "Así que sí, el franco explica la caída de las ventas publicadas. No, no explica el precio. Sika se valora en 22 veces su flujo de caja libre y Givaudan en 26, mientras sus ventas crecen un 2,2 % y un 2,8 % anual en cinco años, y el margen de Sika no se amplía. Lo que el mercado premia aquí es la regularidad. Ya la ha pagado: el sobreprecio llega al 67,9 % en [Sika](/analyse/SIKA.SW) y al 49,5 % en [Givaudan](/analyse/GIVN.SW)."
+        },
+        {
+          "type": "h2",
+          "text": "¿Es Novartis la única calidad real, y a qué precio?"
+        },
+        {
+          "type": "p",
+          "text": "Novartis es la mejor puntuada del grupo: 9 criterios de 10. De cada 100 francos de ventas, unos 27 acaban como caja libre. Las ventas crecen un 6,5 % anual, el flujo por acción un 13,1 % anual y el número de acciones baja un 3,4 % anual gracias a las recompras."
+        },
+        {
+          "type": "p",
+          "text": "La cotización de 117,58 CHF supera mi precio de compra razonable de 104,61 CHF en un 11 % aproximadamente. Es el sobreprecio más bajo del grupo: una caída de alrededor del diez por ciento bastaría para llevarla a mi zona. Como en toda farmacéutica, todo depende de renovar los medicamentos cuando caducan las patentes (riesgo general del sector). Detallé el caso en [mi artículo sobre Novartis](/blog/novartis-nvs-faut-il-acheter-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "¿Por qué Swisscom y Partners Group quedan bajo la barra?"
+        },
+        {
+          "type": "p",
+          "text": "Swisscom se valora en 11,1 veces su flujo de caja libre, con un margen del 20 % y una deuda moderada (alrededor de 1,2 años de flujo). Su crecimiento anual del 7,7 % es en gran parte comprado: la adquisición de Vodafone Italia, fusionada con Fastweb, infló las ventas. En el primer semestre de 2026, los ingresos cayeron un 3,0 % hasta 7 221 millones de francos, pero el EBITDAaL (resultado antes de amortizaciones, después de alquileres) subió un 3,3 %, con +10,2 % en Italia gracias a 166 millones de euros de sinergias, según [Swisscom](https://www.swisscom.ch/en/about/news/2026/08/06-report-q2-2026.html). El mercado duda de la integración y del peso de las inversiones en telecomunicaciones. El dividendo es del 4,1 %."
+        },
+        {
+          "type": "p",
+          "text": "Partners Group es un gestor de capital riesgo. Vive de dos ingresos: comisiones de gestión, estables porque son proporcionales a los activos gestionados, y comisiones de rendimiento, una parte de las plusvalías cuando vende sus participaciones. Estas llegan a golpes. En el primer semestre de 2026 sumaron 233 millones de francos, el 19 % de los ingresos, con ventas retrasadas, según [Partners Group](https://www.partnersgroup.com/en/shareholders/reports-and-presentations). Los activos gestionados alcanzan 186 000 millones de dólares (+7 %), con una captación récord de 16 000 millones."
+        },
+        {
+          "type": "p",
+          "text": "Su caja libre es muy irregular: el margen del 60,7 % y el descuento mostrado del 207 % vienen de esa irregularidad. No los leo al pie de la letra. Un P/FCF en el percentil 3 de su propio historial significa que el título rara vez está tan barato, pero el mercado espera a ver si se reanudan las ventas. [Partners Group](/analyse/PGHN.SW) y [Swisscom](/analyse/SCMN.SW) están baratas por una duda concreta, no por olvido."
+        },
+        {
+          "type": "h2",
+          "text": "Entonces, ¿es Suiza un buen terreno de caza?"
+        },
+        {
+          "type": "p",
+          "text": "Mi opinión, clara: para los nombres que todo el mundo conoce, la calidad se paga por adelantado. Dos enseñanzas. Primero, la calidad reputada no es la calidad medida: Nestlé y Sika solo cumplen 6 criterios de 10. Segundo, los pocos valores por debajo del precio de compra están ahí porque el mercado duda, y te toca a ti juzgar si esa duda es excesiva."
+        },
+        {
+          "type": "p",
+          "text": "Dos precauciones prácticas. Estos títulos cotizan en francos suizos, con riesgo de divisa, y Suiza no está en el Espacio Económico Europeo: no son elegibles para el PEA francés. Los dividendos sufren además una retención en origen suiza del 35 %, en parte recuperable: consulta el detalle con tu bróker."
+        },
+        {
+          "type": "p",
+          "text": "Esta es la selección que quería poder hacer para cualquier acción, así que la construí. Las fichas detallan cada criterio, y [mi metodología](/methodologie) explica cómo se calculan la nota y el precio de compra."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Son caras las acciones suizas en 2026?",
+          "a": "De las seis acciones estudiadas, cuatro cotizan por encima de mi precio de compra razonable, del 11 % en Novartis al 68 % en Sika. Solo dos, Swisscom y Partners Group, quedan por debajo, cada una por una duda concreta."
+        },
+        {
+          "q": "¿Por qué caen en francos las ventas de los grupos suizos?",
+          "a": "Venden en muchas divisas y publican en francos. Cuando el franco se fortalece, las ventas convertidas bajan: Sika muestra -1,5 % en francos pero +4,0 % en monedas locales en el primer semestre de 2026."
+        },
+        {
+          "q": "¿Se pueden comprar estas acciones en un PEA?",
+          "a": "No. Suiza no está en el Espacio Económico Europeo, así que estos títulos no son elegibles para el PEA. Se mantienen en una cuenta de valores ordinaria, con riesgo de divisa sobre el franco suizo."
+        },
+        {
+          "q": "¿Qué significa un precio de compra razonable?",
+          "a": "Es el precio en el que mi modelo daría cerca de un 15 % anual durante cinco años, con hipótesis prudentes de crecimiento y valoración de salida. No es una previsión: es un orden de magnitud que cambia si cambian las hipótesis."
+        }
+      ],
+      "tags": [
+        "Acciones suizas",
+        "Valoración",
+        "Acciones de calidad",
+        "Nestlé",
+        "Sika",
+        "Givaudan",
+        "Novartis",
+        "Swisscom",
+        "Partners Group"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a 5 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
