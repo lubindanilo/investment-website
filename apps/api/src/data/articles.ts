@@ -93434,7 +93434,569 @@ const articleSuisse2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026];
+const articleAllemagne2026: Article = {
+  "slug": "actions-allemandes-ou-se-cache-la-qualite-2026",
+  "date": "2026-10-06",
+  "updated": "2026-10-06",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Actions allemandes : où se cache la qualité dans le DAX",
+      "excerpt": "Allianz, SAP, Rheinmetall, Munich Re, Hannover Rück et Deutsche Telekom : seize valeurs allemandes passées au crible. La qualité n'est pas là où on la cherche.",
+      "metaDescription": "Seize actions allemandes passées au crible : les meilleures notes vont à l'assurance, au logiciel et à la défense, pas à l'auto. Et à quel prix ?",
+      "answer": "Sur seize grandes actions allemandes, les meilleures notes de qualité vont à Allianz, SAP et Rheinmetall, pas aux constructeurs automobiles (Mercedes 3 sur 10, BMW 4). Mais deux décotes sont trompeuses : celle d'Allianz à cause des réserves d'assurance, celle de Rheinmetall à cause d'un cash libre devenu négatif.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Quand on pense « Allemagne en Bourse », on pense voitures, chimie, machines-outils. Le pays qui fabriquait tout et vendait partout. Je suis parti de cette image pour mon analyse, et j'ai passé seize des plus grosses sociétés allemandes dans ma grille : dix critères financiers qui jugent la qualité d'une entreprise, notés sur dix, séparément du prix."
+        },
+        {
+          "type": "p",
+          "text": "Le résultat m'a surpris. Mercedes-Benz tombe à 3 sur 10. BMW, Adidas, Infineon et E.ON plafonnent à 4. Les notes les plus hautes, 8 sur 10, ne vont ni à l'automobile ni à la chimie : elles vont à un assureur (Allianz), à un éditeur de logiciels (SAP) et à un fabricant d'armement (Rheinmetall). Juste derrière, à 7, deux réassureurs, Munich Re et Hannover Rück."
+        },
+        {
+          "type": "p",
+          "text": "Cette étude pose donc une question simple : où se cache la qualité allemande aujourd'hui, et est-elle encore à un prix raisonnable ? Je détaille six valeurs, dans l'ordre de ma note, avec ce qui les sépare et ce qui pourrait casser chaque histoire."
+        },
+        {
+          "type": "h2",
+          "text": "Que disent les chiffres de ces six valeurs ?"
+        },
+        {
+          "type": "p",
+          "text": "Deux repères avant le tableau. Le P/FCF, c'est le prix de l'action rapporté au cash libre (free cash flow) que l'entreprise dégage vraiment une fois ses factures payées : un P/FCF de 14, c'est quatorze années de ce cash, et plus il est bas, plus l'action est sous-évaluée. Le prix d'achat raisonnable, c'est le cours où mon modèle donnerait environ 15 % de rendement par an sur cinq ans, avec des hypothèses prudentes. L'écart se lit ainsi : une décote veut dire que le cours est sous ce prix, une surcote qu'il est au-dessus."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note de qualité",
+            "P/FCF",
+            "Marge de cash libre",
+            "Écart avec le prix d'achat"
+          ],
+          "rows": [
+            [
+              "Allianz",
+              "8/10",
+              "5,5×",
+              "22,5 %",
+              "décote de 72,5 % (à relativiser)"
+            ],
+            [
+              "SAP",
+              "8/10",
+              "26,0×",
+              "22,9 %",
+              "décote de 38,0 %"
+            ],
+            [
+              "Rheinmetall",
+              "8/10",
+              "31,8×",
+              "14,2 %",
+              "décote de 55,5 % (à relativiser)"
+            ],
+            [
+              "Munich Re",
+              "7/10",
+              "14,0×",
+              "6,9 %",
+              "décote de 23,8 %"
+            ],
+            [
+              "Hannover Rück",
+              "7/10",
+              "5,4×",
+              "22,4 %",
+              "surcote de 36,5 %"
+            ],
+            [
+              "Deutsche Telekom",
+              "6/10",
+              "6,1×",
+              "18,1 %",
+              "surcote de 1,2 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Deux de ces décotes sont trop belles pour être lues au pied de la lettre, et je te dis pourquoi plus bas. Le reste du tableau raconte déjà une chose : le prix n'a presque aucun rapport avec la note. Les valeurs les plus chères en multiple (SAP, Rheinmetall) sont aussi des valeurs de croissance, et les moins chères (Allianz, Hannover Rück) sont des assureurs, un métier où le P/FCF se lit autrement."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi les assureurs allemands affichent-ils un cash si abondant ?"
+        },
+        {
+          "type": "p",
+          "text": "Allianz convertit 287 % de son bénéfice en cash, Hannover Rück 215 %. Pour une société industrielle, ce serait suspect. Pour un assureur, c'est la mécanique normale : il encaisse les primes avant de payer les sinistres. Entre les deux, cet argent s'appelle le float, la réserve de primes encaissées mais pas encore dépensées, et l'assureur le place sur les marchés en attendant."
+        },
+        {
+          "type": "p",
+          "text": "Cela change deux lectures. D'abord, le cash libre d'un assureur est gonflé par ces réserves qui grossissent : il ne se compare pas à celui d'un fabricant de machines. Ensuite, la « dette » de ces groupes n'en est pas vraiment une, c'est surtout de l'argent dû aux assurés un jour. C'est pourquoi je lis la décote de 72,5 % d'Allianz avec prudence : le modèle suppose que ce cash se répète, alors qu'il oscille avec les réserves. Même nuance sur son P/FCF, qui est à 5,5 mais au 88ᵉ percentile de son propre historique : l'action est bon marché en absolu, pas par rapport à ce qu'elle a l'habitude de coûter."
+        },
+        {
+          "type": "p",
+          "text": "Le fond, lui, est solide. Au deuxième trimestre 2026, Allianz a publié un [résultat opérationnel record de 4,9 milliards d'euros](https://www.allianz.com/en/mediacenter/news/media-releases/financials/260807-2q-2026-earnings-release.html), en hausse de 10,6 %, et maintient son objectif annuel de 17,4 milliards, plus ou moins un milliard. Sur cinq ans, le nombre d'actions baisse de 1,9 % par an et le dividende pèse environ 4 % du cours. Le point faible est visible dans la grille : les ventes progressent de seulement 3 % par an. Allianz est une machine à cash qui ne grandit pas vite, et c'est exactement ce que le prix semble déjà accepter."
+        },
+        {
+          "type": "h2",
+          "text": "Munich Re ou Hannover Rück : deux réassureurs, deux prix très différents"
+        },
+        {
+          "type": "p",
+          "text": "Un réassureur est l'assureur des assureurs : quand une compagnie craint un sinistre trop gros pour elle (tempête, séisme, incendie industriel), elle en cède une part à Munich Re ou Hannover Rück contre une prime. Le métier est cyclique : les prix montent après les catastrophes, baissent quand elles manquent. Les deux sociétés sont donc notées 7, avec une croissance des ventes à l'arrêt (-0,2 % et -0,6 % par an), ce qui est normal pour un métier qui arbitre le prix plutôt que le volume."
+        },
+        {
+          "type": "p",
+          "text": "Ce qui les sépare, c'est la façon dont le marché les paie. Munich Re réduit son nombre d'actions de 2,4 % par an, fait croître son cash par action de 11,6 % par an et sort en décote de 23,8 % du prix d'achat. Son [semestre 2026 est un record](https://www.munichre.com/en/company/media-relations/media-information-and-corporate-news/media-information/2026/half-year-financial-report.html), avec 3,9 milliards d'euros de résultat net et un objectif annuel de 6,3 milliards maintenu, même si le groupe a réduit son objectif de revenus de 2 milliards, à 38 milliards en réassurance. Hannover Rück a un nombre d'actions stable, un cash par action qui ne progresse que de 2,7 % par an, et son cours dépasse mon prix d'achat de 36,5 %."
+        },
+        {
+          "type": "p",
+          "text": "La même mécanique de réassurance, deux traitements boursiers : c'est le signe que le marché a déjà fait un tri que la note seule ne montre pas. Si tu veux comparer avec les États-Unis, j'ai détaillé la logique dans [mon palmarès des réassureurs](/blog/reassurance-rnr-acgl-10-sur-10-palmares). Le risque commun reste le même : une année de catastrophes en série pèse d'un coup sur le résultat."
+        },
+        {
+          "type": "h2",
+          "text": "SAP et Rheinmetall : la croissance se paie, mais pas de la même façon"
+        },
+        {
+          "type": "p",
+          "text": "SAP est la plus classique des deux. L'éditeur de logiciels pour grandes entreprises grandit de 8,1 % par an, avec un cash par action en hausse de 16,1 % par an, un rendement du capital investi de 51 % et aucune dette nette. Au deuxième trimestre, son [carnet de commandes cloud à court terme a bondi de 27 %, à 22,9 milliards d'euros](https://www.sap.com/docs/download/investors/2026/sap-2026-q2-statement.pdf), et le revenu du cloud a progressé de 22 %. Le P/FCF de 26 est élevé, mais il se situe au 35ᵉ percentile de son propre historique : l'action est moins chère que dans environ deux tiers des cas passés. Le marché craint que l'IA grignote les logiciels de gestion, ce qui explique que le prix soit retombé. Mon avis : la peur est plausible, pas démontrée. Le détail du trimestre est dans [mon analyse des résultats de SAP](/blog/sap-se-resultats-t2-2026-cloud-verdict)."
+        },
+        {
+          "type": "p",
+          "text": "Rheinmetall est un cas beaucoup plus tendu. Ses ventes progressent de 15,1 % par an, et au premier semestre 2026 elles ont [bondi de 39 %, à 5,2 milliards d'euros](https://www.rheinmetall.com/en/media/news-watch/news/2026/08/2026-08-06-rheinmetall-news-half-yearly-financial-report-h1), avec un carnet de commandes de 80,5 milliards. Mais le cash libre opérationnel du semestre est négatif de 1,6 milliard : le groupe stocke, investit, et subit un décalage des avances de ses clients. Un carnet qui grossit n'est pas du cash en caisse. Et le nombre d'actions augmente de 2,5 % par an, ce qui dilue les actionnaires."
+        },
+        {
+          "type": "p",
+          "text": "Ma décote de 55,5 % pour Rheinmetall est donc à manier avec précaution. Le modèle s'appuie sur le cash des douze derniers mois, et ce cash a servi à ses meilleures années, juste avant un semestre négatif. La croissance de 101,8 % par an du cash par action vient aussi d'une base très faible : le cash libre du groupe était négatif de 2021 à 2023. J'ai déjà détaillé cette tension dans [mon article sur Rheinmetall](/blog/rheinmetall-rhm-carnet-record-cash-flow-tension)."
+        },
+        {
+          "type": "h2",
+          "text": "Et Deutsche Telekom, le titre que tout le monde connaît ?"
+        },
+        {
+          "type": "p",
+          "text": "Deutsche Telekom coche une note de 6 avec un P/FCF de 6,1, un cash par action qui croît de 21,4 % par an et un dividende d'environ 3,7 %. Son prix est à 1,2 % au-dessus de mon prix d'achat : c'est quasiment le juste prix, ni une affaire, ni un piège. Le point qui limite la note, c'est la dette : elle représente 6,2 années de cash libre, un niveau élevé. Un opérateur télécom finance des réseaux qui coûtent très cher à construire, et sa dette est le prix de cet actif. Le rendement du capital investi, 9,4 %, reste modeste. Ce n'est pas une valeur de qualité pure, c'est un titre de rendement correct à un prix correct."
+        },
+        {
+          "type": "h2",
+          "text": "Qu'est-ce que je retiens de l'Allemagne ?"
+        },
+        {
+          "type": "p",
+          "text": "La qualité allemande n'est plus là où on la cherche. L'image d'Épinal des constructeurs automobiles ne résiste pas à la grille : leurs notes ne justifient pas leur réputation. Les meilleures notes du pays sont dans l'assurance, le logiciel et la défense, c'est-à-dire des métiers où le cash est récurrent ou où la demande est portée par les États."
+        },
+        {
+          "type": "p",
+          "text": "Mais qualité n'est pas prix. Sur ces six valeurs, trois sont vraiment en décote selon mon modèle (SAP, Munich Re, et Allianz avec les réserves ci-dessus), une est quasi au juste prix (Deutsche Telekom), une est trop chère (Hannover Rück) et une demande de la prudence (Rheinmetall). C'est la même leçon que dans mes études sur [l'Europe](/blog/actions-europeennes-qualite-prix-2026) : un bon bilan ne dit rien du prix que tu paies. Chaque fiche, comme [celle d'Allianz](/analyse/ALV.DE) ou [celle de SAP](/analyse/SAP.DE), détaille les dix critères, et [ma méthodologie](/methodologie) explique comment la note et le prix d'achat sont calculés. C'est le tri que je voulais pouvoir faire pour n'importe quelle action, alors je l'ai construit."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les meilleures actions allemandes de qualité en 2026 ?",
+          "a": "Sur seize grandes valeurs allemandes passées dans ma grille, trois obtiennent 8 sur 10 : Allianz, SAP et Rheinmetall. Munich Re et Hannover Rück suivent à 7. Les constructeurs automobiles sont plus bas : Mercedes-Benz 3, BMW 4."
+        },
+        {
+          "q": "Les actions allemandes sont-elles éligibles au PEA ?",
+          "a": "Oui, en général : l'Allemagne est dans l'Espace économique européen, donc les actions de sociétés allemandes cotées en Allemagne, comme SAP, Allianz ou Rheinmetall, peuvent entrer dans un PEA. Vérifie toujours l'éligibilité auprès de ton courtier avant d'acheter."
+        },
+        {
+          "q": "Allianz est-elle sous-évaluée ?",
+          "a": "Mon modèle affiche une décote de 72,5 %, mais je la lis avec prudence. Le cash d'un assureur est gonflé par ses réserves, qui varient d'une année à l'autre. Le P/FCF de 5,5 est bas en absolu et haut par rapport à l'historique de l'action."
+        },
+        {
+          "q": "Pourquoi Rheinmetall a-t-il un cash libre négatif malgré un carnet record ?",
+          "a": "Au premier semestre 2026, le cash libre opérationnel est négatif de 1,6 milliard d'euros : stocks en hausse, investissements élevés et décalage des avances clients. Un carnet de commandes de 80,5 milliards n'est pas du cash : il se transforme en trésorerie avec la livraison."
+        }
+      ],
+      "tags": [
+        "Actions allemandes",
+        "Valorisation",
+        "Actions de qualité",
+        "Allianz",
+        "SAP",
+        "Rheinmetall",
+        "Munich Re",
+        "Hannover Rück",
+        "Deutsche Telekom",
+        "PEA"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 6 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "German stocks: where quality hides in the DAX",
+      "excerpt": "Allianz, SAP, Rheinmetall, Munich Re, Hannover Re and Deutsche Telekom: sixteen German stocks run through the grid. Quality is not where people look for it.",
+      "metaDescription": "Sixteen German stocks put to the test: the best quality scores go to insurance, software and defense, not autos. And at what price?",
+      "answer": "Of sixteen large German stocks, the best quality scores go to Allianz, SAP and Rheinmetall, not to carmakers (Mercedes 3 out of 10, BMW 4). But two discounts are misleading: Allianz's because of insurance reserves, Rheinmetall's because free cash flow has turned negative.",
+      "body": [
+        {
+          "type": "p",
+          "text": "When people think of German stocks, they think of cars, chemicals and machine tools: the country that built everything and sold it everywhere. I started from that picture, and ran sixteen of Germany's largest companies through my grid: ten financial criteria that judge a company's quality, scored out of ten, separately from the price."
+        },
+        {
+          "type": "p",
+          "text": "The result surprised me. Mercedes-Benz drops to 3 out of 10. BMW, Adidas, Infineon and E.ON top out at 4. The highest scores, 8 out of 10, go neither to autos nor to chemicals: they go to an insurer (Allianz), a software company (SAP) and an arms maker (Rheinmetall). Right behind, at 7, come two reinsurers, Munich Re and Hannover Re."
+        },
+        {
+          "type": "p",
+          "text": "So this study asks a simple question: where does German quality hide today, and is it still available at a reasonable price? I go through six stocks in order of my score, covering what separates them and what could break each story."
+        },
+        {
+          "type": "h2",
+          "text": "What do the numbers say about these six stocks?"
+        },
+        {
+          "type": "p",
+          "text": "Two reference points before the table. P/FCF is the share price divided by the free cash flow the company really generates after paying its bills: a P/FCF of 14 means you pay fourteen years of that cash, and the lower it is, the cheaper the stock. The reasonable buy price is the share price at which my model would return about 15% a year over five years, with cautious assumptions. A discount means the price is below that level, a premium means it is above."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score",
+            "P/FCF",
+            "Free cash flow margin",
+            "Gap to the buy price"
+          ],
+          "rows": [
+            [
+              "Allianz",
+              "8/10",
+              "5.5×",
+              "22.5%",
+              "72.5% discount (to be taken with caution)"
+            ],
+            [
+              "SAP",
+              "8/10",
+              "26.0×",
+              "22.9%",
+              "38.0% discount"
+            ],
+            [
+              "Rheinmetall",
+              "8/10",
+              "31.8×",
+              "14.2%",
+              "55.5% discount (to be taken with caution)"
+            ],
+            [
+              "Munich Re",
+              "7/10",
+              "14.0×",
+              "6.9%",
+              "23.8% discount"
+            ],
+            [
+              "Hannover Re",
+              "7/10",
+              "5.4×",
+              "22.4%",
+              "36.5% premium"
+            ],
+            [
+              "Deutsche Telekom",
+              "6/10",
+              "6.1×",
+              "18.1%",
+              "1.2% premium"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Two of these discounts are too good to read literally, and I explain why below. The rest of the table already says one thing: price has almost no relation to the score. The stocks with the highest multiples (SAP, Rheinmetall) are growth stocks, and the cheapest ones (Allianz, Hannover Re) are insurers, a business where P/FCF reads differently."
+        },
+        {
+          "type": "h2",
+          "text": "Why do German insurers show so much cash?"
+        },
+        {
+          "type": "p",
+          "text": "Allianz converts 287% of its earnings into cash, Hannover Re 215%. For an industrial company that would be suspicious. For an insurer it is the normal mechanism: it collects premiums before paying claims. In between, that money is called the float, the reserve of premiums collected but not yet spent, and the insurer invests it in the markets while it waits."
+        },
+        {
+          "type": "p",
+          "text": "This changes two readings. First, an insurer's free cash flow is inflated by those growing reserves: it cannot be compared with a machinery maker's. Second, the \"debt\" of these groups is not really debt, it is mostly money owed to policyholders one day. That is why I read Allianz's 72.5% discount with caution: the model assumes this cash repeats, while it swings with reserves. Same nuance on its P/FCF, which is 5.5 but sits at the 88th percentile of its own history: the stock is cheap in absolute terms, not compared with what it usually costs."
+        },
+        {
+          "type": "p",
+          "text": "The substance is solid, though. In the second quarter of 2026, Allianz posted a [record operating profit of 4.9 billion euros](https://www.allianz.com/en/mediacenter/news/media-releases/financials/260807-2q-2026-earnings-release.html), up 10.6%, and kept its annual target of 17.4 billion, plus or minus one billion. Over five years the share count falls 1.9% a year and the dividend is about 4% of the price. The weak point shows in the grid: sales grow only 3% a year. Allianz is a cash machine that does not grow fast, and that is exactly what the price seems to accept already."
+        },
+        {
+          "type": "h2",
+          "text": "Munich Re or Hannover Re: two reinsurers, two very different prices"
+        },
+        {
+          "type": "p",
+          "text": "A reinsurer is the insurer of insurers: when a company fears a loss too big for itself (storm, earthquake, industrial fire), it passes part of it to Munich Re or Hannover Re in exchange for a premium. The business is cyclical: prices rise after disasters and fall when they are missing. Both are scored 7, with sales flat (-0.2% and -0.6% a year), which is normal for a business that arbitrates price rather than volume."
+        },
+        {
+          "type": "p",
+          "text": "What separates them is how the market pays for them. Munich Re cuts its share count by 2.4% a year, grows cash per share 11.6% a year and sits at a 23.8% discount to the buy price. Its [2026 first half is a record](https://www.munichre.com/en/company/media-relations/media-information-and-corporate-news/media-information/2026/half-year-financial-report.html), with 3.9 billion euros of net profit and an annual target of 6.3 billion kept, even though the group trimmed its reinsurance revenue target by 2 billion, to 38 billion. Hannover Re has a stable share count, cash per share growing only 2.7% a year, and its price is 36.5% above my buy price."
+        },
+        {
+          "type": "p",
+          "text": "Same reinsurance mechanics, two stock market treatments: the market has already sorted them in a way the score alone does not show. For a US comparison, I detailed the logic in [my reinsurers ranking](/blog/reassurance-rnr-acgl-10-sur-10-palmares). The shared risk stays the same: a run of catastrophes in a single year hits earnings all at once."
+        },
+        {
+          "type": "h2",
+          "text": "SAP and Rheinmetall: growth costs money, but not in the same way"
+        },
+        {
+          "type": "p",
+          "text": "SAP is the more classic of the two. The business software maker grows 8.1% a year, with cash per share up 16.1% a year, a return on invested capital of 51% and no net debt. In the second quarter, its [current cloud backlog jumped 27% to 22.9 billion euros](https://www.sap.com/docs/download/investors/2026/sap-2026-q2-statement.pdf), and cloud revenue rose 22%. A P/FCF of 26 is high, but it sits at the 35th percentile of its own history: the stock is cheaper than in about two thirds of past cases. The market fears AI will eat into business software, which explains the fall in price. My view: the fear is plausible, not proven. The quarter is detailed in [my analysis of SAP's results](/blog/sap-se-resultats-t2-2026-cloud-verdict)."
+        },
+        {
+          "type": "p",
+          "text": "Rheinmetall is a much tenser case. Its sales grow 15.1% a year, and in the first half of 2026 they [jumped 39% to 5.2 billion euros](https://www.rheinmetall.com/en/media/news-watch/news/2026/08/2026-08-06-rheinmetall-news-half-yearly-financial-report-h1), with an order backlog of 80.5 billion. But the half-year operating free cash flow is negative by 1.6 billion: the group is building inventory, investing, and facing a shift in customer advance payments. A growing backlog is not cash in the bank. And the share count rises 2.5% a year, which dilutes shareholders."
+        },
+        {
+          "type": "p",
+          "text": "My 55.5% discount for Rheinmetall must therefore be handled with care. The model relies on the last twelve months of cash, which captured its best period just before a negative half-year. The 101.8% yearly growth in cash per share also comes from a very low base: the group's free cash flow was negative from 2021 to 2023. I already detailed this tension in [my article on Rheinmetall](/blog/rheinmetall-rhm-carnet-record-cash-flow-tension)."
+        },
+        {
+          "type": "h2",
+          "text": "And Deutsche Telekom, the stock everyone knows?"
+        },
+        {
+          "type": "p",
+          "text": "Deutsche Telekom scores 6 with a P/FCF of 6.1, cash per share growing 21.4% a year and a dividend of about 3.7%. Its price is 1.2% above my buy price: practically fair value, neither a bargain nor a trap. What limits the score is debt: it equals 6.2 years of free cash flow, a high level. A telecom operator finances networks that are very expensive to build, and its debt is the price of that asset. The return on invested capital, 9.4%, stays modest. This is not a pure quality stock, it is a decent yield at a decent price."
+        },
+        {
+          "type": "h2",
+          "text": "What do I take away from Germany?"
+        },
+        {
+          "type": "p",
+          "text": "German quality is no longer where people look for it. The classic image of the carmakers does not survive the grid: their scores do not justify their reputation. The best scores in the country sit in insurance, software and defense, that is, in businesses where cash is recurring or where demand is carried by governments."
+        },
+        {
+          "type": "p",
+          "text": "But quality is not price. Of these six stocks, three are truly at a discount according to my model (SAP, Munich Re, and Allianz with the reserves caveat above), one is near fair value (Deutsche Telekom), one is too expensive (Hannover Re) and one calls for caution (Rheinmetall). It is the same lesson as in my study of [Europe](/blog/actions-europeennes-qualite-prix-2026): a good balance sheet says nothing about the price you pay. Each page, like [Allianz's](/analyse/ALV.DE) or [SAP's](/analyse/SAP.DE), details the ten criteria, and [my methodology](/methodologie) explains how the score and the buy price are computed. It is the sorting I wanted to be able to do for any stock, so I built it."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the best German quality stocks in 2026?",
+          "a": "Of sixteen large German stocks run through my grid, three get 8 out of 10: Allianz, SAP and Rheinmetall. Munich Re and Hannover Re follow at 7. Carmakers are lower: Mercedes-Benz 3, BMW 4."
+        },
+        {
+          "q": "Are German stocks eligible for a French PEA?",
+          "a": "Generally yes: Germany is in the European Economic Area, so shares of German companies listed in Germany, such as SAP, Allianz or Rheinmetall, can go in a PEA. Always check eligibility with your broker before buying."
+        },
+        {
+          "q": "Is Allianz undervalued?",
+          "a": "My model shows a 72.5% discount, but I read it with caution. An insurer's cash is inflated by its reserves, which vary from year to year. The P/FCF of 5.5 is low in absolute terms and high against the stock's own history."
+        },
+        {
+          "q": "Why does Rheinmetall have negative free cash flow despite a record backlog?",
+          "a": "In the first half of 2026, operating free cash flow is negative by 1.6 billion euros: inventory up, high investment and a shift in customer advances. An 80.5 billion backlog is not cash: it turns into cash as deliveries happen."
+        }
+      ],
+      "tags": [
+        "German stocks",
+        "Valuation",
+        "Quality stocks",
+        "Allianz",
+        "SAP",
+        "Rheinmetall",
+        "Munich Re",
+        "Hannover Re",
+        "Deutsche Telekom"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not guarantee future results. Figures as of 6 October 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Acciones alemanas: dónde se esconde la calidad del DAX",
+      "excerpt": "Allianz, SAP, Rheinmetall, Munich Re, Hannover Re y Deutsche Telekom: dieciséis acciones alemanas al microscopio. La calidad no está donde se busca.",
+      "metaDescription": "Dieciséis acciones alemanas analizadas: las mejores notas van a seguros, software y defensa, no al automóvil. ¿Y a qué precio?",
+      "answer": "De dieciséis grandes acciones alemanas, las mejores notas de calidad van a Allianz, SAP y Rheinmetall, no a los fabricantes de coches (Mercedes 3 sobre 10, BMW 4). Pero dos descuentos engañan: el de Allianz por las reservas de seguros, el de Rheinmetall porque su caja libre se ha vuelto negativa.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Cuando se piensa en bolsa alemana, se piensa en coches, química y máquinas herramienta: el país que fabricaba de todo y vendía en todas partes. Partí de esa imagen y pasé dieciséis de las mayores empresas alemanas por mi rejilla: diez criterios financieros que juzgan la calidad de una empresa, puntuados sobre diez, separados del precio."
+        },
+        {
+          "type": "p",
+          "text": "El resultado me sorprendió. Mercedes-Benz cae a 3 sobre 10. BMW, Adidas, Infineon y E.ON se quedan en 4. Las notas más altas, 8 sobre 10, no van ni al automóvil ni a la química: van a una aseguradora (Allianz), a una empresa de software (SAP) y a un fabricante de armamento (Rheinmetall). Justo detrás, con 7, dos reaseguradoras, Munich Re y Hannover Re."
+        },
+        {
+          "type": "p",
+          "text": "Este estudio plantea una pregunta simple: dónde se esconde hoy la calidad alemana y si todavía está a un precio razonable. Repaso seis valores por orden de mi nota, con lo que los separa y lo que podría romper cada historia."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué dicen las cifras de estos seis valores?"
+        },
+        {
+          "type": "p",
+          "text": "Dos referencias antes de la tabla. El P/FCF es el precio de la acción dividido por el flujo de caja libre que la empresa genera de verdad tras pagar sus facturas: un P/FCF de 14 significa catorce años de ese flujo, y cuanto más bajo, más infravalorada está la acción. El precio de compra razonable es el precio al que mi modelo daría una rentabilidad de alrededor del 15 % anual a cinco años, con hipótesis prudentes. Un descuento significa que el precio está por debajo de ese nivel, una prima que está por encima."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad",
+            "P/FCF",
+            "Margen de caja libre",
+            "Diferencia con el precio de compra"
+          ],
+          "rows": [
+            [
+              "Allianz",
+              "8/10",
+              "5,5×",
+              "22,5 %",
+              "descuento del 72,5 % (con cautela)"
+            ],
+            [
+              "SAP",
+              "8/10",
+              "26,0×",
+              "22,9 %",
+              "descuento del 38,0 %"
+            ],
+            [
+              "Rheinmetall",
+              "8/10",
+              "31,8×",
+              "14,2 %",
+              "descuento del 55,5 % (con cautela)"
+            ],
+            [
+              "Munich Re",
+              "7/10",
+              "14,0×",
+              "6,9 %",
+              "descuento del 23,8 %"
+            ],
+            [
+              "Hannover Re",
+              "7/10",
+              "5,4×",
+              "22,4 %",
+              "prima del 36,5 %"
+            ],
+            [
+              "Deutsche Telekom",
+              "6/10",
+              "6,1×",
+              "18,1 %",
+              "prima del 1,2 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Dos de estos descuentos son demasiado buenos para leerlos al pie de la letra, y abajo explico por qué. El resto de la tabla ya dice algo: el precio casi no tiene relación con la nota. Los valores con múltiplos más altos (SAP, Rheinmetall) son valores de crecimiento, y los más baratos (Allianz, Hannover Re) son aseguradoras, un negocio donde el P/FCF se lee de otra manera."
+        },
+        {
+          "type": "h2",
+          "text": "¿Por qué las aseguradoras alemanas muestran tanta caja?"
+        },
+        {
+          "type": "p",
+          "text": "Allianz convierte el 287 % de su beneficio en caja, Hannover Re el 215 %. En una industrial sería sospechoso. En una aseguradora es la mecánica normal: cobra las primas antes de pagar los siniestros. Entre un momento y otro, ese dinero se llama float, la reserva de primas cobradas pero aún no gastadas, y la aseguradora lo invierte en los mercados mientras espera."
+        },
+        {
+          "type": "p",
+          "text": "Esto cambia dos lecturas. Primero, el flujo de caja libre de una aseguradora está inflado por esas reservas que crecen: no se compara con el de un fabricante de máquinas. Segundo, la «deuda» de estos grupos no es realmente deuda, es sobre todo dinero que se deberá a los asegurados algún día. Por eso leo con prudencia el descuento del 72,5 % de Allianz: el modelo supone que esa caja se repite, cuando oscila con las reservas. Mismo matiz con su P/FCF, que es 5,5 pero está en el percentil 88 de su propio historial: la acción es barata en absoluto, no frente a lo que suele costar."
+        },
+        {
+          "type": "p",
+          "text": "El fondo, en cambio, es sólido. En el segundo trimestre de 2026, Allianz publicó un [resultado operativo récord de 4.900 millones de euros](https://www.allianz.com/en/mediacenter/news/media-releases/financials/260807-2q-2026-earnings-release.html), un 10,6 % más, y mantiene su objetivo anual de 17.400 millones, más o menos mil millones. En cinco años el número de acciones baja un 1,9 % anual y el dividendo ronda el 4 % del precio. El punto débil se ve en la rejilla: las ventas crecen solo un 3 % anual. Allianz es una máquina de caja que no crece rápido, y eso es justo lo que el precio parece aceptar ya."
+        },
+        {
+          "type": "h2",
+          "text": "Munich Re o Hannover Re: dos reaseguradoras, dos precios muy distintos"
+        },
+        {
+          "type": "p",
+          "text": "Una reaseguradora es la aseguradora de las aseguradoras: cuando una compañía teme un siniestro demasiado grande para ella (tormenta, terremoto, incendio industrial), cede una parte a Munich Re o Hannover Re a cambio de una prima. El negocio es cíclico: los precios suben tras las catástrofes y bajan cuando faltan. Las dos tienen nota 7, con ventas estancadas (-0,2 % y -0,6 % anual), lo normal en un negocio que arbitra el precio más que el volumen."
+        },
+        {
+          "type": "p",
+          "text": "Lo que las separa es cómo las paga el mercado. Munich Re reduce su número de acciones un 2,4 % anual, hace crecer la caja por acción un 11,6 % anual y cotiza con un descuento del 23,8 % sobre el precio de compra. Su [primer semestre de 2026 es un récord](https://www.munichre.com/en/company/media-relations/media-information-and-corporate-news/media-information/2026/half-year-financial-report.html), con 3.900 millones de euros de beneficio neto y un objetivo anual de 6.300 millones mantenido, aunque el grupo recortó en 2.000 millones su objetivo de ingresos de reaseguro, hasta 38.000 millones. Hannover Re tiene un número de acciones estable, una caja por acción que solo crece un 2,7 % anual, y su cotización supera en un 36,5 % mi precio de compra."
+        },
+        {
+          "type": "p",
+          "text": "La misma mecánica de reaseguro, dos tratamientos bursátiles: el mercado ya ha hecho una selección que la nota sola no muestra. Para comparar con Estados Unidos, detallé la lógica en [mi ranking de reaseguradoras](/blog/reassurance-rnr-acgl-10-sur-10-palmares). El riesgo común sigue siendo el mismo: un año de catástrofes en cadena golpea el resultado de golpe."
+        },
+        {
+          "type": "h2",
+          "text": "SAP y Rheinmetall: el crecimiento se paga, pero no de la misma manera"
+        },
+        {
+          "type": "p",
+          "text": "SAP es la más clásica de las dos. La empresa de software de gestión crece un 8,1 % anual, con una caja por acción que sube un 16,1 % anual, una rentabilidad del capital invertido del 51 % y sin deuda neta. En el segundo trimestre, su [cartera de pedidos cloud a corto plazo saltó un 27 %, hasta 22.900 millones de euros](https://www.sap.com/docs/download/investors/2026/sap-2026-q2-statement.pdf), y los ingresos cloud subieron un 22 %. Un P/FCF de 26 es alto, pero está en el percentil 35 de su propio historial: la acción es más barata que en unos dos tercios de los casos pasados. El mercado teme que la IA se coma el software de gestión, lo que explica la caída del precio. Mi opinión: el miedo es plausible, no demostrado. El trimestre está detallado en [mi análisis de los resultados de SAP](/blog/sap-se-resultats-t2-2026-cloud-verdict)."
+        },
+        {
+          "type": "p",
+          "text": "Rheinmetall es un caso mucho más tenso. Sus ventas crecen un 15,1 % anual, y en el primer semestre de 2026 [saltaron un 39 %, hasta 5.200 millones de euros](https://www.rheinmetall.com/en/media/news-watch/news/2026/08/2026-08-06-rheinmetall-news-half-yearly-financial-report-h1), con una cartera de pedidos de 80.500 millones. Pero el flujo de caja libre operativo del semestre es negativo en 1.600 millones: el grupo acumula existencias, invierte y sufre un desfase en los anticipos de sus clientes. Una cartera que crece no es caja en el banco. Y el número de acciones sube un 2,5 % anual, lo que diluye al accionista."
+        },
+        {
+          "type": "p",
+          "text": "Mi descuento del 55,5 % para Rheinmetall hay que manejarlo con cuidado. El modelo se apoya en la caja de los últimos doce meses, que recogió sus mejores años justo antes de un semestre negativo. El crecimiento del 101,8 % anual de la caja por acción viene además de una base muy baja: el flujo de caja libre del grupo fue negativo de 2021 a 2023. Ya detallé esta tensión en [mi artículo sobre Rheinmetall](/blog/rheinmetall-rhm-carnet-record-cash-flow-tension)."
+        },
+        {
+          "type": "h2",
+          "text": "¿Y Deutsche Telekom, la acción que todo el mundo conoce?"
+        },
+        {
+          "type": "p",
+          "text": "Deutsche Telekom saca un 6 con un P/FCF de 6,1, una caja por acción que crece un 21,4 % anual y un dividendo de alrededor del 3,7 %. Su precio está un 1,2 % por encima de mi precio de compra: prácticamente el precio justo, ni una ganga ni una trampa. Lo que limita la nota es la deuda: equivale a 6,2 años de caja libre, un nivel alto. Un operador de telecomunicaciones financia redes carísimas de construir, y su deuda es el precio de ese activo. La rentabilidad del capital invertido, 9,4 %, sigue siendo modesta. No es una acción de calidad pura, es una rentabilidad correcta a un precio correcto."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué me llevo de Alemania?"
+        },
+        {
+          "type": "p",
+          "text": "La calidad alemana ya no está donde se busca. La imagen clásica de los fabricantes de coches no resiste la rejilla: sus notas no justifican su reputación. Las mejores notas del país están en seguros, software y defensa, es decir, en negocios donde la caja es recurrente o donde la demanda la sostienen los Estados."
+        },
+        {
+          "type": "p",
+          "text": "Pero calidad no es precio. De estos seis valores, tres están realmente con descuento según mi modelo (SAP, Munich Re y Allianz con la salvedad de las reservas), uno está cerca del precio justo (Deutsche Telekom), uno es demasiado caro (Hannover Re) y uno exige prudencia (Rheinmetall). Es la misma lección que en mi estudio sobre [Europa](/blog/actions-europeennes-qualite-prix-2026): un buen balance no dice nada del precio que pagas. Cada ficha, como la de [Allianz](/analyse/ALV.DE) o la de [SAP](/analyse/SAP.DE), detalla los diez criterios, y [mi metodología](/methodologie) explica cómo se calculan la nota y el precio de compra. Es la selección que quería poder hacer con cualquier acción, así que la construí."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las mejores acciones alemanas de calidad en 2026?",
+          "a": "De dieciséis grandes valores alemanes pasados por mi rejilla, tres obtienen 8 sobre 10: Allianz, SAP y Rheinmetall. Munich Re y Hannover Re siguen con 7. Los fabricantes de coches quedan más abajo: Mercedes-Benz 3, BMW 4."
+        },
+        {
+          "q": "¿Las acciones alemanas son elegibles para un PEA francés?",
+          "a": "En general sí: Alemania está en el Espacio Económico Europeo, así que las acciones de empresas alemanas cotizadas en Alemania, como SAP, Allianz o Rheinmetall, pueden entrar en un PEA. Comprueba siempre la elegibilidad con tu bróker antes de comprar."
+        },
+        {
+          "q": "¿Está Allianz infravalorada?",
+          "a": "Mi modelo muestra un descuento del 72,5 %, pero lo leo con prudencia. La caja de una aseguradora está inflada por sus reservas, que varían de un año a otro. El P/FCF de 5,5 es bajo en absoluto y alto frente al historial de la acción."
+        },
+        {
+          "q": "¿Por qué Rheinmetall tiene caja libre negativa pese a una cartera récord?",
+          "a": "En el primer semestre de 2026, el flujo de caja libre operativo es negativo en 1.600 millones de euros: existencias al alza, inversión elevada y desfase de anticipos de clientes. Una cartera de 80.500 millones no es caja: se convierte en tesorería con las entregas."
+        }
+      ],
+      "tags": [
+        "Acciones alemanas",
+        "Valoración",
+        "Acciones de calidad",
+        "Allianz",
+        "SAP",
+        "Rheinmetall",
+        "Munich Re",
+        "Hannover Re",
+        "Deutsche Telekom"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 6 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
