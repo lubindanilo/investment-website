@@ -93992,7 +93992,349 @@ const articleAllemagne2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026];
+const articleWalmartCostco2026: Article = {
+  "slug": "walmart-costco-comparatif-cash-2026",
+  "date": "2026-10-07",
+  "updated": "2026-10-07",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Walmart (WMT) ou Costco (COST) : où va le cash ?",
+      "excerpt": "Les deux géants du commerce vendent un peu plus chaque année. Mais l'un garde de plus en plus de cash, l'autre en investit toujours davantage. Et le prix ?",
+      "metaDescription": "Walmart ou Costco en bourse : les deux vendent plus chaque année, mais un seul garde le cash. Ce que montrent leurs comptes, et le prix à payer.",
+      "answer": "Costco est la meilleure des deux entreprises : son cash libre a progressé de 46 % en quatre ans, quand celui de Walmart a reculé de 42 % en cinq ans, absorbé par des investissements multipliés par 2,6. Mais ni l'une ni l'autre n'est à un prix que mon modèle juge raisonnable aujourd'hui.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Walmart et Costco se ressemblent de loin : de grands magasins, des prix bas, des chariots pleins. De près, ce sont deux machines très différentes. J'ai passé les deux dans ma grille, qui juge la qualité d'une entreprise sur dix critères financiers, séparément de son prix. Costco obtient 7 sur 10, Walmart 4 sur 10. L'écart ne vient pas des ventes, il vient de ce qui reste une fois les factures payées."
+        },
+        {
+          "type": "p",
+          "text": "Une précision sur les chiffres : les exercices comptables ne tombent pas aux mêmes dates (Walmart clôture fin janvier, Costco fin août). Je compare donc chaque entreprise à elle-même sur la même durée de ses propres comptes, pas année civile contre année civile."
+        },
+        {
+          "type": "h2",
+          "text": "Qui garde vraiment le cash ?"
+        },
+        {
+          "type": "p",
+          "text": "Le cash libre (free cash flow), c'est l'argent qui reste dans la caisse après avoir payé les salaires, les impôts et les investissements nécessaires pour continuer à tourner. Sur 100 $ de ventes, Walmart en garde 1,8 et Costco 2,7. Les deux marges sont minces, c'est le propre du commerce à prix bas. Ce qui compte, c'est la pente."
+        },
+        {
+          "type": "p",
+          "text": "Chez Walmart, le chiffre d'affaires est passé de 559 à 713 milliards de dollars entre janvier 2021 et janvier 2026 (+27 %), et le bénéfice net de 13,7 à 22,3 milliards (+62 %). Pourtant le cash libre est passé de 25,8 à 14,9 milliards (-42 %). La raison se lit dans les investissements : de 10,3 à 26,6 milliards de dollars par an. Walmart construit des entrepôts, des centres de livraison et de l'automatisation. Je n'ai pas de document qui détaille ce poste, donc c'est une lecture de ma part (inféré), mais l'ordre de grandeur est là. Un bémol d'honnêteté : 2021 était une année pandémique où le cash était gonflé. Depuis janvier 2022 (11,1 milliards), le cash libre a remonté de 35 %, ce qui est réel, mais bien loin de suivre le bénéfice."
+        },
+        {
+          "type": "p",
+          "text": "Chez Costco, le chiffre d'affaires est passé de 196 à 275 milliards entre août 2021 et août 2025 (+40 %), le bénéfice net de 5,1 à 8,1 milliards (+59 %), et le cash libre de 5,4 à 7,8 milliards (+46 %). Costco investit aussi plus (de 3,6 à 5,5 milliards par an), mais son cash suit son bénéfice au lieu de s'en éloigner. Le nombre d'actions n'a pratiquement pas bougé (environ 445 millions), alors que Walmart en a racheté 6 % en cinq ans."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Critère",
+            "Walmart (WMT)",
+            "Costco (COST)"
+          ],
+          "rows": [
+            [
+              "Note de qualité (sur dix critères)",
+              "4 sur 10",
+              "7 sur 10"
+            ],
+            [
+              "Cash libre sur la période comptée",
+              "25,8 à 14,9 Md$ (-42 %)",
+              "5,4 à 7,8 Md$ (+46 %)"
+            ],
+            [
+              "Investissements annuels",
+              "10,3 à 26,6 Md$",
+              "3,6 à 5,5 Md$"
+            ],
+            [
+              "Croissance annuelle du cash libre par action",
+              "4,6 %",
+              "16,6 %"
+            ],
+            [
+              "Rendement du capital investi",
+              "9,0 %",
+              "26,2 %"
+            ],
+            [
+              "Part du bénéfice transformée en cash",
+              "61 %",
+              "86 %"
+            ],
+            [
+              "Rendement du dividende",
+              "0,9 %",
+              "0,6 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le modèle explique pourquoi. Costco vend presque au prix coûtant et gagne l'essentiel de son profit sur l'abonnement. Dans son [communiqué du quatrième trimestre 2026](https://s201.q4cdn.com/287523651/files/doc_news/Costco-Wholesale-Corporation-Reports-Fourth-Quarter-and-Fiscal-Year-2026-Operating-Results-2026.pdf), publié le 24 septembre 2026, les cotisations ont rapporté 1,85 milliard de dollars (+7,3 %), avec 150,4 millions de porteurs de carte et 89,8 % de renouvellement dans le monde. Un abonnement renouvelé à près de 90 %, c'est un revenu quasi sans coût d'acquisition. Mais la direction a précisé que ce trimestre est le dernier à profiter de la hausse des tarifs de septembre 2024 : la croissance des cotisations dépendra désormais de nouveaux membres, pas d'un coup de prix."
+        },
+        {
+          "type": "p",
+          "text": "Walmart, lui, écrit une autre histoire. Dans son [communiqué du deuxième trimestre de l'exercice 2027](https://corporate.walmart.com/news/2026/08/20/walmart-releases-q2-fy27-earnings), daté du 20 août 2026, les ventes progressent de 5,9 % à 187,9 milliards de dollars, le commerce en ligne de 23 %, la publicité de 38 % et les cotisations de 17 %. Le résultat d'exploitation bondit de 28,8 %. La publicité et l'abonnement sont des activités à forte marge : c'est le signe que les investissements commencent à produire un autre type de profit. C'est l'argument le plus solide en faveur de Walmart, et il est encore à confirmer dans le cash."
+        },
+        {
+          "type": "h2",
+          "text": "Et au prix actuel ?"
+        },
+        {
+          "type": "p",
+          "text": "Pour juger le prix, je regarde le P/FCF : le prix de l'action divisé par le cash libre par action, c'est-à-dire le nombre d'années de cash que tu paies. Walmart se valorise environ 63 fois son cash libre, un niveau plus haut que pour 92 % de son propre historique. Costco se valorise environ 53 fois, plus haut que pour 74 % de son historique, et plus que 79 % des commerces à prix bas de ma base (médiane du secteur autour de 28 fois). Dans les deux cas, le marché paie une histoire : la publicité et le commerce en ligne pour Walmart, la régularité d'un club à 90 % de renouvellement pour Costco."
+        },
+        {
+          "type": "p",
+          "text": "Mon prix d'achat raisonnable (le cours où mon modèle donne environ 15 % de rendement annuel sur cinq ans, avec des hypothèses prudentes) est de 13,87 $ pour Walmart, face à un cours de 107,20 $, soit une surcote de 87 %. Pour Costco, il est de 477,48 $ face à 935,68 $, une surcote de 49 %. Walmart paraît donc plus excessif, mais l'écart est en partie mécanique : mon modèle extrapole la baisse récente de son cash, alors que la publicité pourrait la corriger. Mon verdict : Costco est la meilleure entreprise, mais ses 53 fois le cash laissent peu de marge d'erreur. Walmart est plus cher pour un cash qui ne suit pas encore. Aucun des deux ne passe mon test de prix aujourd'hui, et c'est tout ce que ce test dit : pas une prédiction de baisse, une règle de discipline."
+        },
+        {
+          "type": "p",
+          "text": "Savoir si une entreprise est bonne et à quel prix l'acheter, séparément, en quelques secondes : c'est ce que je voulais pouvoir faire pour n'importe quelle action. Tu peux retrouver les deux dossiers complets sur [la fiche de Walmart](/analyse/WMT) et [la fiche de Costco](/analyse/COST), et ma [méthodologie](/methodologie) détaille chaque critère."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "Walmart",
+        "Costco",
+        "Comparatif",
+        "Cash libre",
+        "Commerce de détail",
+        "Valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 7 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Walmart (WMT) or Costco (COST): where does the cash go?",
+      "excerpt": "Both retail giants sell a bit more every year. But one keeps more and more cash while the other keeps investing more. And what about the price?",
+      "metaDescription": "Walmart or Costco as a stock: both sell more every year, but only one keeps the cash. What their accounts show, and the price you would pay.",
+      "answer": "Costco is the better business of the two: its free cash flow grew 46% in four years, while Walmart's fell 42% in five, absorbed by investment spending up 2.6 times. But neither stock is at a price my model considers reasonable today.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Walmart and Costco look alike from a distance: big stores, low prices, full carts. Up close, they are two very different machines. I ran both through my grid, which judges a company on ten financial criteria, separately from its price. Costco scores 7 out of 10, Walmart 4 out of 10. The gap does not come from sales, it comes from what is left once the bills are paid."
+        },
+        {
+          "type": "p",
+          "text": "A word on the figures: the two fiscal years do not end on the same dates (Walmart closes at the end of January, Costco at the end of August). So I compare each company with itself over the same span of its own accounts, not calendar year against calendar year."
+        },
+        {
+          "type": "h2",
+          "text": "Who actually keeps the cash?"
+        },
+        {
+          "type": "p",
+          "text": "Free cash flow is the money left in the till after paying salaries, taxes and the investment needed to keep running. On $100 of sales, Walmart keeps $1.80 and Costco $2.70. Both margins are thin, which is the nature of low-price retail. What matters is the slope."
+        },
+        {
+          "type": "p",
+          "text": "At Walmart, revenue went from $559 billion to $713 billion between January 2021 and January 2026 (+27%), and net income from $13.7 billion to $22.3 billion (+62%). Yet free cash flow went from $25.8 billion to $14.9 billion (down 42%). The reason shows up in capital spending: from $10.3 billion to $26.6 billion a year. Walmart is building warehouses, delivery hubs and automation. I have no document that itemises this line, so that is my own reading (inferred), but the order of magnitude is there. One honest caveat: 2021 was a pandemic year with inflated cash. Since January 2022 ($11.1 billion), free cash flow has recovered 35%, which is real, but far from keeping pace with profit."
+        },
+        {
+          "type": "p",
+          "text": "At Costco, revenue went from $196 billion to $275 billion between August 2021 and August 2025 (+40%), net income from $5.1 billion to $8.1 billion (+59%), and free cash flow from $5.4 billion to $7.8 billion (+46%). Costco also invests more ($3.6 billion to $5.5 billion a year), but its cash follows its profit instead of drifting away from it. The share count has barely moved (about 445 million), while Walmart bought back 6% of its shares in five years."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterion",
+            "Walmart (WMT)",
+            "Costco (COST)"
+          ],
+          "rows": [
+            [
+              "Quality score (ten criteria)",
+              "4 out of 10",
+              "7 out of 10"
+            ],
+            [
+              "Free cash flow over the period",
+              "$25.8B to $14.9B (down 42%)",
+              "$5.4B to $7.8B (up 46%)"
+            ],
+            [
+              "Annual capital spending",
+              "$10.3B to $26.6B",
+              "$3.6B to $5.5B"
+            ],
+            [
+              "Annual growth of free cash flow per share",
+              "4.6%",
+              "16.6%"
+            ],
+            [
+              "Return on invested capital",
+              "9.0%",
+              "26.2%"
+            ],
+            [
+              "Share of profit turned into cash",
+              "61%",
+              "86%"
+            ],
+            [
+              "Dividend yield",
+              "0.9%",
+              "0.6%"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The business model explains why. Costco sells close to cost and earns most of its profit from membership. In its [fourth quarter 2026 release](https://s201.q4cdn.com/287523651/files/doc_news/Costco-Wholesale-Corporation-Reports-Fourth-Quarter-and-Fiscal-Year-2026-Operating-Results-2026.pdf), published on 24 September 2026, membership fees brought in $1.85 billion (+7.3%), with 150.4 million cardholders and an 89.8% worldwide renewal rate. A membership renewed almost 90% of the time is revenue with almost no acquisition cost. But management said this quarter is the last to benefit from the September 2024 fee increase: fee growth will now depend on new members, not on a price hike."
+        },
+        {
+          "type": "p",
+          "text": "Walmart tells a different story. In its [second quarter fiscal 2027 release](https://corporate.walmart.com/news/2026/08/20/walmart-releases-q2-fy27-earnings), dated 20 August 2026, sales rose 5.9% to $187.9 billion, e-commerce 23%, advertising 38% and membership fees 17%. Operating income jumped 28.8%. Advertising and membership are high-margin businesses: a sign that the investment is starting to produce a different kind of profit. That is the strongest argument for Walmart, and it still has to show up in the cash."
+        },
+        {
+          "type": "h2",
+          "text": "And at today's price?"
+        },
+        {
+          "type": "p",
+          "text": "To judge the price, I look at the P/FCF: the share price divided by free cash flow per share, in other words the number of years of cash you pay for. Walmart is valued at about 63 times its free cash flow, higher than 92% of its own history. Costco is at about 53 times, higher than 74% of its history, and above 79% of the discount retailers in my database (sector median around 28 times). In both cases the market is paying for a story: advertising and e-commerce for Walmart, the regularity of a club with 90% renewal for Costco."
+        },
+        {
+          "type": "p",
+          "text": "My reasonable buy price (the share price at which my model gives about 15% a year over five years, on prudent assumptions) is $13.87 for Walmart against a $107.20 share price, an 87% premium. For Costco it is $477.48 against $935.68, a 49% premium. Walmart therefore looks more excessive, but the gap is partly mechanical: my model extrapolates the recent drop in its cash, whereas advertising could reverse it. My verdict: Costco is the better business, but 53 times its cash leaves little room for error. Walmart is pricier for cash that is not following yet. Neither passes my price test today, and that is all the test says: not a forecast of a fall, a discipline rule."
+        },
+        {
+          "type": "p",
+          "text": "Knowing whether a company is good and at what price to buy it, separately, in seconds: that is what I wanted to be able to do for any stock. You can find both full files on [the Walmart page](/analyse/WMT) and [the Costco page](/analyse/COST), and my [methodology](/methodologie) details each criterion."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "Walmart",
+        "Costco",
+        "Comparison",
+        "Free cash flow",
+        "Retail",
+        "Valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not guarantee future results. Figures as of 7 October 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Walmart (WMT) o Costco (COST): ¿adónde va el efectivo?",
+      "excerpt": "Los dos gigantes del comercio venden un poco más cada año. Pero uno conserva cada vez más efectivo y el otro invierte cada vez más. ¿Y el precio?",
+      "metaDescription": "Walmart o Costco en bolsa: ambas venden más cada año, pero solo una se queda con el efectivo. Lo que muestran sus cuentas y el precio a pagar.",
+      "answer": "Costco es el mejor negocio de los dos: su caja libre creció un 46 % en cuatro años, mientras la de Walmart cayó un 42 % en cinco, absorbida por inversiones multiplicadas por 2,6. Pero ninguna de las dos acciones está hoy a un precio que mi modelo considere razonable.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Walmart y Costco se parecen de lejos: grandes tiendas, precios bajos, carritos llenos. De cerca, son dos máquinas muy distintas. Pasé las dos por mi rejilla, que juzga la calidad de una empresa con diez criterios financieros, separada de su precio. Costco obtiene 7 sobre 10, Walmart 4 sobre 10. La diferencia no viene de las ventas, viene de lo que queda una vez pagadas las facturas."
+        },
+        {
+          "type": "p",
+          "text": "Una precisión sobre las cifras: los ejercicios contables no terminan en las mismas fechas (Walmart cierra a finales de enero, Costco a finales de agosto). Por eso comparo cada empresa consigo misma durante el mismo periodo de sus propias cuentas, no año natural contra año natural."
+        },
+        {
+          "type": "h2",
+          "text": "¿Quién se queda de verdad con el efectivo?"
+        },
+        {
+          "type": "p",
+          "text": "La caja libre (free cash flow) es el dinero que queda en la caja tras pagar salarios, impuestos y las inversiones necesarias para seguir funcionando. Por cada 100 $ de ventas, Walmart se queda con 1,8 y Costco con 2,7. Ambos márgenes son finos, como corresponde al comercio de precios bajos. Lo que importa es la pendiente."
+        },
+        {
+          "type": "p",
+          "text": "En Walmart, la facturación pasó de 559 a 713 mil millones de dólares entre enero de 2021 y enero de 2026 (+27 %), y el beneficio neto de 13,7 a 22,3 mil millones (+62 %). Sin embargo, la caja libre pasó de 25,8 a 14,9 mil millones (-42 %). La razón se lee en las inversiones: de 10,3 a 26,6 mil millones de dólares al año. Walmart construye almacenes, centros de entrega y automatización. No tengo un documento que detalle esa partida, así que es una lectura mía (inferido), pero el orden de magnitud está ahí. Una salvedad honesta: 2021 fue un año de pandemia con la caja inflada. Desde enero de 2022 (11,1 mil millones), la caja libre ha subido un 35 %, algo real, pero lejos de seguir al beneficio."
+        },
+        {
+          "type": "p",
+          "text": "En Costco, la facturación pasó de 196 a 275 mil millones entre agosto de 2021 y agosto de 2025 (+40 %), el beneficio neto de 5,1 a 8,1 mil millones (+59 %) y la caja libre de 5,4 a 7,8 mil millones (+46 %). Costco también invierte más (de 3,6 a 5,5 mil millones al año), pero su caja sigue a su beneficio en lugar de alejarse. El número de acciones apenas se ha movido (unos 445 millones), mientras que Walmart recompró un 6 % en cinco años."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterio",
+            "Walmart (WMT)",
+            "Costco (COST)"
+          ],
+          "rows": [
+            [
+              "Nota de calidad (diez criterios)",
+              "4 sobre 10",
+              "7 sobre 10"
+            ],
+            [
+              "Caja libre en el periodo",
+              "25,8 a 14,9 mil M$ (-42 %)",
+              "5,4 a 7,8 mil M$ (+46 %)"
+            ],
+            [
+              "Inversiones anuales",
+              "10,3 a 26,6 mil M$",
+              "3,6 a 5,5 mil M$"
+            ],
+            [
+              "Crecimiento anual de la caja libre por acción",
+              "4,6 %",
+              "16,6 %"
+            ],
+            [
+              "Rentabilidad del capital invertido",
+              "9,0 %",
+              "26,2 %"
+            ],
+            [
+              "Parte del beneficio convertida en caja",
+              "61 %",
+              "86 %"
+            ],
+            [
+              "Rentabilidad por dividendo",
+              "0,9 %",
+              "0,6 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El modelo de negocio lo explica. Costco vende casi a precio de coste y obtiene la mayor parte de su beneficio de la suscripción. En su [comunicado del cuarto trimestre de 2026](https://s201.q4cdn.com/287523651/files/doc_news/Costco-Wholesale-Corporation-Reports-Fourth-Quarter-and-Fiscal-Year-2026-Operating-Results-2026.pdf), publicado el 24 de septiembre de 2026, las cuotas aportaron 1.850 millones de dólares (+7,3 %), con 150,4 millones de titulares de tarjeta y un 89,8 % de renovación en el mundo. Una suscripción renovada casi al 90 % es un ingreso sin apenas coste de captación. Pero la dirección precisó que este trimestre es el último que se beneficia de la subida de tarifas de septiembre de 2024: el crecimiento de las cuotas dependerá ahora de nuevos socios, no de una subida de precio."
+        },
+        {
+          "type": "p",
+          "text": "Walmart cuenta otra historia. En su [comunicado del segundo trimestre del ejercicio 2027](https://corporate.walmart.com/news/2026/08/20/walmart-releases-q2-fy27-earnings), con fecha del 20 de agosto de 2026, las ventas suben un 5,9 % hasta 187.900 millones de dólares, el comercio electrónico un 23 %, la publicidad un 38 % y las cuotas de socios un 17 %. El resultado de explotación salta un 28,8 %. La publicidad y la suscripción son negocios de alto margen: señal de que la inversión empieza a producir otro tipo de beneficio. Es el argumento más sólido a favor de Walmart, y aún falta verlo en la caja."
+        },
+        {
+          "type": "h2",
+          "text": "¿Y al precio actual?"
+        },
+        {
+          "type": "p",
+          "text": "Para juzgar el precio miro el P/FCF: el precio de la acción dividido por la caja libre por acción, es decir, los años de caja que pagas. Walmart se valora en unas 63 veces su caja libre, más que en el 92 % de su propio historial. Costco está en unas 53 veces, más que en el 74 % de su historial y por encima del 79 % de los comercios de precios bajos de mi base (mediana del sector en torno a 28 veces). En ambos casos el mercado paga una historia: publicidad y comercio electrónico para Walmart, la regularidad de un club con un 90 % de renovación para Costco."
+        },
+        {
+          "type": "p",
+          "text": "Mi precio de compra razonable (el precio al que mi modelo da un 15 % anual a cinco años, con hipótesis prudentes) es de 13,87 $ para Walmart frente a un precio de 107,20 $, una sobrevaloración del 87 %. Para Costco es de 477,48 $ frente a 935,68 $, una sobrevaloración del 49 %. Walmart parece, pues, más excesivo, pero la diferencia es en parte mecánica: mi modelo extrapola la caída reciente de su caja, mientras que la publicidad podría corregirla. Mi veredicto: Costco es el mejor negocio, pero sus 53 veces la caja dejan poco margen de error. Walmart es más caro para una caja que todavía no sigue. Ninguna pasa hoy mi prueba de precio, y eso es todo lo que dice la prueba: no una predicción de caída, una regla de disciplina."
+        },
+        {
+          "type": "p",
+          "text": "Saber si una empresa es buena y a qué precio comprarla, por separado, en segundos: eso es lo que quería poder hacer con cualquier acción. Puedes ver los dos expedientes completos en [la ficha de Walmart](/analyse/WMT) y [la ficha de Costco](/analyse/COST), y mi [metodología](/methodologie) detalla cada criterio."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "Walmart",
+        "Costco",
+        "Comparativa",
+        "Caja libre",
+        "Comercio minorista",
+        "Valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 7 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
