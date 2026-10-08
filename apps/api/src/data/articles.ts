@@ -94338,7 +94338,502 @@ const articleWalmartCostco2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026];
+const articleBookingAirbnb2026: Article = {
+  "slug": "booking-airbnb-comparatif-cash-voyage-2026",
+  "date": "2026-10-08",
+  "updated": "2026-10-08",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Booking (BKNG) ou Airbnb (ABNB) : qui garde le cash ?",
+      "excerpt": "Deux plateformes de voyage, deux façons de gagner de l'argent. L'une croît plus vite, l'autre garde bien plus de cash pour chaque action. Et le prix ?",
+      "metaDescription": "Booking ou Airbnb en bourse : l'un croît plus vite, l'autre garde plus de cash par action. Ce que montrent leurs comptes et le prix à payer aujourd'hui.",
+      "answer": "Booking garde mieux son cash : en quatre ans, il a réduit son nombre d'actions de 21 %, quand celui d'Airbnb n'a pas bougé, et sa rémunération en actions pèse 7 % de son cash libre contre 35 %. Booking se valorise 14 fois son cash libre, Airbnb 30 fois : mon modèle juge Booking bon marché, Airbnb déjà cher.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Deux façons de vendre le même voyage"
+        },
+        {
+          "type": "p",
+          "text": "Booking et Airbnb vivent de la même idée : mettre en relation un voyageur et un hébergeur, puis prélever une commission sur chaque réservation. Aucun des deux ne possède les chambres. Booking (Booking.com, Priceline, KAYAK, OpenTable) agrège surtout des hôtels et des logements professionnels. Airbnb s'est construit sur le logement de particuliers. Comme ils n'ont presque rien à construire ni à entretenir, ils investissent très peu et transforment une grande part de leurs ventes en cash libre, c'est-à-dire l'argent qui reste une fois toutes les factures et tous les investissements payés."
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé les deux dans ma grille de dix critères financiers (rentabilité, croissance, dette, conversion du bénéfice en cash, et ainsi de suite). Les deux valident les dix. Booking passe aussi quinze critères qualitatifs (avantage concurrentiel, direction) que je n'ai pas encore pour Airbnb : je ne compare donc ici que les dix critères chiffrés, qui sont les mêmes pour les deux."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicateur",
+            "Booking",
+            "Airbnb"
+          ],
+          "rows": [
+            [
+              "Ventes 2025",
+              "26,9 Md$",
+              "12,2 Md$"
+            ],
+            [
+              "Cash libre 2025",
+              "9,1 Md$",
+              "4,6 Md$"
+            ],
+            [
+              "Cash libre par action, 2022 à 2025",
+              "+22 % par an",
+              "+14 % par an"
+            ],
+            [
+              "Nombre d'actions, 2021 à 2025",
+              "-21 %",
+              "+1 %"
+            ],
+            [
+              "Rémunération en actions, en part du cash libre",
+              "7 %",
+              "35 %"
+            ],
+            [
+              "Rendement du capital investi (cash ROCE)",
+              "142 %",
+              "32 %"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Le cash libre est-il vraiment à l'actionnaire ?"
+        },
+        {
+          "type": "p",
+          "text": "Le tableau cache l'écart le plus important. Les deux entreprises paient une partie de leurs salariés en actions. C'est de l'argent économisé en apparence, mais chaque action distribuée dilue les actionnaires existants. Chez Airbnb, cette rémunération représente 35 % du cash libre, contre 7 % chez Booking. Le cash libre d'Airbnb est donc plus flatteur que ce qu'il laisse réellement aux actionnaires."
+        },
+        {
+          "type": "p",
+          "text": "On le voit dans le nombre d'actions. Booking a racheté massivement ses titres : 1 034 millions d'actions fin 2021, 816 millions fin 2025, soit 21 % de moins (chiffres ajustés du split de 25 pour 1 réalisé le 2 avril 2026). Airbnb rachète aussi, mais ses rachats ne font que compenser les actions distribuées : 616 millions d'actions fin 2021, 623 millions fin 2025. Résultat, un actionnaire Booking détient une part de plus en plus grande du cash, un actionnaire Airbnb la même."
+        },
+        {
+          "type": "p",
+          "text": "Le rendement du capital investi dit la même chose sous un autre angle. Pour chaque dollar immobilisé dans l'activité, Booking dégage environ 1,42 $ de cash par an, tant il a besoin de peu de capital. Airbnb, à 32 %, reste excellent, très au-dessus des 15 % que j'exige. Mais c'est un autre niveau."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que disent les derniers résultats"
+        },
+        {
+          "type": "p",
+          "text": "Airbnb accélère. Dans son [communiqué du deuxième trimestre 2026](https://www.sec.gov/Archives/edgar/data/0001559720/000119312526337928/d70413dex991.htm), publié début août, il annonce 3,6 milliards de dollars de revenus (+17 %, +13 % hors effet des devises), 148,3 millions de nuitées réservées (+10 %) et 1,25 milliard de cash libre (+30 %, soit 35 % du chiffre d'affaires). Le nombre de nouveaux clients progresse de 11 %, le rythme le plus rapide depuis quatre ans, et la direction a relevé son objectif annuel de croissance à au moins environ 15 %."
+        },
+        {
+          "type": "p",
+          "text": "Booking ralentit, mais il part de plus haut. Son [communiqué du deuxième trimestre 2026](https://www.sec.gov/Archives/edgar/data/0001075531/000107553126000036/q2-26bkngearningsrelease.htm) du 4 août montre 51,0 milliards de dollars de réservations brutes (+9 %), 7,4 milliards de revenus (+8 %), 325 millions de nuitées (+5 %) et un bénéfice par action ajusté de 2,54 $ (+15 %). L'entreprise a racheté 3,7 milliards de dollars de ses propres actions en un seul trimestre et relevé à environ 650 millions de dollars son objectif d'économies, à réaliser d'ici fin 2027. Au passage, le split de 25 pour 1 explique pourquoi l'action vaut environ 156 $ au lieu de près de 4 000 $ : ça ne change rien à la valeur de l'entreprise, seulement au nombre de morceaux."
+        },
+        {
+          "type": "p",
+          "text": "La tension est là. Airbnb vend plus chaque trimestre, mais garde moins de cash par action. Booking vend moins vite, mais transforme chaque point de croissance en davantage de cash pour l'actionnaire."
+        },
+        {
+          "type": "h2",
+          "text": "Et au prix d'aujourd'hui ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Prix",
+            "Booking",
+            "Airbnb"
+          ],
+          "rows": [
+            [
+              "Cours de l'action",
+              "155,87 $",
+              "160,63 $"
+            ],
+            [
+              "Valorisation (années de cash libre)",
+              "14,3 fois",
+              "30,4 fois"
+            ],
+            [
+              "Position dans son propre historique",
+              "parmi les 4 % les moins chers",
+              "plus cher que dans 36 % des cas"
+            ],
+            [
+              "Prix d'achat raisonnable de mon modèle",
+              "279,95 $",
+              "141,12 $"
+            ],
+            [
+              "Écart avec le cours",
+              "décote de 80 %",
+              "surcote de 12 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Pour juger le prix, je regarde le P/FCF : le cours de l'action divisé par le cash libre par action, c'est-à-dire le nombre d'années de cash qu'on achète. Booking se valorise 14 fois son cash libre, un des niveaux les plus bas de son histoire récente. Airbnb en vaut 30. Ce dernier prix suppose que l'accélération actuelle dure : la presse a relayé le 5 octobre les propos de son patron, Brian Chesky, selon lesquels le trafic venu de ChatGPT convertit mieux que celui de Google. C'est un pari sur l'intelligence artificielle autant qu'une analyse."
+        },
+        {
+          "type": "p",
+          "text": "Le marché craint à l'inverse que Booking, dont les ventes ne montent plus que de 8 %, soit un gagnant fatigué que les assistants d'intelligence artificielle contourneront. Je crois la peur en partie fondée sur la croissance, et exagérée sur le prix. Mais le chiffre de 80 % de décote affiché par mon modèle est à relativiser : il suppose un cash libre par action qui passe de 10,9 $ à 25,6 $ en cinq ans, soit environ 19 % par an, bien au-dessus des 8 % de ventes d'aujourd'hui (les rachats ajoutent quelques points, mais pas assez). C'est mon calcul, pas un fait. Même en le divisant par deux, Booking reste raisonnablement valorisé, là où Airbnb ne l'est pas."
+        },
+        {
+          "type": "p",
+          "text": "Mon verdict, sans conseil personnalisé : Booking est la meilleure des deux entreprises et la moins chère, à condition d'accepter une croissance plus lente. Airbnb est excellent, mais déjà payé pour réussir. Être capable de juger une entreprise et son prix séparément, en quelques secondes, c'est ce que je voulais pouvoir faire pour n'importe quelle action. Tu peux voir les deux dossiers complets sur [la fiche de Booking](/analyse/BKNG) et [la fiche d'Airbnb](/analyse/ABNB), et lire ma [méthodologie](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Booking ou Airbnb : lequel croît le plus vite ?",
+          "a": "Airbnb. Au deuxième trimestre 2026, ses revenus ont progressé de 17 % (13 % hors devises) contre 8 % pour Booking. Mais Booking transforme sa croissance en davantage de cash par action, grâce à ses rachats et à une rémunération en actions bien plus faible."
+        },
+        {
+          "q": "Pourquoi l'action Booking vaut-elle environ 156 $ ?",
+          "a": "Booking a réalisé un split de 25 pour 1 le 2 avril 2026. Chaque ancienne action a été divisée en 25, ce qui ramène le cours de près de 4 000 $ à environ 160 $, sans changer la valeur de l'entreprise."
+        }
+      ],
+      "tags": [
+        "Booking",
+        "Airbnb",
+        "Comparatif",
+        "Cash libre",
+        "Voyage",
+        "Valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 8 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Booking (BKNG) or Airbnb (ABNB): who keeps the cash?",
+      "excerpt": "Two travel platforms, two ways of making money. One grows faster, the other keeps far more cash for every share. And what about the price?",
+      "metaDescription": "Booking or Airbnb as a stock: one grows faster, the other keeps more cash per share. What their accounts show, and the price you pay today.",
+      "answer": "Booking keeps its cash better: over four years it cut its share count by 21% while Airbnb's did not move, and stock pay eats 7% of its free cash versus 35%. Booking trades at 14 times free cash flow, Airbnb at 30: my model sees Booking as cheap and Airbnb as already expensive.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Two ways of selling the same trip"
+        },
+        {
+          "type": "p",
+          "text": "Booking and Airbnb live off the same idea: connect a traveler with a host, then take a commission on each booking. Neither owns the rooms. Booking (Booking.com, Priceline, KAYAK, OpenTable) mostly aggregates hotels and professional rentals. Airbnb was built on private homes. Since they have almost nothing to build or maintain, they invest very little and turn a large share of sales into free cash flow, meaning the money left once every bill and investment is paid."
+        },
+        {
+          "type": "p",
+          "text": "I ran both through my grid of ten financial criteria (profitability, growth, debt, how well profit turns into cash, and so on). Both pass all ten. Booking also passes fifteen qualitative criteria (competitive advantage, management) that I do not yet have for Airbnb, so I only compare the ten numeric criteria here, which are the same for both."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Metric",
+            "Booking",
+            "Airbnb"
+          ],
+          "rows": [
+            [
+              "2025 sales",
+              "$26.9B",
+              "$12.2B"
+            ],
+            [
+              "2025 free cash flow",
+              "$9.1B",
+              "$4.6B"
+            ],
+            [
+              "Free cash flow per share, 2022 to 2025",
+              "+22% a year",
+              "+14% a year"
+            ],
+            [
+              "Share count, 2021 to 2025",
+              "-21%",
+              "+1%"
+            ],
+            [
+              "Stock pay as a share of free cash flow",
+              "7%",
+              "35%"
+            ],
+            [
+              "Return on invested capital (cash ROCE)",
+              "142%",
+              "32%"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Is the free cash flow really the shareholder's?"
+        },
+        {
+          "type": "p",
+          "text": "The table hides the most important gap. Both companies pay part of their staff in shares. It looks like money saved, but every share handed out dilutes existing shareholders. At Airbnb this pay equals 35% of free cash flow, against 7% at Booking. Airbnb's free cash flow is therefore more flattering than what it really leaves to shareholders."
+        },
+        {
+          "type": "p",
+          "text": "You can see it in the share count. Booking bought back its stock heavily: 1,034 million shares at the end of 2021, 816 million at the end of 2025, 21% fewer (adjusted for the 25 for 1 split of April 2, 2026). Airbnb buys back too, but its buybacks only offset the shares it hands out: 616 million shares at the end of 2021, 623 million at the end of 2025. A Booking shareholder owns a growing slice of the cash, an Airbnb shareholder the same slice."
+        },
+        {
+          "type": "p",
+          "text": "Return on invested capital says the same thing from another angle. For each dollar tied up in the business, Booking produces about $1.42 of cash a year, because it needs so little capital. Airbnb, at 32%, is still excellent, far above the 15% I demand. But it is another level."
+        },
+        {
+          "type": "h2",
+          "text": "What the latest results say"
+        },
+        {
+          "type": "p",
+          "text": "Airbnb is accelerating. In its [second quarter 2026 release](https://www.sec.gov/Archives/edgar/data/0001559720/000119312526337928/d70413dex991.htm), published in early August, it reports $3.6 billion of revenue (+17%, +13% excluding currency effects), 148.3 million nights and seats booked (+10%) and $1.25 billion of free cash flow (+30%, a 35% margin). First-time bookers grew 11%, the fastest pace in four years, and management raised its full-year revenue growth outlook to at least mid-teens."
+        },
+        {
+          "type": "p",
+          "text": "Booking is slowing, but from a higher base. Its [second quarter 2026 release](https://www.sec.gov/Archives/edgar/data/0001075531/000107553126000036/q2-26bkngearningsrelease.htm) of August 4 shows $51.0 billion of gross bookings (+9%), $7.4 billion of revenue (+8%), 325 million room nights (+5%) and adjusted earnings per share of $2.54 (+15%). It bought back $3.7 billion of its own stock in a single quarter and raised its cost savings target to about $650 million, to be reached by the end of 2027. Incidentally, the 25 for 1 split explains why the stock trades near $156 instead of nearly $4,000: it changes nothing about the value of the company, only the number of slices."
+        },
+        {
+          "type": "p",
+          "text": "That is the tension. Airbnb sells more each quarter but keeps less cash per share. Booking sells more slowly but turns each point of growth into more cash for the shareholder."
+        },
+        {
+          "type": "h2",
+          "text": "And at today's price?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Price",
+            "Booking",
+            "Airbnb"
+          ],
+          "rows": [
+            [
+              "Share price",
+              "$155.87",
+              "$160.63"
+            ],
+            [
+              "Valuation (years of free cash flow)",
+              "14.3 times",
+              "30.4 times"
+            ],
+            [
+              "Position in its own history",
+              "among the cheapest 4%",
+              "pricier than 36% of the time"
+            ],
+            [
+              "Reasonable buy price in my model",
+              "$279.95",
+              "$141.12"
+            ],
+            [
+              "Gap with the share price",
+              "80% discount",
+              "12% premium"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "To judge price I use P/FCF: the share price divided by free cash flow per share, meaning the number of years of cash you are buying. Booking trades at 14 times free cash flow, one of its lowest levels in recent history. Airbnb is at 30. That price assumes today's acceleration lasts: the press relayed on October 5 comments from its chief executive Brian Chesky that traffic coming from ChatGPT converts better than Google's. It is a bet on artificial intelligence as much as an analysis."
+        },
+        {
+          "type": "p",
+          "text": "The market fears the opposite for Booking, whose sales now grow only 8%: a tired winner that AI assistants will bypass. I think the fear is partly founded on growth and exaggerated on price. But the 80% discount my model shows needs to be relativized: it assumes free cash flow per share rising from $10.9 to $25.6 in five years, about 19% a year, well above today's 8% sales growth (buybacks add a few points, but not enough). That is my calculation, not a fact. Even cut in half, Booking stays reasonably valued where Airbnb does not."
+        },
+        {
+          "type": "p",
+          "text": "My verdict, without personal advice: Booking is the better of the two companies and the cheaper one, as long as you accept slower growth. Airbnb is excellent but already priced to succeed. Being able to judge a company and its price separately, in seconds, is what I wanted for any stock. You can see both full files on [the Booking page](/analyse/BKNG) and [the Airbnb page](/analyse/ABNB), and read my [methodology](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Booking or Airbnb: which grows faster?",
+          "a": "Airbnb. In the second quarter of 2026 its revenue grew 17% (13% excluding currency) against 8% for Booking. But Booking turns its growth into more cash per share, thanks to its buybacks and much lower stock pay."
+        },
+        {
+          "q": "Why does Booking stock trade near $156?",
+          "a": "Booking did a 25 for 1 stock split on April 2, 2026. Each old share became 25, bringing the price from nearly $4,000 to about $160 without changing the value of the company."
+        }
+      ],
+      "tags": [
+        "Booking",
+        "Airbnb",
+        "Comparison",
+        "Free cash flow",
+        "Travel",
+        "Valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not predict future results. Figures as of October 8, 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that."
+    },
+    "es": {
+      "title": "Booking (BKNG) o Airbnb (ABNB): ¿quién conserva la caja?",
+      "excerpt": "Dos plataformas de viajes, dos formas de ganar dinero. Una crece más rápido, la otra conserva mucha más caja por cada acción. ¿Y el precio?",
+      "metaDescription": "Booking o Airbnb en bolsa: una crece más rápido, la otra conserva más caja por acción. Qué muestran sus cuentas y el precio que pagas hoy.",
+      "answer": "Booking conserva mejor su caja: en cuatro años redujo su número de acciones un 21 %, mientras el de Airbnb no se movió, y su remuneración en acciones pesa un 7 % de su caja libre frente al 35 %. Booking cotiza a 14 veces su caja libre, Airbnb a 30: mi modelo ve Booking barata y Airbnb ya cara.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Dos formas de vender el mismo viaje"
+        },
+        {
+          "type": "p",
+          "text": "Booking y Airbnb viven de la misma idea: conectar a un viajero con un anfitrión y cobrar una comisión por cada reserva. Ninguna de las dos posee las habitaciones. Booking (Booking.com, Priceline, KAYAK, OpenTable) agrega sobre todo hoteles y alojamientos profesionales. Airbnb se construyó sobre viviendas de particulares. Como casi no tienen nada que construir ni mantener, invierten muy poco y convierten gran parte de sus ventas en caja libre, es decir, el dinero que queda una vez pagadas todas las facturas e inversiones."
+        },
+        {
+          "type": "p",
+          "text": "Las pasé por mi rejilla de diez criterios financieros (rentabilidad, crecimiento, deuda, cuánto del beneficio se convierte en caja, etcétera). Las dos cumplen los diez. Booking supera además quince criterios cualitativos (ventaja competitiva, dirección) que aún no tengo para Airbnb, así que aquí solo comparo los diez criterios numéricos, que son los mismos para ambas."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicador",
+            "Booking",
+            "Airbnb"
+          ],
+          "rows": [
+            [
+              "Ventas 2025",
+              "26.900 M$",
+              "12.200 M$"
+            ],
+            [
+              "Caja libre 2025",
+              "9.100 M$",
+              "4.600 M$"
+            ],
+            [
+              "Caja libre por acción, 2022 a 2025",
+              "+22 % anual",
+              "+14 % anual"
+            ],
+            [
+              "Número de acciones, 2021 a 2025",
+              "-21 %",
+              "+1 %"
+            ],
+            [
+              "Remuneración en acciones, sobre la caja libre",
+              "7 %",
+              "35 %"
+            ],
+            [
+              "Rentabilidad del capital invertido (cash ROCE)",
+              "142 %",
+              "32 %"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "¿La caja libre es realmente del accionista?"
+        },
+        {
+          "type": "p",
+          "text": "La tabla esconde la diferencia más importante. Las dos empresas pagan parte de su plantilla en acciones. Parece dinero ahorrado, pero cada acción entregada diluye a los accionistas existentes. En Airbnb esa remuneración equivale al 35 % de la caja libre, frente al 7 % en Booking. Su caja libre es, por tanto, más aduladora que lo que realmente deja a los accionistas."
+        },
+        {
+          "type": "p",
+          "text": "Se ve en el número de acciones. Booking recompró acciones de forma masiva: 1.034 millones a finales de 2021, 816 millones a finales de 2025, un 21 % menos (cifras ajustadas por el split de 25 por 1 del 2 de abril de 2026). Airbnb también recompra, pero sus recompras solo compensan las acciones que entrega: 616 millones a finales de 2021, 623 millones a finales de 2025. Un accionista de Booking posee una parte cada vez mayor de la caja, uno de Airbnb la misma."
+        },
+        {
+          "type": "p",
+          "text": "La rentabilidad del capital invertido dice lo mismo desde otro ángulo. Por cada dólar inmovilizado en el negocio, Booking genera unos 1,42 $ de caja al año, porque necesita muy poco capital. Airbnb, con un 32 %, sigue siendo excelente, muy por encima del 15 % que exijo. Pero es otro nivel."
+        },
+        {
+          "type": "h2",
+          "text": "Qué dicen los últimos resultados"
+        },
+        {
+          "type": "p",
+          "text": "Airbnb se acelera. En su [comunicado del segundo trimestre de 2026](https://www.sec.gov/Archives/edgar/data/0001559720/000119312526337928/d70413dex991.htm), publicado a principios de agosto, informa de 3.600 millones de dólares de ingresos (+17 %, +13 % sin efecto de divisas), 148,3 millones de noches reservadas (+10 %) y 1.250 millones de caja libre (+30 %, un margen del 35 %). Los clientes que reservan por primera vez crecieron un 11 %, el ritmo más rápido en cuatro años, y la dirección elevó su previsión anual de crecimiento de ingresos a al menos alrededor del 15 %."
+        },
+        {
+          "type": "p",
+          "text": "Booking se frena, pero parte de más arriba. Su [comunicado del segundo trimestre de 2026](https://www.sec.gov/Archives/edgar/data/0001075531/000107553126000036/q2-26bkngearningsrelease.htm) del 4 de agosto muestra 51.000 millones de dólares de reservas brutas (+9 %), 7.400 millones de ingresos (+8 %), 325 millones de noches (+5 %) y un beneficio por acción ajustado de 2,54 $ (+15 %). Recompró 3.700 millones de dólares de sus propias acciones en un solo trimestre y elevó a unos 650 millones de dólares su objetivo de ahorro, que quiere alcanzar a finales de 2027. De paso, el split de 25 por 1 explica por qué la acción vale unos 156 $ en lugar de casi 4.000 $: no cambia el valor de la empresa, solo el número de porciones."
+        },
+        {
+          "type": "p",
+          "text": "Ahí está la tensión. Airbnb vende más cada trimestre pero conserva menos caja por acción. Booking vende más despacio, pero convierte cada punto de crecimiento en más caja para el accionista."
+        },
+        {
+          "type": "h2",
+          "text": "¿Y al precio de hoy?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Precio",
+            "Booking",
+            "Airbnb"
+          ],
+          "rows": [
+            [
+              "Cotización",
+              "155,87 $",
+              "160,63 $"
+            ],
+            [
+              "Valoración (años de caja libre)",
+              "14,3 veces",
+              "30,4 veces"
+            ],
+            [
+              "Posición en su propio historial",
+              "entre el 4 % más barato",
+              "más cara que en el 36 % de los casos"
+            ],
+            [
+              "Precio de compra razonable de mi modelo",
+              "279,95 $",
+              "141,12 $"
+            ],
+            [
+              "Diferencia con la cotización",
+              "descuento del 80 %",
+              "sobrevaloración del 12 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Para juzgar el precio miro el P/FCF: la cotización dividida entre la caja libre por acción, es decir, los años de caja que compras. Booking cotiza a 14 veces su caja libre, uno de sus niveles más bajos de su historia reciente. Airbnb está en 30. Ese precio supone que la aceleración actual dura: la prensa recogió el 5 de octubre unas declaraciones de su consejero delegado, Brian Chesky, según las cuales el tráfico procedente de ChatGPT convierte mejor que el de Google. Es una apuesta por la inteligencia artificial tanto como un análisis."
+        },
+        {
+          "type": "p",
+          "text": "El mercado teme lo contrario para Booking, cuyas ventas solo suben ya un 8 %: un ganador cansado que los asistentes de inteligencia artificial esquivarán. Creo que el miedo está en parte fundado en el crecimiento y es exagerado en el precio. Pero el descuento del 80 % que muestra mi modelo hay que relativizarlo: supone una caja libre por acción que pasa de 10,9 $ a 25,6 $ en cinco años, unos 19 % anuales, muy por encima del 8 % de ventas actual (las recompras suman unos puntos, pero no bastan). Es mi cálculo, no un hecho. Incluso reducido a la mitad, Booking sigue razonablemente valorada, donde Airbnb no."
+        },
+        {
+          "type": "p",
+          "text": "Mi veredicto, sin consejo personalizado: Booking es la mejor de las dos empresas y la más barata, siempre que aceptes un crecimiento más lento. Airbnb es excelente, pero ya está pagada para tener éxito. Poder juzgar por separado una empresa y su precio, en segundos, es lo que quería para cualquier acción. Puedes ver los dos expedientes completos en [la ficha de Booking](/analyse/BKNG) y [la ficha de Airbnb](/analyse/ABNB), y leer mi [metodología](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Booking o Airbnb: ¿cuál crece más rápido?",
+          "a": "Airbnb. En el segundo trimestre de 2026 sus ingresos subieron un 17 % (13 % sin divisas) frente al 8 % de Booking. Pero Booking convierte su crecimiento en más caja por acción, gracias a sus recompras y a una remuneración en acciones mucho menor."
+        },
+        {
+          "q": "¿Por qué la acción de Booking vale unos 156 $?",
+          "a": "Booking hizo un split de 25 por 1 el 2 de abril de 2026. Cada acción antigua pasó a ser 25, lo que baja el precio de casi 4.000 $ a unos 160 $ sin cambiar el valor de la empresa."
+        }
+      ],
+      "tags": [
+        "Booking",
+        "Airbnb",
+        "Comparativa",
+        "Caja libre",
+        "Viajes",
+        "Valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 8 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
