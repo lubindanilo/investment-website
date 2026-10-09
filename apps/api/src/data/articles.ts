@@ -94833,7 +94833,453 @@ const articleBookingAirbnb2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026];
+const articleAirbusBoeing2026: Article = {
+  "slug": "airbus-boeing-comparatif-cash-avions-2026",
+  "date": "2026-10-09",
+  "updated": "2026-10-09",
+  "readingTime": 7,
+  "content": {
+    "fr": {
+      "title": "Airbus (AIR) ou Boeing (BA) : qui gagne du cash ?",
+      "excerpt": "Deux constructeurs, un duopole, et pourtant deux histoires opposées. L'un transforme sa montée en cadence en cash, l'autre sort à peine de la zone rouge.",
+      "metaDescription": "Airbus ou Boeing en bourse : même duopole, mais pas le même cash ni la même dilution. Ce que montrent leurs comptes et le prix demandé aujourd'hui.",
+      "answer": "Airbus est aujourd'hui le meilleur des deux sur le cash : environ 4 Md€ de cash libre en 2025 et un nombre d'actions stable, quand Boeing a perdu 1,9 Md$ et gonflé son capital de 28 % en trois ans. Mais Airbus est valorisée 21 % au-dessus de mon prix d'achat raisonnable, et Boeing n'a pas de cash à valoriser.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Le 29 juillet 2026, Airbus a publié ses résultats du premier semestre : 351 avions livrés, des ventes en hausse de 12 % à 33,2 Md€, et un cash libre négatif de 1,2 Md€. Les gros titres ont surtout retenu le carnet de commandes record. Presque aucun n'a retenu la ligne qui compte pour un actionnaire : le cash."
+        },
+        {
+          "type": "p",
+          "text": "Un jour plus tôt, Boeing avait livré 171 avions au deuxième trimestre, dont 129 737, et annoncé un cash libre positif de 631 M$. Mais aussi une perte nette de 428 M$ et une charge de 280 M$ sur l'avion présidentiel VC-25B. Même ciel, même duopole mondial, deux soirées de résultats qui ne se ressemblent pas."
+        },
+        {
+          "type": "p",
+          "text": "Quand on te demande « Airbus ou Boeing », la réponse de comptoir est que l'un fabrique des avions qui volent et l'autre des avions qui posent problème. Ce n'est pas ma question. Ma question est plus sèche : lequel de ces deux métiers transforme ses ventes en argent qui reste dans la poche de l'actionnaire, et à quel prix l'action le vend-elle ?"
+        },
+        {
+          "type": "h2",
+          "text": "Un duopole, deux trajectoires de cash"
+        },
+        {
+          "type": "p",
+          "text": "Un constructeur d'avions encaisse une grande partie du prix à la livraison, mais il fabrique des mois à l'avance. Quand la cadence monte, les stocks gonflent avant que le cash ne rentre : le cash libre (l'argent qui reste une fois les factures et les investissements payés) peut donc être négatif en pleine bonne santé commerciale. C'est exactement ce qu'Airbus explique pour son premier semestre : la sortie d'argent vient surtout d'un stock construit pour tenir la montée en cadence. Le groupe maintient son objectif annuel d'environ 4,5 Md€, ce qui suppose un second semestre très fort."
+        },
+        {
+          "type": "p",
+          "text": "Regarde la trajectoire plutôt que la photo. D'après les séries de mon outil, le cash libre d'Airbus est passé de 3,8 Md€ en 2022 à 3,2 en 2023, 3,7 en 2024 puis 4,0 Md€ en 2025, pendant que les ventes grimpaient de 58,8 à 73,4 Md€. Ce n'est pas spectaculaire, c'est régulier. Et le nombre d'actions n'a pour ainsi dire pas bougé (+0,1 % par an) : ce que gagne l'entreprise se répartit entre le même nombre de propriétaires."
+        },
+        {
+          "type": "p",
+          "text": "Pour Boeing, la série raconte une autre histoire : 2,3 Md$ de cash libre en 2022, 4,4 en 2023, puis une chute à moins 14,3 Md$ en 2024 et moins 1,9 en 2025, alors que les ventes remontaient de 66,6 à 89,5 Md$. Les ventes reviennent, le cash non. Et pour réparer le bilan, le nombre d'actions est passé de 595 à 762 millions, soit 28 % de plus en trois ans. Chaque action existante pèse donc un peu moins : c'est une dilution, et elle se paie en rendement par action même quand l'entreprise va mieux."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicateur",
+            "Airbus",
+            "Boeing"
+          ],
+          "rows": [
+            [
+              "Ventes 2025",
+              "73,4 Md€",
+              "89,5 Md$"
+            ],
+            [
+              "Cash libre 2025",
+              "4,0 Md€",
+              "moins 1,9 Md$"
+            ],
+            [
+              "Cash libre, de 2022 à 2025",
+              "de 3,8 à 4,0 Md€",
+              "de 2,3 à moins 1,9 Md$"
+            ],
+            [
+              "Nombre d'actions, de 2022 à 2025",
+              "stable (+0,1 % par an)",
+              "+28 %"
+            ],
+            [
+              "Livraisons, 2026",
+              "351 sur le semestre",
+              "171 sur le trimestre"
+            ],
+            [
+              "Ma note qualité",
+              "5 sur 10",
+              "6 sur 10, fragile"
+            ],
+            [
+              "Prix en années de cash libre",
+              "36,7, au milieu de son historique",
+              "non calculable, cash négatif"
+            ],
+            [
+              "Prix d'achat raisonnable de mon modèle",
+              "148 €",
+              "non calculable"
+            ],
+            [
+              "Cours constaté",
+              "187 €, surcote de 21 %",
+              "187,75 $"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi la note de Boeing ne dit pas ce qu'on croit"
+        },
+        {
+          "type": "p",
+          "text": "Boeing obtient 6 sur 10 dans ma grille de dix critères financiers, contre 5 pour Airbus. Pris au pied de la lettre, ce serait un point pour Boeing. C'est une illusion de lecture, et je préfère te la montrer. Plusieurs critères de Boeing sont tout simplement non calculables, faute de cash libre positif sur les douze derniers mois : le rendement du capital, l'endettement rapporté au cash et la conversion du bénéfice en cash. Un critère non calculable ne compte pas comme une réussite, mais il ne compte pas non plus comme un échec, et il reste surtout invisible dans la note finale."
+        },
+        {
+          "type": "p",
+          "text": "Les points que Boeing marque sont réels mais étroits : un cycle d'exploitation favorable (les clients versent des acomptes avant la livraison, ce qui finance la fabrication) et des marges qui s'élargissent par rapport à un point très bas. Ceux qu'il perd sont structurels, à commencer par la dilution de 5,4 % par an. Airbus perd ses points sur autre chose : une rentabilité du capital de 8,9 % sous ma barre de 15 %, des marges qui se compriment et une croissance du cash par action de 3 % par an. C'est un bon industriel, pas une machine à composer."
+        },
+        {
+          "type": "p",
+          "text": "Du côté de Boeing, le contexte compte autant que la note. Le groupe a relevé sa cadence sur le 737 à 47 appareils par mois, ouvert une seconde ligne d'assemblage et affiche un carnet de commandes record de 715 Md$. Il vise un cash libre de 1 à 3 Md$ sur l'année et dit avoir réduit sa dette de 8,2 Md$ depuis janvier, d'après [le compte rendu du deuxième trimestre](https://www.manufacturingdive.com/news/boeing-q2-earnings-2026-bca-bds-speea-arizona/826382/). Une partie de ce cash du trimestre vient d'un calendrier d'encaissements favorable, qui ne se répétera pas forcément. Les détails sont dans [le dépôt annuel auprès de la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=BA&type=10-K)."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : la surcote est chez Airbus, le brouillard chez Boeing"
+        },
+        {
+          "type": "p",
+          "text": "Je juge le prix avec le P/FCF : le cours de l'action divisé par le cash libre par action, soit le nombre d'années de cash que tu achètes. Airbus se valorise 36,7 fois son cash libre. C'est élevé en valeur absolue, mais c'est pile le milieu de sa propre histoire (autour du 52e centile sur la série du site) : le marché ne lui accorde ni prime inhabituelle ni décote. Il paie une montée en cadence qu'il croit durable, avec un objectif de 70 à 75 A320 par mois fin 2027, d'après [le communiqué semestriel d'Airbus](https://www.airbus.com/en/newsroom/press-releases/2026-07-airbus-reports-half-year-h1-2026-results)."
+        },
+        {
+          "type": "p",
+          "text": "Mon modèle cherche le prix auquel un rendement de 15 % par an reste atteignable. Pour Airbus, il donne 148 €. L'action vaut environ 187 € : elle est donc 21 % au-dessus de ce point d'entrée. Ce n'est pas une alerte rouge, c'est une action de très bonne entreprise payée pour que tout se passe bien, avec peu de marge si le semestre de cash prévu glisse. Pour Boeing, mon outil ne sort pas de prix, et ce silence est en soi une information : tant que le cash libre n'est pas durablement positif, valoriser l'action revient à parier sur un redressement, pas à l'évaluer."
+        },
+        {
+          "type": "p",
+          "text": "Mon verdict, sans conseil personnalisé : Airbus est la meilleure entreprise des deux et la seule dont je peux écrire un prix, mais elle n'est pas bon marché ; Boeing est un pari de redressement dont l'issue dépend de trois années de cash positif que personne n'a encore vues. Séparer la qualité du business de son prix, en quelques secondes, c'est ce que je voulais pouvoir faire pour n'importe quelle action. Tu peux voir les dossiers complets sur [la fiche d'Airbus](/analyse/AIR.PA) et [la fiche de Boeing](/analyse/BA), ou relire ma [méthodologie](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Airbus ou Boeing : lequel génère le plus de cash ?",
+          "a": "Airbus, nettement. Son cash libre est resté entre 3,2 et 4,0 Md€ par an depuis 2022, alors que celui de Boeing est passé de plus 4,4 Md$ en 2023 à moins 14,3 Md$ en 2024 puis moins 1,9 Md$ en 2025, selon les séries de mon outil."
+        },
+        {
+          "q": "Pourquoi Airbus a-t-il un cash libre négatif au premier semestre 2026 ?",
+          "a": "Parce qu'il construit du stock pour monter en cadence : les avions sont fabriqués avant d'être livrés et payés. Le groupe a affiché environ moins 1,2 Md€ sur six mois et maintient un objectif d'environ 4,5 Md€ sur l'année, ce qui suppose un second semestre très fort."
+        },
+        {
+          "q": "La dilution de Boeing est-elle un problème ?",
+          "a": "Oui pour l'actionnaire actuel : le nombre d'actions est passé de 595 à 762 millions entre 2022 et 2025, soit 28 % de plus. Chaque action existante représente une part plus petite de l'entreprise et du cash qu'elle produira."
+        }
+      ],
+      "tags": [
+        "Airbus",
+        "Boeing",
+        "Comparatif",
+        "Aéronautique",
+        "Cash libre",
+        "Valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 9 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Airbus (AIR) or Boeing (BA): Who Makes the Cash?",
+      "excerpt": "Two plane makers, one duopoly, and yet two opposite stories. One turns its production ramp-up into cash, the other is only just leaving the red.",
+      "metaDescription": "Airbus or Boeing stock: same duopoly, but not the same cash or dilution. What their accounts show and the price you are asked to pay today.",
+      "answer": "Airbus is the better of the two on cash today: about 4 bn euros of free cash flow in 2025 and a stable share count, while Boeing burned 1.9 bn dollars and expanded its share count by 28% in three years. But Airbus trades 21% above my reasonable buy price, and Boeing has no cash flow to value.",
+      "body": [
+        {
+          "type": "p",
+          "text": "On July 29, 2026, Airbus published its first-half results: 351 aircraft delivered, sales up 12% to 33.2 bn euros, and negative free cash flow of 1.2 bn euros. Headlines mostly picked up the record order book. Almost none picked up the line that matters to a shareholder: cash."
+        },
+        {
+          "type": "p",
+          "text": "A day earlier, Boeing had delivered 171 aircraft in the second quarter, including 129 737s, and reported positive free cash flow of 631 million dollars. It also reported a net loss of 428 million dollars and a 280 million dollar charge on the VC-25B presidential aircraft. Same sky, same global duopoly, two earnings nights that look nothing alike."
+        },
+        {
+          "type": "p",
+          "text": "When someone asks you \"Airbus or Boeing\", the bar-stool answer is that one builds planes that fly and the other builds planes that cause problems. That is not my question. Mine is drier: which of these two businesses turns its sales into money that stays in the shareholder's pocket, and what price does the stock ask for it?"
+        },
+        {
+          "type": "h2",
+          "text": "One duopoly, two cash trajectories"
+        },
+        {
+          "type": "p",
+          "text": "A plane maker collects much of the price at delivery, but it builds months ahead. When the production rate rises, inventory swells before the cash comes in: free cash flow (the money left after paying bills and investments) can be negative even in perfect commercial health. That is exactly Airbus's explanation for its first half: the outflow comes mostly from inventory built to support the ramp-up. The group keeps its annual target of about 4.5 bn euros, which assumes a very strong second half."
+        },
+        {
+          "type": "p",
+          "text": "Look at the trajectory, not the snapshot. According to my tool's series, Airbus free cash flow went from 3.8 bn euros in 2022 to 3.2 in 2023, 3.7 in 2024 and 4.0 bn in 2025, while sales climbed from 58.8 to 73.4 bn. It is not spectacular, it is steady. And the share count has barely moved (+0.1% a year): what the company earns is shared among the same number of owners."
+        },
+        {
+          "type": "p",
+          "text": "Boeing's series tells another story: 2.3 bn dollars of free cash flow in 2022, 4.4 in 2023, then a drop to minus 14.3 bn in 2024 and minus 1.9 in 2025, while sales rebounded from 66.6 to 89.5 bn. Sales are coming back, cash is not. And to repair the balance sheet, the share count went from 595 to 762 million, 28% more in three years. Each existing share is worth a little less of the company: that is dilution, and it costs you per-share returns even when the business improves."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Metric",
+            "Airbus",
+            "Boeing"
+          ],
+          "rows": [
+            [
+              "2025 sales",
+              "73.4 bn EUR",
+              "89.5 bn USD"
+            ],
+            [
+              "2025 free cash flow",
+              "4.0 bn EUR",
+              "minus 1.9 bn USD"
+            ],
+            [
+              "Free cash flow, 2022 to 2025",
+              "from 3.8 to 4.0 bn EUR",
+              "from 2.3 to minus 1.9 bn USD"
+            ],
+            [
+              "Share count, 2022 to 2025",
+              "stable (+0.1% a year)",
+              "+28%"
+            ],
+            [
+              "Deliveries, 2026",
+              "351 over the half-year",
+              "171 in the quarter"
+            ],
+            [
+              "My quality score",
+              "5 out of 10",
+              "6 out of 10, fragile"
+            ],
+            [
+              "Price in years of free cash flow",
+              "36.7, mid-range of its history",
+              "not computable, negative cash"
+            ],
+            [
+              "Reasonable buy price in my model",
+              "148 EUR",
+              "not computable"
+            ],
+            [
+              "Observed price",
+              "187 EUR, 21% overvalued",
+              "187.75 USD"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Why Boeing's score does not say what you think"
+        },
+        {
+          "type": "p",
+          "text": "Boeing scores 6 out of 10 in my grid of ten financial criteria, against 5 for Airbus. Taken literally, that is a point for Boeing. It is a reading illusion, and I would rather show you why. Several Boeing criteria are simply not computable, because free cash flow was not positive over the last twelve months: return on capital, debt relative to cash, and conversion of earnings into cash. A non-computable criterion does not count as a pass, nor as a fail, and above all it stays invisible in the final score."
+        },
+        {
+          "type": "p",
+          "text": "The points Boeing earns are real but narrow: a favorable operating cycle (customers pay deposits before delivery, which finances production) and margins widening from a very low base. The ones it loses are structural, starting with 5.4% annual dilution. Airbus loses its points elsewhere: a return on capital of 8.9% under my 15% bar, compressing margins and cash-per-share growth of 3% a year. It is a good industrial, not a compounding machine."
+        },
+        {
+          "type": "p",
+          "text": "On Boeing's side, context matters as much as the score. The group has raised the 737 rate to 47 aircraft a month, opened a second assembly line and shows a record backlog of 715 bn dollars. It targets 1 to 3 bn dollars of free cash flow for the year and says it cut debt by 8.2 bn dollars since January, according to [the second-quarter report](https://www.manufacturingdive.com/news/boeing-q2-earnings-2026-bca-bds-speea-arizona/826382/). Part of the quarter's cash came from favorable collection timing, which will not necessarily repeat. Details are in [the annual filing with the SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=BA&type=10-K)."
+        },
+        {
+          "type": "h2",
+          "text": "The price: overvaluation at Airbus, fog at Boeing"
+        },
+        {
+          "type": "p",
+          "text": "I judge price with P/FCF: the stock price divided by free cash flow per share, meaning the number of years of cash you buy. Airbus trades at 36.7 times its free cash flow. That is high in absolute terms, but it is right in the middle of its own history (around the 52nd percentile on the site's series): the market grants it neither an unusual premium nor a discount. It is paying for a ramp-up it believes will last, with a target of 70 to 75 A320s a month by end of 2027, according to [Airbus's half-year release](https://www.airbus.com/en/newsroom/press-releases/2026-07-airbus-reports-half-year-h1-2026-results)."
+        },
+        {
+          "type": "p",
+          "text": "My model looks for the price at which a 15% annual return remains reachable. For Airbus it gives 148 euros. The stock is around 187, so 21% above that entry point. This is not a red flag, it is a very good company priced for everything to go right, with little margin if the expected cash half slips. For Boeing, my tool produces no price, and that silence is information in itself: until free cash flow is durably positive, valuing the stock means betting on a recovery, not assessing it."
+        },
+        {
+          "type": "p",
+          "text": "My verdict, without personal advice: Airbus is the better business of the two and the only one I can put a price on, but it is not cheap; Boeing is a turnaround bet whose outcome depends on three years of positive cash nobody has seen yet. Separating a business's quality from its price, in seconds, is what I wanted to be able to do for any stock. You can see the full files on [the Airbus page](/analyse/AIR.PA) and [the Boeing page](/analyse/BA), or reread my [methodology](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Airbus or Boeing: which generates more cash?",
+          "a": "Airbus, clearly. Its free cash flow has stayed between 3.2 and 4.0 bn euros a year since 2022, while Boeing's went from plus 4.4 bn dollars in 2023 to minus 14.3 bn in 2024 then minus 1.9 bn in 2025, according to my tool's series."
+        },
+        {
+          "q": "Why is Airbus free cash flow negative in the first half of 2026?",
+          "a": "Because it is building inventory to raise production: planes are built before they are delivered and paid for. The group reported about minus 1.2 bn euros over six months and keeps a target of about 4.5 bn euros for the year, which assumes a very strong second half."
+        },
+        {
+          "q": "Is Boeing's dilution a problem?",
+          "a": "Yes for the current shareholder: the share count went from 595 to 762 million between 2022 and 2025, 28% more. Each existing share represents a smaller slice of the company and of the cash it will produce."
+        }
+      ],
+      "tags": [
+        "Airbus",
+        "Boeing",
+        "Comparison",
+        "Aerospace",
+        "Free cash flow",
+        "Valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not predict future results. Figures as of October 9, 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that."
+    },
+    "es": {
+      "title": "Airbus (AIR) o Boeing (BA): ¿quién gana caja?",
+      "excerpt": "Dos fabricantes, un duopolio y, sin embargo, dos historias opuestas. Uno convierte su aumento de cadencia en caja, el otro apenas sale de los números rojos.",
+      "metaDescription": "Airbus o Boeing en bolsa: mismo duopolio, pero no la misma caja ni la misma dilución. Qué muestran sus cuentas y el precio que piden hoy.",
+      "answer": "Airbus es hoy la mejor de las dos en caja: unos 4.000 millones de euros de caja libre en 2025 y un número de acciones estable, mientras Boeing perdió 1.900 millones de dólares y aumentó su capital un 28 % en tres años. Pero Airbus cotiza un 21 % por encima de mi precio de compra razonable, y Boeing no tiene caja que valorar.",
+      "body": [
+        {
+          "type": "p",
+          "text": "El 29 de julio de 2026, Airbus publicó sus resultados del primer semestre: 351 aviones entregados, ventas al alza un 12 % hasta 33.200 millones de euros y una caja libre negativa de 1.200 millones. Los titulares destacaron sobre todo la cartera de pedidos récord. Casi ninguno destacó la línea que importa a un accionista: la caja."
+        },
+        {
+          "type": "p",
+          "text": "Un día antes, Boeing había entregado 171 aviones en el segundo trimestre, 129 de ellos 737, y anunciado una caja libre positiva de 631 millones de dólares. Pero también una pérdida neta de 428 millones y un cargo de 280 millones por el avión presidencial VC-25B. Mismo cielo, mismo duopolio mundial, dos noches de resultados que no se parecen."
+        },
+        {
+          "type": "p",
+          "text": "Cuando te preguntan «Airbus o Boeing», la respuesta de barra es que uno fabrica aviones que vuelan y el otro aviones que dan problemas. No es mi pregunta. La mía es más seca: ¿cuál de estos dos negocios convierte sus ventas en dinero que se queda en el bolsillo del accionista, y a qué precio vende la acción ese dinero?"
+        },
+        {
+          "type": "h2",
+          "text": "Un duopolio, dos trayectorias de caja"
+        },
+        {
+          "type": "p",
+          "text": "Un fabricante de aviones cobra buena parte del precio en la entrega, pero fabrica con meses de antelación. Cuando sube la cadencia, el inventario se hincha antes de que entre la caja: la caja libre (el dinero que queda tras pagar facturas e inversiones) puede ser negativa con una salud comercial excelente. Es justo la explicación de Airbus para su primer semestre: la salida de dinero procede sobre todo del inventario construido para sostener el aumento de cadencia. El grupo mantiene su objetivo anual de unos 4.500 millones de euros, lo que supone un segundo semestre muy fuerte."
+        },
+        {
+          "type": "p",
+          "text": "Mira la trayectoria, no la foto. Según las series de mi herramienta, la caja libre de Airbus pasó de 3.800 millones de euros en 2022 a 3.200 en 2023, 3.700 en 2024 y 4.000 millones en 2025, mientras las ventas subían de 58.800 a 73.400 millones. No es espectacular, es regular. Y el número de acciones apenas se ha movido (+0,1 % al año): lo que gana la empresa se reparte entre los mismos propietarios."
+        },
+        {
+          "type": "p",
+          "text": "La serie de Boeing cuenta otra historia: 2.300 millones de dólares de caja libre en 2022, 4.400 en 2023, luego una caída a menos 14.300 millones en 2024 y menos 1.900 en 2025, mientras las ventas se recuperaban de 66.600 a 89.500 millones. Vuelven las ventas, no la caja. Y para reparar el balance, el número de acciones pasó de 595 a 762 millones, un 28 % más en tres años. Cada acción existente vale una parte menor de la empresa: es dilución, y se paga en rentabilidad por acción incluso cuando el negocio mejora."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicador",
+            "Airbus",
+            "Boeing"
+          ],
+          "rows": [
+            [
+              "Ventas 2025",
+              "73.400 M EUR",
+              "89.500 M USD"
+            ],
+            [
+              "Caja libre 2025",
+              "4.000 M EUR",
+              "menos 1.900 M USD"
+            ],
+            [
+              "Caja libre, de 2022 a 2025",
+              "de 3.800 a 4.000 M EUR",
+              "de 2.300 a menos 1.900 M USD"
+            ],
+            [
+              "Número de acciones, de 2022 a 2025",
+              "estable (+0,1 % al año)",
+              "+28 %"
+            ],
+            [
+              "Entregas, 2026",
+              "351 en el semestre",
+              "171 en el trimestre"
+            ],
+            [
+              "Mi nota de calidad",
+              "5 sobre 10",
+              "6 sobre 10, frágil"
+            ],
+            [
+              "Precio en años de caja libre",
+              "36,7, a mitad de su historial",
+              "no calculable, caja negativa"
+            ],
+            [
+              "Precio de compra razonable de mi modelo",
+              "148 EUR",
+              "no calculable"
+            ],
+            [
+              "Cotización observada",
+              "187 EUR, sobrevaloración del 21 %",
+              "187,75 USD"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Por qué la nota de Boeing no dice lo que crees"
+        },
+        {
+          "type": "p",
+          "text": "Boeing obtiene 6 sobre 10 en mi rejilla de diez criterios financieros, frente a 5 de Airbus. Tomado al pie de la letra, sería un punto para Boeing. Es una ilusión de lectura, y prefiero enseñártela. Varios criterios de Boeing simplemente no son calculables, por falta de caja libre positiva en los últimos doce meses: la rentabilidad del capital, la deuda respecto a la caja y la conversión del beneficio en caja. Un criterio no calculable no cuenta como éxito ni como fracaso, y sobre todo queda invisible en la nota final."
+        },
+        {
+          "type": "p",
+          "text": "Los puntos que marca Boeing son reales pero estrechos: un ciclo de explotación favorable (los clientes pagan anticipos antes de la entrega, lo que financia la fabricación) y márgenes que se amplían desde un punto muy bajo. Los que pierde son estructurales, empezando por la dilución del 5,4 % anual. Airbus pierde sus puntos en otra cosa: una rentabilidad del capital del 8,9 %, por debajo de mi listón del 15 %, márgenes que se comprimen y un crecimiento de la caja por acción del 3 % anual. Es una buena industrial, no una máquina de componer."
+        },
+        {
+          "type": "p",
+          "text": "Del lado de Boeing, el contexto cuenta tanto como la nota. El grupo ha subido la cadencia del 737 a 47 aparatos al mes, abierto una segunda línea de montaje y presenta una cartera de pedidos récord de 715.000 millones de dólares. Apunta a una caja libre de 1.000 a 3.000 millones en el año y dice haber reducido su deuda en 8.200 millones desde enero, según [el informe del segundo trimestre](https://www.manufacturingdive.com/news/boeing-q2-earnings-2026-bca-bds-speea-arizona/826382/). Parte de la caja del trimestre viene de un calendario de cobros favorable, que no tiene por qué repetirse. Los detalles están en [el informe anual ante la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=BA&type=10-K)."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: la sobrevaloración está en Airbus, la niebla en Boeing"
+        },
+        {
+          "type": "p",
+          "text": "Juzgo el precio con el P/FCF: la cotización dividida entre la caja libre por acción, es decir, los años de caja que compras. Airbus cotiza a 36,7 veces su caja libre. Es alto en valor absoluto, pero está justo a mitad de su propio historial (alrededor del percentil 52 en la serie del sitio): el mercado no le concede ni una prima inusual ni un descuento. Paga un aumento de cadencia que cree duradero, con un objetivo de 70 a 75 A320 al mes a finales de 2027, según [el comunicado semestral de Airbus](https://www.airbus.com/en/newsroom/press-releases/2026-07-airbus-reports-half-year-h1-2026-results)."
+        },
+        {
+          "type": "p",
+          "text": "Mi modelo busca el precio al que una rentabilidad del 15 % anual sigue siendo alcanzable. Para Airbus da 148 euros. La acción vale unos 187: está un 21 % por encima de ese punto de entrada. No es una alerta roja, es una empresa muy buena pagada para que todo salga bien, con poco margen si se retrasa el semestre de caja previsto. Para Boeing, mi herramienta no da precio, y ese silencio es en sí una información: mientras la caja libre no sea positiva de forma duradera, valorar la acción es apostar por una recuperación, no evaluarla."
+        },
+        {
+          "type": "p",
+          "text": "Mi veredicto, sin consejo personalizado: Airbus es el mejor negocio de los dos y el único al que puedo poner precio, pero no es barata; Boeing es una apuesta de recuperación cuyo desenlace depende de tres años de caja positiva que nadie ha visto aún. Separar la calidad de un negocio de su precio, en segundos, es lo que quería poder hacer con cualquier acción. Puedes ver los expedientes completos en [la ficha de Airbus](/analyse/AIR.PA) y [la ficha de Boeing](/analyse/BA), o releer mi [metodología](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Airbus o Boeing: ¿cuál genera más caja?",
+          "a": "Airbus, claramente. Su caja libre se ha mantenido entre 3.200 y 4.000 millones de euros al año desde 2022, mientras la de Boeing pasó de más 4.400 millones de dólares en 2023 a menos 14.300 en 2024 y menos 1.900 en 2025, según las series de mi herramienta."
+        },
+        {
+          "q": "¿Por qué Airbus tiene caja libre negativa en el primer semestre de 2026?",
+          "a": "Porque construye inventario para subir la cadencia: los aviones se fabrican antes de entregarse y cobrarse. El grupo anunció unos menos 1.200 millones de euros en seis meses y mantiene un objetivo de unos 4.500 millones para el año, lo que supone un segundo semestre muy fuerte."
+        },
+        {
+          "q": "¿Es un problema la dilución de Boeing?",
+          "a": "Sí para el accionista actual: el número de acciones pasó de 595 a 762 millones entre 2022 y 2025, un 28 % más. Cada acción existente representa una parte menor de la empresa y de la caja que producirá."
+        }
+      ],
+      "tags": [
+        "Airbus",
+        "Boeing",
+        "Comparativa",
+        "Aeronáutica",
+        "Caja libre",
+        "Valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 9 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
