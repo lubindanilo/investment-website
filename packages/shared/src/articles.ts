@@ -95275,7 +95275,594 @@ const articleAirbusBoeing2026: Article = {
     }
   }
 };
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026];
+const articleRoyaumeUni2026: Article = {
+  "slug": "actions-britanniques-qualite-rarement-bon-prix-2026",
+  "date": "2026-10-12",
+  "updated": "2026-10-12",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Actions britanniques : de la qualité, rarement au bon prix",
+      "excerpt": "J'ai passé onze grandes valeurs de Londres au crible de ma méthode. Quatre sont d'excellentes entreprises, une seule se trouve sous le prix que je m'autorise.",
+      "metaDescription": "Actions britanniques : onze valeurs de Londres analysées. Lesquelles sont vraiment solides, et laquelle cote encore sous un prix d'achat raisonnable ?",
+      "answer": "Sur onze grandes actions de Londres que j'ai analysées, quatre sont d'excellentes entreprises et trois d'entre elles sont déjà trop chères. Seule Rolls-Royce se négocie encore 5 % sous le prix d'achat que je m'autorise. La Bourse de Londres n'est pas bon marché : elle a de la qualité, mais le marché le sait.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Londres, la Bourse qu'on croit bon marché"
+        },
+        {
+          "type": "p",
+          "text": "Quand on parle d'actions britanniques, on entend souvent la même chose : Londres serait la place « décotée » d'Europe, celle où les bonnes entreprises se vendent au rabais depuis le Brexit. Je voulais vérifier cette idée avec des chiffres plutôt qu'avec une impression."
+        },
+        {
+          "type": "p",
+          "text": "Ma méthode juge deux choses séparément. D'abord la qualité du business, notée sur 10 d'après des critères concrets : marge, croissance des ventes et du cash, rachats d'actions, dette, rendement du capital. Ensuite le prix : je calcule un prix d'achat raisonnable à partir du cash libre (le free cash flow, l'argent qui reste vraiment une fois les factures et les investissements payés) et je le compare au cours du jour. Une excellente entreprise payée trop cher reste un mauvais achat."
+        },
+        {
+          "type": "h2",
+          "text": "Onze valeurs passées au crible"
+        },
+        {
+          "type": "p",
+          "text": "J'ai testé onze grandes valeurs de la cote londonienne, parmi les plus connues. Ce n'est pas un classement exhaustif de la Bourse de Londres : une douzième, RELX, n'est tout simplement pas dans ma base. Mais l'échantillon suffit à voir une forme nette, résumée dans ce tableau."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité",
+            "Cours face à mon prix d'achat"
+          ],
+          "rows": [
+            [
+              "Rolls-Royce",
+              "9 sur 10",
+              "Décote de 5,4 %"
+            ],
+            [
+              "Compass Group",
+              "9 sur 10",
+              "Surcote de 12,1 %"
+            ],
+            [
+              "Sage Group",
+              "9 sur 10",
+              "Surcote de 17,7 %"
+            ],
+            [
+              "Halma",
+              "9 sur 10",
+              "Surcote de 32,3 %"
+            ],
+            [
+              "AstraZeneca",
+              "8 sur 10",
+              "Surcote de 21,7 %"
+            ],
+            [
+              "Auto Trader",
+              "8 sur 10",
+              "Surcote de 36,3 %"
+            ],
+            [
+              "Experian",
+              "7 sur 10",
+              "Surcote de 31,3 %"
+            ],
+            [
+              "Unilever",
+              "6 sur 10",
+              "Surcote de 73,7 %"
+            ],
+            [
+              "London Stock Exchange Group",
+              "6 sur 10",
+              "Surcote de 56,3 %"
+            ],
+            [
+              "Tesco",
+              "5 sur 10",
+              "Surcote de 22,8 %"
+            ],
+            [
+              "Diageo",
+              "4 sur 10",
+              "Surcote de 32,9 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Deux lectures s'imposent. Un : la qualité existe à Londres, quatre sociétés valident 9 critères sur 10. Deux : sur onze noms, dix se négocient au-dessus de mon prix d'achat raisonnable, souvent de beaucoup. Le rabais londonien, s'il a existé, ne se voit plus dans ces prix."
+        },
+        {
+          "type": "h2",
+          "text": "Rolls-Royce : la seule sous son prix d'achat"
+        },
+        {
+          "type": "p",
+          "text": "Rolls-Royce est le seul nom de la liste à passer sous la barre. Le cours est de 1 392,8 pence, mon prix d'achat raisonnable de 1 467,9 pence : une décote de 5,4 %, mince mais réelle. C'est d'autant plus surprenant que l'action a été l'une des plus belles remontées de la cote."
+        },
+        {
+          "type": "p",
+          "text": "Pour comprendre pourquoi son cash grimpe, il faut connaître le modèle. Rolls-Royce vend ses moteurs d'avion avec peu de marge, parfois à perte, puis gagne de l'argent pendant des décennies : les compagnies lui paient chaque heure de vol de leurs moteurs. Quand le trafic aérien repart, le cash arrive, avec un décalage. Le [communiqué du premier semestre 2026](https://www.rolls-royce.com/media/press-releases/2026/30-07-2026-rr-holdings-plc-2026-half-year-results.aspx), publié le 30 juillet, le montre : cash libre de 2,0 Md£ sur six mois (+24 %), résultat opérationnel sous-jacent en hausse de 46 % à 2,5 Md£, et un objectif annuel relevé à 3,8 à 4,0 Md£ de cash libre."
+        },
+        {
+          "type": "p",
+          "text": "La trajectoire est ce qui me frappe. Sur cinq ans, les ventes progressent d'environ 17 % par an et le cash libre par action de près de 57 % par an, alors que le nombre d'actions n'a quasiment pas bougé. Le groupe prévoit aussi 2,5 Md£ de rachats d'actions en 2026. Mon réflexe de prudence reste le même : une décote de 5 % laisse peu de marge d'erreur pour un industriel dont la valorisation se base sur un cash encore en forte croissance. Tu trouveras le détail sur [la fiche de Rolls-Royce](/analyse/RR.L)."
+        },
+        {
+          "type": "h2",
+          "text": "Halma, Compass, Sage : trois machines, trois prix déjà élevés"
+        },
+        {
+          "type": "p",
+          "text": "Halma est un conglomérat à l'anglaise : une cinquantaine de petites entreprises de niche (détection incendie, sécurité, optique, santé) que le groupe laisse autonomes et complète par des rachats. Dans son [communiqué annuel du 11 juin 2026](https://www.halma.com/news/press-releases/2026/full-year-results-2025-26), elle annonce sa 23ᵉ année consécutive de hausse du bénéfice, des ventes de 2,58 Md£ et un dividende relevé de 7 %. D'après mes séries, son cash libre a doublé en quatre ans, d'environ 212 M£ à 426 M£. Pourtant, l'action se négocie 32 % au-dessus de mon prix d'achat : le marché paie déjà cette régularité, et la prévision d'un ralentissement de ses ventes de photonique aux centres de données a provoqué sa plus forte chute en une séance depuis des années."
+        },
+        {
+          "type": "p",
+          "text": "Compass Group, le géant de la restauration collective (cantines d'entreprise, hôpitaux, stades), illustre un paradoxe que j'aime. Sa marge nette n'est que de 4 %, ce qui paraît misérable. Mais elle n'a presque rien à immobiliser pour grandir : son rendement du capital en cash dépasse 29 %. Les clients paient vite, les fournisseurs plus tard. Le [point du troisième trimestre, publié le 21 juillet 2026](https://www.lse.co.uk/rns/CPG/q3-trading-update-szxha0db0ulx84g.html), indique une croissance organique de 7,1 % et 96 % de rétention de clients. La surcote reste de 12 %."
+        },
+        {
+          "type": "p",
+          "text": "Sage vend des logiciels de comptabilité et de paie à des PME par abonnement, ce qui rend ses revenus très prévisibles. Au semestre clos le 31 mars 2026, d'après son [communiqué du 21 mai](https://www.sage.com/investors/investor-downloads/press-releases/2026/05/trading-update-for-the-six-months-ended-31-march-2026/), les ventes sous-jacentes atteignent 1 363 M£ (+11 %) et le revenu récurrent annuel 2,73 Md£ (+11 %), avec un taux de renouvellement de 102 %. Le groupe rachète ses actions : leur nombre est passé de 1,10 à 0,96 milliard en cinq ans. Mais la surcote est de 17,7 % : je note la qualité sans l'acheter au prix actuel."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi les grands noms britanniques décrochent"
+        },
+        {
+          "type": "p",
+          "text": "Le bas du tableau est celui des marques que tout le monde connaît. Unilever affiche une note de 6 sur 10 et une surcote de près de 74 %. Ses [résultats du premier semestre 2026](https://www.unilever.com/files/unilever-q2-2026-results-key-highlights.pdf) sont pourtant corrects (ventes sous-jacentes +4,8 %, dont 4,2 points de volume), mais la croissance de ses ventes est quasi nulle sur cinq ans après la scission de la glace, et le groupe prépare le rapprochement de son pôle alimentaire avec McCormick. Quand une action se négocie près de 18 fois son cash libre pour une croissance de 5 %, le marché paie la stabilité, pas l'accélération."
+        },
+        {
+          "type": "p",
+          "text": "Diageo (4 sur 10) et Tesco (5 sur 10) racontent autre chose : des entreprises solides à l'échelle de leur secteur, mais dont la marge nette (9 % pour l'alcool, 2 % pour la distribution) et l'endettement ne passent pas ma grille. London Stock Exchange Group, enfin, est une belle infrastructure de marché, mais elle coûte déjà 56 % de plus que mon prix d'achat. Ce sont des entreprises, pas des affaires."
+        },
+        {
+          "type": "h2",
+          "text": "Comment je lirais ce palmarès"
+        },
+        {
+          "type": "p",
+          "text": "La leçon n'est pas « évite Londres ». Elle est plus simple : ici comme ailleurs, la qualité se paie, et plus elle est visible, plus le prix la reflète. Pour un investisseur qui cherche à la fois une bonne entreprise et un bon prix, la liste utile n'est pas celle des meilleures notes, mais celle des meilleures entreprises en attente d'un recul du cours. Halma, Sage et Compass y sont, avec des écarts à combler de 12 % à 32 %."
+        },
+        {
+          "type": "p",
+          "text": "Je reste prudent sur une chose : ma note et mon prix d'achat reposent sur des hypothèses, et une action peut rester chère longtemps. C'est exactement pourquoi j'ai construit mon outil, pour refaire ce tour de table en quelques secondes sur n'importe quelle Bourse. Tu peux relire [ma méthode complète](/methodologie), ou comparer avec [les actions suisses](/blog/actions-suisses-qualite-connue-prix-deja-paye-2026) et [les actions allemandes](/blog/actions-allemandes-ou-se-cache-la-qualite-2026), où le constat est proche."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que je garde de ce tour de Londres"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Quatre entreprises britanniques sur onze valident 9 critères de qualité sur 10 : Rolls-Royce, Compass, Sage et Halma.",
+            "Dix sur onze se négocient au-dessus de mon prix d'achat raisonnable. Seule Rolls-Royce passe sous la barre, de 5,4 %.",
+            "Le rabais londonien n'est pas dans les prix : la qualité y est connue, donc payée.",
+            "Les noms les plus familiers (Unilever, Diageo, Tesco) sont aussi les plus chers pour ce qu'ils apportent."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Les actions britanniques sont-elles sous-évaluées ?",
+          "a": "Pas dans mon échantillon : sur onze grandes valeurs de Londres, dix se négocient au-dessus de mon prix d'achat raisonnable. Seule Rolls-Royce affiche une décote, de 5,4 %. Ce sont des chiffres à la date de rédaction, qui évoluent avec les cours."
+        },
+        {
+          "q": "Quelle est la meilleure action britannique selon ta méthode ?",
+          "a": "Quatre valident 9 critères sur 10 : Rolls-Royce, Compass Group, Sage Group et Halma. Rolls-Royce est la seule dont le cours est sous mon prix d'achat. Une bonne note ne dit rien du prix, c'est pourquoi je regarde les deux séparément."
+        },
+        {
+          "q": "Pourquoi Unilever est-elle si mal classée ?",
+          "a": "Elle valide 6 critères sur 10, avec peu de croissance de ses ventes sur cinq ans, et se négocie environ 74 % au-dessus de mon prix d'achat. Le marché paie la stabilité de ses marques, pas une accélération de ses résultats."
+        },
+        {
+          "q": "Pourquoi les cours sont-ils en pence ?",
+          "a": "Les actions de Londres sont cotées en pence (un centième de livre). Un cours de 1 392,8 pence vaut donc 13,93 livres. Les pourcentages de ce comparatif ne sont pas affectés par cette unité."
+        }
+      ],
+      "tags": [
+        "Actions britanniques",
+        "Bourse de Londres",
+        "Rolls-Royce",
+        "Halma",
+        "Palmarès",
+        "Valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 octobre 2026, vérifiés avec mon outil d'analyse le jour de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "UK Stocks: Plenty of Quality, Rarely at the Right Price",
+      "excerpt": "I ran eleven big London-listed companies through my method. Four are excellent businesses, but only one trades below the price I allow myself to pay.",
+      "metaDescription": "UK stocks: eleven London-listed companies analysed. Which ones are truly strong, and which one still trades below a reasonable purchase price?",
+      "answer": "Of eleven large London-listed stocks I analysed, four are excellent businesses and three of those are already too expensive. Only Rolls-Royce still trades about 5% below the price I allow myself to pay. London is not cheap: the quality is there, but the market already knows it.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "London, the market people assume is cheap"
+        },
+        {
+          "type": "p",
+          "text": "When people talk about UK stocks, I often hear the same line: London is Europe's discounted market, where good companies have sold at a bargain since Brexit. I wanted to test that idea with numbers instead of a hunch."
+        },
+        {
+          "type": "p",
+          "text": "My method judges two things separately. First, business quality, scored out of 10 on concrete criteria: margins, sales and cash growth, buybacks, debt, return on capital. Then price: I compute a reasonable purchase price from free cash flow (the money that is really left after bills and investments are paid) and compare it with today's share price. An excellent company bought too dear is still a bad purchase."
+        },
+        {
+          "type": "h2",
+          "text": "Eleven stocks under the microscope"
+        },
+        {
+          "type": "p",
+          "text": "I tested eleven large London-listed names, among the best known. It is not an exhaustive ranking of the London market: a twelfth, RELX, is simply not in my database. But the sample is enough to see a clear pattern, summed up in this table."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score",
+            "Share price vs my purchase price"
+          ],
+          "rows": [
+            [
+              "Rolls-Royce",
+              "9 out of 10",
+              "5.4% discount"
+            ],
+            [
+              "Compass Group",
+              "9 out of 10",
+              "12.1% premium"
+            ],
+            [
+              "Sage Group",
+              "9 out of 10",
+              "17.7% premium"
+            ],
+            [
+              "Halma",
+              "9 out of 10",
+              "32.3% premium"
+            ],
+            [
+              "AstraZeneca",
+              "8 out of 10",
+              "21.7% premium"
+            ],
+            [
+              "Auto Trader",
+              "8 out of 10",
+              "36.3% premium"
+            ],
+            [
+              "Experian",
+              "7 out of 10",
+              "31.3% premium"
+            ],
+            [
+              "Unilever",
+              "6 out of 10",
+              "73.7% premium"
+            ],
+            [
+              "London Stock Exchange Group",
+              "6 out of 10",
+              "56.3% premium"
+            ],
+            [
+              "Tesco",
+              "5 out of 10",
+              "22.8% premium"
+            ],
+            [
+              "Diageo",
+              "4 out of 10",
+              "32.9% premium"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Two readings stand out. One: quality exists in London, four companies meet 9 of my 10 criteria. Two: out of eleven names, ten trade above my reasonable purchase price, often by a wide margin. The London discount, if it ever existed, is no longer visible in these prices."
+        },
+        {
+          "type": "h2",
+          "text": "Rolls-Royce: the only one below its purchase price"
+        },
+        {
+          "type": "p",
+          "text": "Rolls-Royce is the only name on the list that gets under the bar. The share price is 1,392.8 pence and my reasonable purchase price is 1,467.9 pence: a discount of 5.4%, thin but real. That is all the more surprising because the stock has been one of the best recoveries on the market."
+        },
+        {
+          "type": "p",
+          "text": "To see why its cash is rising, you need to know the model. Rolls-Royce sells aircraft engines at low margins, sometimes at a loss, then earns money for decades: airlines pay it for every hour their engines fly. When air traffic recovers, the cash arrives, with a delay. The [first-half 2026 release](https://www.rolls-royce.com/media/press-releases/2026/30-07-2026-rr-holdings-plc-2026-half-year-results.aspx) of 30 July shows it: free cash flow of 2.0 bn pounds over six months (+24%), underlying operating profit up 46% to 2.5 bn, and a full-year free cash flow target raised to 3.8 to 4.0 bn."
+        },
+        {
+          "type": "p",
+          "text": "The trajectory is what strikes me. Over five years sales grow about 17% a year and free cash flow per share almost 57% a year, while the share count has barely moved. The group also plans 2.5 bn pounds of buybacks in 2026. My caution stays the same: a 5% discount leaves little room for error for an industrial whose valuation rests on cash that is still growing fast. You will find the detail on [the Rolls-Royce page](/analyse/RR.L)."
+        },
+        {
+          "type": "h2",
+          "text": "Halma, Compass, Sage: three machines, three prices already high"
+        },
+        {
+          "type": "p",
+          "text": "Halma is a British-style conglomerate: about fifty small niche businesses (fire detection, safety, optics, health) that the group leaves autonomous and tops up with acquisitions. In its [annual release of 11 June 2026](https://www.halma.com/news/press-releases/2026/full-year-results-2025-26), it reports a 23rd consecutive year of profit growth, sales of 2.58 bn pounds and a dividend raised 7%. According to my series, its free cash flow has doubled in four years, from about 212 million to 426 million pounds. Yet the stock trades 32% above my purchase price: the market already pays for that consistency, and a forecast slowdown in photonics sales to data centres triggered its biggest one-day fall in years."
+        },
+        {
+          "type": "p",
+          "text": "Compass Group, the contract catering giant (company canteens, hospitals, stadiums), illustrates a paradox I like. Its net margin is only 4%, which looks miserable. But it needs almost nothing locked up to grow: its cash return on capital exceeds 29%. Clients pay quickly, suppliers later. The [third-quarter update, published on 21 July 2026](https://www.lse.co.uk/rns/CPG/q3-trading-update-szxha0db0ulx84g.html), shows 7.1% organic growth and 96% client retention. The premium is still 12%."
+        },
+        {
+          "type": "p",
+          "text": "Sage sells accounting and payroll software to small businesses by subscription, which makes its revenue very predictable. For the half-year to 31 March 2026, according to its [21 May release](https://www.sage.com/investors/investor-downloads/press-releases/2026/05/trading-update-for-the-six-months-ended-31-march-2026/), underlying sales reach 1,363 million pounds (+11%) and annual recurring revenue 2.73 bn (+11%), with a renewal rate of 102%. The group buys back its shares: the count fell from 1.10 to 0.96 billion in five years. But the premium is 17.7%: I rate the quality without buying at today's price."
+        },
+        {
+          "type": "h2",
+          "text": "Why the household names fall behind"
+        },
+        {
+          "type": "p",
+          "text": "The bottom of the table holds the brands everyone knows. Unilever scores 6 out of 10 with a premium of nearly 74%. Its [first-half 2026 results](https://www.unilever.com/files/unilever-q2-2026-results-key-highlights.pdf) are decent (underlying sales +4.8%, of which 4.2 points from volume), but sales growth is close to nil over five years after the ice cream demerger, and the group is preparing to combine its foods business with McCormick. When a stock trades near 18 times its free cash flow for 5% growth, the market is paying for stability, not acceleration."
+        },
+        {
+          "type": "p",
+          "text": "Diageo (4 out of 10) and Tesco (5 out of 10) tell a different story: solid companies by the standards of their sector, but whose net margin (9% for spirits, 2% for retail) and debt do not pass my grid. London Stock Exchange Group, finally, is a fine piece of market infrastructure, but it already costs 56% more than my purchase price. They are good companies, not bargains."
+        },
+        {
+          "type": "h2",
+          "text": "How I would read this ranking"
+        },
+        {
+          "type": "p",
+          "text": "The lesson is not \"avoid London\". It is simpler: here as elsewhere, quality gets paid for, and the more visible it is, the more the price reflects it. For an investor who wants both a good company and a good price, the useful list is not the best scores but the best companies waiting for a pullback. Halma, Sage and Compass are on it, with gaps to close of 12% to 32%."
+        },
+        {
+          "type": "p",
+          "text": "I stay careful about one thing: my score and purchase price rest on assumptions, and a stock can stay expensive for a long time. That is exactly why I built my tool, to redo this round table in seconds on any market. You can reread [my full method](/methodologie), or compare with [Swiss stocks](/blog/actions-suisses-qualite-connue-prix-deja-paye-2026) and [German stocks](/blog/actions-allemandes-ou-se-cache-la-qualite-2026), where the finding is similar."
+        },
+        {
+          "type": "h2",
+          "text": "What I keep from this London tour"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Four UK companies out of eleven meet 9 of 10 quality criteria: Rolls-Royce, Compass, Sage and Halma.",
+            "Ten out of eleven trade above my reasonable purchase price. Only Rolls-Royce is under the bar, by 5.4%.",
+            "The London discount is not in the prices: quality is known there, so it is paid for.",
+            "The most familiar names (Unilever, Diageo, Tesco) are also the most expensive for what they deliver."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Are UK stocks undervalued?",
+          "a": "Not in my sample: out of eleven large London-listed stocks, ten trade above my reasonable purchase price. Only Rolls-Royce shows a discount, of 5.4%. These are figures at the time of writing and move with share prices."
+        },
+        {
+          "q": "What is the best UK stock by your method?",
+          "a": "Four meet 9 of 10 criteria: Rolls-Royce, Compass Group, Sage Group and Halma. Rolls-Royce is the only one trading below my purchase price. A good score says nothing about price, which is why I look at both separately."
+        },
+        {
+          "q": "Why does Unilever rank so poorly?",
+          "a": "It meets 6 of 10 criteria, with little sales growth over five years, and trades about 74% above my purchase price. The market pays for the stability of its brands, not for accelerating results."
+        },
+        {
+          "q": "Why are the share prices in pence?",
+          "a": "London shares are quoted in pence (one hundredth of a pound). A price of 1,392.8 pence is therefore 13.93 pounds. The percentages in this comparison are not affected by the unit."
+        }
+      ],
+      "tags": [
+        "UK stocks",
+        "London Stock Exchange",
+        "Rolls-Royce",
+        "Halma",
+        "Ranking",
+        "Valuation"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalised investment advice. Past performance does not guarantee future results. Figures as of 12 October 2026, checked with my analysis tool on the day of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you read this analysis with full knowledge."
+    },
+    "es": {
+      "title": "Acciones británicas: calidad sí, buen precio casi nunca",
+      "excerpt": "He pasado once grandes empresas de Londres por mi método. Cuatro son negocios excelentes, pero solo una cotiza por debajo del precio que me permito pagar.",
+      "metaDescription": "Acciones británicas: once empresas de Londres analizadas. ¿Cuáles son realmente sólidas y cuál sigue cotizando por debajo de un precio de compra razonable?",
+      "answer": "De once grandes acciones de Londres que he analizado, cuatro son negocios excelentes y tres de ellas ya están demasiado caras. Solo Rolls-Royce cotiza todavía un 5 % por debajo del precio que me permito pagar. Londres no es barata: la calidad está, pero el mercado ya lo sabe.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Londres, la bolsa que se da por barata"
+        },
+        {
+          "type": "p",
+          "text": "Cuando se habla de acciones británicas, suele repetirse lo mismo: Londres sería la plaza « con descuento » de Europa, donde las buenas empresas se venden baratas desde el Brexit. Quería comprobar esa idea con cifras y no con una impresión."
+        },
+        {
+          "type": "p",
+          "text": "Mi método juzga dos cosas por separado. Primero la calidad del negocio, puntuada sobre 10 con criterios concretos: márgenes, crecimiento de ventas y de caja, recompras de acciones, deuda, rentabilidad del capital. Después el precio: calculo un precio de compra razonable a partir de la caja libre (el free cash flow, el dinero que realmente queda tras pagar facturas e inversiones) y lo comparo con la cotización del día. Una empresa excelente pagada demasiado cara sigue siendo una mala compra."
+        },
+        {
+          "type": "h2",
+          "text": "Once valores bajo el microscopio"
+        },
+        {
+          "type": "p",
+          "text": "He probado once grandes valores de la bolsa londinense, entre los más conocidos. No es un ranking exhaustivo de Londres: una duodécima, RELX, simplemente no está en mi base de datos. Pero la muestra basta para ver un patrón claro, resumido en esta tabla."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad",
+            "Cotización frente a mi precio de compra"
+          ],
+          "rows": [
+            [
+              "Rolls-Royce",
+              "9 sobre 10",
+              "Descuento del 5,4 %"
+            ],
+            [
+              "Compass Group",
+              "9 sobre 10",
+              "Sobreprecio del 12,1 %"
+            ],
+            [
+              "Sage Group",
+              "9 sobre 10",
+              "Sobreprecio del 17,7 %"
+            ],
+            [
+              "Halma",
+              "9 sobre 10",
+              "Sobreprecio del 32,3 %"
+            ],
+            [
+              "AstraZeneca",
+              "8 sobre 10",
+              "Sobreprecio del 21,7 %"
+            ],
+            [
+              "Auto Trader",
+              "8 sobre 10",
+              "Sobreprecio del 36,3 %"
+            ],
+            [
+              "Experian",
+              "7 sobre 10",
+              "Sobreprecio del 31,3 %"
+            ],
+            [
+              "Unilever",
+              "6 sobre 10",
+              "Sobreprecio del 73,7 %"
+            ],
+            [
+              "London Stock Exchange Group",
+              "6 sobre 10",
+              "Sobreprecio del 56,3 %"
+            ],
+            [
+              "Tesco",
+              "5 sobre 10",
+              "Sobreprecio del 22,8 %"
+            ],
+            [
+              "Diageo",
+              "4 sobre 10",
+              "Sobreprecio del 32,9 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Hay dos lecturas. Una: la calidad existe en Londres, cuatro empresas cumplen 9 de mis 10 criterios. Dos: de once nombres, diez cotizan por encima de mi precio de compra razonable, a menudo con mucha diferencia. El descuento londinense, si existió, ya no se ve en estos precios."
+        },
+        {
+          "type": "h2",
+          "text": "Rolls-Royce: la única por debajo de su precio de compra"
+        },
+        {
+          "type": "p",
+          "text": "Rolls-Royce es el único nombre de la lista que pasa por debajo de la barra. La cotización es de 1.392,8 peniques y mi precio de compra razonable de 1.467,9 peniques: un descuento del 5,4 %, pequeño pero real. Sorprende más porque la acción ha sido una de las mejores recuperaciones de la bolsa."
+        },
+        {
+          "type": "p",
+          "text": "Para entender por qué sube su caja hay que conocer el modelo. Rolls-Royce vende motores de avión con poco margen, a veces con pérdidas, y luego gana dinero durante décadas: las aerolíneas le pagan por cada hora de vuelo de sus motores. Cuando el tráfico aéreo se recupera, la caja llega, con retraso. El [comunicado del primer semestre de 2026](https://www.rolls-royce.com/media/press-releases/2026/30-07-2026-rr-holdings-plc-2026-half-year-results.aspx), publicado el 30 de julio, lo muestra: caja libre de 2.000 millones de libras en seis meses (+24 %), beneficio operativo subyacente un 46 % mayor, hasta 2.500 millones, y un objetivo anual de caja libre elevado a entre 3.800 y 4.000 millones."
+        },
+        {
+          "type": "p",
+          "text": "La trayectoria es lo que me llama la atención. En cinco años, las ventas crecen cerca de un 17 % anual y la caja libre por acción casi un 57 % anual, con un número de acciones prácticamente estable. El grupo prevé además 2.500 millones de libras en recompras en 2026. Mi cautela sigue igual: un descuento del 5 % deja poco margen de error en una industrial cuya valoración descansa en una caja que aún crece con fuerza. Tienes el detalle en [la ficha de Rolls-Royce](/analyse/RR.L)."
+        },
+        {
+          "type": "h2",
+          "text": "Halma, Compass, Sage: tres máquinas, tres precios ya altos"
+        },
+        {
+          "type": "p",
+          "text": "Halma es un conglomerado a la inglesa: unas cincuenta pequeñas empresas de nicho (detección de incendios, seguridad, óptica, salud) que el grupo deja autónomas y completa con adquisiciones. En su [comunicado anual del 11 de junio de 2026](https://www.halma.com/news/press-releases/2026/full-year-results-2025-26), anuncia su 23.º año consecutivo de aumento del beneficio, ventas de 2.580 millones de libras y un dividendo un 7 % mayor. Según mis series, su caja libre se ha duplicado en cuatro años, de unos 212 a 426 millones de libras. Aun así, la acción cotiza un 32 % por encima de mi precio de compra: el mercado ya paga esa regularidad, y la previsión de una desaceleración de sus ventas de fotónica a centros de datos provocó su mayor caída en una sesión en años."
+        },
+        {
+          "type": "p",
+          "text": "Compass Group, el gigante de la restauración colectiva (comedores de empresa, hospitales, estadios), ilustra una paradoja que me gusta. Su margen neto es solo del 4 %, lo que parece miserable. Pero casi no necesita inmovilizar capital para crecer: su rentabilidad del capital en caja supera el 29 %. Los clientes pagan rápido, los proveedores más tarde. La [actualización del tercer trimestre, publicada el 21 de julio de 2026](https://www.lse.co.uk/rns/CPG/q3-trading-update-szxha0db0ulx84g.html), indica un crecimiento orgánico del 7,1 % y un 96 % de retención de clientes. El sobreprecio sigue siendo del 12 %."
+        },
+        {
+          "type": "p",
+          "text": "Sage vende software de contabilidad y nómina a pymes mediante suscripción, lo que hace sus ingresos muy previsibles. En el semestre cerrado el 31 de marzo de 2026, según su [comunicado del 21 de mayo](https://www.sage.com/investors/investor-downloads/press-releases/2026/05/trading-update-for-the-six-months-ended-31-march-2026/), las ventas subyacentes alcanzan 1.363 millones de libras (+11 %) y los ingresos recurrentes anuales 2.730 millones (+11 %), con una tasa de renovación del 102 %. El grupo recompra sus acciones: su número bajó de 1.100 a 960 millones en cinco años. Pero el sobreprecio es del 17,7 %: valoro la calidad sin comprarla al precio actual."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué los grandes nombres se quedan atrás"
+        },
+        {
+          "type": "p",
+          "text": "La parte baja de la tabla es la de las marcas que todo el mundo conoce. Unilever tiene un 6 sobre 10 y un sobreprecio de casi el 74 %. Sus [resultados del primer semestre de 2026](https://www.unilever.com/files/unilever-q2-2026-results-key-highlights.pdf) son correctos (ventas subyacentes +4,8 %, de las cuales 4,2 puntos de volumen), pero el crecimiento de sus ventas es casi nulo en cinco años tras la escisión de los helados, y el grupo prepara la unión de su negocio de alimentación con McCormick. Cuando una acción cotiza cerca de 18 veces su caja libre con un crecimiento del 5 %, el mercado paga estabilidad, no aceleración."
+        },
+        {
+          "type": "p",
+          "text": "Diageo (4 sobre 10) y Tesco (5 sobre 10) cuentan otra historia: empresas sólidas a escala de su sector, pero cuyo margen neto (9 % en bebidas espirituosas, 2 % en distribución) y cuyo endeudamiento no pasan mi criba. London Stock Exchange Group, por último, es una buena infraestructura de mercado, pero ya cuesta un 56 % más que mi precio de compra. Son buenas empresas, no gangas."
+        },
+        {
+          "type": "h2",
+          "text": "Cómo leería este ranking"
+        },
+        {
+          "type": "p",
+          "text": "La lección no es « evita Londres ». Es más simple: aquí como en otros sitios, la calidad se paga, y cuanto más visible es, más la refleja el precio. Para un inversor que busca a la vez una buena empresa y un buen precio, la lista útil no es la de las mejores notas, sino la de las mejores empresas a la espera de una corrección. Halma, Sage y Compass están en ella, con diferencias por cerrar del 12 % al 32 %."
+        },
+        {
+          "type": "p",
+          "text": "Sigo siendo prudente en algo: mi nota y mi precio de compra descansan en hipótesis, y una acción puede seguir cara mucho tiempo. Precisamente por eso construí mi herramienta, para repetir este repaso en segundos en cualquier bolsa. Puedes releer [mi método completo](/methodologie) o comparar con [las acciones suizas](/blog/actions-suisses-qualite-connue-prix-deja-paye-2026) y [las acciones alemanas](/blog/actions-allemandes-ou-se-cache-la-qualite-2026), donde la conclusión es parecida."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que me quedo de esta vuelta por Londres"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Cuatro empresas británicas de once cumplen 9 de 10 criterios de calidad: Rolls-Royce, Compass, Sage y Halma.",
+            "Diez de once cotizan por encima de mi precio de compra razonable. Solo Rolls-Royce está por debajo, un 5,4 %.",
+            "El descuento londinense no está en los precios: la calidad es conocida, así que se paga.",
+            "Los nombres más familiares (Unilever, Diageo, Tesco) son también los más caros para lo que aportan."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Están infravaloradas las acciones británicas?",
+          "a": "No en mi muestra: de once grandes valores de Londres, diez cotizan por encima de mi precio de compra razonable. Solo Rolls-Royce muestra un descuento, del 5,4 %. Son cifras a la fecha de redacción y cambian con las cotizaciones."
+        },
+        {
+          "q": "¿Cuál es la mejor acción británica según tu método?",
+          "a": "Cuatro cumplen 9 de 10 criterios: Rolls-Royce, Compass Group, Sage Group y Halma. Rolls-Royce es la única que cotiza por debajo de mi precio de compra. Una buena nota no dice nada del precio, por eso miro ambos por separado."
+        },
+        {
+          "q": "¿Por qué Unilever está tan mal clasificada?",
+          "a": "Cumple 6 de 10 criterios, con poco crecimiento de ventas en cinco años, y cotiza un 74 % por encima de mi precio de compra. El mercado paga la estabilidad de sus marcas, no una aceleración de sus resultados."
+        },
+        {
+          "q": "¿Por qué las cotizaciones están en peniques?",
+          "a": "Las acciones de Londres cotizan en peniques (una centésima de libra). Una cotización de 1.392,8 peniques equivale, pues, a 13,93 libras. Los porcentajes de esta comparación no dependen de la unidad."
+        }
+      ],
+      "tags": [
+        "Acciones británicas",
+        "Bolsa de Londres",
+        "Rolls-Royce",
+        "Halma",
+        "Ranking",
+        "Valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 12 de octubre de 2026, verificadas con mi herramienta de análisis el día de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
