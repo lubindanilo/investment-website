@@ -95866,9 +95866,316 @@ const articleRoyaumeUni2026: Article = {
     }
   }
 };
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026];
+const articleActionChereHistoire2026: Article = {
+  "slug": "action-chere-comparer-a-sa-propre-histoire-2026",
+  "date": "2026-10-13",
+  "updated": "2026-10-13",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Une action est-elle chère ? Compare-la à elle-même",
+      "excerpt": "Comparer une action à ses voisines ne dit presque rien. La comparer à sa propre histoire change le verdict, avec Adobe, Copart, Visa et Coca-Cola.",
+      "metaDescription": "Pour savoir si une action est chère, la comparer au marché ne suffit pas. Son propre historique en dit bien plus : exemples chiffrés avec Adobe et Visa.",
+      "answer": "Une action est chère ou bon marché d'abord par rapport à elle-même. Je regarde où se situe sa valorisation actuelle dans son propre historique : Adobe n'a été aussi peu valorisée que dans 3 % des mesures, Visa l'est plus que 78 % du temps. Ce repère ne tranche pas seul, il pose la bonne question.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Le piège de la comparaison avec le voisin"
+        },
+        {
+          "type": "p",
+          "text": "Le premier réflexe quand on se demande si une action est chère, c'est de regarder ses voisines. Le secteur vaut 25 fois son cash, celle-ci 18 fois : elle serait donc bon marché. Le raisonnement a l'air sérieux, et il est presque toujours trompeur. Deux entreprises du même secteur n'ont ni la même marge, ni la même croissance, ni la même solidité. Les mettre côte à côte revient à comparer le prix au mètre carré d'un studio parisien et d'une longère bretonne en disant que la seconde est une affaire."
+        },
+        {
+          "type": "p",
+          "text": "Je préfère poser la question autrement : combien le marché a-t-il accepté de payer pour CETTE entreprise, au fil des années ? Pour y répondre j'utilise le P/FCF (price-to-free-cash-flow). Le free cash flow, c'est l'argent qui reste vraiment dans les caisses une fois les factures payées et les investissements faits. Le P/FCF divise la valeur de l'entreprise en bourse par ce cash annuel : un P/FCF de 12 veut dire que tu paies l'équivalent de douze années de cash. Plus il est bas, moins l'action est valorisée."
+        },
+        {
+          "type": "p",
+          "text": "Ensuite, je prends toutes les mesures passées de ce ratio pour la même entreprise, et je regarde quelle part d'entre elles était inférieure ou égale à la valeur d'aujourd'hui. C'est le percentile. Un percentile de 3 signifie que, dans seulement 3 % des mesures disponibles, l'action a été aussi peu valorisée qu'aujourd'hui. Un percentile de 88 signifie qu'elle a été plus chère à peine 12 % du temps. L'échelle dépend de la profondeur d'historique de chaque société, donc je ne la compare pas d'une entreprise à l'autre avec une précision scientifique. Elle sert à se situer, pas à calculer. Et je m'en sers toujours après avoir jugé la qualité du business, jamais à la place : une entreprise médiocre au plus bas de son histoire reste médiocre."
+        },
+        {
+          "type": "h2",
+          "text": "Adobe et Copart : le même signal, deux histoires"
+        },
+        {
+          "type": "p",
+          "text": "Prenons les deux exemples les plus nets de mon screener. Adobe se valorise aujourd'hui 11,7 fois son free cash flow, ce qui la place au 3e percentile de son propre historique. Autrement dit, sur la durée mesurée, l'éditeur de Photoshop n'a quasiment jamais été aussi peu valorisé. Copart, la plateforme d'enchères de véhicules accidentés, affiche 19,6 fois son cash et un percentile de 2. Les deux sont au plancher de leur histoire. Pour autant, ce n'est pas le même plancher."
+        },
+        {
+          "type": "p",
+          "text": "Adobe a une marge de free cash flow de 32,7 % : sur 100 euros de ventes, près de 33 finissent en cash disponible. Son cash par action progresse d'environ 13 % par an, aidé par un nombre d'actions qui recule de 3,1 % par an grâce aux rachats. Surtout, le dernier trimestre ne ressemble pas à une entreprise en déroute : le [communiqué du 10 septembre](https://www.sec.gov/Archives/edgar/data/0000796343/000079634326000147/adbeex991q326.htm) annonce un chiffre d'affaires record de 6,76 milliards de dollars, en hausse de 13 %, et une prévision annuelle relevée. L'entreprise y indique aussi que ses revenus liés à l'intelligence artificielle ont plus que doublé, sans publier le montant de départ, donc je n'en tire aucune conclusion chiffrée. Ce que le percentile me dit ici, c'est que le marché a puni la peur de l'IA bien plus que les résultats. Reste à savoir si cette peur est justifiée, et c'est un vrai débat : un nouveau directeur général arrive le 1er décembre et le poste de directeur financier est tenu par un intérimaire. Une décote peut aussi signaler une transition mal préparée."
+        },
+        {
+          "type": "p",
+          "text": "Copart raconte autre chose. Sur cinq ans, son cash par action a crû d'environ 17 % par an, avec une marge de free cash flow de 28 %. Mais son dernier exercice, clos le 31 juillet, a stagné : selon son [communiqué du 10 septembre](https://www.sec.gov/Archives/edgar/data/0000900075/000119312526387902/cprt-ex99_1.htm), le chiffre d'affaires n'a progressé que de 0,4 % et le bénéfice par action a reculé de 1,59 à 1,55 dollar. Au quatrième trimestre, les frais généraux ont bondi de 16,6 % et le bénéfice net a perdu 17,4 %. L'entreprise explique en partie le recul américain par la base de comparaison de l'année précédente, qui contenait des revenus exceptionnels liés aux ouragans Helene et Milton. Le bas percentile de Copart est donc un signal d'une autre nature : le marché ne panique pas sur une peur lointaine, il constate que la croissance s'est arrêtée. La question n'est plus « l'IA va-t-elle la détruire ? » mais « cet arrêt est-il passager ou durable ? »."
+        },
+        {
+          "type": "p",
+          "text": "C'est toute la valeur de la méthode. Le percentile ne donne jamais la réponse, il force à formuler la bonne question. Dans les deux cas, je dois ensuite expliquer pourquoi le multiple a baissé, puis juger si cette raison tient. Sans cet outil, j'aurais vu deux « actions pas chères » et je les aurais confondues."
+        },
+        {
+          "type": "h2",
+          "text": "Visa et Coca-Cola : quand la cherté a une explication"
+        },
+        {
+          "type": "p",
+          "text": "Le raisonnement marche dans l'autre sens. Visa se valorise 39,5 fois son cash, un niveau supérieur à 78 % de ses mesures passées. Coca-Cola, 31,5 fois, supérieur à environ 88 % des siennes. Pris isolément, ce sont des signaux d'alerte : à ces niveaux, le marché paie déjà beaucoup pour l'avenir. Mais ils ne racontent pas la même chose, et c'est encore la qualité du business qui départage."
+        },
+        {
+          "type": "p",
+          "text": "Visa dégage une marge de free cash flow de 47,1 %, une des plus élevées que je mesure, un cash par action en hausse d'environ 13 % par an et des rachats qui réduisent le nombre d'actions de 3,7 % par an. Son réseau de paiement fonctionne comme un péage : plus il y a de commerçants et de porteurs de cartes, plus il est difficile à contourner. Un multiple élevé pour une machine pareille s'explique. Il laisse simplement peu de marge d'erreur : si la croissance déçoit, le multiple peut revenir vers sa moyenne et l'action perdre de la valeur sans que l'entreprise ait fait quoi que ce soit de mal. Coca-Cola, elle, croît plus lentement, d'environ 5 % par an de chiffre d'affaires, avec une marge de free cash flow de 24,9 %. Pour moi, un multiple aussi haut sur une croissance aussi modérée est plus difficile à justifier. C'est une lecture personnelle, pas un fait : l'attrait pour la stabilité d'un dividende peut aussi expliquer le prix."
+        },
+        {
+          "type": "p",
+          "text": "Le percentile haut n'est donc pas un « ne pas acheter » automatique, pas plus que le percentile bas n'est un « acheter ». PayPal le montre : 11,5 fois son cash, 8e percentile, avec un cash par action en hausse d'environ 12,5 % par an. Sur le papier, c'est le même profil qu'Adobe. Il me reste pourtant à expliquer pourquoi le marché ne lui accorde pas davantage, et la marge de free cash flow, de 13,3 %, est bien plus faible que celle d'Adobe. Un multiple bas sur une activité moins rentable est une moindre anomalie."
+        },
+        {
+          "type": "h2",
+          "text": "La règle en trois questions"
+        },
+        {
+          "type": "p",
+          "text": "Voici comment je procède, dans l'ordre. D'abord, je vérifie que l'entreprise est bonne, sans regarder le prix : rentabilité, croissance du cash, rachats d'actions, dette. Ensuite, je situe sa valorisation actuelle dans son propre historique. Enfin, quel que soit le résultat, je cherche l'explication du mouvement et je me demande si elle tient. Un multiple bas parce que le marché a peur d'un risque exagéré, c'est une opportunité possible. Un multiple bas parce que la croissance a disparu, c'est un piège possible. Les deux produisent exactement le même chiffre."
+        },
+        {
+          "type": "p",
+          "text": "Je ne prétends pas que ce repère soit infaillible. L'historique peut être court, un changement de modèle économique peut rendre le passé peu pertinent, et un percentile ne dit rien de l'avenir. Mais c'est un meilleur point de départ que le voisin du secteur. C'est précisément ce que j'ai voulu automatiser dans [ma méthodologie](/methodologie), pour pouvoir passer n'importe quelle action au crible en quelques secondes, avec la qualité d'un côté et le prix de l'autre. Tu peux voir ce que ça donne sur les fiches [d'Adobe](/analyse/ADBE), de [Copart](/analyse/CPRT) ou de [Visa](/analyse/V). Pour la théorie, les travaux d'[Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/) sur les multiples de valorisation restent une référence."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Comment savoir si une action est chère ?",
+          "a": "Ne la compare pas seulement à ses concurrentes. Regarde où se situe sa valorisation actuelle dans son propre historique, puis cherche pourquoi elle a bougé. Une action n'est chère ou bon marché que par rapport à ce que son business mérite."
+        },
+        {
+          "q": "Que veut dire un percentile de 3 pour la valorisation d'une action ?",
+          "a": "Dans environ 3 % des mesures passées, l'action a été aussi peu valorisée qu'aujourd'hui. C'est un signal que le marché paie très peu par rapport à son habitude, pas une garantie que c'est une affaire."
+        },
+        {
+          "q": "Un multiple bas est-il toujours une bonne nouvelle ?",
+          "a": "Non. Il peut refléter une peur exagérée, ou une croissance qui s'est vraiment arrêtée. Le même chiffre cache deux situations opposées, d'où l'importance de juger d'abord la qualité de l'entreprise."
+        },
+        {
+          "q": "Pourquoi comparer à l'historique plutôt qu'au secteur ?",
+          "a": "Parce que deux entreprises d'un même secteur n'ont pas la même rentabilité ni la même croissance. Son propre passé est le seul point de comparaison avec la même nature de business."
+        }
+      ],
+      "tags": [
+        "valorisation",
+        "P/FCF",
+        "méthode",
+        "pédagogie",
+        "Adobe",
+        "Copart",
+        "Visa"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 13 octobre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Is a Stock Expensive? Compare It to Itself",
+      "excerpt": "Comparing a stock to its peers says very little. Comparing it to its own history changes the verdict, with Adobe, Copart, Visa and Coca-Cola as examples.",
+      "metaDescription": "To tell whether a stock is expensive, comparing it to the market is not enough. Its own history says far more: worked examples with Adobe and Visa.",
+      "answer": "A stock is expensive or cheap first relative to itself. I look at where its current valuation sits in its own history: Adobe has been valued this low in only 3% of past readings, while Visa is richer than 78% of its past. That marker does not decide alone, but it asks the right question.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "The trap of comparing with the neighbor"
+        },
+        {
+          "type": "p",
+          "text": "The first reflex when asking whether a stock is expensive is to look at its peers. The sector trades at 25 times cash, this one at 18, so it must be cheap. The logic looks serious and is almost always misleading. Two companies in the same sector do not have the same margins, the same growth or the same resilience. Putting them side by side is like comparing the price per square meter of a Paris studio and a Breton farmhouse and calling the second a bargain."
+        },
+        {
+          "type": "p",
+          "text": "I prefer to ask a different question: how much has the market agreed to pay for THIS company over the years? To answer, I use the P/FCF (price-to-free-cash-flow). Free cash flow is the money that really stays in the till once the bills are paid and the investments made. P/FCF divides the company's stock market value by that yearly cash: a P/FCF of 12 means you pay the equivalent of twelve years of cash. The lower it is, the less the stock is valued."
+        },
+        {
+          "type": "p",
+          "text": "Then I take every past reading of that ratio for the same company and check what share of them was lower than or equal to today's value. That is the percentile. A percentile of 3 means that in only 3% of the available readings has the stock been valued as low as it is today. A percentile of 88 means it was pricier barely 12% of the time. The scale depends on how deep each company's history is, so I do not compare it across companies with scientific precision. It is for locating, not for calculating. And I always use it after judging the quality of the business, never instead of it: a mediocre company at the bottom of its history is still mediocre."
+        },
+        {
+          "type": "h2",
+          "text": "Adobe and Copart: the same signal, two stories"
+        },
+        {
+          "type": "p",
+          "text": "Take the two clearest examples from my screener. Adobe is valued today at 11.7 times its free cash flow, which puts it at the 3rd percentile of its own history. In other words, over the measured period, the maker of Photoshop has almost never been valued this low. Copart, the online auction platform for damaged vehicles, shows 19.6 times its cash and a percentile of 2. Both sit at the floor of their history. That does not mean the same floor."
+        },
+        {
+          "type": "p",
+          "text": "Adobe has a free cash flow margin of 32.7%: out of 100 euros of sales, nearly 33 end up as available cash. Its cash per share grows around 13% a year, helped by a share count shrinking 3.1% a year through buybacks. Above all, the latest quarter does not look like a company in trouble: the [September 10 release](https://www.sec.gov/Archives/edgar/data/0000796343/000079634326000147/adbeex991q326.htm) reports record revenue of $6.76 billion, up 13%, and a raised full-year outlook. It also says its AI-first revenue grew more than 150%, without disclosing the starting base, so I draw no numerical conclusion from it. What the percentile tells me here is that the market has punished the fear of AI far more than the results. Whether that fear is justified is a real debate: a new CEO arrives on December 1 and the finance chief role is held on an interim basis. A discount can also signal a transition that is not well prepared."
+        },
+        {
+          "type": "p",
+          "text": "Copart tells something else. Over five years its cash per share grew around 17% a year, with a free cash flow margin of 28%. But its latest fiscal year, ended July 31, stalled: according to its [September 10 release](https://www.sec.gov/Archives/edgar/data/0000900075/000119312526387902/cprt-ex99_1.htm), revenue grew only 0.4% and earnings per share slipped from $1.59 to $1.55. In the fourth quarter, general expenses jumped 16.6% and net income fell 17.4%. The company attributes part of the U.S. decline to the prior-year base, which included one-off revenue from Hurricanes Helene and Milton. So Copart's low percentile is a signal of a different nature: the market is not panicking over a distant fear, it is noting that growth has stopped. The question is no longer \"will AI destroy it?\" but \"is this stall temporary or lasting?\""
+        },
+        {
+          "type": "p",
+          "text": "That is the whole value of the method. The percentile never gives the answer, it forces the right question. In both cases I then have to explain why the multiple fell, and judge whether that reason holds. Without this tool I would have seen two \"cheap stocks\" and confused them."
+        },
+        {
+          "type": "h2",
+          "text": "Visa and Coca-Cola: when expensive has an explanation"
+        },
+        {
+          "type": "p",
+          "text": "The reasoning works the other way too. Visa is valued at 39.5 times its cash, above 78% of its past readings. Coca-Cola, at 31.5 times, is above about 88% of its own. Taken alone these are warning signs: at those levels the market already pays a lot for the future. But they do not tell the same story, and it is still business quality that sets them apart."
+        },
+        {
+          "type": "p",
+          "text": "Visa produces a free cash flow margin of 47.1%, one of the highest I measure, cash per share up around 13% a year and buybacks shrinking the share count by 3.7% a year. Its payment network works like a toll road: the more merchants and cardholders, the harder it is to bypass. A high multiple for a machine like this can be explained. It simply leaves little room for error: if growth disappoints, the multiple can drift back toward its average and the stock can lose value without the company doing anything wrong. Coca-Cola grows more slowly, around 5% a year in revenue, with a free cash flow margin of 24.9%. To me, a multiple that high on growth that modest is harder to justify. That is a personal reading, not a fact: the appeal of a stable dividend may also explain the price."
+        },
+        {
+          "type": "p",
+          "text": "A high percentile is therefore not an automatic \"do not buy\", any more than a low percentile is an automatic \"buy\". PayPal shows it: 11.5 times its cash, 8th percentile, with cash per share up around 12.5% a year. On paper that is the same profile as Adobe. Yet I still have to explain why the market does not grant it more, and its free cash flow margin of 13.3% is much lower than Adobe's. A low multiple on a less profitable business is less of an anomaly."
+        },
+        {
+          "type": "h2",
+          "text": "The rule in three questions"
+        },
+        {
+          "type": "p",
+          "text": "Here is how I proceed, in order. First, I check that the company is good, without looking at the price: profitability, cash growth, buybacks, debt. Then I locate its current valuation in its own history. Finally, whatever the result, I look for the explanation of the move and ask whether it holds. A low multiple because the market fears an exaggerated risk is a possible opportunity. A low multiple because growth has vanished is a possible trap. Both produce exactly the same number."
+        },
+        {
+          "type": "p",
+          "text": "I do not claim this marker is infallible. The history can be short, a change of business model can make the past less relevant, and a percentile says nothing about the future. But it is a better starting point than the neighbor in the sector. It is precisely what I wanted to automate in [my methodology](/methodologie), so I could run any stock through the filter in seconds, quality on one side and price on the other. You can see the result on the pages for [Adobe](/analyse/ADBE), [Copart](/analyse/CPRT) or [Visa](/analyse/V). For the theory, [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/)'s work on valuation multiples remains a reference."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How can I tell whether a stock is expensive?",
+          "a": "Do not compare it only with its competitors. Look at where its current valuation sits in its own history, then find out why it moved. A stock is only expensive or cheap relative to what its business deserves."
+        },
+        {
+          "q": "What does a percentile of 3 mean for a stock's valuation?",
+          "a": "In about 3% of past readings the stock was valued as low as today. It signals that the market pays very little compared with its habit, not a guarantee that it is a bargain."
+        },
+        {
+          "q": "Is a low multiple always good news?",
+          "a": "No. It can reflect an exaggerated fear, or growth that has really stopped. The same number hides two opposite situations, which is why I judge the quality of the company first."
+        },
+        {
+          "q": "Why compare with history rather than the sector?",
+          "a": "Because two companies in the same sector do not have the same profitability or growth. Its own past is the only comparison with the same kind of business."
+        }
+      ],
+      "tags": [
+        "valuation",
+        "P/FCF",
+        "method",
+        "education",
+        "Adobe",
+        "Copart",
+        "Visa"
+      ],
+      "disclaimer": "For information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of October 13, 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you so that you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "¿Está cara una acción? Compárala consigo misma",
+      "excerpt": "Comparar una acción con sus vecinas dice muy poco. Compararla con su propia historia cambia el veredicto, con Adobe, Copart, Visa y Coca-Cola.",
+      "metaDescription": "Para saber si una acción está cara, compararla con el mercado no basta. Su propio historial dice mucho más: ejemplos con cifras de Adobe y Visa.",
+      "answer": "Una acción está cara o barata primero respecto a sí misma. Miro dónde se sitúa su valoración actual en su propio historial: Adobe solo ha estado tan poco valorada en el 3 % de las mediciones, mientras que Visa está más cara que el 78 % de su pasado. Ese punto de referencia no decide solo, pero plantea la pregunta correcta.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "La trampa de compararse con el vecino"
+        },
+        {
+          "type": "p",
+          "text": "El primer reflejo al preguntarse si una acción está cara es mirar a sus vecinas. El sector cotiza a 25 veces su caja, esta a 18, así que sería barata. El razonamiento parece serio y casi siempre engaña. Dos empresas del mismo sector no tienen los mismos márgenes, el mismo crecimiento ni la misma solidez. Ponerlas lado a lado es como comparar el precio por metro cuadrado de un estudio en París y de una casa rural bretona y decir que la segunda es una ganga."
+        },
+        {
+          "type": "p",
+          "text": "Prefiero plantear otra pregunta: ¿cuánto ha aceptado pagar el mercado por ESTA empresa a lo largo de los años? Para responder uso el P/FCF (price-to-free-cash-flow). El free cash flow es el dinero que de verdad queda en caja una vez pagadas las facturas y hechas las inversiones. El P/FCF divide el valor bursátil de la empresa por esa caja anual: un P/FCF de 12 significa que pagas el equivalente a doce años de caja. Cuanto más bajo, menos valorada está la acción."
+        },
+        {
+          "type": "p",
+          "text": "Después tomo todas las mediciones pasadas de ese ratio para la misma empresa y miro qué parte de ellas era inferior o igual al valor de hoy. Es el percentil. Un percentil de 3 significa que solo en el 3 % de las mediciones disponibles la acción ha estado tan poco valorada como hoy. Un percentil de 88 significa que fue más cara apenas el 12 % del tiempo. La escala depende de la profundidad del historial de cada empresa, así que no la comparo entre empresas con precisión científica. Sirve para situarse, no para calcular. Y siempre la uso después de juzgar la calidad del negocio, nunca en su lugar: una empresa mediocre en el mínimo de su historia sigue siendo mediocre."
+        },
+        {
+          "type": "h2",
+          "text": "Adobe y Copart: la misma señal, dos historias"
+        },
+        {
+          "type": "p",
+          "text": "Tomemos los dos ejemplos más claros de mi screener. Adobe se valora hoy a 11,7 veces su free cash flow, lo que la sitúa en el percentil 3 de su propio historial. Dicho de otro modo, durante el período medido, la creadora de Photoshop casi nunca ha estado tan poco valorada. Copart, la plataforma de subastas de vehículos siniestrados, muestra 19,6 veces su caja y un percentil de 2. Las dos están en el suelo de su historia. Pero no es el mismo suelo."
+        },
+        {
+          "type": "p",
+          "text": "Adobe tiene un margen de free cash flow del 32,7 %: de cada 100 euros de ventas, casi 33 acaban como caja disponible. Su caja por acción crece cerca de un 13 % anual, ayudada por un número de acciones que baja un 3,1 % al año gracias a las recompras. Sobre todo, el último trimestre no parece el de una empresa en apuros: el [comunicado del 10 de septiembre](https://www.sec.gov/Archives/edgar/data/0000796343/000079634326000147/adbeex991q326.htm) anuncia unos ingresos récord de 6.760 millones de dólares, un 13 % más, y una previsión anual al alza. También indica que sus ingresos ligados a la inteligencia artificial crecieron más de un 150 %, sin publicar la base de partida, así que no saco ninguna conclusión numérica. Lo que el percentil me dice aquí es que el mercado ha castigado el miedo a la IA mucho más que los resultados. Si ese miedo está justificado es un debate real: un nuevo consejero delegado llega el 1 de diciembre y el puesto de director financiero lo ocupa un interino. Un descuento también puede señalar una transición mal preparada."
+        },
+        {
+          "type": "p",
+          "text": "Copart cuenta otra cosa. En cinco años su caja por acción creció cerca de un 17 % anual, con un margen de free cash flow del 28 %. Pero su último ejercicio, cerrado el 31 de julio, se estancó: según su [comunicado del 10 de septiembre](https://www.sec.gov/Archives/edgar/data/0000900075/000119312526387902/cprt-ex99_1.htm), los ingresos solo subieron un 0,4 % y el beneficio por acción bajó de 1,59 a 1,55 dólares. En el cuarto trimestre, los gastos generales saltaron un 16,6 % y el beneficio neto cayó un 17,4 %. La empresa atribuye parte del retroceso estadounidense a la base del año anterior, que incluía ingresos excepcionales de los huracanes Helene y Milton. El percentil bajo de Copart es, pues, una señal de otra naturaleza: el mercado no se asusta por un miedo lejano, constata que el crecimiento se ha detenido. La pregunta ya no es « ¿la IA la destruirá? » sino « ¿este parón es pasajero o duradero? »."
+        },
+        {
+          "type": "p",
+          "text": "Ahí está todo el valor del método. El percentil nunca da la respuesta, obliga a formular la pregunta correcta. En ambos casos debo explicar por qué bajó el múltiplo y juzgar si esa razón se sostiene. Sin esta herramienta habría visto dos « acciones baratas » y las habría confundido."
+        },
+        {
+          "type": "h2",
+          "text": "Visa y Coca-Cola: cuando lo caro tiene explicación"
+        },
+        {
+          "type": "p",
+          "text": "El razonamiento funciona también al revés. Visa se valora a 39,5 veces su caja, por encima del 78 % de sus mediciones pasadas. Coca-Cola, a 31,5 veces, supera aproximadamente el 88 % de las suyas. Por separado son señales de alerta: a esos niveles el mercado ya paga mucho por el futuro. Pero no cuentan lo mismo, y de nuevo la calidad del negocio es lo que las distingue."
+        },
+        {
+          "type": "p",
+          "text": "Visa genera un margen de free cash flow del 47,1 %, uno de los más altos que mido, una caja por acción que sube cerca de un 13 % anual y recompras que reducen el número de acciones un 3,7 % al año. Su red de pagos funciona como un peaje: cuantos más comercios y titulares de tarjeta, más difícil es evitarla. Un múltiplo alto para una máquina así tiene explicación. Simplemente deja poco margen de error: si el crecimiento decepciona, el múltiplo puede volver hacia su media y la acción perder valor sin que la empresa haga nada mal. Coca-Cola crece más despacio, cerca de un 5 % anual en ingresos, con un margen de free cash flow del 24,9 %. Para mí, un múltiplo tan alto con un crecimiento tan moderado es más difícil de justificar. Es una lectura personal, no un hecho: el atractivo de un dividendo estable también puede explicar el precio."
+        },
+        {
+          "type": "p",
+          "text": "Un percentil alto no es, pues, un « no comprar » automático, igual que un percentil bajo no es un « comprar ». PayPal lo muestra: 11,5 veces su caja, percentil 8, con una caja por acción que sube cerca de un 12,5 % anual. Sobre el papel es el mismo perfil que Adobe. Aun así me falta explicar por qué el mercado no le concede más, y su margen de free cash flow, del 13,3 %, es muy inferior al de Adobe. Un múltiplo bajo sobre un negocio menos rentable es una anomalía menor."
+        },
+        {
+          "type": "h2",
+          "text": "La regla en tres preguntas"
+        },
+        {
+          "type": "p",
+          "text": "Así procedo, por orden. Primero compruebo que la empresa es buena, sin mirar el precio: rentabilidad, crecimiento de la caja, recompras, deuda. Después sitúo su valoración actual en su propio historial. Por último, sea cual sea el resultado, busco la explicación del movimiento y me pregunto si se sostiene. Un múltiplo bajo porque el mercado teme un riesgo exagerado es una posible oportunidad. Un múltiplo bajo porque el crecimiento ha desaparecido es una posible trampa. Ambos producen exactamente la misma cifra."
+        },
+        {
+          "type": "p",
+          "text": "No pretendo que este punto de referencia sea infalible. El historial puede ser corto, un cambio de modelo de negocio puede hacer menos relevante el pasado, y un percentil no dice nada del futuro. Pero es mejor punto de partida que el vecino del sector. Es justo lo que quise automatizar en [mi metodología](/methodologie), para poder pasar cualquier acción por el filtro en segundos, la calidad por un lado y el precio por otro. Puedes ver el resultado en las fichas de [Adobe](/analyse/ADBE), de [Copart](/analyse/CPRT) o de [Visa](/analyse/V). Para la teoría, los trabajos de [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/) sobre los múltiplos de valoración siguen siendo una referencia."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cómo saber si una acción está cara?",
+          "a": "No la compares solo con sus competidoras. Mira dónde se sitúa su valoración actual en su propio historial y averigua por qué se ha movido. Una acción solo está cara o barata respecto a lo que merece su negocio."
+        },
+        {
+          "q": "¿Qué significa un percentil de 3 en la valoración de una acción?",
+          "a": "En cerca del 3 % de las mediciones pasadas la acción estuvo tan poco valorada como hoy. Indica que el mercado paga muy poco respecto a su costumbre, no que sea una ganga garantizada."
+        },
+        {
+          "q": "¿Un múltiplo bajo es siempre una buena noticia?",
+          "a": "No. Puede reflejar un miedo exagerado o un crecimiento que de verdad se ha detenido. La misma cifra esconde dos situaciones opuestas, por eso juzgo primero la calidad de la empresa."
+        },
+        {
+          "q": "¿Por qué comparar con el historial y no con el sector?",
+          "a": "Porque dos empresas del mismo sector no tienen la misma rentabilidad ni el mismo crecimiento. Su propio pasado es la única comparación con el mismo tipo de negocio."
+        }
+      ],
+      "tags": [
+        "valoración",
+        "P/FCF",
+        "método",
+        "educación",
+        "Adobe",
+        "Copart",
+        "Visa"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 13 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
 
-
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
