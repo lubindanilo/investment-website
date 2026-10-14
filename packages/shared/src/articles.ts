@@ -96171,7 +96171,778 @@ const articleActionChereHistoire2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026];
+const articleSuedeQualite2026: Article = {
+  "slug": "actions-suedoises-qualite-rarement-soldee-2026",
+  "date": "2026-10-14",
+  "updated": "2026-10-14",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Actions suédoises : une qualité rare, presque jamais soldée",
+      "excerpt": "Alfa Laval, Atlas Copco, Assa Abloy, Evolution, Ericsson : dix actions suédoises de grande qualité sur 19 passées au crible, et une seule sous mon prix d'achat.",
+      "metaDescription": "J'ai passé 19 actions suédoises au crible : dix sont de grande qualité, une seule cote sous mon prix d'achat. Lesquelles, et pourquoi le prix manque.",
+      "answer": "Sur 19 grandes actions suédoises passées au crible, dix ont une qualité élevée : Alfa Laval, Addtech, Ericsson, Atlas Copco, Assa Abloy, Epiroc, Evolution, Lifco, Sandvik et Hexagon. Mais une seule, Ericsson, cote sous mon prix d'achat. La Suède vend de la qualité, rarement en solde, et ce constat vaut déjà une information.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Dix valeurs à 7 sur 10 ou plus, un seul prix raisonnable"
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé au crible 19 grandes actions suédoises avec la grille que j'utilise pour tous les pays. D'un côté, une note de qualité sur 10, calculée à partir de critères financiers concrets : rentabilité, croissance des ventes et du cash, rachats d'actions, dette. De l'autre, et séparément, un prix d'achat : le cours maximum que je paierais pour viser 15 % de rendement par an sur cinq ans. Il est exigeant volontairement, car il sert à repérer les rares cas où l'on n'a pas besoin de payer la perfection. Les chiffres datent du 14 octobre 2026. Quelques valeurs (H&M, SKF, Nibe, SEB, Boliden) n'ont pas répondu à l'extraction ce jour-là et ne figurent pas dans l'échantillon."
+        },
+        {
+          "type": "p",
+          "text": "Résultat : dix sociétés obtiennent 7 sur 10 ou plus. Le tableau les range par note et compare le cours du jour à mon prix d'achat, en couronnes suédoises."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note",
+            "Cours (SEK)",
+            "Prix d'achat (SEK)",
+            "Cours par rapport au prix d'achat"
+          ],
+          "rows": [
+            [
+              "Alfa Laval",
+              "9",
+              "593",
+              "223",
+              "166 % au-dessus"
+            ],
+            [
+              "Addtech",
+              "9",
+              "326",
+              "190",
+              "72 % au-dessus"
+            ],
+            [
+              "Ericsson",
+              "9",
+              "94",
+              "108",
+              "13 % en dessous"
+            ],
+            [
+              "Atlas Copco",
+              "8",
+              "211",
+              "124",
+              "70 % au-dessus"
+            ],
+            [
+              "Assa Abloy",
+              "8",
+              "353",
+              "136",
+              "160 % au-dessus"
+            ],
+            [
+              "Epiroc",
+              "8",
+              "272",
+              "266",
+              "2 % au-dessus"
+            ],
+            [
+              "Evolution",
+              "8",
+              "802",
+              "407",
+              "97 % au-dessus"
+            ],
+            [
+              "Lifco",
+              "8",
+              "324",
+              "176",
+              "83 % au-dessus"
+            ],
+            [
+              "Sandvik",
+              "7",
+              "369",
+              "206",
+              "79 % au-dessus"
+            ],
+            [
+              "Hexagon",
+              "7",
+              "105",
+              "61",
+              "72 % au-dessus"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Lis la dernière colonne comme un thermomètre. Huit de ces dix valeurs cotent entre 70 % et 166 % au-dessus de ce que je suis prêt à payer. Ce n'est pas un jugement sur l'entreprise, c'est un jugement sur le prix : le marché a déjà reconnu la qualité suédoise, et il l'a payée d'avance. J'avais déjà comparé deux d'entre elles, Addtech et Lifco, dans [mon article sur les compounders suédois](/blog/addtech-lifco-compounders-suedois-comparatif)  ; le tableau confirme qu'elles restent toutes deux au-dessus de mon prix d'achat."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi la qualité suédoise est presque toujours chère"
+        },
+        {
+          "type": "p",
+          "text": "Ces sociétés ont un point commun : elles vendent des équipements ou des composants dont leurs clients ne peuvent pas se passer, puis gagnent de l'argent une seconde fois sur les pièces de rechange, les services et les mises à jour. Quand une usine a installé des compresseurs, des échangeurs thermiques ou des systèmes de serrures, elle reste liée à son fournisseur pendant des années. C'est ma lecture de leurs métiers, pas un chiffre du screener. Cette récurrence rend le cash prévisible, et un cash prévisible se valorise cher : le marché paie la tranquillité."
+        },
+        {
+          "type": "p",
+          "text": "Alfa Laval en est l'exemple le plus net. Elle obtient 9 sur 10, avec un cash ROCE de 24,7 % (le cash généré chaque année rapporté au capital engagé : plus il est haut, mieux chaque couronne investie travaille) et un cash par action en hausse de 63 % par an sur la période mesurée, un chiffre que sa base de départ gonfle sans doute. Mais l'action vaut aujourd'hui plus de 37 fois son free cash flow (le cash qui reste une fois les factures payées et les investissements faits), un niveau supérieur à 96 % de ses propres mesures passées. Mon prix d'achat retient d'ailleurs une croissance du cash de 2,6 % par an seulement et un multiple de sortie ramené à 25 fois : c'est ce qui l'écarte du cours, et c'est un choix prudent assumé."
+        },
+        {
+          "type": "p",
+          "text": "Le rapport du deuxième trimestre, [publié le 21 juillet 2026](https://news.cision.com/alfa-laval/r/alfa-laval-ab--publ--interim-report-1-april---30-june-2026,c4376242), montre pourquoi le marché ne rabat rien : les commandes bondissent de 35 % à 22,2 milliards de couronnes (29 % en organique). Mais la marge d'EBITA ajustée recule à 17,0 % contre 17,8 % un an plus tôt, et la dette nette rapportée à l'EBITDA passe de 0,60 à 1,11 après des acquisitions. Les bonnes nouvelles sont dans le cours, la marge recule quand même."
+        },
+        {
+          "type": "h2",
+          "text": "Ericsson et Epiroc : les deux exceptions"
+        },
+        {
+          "type": "p",
+          "text": "Ericsson est la seule des dix à coter sous mon prix d'achat : 94 couronnes contre 108. Elle se valorise environ 11 fois son free cash flow, avec une marge de free cash flow de 12,3 %. La trajectoire invite pourtant à la prudence : ses ventes reculent de 4,5 % par an sur la période mesurée, et le deuxième trimestre 2026, publié le 14 juillet, a confirmé la pente avec 52,7 milliards de couronnes de ventes, en baisse de 6 % sur un an, et une marge brute ajustée de 48,4 % (voir [la page investisseurs d'Ericsson](https://www.ericsson.com/en/investors)). Le cash par action progresse, lui, de près de 45 % par an : j'en déduis une cure d'efficacité, pas une croissance."
+        },
+        {
+          "type": "p",
+          "text": "Pourquoi le marché la paie-t-il si peu ? Parce que ses clients, les opérateurs télécoms, dépensent par à-coups : ils investissent massivement quand un nouveau réseau se déploie, puis lèvent le pied. Ericsson est un cyclique qui ressemble à une entreprise de qualité. Mon avis tranché : le prix est raisonnable seulement si l'on n'attend aucune croissance. Un détail compte : pour Ericsson comme pour Epiroc, mon calcul retient la croissance de cash maximale que j'autorise, 20 % par an, parce que leur cash par action a progressé vite. Si ce rythme se tasse, leur prix d'achat baisse et l'écart disparaît. Pour le détail, relis [mon analyse d'Ericsson](/blog/ericsson-eric-equipementier-telecom-suedois-analyse)."
+        },
+        {
+          "type": "p",
+          "text": "Epiroc, qui équipe les mines, cote à 2 % de mon prix d'achat : en pratique, au prix. Elle obtient 8 sur 10 avec un cash ROCE de 22,6 %, mais se valorise près de 38 fois son free cash flow : ce prix d'achat repose lui aussi sur une croissance du cash de 20 % par an, que ses ventes (7,7 % par an) soutiennent sans la garantir."
+        },
+        {
+          "type": "h2",
+          "text": "Evolution : la marge la plus haute, le débat le plus ouvert"
+        },
+        {
+          "type": "p",
+          "text": "Evolution produit les tables de casino en direct que les sites de jeu en ligne diffusent depuis ses studios. C'est la société la plus profitable du lot : une marge de free cash flow de 54,2 % (sur 100 couronnes de ventes, 54 restent en cash disponible) et un cash ROCE de 99,7 %, soit presque autant de cash par an que de capital engagé. Elle se valorise seulement 13 fois son free cash flow, et son cours est pourtant 97 % au-dessus de mon prix d'achat. L'explication tient à mon calcul : il retient une croissance du cash de 3,8 % par an et un multiple de sortie de 11 fois, donc il anticipe un tassement."
+        },
+        {
+          "type": "p",
+          "text": "Le dernier rapport, publié le 17 juillet 2026, [donne raison à cette prudence](https://storage.mfn.se/bbf67910-dce3-4b0c-8228-de12e62c78f6/evo-q2-2026-07-17-eng.pdf) : le chiffre d'affaires du deuxième trimestre recule de 1,2 % à 517,8 millions d'euros (hausse de 2,4 % à devises constantes), pour une marge d'EBITDA stable à 65,9 %. Le live casino baisse (437,3 millions d'euros contre 453,7), les jeux à résultat aléatoire montent (80,5 contre 70,6), l'Asie recule de 8,9 %. Sur cinq ans, les ventes croissaient de près de 18 % par an : la machine tourne, elle n'accélère plus. La société a lancé un programme de rachat d'actions et réglé un différend avec le régulateur britannique pour 4,75 millions de livres. Une très belle entreprise, mais dont l'histoire de croissance est en pause."
+        },
+        {
+          "type": "h2",
+          "text": "Neuf valeurs restent à 6 sur 10 ou moins"
+        },
+        {
+          "type": "p",
+          "text": "Les neuf autres sociétés de l'échantillon pèsent moins, pour des raisons de trois sortes : des ventes qui reculent, une rentabilité faible, ou un secteur (les banques) où mon calcul de prix n'est pas applicable."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note",
+            "Ce qui pèse"
+          ],
+          "rows": [
+            [
+              "Telia",
+              "6",
+              "Ventes en recul de 1,8 % par an, mais marge de free cash flow de 15,6 %"
+            ],
+            [
+              "Handelsbanken",
+              "6",
+              "Banque : pas de prix d'achat calculable, les dépôts faussent le free cash flow"
+            ],
+            [
+              "Swedbank",
+              "6",
+              "Banque : même limite"
+            ],
+            [
+              "Nordea",
+              "5",
+              "Banque : même limite"
+            ],
+            [
+              "Investor",
+              "5",
+              "Société de portefeuille : cash ROCE de 1,9 %, la valeur est dans ses participations"
+            ],
+            [
+              "Essity",
+              "5",
+              "Marge de free cash flow de 6,0 %, cash par action en léger recul"
+            ],
+            [
+              "EQT",
+              "5",
+              "Nombre d'actions en hausse de 4,5 % par an, cash par action en baisse de 17 % par an"
+            ],
+            [
+              "Volvo",
+              "4",
+              "Marge de free cash flow de 4,1 %, ventes stables, cash ROCE de 6,4 %"
+            ],
+            [
+              "Sinch",
+              "4",
+              "Ventes en recul de 0,8 % par an, cash ROCE de 9,8 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Trois d'entre elles cotent sous mon prix d'achat : Telia (16 % en dessous), Sinch (5 %) et Volvo (4 %). Elles illustrent le piège inverse : un prix raisonnable pour une qualité moyenne n'est pas une affaire, c'est le prix normal d'une entreprise moyenne. Je détaille ce mécanisme dans [mon article sur les pièges de valeur](/blog/piege-de-valeur-value-trap-comment-le-reperer-methode-lubin)."
+        },
+        {
+          "type": "h2",
+          "text": "Mon verdict sur la Suède boursière"
+        },
+        {
+          "type": "p",
+          "text": "La Suède est le pays où la qualité est la plus facile à trouver et la plus difficile à acheter bon marché. Sur 19 valeurs, dix passent 7 sur 10, mais une seule offre un vrai prix, Ericsson, et c'est celle dont les ventes reculent. Ma lecture : sur Alfa Laval ou Assa Abloy, il faudrait un net recul des cours pour que le prix rejoigne la qualité, et payer aujourd'hui, c'est parier que le marché a raison d'en attendre beaucoup."
+        },
+        {
+          "type": "p",
+          "text": "Le schéma ressemble à ce que je trouve ailleurs. En [Allemagne](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) la qualité vit dans l'assurance et le logiciel, en [Suisse](/blog/actions-suisses-qualite-connue-prix-deja-paye-2026) elle est déjà payée : quand une qualité est connue, son prix l'est aussi. Ces tris viennent de la grille que j'ai construite pour les faire sur n'importe quelle action, que tu peux essayer sur [la fiche d'Alfa Laval](/analyse/ALFA.ST)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les meilleures actions suédoises en 2026 ?",
+          "a": "Sur 19 grandes valeurs passées au crible le 14 octobre 2026, Alfa Laval, Addtech et Ericsson obtiennent 9 sur 10, suivies d'Atlas Copco, Assa Abloy, Epiroc, Evolution et Lifco à 8. Cette note mesure la qualité de l'entreprise, pas son prix."
+        },
+        {
+          "q": "Les actions suédoises sont-elles chères ?",
+          "a": "Les plus belles, oui : huit des dix meilleures cotent entre 70 % et 166 % au-dessus de mon prix d'achat. Ericsson cote en dessous, Epiroc quasiment à son niveau."
+        },
+        {
+          "q": "Pourquoi une action de qualité peut-elle ne pas être une bonne affaire ?",
+          "a": "Parce que le prix compte autant que l'entreprise. Une société excellente payée trop cher peut rapporter peu. Je juge donc la qualité d'abord, puis le prix, séparément."
+        }
+      ],
+      "tags": [
+        "Suède",
+        "actions suédoises",
+        "palmarès",
+        "qualité",
+        "valorisation",
+        "Alfa Laval",
+        "Atlas Copco",
+        "Ericsson"
+      ],
+      "disclaimer": "Analyse à visée informative et pédagogique, qui ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 14 octobre 2026, susceptibles de changer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Swedish stocks: rare quality, almost never on sale",
+      "excerpt": "Alfa Laval, Atlas Copco, Assa Abloy, Evolution, Ericsson: ten of 19 Swedish stocks screened are high quality, and only one trades below my buy price.",
+      "metaDescription": "I screened 19 Swedish stocks: ten are high quality, only one trades below my buy price. Which ones, and why the price is the missing piece.",
+      "answer": "Of 19 large Swedish stocks screened, ten show high quality: Alfa Laval, Addtech, Ericsson, Atlas Copco, Assa Abloy, Epiroc, Evolution, Lifco, Sandvik and Hexagon. But only one, Ericsson, trades below my buy price. Sweden sells quality, rarely at a discount, and that observation is information in itself.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ten stocks at 7 out of 10 or more, one reasonable price"
+        },
+        {
+          "type": "p",
+          "text": "I screened 19 large Swedish stocks with the same grid I use for every country. On one side, a quality score out of 10 built from concrete financial criteria: profitability, sales and cash growth, share buybacks, debt. On the other, and separately, a buy price: the highest price I would pay to aim for a 15% annual return over five years. It is demanding on purpose, because it is meant to spot the rare cases where you do not have to pay for perfection. The figures are dated 14 October 2026. A few names (H&M, SKF, Nibe, SEB, Boliden) did not respond to the data pull that day and are not in the sample."
+        },
+        {
+          "type": "p",
+          "text": "The result: ten companies score 7 out of 10 or more. The table ranks them by score and compares today's price with my buy price, in Swedish kronor."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Score",
+            "Price (SEK)",
+            "Buy price (SEK)",
+            "Price versus buy price"
+          ],
+          "rows": [
+            [
+              "Alfa Laval",
+              "9",
+              "593",
+              "223",
+              "166% above"
+            ],
+            [
+              "Addtech",
+              "9",
+              "326",
+              "190",
+              "72% above"
+            ],
+            [
+              "Ericsson",
+              "9",
+              "94",
+              "108",
+              "13% below"
+            ],
+            [
+              "Atlas Copco",
+              "8",
+              "211",
+              "124",
+              "70% above"
+            ],
+            [
+              "Assa Abloy",
+              "8",
+              "353",
+              "136",
+              "160% above"
+            ],
+            [
+              "Epiroc",
+              "8",
+              "272",
+              "266",
+              "2% above"
+            ],
+            [
+              "Evolution",
+              "8",
+              "802",
+              "407",
+              "97% above"
+            ],
+            [
+              "Lifco",
+              "8",
+              "324",
+              "176",
+              "83% above"
+            ],
+            [
+              "Sandvik",
+              "7",
+              "369",
+              "206",
+              "79% above"
+            ],
+            [
+              "Hexagon",
+              "7",
+              "105",
+              "61",
+              "72% above"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Read the last column like a thermometer. Eight of these ten stocks trade between 70% and 166% above what I am willing to pay. That is not a verdict on the business, it is a verdict on the price: the market has already recognised Swedish quality, and paid for it in advance. I had already compared two of them, Addtech and Lifco, in [my article on Swedish compounders](/blog/addtech-lifco-compounders-suedois-comparatif); the table confirms both still sit above my buy price."
+        },
+        {
+          "type": "h2",
+          "text": "Why Swedish quality is almost always expensive"
+        },
+        {
+          "type": "p",
+          "text": "These companies share one trait: they sell equipment or components their customers cannot do without, then earn money a second time on spare parts, services and upgrades. Once a factory has installed compressors, heat exchangers or lock systems, it stays tied to its supplier for years. That is my reading of their businesses, not a screener figure. This recurrence makes cash predictable, and predictable cash is priced high: the market pays for peace of mind."
+        },
+        {
+          "type": "p",
+          "text": "Alfa Laval is the clearest example. It scores 9 out of 10, with a cash ROCE of 24.7% (the cash generated each year relative to the capital employed: the higher it is, the harder each krona invested works) and cash per share up 63% a year over the measured period, a figure its low starting base probably inflates. But the stock now trades at over 37 times its free cash flow (the cash left once bills are paid and investments made), higher than 96% of its own past readings. My buy price assumes cash growth of only 2.6% a year and an exit multiple brought down to 25 times: that is what keeps it far from the market price, and it is a deliberately cautious choice."
+        },
+        {
+          "type": "p",
+          "text": "The second quarter report, [published on 21 July 2026](https://news.cision.com/alfa-laval/r/alfa-laval-ab--publ--interim-report-1-april---30-june-2026,c4376242), shows why the market does not discount anything: orders jumped 35% to SEK 22.2 billion (29% organic). But adjusted EBITA margin slipped to 17.0% from 17.8% a year earlier, and net debt to EBITDA rose from 0.60 to 1.11 after acquisitions. The good news is in the price, and the margin is falling anyway."
+        },
+        {
+          "type": "h2",
+          "text": "Ericsson and Epiroc: the two exceptions"
+        },
+        {
+          "type": "p",
+          "text": "Ericsson is the only one of the ten trading below my buy price: 94 kronor against 108. It trades at about 11 times its free cash flow, with a free cash flow margin of 12.3%. The trajectory calls for caution, though: sales are falling 4.5% a year over the measured period, and the second quarter of 2026, published on 14 July, confirmed the slope with SEK 52.7 billion in sales, down 6% year on year, and an adjusted gross margin of 48.4% (see [Ericsson's investor page](https://www.ericsson.com/en/investors)). Cash per share, meanwhile, grows by nearly 45% a year: I read that as an efficiency drive, not growth."
+        },
+        {
+          "type": "p",
+          "text": "Why does the market pay so little for it? Because its customers, the telecom operators, spend in bursts: heavily when a new network rolls out, then they ease off. Ericsson is a cyclical that looks like a quality company. My firm view: the price is reasonable only if you expect no growth. One detail matters: for Ericsson as for Epiroc, my calculation uses the maximum cash growth I allow, 20% a year, because their cash per share has grown fast. If that pace slows, their buy price drops and the gap disappears. For more detail, read [my Ericsson analysis](/blog/ericsson-eric-equipementier-telecom-suedois-analyse)."
+        },
+        {
+          "type": "p",
+          "text": "Epiroc, which equips mines, trades 2% above my buy price: in practice, at the price. It scores 8 out of 10 with a cash ROCE of 22.6%, but trades near 38 times its free cash flow: its buy price also rests on cash growth of 20% a year, which its sales (7.7% a year) support without guaranteeing it."
+        },
+        {
+          "type": "h2",
+          "text": "Evolution: the highest margin, the most open debate"
+        },
+        {
+          "type": "p",
+          "text": "Evolution produces the live casino tables that online gambling sites stream from its studios. It is the most profitable company in the group: a free cash flow margin of 54.2% (out of 100 kronor of sales, 54 stay as available cash) and a cash ROCE of 99.7%, almost as much cash a year as the capital employed. It trades at only 13 times its free cash flow, yet its price is 97% above my buy price. The explanation lies in my calculation: it assumes cash growth of 3.8% a year and an exit multiple of 11 times, so it anticipates a slowdown."
+        },
+        {
+          "type": "p",
+          "text": "The latest report, published on 17 July 2026, [backs that caution](https://storage.mfn.se/bbf67910-dce3-4b0c-8228-de12e62c78f6/evo-q2-2026-07-17-eng.pdf): second quarter revenue fell 1.2% to 517.8 million euros (up 2.4% at constant currency), with a stable EBITDA margin of 65.9%. Live casino declined (437.3 million euros against 453.7), random-outcome games rose (80.5 against 70.6), and Asia fell 8.9%. Over five years sales grew nearly 18% a year: the machine keeps running, it no longer accelerates. The company launched a share buyback and settled a dispute with the UK regulator for 4.75 million pounds. A superb business whose growth story is on pause."
+        },
+        {
+          "type": "h2",
+          "text": "Nine stocks stay at 6 out of 10 or less"
+        },
+        {
+          "type": "p",
+          "text": "The other nine companies in the sample score lower for three kinds of reasons: falling sales, weak profitability, or a sector (banks) where my price calculation does not apply."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Score",
+            "What weighs"
+          ],
+          "rows": [
+            [
+              "Telia",
+              "6",
+              "Sales down 1.8% a year, but a free cash flow margin of 15.6%"
+            ],
+            [
+              "Handelsbanken",
+              "6",
+              "Bank: no buy price can be calculated, deposits distort free cash flow"
+            ],
+            [
+              "Swedbank",
+              "6",
+              "Bank: same limit"
+            ],
+            [
+              "Nordea",
+              "5",
+              "Bank: same limit"
+            ],
+            [
+              "Investor",
+              "5",
+              "Holding company: cash ROCE of 1.9%, the value sits in its stakes"
+            ],
+            [
+              "Essity",
+              "5",
+              "Free cash flow margin of 6.0%, cash per share slightly down"
+            ],
+            [
+              "EQT",
+              "5",
+              "Share count up 4.5% a year, cash per share down 17% a year"
+            ],
+            [
+              "Volvo",
+              "4",
+              "Free cash flow margin of 4.1%, flat sales, cash ROCE of 6.4%"
+            ],
+            [
+              "Sinch",
+              "4",
+              "Sales down 0.8% a year, cash ROCE of 9.8%"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Three of them trade below my buy price: Telia (16% below), Sinch (5%) and Volvo (4%). They illustrate the opposite trap: a reasonable price for average quality is not a bargain, it is the normal price of an average company. I explain this mechanism in [my article on value traps](/blog/piege-de-valeur-value-trap-comment-le-reperer-methode-lubin)."
+        },
+        {
+          "type": "h2",
+          "text": "My verdict on Swedish stocks"
+        },
+        {
+          "type": "p",
+          "text": "Sweden is the country where quality is easiest to find and hardest to buy cheaply. Of 19 stocks, ten pass 7 out of 10, but only one offers a real price, Ericsson, and it is the one whose sales are falling. My reading: on Alfa Laval or Assa Abloy it would take a sharp price drop for the price to meet the quality, and paying today means betting the market is right to expect a lot."
+        },
+        {
+          "type": "p",
+          "text": "The pattern resembles what I find elsewhere. In [Germany](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) quality lives in insurance and software, in [Switzerland](/blog/actions-suisses-qualite-connue-prix-deja-paye-2026) it is already paid for: when quality is well known, so is its price. These screens come from the grid I built to run them on any stock, which you can try on [the Alfa Laval page](/analyse/ALFA.ST)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the best Swedish stocks in 2026?",
+          "a": "Of 19 large stocks screened on 14 October 2026, Alfa Laval, Addtech and Ericsson score 9 out of 10, followed by Atlas Copco, Assa Abloy, Epiroc, Evolution and Lifco at 8. The score measures business quality, not price."
+        },
+        {
+          "q": "Are Swedish stocks expensive?",
+          "a": "The best ones are: eight of the top ten trade between 70% and 166% above my buy price. Ericsson trades below it, Epiroc almost at it."
+        },
+        {
+          "q": "Why might a high-quality stock not be a good deal?",
+          "a": "Because price matters as much as the business. An excellent company bought too dear can return little. So I judge quality first, then price, separately."
+        }
+      ],
+      "tags": [
+        "Sweden",
+        "Swedish stocks",
+        "ranking",
+        "quality",
+        "valuation",
+        "Alfa Laval",
+        "Atlas Copco",
+        "Ericsson"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not guarantee future results. Figures as of 14 October 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so that you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Acciones suecas: calidad rara, casi nunca rebajada",
+      "excerpt": "Alfa Laval, Atlas Copco, Assa Abloy, Evolution, Ericsson: diez de 19 acciones suecas analizadas son de gran calidad y solo una cotiza por debajo de mi precio de compra.",
+      "metaDescription": "Analicé 19 acciones suecas: diez son de gran calidad y solo una cotiza bajo mi precio de compra. Cuáles son y por qué falta el precio.",
+      "answer": "De 19 grandes acciones suecas analizadas, diez tienen una calidad alta: Alfa Laval, Addtech, Ericsson, Atlas Copco, Assa Abloy, Epiroc, Evolution, Lifco, Sandvik y Hexagon. Pero solo una, Ericsson, cotiza por debajo de mi precio de compra. Suecia vende calidad, rara vez rebajada, y esa observación ya es información.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Diez valores con 7 sobre 10 o más, un solo precio razonable"
+        },
+        {
+          "type": "p",
+          "text": "Analicé 19 grandes acciones suecas con la misma rejilla que uso para todos los países. Por un lado, una nota de calidad sobre 10 calculada con criterios financieros concretos: rentabilidad, crecimiento de ventas y de caja, recompras de acciones, deuda. Por otro, y por separado, un precio de compra: el precio máximo que pagaría para buscar un 15 % de rentabilidad anual a cinco años. Es exigente a propósito, porque sirve para detectar los pocos casos en los que no hay que pagar la perfección. Las cifras son del 14 de octubre de 2026. Algunos valores (H&M, SKF, Nibe, SEB, Boliden) no respondieron a la extracción ese día y no figuran en la muestra."
+        },
+        {
+          "type": "p",
+          "text": "Resultado: diez empresas sacan 7 sobre 10 o más. La tabla las ordena por nota y compara la cotización del día con mi precio de compra, en coronas suecas."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota",
+            "Cotización (SEK)",
+            "Precio de compra (SEK)",
+            "Cotización frente al precio de compra"
+          ],
+          "rows": [
+            [
+              "Alfa Laval",
+              "9",
+              "593",
+              "223",
+              "166 % por encima"
+            ],
+            [
+              "Addtech",
+              "9",
+              "326",
+              "190",
+              "72 % por encima"
+            ],
+            [
+              "Ericsson",
+              "9",
+              "94",
+              "108",
+              "13 % por debajo"
+            ],
+            [
+              "Atlas Copco",
+              "8",
+              "211",
+              "124",
+              "70 % por encima"
+            ],
+            [
+              "Assa Abloy",
+              "8",
+              "353",
+              "136",
+              "160 % por encima"
+            ],
+            [
+              "Epiroc",
+              "8",
+              "272",
+              "266",
+              "2 % por encima"
+            ],
+            [
+              "Evolution",
+              "8",
+              "802",
+              "407",
+              "97 % por encima"
+            ],
+            [
+              "Lifco",
+              "8",
+              "324",
+              "176",
+              "83 % por encima"
+            ],
+            [
+              "Sandvik",
+              "7",
+              "369",
+              "206",
+              "79 % por encima"
+            ],
+            [
+              "Hexagon",
+              "7",
+              "105",
+              "61",
+              "72 % por encima"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Lee la última columna como un termómetro. Ocho de estos diez valores cotizan entre un 70 % y un 166 % por encima de lo que estoy dispuesto a pagar. No es un juicio sobre la empresa, es un juicio sobre el precio: el mercado ya ha reconocido la calidad sueca y la ha pagado por adelantado. Ya había comparado a dos de ellas, Addtech y Lifco, en [mi artículo sobre los compounders suecos](/blog/addtech-lifco-compounders-suedois-comparatif); la tabla confirma que ambas siguen por encima de mi precio de compra."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué la calidad sueca casi siempre es cara"
+        },
+        {
+          "type": "p",
+          "text": "Estas empresas tienen un rasgo común: venden equipos o componentes de los que sus clientes no pueden prescindir y luego ganan dinero una segunda vez con repuestos, servicios y actualizaciones. Cuando una fábrica ha instalado compresores, intercambiadores de calor o sistemas de cerraduras, queda ligada a su proveedor durante años. Es mi lectura de sus negocios, no una cifra del screener. Esa recurrencia hace la caja previsible, y una caja previsible se valora cara: el mercado paga la tranquilidad."
+        },
+        {
+          "type": "p",
+          "text": "Alfa Laval es el ejemplo más claro. Saca 9 sobre 10, con un cash ROCE del 24,7 % (la caja generada cada año respecto al capital empleado: cuanto más alto, mejor trabaja cada corona invertida) y una caja por acción que sube un 63 % anual en el período medido, una cifra que su base de partida probablemente infla. Pero la acción cotiza hoy a más de 37 veces su free cash flow (la caja que queda una vez pagadas las facturas y hechas las inversiones), un nivel superior al 96 % de sus propias mediciones pasadas. Mi precio de compra solo supone un crecimiento de la caja del 2,6 % anual y un múltiplo de salida reducido a 25 veces: eso lo aleja de la cotización, y es una elección prudente asumida."
+        },
+        {
+          "type": "p",
+          "text": "El informe del segundo trimestre, [publicado el 21 de julio de 2026](https://news.cision.com/alfa-laval/r/alfa-laval-ab--publ--interim-report-1-april---30-june-2026,c4376242), muestra por qué el mercado no rebaja nada: los pedidos saltan un 35 % hasta 22 200 millones de coronas (29 % orgánico). Pero el margen de EBITA ajustado baja al 17,0 % frente al 17,8 % de un año antes, y la deuda neta sobre EBITDA pasa de 0,60 a 1,11 tras adquisiciones. Las buenas noticias están en el precio y el margen retrocede igualmente."
+        },
+        {
+          "type": "h2",
+          "text": "Ericsson y Epiroc: las dos excepciones"
+        },
+        {
+          "type": "p",
+          "text": "Ericsson es la única de las diez que cotiza por debajo de mi precio de compra: 94 coronas frente a 108. Se valora a unas 11 veces su free cash flow, con un margen de free cash flow del 12,3 %. La trayectoria invita sin embargo a la prudencia: sus ventas caen un 4,5 % anual en el período medido, y el segundo trimestre de 2026, publicado el 14 de julio, confirmó la pendiente con 52 700 millones de coronas de ventas, un 6 % menos que un año antes, y un margen bruto ajustado del 48,4 % (ver [la página de inversores de Ericsson](https://www.ericsson.com/en/investors)). La caja por acción, en cambio, sube cerca de un 45 % anual: deduzco un plan de eficiencia, no crecimiento."
+        },
+        {
+          "type": "p",
+          "text": "¿Por qué el mercado paga tan poco? Porque sus clientes, los operadores de telecomunicaciones, gastan a golpes: invierten mucho cuando se despliega una red nueva y luego frenan. Ericsson es una cíclica que parece una empresa de calidad. Mi opinión tajante: el precio es razonable solo si no esperas crecimiento. Un detalle importa: para Ericsson, como para Epiroc, mi cálculo usa el crecimiento máximo de caja que permito, un 20 % anual, porque su caja por acción ha subido rápido. Si ese ritmo se frena, su precio de compra baja y la diferencia desaparece. Para más detalle, lee [mi análisis de Ericsson](/blog/ericsson-eric-equipementier-telecom-suedois-analyse)."
+        },
+        {
+          "type": "p",
+          "text": "Epiroc, que equipa minas, cotiza un 2 % por encima de mi precio de compra: en la práctica, al precio. Saca 8 sobre 10 con un cash ROCE del 22,6 %, pero cotiza a casi 38 veces su free cash flow: su precio de compra también se apoya en un crecimiento de caja del 20 % anual, que sus ventas (7,7 % anual) respaldan sin garantizarlo."
+        },
+        {
+          "type": "h2",
+          "text": "Evolution: el margen más alto, el debate más abierto"
+        },
+        {
+          "type": "p",
+          "text": "Evolution produce las mesas de casino en directo que los sitios de juego en línea emiten desde sus estudios. Es la empresa más rentable del grupo: un margen de free cash flow del 54,2 % (de cada 100 coronas de ventas, 54 quedan como caja disponible) y un cash ROCE del 99,7 %, casi tanta caja al año como capital empleado. Cotiza a solo 13 veces su free cash flow y, sin embargo, su precio está un 97 % por encima de mi precio de compra. La explicación está en mi cálculo: supone un crecimiento de caja del 3,8 % anual y un múltiplo de salida de 11 veces, así que anticipa una desaceleración."
+        },
+        {
+          "type": "p",
+          "text": "El último informe, publicado el 17 de julio de 2026, [da la razón a esa prudencia](https://storage.mfn.se/bbf67910-dce3-4b0c-8228-de12e62c78f6/evo-q2-2026-07-17-eng.pdf): la facturación del segundo trimestre baja un 1,2 % hasta 517,8 millones de euros (sube un 2,4 % a tipos constantes), con un margen de EBITDA estable del 65,9 %. El casino en directo cae (437,3 millones de euros frente a 453,7), los juegos de resultado aleatorio suben (80,5 frente a 70,6) y Asia retrocede un 8,9 %. En cinco años las ventas crecían cerca de un 18 % anual: la máquina sigue funcionando, ya no acelera. La empresa lanzó un programa de recompra de acciones y cerró una disputa con el regulador británico por 4,75 millones de libras. Un negocio magnífico cuya historia de crecimiento está en pausa."
+        },
+        {
+          "type": "h2",
+          "text": "Nueve valores se quedan en 6 sobre 10 o menos"
+        },
+        {
+          "type": "p",
+          "text": "Las otras nueve empresas de la muestra puntúan menos por tres tipos de razones: ventas que caen, rentabilidad débil o un sector (los bancos) donde mi cálculo de precio no se aplica."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota",
+            "Qué pesa"
+          ],
+          "rows": [
+            [
+              "Telia",
+              "6",
+              "Ventas a la baja un 1,8 % anual, pero margen de free cash flow del 15,6 %"
+            ],
+            [
+              "Handelsbanken",
+              "6",
+              "Banco: no se puede calcular un precio de compra, los depósitos distorsionan el free cash flow"
+            ],
+            [
+              "Swedbank",
+              "6",
+              "Banco: mismo límite"
+            ],
+            [
+              "Nordea",
+              "5",
+              "Banco: mismo límite"
+            ],
+            [
+              "Investor",
+              "5",
+              "Sociedad de cartera: cash ROCE del 1,9 %, el valor está en sus participaciones"
+            ],
+            [
+              "Essity",
+              "5",
+              "Margen de free cash flow del 6,0 %, caja por acción en ligero descenso"
+            ],
+            [
+              "EQT",
+              "5",
+              "Número de acciones al alza un 4,5 % anual, caja por acción a la baja un 17 % anual"
+            ],
+            [
+              "Volvo",
+              "4",
+              "Margen de free cash flow del 4,1 %, ventas estables, cash ROCE del 6,4 %"
+            ],
+            [
+              "Sinch",
+              "4",
+              "Ventas a la baja un 0,8 % anual, cash ROCE del 9,8 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Tres de ellas cotizan por debajo de mi precio de compra: Telia (un 16 % por debajo), Sinch (5 %) y Volvo (4 %). Ilustran la trampa inversa: un precio razonable para una calidad media no es una ganga, es el precio normal de una empresa media. Explico este mecanismo en [mi artículo sobre las trampas de valor](/blog/piege-de-valeur-value-trap-comment-le-reperer-methode-lubin)."
+        },
+        {
+          "type": "h2",
+          "text": "Mi veredicto sobre la bolsa sueca"
+        },
+        {
+          "type": "p",
+          "text": "Suecia es el país donde la calidad es más fácil de encontrar y más difícil de comprar barata. De 19 valores, diez superan 7 sobre 10, pero solo uno ofrece un precio real, Ericsson, y es el que ve caer sus ventas. Mi lectura: en Alfa Laval o Assa Abloy haría falta una caída marcada de las cotizaciones para que el precio alcance a la calidad, y pagar hoy es apostar a que el mercado hace bien en esperar mucho."
+        },
+        {
+          "type": "p",
+          "text": "El patrón se parece a lo que encuentro en otros sitios. En [Alemania](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) la calidad vive en el seguro y el software, en [Suiza](/blog/actions-suisses-qualite-connue-prix-deja-paye-2026) ya está pagada: cuando una calidad es conocida, su precio también lo es. Estos análisis salen de la rejilla que construí para hacerlos con cualquier acción, y que puedes probar en [la ficha de Alfa Laval](/analyse/ALFA.ST)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las mejores acciones suecas en 2026?",
+          "a": "De 19 grandes valores analizados el 14 de octubre de 2026, Alfa Laval, Addtech y Ericsson sacan 9 sobre 10, seguidas de Atlas Copco, Assa Abloy, Epiroc, Evolution y Lifco con 8. La nota mide la calidad de la empresa, no su precio."
+        },
+        {
+          "q": "¿Están caras las acciones suecas?",
+          "a": "Las mejores, sí: ocho de las diez primeras cotizan entre un 70 % y un 166 % por encima de mi precio de compra. Ericsson cotiza por debajo y Epiroc casi en su nivel."
+        },
+        {
+          "q": "¿Por qué una acción de calidad puede no ser un buen negocio?",
+          "a": "Porque el precio cuenta tanto como la empresa. Una compañía excelente comprada demasiado cara puede rendir poco. Por eso juzgo primero la calidad y luego el precio, por separado."
+        }
+      ],
+      "tags": [
+        "Suecia",
+        "acciones suecas",
+        "ranking",
+        "calidad",
+        "valoración",
+        "Alfa Laval",
+        "Atlas Copco",
+        "Ericsson"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 14 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
