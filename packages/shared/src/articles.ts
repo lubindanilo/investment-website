@@ -96942,7 +96942,481 @@ const articleSuedeQualite2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026];
+const articleTotalShell2026: Article = {
+  "slug": "totalenergies-shell-comparatif-cash-petrole-2026",
+  "date": "2026-10-15",
+  "updated": "2026-10-15",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "TotalEnergies (TTE) ou Shell : qui rend vraiment le cash ?",
+      "excerpt": "Deux géants du pétrole, deux trimestres publiés à une semaine d'écart, et une même mécanique : racheter ses propres actions. Mais le cash qui finance tout cela n'est pas de la même qualité.",
+      "metaDescription": "TotalEnergies ou Shell en bourse : même pétrole, mais pas le même cash libre, ni la même dette. Ce que montrent leurs comptes sur cinq ans et le prix demandé.",
+      "answer": "Sur les comptes, Shell est le plus solide des deux : plus de cash libre rapporté à ses ventes, une dette plus légère et un cash libre par action qui recule moins qu'on ne le craint. TotalEnergies compense par un dividende en hausse. Les deux dépendent du baril, et les deux restent chères.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Le 23 juillet 2026, TotalEnergies publie ses résultats du deuxième trimestre : un résultat net ajusté de 6,0 Md$, un cash-flow de 9,8 Md$, un deuxième acompte de dividende de 0,90 € par action, en hausse de 5,9 %, et une enveloppe de rachats d'actions de 1,5 Md$ pour le trimestre suivant. Le ton est rassurant, le ratio d'endettement tombe à 13 %."
+        },
+        {
+          "type": "p",
+          "text": "Une semaine plus tard, le 30 juillet, c'est Shell. Le chiffre qui frappe : 21,4 Md$ de flux de trésorerie d'exploitation sur le trimestre, contre 6,1 Md$ au trimestre précédent, et un nouveau programme de rachats de 3 Md$, le dix-neuvième de suite à ce niveau ou plus. Deux communiqués, deux discours de distribution généreuse. Pourtant, quand on pose les deux sociétés côte à côte, elles ne racontent pas la même histoire."
+        },
+        {
+          "type": "p",
+          "text": "Je me suis posé la question que se pose tout investisseur français devant ces deux logos : si je dois choisir un pétrolier, lequel transforme le mieux ses ventes en cash que l'actionnaire peut vraiment garder ? Pas le plus gros bénéfice du trimestre, pas le plus beau dividende affiché : le cash libre, c'est-à-dire ce qui reste une fois payés les investissements nécessaires pour continuer à produire."
+        },
+        {
+          "type": "h2",
+          "text": "Un trimestre ne dit rien du cash, une série dit presque tout"
+        },
+        {
+          "type": "p",
+          "text": "Un pétrolier vit au rythme du baril. Quand les prix montent, les profits explosent, quand ils reculent, ils fondent. Le piège est de juger sur un seul trimestre. Chez Shell, le cash libre du deuxième trimestre est d'environ 17,5 Md$, contre 2,9 Md$ au premier. Une partie de cet écart n'est pas de la performance : le premier trimestre avait absorbé 11,2 Md$ de besoin en fonds de roulement (l'argent immobilisé dans les stocks et les créances), et le deuxième en a rendu 3,4 Md$. Le cash d'un trimestre est donc autant une question de calendrier de factures que de rentabilité."
+        },
+        {
+          "type": "p",
+          "text": "La série longue est plus honnête. Sur mes données, le cash libre de TotalEnergies est passé d'environ 31,7 Md$ en 2022 à 24,2 Md$ en 2023, 17,4 Md$ en 2024 et 11,6 Md$ en 2025. Celui de Shell, d'environ 45,8 Md$ en 2022 à 31,2, 35,1 puis 23,9 Md$ en 2025. Les deux ont donc perdu à peu près la moitié de leur cash libre depuis le pic de 2022, ce qui est normal : 2022 était une année de prix exceptionnels, et les ventes des deux groupes reculent depuis (environ 8,9 % par an pour Shell et 11,5 % par an pour TotalEnergies sur cinq ans)."
+        },
+        {
+          "type": "p",
+          "text": "Sur douze mois glissants, TotalEnergies retrouve environ 17,4 Md$ de cash libre selon cette même série : un deuxième trimestre à 6,6 Md$ qui efface un premier trimestre négatif de 1,3 Md$. Le cash libre n'a rien d'un flux régulier : c'est un métier où une bonne année en cache une mauvaise, et où il faut comparer sur un cycle entier. Je compare donc des pentes, pas des photos."
+        },
+        {
+          "type": "h2",
+          "text": "Racheter ses actions : un cash qui revient, ou qui masque ?"
+        },
+        {
+          "type": "p",
+          "text": "Les deux groupes ont fait de la même arme leur signature : retirer des actions du marché. TotalEnergies a ramené son nombre d'actions d'environ 2,76 milliards à 2,23 milliards entre mi 2021 et mi 2026, soit 19 % de moins. Shell est passé de 3,71 milliards d'actions fin 2022 à 2,97 milliards fin 2025, soit 20 % de moins en trois ans seulement. Le mécanisme est simple : moins d'actions, c'est une part plus grosse du gâteau pour celles qui restent, à gâteau constant."
+        },
+        {
+          "type": "p",
+          "text": "Le gâteau, justement, n'a pas été constant. Le cash libre par action, c'est le cash libre divisé par le nombre d'actions, la mesure qui compte pour l'actionnaire. Pour TotalEnergies, je le calcule à environ 12 $ en 2022 et environ 5 $ en 2025. Pour Shell, de 12,4 $ à 8,0 $ sur la même période, soit un recul de 35 % : les rachats ont amorti la chute (sans eux, ce serait environ 48 % de baisse, quasi la moitié du cash), mais ils ne l'ont pas annulée."
+        },
+        {
+          "type": "p",
+          "text": "Ce que cela dit d'un rachat : il ne crée pas de valeur par lui-même. Il la transfère aux actionnaires restants, à condition d'être fait à un prix raisonnable. Racheter pour 3 Md$ par trimestre quand le cash libre retombe est un engagement à tenir, pas une preuve de force. D'ailleurs, Shell avait suspendu temporairement son programme précédent à cause de l'accord d'acquisition d'ARC Resources, avec 1,8 Md$ réalisés sur 3,0. Le rachat est un choix de direction, révisable."
+        },
+        {
+          "type": "h2",
+          "text": "La dette, ce que le ratio d'endettement ne dit pas"
+        },
+        {
+          "type": "p",
+          "text": "Le ratio d'endettement (gearing en anglais) rapporte la dette nette à la dette nette plus les capitaux propres. TotalEnergies affiche 13 %, Shell 18,7 % avec 41,8 Md$ de dette nette, en forte baisse par rapport à 52,6 Md$ au trimestre précédent. Rien d'inquiétant dans les deux cas : on est loin d'un groupe fragile."
+        },
+        {
+          "type": "p",
+          "text": "Mais ce ratio regarde les capitaux propres, pas le cash. Une autre question, plus parlante pour un lecteur qui veut juger la solidité : en combien d'années de cash libre rembourserait-on la dette nette ? Sur mes données, environ 2,0 ans pour Shell et 3,5 ans pour TotalEnergies. La différence tient à ce que la série de TotalEnergies porte un cash libre plus faible, pas à une dette plus lourde en elle-même. Dans un secteur cyclique, la dette qui paraît légère à 90 dollars le baril devient plus lourde à 60 : c'est pourquoi je préfère le critère en années de cash."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que le marché demande en échange"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Critère",
+            "TotalEnergies",
+            "Shell"
+          ],
+          "rows": [
+            [
+              "Cash libre 2025",
+              "≈ 11,6 Md$",
+              "≈ 23,9 Md$"
+            ],
+            [
+              "Cash libre sur ventes",
+              "5,7 %",
+              "7,7 %"
+            ],
+            [
+              "Actions en moins (3 à 5 ans)",
+              "-19 %",
+              "-20 %"
+            ],
+            [
+              "Dette nette en années de cash libre",
+              "3,5",
+              "2,0"
+            ],
+            [
+              "Valorisation (fois le cash libre)",
+              "19,6",
+              "14,3"
+            ],
+            [
+              "Note qualité",
+              "4 sur 10",
+              "5 sur 10"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le tableau montre un compromis classique. Shell affiche la meilleure transformation de ses ventes en cash libre (environ 7,7 % contre 5,7 %), une dette moins lourde, et une valorisation plus basse : environ 14 fois son cash libre contre environ 20 fois pour TotalEnergies. Dit autrement, le prix demandé pour un euro de cash est plus élevé chez TotalEnergies, alors que ce cash est plus fragile. Le marché paie probablement la stabilité du dividende et la diversification vers l'électricité, ce que Shell ne montre pas au même degré."
+        },
+        {
+          "type": "p",
+          "text": "Il faut pourtant rester lucide sur la méthode. Ma grille juge les deux sociétés nettement chères : elle parle d'une surcote de 79 % pour Shell et de 86 % pour TotalEnergies. Cette lecture est sévère parce qu'elle projette un cash libre normalisé sur cinq ans, alors que le cash des deux groupes est aujourd'hui gonflé par des prix du baril élevés. Pour un cyclique, c'est une alarme utile plus qu'une prédiction : elle dit que l'on achète au sommet du cycle de cash, pas que l'action va chuter. La note qualité reflète la même prudence : 5 sur 10 pour Shell, 4 sur 10 pour TotalEnergies sur sa ligne parisienne."
+        },
+        {
+          "type": "p",
+          "text": "Un point pratique pour qui investit depuis la France : TotalEnergies est une société française, éligible au PEA. Shell est britannique et cotée à Londres, donc en principe hors PEA : le choix peut se jouer sur l'enveloppe fiscale autant que sur les chiffres, ce qui n'a rien à voir avec la qualité des comptes. Pour étendre la comparaison, la [fiche de TotalEnergies](/analyse/TTE.PA) et la [fiche de Shell](/analyse/SHEL) donnent chaque critère un par un."
+        },
+        {
+          "type": "h2",
+          "text": "Mon verdict : le meilleur cash, pas le plus beau dividende"
+        },
+        {
+          "type": "p",
+          "text": "Si la question est « qui garde le mieux le cash qu'il génère », la réponse des comptes est Shell : meilleure marge de cash libre, dette plus facile à rembourser, valorisation plus basse, et un cash libre par action qui baisse moins que celui de TotalEnergies. Si la question est « qui offre un revenu régulier et une exposition à l'électricité », la réponse change, et TotalEnergies a des arguments, dont un dividende relevé de 5,9 % cette année."
+        },
+        {
+          "type": "p",
+          "text": "Mais aucun des deux ne coche mes critères de qualité à un niveau qui me ferait passer outre le cycle. Ce sont deux sociétés dont le cash dépend d'un prix qu'elles ne contrôlent pas, et dont les rachats sont autant une réponse à un manque d'investissements très rentables qu'une preuve de solidité. Je les regarderais comme des cycliques bien gérées, pas comme des compounders. Les chiffres sont arrêtés au 15 octobre 2026 ; les communiqués d'origine sont le [communiqué du deuxième trimestre 2026 de TotalEnergies](https://totalenergies.com/system/files/documents/totalenergies_cp-resultats-2t26_2026_fr.pdf) et le [rapport 6-K du deuxième trimestre 2026 de Shell](https://www.sec.gov/Archives/edgar/data/0001306965/000162828026050763/shel-20260630.htm), et pour la méthode générale de valorisation, les cours de [Damodaran](https://pages.stern.nyu.edu/~adamodar/) restent une référence. C'est exactement le genre de comparaison que j'ai voulu pouvoir faire pour n'importe quelle action, et ma [méthodologie](/methodologie) l'explique critère par critère."
+        }
+      ],
+      "faq": [
+        {
+          "q": "TotalEnergies ou Shell : laquelle génère le plus de cash libre ?",
+          "a": "Sur 2025, Shell a généré environ 23,9 Md$ de cash libre contre environ 11,6 Md$ pour TotalEnergies selon les séries utilisées ici. Rapporté aux ventes, Shell garde environ 7,7 % en cash libre contre 5,7 % pour TotalEnergies."
+        },
+        {
+          "q": "Les rachats d'actions de Shell et TotalEnergies créent-ils de la valeur ?",
+          "a": "Ils réduisent le nombre d'actions (environ 20 % de moins sur trois à cinq ans), ce qui protège le cash libre par action. Mais ce dernier a quand même reculé, d'environ 35 % chez Shell entre 2022 et 2025, car le cash libre total a baissé plus vite."
+        },
+        {
+          "q": "Peut-on mettre TotalEnergies et Shell dans un PEA ?",
+          "a": "TotalEnergies est une société française et reste éligible au PEA. Shell est britannique, cotée à Londres : elle n'entre en principe pas dans un PEA. Vérifie l'éligibilité auprès de ton courtier avant d'acheter."
+        }
+      ],
+      "tags": [
+        "TotalEnergies",
+        "Shell",
+        "Comparatif",
+        "Pétrole",
+        "Cash libre",
+        "Rachats d'actions"
+      ],
+      "disclaimer": "Analyse à visée informative et pédagogique, qui ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 15 octobre 2026, susceptibles de changer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "TotalEnergies (TTE) or Shell: who really hands back cash?",
+      "excerpt": "Two oil majors, two quarters reported a week apart, and the same playbook: buying back their own shares. But the cash behind it is not of the same quality.",
+      "metaDescription": "TotalEnergies or Shell as stocks: same oil, but not the same free cash flow or debt. What five years of accounts show, and the price asked today.",
+      "answer": "On the accounts, Shell is the sturdier of the two: more free cash flow per dollar of sales, lighter debt, and free cash flow per share that has fallen less than feared. TotalEnergies offsets this with a rising dividend. Both depend on the oil price, and both remain expensive.",
+      "body": [
+        {
+          "type": "p",
+          "text": "On 23 July 2026, TotalEnergies published its second quarter: adjusted net income of $6.0bn, cash flow of $9.8bn, a second dividend instalment of €0.90 per share (up 5.9%), and a buyback envelope of $1.5bn for the next quarter. The tone is reassuring, and gearing falls to 13%."
+        },
+        {
+          "type": "p",
+          "text": "A week later, on 30 July, it was Shell's turn. The striking figure: $21.4bn of operating cash flow in the quarter, against $6.1bn the quarter before, and a new $3bn buyback, the nineteenth in a row at that level or higher. Two press releases, two speeches about generous payouts. Yet side by side, the two companies do not tell the same story."
+        },
+        {
+          "type": "p",
+          "text": "I asked myself the question any investor asks when facing these two logos: if I must pick an oil major, which one best turns its sales into cash the shareholder can actually keep? Not the biggest profit of the quarter, not the prettiest headline dividend: free cash flow, meaning what is left after paying the investments needed to keep producing."
+        },
+        {
+          "type": "h2",
+          "text": "One quarter says nothing about cash, a series says almost everything"
+        },
+        {
+          "type": "p",
+          "text": "An oil company lives at the rhythm of the barrel. When prices rise, profits explode; when they fall, profits melt. The trap is to judge on a single quarter. At Shell, second quarter free cash flow is about $17.5bn, against $2.9bn in the first. Part of that gap is not performance: the first quarter absorbed $11.2bn of working capital (money tied up in inventories and receivables), and the second gave back $3.4bn. A quarter's cash is as much a matter of invoice timing as of profitability."
+        },
+        {
+          "type": "p",
+          "text": "The long series is more honest. On my data, TotalEnergies free cash flow went from about $31.7bn in 2022 to $24.2bn in 2023, $17.4bn in 2024 and $11.6bn in 2025. Shell's went from about $45.8bn in 2022 to $31.2bn, $35.1bn, then $23.9bn in 2025. Both lost about half of their free cash flow since the 2022 peak, which is normal: 2022 had exceptional prices, and sales at both groups have fallen since (about 8.9% a year for Shell and 11.5% a year for TotalEnergies over five years)."
+        },
+        {
+          "type": "p",
+          "text": "Over the last twelve months, TotalEnergies is back to about $17.4bn of free cash flow in the same series: a second quarter at $6.6bn that erases a negative first quarter of $1.3bn. Free cash flow is no steady stream: in this trade a good year hides a bad one, and you must compare over a full cycle. So I compare slopes, not snapshots."
+        },
+        {
+          "type": "h2",
+          "text": "Buying back shares: cash coming back, or cash hiding something?"
+        },
+        {
+          "type": "p",
+          "text": "Both groups made the same weapon their signature: taking shares off the market. TotalEnergies cut its share count from about 2.76 billion to 2.23 billion between mid 2021 and mid 2026, 19% fewer. Shell went from 3.71 billion shares at end 2022 to 2.97 billion at end 2025, 20% fewer in just three years. The mechanism is simple: fewer shares means a bigger slice of the pie for those that remain, if the pie stays constant."
+        },
+        {
+          "type": "p",
+          "text": "The pie did not stay constant. Free cash flow per share is free cash flow divided by the share count, the measure that matters to the shareholder. For TotalEnergies I compute about $12 in 2022 and about $5 in 2025. For Shell, from $12.4 to $8.0 over the same period, a 35% decline: buybacks cushioned the fall (without them it would be roughly 48%, nearly half the cash) but did not cancel it."
+        },
+        {
+          "type": "p",
+          "text": "What this says about a buyback: it does not create value by itself. It transfers it to the remaining shareholders, provided it is done at a reasonable price. Repurchasing $3bn a quarter while free cash flow falls back is a commitment to honour, not proof of strength. Shell had in fact temporarily suspended its previous programme because of the agreement to acquire ARC Resources, with $1.8bn done out of $3.0bn. A buyback is a management choice, and it can be revised."
+        },
+        {
+          "type": "h2",
+          "text": "Debt: what the gearing ratio does not tell you"
+        },
+        {
+          "type": "p",
+          "text": "The gearing ratio is net debt divided by net debt plus equity. TotalEnergies shows 13%, Shell 18.7% with $41.8bn of net debt, sharply down from $52.6bn the previous quarter. Nothing worrying in either case: neither group looks fragile."
+        },
+        {
+          "type": "p",
+          "text": "But this ratio looks at equity, not cash. A more telling question for judging solidity: in how many years of free cash flow could net debt be repaid? On my data, about 2.0 years for Shell and 3.5 years for TotalEnergies. The gap comes from TotalEnergies carrying a weaker free cash flow, not from heavier debt in itself. In a cyclical sector, debt that looks light at $90 a barrel gets heavier at $60, which is why I prefer the years of cash measure."
+        },
+        {
+          "type": "h2",
+          "text": "What the market asks in return"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterion",
+            "TotalEnergies",
+            "Shell"
+          ],
+          "rows": [
+            [
+              "Free cash flow 2025",
+              "≈ $11.6bn",
+              "≈ $23.9bn"
+            ],
+            [
+              "Free cash flow to sales",
+              "5.7%",
+              "7.7%"
+            ],
+            [
+              "Fewer shares (3 to 5 years)",
+              "-19%",
+              "-20%"
+            ],
+            [
+              "Net debt in years of free cash flow",
+              "3.5",
+              "2.0"
+            ],
+            [
+              "Valuation (times free cash flow)",
+              "19.6",
+              "14.3"
+            ],
+            [
+              "Quality score",
+              "4 out of 10",
+              "5 out of 10"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The table shows a classic trade-off. Shell has the better conversion of sales into free cash flow (about 7.7% versus 5.7%), lighter debt and a lower valuation: about 14 times free cash flow versus about 20 for TotalEnergies. Put differently, the price asked for a euro of cash is higher at TotalEnergies, while that cash is more fragile. The market probably pays for dividend stability and the diversification into electricity, which Shell does not show to the same degree."
+        },
+        {
+          "type": "p",
+          "text": "Yet I stay lucid about the method. My grid judges both companies clearly expensive: it speaks of a 79% overvaluation for Shell and 86% for TotalEnergies. That reading is harsh because it projects a normalised free cash flow over five years, while both groups' cash is currently inflated by high oil prices. For a cyclical it is a useful alarm rather than a prediction: it says you are buying at the top of the cash cycle, not that the stock will fall. The quality score reflects the same caution: 5 out of 10 for Shell, 4 out of 10 for TotalEnergies on its Paris line."
+        },
+        {
+          "type": "p",
+          "text": "A practical point for investors in France: TotalEnergies is a French company, eligible for the PEA savings wrapper. Shell is British and listed in London, so in principle outside the PEA: the choice may hinge on the tax wrapper as much as on the numbers, which has nothing to do with the quality of the accounts. To extend the comparison, the [TotalEnergies page](/analyse/TTE.PA) and the [Shell page](/analyse/SHEL) give each criterion one by one."
+        },
+        {
+          "type": "h2",
+          "text": "My verdict: the better cash, not the prettier dividend"
+        },
+        {
+          "type": "p",
+          "text": "If the question is \"who keeps the cash it generates best\", the accounts answer Shell: better free cash flow margin, debt that is easier to repay, a lower valuation, and free cash flow per share that falls less than at TotalEnergies. If the question is \"who offers regular income and exposure to electricity\", the answer changes, and TotalEnergies has arguments, including a dividend raised 5.9% this year."
+        },
+        {
+          "type": "p",
+          "text": "But neither ticks my quality criteria at a level that would make me look past the cycle. These are two companies whose cash depends on a price they do not control, and whose buybacks are as much an answer to a lack of highly profitable investments as proof of strength. I would look at them as well run cyclicals, not compounders. Figures are as of 15 October 2026; the original sources are the [TotalEnergies second quarter 2026 press release](https://totalenergies.com/system/files/documents/totalenergies_cp-resultats-2t26_2026_fr.pdf) and the [Shell second quarter 2026 Form 6-K](https://www.sec.gov/Archives/edgar/data/0001306965/000162828026050763/shel-20260630.htm), and for general valuation method, [Damodaran](https://pages.stern.nyu.edu/~adamodar/)'s courses remain a reference. This is exactly the kind of comparison I wanted to be able to run on any stock, and my [methodology](/methodologie) explains it criterion by criterion."
+        }
+      ],
+      "faq": [
+        {
+          "q": "TotalEnergies or Shell: which generates more free cash flow?",
+          "a": "In 2025, Shell generated about $23.9bn of free cash flow against about $11.6bn for TotalEnergies, per the series used here. Relative to sales, Shell keeps about 7.7% as free cash flow against 5.7% for TotalEnergies."
+        },
+        {
+          "q": "Do Shell and TotalEnergies buybacks create value?",
+          "a": "They cut the share count (about 20% fewer over three to five years), which protects free cash flow per share. But that figure still fell, by about 35% at Shell between 2022 and 2025, because total free cash flow fell faster."
+        },
+        {
+          "q": "Can TotalEnergies and Shell go in a French PEA?",
+          "a": "TotalEnergies is a French company and remains PEA eligible. Shell is British, listed in London, and in principle does not qualify. Check eligibility with your broker before buying."
+        }
+      ],
+      "tags": [
+        "TotalEnergies",
+        "Shell",
+        "Comparison",
+        "Oil",
+        "Free cash flow",
+        "Buybacks"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not guarantee future results. Figures as of 15 October 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so that you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "TotalEnergies (TTE) o Shell: ¿quién devuelve más caja?",
+      "excerpt": "Dos gigantes del petróleo, dos trimestres publicados con una semana de diferencia y la misma receta: recomprar sus propias acciones. Pero la caja que lo financia no es de la misma calidad.",
+      "metaDescription": "TotalEnergies o Shell en bolsa: mismo petróleo, pero distinta caja libre y distinta deuda. Lo que muestran sus cuentas a cinco años y el precio que piden hoy.",
+      "answer": "Según las cuentas, Shell es la más sólida de las dos: más caja libre por cada dólar de ventas, deuda más ligera y una caja libre por acción que cae menos de lo temido. TotalEnergies lo compensa con un dividendo al alza. Ambas dependen del barril y ambas siguen caras.",
+      "body": [
+        {
+          "type": "p",
+          "text": "El 23 de julio de 2026, TotalEnergies publicó su segundo trimestre: resultado neto ajustado de 6.000 M$, cash flow de 9.800 M$, un segundo pago de dividendo de 0,90 € por acción (un 5,9 % más) y 1.500 M$ para recompras el trimestre siguiente. El tono es tranquilizador y el ratio de endeudamiento baja al 13 %."
+        },
+        {
+          "type": "p",
+          "text": "Una semana después, el 30 de julio, fue el turno de Shell. La cifra que llama la atención: 21.400 M$ de flujo de caja operativo en el trimestre, frente a 6.100 M$ en el anterior, y un nuevo programa de recompras de 3.000 M$, el decimonoveno seguido a ese nivel o más. Dos comunicados, dos discursos de remuneración generosa. Sin embargo, puestas una al lado de otra, las dos compañías no cuentan la misma historia."
+        },
+        {
+          "type": "p",
+          "text": "Me hice la pregunta que se hace cualquier inversor ante estos dos logos: si tengo que elegir una petrolera, ¿cuál convierte mejor sus ventas en caja que el accionista puede realmente conservar? No el mayor beneficio del trimestre ni el dividendo más vistoso: la caja libre, es decir, lo que queda después de pagar las inversiones necesarias para seguir produciendo."
+        },
+        {
+          "type": "h2",
+          "text": "Un trimestre no dice nada de la caja, una serie lo dice casi todo"
+        },
+        {
+          "type": "p",
+          "text": "Una petrolera vive al ritmo del barril. Cuando los precios suben, los beneficios se disparan; cuando bajan, se derriten. La trampa es juzgar por un solo trimestre. En Shell, la caja libre del segundo trimestre ronda los 17.500 M$, frente a 2.900 M$ en el primero. Parte de esa diferencia no es rendimiento: el primer trimestre absorbió 11.200 M$ de capital circulante (dinero inmovilizado en existencias y cobros pendientes) y el segundo devolvió 3.400 M$. La caja de un trimestre es tanto cuestión de calendario de facturas como de rentabilidad."
+        },
+        {
+          "type": "p",
+          "text": "La serie larga es más honesta. Con mis datos, la caja libre de TotalEnergies pasó de unos 31.700 M$ en 2022 a 24.200 M$ en 2023, 17.400 M$ en 2024 y 11.600 M$ en 2025. La de Shell, de unos 45.800 M$ en 2022 a 31.200, 35.100 y 23.900 M$ en 2025. Ambas perdieron aproximadamente la mitad de su caja libre desde el máximo de 2022, lo cual es normal: 2022 tuvo precios excepcionales y las ventas de los dos grupos han caído desde entonces (un 8,9 % anual en Shell y un 11,5 % anual en TotalEnergies a cinco años)."
+        },
+        {
+          "type": "p",
+          "text": "En los últimos doce meses, TotalEnergies vuelve a unos 17.400 M$ de caja libre en la misma serie: un segundo trimestre de 6.600 M$ que borra un primer trimestre negativo de 1.300 M$. La caja libre no es un flujo regular: en este negocio un buen año esconde uno malo y hay que comparar a lo largo de un ciclo completo. Por eso comparo pendientes, no fotos."
+        },
+        {
+          "type": "h2",
+          "text": "Recomprar acciones: ¿caja que vuelve o caja que disimula?"
+        },
+        {
+          "type": "p",
+          "text": "Los dos grupos han hecho de la misma arma su seña de identidad: retirar acciones del mercado. TotalEnergies redujo su número de acciones de unos 2.760 millones a 2.230 millones entre mediados de 2021 y mediados de 2026, un 19 % menos. Shell pasó de 3.710 millones de acciones a finales de 2022 a 2.970 millones a finales de 2025, un 20 % menos en solo tres años. El mecanismo es simple: menos acciones significa un trozo mayor de la tarta para las que quedan, si la tarta se mantiene."
+        },
+        {
+          "type": "p",
+          "text": "La tarta no se mantuvo. La caja libre por acción es la caja libre dividida por el número de acciones, la medida que cuenta para el accionista. Para TotalEnergies la calculo en unos 12 $ en 2022 y unos 5 $ en 2025. Para Shell, de 12,4 $ a 8,0 $ en el mismo periodo, una caída del 35 %: las recompras amortiguaron la caída (sin ellas sería de un 48 %, casi la mitad de la caja), pero no la anularon."
+        },
+        {
+          "type": "p",
+          "text": "Lo que esto dice de una recompra: no crea valor por sí sola. Lo transfiere a los accionistas que se quedan, siempre que se haga a un precio razonable. Recomprar 3.000 M$ por trimestre cuando la caja libre retrocede es un compromiso que cumplir, no una prueba de fortaleza. De hecho, Shell había suspendido temporalmente su programa anterior por el acuerdo de adquisición de ARC Resources, con 1.800 M$ ejecutados de 3.000. Una recompra es una decisión de la dirección y es revisable."
+        },
+        {
+          "type": "h2",
+          "text": "La deuda: lo que el ratio de endeudamiento no dice"
+        },
+        {
+          "type": "p",
+          "text": "El ratio de endeudamiento (gearing en inglés) divide la deuda neta entre la deuda neta más el patrimonio. TotalEnergies muestra un 13 % y Shell un 18,7 %, con 41.800 M$ de deuda neta, muy por debajo de los 52.600 M$ del trimestre anterior. Nada preocupante en ningún caso: ninguno de los dos grupos parece frágil."
+        },
+        {
+          "type": "p",
+          "text": "Pero este ratio mira el patrimonio, no la caja. Una pregunta más reveladora para juzgar la solidez: ¿en cuántos años de caja libre se pagaría la deuda neta? Con mis datos, unos 2,0 años en Shell y 3,5 años en TotalEnergies. La diferencia viene de que la serie de TotalEnergies arrastra una caja libre más débil, no de una deuda más pesada en sí. En un sector cíclico, una deuda que parece ligera con el barril a 90 dólares pesa más a 60, y por eso prefiero la medida en años de caja."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que pide el mercado a cambio"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterio",
+            "TotalEnergies",
+            "Shell"
+          ],
+          "rows": [
+            [
+              "Caja libre 2025",
+              "≈ 11.600 M$",
+              "≈ 23.900 M$"
+            ],
+            [
+              "Caja libre sobre ventas",
+              "5,7 %",
+              "7,7 %"
+            ],
+            [
+              "Menos acciones (3 a 5 años)",
+              "-19 %",
+              "-20 %"
+            ],
+            [
+              "Deuda neta en años de caja libre",
+              "3,5",
+              "2,0"
+            ],
+            [
+              "Valoración (veces la caja libre)",
+              "19,6",
+              "14,3"
+            ],
+            [
+              "Nota de calidad",
+              "4 sobre 10",
+              "5 sobre 10"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La tabla muestra un compromiso clásico. Shell tiene la mejor conversión de ventas en caja libre (un 7,7 % frente a un 5,7 %), menos deuda y una valoración más baja: unas 14 veces su caja libre frente a unas 20 de TotalEnergies. Dicho de otro modo, el precio que se pide por un euro de caja es más alto en TotalEnergies, aunque esa caja es más frágil. El mercado probablemente paga la estabilidad del dividendo y la diversificación hacia la electricidad, que Shell no muestra en el mismo grado."
+        },
+        {
+          "type": "p",
+          "text": "Aun así, hay que ser lúcido con el método. Mi herramienta de análisis juzga ambas compañías claramente caras: habla de una sobrevaloración del 79 % para Shell y del 86 % para TotalEnergies. Esa lectura es dura porque proyecta una caja libre normalizada a cinco años, mientras que la caja de ambos grupos está hoy inflada por los precios altos del barril. Para un cíclico es una alarma útil más que una predicción: dice que se compra en lo alto del ciclo de caja, no que la acción vaya a caer. La nota de calidad refleja la misma prudencia: 5 sobre 10 para Shell, 4 sobre 10 para TotalEnergies en su cotización de París."
+        },
+        {
+          "type": "p",
+          "text": "Un punto práctico para quien invierte desde Francia: TotalEnergies es una empresa francesa, elegible para el PEA (el plan de ahorro francés). Shell es británica y cotiza en Londres, por lo que en principio queda fuera del PEA: la elección puede depender del vehículo fiscal tanto como de las cifras, algo ajeno a la calidad de las cuentas. Para ampliar la comparación, la [ficha de TotalEnergies](/analyse/TTE.PA) y la [ficha de Shell](/analyse/SHEL) detallan cada criterio."
+        },
+        {
+          "type": "h2",
+          "text": "Mi veredicto: la mejor caja, no el dividendo más vistoso"
+        },
+        {
+          "type": "p",
+          "text": "Si la pregunta es «quién conserva mejor la caja que genera», las cuentas responden Shell: mejor margen de caja libre, deuda más fácil de devolver, valoración más baja y una caja libre por acción que cae menos que la de TotalEnergies. Si la pregunta es «quién ofrece una renta regular y exposición a la electricidad», la respuesta cambia y TotalEnergies tiene argumentos, entre ellos un dividendo subido un 5,9 % este año."
+        },
+        {
+          "type": "p",
+          "text": "Pero ninguna cumple mis criterios de calidad a un nivel que me haga ignorar el ciclo. Son dos compañías cuya caja depende de un precio que no controlan y cuyas recompras son tanto una respuesta a la falta de inversiones muy rentables como una prueba de solidez. Las vería como cíclicas bien gestionadas, no como compounders. Cifras a 15 de octubre de 2026; las fuentes originales son el [comunicado del segundo trimestre de 2026 de TotalEnergies](https://totalenergies.com/system/files/documents/totalenergies_cp-resultats-2t26_2026_fr.pdf) y el [formulario 6-K del segundo trimestre de 2026 de Shell](https://www.sec.gov/Archives/edgar/data/0001306965/000162828026050763/shel-20260630.htm), y para el método general de valoración, los cursos de [Damodaran](https://pages.stern.nyu.edu/~adamodar/) siguen siendo una referencia. Es justo el tipo de comparación que quise poder hacer con cualquier acción, y mi [metodología](/methodologie) la explica criterio por criterio."
+        }
+      ],
+      "faq": [
+        {
+          "q": "TotalEnergies o Shell: ¿cuál genera más caja libre?",
+          "a": "En 2025, Shell generó unos 23.900 M$ de caja libre frente a unos 11.600 M$ de TotalEnergies, según las series utilizadas aquí. Sobre ventas, Shell conserva un 7,7 % como caja libre frente a un 5,7 % de TotalEnergies."
+        },
+        {
+          "q": "¿Las recompras de Shell y TotalEnergies crean valor?",
+          "a": "Reducen el número de acciones (un 20 % menos en tres a cinco años), lo que protege la caja libre por acción. Pero esta cayó igualmente, un 35 % en Shell entre 2022 y 2025, porque la caja libre total cayó más deprisa."
+        },
+        {
+          "q": "¿Se pueden meter TotalEnergies y Shell en un PEA francés?",
+          "a": "TotalEnergies es francesa y sigue siendo elegible para el PEA. Shell es británica y cotiza en Londres, y en principio no lo es. Comprueba la elegibilidad con tu bróker antes de comprar."
+        }
+      ],
+      "tags": [
+        "TotalEnergies",
+        "Shell",
+        "Comparativa",
+        "Petróleo",
+        "Caja libre",
+        "Recompras"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 15 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
