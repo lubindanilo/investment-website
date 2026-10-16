@@ -97420,7 +97420,676 @@ const articleTotalShell2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026];
+const articleDanemarkQualite2026: Article = {
+  "slug": "actions-danoises-novo-nordisk-pas-la-meilleure-2026",
+  "date": "2026-10-16",
+  "updated": "2026-10-16",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Actions danoises : Novo Nordisk n'est pas la meilleure",
+      "excerpt": "Novo Nordisk, Vestas, Maersk, DSV, Ambu : neuf actions danoises passées au crible. La plus connue n'est pas la mieux notée, et trois seulement cotent sous mon prix d'achat.",
+      "metaDescription": "Neuf actions danoises passées au crible : Novo Nordisk n'est pas en tête, Ambu et Vestas devancent. Lesquelles cotent sous mon prix d'achat ?",
+      "answer": "Sur neuf actions danoises passées au crible, la mieux notée est Ambu (8 sur 10), devant Vestas et ISS (7). Novo Nordisk, la plus connue, n'obtient que 6. Parmi les six dont mon prix d'achat est lisible, trois cotent en dessous : Vestas, Demant et DSV. Le Danemark vend de la renommée plus que de la qualité.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ambu, Vestas, ISS : la qualité danoise n'est pas où on la cherche"
+        },
+        {
+          "type": "p",
+          "text": "Quand on pense Bourse danoise, on pense à Novo Nordisk, le laboratoire de l'Ozempic et du Wegovy, dont la capitalisation a pesé à un moment plus lourd que l'économie de son pays. J'ai donc passé au crible neuf actions de Copenhague avec la grille que j'applique partout. D'un côté, une note de qualité sur 10, bâtie sur des critères concrets : rentabilité, croissance des ventes et du cash, rachats d'actions, dette. De l'autre, séparément, un prix d'achat : le cours maximum que je paierais pour viser 15 % de rendement annuel sur cinq ans."
+        },
+        {
+          "type": "p",
+          "text": "Le résultat surprend. La mieux notée n'est pas le géant mondial mais Ambu, un fabricant d'endoscopes jetables, avec 8 sur 10. Vestas (éoliennes) et ISS (services aux bâtiments) suivent à 7. Novo Nordisk et Demant (appareils auditifs) n'obtiennent que 6. Précision de méthode : j'ai testé les noms danois que mon outil sait analyser, soit neuf. Ørsted, Carlsberg, Pandora, Genmab et Novonesis n'ont pas pu être chargés ce jour-là, et l'échantillon ne prétend donc pas être exhaustif."
+        },
+        {
+          "type": "p",
+          "text": "Pour six de ces sociétés, le prix d'achat est lisible et se compare au cours du jour. Pour les trois autres (Novo Nordisk, Coloplast, Rockwool), il ne l'est pas, et j'explique plus bas pourquoi : mieux vaut le dire que de te donner un chiffre faussement précis."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note",
+            "Cours (DKK)",
+            "Prix d'achat (DKK)",
+            "Cours par rapport au prix d'achat"
+          ],
+          "rows": [
+            [
+              "Ambu",
+              "8",
+              "78",
+              "73",
+              "7 % au-dessus"
+            ],
+            [
+              "Vestas",
+              "7",
+              "189",
+              "195",
+              "3 % en dessous"
+            ],
+            [
+              "ISS",
+              "7",
+              "299",
+              "202",
+              "48 % au-dessus"
+            ],
+            [
+              "Demant",
+              "6",
+              "358",
+              "375",
+              "5 % en dessous"
+            ],
+            [
+              "Maersk",
+              "5",
+              "23 400",
+              "9 606",
+              "144 % au-dessus"
+            ],
+            [
+              "DSV",
+              "4",
+              "1 188",
+              "1 287",
+              "8 % en dessous"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Trois sociétés cotent sous mon prix d'achat : Vestas, Demant et DSV. Mais regarde l'écart de notes : DSV n'a que 4 sur 10 et son « bon prix » ne dit rien d'une qualité qui s'érode. Le tableau ne désigne pas des affaires, il trie des situations, et c'est la lecture société par société qui compte."
+        },
+        {
+          "type": "h2",
+          "text": "Vestas : le redressement qui se lit dans les chiffres, pas encore dans le cash"
+        },
+        {
+          "type": "p",
+          "text": "Vestas fabrique des éoliennes et les entretient ensuite pour ses clients. Elle obtient 7 sur 10 avec un cash ROCE de 29,7 % (le cash généré chaque année rapporté au capital engagé : plus il est haut, plus chaque couronne investie travaille) et aucune dette nette. Le cash par action ressort en hausse de 174 % par an sur la période mesurée : un chiffre que sa base de départ, proche de zéro après des années difficiles, gonfle largement. Je le lis comme un rebond, pas comme un rythme durable."
+        },
+        {
+          "type": "p",
+          "text": "Le [rapport du deuxième trimestre, publié le 12 août 2026](https://view.news.eu.nasdaq.com/view?id=1457811), montre ce rebond de près : chiffre d'affaires de 4,7 milliards d'euros (en hausse de 26 %), marge d'exploitation avant éléments exceptionnels de 9,4 % contre 1,5 % un an plus tôt, commandes fermes de 3 349 mégawatts (67 % de plus) et un carnet de commandes de 76,9 milliards d'euros, services compris. La direction relève sa fourchette de marge 2026 à 7 à 9 % et lance un rachat d'actions de 400 millions d'euros."
+        },
+        {
+          "type": "p",
+          "text": "Reste un trait du métier qu'il faut connaître : le cash libre d'un fabricant d'éoliennes oscille fortement d'un trimestre à l'autre. Sur les séries que j'ai tirées, le premier trimestre est négatif chaque année depuis 2022, et le dernier porte l'essentiel du cash de l'année. C'est ma lecture de ces séries, pas une communication de la société. Au cours de 189 couronnes, Vestas cote 3 % sous mon prix d'achat : un prix correct pour une qualité qui s'améliore, à condition que la marge tienne."
+        },
+        {
+          "type": "h2",
+          "text": "Novo Nordisk : le plus gros nom, la note du milieu"
+        },
+        {
+          "type": "p",
+          "text": "Novo Nordisk obtient 6 sur 10. Ses points forts sont énormes : 33 % de marge nette (sur 100 couronnes de ventes, 33 restent en bénéfice), des ventes passées de 177 milliards de couronnes en 2022 à 309 milliards en 2025, des rachats modestes. Ce qui l'empêche de monter, c'est la tendance : les marges se compriment, seulement 28 % des bénéfices se transforment en cash, et le cash libre est tombé de 70 milliards de couronnes en 2024 à 29 milliards en 2025, sur les données que je tire. Mon outil a lui-même signalé ce chiffre comme suspect (un exercice partiel ou un événement exceptionnel), donc je ne bâtis pas dessus une conclusion définitive."
+        },
+        {
+          "type": "p",
+          "text": "L'action se valorise environ 40 fois son free cash flow (le cash qui reste une fois les factures payées et les investissements faits) : tu paies 40 ans de ce cash. Pour un laboratoire dont [les résultats du deuxième trimestre 2026](https://www.sec.gov/Archives/edgar/data/0000353278/000035327826000023/caq22026.htm) annoncent une année 2026 entre stable et en recul de 6 % pour les ventes et le résultat d'exploitation ajustés, à taux de change constants, c'est une valorisation qui suppose que la prochaine vague de produits prenne le relais. Le Wegovy en comprimé dépasse déjà 265 000 ordonnances hebdomadaires aux États-Unis d'après les données de prescriptions de la mi-juillet 2026, mais mon évaluation de la résilience note que la protection par brevet du sémaglutide s'achève autour de 2033."
+        },
+        {
+          "type": "p",
+          "text": "Mon prix d'achat n'est pas exploitable ici : quand la croissance du cash n'est pas calculable, mon modèle retient par prudence une baisse de 20 % par an, ce qui donne un prix très bas (32 couronnes) qui ne décrit pas vraiment Novo. Ce que je retiens : une entreprise remarquable, une valorisation exigeante, et un pari sur la suite plus qu'une affaire. Tu peux refaire l'exercice sur [la fiche de Novo Nordisk](/analyse/NOVO-B.CO)."
+        },
+        {
+          "type": "h2",
+          "text": "Maersk et DSV : deux cycles, deux lectures"
+        },
+        {
+          "type": "p",
+          "text": "Le transport montre la même mécanique, vue de deux côtés. Maersk, le premier armateur de conteneurs, est un cyclique pur : le prix du fret fait tout. Son chiffre d'affaires est passé de 81,5 milliards de dollars en 2022 à 54,0 en 2025, et son cash libre de 30,3 à 5,0 milliards. Elle obtient 5 sur 10 : bien notée sur la dette (2 ans de cash seulement) et sur la baisse du nombre d'actions (près de 6 % par an), mal notée sur la trajectoire des ventes."
+        },
+        {
+          "type": "p",
+          "text": "Le deuxième trimestre 2026 a pourtant surpris : un résultat d'exploitation avant amortissements de 3,0 milliards de dollars, un chiffre d'affaires de 15,8 milliards (20 % de plus) et une prévision annuelle relevée à 10,5 à 12,5 milliards, d'après la société. Maersk cote 144 % au-dessus de mon prix d'achat, tout en se valorisant seulement 11 fois son cash. Pas de contradiction : un cyclique paraît bon marché au sommet de son cycle, quand ses profits sont au plus haut. [Damodaran](https://pages.stern.nyu.edu/~adamodar/) explique ce piège mieux que moi : un multiple bas sur des profits de sommet ne dit pas que l'action est bon marché."
+        },
+        {
+          "type": "p",
+          "text": "DSV, le transitaire, offre l'image inverse : 4 sur 10, mais un cash ROCE de 34 % et une valorisation de 15 fois son cash. La note pèse la trajectoire : le bénéfice par action recule de 12,6 % par an sur la période, les ventes progressent de 1,6 % par an. La société digère l'acquisition de Schenker : d'après [son communiqué du 22 juillet 2026](https://dsv.gcs-web.com/node/25261), l'intégration avance, avec 9 milliards de couronnes de synergies annuelles visées et plus de 8 000 postes administratifs supprimés. Le prix, 8 % sous mon prix d'achat, dit que le marché attend la preuve, pas que le doute est levé."
+        },
+        {
+          "type": "h2",
+          "text": "Ambu, ISS, Demant : les moins connus, les plus intéressants"
+        },
+        {
+          "type": "p",
+          "text": "Ambu est ma meilleure note danoise, et sa raison d'être est simple à comprendre : un endoscope réutilisable doit être nettoyé entre deux patients, avec un risque de contamination et un coût de retraitement, tandis qu'un endoscope à usage unique se jette. Au troisième trimestre de son exercice 2025/26, publié le 25 août 2026, la croissance organique atteint 10,3 %, la marge d'exploitation 13,5 %, et l'activité endoscopie progresse de 16 %, d'après la société. La marge nette n'est que de 4,4 %, mais elle est en expansion."
+        },
+        {
+          "type": "p",
+          "text": "Le bémol, c'est le prix : environ 40 fois le cash libre, et un cours 7 % au-dessus de mon prix d'achat. Le nombre d'actions augmente de 1,7 % par an, ce qui dilue les actionnaires. Ambu est donc la qualité la plus nette de l'échantillon, mais aussi la plus exigeante en croissance : il faut que les 10 % annuels durent pour justifier le prix."
+        },
+        {
+          "type": "p",
+          "text": "ISS, qui nettoie et gère des bâtiments, vit à l'autre bout du spectre. Marge nette de 3,1 %, métier de main-d'oeuvre sans moat spectaculaire, mais un nombre d'actions qui baisse de 3,4 % par an et une marge en expansion. Son cash ROCE de 135 % ne dit pas qu'elle est exceptionnelle : il vient d'un capital engagé minuscule. Elle se valorise 15 fois son cash, dans le haut de sa propre fourchette (86e centile de son historique), et cote 48 % au-dessus de mon prix d'achat. Demant, enfin, pèse 6 sur 10 : rentabilité forte (25,5 % de cash ROCE), 2,6 % d'actions rachetées par an, mais une dette de 6,6 années de cash libre et des marges qui se compriment. À 5 % sous mon prix d'achat, c'est un prix raisonnable pour une qualité moyenne, pas une affaire."
+        },
+        {
+          "type": "h2",
+          "text": "Coloplast et Rockwool : le prix, pas l'entreprise, qui bloque"
+        },
+        {
+          "type": "p",
+          "text": "Les deux dernières sociétés partagent le même problème de lecture que Novo Nordisk. Coloplast (dispositifs médicaux) tombe à 4 sur 10 : valorisation autour de 74 fois son cash, dette équivalente à 15 années de cash libre, rendement du capital de 7,8 % et marges en compression malgré des ventes en hausse de 11,6 % par an. Rockwool (isolation) obtient 6 : marge nette de 0,7 %, ventes quasi stables, valorisation proche de 39 fois le cash."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note",
+            "Ce qui pèse"
+          ],
+          "rows": [
+            [
+              "Novo Nordisk",
+              "6",
+              "Marges en compression, 28 % des bénéfices transformés en cash, valorisation proche de 40 fois le cash"
+            ],
+            [
+              "Coloplast",
+              "4",
+              "Dette de 15 années de cash libre, rendement du capital de 7,8 %, valorisation proche de 74 fois le cash"
+            ],
+            [
+              "Rockwool",
+              "6",
+              "Marge nette de 0,7 %, ventes stables, valorisation proche de 39 fois le cash"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Pour ces trois valeurs, la croissance du cash n'est pas calculable, mon modèle applique donc sa baisse prudente de 20 % par an et produit un prix d'achat de 24 à 32 couronnes pour des cours de 193 à 468. Ce serait trompeur de te l'afficher comme un « écart de 700 % » : c'est un artefact de calcul, pas un jugement sur ces entreprises. Le vrai signal est dans les ratios de valorisation, qui sont élevés."
+        },
+        {
+          "type": "h2",
+          "text": "Mon verdict sur la Bourse danoise"
+        },
+        {
+          "type": "p",
+          "text": "Le Danemark est un pays où les noms les plus célèbres ne sont pas ceux que ma grille préfère. Sur neuf valeurs, aucune n'atteint 9 sur 10, la meilleure (Ambu) est valorisée au prix fort, et les trois sociétés connues mondialement (Novo Nordisk, Coloplast, Maersk) sont soit chères, soit cycliques, soit lourdes de dette. Les trois qui cotent sous mon prix d'achat (Vestas, Demant, DSV) méritent un vrai travail de lecture, pas un achat réflexe."
+        },
+        {
+          "type": "p",
+          "text": "Le schéma rappelle ce que je trouve chez les voisins : la [Suède](/blog/actions-suedoises-qualite-rarement-soldee-2026) vend de la qualité rarement en solde, et mon [tour d'Europe qualité et prix](/blog/actions-europeennes-qualite-prix-2026) montre que la renommée se paie. Pour les assureurs nordiques, [j'ai détaillé Tryg et Gjensidige](/blog/assurance-nordique-tryg-gjensidige-pepites-meconnues) : c'est là que le Danemark m'a le plus intéressé."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les meilleures actions danoises en 2026 ?",
+          "a": "Sur neuf valeurs passées au crible le 16 octobre 2026, Ambu obtient 8 sur 10, suivie de Vestas et ISS à 7, puis de Novo Nordisk, Demant et Rockwool à 6. Cette note mesure la qualité de l'entreprise, pas son prix."
+        },
+        {
+          "q": "Novo Nordisk est-elle une bonne action ?",
+          "a": "C'est une entreprise très rentable (33 % de marge nette) mais mon outil la note 6 sur 10 : marges en compression, cash libre en recul et valorisation proche de 40 fois le cash. La qualité est réelle, le prix demande que la croissance reparte."
+        },
+        {
+          "q": "Quelles actions danoises cotent sous le prix d'achat de la méthode ?",
+          "a": "Parmi les six dont le prix d'achat est lisible, Vestas (3 % en dessous), Demant (5 %) et DSV (8 %). Pour Novo Nordisk, Coloplast et Rockwool, le prix d'achat n'est pas exploitable."
+        }
+      ],
+      "tags": [
+        "Danemark",
+        "actions danoises",
+        "palmarès",
+        "qualité",
+        "valorisation",
+        "Novo Nordisk",
+        "Vestas",
+        "Maersk"
+      ],
+      "disclaimer": "Analyse à visée informative et pédagogique, qui ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 16 octobre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Danish stocks: Novo Nordisk isn't the best of them",
+      "excerpt": "Novo Nordisk, Vestas, Maersk, DSV, Ambu: nine Danish stocks screened. The best known isn't the best rated, and only three trade below my buy price.",
+      "metaDescription": "Nine Danish stocks screened: Novo Nordisk isn't first, Ambu and Vestas rank higher. Which ones trade below my buy price?",
+      "answer": "Of nine Danish stocks screened, the top rated is Ambu (8 out of 10), ahead of Vestas and ISS (7). Novo Nordisk, the best known, gets only 6. Among the six with a readable buy price, three trade below it: Vestas, Demant and DSV. Denmark sells fame more than quality.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ambu, Vestas, ISS: Danish quality isn't where you look for it"
+        },
+        {
+          "type": "p",
+          "text": "Think Danish stock market and you think Novo Nordisk, the maker of Ozempic and Wegovy, whose market value once outweighed its home country's economy. So I screened nine Copenhagen stocks with the grid I use everywhere. On one side, a quality score out of 10 built on concrete criteria: profitability, sales and cash growth, buybacks, debt. On the other, separately, a buy price: the maximum price I would pay to aim for a 15% annual return over five years."
+        },
+        {
+          "type": "p",
+          "text": "The result is a surprise. The top score does not go to the global giant but to Ambu, a maker of single-use endoscopes, with 8 out of 10. Vestas (wind turbines) and ISS (building services) follow at 7. Novo Nordisk and Demant (hearing aids) get only 6. A note on method: I tested the Danish names my tool could load, nine in all. Ørsted, Carlsberg, Pandora, Genmab and Novonesis could not be loaded that day, so the sample does not claim to be exhaustive."
+        },
+        {
+          "type": "p",
+          "text": "For six of these companies the buy price is readable and can be compared with today's price. For the other three (Novo Nordisk, Coloplast, Rockwool) it is not, and I explain why below: better to say so than to hand you a falsely precise number."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Score",
+            "Price (DKK)",
+            "Buy price (DKK)",
+            "Price versus buy price"
+          ],
+          "rows": [
+            [
+              "Ambu",
+              "8",
+              "78",
+              "73",
+              "7% above"
+            ],
+            [
+              "Vestas",
+              "7",
+              "189",
+              "195",
+              "3% below"
+            ],
+            [
+              "ISS",
+              "7",
+              "299",
+              "202",
+              "48% above"
+            ],
+            [
+              "Demant",
+              "6",
+              "358",
+              "375",
+              "5% below"
+            ],
+            [
+              "Maersk",
+              "5",
+              "23,400",
+              "9,606",
+              "144% above"
+            ],
+            [
+              "DSV",
+              "4",
+              "1,188",
+              "1,287",
+              "8% below"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Three companies trade below my buy price: Vestas, Demant and DSV. But look at the scores: DSV has only 4 out of 10, and its \"good price\" says nothing about a quality that is eroding. The table doesn't point to bargains, it sorts situations, and what matters is reading company by company."
+        },
+        {
+          "type": "h2",
+          "text": "Vestas: a recovery visible in the numbers, not yet in the cash"
+        },
+        {
+          "type": "p",
+          "text": "Vestas builds wind turbines and then services them for its customers. It scores 7 out of 10 with a cash ROCE of 29.7% (the cash generated each year relative to the capital employed: the higher it is, the harder each krone invested works) and no net debt. Cash per share is up 174% a year over the measured period, a figure inflated by a starting point close to zero after difficult years. I read it as a rebound, not a lasting pace."
+        },
+        {
+          "type": "p",
+          "text": "The [second quarter report, published on 12 August 2026](https://view.news.eu.nasdaq.com/view?id=1457811), shows the rebound up close: revenue of 4.7 billion euros (up 26%), operating margin before special items of 9.4% against 1.5% a year earlier, firm orders of 3,349 megawatts (67% more) and an order backlog of 76.9 billion euros including services. Management raises its 2026 margin range to 7 to 9% and launches a 400 million euro buyback."
+        },
+        {
+          "type": "p",
+          "text": "One trait of the business is worth knowing: a wind turbine maker's free cash flow swings widely from one quarter to the next. In the series I pulled, the first quarter has been negative every year since 2022, and the last one carries most of the year's cash. That is my reading of those series, not a company statement. At 189 kroner, Vestas trades 3% below my buy price: a fair price for a quality that is improving, provided the margin holds."
+        },
+        {
+          "type": "h2",
+          "text": "Novo Nordisk: the biggest name, a middle-of-the-pack score"
+        },
+        {
+          "type": "p",
+          "text": "Novo Nordisk scores 6 out of 10. Its strengths are huge: a 33% net margin (out of 100 kroner of sales, 33 stay as profit), sales up from 177 billion kroner in 2022 to 309 billion in 2025, modest buybacks. What holds it back is the trend: margins are compressing, only 28% of profit turns into cash, and free cash flow fell from 70 billion kroner in 2024 to 29 billion in 2025, on the data I pull. My tool itself flagged that figure as suspect (a partial year or a one-off event), so I don't build a firm conclusion on it."
+        },
+        {
+          "type": "p",
+          "text": "The stock is valued at about 40 times its free cash flow (the cash left once bills are paid and investments made): you pay for 40 years of that cash. For a drugmaker whose [second quarter 2026 results](https://www.sec.gov/Archives/edgar/data/0000353278/000035327826000023/caq22026.htm) point to 2026 adjusted sales and operating profit between flat and down 6% at constant exchange rates, that valuation assumes the next wave of products takes over. The Wegovy pill already exceeds 265,000 weekly prescriptions in the United States according to mid-July 2026 prescription data, but my resilience assessment notes that semaglutide's patent protection runs out around 2033."
+        },
+        {
+          "type": "p",
+          "text": "My buy price isn't usable here: when cash growth can't be calculated, my model prudently assumes a 20% annual decline, which gives a very low price (32 kroner) that doesn't really describe Novo. What I take away: a remarkable company, a demanding valuation, and a bet on what comes next rather than a bargain. You can rerun the exercise on [the Novo Nordisk page](/analyse/NOVO-B.CO)."
+        },
+        {
+          "type": "h2",
+          "text": "Maersk and DSV: two cycles, two readings"
+        },
+        {
+          "type": "p",
+          "text": "Transport shows the same mechanism from two sides. Maersk, the top container shipper, is a pure cyclical: freight rates do everything. Its revenue went from 81.5 billion dollars in 2022 to 54.0 in 2025, and its free cash flow from 30.3 to 5.0 billion. It scores 5 out of 10: well rated on debt (only 2 years of cash) and on its shrinking share count (nearly 6% a year), poorly rated on the sales trajectory."
+        },
+        {
+          "type": "p",
+          "text": "The second quarter of 2026 still surprised: operating profit before depreciation of 3.0 billion dollars, revenue of 15.8 billion (20% more) and a full year outlook raised to 10.5 to 12.5 billion, according to the company. Maersk trades 144% above my buy price while being valued at only 11 times its cash. No contradiction: a cyclical looks cheap at the top of its cycle, when profits are at their highest. [Damodaran](https://pages.stern.nyu.edu/~adamodar/) explains this trap better than I do: a low multiple on peak profits doesn't mean the stock is cheap."
+        },
+        {
+          "type": "p",
+          "text": "DSV, the freight forwarder, offers the opposite picture: 4 out of 10, but a 34% cash ROCE and a valuation of 15 times its cash. The score weighs the trajectory: earnings per share fall 12.6% a year over the period, sales grow 1.6% a year. The company is digesting the Schenker acquisition: according to [its 22 July 2026 announcement](https://dsv.gcs-web.com/node/25261), integration is progressing, with 9 billion kroner of annual synergies targeted and over 8,000 office jobs cut. The price, 8% under my buy price, says the market is waiting for proof, not that the doubt is lifted."
+        },
+        {
+          "type": "h2",
+          "text": "Ambu, ISS, Demant: the least known, the most interesting"
+        },
+        {
+          "type": "p",
+          "text": "Ambu has my best Danish score, and its reason for being is easy to grasp: a reusable endoscope must be cleaned between two patients, with a contamination risk and a reprocessing cost, whereas a single-use endoscope is thrown away. In the third quarter of its 2025/26 year, published on 25 August 2026, organic growth reached 10.3%, operating margin 13.5%, and the endoscopy business grew 16%, according to the company. Net margin is only 4.4%, but it is expanding."
+        },
+        {
+          "type": "p",
+          "text": "The drawback is the price: about 40 times free cash flow, and a share price 7% above my buy price. The share count rises 1.7% a year, which dilutes shareholders. Ambu is the clearest quality in the sample, but also the most demanding on growth: the 10% a year has to last to justify the price."
+        },
+        {
+          "type": "p",
+          "text": "ISS, which cleans and runs buildings, sits at the other end of the spectrum. A 3.1% net margin, a labor-heavy business with no spectacular moat, but a share count falling 3.4% a year and an expanding margin. Its 135% cash ROCE doesn't make it exceptional: it comes from a tiny capital base. It is valued at 15 times its cash, in the upper part of its own range (86th percentile of its history), and trades 48% above my buy price. Demant, finally, scores 6 out of 10: strong profitability (25.5% cash ROCE), 2.6% of shares bought back each year, but debt of 6.6 years of free cash flow and compressing margins. At 5% below my buy price, it's a fair price for average quality, not a bargain."
+        },
+        {
+          "type": "h2",
+          "text": "Coloplast and Rockwool: the price, not the business, is the obstacle"
+        },
+        {
+          "type": "p",
+          "text": "The last two companies share Novo Nordisk's reading problem. Coloplast (medical devices) falls to 4 out of 10: a valuation around 74 times its cash, debt equal to 15 years of free cash flow, a 7.8% return on capital and compressing margins despite sales up 11.6% a year. Rockwool (insulation) gets 6: a 0.7% net margin, nearly flat sales, a valuation close to 39 times cash."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Score",
+            "What weighs"
+          ],
+          "rows": [
+            [
+              "Novo Nordisk",
+              "6",
+              "Compressing margins, 28% of profit turned into cash, valuation near 40 times cash"
+            ],
+            [
+              "Coloplast",
+              "4",
+              "Debt of 15 years of free cash flow, 7.8% return on capital, valuation near 74 times cash"
+            ],
+            [
+              "Rockwool",
+              "6",
+              "0.7% net margin, flat sales, valuation near 39 times cash"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "For these three, cash growth can't be calculated, so my model applies its prudent 20% annual decline and produces a buy price of 24 to 32 kroner against share prices of 193 to 468. It would be misleading to show you a \"700% gap\": it is a calculation artifact, not a judgment on these companies. The real signal is in the valuation ratios, which are high."
+        },
+        {
+          "type": "h2",
+          "text": "My verdict on the Danish stock market"
+        },
+        {
+          "type": "p",
+          "text": "Denmark is a country where the most famous names aren't the ones my grid prefers. Of nine stocks, none reaches 9 out of 10, the best (Ambu) is priced at a premium, and the three globally known companies (Novo Nordisk, Coloplast, Maersk) are either expensive, cyclical or debt heavy. The three below my buy price (Vestas, Demant, DSV) deserve real reading work, not a reflex purchase."
+        },
+        {
+          "type": "p",
+          "text": "The pattern echoes what I find among neighbors: [Sweden](/blog/actions-suedoises-qualite-rarement-soldee-2026) sells quality that is rarely on sale, and my [European quality and price tour](/blog/actions-europeennes-qualite-prix-2026) shows that fame gets paid for. On Nordic insurers, [I detailed Tryg and Gjensidige](/blog/assurance-nordique-tryg-gjensidige-pepites-meconnues): that's where Denmark interested me most."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the best Danish stocks in 2026?",
+          "a": "Of nine stocks screened on 16 October 2026, Ambu scores 8 out of 10, followed by Vestas and ISS at 7, then Novo Nordisk, Demant and Rockwool at 6. The score measures business quality, not price."
+        },
+        {
+          "q": "Is Novo Nordisk a good stock?",
+          "a": "It is a highly profitable company (33% net margin), but my tool scores it 6 out of 10: compressing margins, falling free cash flow and a valuation near 40 times cash. The quality is real; the price needs growth to restart."
+        },
+        {
+          "q": "Which Danish stocks trade below the method's buy price?",
+          "a": "Among the six with a readable buy price: Vestas (3% below), Demant (5%) and DSV (8%). For Novo Nordisk, Coloplast and Rockwool the buy price isn't usable."
+        }
+      ],
+      "tags": [
+        "Denmark",
+        "Danish stocks",
+        "ranking",
+        "quality",
+        "valuation",
+        "Novo Nordisk",
+        "Vestas",
+        "Maersk"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of 16 October 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so that you read this analysis with full knowledge."
+    },
+    "es": {
+      "title": "Acciones danesas: Novo Nordisk no es la mejor",
+      "excerpt": "Novo Nordisk, Vestas, Maersk, DSV, Ambu: nueve acciones danesas analizadas. La más conocida no es la mejor puntuada, y solo tres cotizan por debajo de mi precio de compra.",
+      "metaDescription": "Nueve acciones danesas analizadas: Novo Nordisk no encabeza la lista, Ambu y Vestas la superan. ¿Cuáles cotizan bajo mi precio de compra?",
+      "answer": "De nueve acciones danesas analizadas, la mejor puntuada es Ambu (8 sobre 10), por delante de Vestas e ISS (7). Novo Nordisk, la más conocida, solo obtiene 6. De las seis con precio de compra legible, tres cotizan por debajo: Vestas, Demant y DSV. Dinamarca vende fama más que calidad.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ambu, Vestas, ISS: la calidad danesa no está donde se busca"
+        },
+        {
+          "type": "p",
+          "text": "Si piensas en la bolsa danesa, piensas en Novo Nordisk, la farmacéutica del Ozempic y el Wegovy, cuyo valor en bolsa llegó a pesar más que la economía de su país. Por eso analicé nueve acciones de Copenhague con la rejilla que aplico en todas partes. Por un lado, una nota de calidad sobre 10 basada en criterios concretos: rentabilidad, crecimiento de ventas y de caja, recompras de acciones, deuda. Por otro, por separado, un precio de compra: el precio máximo que pagaría para aspirar a un 15 % de rentabilidad anual a cinco años."
+        },
+        {
+          "type": "p",
+          "text": "El resultado sorprende. La mejor nota no es para el gigante mundial sino para Ambu, fabricante de endoscopios desechables, con 8 sobre 10. Vestas (aerogeneradores) e ISS (servicios para edificios) le siguen con 7. Novo Nordisk y Demant (audífonos) solo obtienen 6. Una precisión de método: probé los nombres daneses que mi herramienta sabe analizar, nueve en total. Ørsted, Carlsberg, Pandora, Genmab y Novonesis no pudieron cargarse ese día, así que la muestra no pretende ser exhaustiva."
+        },
+        {
+          "type": "p",
+          "text": "En seis de estas empresas el precio de compra es legible y se compara con la cotización del día. En las otras tres (Novo Nordisk, Coloplast, Rockwool) no lo es, y explico por qué más abajo: mejor decirlo que darte una cifra falsamente precisa."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota",
+            "Cotización (DKK)",
+            "Precio de compra (DKK)",
+            "Cotización frente al precio de compra"
+          ],
+          "rows": [
+            [
+              "Ambu",
+              "8",
+              "78",
+              "73",
+              "7 % por encima"
+            ],
+            [
+              "Vestas",
+              "7",
+              "189",
+              "195",
+              "3 % por debajo"
+            ],
+            [
+              "ISS",
+              "7",
+              "299",
+              "202",
+              "48 % por encima"
+            ],
+            [
+              "Demant",
+              "6",
+              "358",
+              "375",
+              "5 % por debajo"
+            ],
+            [
+              "Maersk",
+              "5",
+              "23 400",
+              "9 606",
+              "144 % por encima"
+            ],
+            [
+              "DSV",
+              "4",
+              "1 188",
+              "1 287",
+              "8 % por debajo"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Tres empresas cotizan por debajo de mi precio de compra: Vestas, Demant y DSV. Pero mira la distancia entre notas: DSV solo tiene 4 sobre 10 y su «buen precio» no dice nada de una calidad que se erosiona. La tabla no señala gangas, clasifica situaciones, y lo que cuenta es la lectura empresa por empresa."
+        },
+        {
+          "type": "h2",
+          "text": "Vestas: una recuperación visible en las cifras, aún no en la caja"
+        },
+        {
+          "type": "p",
+          "text": "Vestas fabrica aerogeneradores y después los mantiene para sus clientes. Obtiene 7 sobre 10 con un cash ROCE del 29,7 % (la caja generada cada año en relación con el capital empleado: cuanto más alto, mejor trabaja cada corona invertida) y sin deuda neta. La caja por acción sube un 174 % anual en el periodo medido, una cifra inflada por un punto de partida cercano a cero tras años difíciles. Lo leo como un rebote, no como un ritmo duradero."
+        },
+        {
+          "type": "p",
+          "text": "El [informe del segundo trimestre, publicado el 12 de agosto de 2026](https://view.news.eu.nasdaq.com/view?id=1457811), muestra el rebote de cerca: ingresos de 4 700 millones de euros (un 26 % más), margen operativo antes de partidas excepcionales del 9,4 % frente al 1,5 % de un año antes, pedidos en firme de 3 349 megavatios (un 67 % más) y una cartera de 76 900 millones de euros con servicios incluidos. La dirección eleva su horquilla de margen 2026 al 7 a 9 % y lanza una recompra de 400 millones de euros."
+        },
+        {
+          "type": "p",
+          "text": "Hay un rasgo del negocio que conviene conocer: la caja libre de un fabricante de aerogeneradores oscila mucho de un trimestre a otro. En las series que obtuve, el primer trimestre es negativo todos los años desde 2022, y el último aporta la mayor parte de la caja del año. Es mi lectura de esas series, no una comunicación de la empresa. A 189 coronas, Vestas cotiza un 3 % por debajo de mi precio de compra: un precio correcto para una calidad que mejora, siempre que el margen aguante."
+        },
+        {
+          "type": "h2",
+          "text": "Novo Nordisk: el nombre más grande, la nota del medio"
+        },
+        {
+          "type": "p",
+          "text": "Novo Nordisk obtiene 6 sobre 10. Sus puntos fuertes son enormes: un 33 % de margen neto (de cada 100 coronas de ventas, 33 quedan como beneficio), ventas que pasaron de 177 000 millones de coronas en 2022 a 309 000 millones en 2025, recompras modestas. Lo que le impide subir es la tendencia: los márgenes se comprimen, solo el 28 % del beneficio se convierte en caja, y la caja libre cayó de 70 000 millones de coronas en 2024 a 29 000 millones en 2025, según los datos que obtengo. Mi herramienta marcó esa cifra como sospechosa (un ejercicio parcial o un hecho excepcional), así que no saco de ella una conclusión definitiva."
+        },
+        {
+          "type": "p",
+          "text": "La acción se valora en unas 40 veces su free cash flow (la caja que queda una vez pagadas las facturas y hechas las inversiones): pagas 40 años de esa caja. Para una farmacéutica cuyos [resultados del segundo trimestre de 2026](https://www.sec.gov/Archives/edgar/data/0000353278/000035327826000023/caq22026.htm) apuntan para 2026 a ventas y beneficio operativo ajustados entre estables y un 6 % a la baja a tipos de cambio constantes, es una valoración que supone que la siguiente ola de productos tome el relevo. La pastilla de Wegovy ya supera las 265 000 recetas semanales en Estados Unidos según los datos de recetas de mediados de julio de 2026, pero mi evaluación de resiliencia señala que la protección de patente de la semaglutida termina hacia 2033."
+        },
+        {
+          "type": "p",
+          "text": "Mi precio de compra no es aprovechable aquí: cuando el crecimiento de la caja no es calculable, mi modelo asume por prudencia una caída del 20 % anual, lo que da un precio muy bajo (32 coronas) que no describe de verdad a Novo. Lo que me llevo: una empresa notable, una valoración exigente y una apuesta sobre lo que viene más que una ganga. Puedes repetir el ejercicio en [la ficha de Novo Nordisk](/analyse/NOVO-B.CO)."
+        },
+        {
+          "type": "h2",
+          "text": "Maersk y DSV: dos ciclos, dos lecturas"
+        },
+        {
+          "type": "p",
+          "text": "El transporte muestra el mismo mecanismo visto desde dos lados. Maersk, el primer naviero de contenedores, es un cíclico puro: el precio del flete lo decide todo. Sus ingresos pasaron de 81 500 millones de dólares en 2022 a 54 000 en 2025, y su caja libre de 30 300 a 5 000 millones. Obtiene 5 sobre 10: bien en deuda (solo 2 años de caja) y en reducción del número de acciones (cerca del 6 % anual), mal en la trayectoria de ventas."
+        },
+        {
+          "type": "p",
+          "text": "El segundo trimestre de 2026 sorprendió igualmente: un resultado operativo antes de amortizaciones de 3 000 millones de dólares, ingresos de 15 800 millones (un 20 % más) y una previsión anual elevada a 10 500 a 12 500 millones, según la empresa. Maersk cotiza un 144 % por encima de mi precio de compra y aun así se valora solo en 11 veces su caja. No hay contradicción: un cíclico parece barato en la cima de su ciclo, cuando los beneficios están en máximos. [Damodaran](https://pages.stern.nyu.edu/~adamodar/) explica esta trampa mejor que yo: un múltiplo bajo sobre beneficios de cima no indica que la acción sea barata."
+        },
+        {
+          "type": "p",
+          "text": "DSV, el transitario, ofrece la imagen inversa: 4 sobre 10, pero un cash ROCE del 34 % y una valoración de 15 veces su caja. La nota pesa la trayectoria: el beneficio por acción cae un 12,6 % anual en el periodo, las ventas crecen un 1,6 % anual. La empresa digiere la adquisición de Schenker: según [su comunicado del 22 de julio de 2026](https://dsv.gcs-web.com/node/25261), la integración avanza, con 9 000 millones de coronas de sinergias anuales previstas y más de 8 000 puestos administrativos suprimidos. El precio, un 8 % bajo mi precio de compra, dice que el mercado espera pruebas, no que la duda esté despejada."
+        },
+        {
+          "type": "h2",
+          "text": "Ambu, ISS, Demant: las menos conocidas, las más interesantes"
+        },
+        {
+          "type": "p",
+          "text": "Ambu es mi mejor nota danesa, y su razón de ser es fácil de entender: un endoscopio reutilizable debe limpiarse entre dos pacientes, con riesgo de contaminación y un coste de reprocesado, mientras que uno desechable se tira. En el tercer trimestre de su ejercicio 2025/26, publicado el 25 de agosto de 2026, el crecimiento orgánico alcanzó el 10,3 %, el margen operativo el 13,5 % y la actividad de endoscopia creció un 16 %, según la empresa. El margen neto es solo del 4,4 %, pero va en expansión."
+        },
+        {
+          "type": "p",
+          "text": "El inconveniente es el precio: unas 40 veces la caja libre y una cotización un 7 % por encima de mi precio de compra. El número de acciones sube un 1,7 % anual, lo que diluye a los accionistas. Ambu es la calidad más nítida de la muestra, pero también la más exigente en crecimiento: el 10 % anual tiene que durar para justificar el precio."
+        },
+        {
+          "type": "p",
+          "text": "ISS, que limpia y gestiona edificios, está en el otro extremo. Margen neto del 3,1 %, negocio de mano de obra sin foso espectacular, pero con un número de acciones que baja un 3,4 % anual y un margen en expansión. Su cash ROCE del 135 % no dice que sea excepcional: viene de un capital empleado minúsculo. Se valora en 15 veces su caja, en la parte alta de su propio rango (percentil 86 de su historial), y cotiza un 48 % por encima de mi precio de compra. Demant, por último, pesa 6 sobre 10: rentabilidad fuerte (25,5 % de cash ROCE), un 2,6 % de acciones recompradas al año, pero una deuda de 6,6 años de caja libre y márgenes que se comprimen. A un 5 % bajo mi precio de compra, es un precio razonable para una calidad media, no una ganga."
+        },
+        {
+          "type": "h2",
+          "text": "Coloplast y Rockwool: el obstáculo es el precio, no la empresa"
+        },
+        {
+          "type": "p",
+          "text": "Las dos últimas empresas comparten el problema de lectura de Novo Nordisk. Coloplast (productos sanitarios) cae a 4 sobre 10: valoración en torno a 74 veces su caja, deuda equivalente a 15 años de caja libre, rentabilidad del capital del 7,8 % y márgenes en compresión pese a unas ventas que suben un 11,6 % anual. Rockwool (aislamiento) obtiene 6: margen neto del 0,7 %, ventas casi estables, valoración cercana a 39 veces la caja."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota",
+            "Lo que pesa"
+          ],
+          "rows": [
+            [
+              "Novo Nordisk",
+              "6",
+              "Márgenes en compresión, 28 % del beneficio convertido en caja, valoración cercana a 40 veces la caja"
+            ],
+            [
+              "Coloplast",
+              "4",
+              "Deuda de 15 años de caja libre, rentabilidad del capital del 7,8 %, valoración cercana a 74 veces la caja"
+            ],
+            [
+              "Rockwool",
+              "6",
+              "Margen neto del 0,7 %, ventas estables, valoración cercana a 39 veces la caja"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "En estas tres, el crecimiento de la caja no es calculable, así que mi modelo aplica su caída prudente del 20 % anual y produce un precio de compra de 24 a 32 coronas frente a cotizaciones de 193 a 468. Mostrarte una «brecha del 700 %» sería engañoso: es un artefacto de cálculo, no un juicio sobre estas empresas. La señal real está en los ratios de valoración, que son altos."
+        },
+        {
+          "type": "h2",
+          "text": "Mi veredicto sobre la bolsa danesa"
+        },
+        {
+          "type": "p",
+          "text": "Dinamarca es un país donde los nombres más famosos no son los que prefiere mi rejilla. De nueve acciones, ninguna llega a 9 sobre 10, la mejor (Ambu) se valora a precio alto, y las tres empresas conocidas en el mundo (Novo Nordisk, Coloplast, Maersk) son caras, cíclicas o con mucha deuda. Las tres que cotizan bajo mi precio de compra (Vestas, Demant, DSV) merecen un trabajo de lectura real, no una compra refleja."
+        },
+        {
+          "type": "p",
+          "text": "El patrón recuerda lo que encuentro en los vecinos: [Suecia](/blog/actions-suedoises-qualite-rarement-soldee-2026) vende calidad rara vez rebajada, y mi [recorrido europeo calidad y precio](/blog/actions-europeennes-qualite-prix-2026) muestra que la fama se paga. En aseguradoras nórdicas, [detallé Tryg y Gjensidige](/blog/assurance-nordique-tryg-gjensidige-pepites-meconnues): ahí fue donde Dinamarca más me interesó."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las mejores acciones danesas en 2026?",
+          "a": "De nueve valores analizados el 16 de octubre de 2026, Ambu obtiene 8 sobre 10, seguida de Vestas e ISS con 7, y luego Novo Nordisk, Demant y Rockwool con 6. La nota mide la calidad de la empresa, no su precio."
+        },
+        {
+          "q": "¿Es Novo Nordisk una buena acción?",
+          "a": "Es una empresa muy rentable (33 % de margen neto), pero mi herramienta le da 6 sobre 10: márgenes en compresión, caja libre a la baja y una valoración cercana a 40 veces la caja. La calidad es real; el precio exige que el crecimiento se reanude."
+        },
+        {
+          "q": "¿Qué acciones danesas cotizan por debajo del precio de compra del método?",
+          "a": "De las seis con precio de compra legible: Vestas (3 % por debajo), Demant (5 %) y DSV (8 %). En Novo Nordisk, Coloplast y Rockwool el precio de compra no es aprovechable."
+        }
+      ],
+      "tags": [
+        "Dinamarca",
+        "acciones danesas",
+        "ranking",
+        "calidad",
+        "valoración",
+        "Novo Nordisk",
+        "Vestas",
+        "Maersk"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 16 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
