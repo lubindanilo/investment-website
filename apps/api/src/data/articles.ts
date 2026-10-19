@@ -98089,7 +98089,697 @@ const articleDanemarkQualite2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026];
+const articlePaysBas2026: Article = {
+  "slug": "actions-neerlandaises-asml-pas-seule-en-haut-2026",
+  "date": "2026-10-19",
+  "updated": "2026-10-19",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Actions néerlandaises : ASML n'est pas seule en haut",
+      "excerpt": "ASML, ASM International, Wolters Kluwer, Adyen, Heineken : dix actions néerlandaises passées au crible. Les meilleures ne sont pas celles qu'on croit, et une seule cote sous mon prix d'achat.",
+      "metaDescription": "Dix actions néerlandaises passées au crible : ASML, ASM International, Wolters Kluwer, Adyen, Heineken. Laquelle cote sous mon prix d'achat ?",
+      "answer": "Sur dix actions néerlandaises passées au crible, deux obtiennent 9 sur 10 : ASML et ASM International, devant Wolters Kluwer (8) et Adyen (7). Mais la qualité se paie : seule Heineken cote sous mon prix d'achat, 6 % en dessous. ASM International est la plus exigeante, 86 % au-dessus de ce prix.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Quelles sont les meilleures actions néerlandaises aujourd'hui ?"
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé dix actions cotées à Amsterdam au crible de la grille que j'applique partout. D'un côté, une note de qualité sur 10, bâtie sur des critères concrets : rentabilité, croissance des ventes et du cash, rachats d'actions, dette. De l'autre, séparément, un prix d'achat : le cours maximum que je paierais pour viser 15 % de rendement annuel sur cinq ans. Précision de méthode : ce sont les noms que mon outil a pu charger le 19 octobre 2026. ING, Universal Music, Randstad ou BE Semiconductor n'ont pas répondu ce jour-là, l'échantillon n'est donc pas exhaustif."
+        },
+        {
+          "type": "p",
+          "text": "Le résultat tient en une phrase : la Bourse d'Amsterdam compte de très bonnes entreprises, et presque aucune n'est bradée. Voici le tableau, du mieux noté au moins bien noté, avec le cours comparé à mon prix d'achat."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note",
+            "Cours (euros)",
+            "Prix d'achat (euros)",
+            "Cours par rapport au prix d'achat"
+          ],
+          "rows": [
+            [
+              "ASM International",
+              "9",
+              "755",
+              "406",
+              "86 % au-dessus"
+            ],
+            [
+              "ASML",
+              "9",
+              "1 477",
+              "1 298",
+              "14 % au-dessus"
+            ],
+            [
+              "Wolters Kluwer",
+              "8",
+              "84",
+              "78",
+              "9 % au-dessus"
+            ],
+            [
+              "Adyen",
+              "7",
+              "940",
+              "159",
+              "lecture prudente, voir plus bas"
+            ],
+            [
+              "Ahold Delhaize",
+              "6",
+              "32",
+              "27",
+              "21 % au-dessus"
+            ],
+            [
+              "Prosus",
+              "6",
+              "36",
+              "19",
+              "86 % au-dessus"
+            ],
+            [
+              "Heineken",
+              "5",
+              "76",
+              "81",
+              "6 % en dessous"
+            ],
+            [
+              "Akzo Nobel",
+              "4",
+              "58",
+              "35",
+              "66 % au-dessus"
+            ],
+            [
+              "Philips",
+              "4",
+              "23",
+              "non exploitable",
+              "non exploitable"
+            ],
+            [
+              "ABN Amro",
+              "4",
+              "40",
+              "10",
+              "banque, comparaison peu parlante"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Neuf sociétés sur dix cotent donc au-dessus de mon prix d'achat. Ce n'est pas un jugement sur leur qualité : c'est le signe que le marché sait déjà que ces entreprises sont bonnes, et qu'il les valorise en conséquence. Chaque ligne mérite sa lecture."
+        },
+        {
+          "type": "h2",
+          "text": "ASML ou ASM International : laquelle est la plus exigeante ?"
+        },
+        {
+          "type": "p",
+          "text": "ASML est connue de tous : c'est la seule entreprise au monde qui fabrique les machines de lithographie ultraviolette extrême, indispensables pour graver les puces les plus fines. Ses ventes sont passées de 21,2 milliards d'euros en 2022 à 32,7 milliards en 2025, et son cash libre (l'argent qui reste une fois toutes les factures payées et les machines financées) de 7,2 à 11,6 milliards. Le chemin n'a pas été linéaire : le cash libre est tombé à 3,3 milliards en 2023. Le nombre d'actions baisse doucement, de 395 à 387 millions sur la période, grâce aux rachats."
+        },
+        {
+          "type": "p",
+          "text": "Son prix, lui, se situe à un peu plus de 50 fois son cash libre, dans le haut de son propre historique (67e centile : l'action a été moins chère les deux tiers du temps). Elle cote 14 % au-dessus de mon prix d'achat, un écart que je juge raisonnable pour un monopole de cette qualité."
+        },
+        {
+          "type": "p",
+          "text": "ASM International est la cousine discrète. Elle fabrique d'autres machines de la même chaîne, celles qui déposent des couches d'atomes une par une sur les puces (le dépôt par couches atomiques). Ses ventes ont grimpé de 2,4 milliards d'euros en 2022 à 3,2 milliards en 2025, son cash libre de 0,44 à 0,84 milliard, avec un nombre d'actions quasi stable (49 millions). Au deuxième trimestre 2026, [selon son communiqué du 28 juillet](https://www.investegate.co.uk/announcement/gnw/asm-international-nv--0nx3/asm-reports-second-quarter-2026-results/9692080), le chiffre d'affaires atteint 1 003 millions d'euros, au-dessus du milieu de sa fourchette, avec un cash libre record de 355 millions et une marge d'exploitation ajustée de 33 %."
+        },
+        {
+          "type": "p",
+          "text": "Le problème est le prix. L'action se valorise environ 63 fois son cash libre, et cote 86 % au-dessus de mon prix d'achat. La direction vise un second semestre en hausse de plus de 20 % sur le premier : le marché a déjà intégré cette promesse. Qualité exceptionnelle, marge d'erreur quasi nulle. Si la demande de puces mémoire pour l'intelligence artificielle ralentit, le prix l'indiquera avant les résultats."
+        },
+        {
+          "type": "h2",
+          "text": "Wolters Kluwer : pourquoi semble-t-elle bon marché pour elle-même ?"
+        },
+        {
+          "type": "p",
+          "text": "Wolters Kluwer vend des logiciels et des bases d'information aux avocats, aux comptables et aux professionnels de santé. C'est ma meilleure note néerlandaise hors semi-conducteurs, avec 8 sur 10, et la plus facile à comprendre : 85 % de ses revenus sont récurrents, c'est-à-dire des abonnements qui retombent chaque année. Un cabinet comptable qui a bâti ses procédures sur ses outils ne change pas de fournisseur pour économiser quelques pour cent."
+        },
+        {
+          "type": "p",
+          "text": "Les chiffres racontent une machine régulière. Les ventes sont passées de 4,6 milliards d'euros en 2020 à 6,1 milliards en 2025, la marge de cash libre atteint 22 %, et le nombre d'actions est tombé de 265,6 à 229,6 millions entre 2020 et 2025, soit 13,6 % de moins : chaque action restante représente une part plus grosse de l'entreprise. [Au premier semestre 2026](https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html), publié le 5 août, la croissance organique atteint 5 % et celle du logiciel en ligne récurrent 14 %, pour une marge d'exploitation ajustée en hausse de 100 points de base."
+        },
+        {
+          "type": "p",
+          "text": "Le prix est le point intéressant. L'action se valorise environ 14 fois son cash libre, ce qui la place dans les 9 % les moins chers de son propre historique. Pourquoi ? Parce que le marché craint que l'intelligence artificielle banalise la simple consultation d'informations juridiques ou fiscales. La peur est en partie fondée, et la direction a d'ailleurs abaissé ses attentes pour sa division performance et ESG. Je pense pourtant que l'avantage de Wolters Kluwer tient moins à l'information elle-même qu'à son intégration dans les outils de travail quotidiens des clients. Elle cote encore 9 % au-dessus de mon prix d'achat : pas une affaire criante, mais la plus proche d'un bon prix pour une vraie qualité. Tu peux refaire l'exercice sur [la fiche de Wolters Kluwer](/analyse/WKL.AS)."
+        },
+        {
+          "type": "h2",
+          "text": "Adyen est-elle la fintech chère qu'on croit ?"
+        },
+        {
+          "type": "p",
+          "text": "Adyen encaisse les paiements en ligne et en magasin pour de grandes marques. Sa marge nette dépasse 40 % (sur 100 euros de revenus, 40 finissent en bénéfice), et ses revenus sont passés de 0,7 milliard d'euros en 2020 à 2,4 milliards en 2025. [Au premier semestre 2026](https://financialit.net/news/infrastructure/adyen-publishes-h1-2026-financial-results), les revenus nets atteignent 1,3 milliard d'euros (+19 %), pour un volume traité de 804 milliards, et la direction relève sa prévision de croissance à 21 à 23 %."
+        },
+        {
+          "type": "p",
+          "text": "Mon prix d'achat pour Adyen, 159 euros, est très en dessous du cours (940), mais je ne le prends pas au pied de la lettre. Mon modèle extrapole la tendance du cash par action, qui recule de 22 % par an sur la période, et ce cash est inhabituellement irrégulier : environ 1,9 milliard d'euros en 2022, 0,9 en 2025. Chez un acteur du paiement, le cash libre bouge avec l'argent des commerçants qui transite par la société, ce qui le rend peu lisible d'une année sur l'autre. C'est ma lecture, pas une explication de la société. Le vrai constat : Adyen est une entreprise de qualité (7 sur 10) dont le prix suppose que la croissance de plus de 20 % dure. Elle n'a quasiment pas de dette, c'est un atout, pas un prix."
+        },
+        {
+          "type": "h2",
+          "text": "Ahold Delhaize : une qualité moyenne, mais qui rachète ses actions"
+        },
+        {
+          "type": "p",
+          "text": "Ahold Delhaize exploite des supermarchés en Europe et aux États-Unis. Le métier est peu glamour : une marge d'exploitation de 3,9 % au deuxième trimestre, des ventes en hausse de 1,9 % à taux constants, selon [son rapport intermédiaire](https://media.aholddelhaize.com/media/si2dlnia/ahold-delhaize-q2-2026-interim-report.pdf). Un supermarché vit de volumes énormes et de marges minces. C'est pourquoi la note est de 6 sur 10 malgré une bonne gestion."
+        },
+        {
+          "type": "p",
+          "text": "Ce qui m'intéresse, c'est la discipline. Le cash libre est passé de 2,7 milliards d'euros en 2022 à 4,4 milliards en 2025, et le nombre d'actions a fondu de 995 à 887 millions sur la période, soit environ 3 % de moins chaque année. La société a racheté 564 millions d'euros d'actions au premier semestre 2026 et vise au moins 2,3 milliards de cash libre pour l'année. L'action se valorise environ 6,6 fois son cash libre, ce qui paraît très bas, mais elle cote tout de même 21 % au-dessus de mon prix d'achat : mon modèle ne parie pas sur une accélération de la croissance du cash pour un distributeur alimentaire."
+        },
+        {
+          "type": "h2",
+          "text": "Heineken est-elle la seule sous mon prix d'achat ?"
+        },
+        {
+          "type": "p",
+          "text": "Oui, et pas pour de bonnes raisons. Heineken obtient 5 sur 10 : ses ventes n'ont pas bougé depuis 2022 (28,7 milliards d'euros en 2025, contre 28,7 en 2022), sa marge de cash libre n'est que de 9 %, et sa dette représente 5,6 années de cash libre. Le nombre d'actions baisse lentement, de 1,1 % par an. C'est une marque mondiale, mais une machine qui fait du surplace."
+        },
+        {
+          "type": "p",
+          "text": "Le prix, 76 euros pour un prix d'achat de 81, reflète exactement cela. Un brasseur n'est pas bradé par erreur : le marché paie une croissance plate à un prix de croissance plate. Je ne la mettrais pas sur ma liste d'achat sans une raison de croire que les volumes repartent. Une décote sans trajectoire d'amélioration est une situation, pas une opportunité."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi Philips, Akzo Nobel et Prosus sont-elles plus bas ?"
+        },
+        {
+          "type": "p",
+          "text": "Philips (4 sur 10) fabrique du matériel médical, avec une marge de cash libre de 2,8 % et une dette de près de 10 années de cash libre : trop peu de marge pour absorber un accident industriel. Mon prix d'achat n'est pas exploitable, le modèle butant sur un cash trop faible. Akzo Nobel (4 sur 10), la peinture, voit ses ventes reculer de 2 % par an, et cote 66 % au-dessus de mon prix d'achat."
+        },
+        {
+          "type": "p",
+          "text": "Prosus (6 sur 10) est un cas à part : une holding dont une grande part de la valeur vient d'une participation dans Tencent, avec des ventes en hausse de 17 % par an et un nombre d'actions qui baisse de près de 10 % par an. La note est correcte, mais le prix est 86 % au-dessus de mon prix d'achat, et le cash libre d'une holding de ce type se lit mal. Je la garde sous surveillance, pas dans ma liste."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que je garde de ce classement"
+        },
+        {
+          "type": "p",
+          "text": "Trois idées. Un : les deux meilleures notes néerlandaises viennent des machines à puces, et ce sont aussi les plus chères. Deux : la seule qualité à un prix presque raisonnable est Wolters Kluwer, parce que le marché doute de sa résistance à l'IA. Trois : Heineken, seule sous le prix d'achat, prouve qu'un prix bas ne remplace pas une trajectoire. Si tu veux comparer avec ses voisins, j'ai fait le même exercice pour [l'Allemagne](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) et la [Suède](/blog/actions-suedoises-qualite-rarement-soldee-2026). Mon [outil d'analyse](/analyse/ASML.AS) applique la même grille à n'importe quelle action, c'est exactement pour cela que je l'ai construit."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les meilleures actions néerlandaises en 2026 ?",
+          "a": "Sur dix valeurs passées au crible le 19 octobre 2026, ASML et ASM International obtiennent 9 sur 10, suivies de Wolters Kluwer (8) et d'Adyen (7). Cette note mesure la qualité de l'entreprise, pas son prix."
+        },
+        {
+          "q": "Quelle action néerlandaise cote sous le prix d'achat de la méthode ?",
+          "a": "Une seule : Heineken, 6 % en dessous, mais avec une note de 5 sur 10 et des ventes stables depuis 2022. Les autres cotent au-dessus, de 9 % pour Wolters Kluwer à 86 % pour ASM International."
+        },
+        {
+          "q": "Pourquoi ASM International est-elle plus chère qu'ASML ?",
+          "a": "Elle se valorise environ 63 fois son cash libre contre un peu plus de 50 pour ASML, alors que sa taille est bien plus petite. Le marché a déjà intégré la forte hausse attendue de ses ventes au second semestre."
+        },
+        {
+          "q": "Wolters Kluwer est-elle une bonne action ?",
+          "a": "C'est une entreprise de qualité (8 sur 10) à 85 % de revenus récurrents, dont le prix est bas par rapport à son propre historique. Le risque principal est que l'intelligence artificielle banalise une partie de son offre d'information."
+        }
+      ],
+      "tags": [
+        "Pays-Bas",
+        "actions néerlandaises",
+        "palmarès",
+        "qualité",
+        "valorisation",
+        "ASML",
+        "Wolters Kluwer",
+        "Adyen"
+      ],
+      "disclaimer": "Analyse à visée informative et pédagogique, qui ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 19 octobre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Dutch stocks: ASML isn't alone at the top",
+      "excerpt": "ASML, ASM International, Wolters Kluwer, Adyen, Heineken: ten Dutch stocks screened. The best ones aren't the ones you'd guess, and only one trades below my buy price.",
+      "metaDescription": "Ten Dutch stocks screened: ASML, ASM International, Wolters Kluwer, Adyen, Heineken. Which one trades below my buy price?",
+      "answer": "Of ten Dutch stocks screened, two score 9 out of 10: ASML and ASM International, ahead of Wolters Kluwer (8) and Adyen (7). But quality costs: only Heineken trades below my buy price, 6% under it. ASM International is the most demanding, 86% above that price.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What are the best Dutch stocks today?"
+        },
+        {
+          "type": "p",
+          "text": "I ran ten Amsterdam-listed stocks through the grid I use everywhere. On one side, a quality score out of 10, built on concrete criteria: profitability, sales and cash growth, share buybacks, debt. On the other, separately, a buy price: the maximum price I would pay to aim for a 15% annual return over five years. A note on method: these are the names my tool could load on 19 October 2026. ING, Universal Music, Randstad and BE Semiconductor did not respond that day, so the sample is not exhaustive."
+        },
+        {
+          "type": "p",
+          "text": "The result fits in one sentence: Amsterdam has very good companies, and almost none of them is cheap. Here is the table, best rated first, with the price compared to my buy price."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Score",
+            "Price (euros)",
+            "Buy price (euros)",
+            "Price vs buy price"
+          ],
+          "rows": [
+            [
+              "ASM International",
+              "9",
+              "755",
+              "406",
+              "86% above"
+            ],
+            [
+              "ASML",
+              "9",
+              "1,477",
+              "1,298",
+              "14% above"
+            ],
+            [
+              "Wolters Kluwer",
+              "8",
+              "84",
+              "78",
+              "9% above"
+            ],
+            [
+              "Adyen",
+              "7",
+              "940",
+              "159",
+              "read with caution, see below"
+            ],
+            [
+              "Ahold Delhaize",
+              "6",
+              "32",
+              "27",
+              "21% above"
+            ],
+            [
+              "Prosus",
+              "6",
+              "36",
+              "19",
+              "86% above"
+            ],
+            [
+              "Heineken",
+              "5",
+              "76",
+              "81",
+              "6% below"
+            ],
+            [
+              "Akzo Nobel",
+              "4",
+              "58",
+              "35",
+              "66% above"
+            ],
+            [
+              "Philips",
+              "4",
+              "23",
+              "not usable",
+              "not usable"
+            ],
+            [
+              "ABN Amro",
+              "4",
+              "40",
+              "10",
+              "bank, comparison not meaningful"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Nine out of ten trade above my buy price. That is not a verdict on their quality: it shows the market already knows these companies are good and prices them accordingly. Each line deserves its own reading."
+        },
+        {
+          "type": "h2",
+          "text": "ASML or ASM International: which one is more demanding?"
+        },
+        {
+          "type": "p",
+          "text": "ASML is known to everyone: it is the only company in the world making extreme ultraviolet lithography machines, which are essential to etch the finest chips. Its sales rose from 21.2 billion euros in 2022 to 32.7 billion in 2025, and its free cash flow (the money left after every bill is paid and the machines are funded) from 7.2 to 11.6 billion. The path was not straight: free cash flow fell to 3.3 billion in 2023. The share count is slowly shrinking, from 395 to 387 million over the period, thanks to buybacks."
+        },
+        {
+          "type": "p",
+          "text": "Its price sits at a little over 50 times its free cash flow, in the upper part of its own history (67th percentile: the stock has been cheaper two thirds of the time). It trades 14% above my buy price, a gap I find reasonable for a monopoly of this quality."
+        },
+        {
+          "type": "p",
+          "text": "ASM International is the quiet cousin. It makes other machines in the same chain, those that deposit layers of atoms one by one on chips (atomic layer deposition). Its sales climbed from 2.4 billion euros in 2022 to 3.2 billion in 2025, its free cash flow from 0.44 to 0.84 billion, with an almost flat share count (49 million). In the second quarter of 2026, [according to its 28 July release](https://www.investegate.co.uk/announcement/gnw/asm-international-nv--0nx3/asm-reports-second-quarter-2026-results/9692080), revenue reached 1,003 million euros, above the midpoint of its range, with record free cash flow of 355 million and an adjusted operating margin of 33%."
+        },
+        {
+          "type": "p",
+          "text": "The problem is the price. The stock is valued at about 63 times its free cash flow and trades 86% above my buy price. Management expects a second half more than 20% above the first: the market has already priced that promise. Exceptional quality, almost no margin for error. If demand for AI memory chips slows, the price will say so before the results do."
+        },
+        {
+          "type": "h2",
+          "text": "Wolters Kluwer: why does it look cheap against its own history?"
+        },
+        {
+          "type": "p",
+          "text": "Wolters Kluwer sells software and information databases to lawyers, accountants and healthcare professionals. It is my best Dutch score outside semiconductors, 8 out of 10, and the easiest to understand: 85% of its revenue is recurring, meaning subscriptions that renew every year. An accounting firm that built its procedures on these tools does not switch supplier to save a few percent."
+        },
+        {
+          "type": "p",
+          "text": "The numbers describe a steady machine. Sales rose from 4.6 billion euros in 2020 to 6.1 billion in 2025, the free cash flow margin reaches 22%, and the share count fell from 265.6 to 229.6 million between 2020 and 2025, 13.6% fewer: each remaining share is a bigger slice of the company. [In the first half of 2026](https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html), published on 5 August, organic growth reached 5% and recurring cloud software 14%, with the adjusted operating margin up 100 basis points."
+        },
+        {
+          "type": "p",
+          "text": "The price is the interesting part. The stock is valued at about 14 times its free cash flow, which puts it among the cheapest 9% of its own history. Why? Because the market fears that artificial intelligence will commoditise simple access to legal or tax information. The fear is partly founded, and management did lower expectations for its performance and ESG division. Still, I think Wolters Kluwer's edge lies less in the information itself than in its integration into clients' daily work tools. It still trades 9% above my buy price: not a screaming bargain, but the closest to a fair price for real quality. You can redo the exercise on [the Wolters Kluwer page](/analyse/WKL.AS)."
+        },
+        {
+          "type": "h2",
+          "text": "Is Adyen the expensive fintech people think?"
+        },
+        {
+          "type": "p",
+          "text": "Adyen processes online and in-store payments for large brands. Its net margin exceeds 40% (out of 100 euros of revenue, 40 end up as profit), and its revenue grew from 0.7 billion euros in 2020 to 2.4 billion in 2025. [In the first half of 2026](https://financialit.net/news/infrastructure/adyen-publishes-h1-2026-financial-results), net revenue reached 1.3 billion euros (+19%) on 804 billion of processed volume, and management raised its growth outlook to 21 to 23%."
+        },
+        {
+          "type": "p",
+          "text": "My buy price for Adyen, 159 euros, is far below the price (940), but I do not take it literally. My model extrapolates the trend in cash per share, which is down 22% a year over the period, and that cash is unusually irregular: about 1.9 billion euros in 2022, 0.9 in 2025. For a payments company, free cash flow moves with the merchants' money passing through, which makes it hard to read year to year. That is my reading, not the company's explanation. The real finding: Adyen is a quality company (7 out of 10) whose price assumes growth above 20% will last. It has almost no debt, which is an asset, not a price."
+        },
+        {
+          "type": "h2",
+          "text": "Ahold Delhaize: average quality, but it buys back its shares"
+        },
+        {
+          "type": "p",
+          "text": "Ahold Delhaize runs supermarkets in Europe and the United States. The business is unglamorous: a 3.9% operating margin in the second quarter, sales up 1.9% at constant rates, according to [its interim report](https://media.aholddelhaize.com/media/si2dlnia/ahold-delhaize-q2-2026-interim-report.pdf). A supermarket lives on huge volumes and thin margins. That is why the score is 6 out of 10 despite good management."
+        },
+        {
+          "type": "p",
+          "text": "What interests me is the discipline. Free cash flow rose from 2.7 billion euros in 2022 to 4.4 billion in 2025, and the share count shrank from 995 to 887 million over the period, about 3% fewer each year. The company bought back 564 million euros of shares in the first half of 2026 and targets at least 2.3 billion of free cash flow for the year. The stock is valued at about 6.6 times its free cash flow, which looks very low, yet it still trades 21% above my buy price: my model does not bet on faster cash growth for a grocer."
+        },
+        {
+          "type": "h2",
+          "text": "Is Heineken the only one below my buy price?"
+        },
+        {
+          "type": "p",
+          "text": "Yes, and not for good reasons. Heineken scores 5 out of 10: its sales have not moved since 2022 (28.7 billion euros in 2025, versus 28.7 in 2022), its free cash flow margin is only 9%, and its debt equals 5.6 years of free cash flow. The share count falls slowly, 1.1% a year. A global brand, but a machine marking time."
+        },
+        {
+          "type": "p",
+          "text": "The price, 76 euros against a buy price of 81, reflects exactly that. A brewer is not mispriced by mistake: the market pays flat growth a flat-growth price. I would not put it on my buy list without a reason to believe volumes will recover. A discount with no improving trend is a situation, not an opportunity."
+        },
+        {
+          "type": "h2",
+          "text": "Why do Philips, Akzo Nobel and Prosus rank lower?"
+        },
+        {
+          "type": "p",
+          "text": "Philips (4 out of 10) makes medical equipment, with a 2.8% free cash flow margin and debt of almost 10 years of free cash flow: too little cushion to absorb an industrial accident. My buy price is not usable, the model stumbling on too little cash. Akzo Nobel (4 out of 10), the paint maker, sees sales shrinking 2% a year and trades 66% above my buy price."
+        },
+        {
+          "type": "p",
+          "text": "Prosus (6 out of 10) is a special case: a holding company whose value comes largely from a stake in Tencent, with sales up 17% a year and a share count falling almost 10% a year. The score is decent, but the price is 86% above my buy price, and the free cash flow of a holding like this is hard to read. I keep it on watch, not on my list."
+        },
+        {
+          "type": "h2",
+          "text": "What I take from this ranking"
+        },
+        {
+          "type": "p",
+          "text": "Three ideas. One: the two best Dutch scores come from chip equipment makers, and they are also the most expensive. Two: the only quality at a nearly reasonable price is Wolters Kluwer, because the market doubts its resilience to AI. Three: Heineken, alone below the buy price, proves that a low price does not replace a trajectory. To compare with its neighbours, I did the same exercise for [Germany](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) and [Sweden](/blog/actions-suedoises-qualite-rarement-soldee-2026). My [analysis tool](/analyse/ASML.AS) applies the same grid to any stock, which is exactly why I built it."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the best Dutch stocks in 2026?",
+          "a": "Of ten stocks screened on 19 October 2026, ASML and ASM International score 9 out of 10, followed by Wolters Kluwer (8) and Adyen (7). The score measures the quality of the business, not its price."
+        },
+        {
+          "q": "Which Dutch stock trades below the method's buy price?",
+          "a": "Only one: Heineken, 6% below, but with a score of 5 out of 10 and flat sales since 2022. The others trade above it, from 9% for Wolters Kluwer to 86% for ASM International."
+        },
+        {
+          "q": "Why is ASM International more expensive than ASML?",
+          "a": "It is valued at about 63 times its free cash flow against a little over 50 for ASML, though it is far smaller. The market has already priced the strong rise in sales expected in the second half."
+        },
+        {
+          "q": "Is Wolters Kluwer a good stock?",
+          "a": "It is a quality business (8 out of 10) with 85% recurring revenue, priced low against its own history. The main risk is that artificial intelligence commoditises part of its information offering."
+        }
+      ],
+      "tags": [
+        "Netherlands",
+        "Dutch stocks",
+        "ranking",
+        "quality",
+        "valuation",
+        "ASML",
+        "Wolters Kluwer",
+        "Adyen"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of 19 October 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so that you read this analysis with full knowledge."
+    },
+    "es": {
+      "title": "Acciones holandesas: ASML no está sola arriba",
+      "excerpt": "ASML, ASM International, Wolters Kluwer, Adyen, Heineken: diez acciones holandesas analizadas. Las mejores no son las que se piensa, y solo una cotiza bajo mi precio de compra.",
+      "metaDescription": "Diez acciones holandesas analizadas: ASML, ASM International, Wolters Kluwer, Adyen, Heineken. ¿Cuál cotiza por debajo de mi precio de compra?",
+      "answer": "De diez acciones holandesas analizadas, dos obtienen 9 sobre 10: ASML y ASM International, por delante de Wolters Kluwer (8) y Adyen (7). Pero la calidad se paga: solo Heineken cotiza por debajo de mi precio de compra, un 6 % menos. ASM International es la más exigente, un 86 % por encima.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "¿Cuáles son las mejores acciones holandesas hoy?"
+        },
+        {
+          "type": "p",
+          "text": "He pasado diez acciones cotizadas en Ámsterdam por la parrilla que aplico en todas partes. Por un lado, una nota de calidad sobre 10, basada en criterios concretos: rentabilidad, crecimiento de ventas y de caja, recompras de acciones, deuda. Por otro, por separado, un precio de compra: el precio máximo que pagaría para aspirar a un 15 % de rentabilidad anual a cinco años. Precisión de método: son los nombres que mi herramienta pudo cargar el 19 de octubre de 2026. ING, Universal Music, Randstad y BE Semiconductor no respondieron ese día, así que la muestra no es exhaustiva."
+        },
+        {
+          "type": "p",
+          "text": "El resultado cabe en una frase: Ámsterdam tiene muy buenas empresas y casi ninguna está barata. Aquí está la tabla, de la mejor a la peor nota, con el precio comparado con mi precio de compra."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota",
+            "Precio (euros)",
+            "Precio de compra (euros)",
+            "Precio frente al precio de compra"
+          ],
+          "rows": [
+            [
+              "ASM International",
+              "9",
+              "755",
+              "406",
+              "86 % por encima"
+            ],
+            [
+              "ASML",
+              "9",
+              "1.477",
+              "1.298",
+              "14 % por encima"
+            ],
+            [
+              "Wolters Kluwer",
+              "8",
+              "84",
+              "78",
+              "9 % por encima"
+            ],
+            [
+              "Adyen",
+              "7",
+              "940",
+              "159",
+              "lectura prudente, ver abajo"
+            ],
+            [
+              "Ahold Delhaize",
+              "6",
+              "32",
+              "27",
+              "21 % por encima"
+            ],
+            [
+              "Prosus",
+              "6",
+              "36",
+              "19",
+              "86 % por encima"
+            ],
+            [
+              "Heineken",
+              "5",
+              "76",
+              "81",
+              "6 % por debajo"
+            ],
+            [
+              "Akzo Nobel",
+              "4",
+              "58",
+              "35",
+              "66 % por encima"
+            ],
+            [
+              "Philips",
+              "4",
+              "23",
+              "no utilizable",
+              "no utilizable"
+            ],
+            [
+              "ABN Amro",
+              "4",
+              "40",
+              "10",
+              "banco, comparación poco útil"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Nueve de diez cotizan por encima de mi precio de compra. No es un juicio sobre su calidad: es la señal de que el mercado ya sabe que estas empresas son buenas y las valora en consecuencia. Cada línea merece su lectura."
+        },
+        {
+          "type": "h2",
+          "text": "ASML o ASM International: ¿cuál es más exigente?"
+        },
+        {
+          "type": "p",
+          "text": "ASML la conoce todo el mundo: es la única empresa del mundo que fabrica las máquinas de litografía ultravioleta extrema, indispensables para grabar los chips más finos. Sus ventas pasaron de 21.200 millones de euros en 2022 a 32.700 millones en 2025, y su caja libre (el dinero que queda tras pagar todas las facturas y financiar las máquinas) de 7.200 a 11.600 millones. El camino no fue lineal: la caja libre cayó a 3.300 millones en 2023. El número de acciones baja despacio, de 395 a 387 millones en el periodo, gracias a las recompras."
+        },
+        {
+          "type": "p",
+          "text": "Su precio ronda algo más de 50 veces su caja libre, en la parte alta de su propio historial (percentil 67: la acción ha estado más barata dos tercios del tiempo). Cotiza un 14 % por encima de mi precio de compra, una diferencia que me parece razonable para un monopolio de esta calidad."
+        },
+        {
+          "type": "p",
+          "text": "ASM International es la prima discreta. Fabrica otras máquinas de la misma cadena, las que depositan capas de átomos una a una sobre los chips (deposición por capas atómicas). Sus ventas subieron de 2.400 millones de euros en 2022 a 3.200 millones en 2025, su caja libre de 440 a 840 millones, con un número de acciones casi estable (49 millones). En el segundo trimestre de 2026, [según su comunicado del 28 de julio](https://www.investegate.co.uk/announcement/gnw/asm-international-nv--0nx3/asm-reports-second-quarter-2026-results/9692080), la facturación llegó a 1.003 millones de euros, por encima del punto medio de su horquilla, con una caja libre récord de 355 millones y un margen operativo ajustado del 33 %."
+        },
+        {
+          "type": "p",
+          "text": "El problema es el precio. La acción se valora en unas 63 veces su caja libre y cotiza un 86 % por encima de mi precio de compra. La dirección prevé un segundo semestre más de un 20 % superior al primero: el mercado ya ha descontado esa promesa. Calidad excepcional, margen de error casi nulo. Si la demanda de chips de memoria para la inteligencia artificial se frena, el precio lo dirá antes que los resultados."
+        },
+        {
+          "type": "h2",
+          "text": "Wolters Kluwer: ¿por qué parece barata frente a su propia historia?"
+        },
+        {
+          "type": "p",
+          "text": "Wolters Kluwer vende software y bases de información a abogados, contables y profesionales de la salud. Es mi mejor nota holandesa fuera de los semiconductores, un 8 sobre 10, y la más fácil de entender: el 85 % de sus ingresos son recurrentes, es decir, suscripciones que se renuevan cada año. Un despacho contable que ha construido sus procedimientos sobre estas herramientas no cambia de proveedor para ahorrar unos puntos."
+        },
+        {
+          "type": "p",
+          "text": "Las cifras describen una máquina regular. Las ventas pasaron de 4.600 millones de euros en 2020 a 6.100 millones en 2025, el margen de caja libre llega al 22 % y el número de acciones bajó de 265,6 a 229,6 millones entre 2020 y 2025, un 13,6 % menos: cada acción restante es una parte mayor de la empresa. [En el primer semestre de 2026](https://www.globenewswire.com/news-release/2026/08/05/3339046/0/en/Wolters-Kluwer-2026-Half-Year-Report.html), publicado el 5 de agosto, el crecimiento orgánico alcanzó el 5 % y el del software recurrente en la nube el 14 %, con el margen operativo ajustado al alza en 100 puntos básicos."
+        },
+        {
+          "type": "p",
+          "text": "El precio es lo interesante. La acción se valora en unas 14 veces su caja libre, lo que la sitúa entre el 9 % más barato de su propio historial. ¿Por qué? Porque el mercado teme que la inteligencia artificial banalice la simple consulta de información jurídica o fiscal. El temor está en parte justificado, y la dirección rebajó expectativas para su división de rendimiento y ESG. Aun así, creo que la ventaja de Wolters Kluwer está menos en la información que en su integración en las herramientas de trabajo diarias de los clientes. Aún cotiza un 9 % por encima de mi precio de compra: no es una ganga evidente, pero es lo más cercano a un buen precio para una calidad real. Puedes repetir el ejercicio en [la ficha de Wolters Kluwer](/analyse/WKL.AS)."
+        },
+        {
+          "type": "h2",
+          "text": "¿Es Adyen la fintech cara que se cree?"
+        },
+        {
+          "type": "p",
+          "text": "Adyen cobra pagos en línea y en tienda para grandes marcas. Su margen neto supera el 40 % (de cada 100 euros de ingresos, 40 acaban en beneficio) y sus ingresos pasaron de 700 millones de euros en 2020 a 2.400 millones en 2025. [En el primer semestre de 2026](https://financialit.net/news/infrastructure/adyen-publishes-h1-2026-financial-results), los ingresos netos alcanzaron 1.300 millones de euros (+19 %) sobre 804.000 millones de volumen procesado, y la dirección elevó su previsión de crecimiento al 21 al 23 %."
+        },
+        {
+          "type": "p",
+          "text": "Mi precio de compra para Adyen, 159 euros, está muy por debajo del precio (940), pero no lo tomo al pie de la letra. Mi modelo extrapola la tendencia de la caja por acción, que baja un 22 % al año en el periodo, y esa caja es inusualmente irregular: unos 1.900 millones de euros en 2022, 900 en 2025. En una empresa de pagos, la caja libre se mueve con el dinero de los comercios que transita por ella, lo que la hace difícil de leer de un año a otro. Es mi lectura, no una explicación de la empresa. La conclusión: Adyen es una empresa de calidad (7 sobre 10) cuyo precio supone que el crecimiento superior al 20 % se mantenga. Casi no tiene deuda, eso es un activo, no un precio."
+        },
+        {
+          "type": "h2",
+          "text": "Ahold Delhaize: calidad media, pero recompra sus acciones"
+        },
+        {
+          "type": "p",
+          "text": "Ahold Delhaize explota supermercados en Europa y Estados Unidos. El negocio es poco glamuroso: un margen operativo del 3,9 % en el segundo trimestre, ventas al alza un 1,9 % a tipos constantes, según [su informe intermedio](https://media.aholddelhaize.com/media/si2dlnia/ahold-delhaize-q2-2026-interim-report.pdf). Un supermercado vive de volúmenes enormes y márgenes finos. Por eso la nota es 6 sobre 10 pese a una buena gestión."
+        },
+        {
+          "type": "p",
+          "text": "Lo que me interesa es la disciplina. La caja libre pasó de 2.700 millones de euros en 2022 a 4.400 millones en 2025, y el número de acciones se redujo de 995 a 887 millones en el periodo, cerca de un 3 % menos cada año. La empresa recompró 564 millones de euros de acciones en el primer semestre de 2026 y apunta a al menos 2.300 millones de caja libre en el año. La acción se valora en unas 6,6 veces su caja libre, lo que parece muy bajo, pero aun así cotiza un 21 % por encima de mi precio de compra: mi modelo no apuesta por una aceleración de la caja en un distribuidor de alimentación."
+        },
+        {
+          "type": "h2",
+          "text": "¿Es Heineken la única por debajo de mi precio de compra?"
+        },
+        {
+          "type": "p",
+          "text": "Sí, y no por buenas razones. Heineken obtiene 5 sobre 10: sus ventas no se han movido desde 2022 (28.700 millones de euros en 2025, frente a 28.700 en 2022), su margen de caja libre es solo del 9 % y su deuda equivale a 5,6 años de caja libre. El número de acciones baja despacio, un 1,1 % al año. Una marca mundial, pero una máquina que no avanza."
+        },
+        {
+          "type": "p",
+          "text": "El precio, 76 euros frente a un precio de compra de 81, refleja exactamente eso. Una cervecera no está mal valorada por error: el mercado paga un crecimiento plano a precio de crecimiento plano. No la pondría en mi lista de compra sin una razón para creer que los volúmenes repuntan. Un descuento sin trayectoria de mejora es una situación, no una oportunidad."
+        },
+        {
+          "type": "h2",
+          "text": "¿Por qué Philips, Akzo Nobel y Prosus están más abajo?"
+        },
+        {
+          "type": "p",
+          "text": "Philips (4 sobre 10) fabrica equipo médico, con un margen de caja libre del 2,8 % y una deuda de casi 10 años de caja libre: poco colchón para absorber un accidente industrial. Mi precio de compra no es utilizable, el modelo choca con una caja demasiado baja. Akzo Nobel (4 sobre 10), la pintura, ve caer sus ventas un 2 % al año y cotiza un 66 % por encima de mi precio de compra."
+        },
+        {
+          "type": "p",
+          "text": "Prosus (6 sobre 10) es un caso aparte: una holding cuyo valor viene en buena parte de una participación en Tencent, con ventas al alza un 17 % al año y un número de acciones que baja casi un 10 % al año. La nota es correcta, pero el precio está un 86 % sobre mi precio de compra y la caja libre de una holding así se lee mal. La mantengo en vigilancia, no en mi lista."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que me quedo de esta clasificación"
+        },
+        {
+          "type": "p",
+          "text": "Tres ideas. Una: las dos mejores notas holandesas vienen de las máquinas para chips, y son también las más caras. Dos: la única calidad a un precio casi razonable es Wolters Kluwer, porque el mercado duda de su resistencia a la IA. Tres: Heineken, la única bajo el precio de compra, prueba que un precio bajo no sustituye una trayectoria. Para comparar con sus vecinos, hice el mismo ejercicio para [Alemania](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) y [Suecia](/blog/actions-suedoises-qualite-rarement-soldee-2026). Mi [herramienta de análisis](/analyse/ASML.AS) aplica la misma parrilla a cualquier acción, y por eso la construí."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las mejores acciones holandesas en 2026?",
+          "a": "De diez valores analizados el 19 de octubre de 2026, ASML y ASM International obtienen 9 sobre 10, seguidas de Wolters Kluwer (8) y Adyen (7). La nota mide la calidad del negocio, no su precio."
+        },
+        {
+          "q": "¿Qué acción holandesa cotiza por debajo del precio de compra del método?",
+          "a": "Solo una: Heineken, un 6 % por debajo, pero con una nota de 5 sobre 10 y ventas estables desde 2022. Las demás cotizan por encima, del 9 % de Wolters Kluwer al 86 % de ASM International."
+        },
+        {
+          "q": "¿Por qué ASM International es más cara que ASML?",
+          "a": "Se valora en unas 63 veces su caja libre frente a algo más de 50 de ASML, siendo mucho más pequeña. El mercado ya ha descontado la fuerte subida de ventas esperada en el segundo semestre."
+        },
+        {
+          "q": "¿Es Wolters Kluwer una buena acción?",
+          "a": "Es un negocio de calidad (8 sobre 10) con un 85 % de ingresos recurrentes, a un precio bajo frente a su propia historia. El riesgo principal es que la inteligencia artificial banalice parte de su oferta de información."
+        }
+      ],
+      "tags": [
+        "Países Bajos",
+        "acciones holandesas",
+        "clasificación",
+        "calidad",
+        "valoración",
+        "ASML",
+        "Wolters Kluwer",
+        "Adyen"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 19 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
