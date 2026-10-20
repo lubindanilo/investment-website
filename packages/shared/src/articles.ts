@@ -98775,7 +98775,586 @@ const articlePaysBas2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026];
+const articleCATvsDE2026: Article = {
+  "slug": "caterpillar-deere-comparatif-cash-machines-2026",
+  "date": "2026-10-20",
+  "updated": "2026-10-20",
+  "readingTime": 7,
+  "content": {
+    "fr": {
+      "title": "Caterpillar (CAT) ou Deere (DE) : deux cycles, deux cash",
+      "excerpt": "Les deux vendent des machines, l'une jaune, l'autre verte. L'une surfe sur les data centers, l'autre attend le creux de l'agriculture. Ce que leurs comptes disent vraiment, et ce que le prix suppose.",
+      "metaDescription": "Caterpillar ou Deere en bourse : deux fabricants de machines, mais pas le même cash ni le même cycle. Comparaison sur plusieurs années et prix demandé.",
+      "answer": "Caterpillar est la meilleure des deux machines à cash : 11,7 % de ses ventes finissent en cash libre contre 6,4 % chez Deere, avec un carnet de commandes record de 72 Md$ porté par les data centers. Mais les deux actions sont chères face à leur propre histoire, Caterpillar surtout.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Le 4 août 2026, Caterpillar publie un trimestre à 20,5 Md$ de ventes, le premier de son histoire au dessus de 20 Md$, et un carnet de commandes de 72,1 Md$, en hausse d'environ 92 % sur un an. Le moteur n'est plus la pelle ou le tombereau : c'est la production d'électricité, des gros moteurs et des turbines que les data centers commandent parfois jusqu'en 2030."
+        },
+        {
+          "type": "p",
+          "text": "Le 20 août, Deere répond avec un trimestre de 12,6 Md$ de ventes et 1,38 Md$ de bénéfice net, puis relève ses prévisions. Mais son patron répète que 2026 doit être le point bas du cycle de l'agriculture : aux États-Unis et au Canada, la demande de gros matériel agricole devrait reculer de 15 % à 20 % cette année."
+        },
+        {
+          "type": "p",
+          "text": "Deux fabricants de machines, deux ambiances. La question que je me suis posée est simple : lequel transforme le mieux ses ventes en cash que l'actionnaire peut vraiment garder, et à quel prix l'action le valorise-t-elle ?"
+        },
+        {
+          "type": "h2",
+          "text": "Une trajectoire qui sépare les deux"
+        },
+        {
+          "type": "p",
+          "text": "Un chiffre isolé ne dit rien sur un cyclique, c'est la pente qui compte. Chez Caterpillar, les ventes sont passées de 41,7 Md$ en 2020 à 67,6 Md$ en 2025. Chez Deere (exercice clos fin octobre), elles sont retombées de 60,2 Md$ en 2023 à 44,7 Md$ en 2025, soit un quart de moins. Le cash libre, c'est ce qui reste de l'argent encaissé une fois payés les investissements nécessaires pour continuer à produire. Rapporté à chaque action, il raconte l'histoire du point de vue de l'actionnaire."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicateur annuel",
+            "Caterpillar",
+            "Deere"
+          ],
+          "rows": [
+            [
+              "Ventes",
+              "67,6 Md$ en 2025 (41,7 en 2020)",
+              "44,7 Md$ en 2025 (60,2 en 2023)"
+            ],
+            [
+              "Bénéfice net",
+              "8,9 Md$ en 2025 (10,8 en 2024)",
+              "5,0 Md$ en 2025 (10,2 en 2023)"
+            ],
+            [
+              "Cash libre",
+              "7,5 Md$ en 2025 (9,8 en 2023)",
+              "3,2 Md$ en 2025 (4,4 en 2024)"
+            ],
+            [
+              "Actions en circulation",
+              "472 M en 2025 (549 M en 2020)",
+              "272 M en 2025 (294 M en 2023)"
+            ],
+            [
+              "Cash libre par action",
+              "15,8 $ en 2025 (19,1 en 2023)",
+              "11,9 $ en 2025 (16,0 en 2024)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Les deux rachètent leurs actions : environ 14 % de titres en moins en cinq ans chez Caterpillar, 7 % en deux ans chez Deere. Cela amortit la baisse, sans l'annuler : le cash libre par action recule d'environ 17 % chez Caterpillar depuis 2023 et d'environ 26 % chez Deere depuis 2024. Chez Caterpillar, les droits de douane pèsent : l'entreprise les estime à environ 2,2 Md$ pour 2026. Chez Deere, le creux du cycle fait le travail, avec quelques remboursements de droits de douane (382 M$ sur neuf mois) qui adoucissent le tableau."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui reste dans la poche de l'actionnaire"
+        },
+        {
+          "type": "p",
+          "text": "Ma façon de juger la qualité d'une entreprise tient en quelques questions : combien de ses ventes devient du cash libre, combien rapporte chaque dollar investi (le Cash ROCE, le cash libre rapporté au capital engagé), et ce cash est-il vraiment du cash, ou seulement du bénéfice comptable ? Sur ces trois points, Caterpillar passe devant."
+        },
+        {
+          "type": "p",
+          "text": "Caterpillar transforme 11,7 % de ses ventes en cash libre et dégage un Cash ROCE de 16,1 %. Deere reste à 6,4 % et 13,0 %. Surtout, Caterpillar convertit 81 % de son bénéfice en cash réel, Deere 63 % : l'écart vient en partie des stocks et des créances, le matériel agricole se vend à crédit et se stocke chez les concessionnaires quand la demande faiblit."
+        },
+        {
+          "type": "h2",
+          "text": "La dette de Deere n'est pas ce qu'elle semble"
+        },
+        {
+          "type": "p",
+          "text": "Mon indicateur d'endettement affiche 17,9 ans de cash libre pour rembourser la dette nette chez Deere, contre 4,4 ans chez Caterpillar. Le chiffre fait peur, mais il est trompeur. Deere possède une banque interne, John Deere Financial, qui prête aux agriculteurs et aux concessionnaires pour qu'ils achètent les tracteurs. Cette banque s'endette sur les marchés (environ 64 Md$ de dette totale dans mes données) et reprête l'argent : la dette est adossée à des crédits qui rapportent des intérêts, ce n'est pas la dette d'une usine qui a trop investi."
+        },
+        {
+          "type": "p",
+          "text": "Caterpillar a le même mécanisme avec Cat Financial, que mes données traitent différemment. Les deux ratios ne sont donc pas comparables tels quels, et je ne conclus pas que Deere est cinq fois plus endettée. Ce qui reste vrai : cette banque capte une part du cash et expose Deere au risque de crédit des agriculteurs, exactement quand leurs revenus baissent."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : l'histoire est belle, mais elle est payée"
+        },
+        {
+          "type": "p",
+          "text": "Premier temps : face à son propre passé. Caterpillar se valorise aujourd'hui 38 fois son cash libre, plus cher que 93 % de ses valorisations des dernières années. Deere, 55 fois, plus cher que 81 % de son historique. Deuxième temps : pourquoi ? Pour Caterpillar, le marché paie l'électricité des data centers, un carnet de commandes qui court jusqu'en 2030 et des capacités qui sont la vraie limite, pas la demande. Pour Deere, c'est presque l'inverse : le multiple est gonflé parce que le cash est au plus bas, et le marché parie sur le retournement du cycle."
+        },
+        {
+          "type": "p",
+          "text": "Troisième temps : est-ce justifié ? L'histoire de Caterpillar est réelle, mais le prix suppose qu'elle se réalise presque sans accroc, alors que le cash par action a reculé en 2025 malgré des ventes records. Celle de Deere est plus fragile : acheter à 55 fois un cash au point bas n'a de sens que si le creux est bien là, et nul ne peut le promettre. Je peux me tromper sur le moment, pas sur la mécanique : un cyclique se paie cher quand tout va bien et se rachète moins cher quand le cash revient."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Ce que mesure ma méthode",
+            "Caterpillar",
+            "Deere"
+          ],
+          "rows": [
+            [
+              "Note qualité",
+              "7 sur 10",
+              "5 sur 10"
+            ],
+            [
+              "Marge de cash libre",
+              "11,7 %",
+              "6,4 %"
+            ],
+            [
+              "Cash ROCE",
+              "16,1 %",
+              "13,0 %"
+            ],
+            [
+              "Bénéfice converti en cash",
+              "81 %",
+              "63 %"
+            ],
+            [
+              "Valorisation (fois le cash libre)",
+              "38",
+              "55"
+            ],
+            [
+              "Percentile dans son historique",
+              "93e",
+              "81e"
+            ],
+            [
+              "Prix d'achat de mon modèle prudent",
+              "89 $ (cours 726 $)",
+              "120 $ (cours 627 $)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le prix d'achat vient d'un modèle volontairement sévère : un rendement visé de 15 % par an et un cash libre qui continue de reculer. Ce n'est pas une prévision, c'est un garde-fou. Il dit surtout qu'aucune des deux actions n'offre aujourd'hui de marge de sécurité. Les prochains résultats de Caterpillar tombent le 29 octobre, ceux de Deere le 25 novembre."
+        },
+        {
+          "type": "h2",
+          "text": "Mon verdict, sans enthousiasme"
+        },
+        {
+          "type": "p",
+          "text": "Si je devais ne garder qu'une entreprise, ce serait Caterpillar : un meilleur cash, un cycle porté par un vrai besoin d'électricité, une dette plus lisible. Mais je ne l'achèterais pas à ce prix, et je comprends mieux Deere quand le cycle agricole se retourne qu'aujourd'hui. Les deux fiches sont à lire en détail : [Caterpillar](/analyse/CAT) et [Deere](/analyse/DE)."
+        },
+        {
+          "type": "p",
+          "text": "Pour les chiffres du jour : [le 10-Q du deuxième trimestre de Caterpillar](https://www.sec.gov/Archives/edgar/data/0000018230/000001823026000046/cat-20260630.htm) et [le communiqué du troisième trimestre de Deere](https://www.sec.gov/Archives/edgar/data/0000315189/000110465926098904/de-20260820xex99d1.htm). Pour la logique de valorisation d'un cyclique, les [notes de Damodaran](https://pages.stern.nyu.edu/~adamodar/) restent la référence. Et si tu veux voir comment je note une entreprise, ma [méthodologie complète](/methodologie) détaille chaque critère."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Caterpillar ou Deere : laquelle a le meilleur cash ?",
+          "a": "Caterpillar. 11,7 % de ses ventes deviennent du cash libre contre 6,4 % chez Deere, avec 81 % de son bénéfice converti en cash réel contre 63 %."
+        },
+        {
+          "q": "Pourquoi la dette de Deere paraît elle si élevée ?",
+          "a": "Parce que Deere a une banque interne qui s'endette pour prêter aux agriculteurs. Cette dette est adossée à des crédits qui rapportent des intérêts, elle n'est pas comparable à celle d'un industriel pur."
+        },
+        {
+          "q": "Ces actions sont elles chères en ce moment ?",
+          "a": "Oui face à leur propre historique : Caterpillar est plus chère que 93 % de ses valorisations passées, Deere que 81 %. Mon modèle prudent ne voit de marge de sécurité ni chez l'une ni chez l'autre."
+        }
+      ],
+      "tags": [
+        "Caterpillar",
+        "Deere",
+        "CAT",
+        "DE",
+        "comparatif",
+        "machines",
+        "cash libre",
+        "cycle",
+        "valorisation"
+      ],
+      "disclaimer": "Analyse à visée informative et éducative, pas un conseil en investissement personnalisé. Les performances passées ne garantissent pas les résultats futurs. Chiffres au 20 octobre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Caterpillar (CAT) vs Deere (DE): two cycles, two cash flows",
+      "excerpt": "Both sell heavy machines, one yellow, one green. One rides data centers, the other waits for the farm cycle to bottom. What their accounts really say, and what the price assumes.",
+      "metaDescription": "Caterpillar vs Deere stock: two machinery makers, but not the same cash or the same cycle. A multi year comparison and the price you are asked to pay.",
+      "answer": "Caterpillar is the better cash machine of the two: 11.7% of its sales end up as free cash versus 6.4% at Deere, with a record $72bn backlog driven by data centers. But both stocks are expensive against their own history, Caterpillar most of all.",
+      "body": [
+        {
+          "type": "p",
+          "text": "On August 4, 2026, Caterpillar reported a quarter of $20.5bn in sales, the first above $20bn in its history, and a backlog of $72.1bn, up about 92% in a year. The engine is no longer the excavator or the haul truck: it is power generation, large engines and turbines that data centers order, sometimes as far out as 2030."
+        },
+        {
+          "type": "p",
+          "text": "On August 20, Deere answered with $12.6bn of sales and $1.38bn of net income, then raised its guidance. But its CEO keeps saying 2026 should be the bottom of the farm cycle: in the United States and Canada, demand for large agricultural equipment is expected to fall 15% to 20% this year."
+        },
+        {
+          "type": "p",
+          "text": "Two machinery makers, two moods. The question I asked myself is simple: which one turns sales into cash the shareholder can actually keep, and what does the stock price assume?"
+        },
+        {
+          "type": "h2",
+          "text": "A trajectory that sets them apart"
+        },
+        {
+          "type": "p",
+          "text": "A single number tells you nothing about a cyclical company, the slope is what counts. At Caterpillar, sales went from $41.7bn in 2020 to $67.6bn in 2025. At Deere (fiscal year ending in October), they fell from $60.2bn in 2023 to $44.7bn in 2025, a quarter less. Free cash flow is what is left of the money collected once the investments needed to keep producing are paid. Divided by the number of shares, it tells the story from the shareholder's side."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Annual indicator",
+            "Caterpillar",
+            "Deere"
+          ],
+          "rows": [
+            [
+              "Sales",
+              "$67.6bn in 2025 (41.7 in 2020)",
+              "$44.7bn in 2025 (60.2 in 2023)"
+            ],
+            [
+              "Net income",
+              "$8.9bn in 2025 (10.8 in 2024)",
+              "$5.0bn in 2025 (10.2 in 2023)"
+            ],
+            [
+              "Free cash flow",
+              "$7.5bn in 2025 (9.8 in 2023)",
+              "$3.2bn in 2025 (4.4 in 2024)"
+            ],
+            [
+              "Shares outstanding",
+              "472M in 2025 (549M in 2020)",
+              "272M in 2025 (294M in 2023)"
+            ],
+            [
+              "Free cash flow per share",
+              "$15.8 in 2025 (19.1 in 2023)",
+              "$11.9 in 2025 (16.0 in 2024)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Both buy back shares: about 14% fewer in five years at Caterpillar, 7% in two years at Deere. That cushions the fall without cancelling it: free cash flow per share is down about 17% at Caterpillar since 2023 and about 26% at Deere since 2024. At Caterpillar, tariffs weigh: the company estimates them at about $2.2bn for 2026. At Deere, the cycle trough does the damage, with some tariff refunds ($382M over nine months) softening the picture."
+        },
+        {
+          "type": "h2",
+          "text": "What stays in the shareholder's pocket"
+        },
+        {
+          "type": "p",
+          "text": "My way of judging a company's quality comes down to a few questions: how much of its sales becomes free cash, how much each invested dollar earns (Cash ROCE, free cash flow divided by capital employed), and whether that cash is real cash or only accounting profit. On all three, Caterpillar comes out ahead."
+        },
+        {
+          "type": "p",
+          "text": "Caterpillar turns 11.7% of its sales into free cash and earns a Cash ROCE of 16.1%. Deere sits at 6.4% and 13.0%. Above all, Caterpillar converts 81% of its profit into real cash, Deere 63%: part of the gap comes from inventories and receivables, as farm equipment is sold on credit and piles up at dealers when demand weakens."
+        },
+        {
+          "type": "h2",
+          "text": "Deere's debt is not what it looks like"
+        },
+        {
+          "type": "p",
+          "text": "My leverage indicator shows 17.9 years of free cash flow to repay net debt at Deere, against 4.4 years at Caterpillar. The figure is scary but misleading. Deere owns an in house bank, John Deere Financial, which lends to farmers and dealers so they can buy tractors. That bank borrows in the markets (about $64bn of total debt in my data) and lends the money on: the debt is backed by loans that earn interest, it is not the debt of a factory that overinvested."
+        },
+        {
+          "type": "p",
+          "text": "Caterpillar has the same mechanism with Cat Financial, which my data treats differently. The two ratios are therefore not comparable as they stand, and I do not conclude that Deere is five times more indebted. What remains true: that bank absorbs part of the cash and exposes Deere to farmers' credit risk, exactly when their income falls."
+        },
+        {
+          "type": "h2",
+          "text": "The price: a good story, but already paid for"
+        },
+        {
+          "type": "p",
+          "text": "First step: against its own past. Caterpillar is valued today at 38 times its free cash flow, more expensive than 93% of its valuations in recent years. Deere, 55 times, more expensive than 81% of its history. Second step: why? For Caterpillar, the market pays for data center power, a backlog running to 2030 and capacity that is the real limit, not demand. For Deere it is almost the opposite: the multiple is inflated because cash is at a low, and the market bets on the cycle turning."
+        },
+        {
+          "type": "p",
+          "text": "Third step: is it justified? Caterpillar's story is real, but the price assumes it plays out almost without a hitch, while cash per share fell in 2025 despite record sales. Deere's is more fragile: buying at 55 times a trough cash flow only makes sense if the trough is really here, and nobody can promise that. I can be wrong on timing, not on the mechanics: a cyclical company is expensive when all goes well and cheaper to buy when cash returns."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "What my method measures",
+            "Caterpillar",
+            "Deere"
+          ],
+          "rows": [
+            [
+              "Quality score",
+              "7 out of 10",
+              "5 out of 10"
+            ],
+            [
+              "Free cash flow margin",
+              "11.7%",
+              "6.4%"
+            ],
+            [
+              "Cash ROCE",
+              "16.1%",
+              "13.0%"
+            ],
+            [
+              "Profit converted to cash",
+              "81%",
+              "63%"
+            ],
+            [
+              "Valuation (times free cash flow)",
+              "38",
+              "55"
+            ],
+            [
+              "Percentile in its own history",
+              "93rd",
+              "81st"
+            ],
+            [
+              "Buy price of my cautious model",
+              "$89 (price $726)",
+              "$120 (price $627)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The buy price comes from a deliberately harsh model: a 15% yearly target return and free cash flow that keeps falling. It is not a forecast, it is a guardrail. Mostly it says that neither stock offers a margin of safety today. Caterpillar reports next on October 29, Deere on November 25."
+        },
+        {
+          "type": "h2",
+          "text": "My verdict, without enthusiasm"
+        },
+        {
+          "type": "p",
+          "text": "If I had to keep only one, it would be Caterpillar: better cash, a cycle carried by a real need for electricity, a more readable debt. But I would not buy it at this price, and I would understand Deere better once the farm cycle turns than today. Read both pages in detail: [Caterpillar](/analyse/CAT) and [Deere](/analyse/DE)."
+        },
+        {
+          "type": "p",
+          "text": "For the latest figures: [Caterpillar's second quarter 10-Q](https://www.sec.gov/Archives/edgar/data/0000018230/000001823026000046/cat-20260630.htm) and [Deere's third quarter release](https://www.sec.gov/Archives/edgar/data/0000315189/000110465926098904/de-20260820xex99d1.htm). For the logic of valuing a cyclical company, [Damodaran's notes](https://pages.stern.nyu.edu/~adamodar/) remain the reference. And if you want to see how I score a company, my [full methodology](/methodologie) details every criterion."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Caterpillar or Deere: which has the better cash?",
+          "a": "Caterpillar. 11.7% of its sales become free cash versus 6.4% at Deere, with 81% of its profit converted into real cash versus 63%."
+        },
+        {
+          "q": "Why does Deere's debt look so high?",
+          "a": "Because Deere has an in house bank that borrows to lend to farmers. That debt is backed by loans that earn interest, so it is not comparable to a pure industrial company's debt."
+        },
+        {
+          "q": "Are these stocks expensive right now?",
+          "a": "Yes against their own history: Caterpillar is more expensive than 93% of its past valuations, Deere than 81%. My cautious model sees no margin of safety in either."
+        }
+      ],
+      "tags": [
+        "Caterpillar",
+        "Deere",
+        "CAT",
+        "DE",
+        "comparison",
+        "machinery",
+        "free cash flow",
+        "cycle",
+        "valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of October 20, 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Caterpillar (CAT) o Deere (DE): dos ciclos, dos flujos de caja",
+      "excerpt": "Las dos venden máquinas, una amarilla y otra verde. Una vive de los centros de datos, la otra espera el fondo del ciclo agrícola. Lo que dicen de verdad sus cuentas y lo que supone el precio.",
+      "metaDescription": "Caterpillar o Deere en bolsa: dos fabricantes de maquinaria, pero no el mismo flujo de caja ni el mismo ciclo. Comparación de varios años y precio exigido.",
+      "answer": "Caterpillar es la mejor máquina de caja de las dos: el 11,7 % de sus ventas acaba en caja libre frente al 6,4 % de Deere, con una cartera de pedidos récord de 72.000 M$ impulsada por los centros de datos. Pero ambas acciones están caras frente a su propia historia, Caterpillar sobre todo.",
+      "body": [
+        {
+          "type": "p",
+          "text": "El 4 de agosto de 2026, Caterpillar publicó un trimestre de 20.500 M$ en ventas, el primero por encima de 20.000 M$ en su historia, y una cartera de pedidos de 72.100 M$, un 92 % más que hace un año. El motor ya no es la excavadora ni el camión minero: es la generación eléctrica, grandes motores y turbinas que los centros de datos encargan, a veces hasta 2030."
+        },
+        {
+          "type": "p",
+          "text": "El 20 de agosto, Deere respondió con 12.600 M$ de ventas y 1.380 M$ de beneficio neto, y elevó sus previsiones. Pero su consejero delegado repite que 2026 debería ser el suelo del ciclo agrícola: en Estados Unidos y Canadá, la demanda de maquinaria agrícola grande caería entre un 15 % y un 20 % este año."
+        },
+        {
+          "type": "p",
+          "text": "Dos fabricantes de maquinaria, dos ambientes. La pregunta que me hice es sencilla: ¿cuál convierte mejor sus ventas en caja que el accionista puede quedarse de verdad, y qué supone el precio de la acción?"
+        },
+        {
+          "type": "h2",
+          "text": "Una trayectoria que las separa"
+        },
+        {
+          "type": "p",
+          "text": "Una cifra aislada no dice nada de una empresa cíclica, lo que cuenta es la pendiente. En Caterpillar, las ventas pasaron de 41.700 M$ en 2020 a 67.600 M$ en 2025. En Deere (ejercicio que termina en octubre), cayeron de 60.200 M$ en 2023 a 44.700 M$ en 2025, una cuarta parte menos. La caja libre es lo que queda del dinero cobrado una vez pagadas las inversiones necesarias para seguir produciendo. Dividida por acción, cuenta la historia desde el lado del accionista."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicador anual",
+            "Caterpillar",
+            "Deere"
+          ],
+          "rows": [
+            [
+              "Ventas",
+              "67.600 M$ en 2025 (41.700 en 2020)",
+              "44.700 M$ en 2025 (60.200 en 2023)"
+            ],
+            [
+              "Beneficio neto",
+              "8.900 M$ en 2025 (10.800 en 2024)",
+              "5.000 M$ en 2025 (10.200 en 2023)"
+            ],
+            [
+              "Caja libre",
+              "7.500 M$ en 2025 (9.800 en 2023)",
+              "3.200 M$ en 2025 (4.400 en 2024)"
+            ],
+            [
+              "Acciones en circulación",
+              "472 M en 2025 (549 M en 2020)",
+              "272 M en 2025 (294 M en 2023)"
+            ],
+            [
+              "Caja libre por acción",
+              "15,8 $ en 2025 (19,1 en 2023)",
+              "11,9 $ en 2025 (16,0 en 2024)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las dos recompran acciones: un 14 % menos en cinco años en Caterpillar, un 7 % en dos años en Deere. Eso amortigua la caída sin anularla: la caja libre por acción baja alrededor de un 17 % en Caterpillar desde 2023 y un 26 % en Deere desde 2024. En Caterpillar pesan los aranceles: la empresa los estima en unos 2.200 M$ para 2026. En Deere, el fondo del ciclo hace el trabajo, con algunas devoluciones de aranceles (382 M$ en nueve meses) que suavizan el cuadro."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que queda en el bolsillo del accionista"
+        },
+        {
+          "type": "p",
+          "text": "Mi forma de juzgar la calidad de una empresa se reduce a unas preguntas: cuánto de sus ventas se convierte en caja libre, cuánto rinde cada dólar invertido (el Cash ROCE, la caja libre dividida por el capital empleado) y si esa caja es caja real o solo beneficio contable. En los tres puntos, Caterpillar va por delante."
+        },
+        {
+          "type": "p",
+          "text": "Caterpillar convierte el 11,7 % de sus ventas en caja libre y logra un Cash ROCE del 16,1 %. Deere se queda en el 6,4 % y el 13,0 %. Sobre todo, Caterpillar convierte el 81 % de su beneficio en caja real, Deere el 63 %: parte de la diferencia viene de las existencias y los cobros pendientes, porque la maquinaria agrícola se vende a crédito y se acumula en los concesionarios cuando flaquea la demanda."
+        },
+        {
+          "type": "h2",
+          "text": "La deuda de Deere no es lo que parece"
+        },
+        {
+          "type": "p",
+          "text": "Mi indicador de endeudamiento marca 17,9 años de caja libre para devolver la deuda neta en Deere, frente a 4,4 años en Caterpillar. La cifra asusta, pero engaña. Deere tiene un banco interno, John Deere Financial, que presta a agricultores y concesionarios para que compren tractores. Ese banco se endeuda en los mercados (unos 64.000 M$ de deuda total en mis datos) y vuelve a prestar el dinero: la deuda está respaldada por créditos que dan intereses, no es la deuda de una fábrica que invirtió demasiado."
+        },
+        {
+          "type": "p",
+          "text": "Caterpillar tiene el mismo mecanismo con Cat Financial, que mis datos tratan de otra manera. Los dos ratios no son comparables tal cual, y no concluyo que Deere esté cinco veces más endeudada. Lo que sigue siendo cierto: ese banco absorbe parte de la caja y expone a Deere al riesgo de crédito de los agricultores, justo cuando sus ingresos bajan."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: una buena historia, pero ya pagada"
+        },
+        {
+          "type": "p",
+          "text": "Primer paso: frente a su propio pasado. Caterpillar se valora hoy en 38 veces su caja libre, más cara que el 93 % de sus valoraciones de los últimos años. Deere, 55 veces, más cara que el 81 % de su historial. Segundo paso: ¿por qué? En Caterpillar, el mercado paga la electricidad de los centros de datos, una cartera que llega hasta 2030 y una capacidad que es el verdadero límite, no la demanda. En Deere es casi lo contrario: el múltiplo está hinchado porque la caja está en mínimos, y el mercado apuesta por el giro del ciclo."
+        },
+        {
+          "type": "p",
+          "text": "Tercer paso: ¿está justificado? La historia de Caterpillar es real, pero el precio supone que se cumpla casi sin tropiezos, cuando la caja por acción bajó en 2025 pese a ventas récord. La de Deere es más frágil: comprar a 55 veces una caja en mínimos solo tiene sentido si el suelo está de verdad aquí, y nadie puede prometerlo. Puedo equivocarme en el momento, no en la mecánica: una cíclica es cara cuando todo va bien y más barata de comprar cuando vuelve la caja."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Lo que mide mi método",
+            "Caterpillar",
+            "Deere"
+          ],
+          "rows": [
+            [
+              "Nota de calidad",
+              "7 sobre 10",
+              "5 sobre 10"
+            ],
+            [
+              "Margen de caja libre",
+              "11,7 %",
+              "6,4 %"
+            ],
+            [
+              "Cash ROCE",
+              "16,1 %",
+              "13,0 %"
+            ],
+            [
+              "Beneficio convertido en caja",
+              "81 %",
+              "63 %"
+            ],
+            [
+              "Valoración (veces la caja libre)",
+              "38",
+              "55"
+            ],
+            [
+              "Percentil en su historia",
+              "93.º",
+              "81.º"
+            ],
+            [
+              "Precio de compra de mi modelo prudente",
+              "89 $ (cotiza a 726 $)",
+              "120 $ (cotiza a 627 $)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El precio de compra sale de un modelo deliberadamente severo: una rentabilidad objetivo del 15 % anual y una caja libre que sigue bajando. No es una previsión, es una barrera de seguridad. Dice sobre todo que ninguna de las dos acciones ofrece hoy margen de seguridad. Caterpillar publica el 29 de octubre, Deere el 25 de noviembre."
+        },
+        {
+          "type": "h2",
+          "text": "Mi veredicto, sin entusiasmo"
+        },
+        {
+          "type": "p",
+          "text": "Si tuviera que quedarme con una, sería Caterpillar: mejor caja, un ciclo sostenido por una necesidad real de electricidad, una deuda más legible. Pero no la compraría a este precio, y entendería mejor Deere cuando el ciclo agrícola gire que hoy. Lee las dos fichas con detalle: [Caterpillar](/analyse/CAT) y [Deere](/analyse/DE)."
+        },
+        {
+          "type": "p",
+          "text": "Para las cifras más recientes: [el 10-Q del segundo trimestre de Caterpillar](https://www.sec.gov/Archives/edgar/data/0000018230/000001823026000046/cat-20260630.htm) y [el comunicado del tercer trimestre de Deere](https://www.sec.gov/Archives/edgar/data/0000315189/000110465926098904/de-20260820xex99d1.htm). Para la lógica de valorar una cíclica, [las notas de Damodaran](https://pages.stern.nyu.edu/~adamodar/) siguen siendo la referencia. Y si quieres ver cómo puntúo una empresa, mi [metodología completa](/methodologie) detalla cada criterio."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Caterpillar o Deere: cuál tiene mejor caja?",
+          "a": "Caterpillar. El 11,7 % de sus ventas se convierte en caja libre frente al 6,4 % de Deere, con el 81 % de su beneficio convertido en caja real frente al 63 %."
+        },
+        {
+          "q": "¿Por qué la deuda de Deere parece tan alta?",
+          "a": "Porque Deere tiene un banco interno que se endeuda para prestar a los agricultores. Esa deuda está respaldada por créditos que dan intereses, no es comparable a la de una industrial pura."
+        },
+        {
+          "q": "¿Están caras estas acciones ahora?",
+          "a": "Sí frente a su propia historia: Caterpillar está más cara que el 93 % de sus valoraciones pasadas, Deere que el 81 %. Mi modelo prudente no ve margen de seguridad en ninguna."
+        }
+      ],
+      "tags": [
+        "Caterpillar",
+        "Deere",
+        "CAT",
+        "DE",
+        "comparativa",
+        "maquinaria",
+        "caja libre",
+        "ciclo",
+        "valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 20 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
