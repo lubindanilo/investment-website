@@ -99358,7 +99358,556 @@ const articleCATvsDE2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026];
+const articleItalie2026: Article = {
+  "slug": "actions-italiennes-au-dela-de-ferrari-deux-pepites-2026",
+  "date": "2026-10-21",
+  "updated": "2026-10-21",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Actions italiennes : au-delà de Ferrari, deux vraies pépites",
+      "excerpt": "Ferrari est la seule action italienne que tout le monde connaît. J'ai passé dix valeurs de Milan au crible : la qualité est ailleurs, et le prix n'est pas toujours là où on l'attend.",
+      "metaDescription": "Actions italiennes en bourse : j'ai analysé dix valeurs de Milan. Ferrari est excellente mais chère, deux autres sociétés passent mieux le test qualité et prix.",
+      "answer": "En Italie, trois sociétés sortent du lot : Recordati et Ferrari (9 sur 10 chacune) et Prysmian (8 sur 10). Ferrari est la plus chère, 45 fois son cash libre. Recordati et Prysmian restent à des niveaux de valorisation raisonnables. Les banques semblent bon marché mais passent mal ma grille de qualité.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Quand on dit « action italienne » à un investisseur français, il répond Ferrari. Puis, après un silence, UniCredit ou Enel. C'est à peu près tout. Milan reste une place que l'on connaît par trois ou quatre logos."
+        },
+        {
+          "type": "p",
+          "text": "Pourtant, le 30 juillet 2026, deux sociétés italiennes publient le même jour des résultats qui font bouger leur valorisation. Ferrari annonce 1,94 Md€ de ventes sur le trimestre (+8 %) et relève sa prévision annuelle à environ 7,6 Md€. Prysmian, un fabricant de câbles dont presque personne ne parle, publie son meilleur trimestre de l'histoire et relève lui aussi ses objectifs."
+        },
+        {
+          "type": "p",
+          "text": "J'ai donc fait ce que je fais pour chaque pays : passer dix valeurs de Milan dans ma grille. Elle juge la qualité d'une entreprise (marges, croissance, cash généré, dette, nombre d'actions) séparément du prix, puis regarde combien l'action se valorise par rapport au cash libre qu'elle produit, c'est-à-dire l'argent qui reste une fois payés les investissements. Le résultat n'est pas celui que j'attendais."
+        },
+        {
+          "type": "h2",
+          "text": "Recordati : la pépite que l'on ne cherche pas"
+        },
+        {
+          "type": "p",
+          "text": "Recordati est un laboratoire pharmaceutique de Milan, spécialisé dans les maladies rares, ces pathologies qui touchent peu de patients et pour lesquelles il existe rarement plus d'un traitement. Dans ce métier, un médicament protégé peut se vendre cher et longtemps, ce qui explique des marges que l'on voit rarement dans l'industrie classique."
+        },
+        {
+          "type": "p",
+          "text": "Les chiffres suivent. Ses ventes sont passées de 1,85 Md€ en 2022 à 2,62 Md€ en 2025, soit environ 12 % par an. 19,5 % de ces ventes finissent en cash libre, et l'entreprise transforme 115 % de son bénéfice en cash réel, ce qui est le signe d'un bénéfice solide et non d'un artifice comptable. Le nombre d'actions n'a pas bougé (environ 209 millions), donc rien n'est dilué."
+        },
+        {
+          "type": "p",
+          "text": "Le 28 juillet, les résultats du premier semestre confirment la trajectoire : 1,41 Md€ de ventes (+6,6 %), une marge d'EBITDA de 38,3 % et un cash libre de 299 M€ sur la période. Le moteur est Isturisa, un traitement de maladie rare, pendant que la gamme métabolique recule de 8 %. Deux bémols que je ne gomme pas : la dette nette de 1,9 Md€ représente environ quatre ans de cash libre, et le cash libre est irrégulier (365 M€ en 2022, 102 M€ en 2023, négatif de 281 M€ en 2024, puis 512 M€ en 2025). Je n'ai pas la cause précise de l'année 2024, et ce genre de volatilité m'empêche de parler de machine régulière."
+        },
+        {
+          "type": "p",
+          "text": "Côté prix, l'action se valorise 21,7 fois son cash libre. Mon modèle prudent la place juste sous son seuil d'achat, avec une marge de sécurité de l'ordre de 3 % seulement. C'est correct, pas bradé."
+        },
+        {
+          "type": "h2",
+          "text": "Prysmian : un bon business dont les actionnaires paient la croissance"
+        },
+        {
+          "type": "p",
+          "text": "Prysmian fabrique des câbles électriques : sous-marins pour relier les parcs éoliens en mer, haute tension pour les réseaux, et de plus en plus pour alimenter les data centers. Le métier est un oligopole, car poser un câble sous-marin demande des navires spécialisés et un savoir-faire que peu de sociétés possèdent."
+        },
+        {
+          "type": "p",
+          "text": "Son cash libre est passé de 584 M€ en 2022 à 1,37 Md€ en 2025, pour des ventes qui montent de 16,1 à 19,7 Md€. Le 30 juillet, le groupe annonce un EBITDA ajusté de 730 M€ au deuxième trimestre (+20,7 %) et relève son objectif de cash libre annuel de 1,3 à 1,4 Md€ vers 1,65 à 1,75 Md€. C'est un relèvement massif."
+        },
+        {
+          "type": "p",
+          "text": "Mais il y a un revers que le résultat ne montre pas. Le nombre d'actions a augmenté d'environ 11 % entre 2022 et 2025, de 266 à 295 millions, soit près de 3,6 % par an : c'est le seul critère qui échoue dans ma grille. Je l'interprète comme le prix des acquisitions (General Cable, Encore Wire) payées en partie par l'émission de nouvelles actions, mais c'est ma lecture, pas un chiffre vérifié. Conséquence concrète : chaque action détient une part plus petite du gâteau. L'action se valorise 23 fois son cash libre, avec environ 6,5 % de marge sous mon seuil d'achat."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrari : excellente, et déjà payée"
+        },
+        {
+          "type": "p",
+          "text": "Je ne vais pas refaire ici l'histoire de la marque, je l'ai racontée dans [mon analyse du moat de Ferrari](/blog/ferrari-race-rarete-moat-durable). Les chiffres confirment : le cash libre est passé d'environ 1,06 Md€ en 2022 à 1,86 Md€ en 2025, et le nombre d'actions a baissé de 182 à 178 millions. Au deuxième trimestre 2026, la marge opérationnelle atteint 31,2 % alors même que les livraisons reculent (3 366 voitures contre 3 494) : Ferrari vend moins, mais plus cher, grâce à la personnalisation."
+        },
+        {
+          "type": "p",
+          "text": "Le problème est le prix. L'action se valorise 45 fois son cash libre, et mon modèle la juge environ 18 % au dessus de son seuil d'achat. Je n'ai pas de série d'historique de valorisation exploitable pour les valeurs de Milan, donc je ne peux pas la situer face à son propre passé, mais le constat ne change pas : on paie aujourd'hui, d'avance, plusieurs années de réussite."
+        },
+        {
+          "type": "h2",
+          "text": "Les banques et les assureurs : pas bon marché pour autant"
+        },
+        {
+          "type": "p",
+          "text": "UniCredit a publié le 23 juillet un premier semestre à 6,3 Md€ de bénéfice net, relevé son objectif 2026 à environ 11,5 Md€ et confirmé qu'elle redistribue 80 % de ses profits, dont 30 % en rachats d'actions. Le nombre d'actions baisse de près de 9 % par an. Sur le papier, c'est séduisant, et l'action se valorise seulement 16 fois son cash libre."
+        },
+        {
+          "type": "p",
+          "text": "Mais il faut lire ces chiffres avec la mécanique d'une banque en tête. Pour une banque, les dépôts des clients sont une dette : ils figurent au bilan comme de l'argent que la banque doit rendre. D'où un endettement qui paraît énorme (10,6 ans de cash libre) et un rendement du capital de seulement 3,7 %, deux mesures qui ne disent pas la même chose que pour un industriel. Ma grille n'est pas faite pour juger les banques sur ces points, c'est pourquoi elle note UniCredit 5 sur 10, comme Intesa Sanpaolo. Je le dis honnêtement : ces notes sont un avertissement sur la limite de ma méthode, pas un verdict sur ces banques."
+        },
+        {
+          "type": "p",
+          "text": "Generali est le cas inverse. Elle affiche une note de 8 sur 10 et une valorisation de 3,6 fois son cash libre, ce qui semble une aubaine. C'est un piège de lecture : un assureur encaisse les primes avant de payer les sinistres, et ce « float » (l'argent des clients qu'il détient temporairement) gonfle artificiellement son cash libre. Le même chiffre sur un industriel serait suspect. Je le lis comme un indice, pas comme une promesse."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que dit le tableau"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité",
+            "Ventes devenues cash libre",
+            "Valorisation (fois le cash libre)",
+            "Ma lecture"
+          ],
+          "rows": [
+            [
+              "Recordati (REC)",
+              "9 sur 10",
+              "19,5 %",
+              "21,7",
+              "Qualité réelle, prix correct"
+            ],
+            [
+              "Prysmian (PRY)",
+              "8 sur 10",
+              "7,0 %",
+              "23,2",
+              "Bon business, actions diluées"
+            ],
+            [
+              "Ferrari (RACE)",
+              "9 sur 10",
+              "19,7 %",
+              "45,2",
+              "Excellente, déjà payée"
+            ],
+            [
+              "Generali (G)",
+              "8 sur 10",
+              "25,9 %",
+              "3,6",
+              "Chiffre à manier avec prudence"
+            ],
+            [
+              "Leonardo (LDO)",
+              "6 sur 10",
+              "3,8 %",
+              "39,6",
+              "Histoire forte, cash faible"
+            ],
+            [
+              "UniCredit (UCG)",
+              "5 sur 10",
+              "29,0 %",
+              "16,3",
+              "Banque : grille peu adaptée"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Leonardo, le groupe de défense, mérite une mention : sa note de 6 sur 10 est portée par une demande européenne de défense solide, mais seulement 3,8 % de ses ventes deviennent du cash libre et l'action se valorise près de 40 fois ce cash. Un bon récit, pas encore un bon prix. Eni obtient 3 sur 10 : son cash libre par action recule d'environ 21 % par an."
+        },
+        {
+          "type": "p",
+          "text": "Ma conclusion tient en une phrase : en Italie, la qualité n'est pas là où se trouve la notoriété. Recordati et Prysmian sont les deux dossiers que je regarderais d'abord, Ferrari est à surveiller en attendant un meilleur prix, et les banques demandent une autre grille que la mienne. Pour creuser, [la fiche de Recordati](/analyse/REC.MI), [celle de Prysmian](/analyse/PRY.MI) et [celle de Ferrari](/analyse/RACE.MI) détaillent chaque critère."
+        },
+        {
+          "type": "p",
+          "text": "Les sources à consulter : [le communiqué du premier semestre 2026 de Recordati](https://www.investegate.co.uk/announcement/gnw/recordti-industria-chimica-e-farma--0kbs/recordati-solid-momentum-of-the-group-contin-/9692102), [le communiqué de Prysmian du 30 juillet 2026](https://www.prysmian.com/en/media/press-releases/prysmian-raises-guidance-after-its-best-quarter-yet) et [le 6-K du deuxième trimestre 2026 de Ferrari](https://www.sec.gov/Archives/edgar/data/0001648416/000164841626000106/fnvq22026results.htm). Pour comparer les pays, tu peux aussi relire [mon étude sur les actions allemandes](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) ou parcourir [le screener](/screener)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les meilleures actions italiennes de qualité ?",
+          "a": "Dans mon échantillon de dix valeurs de Milan, Recordati (9 sur 10), Ferrari (9 sur 10) et Prysmian (8 sur 10) obtiennent les meilleures notes qualité. Ferrari est la plus chère des trois, avec une valorisation de 45 fois son cash libre."
+        },
+        {
+          "q": "Les banques italiennes sont elles sous-évaluées ?",
+          "a": "Elles semblent bon marché, mais ma grille juge mal les banques, dont les dépôts sont comptés comme de la dette. UniCredit et Intesa obtiennent 5 sur 10, ce qui signale surtout la limite de la méthode."
+        },
+        {
+          "q": "Pourquoi Prysmian perd-elle un point malgré ses bons résultats ?",
+          "a": "Parce que son nombre d'actions a augmenté d'environ 11 % entre 2022 et 2025, ce qui dilue chaque actionnaire malgré un cash libre en forte hausse."
+        }
+      ],
+      "tags": [
+        "actions italiennes",
+        "Italie",
+        "Milan",
+        "Recordati",
+        "Prysmian",
+        "Ferrari",
+        "qualité",
+        "valorisation",
+        "palmarès"
+      ],
+      "disclaimer": "Analyse à visée informative et éducative, pas un conseil en investissement personnalisé. Les performances passées ne garantissent pas les résultats futurs. Chiffres au 21 octobre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Italian stocks: beyond Ferrari, two real gems",
+      "excerpt": "Ferrari is the one Italian stock everybody knows. I ran ten Milan listed companies through my grid: the quality is elsewhere, and the price is not always where you would expect.",
+      "metaDescription": "Italian stocks: I analyzed ten Milan listed companies. Ferrari is excellent but expensive, and two other companies pass the quality and price test better.",
+      "answer": "In Italy three companies stand out: Recordati and Ferrari (9 out of 10 each) and Prysmian (8 out of 10). Ferrari is the most expensive at 45 times its free cash flow. Recordati and Prysmian trade at reasonable valuations. Banks look cheap but score poorly on my quality grid.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Say \"Italian stock\" to a French investor and the answer is Ferrari. After a pause, maybe UniCredit or Enel. That is about it. Milan is a market most people know through three or four logos."
+        },
+        {
+          "type": "p",
+          "text": "Yet on July 30, 2026, two Italian companies published results on the same day that moved their valuation. Ferrari reported €1.94bn of quarterly sales (+8%) and raised its annual outlook to about €7.6bn. Prysmian, a cable maker almost nobody talks about, posted the best quarter in its history and raised its targets too."
+        },
+        {
+          "type": "p",
+          "text": "So I did what I do for every country: I ran ten Milan listed companies through my grid. It judges the quality of a business (margins, growth, cash generated, debt, share count) separately from the price, then looks at how much the stock is valued against the free cash flow it produces, meaning the money left once the necessary investments are paid. The result is not what I expected."
+        },
+        {
+          "type": "h2",
+          "text": "Recordati: the gem nobody looks for"
+        },
+        {
+          "type": "p",
+          "text": "Recordati is a pharmaceutical company based in Milan, specialized in rare diseases, conditions that affect few patients and rarely have more than one treatment. In that business a protected drug can sell at a high price for a long time, which explains margins you rarely see in classic industry."
+        },
+        {
+          "type": "p",
+          "text": "The numbers follow. Sales went from €1.85bn in 2022 to €2.62bn in 2025, about 12% a year. 19.5% of those sales end up as free cash, and the company converts 115% of its profit into real cash, a sign that profit is solid and not an accounting artifact. The share count has not moved (about 209 million), so nothing is diluted."
+        },
+        {
+          "type": "p",
+          "text": "On July 28, first half results confirmed the path: €1.41bn of sales (+6.6%), an EBITDA margin of 38.3% and €299m of free cash over the period. The engine is Isturisa, a rare disease treatment, while the metabolic range fell 8%. Two caveats I do not hide: net debt of €1.9bn is about four years of free cash, and free cash is irregular (€365m in 2022, €102m in 2023, negative €281m in 2024, then €512m in 2025). I do not know the exact cause of 2024, and that kind of volatility keeps me from calling it a steady machine."
+        },
+        {
+          "type": "p",
+          "text": "On price, the stock is valued at 21.7 times its free cash flow. My cautious model puts it just under its buying threshold, with a safety margin of only about 3%. Fair, not cheap."
+        },
+        {
+          "type": "h2",
+          "text": "Prysmian: a good business whose shareholders pay for the growth"
+        },
+        {
+          "type": "p",
+          "text": "Prysmian makes electric cables: submarine ones to connect offshore wind farms, high voltage ones for grids, and more and more to power data centers. It is an oligopoly, because laying a submarine cable takes specialized vessels and know-how that few companies have."
+        },
+        {
+          "type": "p",
+          "text": "Its free cash went from €584m in 2022 to €1.37bn in 2025, on sales rising from €16.1bn to €19.7bn. On July 30 the group announced adjusted EBITDA of €730m for the second quarter (+20.7%) and raised its annual free cash target from €1.3 to 1.4bn to €1.65 to 1.75bn. That is a massive upgrade."
+        },
+        {
+          "type": "p",
+          "text": "But there is a flip side the result does not show. The share count rose about 11% between 2022 and 2025, from 266 to 295 million, close to 3.6% a year: it is the only criterion that fails in my grid. I read it as the price of acquisitions (General Cable, Encore Wire) partly paid with new shares, but that is my reading, not a verified figure. Concretely, each share owns a smaller slice of the pie. The stock is valued at 23 times its free cash flow, with about 6.5% of room under my buying threshold."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrari: excellent, and already paid for"
+        },
+        {
+          "type": "p",
+          "text": "I will not retell the brand story here, I did it in [my analysis of Ferrari's moat](/blog/ferrari-race-rarete-moat-durable). The numbers confirm it: free cash went from about €1.06bn in 2022 to €1.86bn in 2025, and the share count fell from 182 to 178 million. In the second quarter of 2026 the operating margin reached 31.2% even as deliveries fell (3,366 cars versus 3,494): Ferrari sells fewer cars, but at higher prices, thanks to personalization."
+        },
+        {
+          "type": "p",
+          "text": "The problem is the price. The stock is valued at 45 times its free cash flow, and my model puts it about 18% above its buying threshold. I have no usable valuation history for Milan listed stocks, so I cannot place it against its own past, but the conclusion holds: today you pay up front for several years of success."
+        },
+        {
+          "type": "h2",
+          "text": "Banks and insurers: not cheap for all that"
+        },
+        {
+          "type": "p",
+          "text": "On July 23, UniCredit published a first half net profit of €6.3bn, raised its 2026 target to about €11.5bn and confirmed it distributes 80% of profits, 30% of it through buybacks. The share count falls almost 9% a year. On paper that is appealing, and the stock is valued at only 16 times its free cash flow."
+        },
+        {
+          "type": "p",
+          "text": "But these numbers must be read with how a bank works in mind. For a bank, customer deposits are debt: they sit on the balance sheet as money it owes back. Hence a debt level that looks huge (10.6 years of free cash) and a return on capital of only 3.7%, two measures that do not mean the same thing as for an industrial company. My grid is not built to judge banks on these points, which is why it scores UniCredit 5 out of 10, like Intesa Sanpaolo. To be honest, these scores warn about the limits of my method, not about these banks."
+        },
+        {
+          "type": "p",
+          "text": "Generali is the opposite case. It scores 8 out of 10 and is valued at 3.6 times its free cash flow, which looks like a bargain. It is a reading trap: an insurer collects premiums before paying claims, and that float (the customers' money it holds temporarily) inflates its free cash artificially. The same figure on an industrial company would be suspect. I read it as a hint, not a promise."
+        },
+        {
+          "type": "h2",
+          "text": "What the table says"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score",
+            "Sales turned into free cash",
+            "Valuation (times free cash)",
+            "My reading"
+          ],
+          "rows": [
+            [
+              "Recordati (REC)",
+              "9 out of 10",
+              "19.5%",
+              "21.7",
+              "Real quality, fair price"
+            ],
+            [
+              "Prysmian (PRY)",
+              "8 out of 10",
+              "7.0%",
+              "23.2",
+              "Good business, diluted shares"
+            ],
+            [
+              "Ferrari (RACE)",
+              "9 out of 10",
+              "19.7%",
+              "45.2",
+              "Excellent, already paid for"
+            ],
+            [
+              "Generali (G)",
+              "8 out of 10",
+              "25.9%",
+              "3.6",
+              "Handle with care"
+            ],
+            [
+              "Leonardo (LDO)",
+              "6 out of 10",
+              "3.8%",
+              "39.6",
+              "Strong story, weak cash"
+            ],
+            [
+              "UniCredit (UCG)",
+              "5 out of 10",
+              "29.0%",
+              "16.3",
+              "Bank: grid ill suited"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Leonardo, the defense group, deserves a mention: its 6 out of 10 is carried by solid European defense demand, but only 3.8% of its sales become free cash and the stock is valued at close to 40 times that cash. A good story, not yet a good price. Eni scores 3 out of 10: its free cash per share falls about 21% a year."
+        },
+        {
+          "type": "p",
+          "text": "My conclusion fits in one sentence: in Italy, quality is not where fame is. Recordati and Prysmian are the two files I would look at first, Ferrari is one to watch while waiting for a better price, and banks need a different grid than mine. To dig further, [the Recordati page](/analyse/REC.MI), [the Prysmian page](/analyse/PRY.MI) and [the Ferrari page](/analyse/RACE.MI) detail each criterion."
+        },
+        {
+          "type": "p",
+          "text": "Sources to check: [Recordati's first half 2026 release](https://www.investegate.co.uk/announcement/gnw/recordti-industria-chimica-e-farma--0kbs/recordati-solid-momentum-of-the-group-contin-/9692102), [Prysmian's July 30, 2026 release](https://www.prysmian.com/en/media/press-releases/prysmian-raises-guidance-after-its-best-quarter-yet) and [Ferrari's second quarter 2026 6-K](https://www.sec.gov/Archives/edgar/data/0001648416/000164841626000106/fnvq22026results.htm). To compare countries you can also reread [my study of German stocks](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) or browse [the screener](/screener)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the best quality Italian stocks?",
+          "a": "In my sample of ten Milan listed companies, Recordati (9 out of 10), Ferrari (9 out of 10) and Prysmian (8 out of 10) get the best quality scores. Ferrari is the most expensive of the three, valued at 45 times its free cash flow."
+        },
+        {
+          "q": "Are Italian banks undervalued?",
+          "a": "They look cheap, but my grid judges banks poorly because their deposits count as debt. UniCredit and Intesa score 5 out of 10, which mostly signals the limit of the method."
+        },
+        {
+          "q": "Why does Prysmian lose a point despite strong results?",
+          "a": "Because its share count rose about 11% between 2022 and 2025, which dilutes every shareholder despite sharply higher free cash."
+        }
+      ],
+      "tags": [
+        "Italian stocks",
+        "Italy",
+        "Milan",
+        "Recordati",
+        "Prysmian",
+        "Ferrari",
+        "quality",
+        "valuation",
+        "ranking"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of October 21, 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Acciones italianas: más allá de Ferrari, dos joyas reales",
+      "excerpt": "Ferrari es la única acción italiana que todo el mundo conoce. Pasé diez empresas de Milán por mi método: la calidad está en otro sitio, y el precio no siempre es el que esperas.",
+      "metaDescription": "Acciones italianas en bolsa: analicé diez empresas de Milán. Ferrari es excelente pero cara, y otras dos superan mejor la prueba de calidad y precio.",
+      "answer": "En Italia destacan tres empresas: Recordati y Ferrari (9 sobre 10 cada una) y Prysmian (8 sobre 10). Ferrari es la más cara, 45 veces su flujo de caja libre. Recordati y Prysmian cotizan a valoraciones razonables. Los bancos parecen baratos pero puntúan mal en mi método de calidad.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Si le dices «acción italiana» a un inversor francés, responde Ferrari. Tras un silencio, quizá UniCredit o Enel. Y poco más. Milán es una plaza que se conoce por tres o cuatro logotipos."
+        },
+        {
+          "type": "p",
+          "text": "Sin embargo, el 30 de julio de 2026 dos empresas italianas publican el mismo día resultados que mueven su valoración. Ferrari anuncia 1.940 M€ de ventas en el trimestre (+8 %) y eleva su previsión anual a unos 7.600 M€. Prysmian, un fabricante de cables del que casi nadie habla, publica su mejor trimestre histórico y también sube sus objetivos."
+        },
+        {
+          "type": "p",
+          "text": "Hice lo que hago con cada país: pasé diez empresas de Milán por mi método. Juzga la calidad de un negocio (márgenes, crecimiento, caja generada, deuda, número de acciones) por separado del precio, y luego mira cuánto se valora la acción frente al flujo de caja libre que produce, es decir, el dinero que queda tras pagar las inversiones necesarias. El resultado no es el que esperaba."
+        },
+        {
+          "type": "h2",
+          "text": "Recordati: la joya que nadie busca"
+        },
+        {
+          "type": "p",
+          "text": "Recordati es un laboratorio farmacéutico de Milán, especializado en enfermedades raras, patologías que afectan a pocos pacientes y para las que rara vez existe más de un tratamiento. En ese negocio un medicamento protegido puede venderse caro durante mucho tiempo, lo que explica márgenes poco habituales en la industria clásica."
+        },
+        {
+          "type": "p",
+          "text": "Las cifras acompañan. Sus ventas pasaron de 1.850 M€ en 2022 a 2.620 M€ en 2025, cerca de un 12 % anual. El 19,5 % de esas ventas acaba como caja libre, y la empresa convierte el 115 % de su beneficio en caja real, señal de un beneficio sólido y no de un artificio contable. El número de acciones no se ha movido (unos 209 millones), así que no hay dilución."
+        },
+        {
+          "type": "p",
+          "text": "El 28 de julio, los resultados del primer semestre confirman la trayectoria: 1.410 M€ de ventas (+6,6 %), un margen de EBITDA del 38,3 % y 299 M€ de caja libre en el periodo. El motor es Isturisa, un tratamiento de enfermedad rara, mientras la gama metabólica cae un 8 %. Dos matices que no oculto: la deuda neta de 1.900 M€ equivale a unos cuatro años de caja libre, y la caja libre es irregular (365 M€ en 2022, 102 M€ en 2023, negativa en 281 M€ en 2024 y 512 M€ en 2025). No conozco la causa exacta de 2024, y esa volatilidad me impide hablar de una máquina regular."
+        },
+        {
+          "type": "p",
+          "text": "En precio, la acción se valora 21,7 veces su caja libre. Mi modelo prudente la sitúa justo por debajo de su umbral de compra, con un margen de seguridad de apenas un 3 %. Correcta, no barata."
+        },
+        {
+          "type": "h2",
+          "text": "Prysmian: un buen negocio cuyo crecimiento pagan los accionistas"
+        },
+        {
+          "type": "p",
+          "text": "Prysmian fabrica cables eléctricos: submarinos para conectar parques eólicos marinos, de alta tensión para las redes y cada vez más para alimentar centros de datos. Es un oligopolio, porque tender un cable submarino exige barcos especializados y un saber hacer que pocas empresas tienen."
+        },
+        {
+          "type": "p",
+          "text": "Su caja libre pasó de 584 M€ en 2022 a 1.370 M€ en 2025, con ventas que suben de 16.100 a 19.700 M€. El 30 de julio el grupo anuncia un EBITDA ajustado de 730 M€ en el segundo trimestre (+20,7 %) y eleva su objetivo anual de caja libre de 1.300 a 1.400 M€ hasta 1.650 a 1.750 M€. Es una revisión enorme."
+        },
+        {
+          "type": "p",
+          "text": "Pero hay un reverso que el resultado no muestra. El número de acciones subió cerca de un 11 % entre 2022 y 2025, de 266 a 295 millones, casi un 3,6 % anual: es el único criterio que suspende en mi método. Lo interpreto como el precio de las adquisiciones (General Cable, Encore Wire) pagadas en parte con acciones nuevas, pero es mi lectura, no una cifra verificada. En concreto, cada acción posee una porción más pequeña del pastel. La acción se valora 23 veces su caja libre, con un 6,5 % de margen bajo mi umbral de compra."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrari: excelente, y ya pagada"
+        },
+        {
+          "type": "p",
+          "text": "No voy a repetir aquí la historia de la marca, la conté en [mi análisis del foso competitivo de Ferrari](/blog/ferrari-race-rarete-moat-durable). Las cifras lo confirman: la caja libre pasó de unos 1.060 M€ en 2022 a 1.860 M€ en 2025, y el número de acciones bajó de 182 a 178 millones. En el segundo trimestre de 2026 el margen operativo alcanza el 31,2 % aunque las entregas retroceden (3.366 coches frente a 3.494): Ferrari vende menos, pero más caro, gracias a la personalización."
+        },
+        {
+          "type": "p",
+          "text": "El problema es el precio. La acción se valora 45 veces su caja libre y mi modelo la sitúa un 18 % por encima de su umbral de compra. No tengo un historial de valoración utilizable para los valores de Milán, así que no puedo situarla frente a su propio pasado, pero la conclusión no cambia: hoy se paga por adelantado varios años de éxito."
+        },
+        {
+          "type": "h2",
+          "text": "Bancos y aseguradoras: no son baratos por eso"
+        },
+        {
+          "type": "p",
+          "text": "El 23 de julio UniCredit publicó un beneficio neto semestral de 6.300 M€, subió su objetivo de 2026 a unos 11.500 M€ y confirmó que distribuye el 80 % de sus beneficios, un 30 % en recompras. El número de acciones baja casi un 9 % anual. Sobre el papel es atractivo, y la acción se valora solo 16 veces su caja libre."
+        },
+        {
+          "type": "p",
+          "text": "Pero hay que leer estas cifras con la mecánica de un banco en mente. Para un banco, los depósitos de los clientes son deuda: figuran en el balance como dinero que debe devolver. De ahí un endeudamiento que parece enorme (10,6 años de caja libre) y una rentabilidad del capital de solo el 3,7 %, dos medidas que no significan lo mismo que en una industrial. Mi método no está hecho para juzgar bancos en estos puntos, por eso puntúa a UniCredit con 5 sobre 10, igual que a Intesa Sanpaolo. Lo digo con honestidad: estas notas avisan de un límite de mi método, no son un veredicto sobre estos bancos."
+        },
+        {
+          "type": "p",
+          "text": "Generali es el caso inverso. Tiene un 8 sobre 10 y una valoración de 3,6 veces su caja libre, lo que parece una ganga. Es una trampa de lectura: una aseguradora cobra las primas antes de pagar los siniestros, y ese «float» (el dinero de los clientes que retiene temporalmente) infla artificialmente su caja libre. La misma cifra en una industrial sería sospechosa. La leo como un indicio, no como una promesa."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que dice la tabla"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad",
+            "Ventas convertidas en caja libre",
+            "Valoración (veces la caja libre)",
+            "Mi lectura"
+          ],
+          "rows": [
+            [
+              "Recordati (REC)",
+              "9 sobre 10",
+              "19,5 %",
+              "21,7",
+              "Calidad real, precio correcto"
+            ],
+            [
+              "Prysmian (PRY)",
+              "8 sobre 10",
+              "7,0 %",
+              "23,2",
+              "Buen negocio, acciones diluidas"
+            ],
+            [
+              "Ferrari (RACE)",
+              "9 sobre 10",
+              "19,7 %",
+              "45,2",
+              "Excelente, ya pagada"
+            ],
+            [
+              "Generali (G)",
+              "8 sobre 10",
+              "25,9 %",
+              "3,6",
+              "Cifra para manejar con cautela"
+            ],
+            [
+              "Leonardo (LDO)",
+              "6 sobre 10",
+              "3,8 %",
+              "39,6",
+              "Buena historia, poca caja"
+            ],
+            [
+              "UniCredit (UCG)",
+              "5 sobre 10",
+              "29,0 %",
+              "16,3",
+              "Banco: método poco adaptado"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Leonardo, el grupo de defensa, merece una mención: su 6 sobre 10 se apoya en una demanda europea de defensa sólida, pero solo el 3,8 % de sus ventas se convierte en caja libre y la acción se valora cerca de 40 veces esa caja. Una buena historia, aún no un buen precio. Eni obtiene 3 sobre 10: su caja libre por acción cae cerca de un 21 % anual."
+        },
+        {
+          "type": "p",
+          "text": "Mi conclusión cabe en una frase: en Italia, la calidad no está donde está la fama. Recordati y Prysmian son los dos expedientes que miraría primero, Ferrari queda en vigilancia a la espera de un mejor precio, y los bancos piden un método distinto del mío. Para profundizar, [la ficha de Recordati](/analyse/REC.MI), [la de Prysmian](/analyse/PRY.MI) y [la de Ferrari](/analyse/RACE.MI) detallan cada criterio."
+        },
+        {
+          "type": "p",
+          "text": "Fuentes para consultar: [el comunicado del primer semestre de 2026 de Recordati](https://www.investegate.co.uk/announcement/gnw/recordti-industria-chimica-e-farma--0kbs/recordati-solid-momentum-of-the-group-contin-/9692102), [el comunicado de Prysmian del 30 de julio de 2026](https://www.prysmian.com/en/media/press-releases/prysmian-raises-guidance-after-its-best-quarter-yet) y [el 6-K del segundo trimestre de 2026 de Ferrari](https://www.sec.gov/Archives/edgar/data/0001648416/000164841626000106/fnvq22026results.htm). Para comparar países también puedes releer [mi estudio de las acciones alemanas](/blog/actions-allemandes-ou-se-cache-la-qualite-2026) o explorar [el screener](/screener)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las mejores acciones italianas de calidad?",
+          "a": "En mi muestra de diez empresas de Milán, Recordati (9 sobre 10), Ferrari (9 sobre 10) y Prysmian (8 sobre 10) obtienen las mejores notas de calidad. Ferrari es la más cara de las tres, con una valoración de 45 veces su caja libre."
+        },
+        {
+          "q": "¿Están infravalorados los bancos italianos?",
+          "a": "Parecen baratos, pero mi método juzga mal a los bancos porque sus depósitos cuentan como deuda. UniCredit e Intesa obtienen 5 sobre 10, lo que señala sobre todo el límite del método."
+        },
+        {
+          "q": "¿Por qué Prysmian pierde un punto pese a sus buenos resultados?",
+          "a": "Porque su número de acciones subió cerca de un 11 % entre 2022 y 2025, lo que diluye a cada accionista pese a una caja libre en fuerte alza."
+        }
+      ],
+      "tags": [
+        "acciones italianas",
+        "Italia",
+        "Milán",
+        "Recordati",
+        "Prysmian",
+        "Ferrari",
+        "calidad",
+        "valoración",
+        "ranking"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 21 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
