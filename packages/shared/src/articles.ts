@@ -99903,7 +99903,415 @@ const articleItalie2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026];
+const articleQuandVendre2026: Article = {
+  "slug": "quand-vendre-une-action-trois-signaux-un-piege-2026",
+  "date": "2026-10-22",
+  "updated": "2026-10-22",
+  "readingTime": 10,
+  "content": {
+    "fr": {
+      "title": "Quand vendre une action : trois signaux, un seul piège",
+      "excerpt": "Tout le monde explique quand acheter, presque personne quand vendre. Voici les trois situations où je vends ou j'allège, et le réflexe que j'évite : vendre parce que le cours baisse.",
+      "metaDescription": "Quand vendre une action ? Trois signaux que je surveille (thèse cassée, prix trop avancé, meilleur usage du cash) et le piège à éviter, avec Nike et Shopify.",
+      "answer": "Je vends une action quand la thèse qui m'a fait l'acheter est cassée, ce qui se lit dans la dégradation durable des chiffres. J'allège quand le prix dépasse largement ce que le business justifie. Je ne vends jamais parce que le cours baisse : une baisse seule ne dit rien sur la qualité.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Presque tout ce qui s'écrit sur la bourse concerne l'achat. Quelle action choisir, à quel prix, dans quel secteur. Vendre, on en parle peu, et c'est pourtant là que se perd une bonne partie de l'argent des investisseurs particuliers. Ils gardent des mauvaises entreprises par fierté, ou ils vendent de très bonnes par peur au pire moment."
+        },
+        {
+          "type": "p",
+          "text": "La question « quand vendre une action » n'a pas de réponse universelle, mais elle a une méthode. La mienne tient en une phrase : je ne vends pas un cours, je vends (ou je garde) une thèse. Quand j'achète, je peux écrire en trois lignes pourquoi : l'entreprise gagne de l'argent de façon durable, elle le réinvestit bien, et le prix payé laisse une marge de sécurité. Vendre, c'est constater que l'une de ces trois lignes n'est plus vraie. Rien d'autre."
+        },
+        {
+          "type": "p",
+          "text": "Je vais te montrer ce que ça donne avec trois sociétés réelles, dont les chiffres viennent de mon outil à la date du 22 octobre 2026. Une dont la thèse s'effrite (Nike), une dont le business est superbe mais dont le prix a pris trop d'avance (Shopify), et une qui montre le cas inverse, celui où l'on ne vend surtout pas (Autodesk)."
+        },
+        {
+          "type": "h2",
+          "text": "Premier signal : la thèse est cassée"
+        },
+        {
+          "type": "p",
+          "text": "C'est le seul signal qui justifie une vente complète, et c'est le plus difficile à accepter, parce qu'il arrive en général sur une entreprise que l'on connaît bien et que l'on aime. Nike en est un cas d'école. Pendant des années, c'était la machine parfaite : une marque mondiale, des marges élevées, un cash généreux. Aujourd'hui, ma grille de dix critères lui attribue 4 sur 10."
+        },
+        {
+          "type": "p",
+          "text": "Regarde la trajectoire, pas la photo. Selon les séries de mon outil, le cash libre de Nike (le free cash flow : l'argent qui reste vraiment dans les caisses après avoir payé les salaires, les stocks, les usines et les impôts) était de 6,6 milliards de dollars sur l'exercice clos en mai 2024. Il est tombé à 3,3 milliards un an plus tard, puis à 2,2 milliards sur l'exercice clos en mai 2026. Pendant ce temps, le chiffre d'affaires est passé de 51,4 à 46,4 milliards. Sur 100 dollars de ventes, Nike gardait donc près de 13 dollars de cash libre il y a deux ans. Elle en garde un peu moins de 5 aujourd'hui."
+        },
+        {
+          "type": "p",
+          "text": "Le mécanisme est classique. Quand les ventes stagnent, les coûts fixes (magasins, marketing, logistique) ne baissent pas aussi vite : la marge s'écrase, et le cash avec elle. Mon outil le résume ainsi : le cash libre par action recule d'environ 16 % par an sur cinq ans, le rendement du capital investi (ce que rapporte chaque dollar engagé dans l'entreprise) est tombé à 7,4 % alors que je cherche plus de 15 %, et les coûts grandissent plus vite que les revenus."
+        },
+        {
+          "type": "p",
+          "text": "Faut-il pour autant tout vendre au premier mauvais trimestre ? Non, et c'est là que la nuance compte. Le 1er octobre 2026, Nike a publié des résultats trimestriels qui contiennent de vrais signaux positifs : [le communiqué du premier trimestre de son exercice 2027](https://about.nike.com/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results) indique une marge brute en hausse de 0,6 point à 42,8 %, un bénéfice par action de 0,48 dollar (au-dessus des attentes) et le lancement d'un plan d'économies baptisé Pace, visant environ 2,5 milliards de dollars sur plusieurs années. Mais le même communiqué montre des ventes en baisse de 4 %, Converse qui chute de 28 % et un canal direct en recul de 8 %."
+        },
+        {
+          "type": "p",
+          "text": "Voilà la bonne façon de traiter un signal de rupture : je ne demande pas « est-ce que ce trimestre est bon ? », je demande « est-ce que la tendance de fond a changé ? ». Une marge brute qui remonte grâce à des coûts logistiques plus bas est un soulagement, pas un retournement. Tant que les ventes ne repartent pas et que le cash libre ne remonte pas durablement, la thèse qui valait la peine d'être détenue n'est plus celle que j'avais achetée. Pour une action déjà en portefeuille, c'est le moment de sortir, ou au minimum de réduire fortement, sans attendre le trimestre « de confirmation » qui n'arrive jamais à l'heure."
+        },
+        {
+          "type": "p",
+          "text": "Un test simple que j'applique : j'écris sur une feuille pourquoi j'ai acheté, puis je relis ce texte avec les chiffres d'aujourd'hui. Si deux des trois lignes de ma thèse sont fausses (la rentabilité, la croissance du cash, l'endettement), je vends. Si une seule est fausse, je surveille, je lis les résultats, et je fixe une date à laquelle je retranche. Cette discipline évite la pire erreur, celle de réécrire la thèse pour justifier la position (« je garde parce que la marque reste forte ») alors que ce sont les chiffres qui comptent."
+        },
+        {
+          "type": "h2",
+          "text": "Deuxième signal : le prix a pris trop d'avance"
+        },
+        {
+          "type": "p",
+          "text": "Ce deuxième cas est plus subtil, parce que l'entreprise, elle, va très bien. Shopify obtient 10 sur 10 dans ma grille, le maximum. Son chiffre d'affaires progresse d'environ 26 % par an sur cinq ans, son cash libre est passé de 905 millions de dollars en 2023 à 1,6 milliard en 2024, puis à 2,0 milliards en 2025, et elle n'a pas de dette nette. Dans [son communiqué du deuxième trimestre 2026](https://www.shopify.com/news/shopify-q2-2026-financial-results), publié le 5 août, Shopify annonce un chiffre d'affaires de 3,58 milliards de dollars (+34 %) et une marge de cash libre de 18 %, contre 16 % un an plus tôt. Un business en pleine santé."
+        },
+        {
+          "type": "p",
+          "text": "Et pourtant, la question de la vente se pose, parce que la qualité n'est jamais le prix. Au cours de 174,29 dollars, Shopify se valorise environ 121 fois son cash libre annuel. Le P/FCF, c'est le prix de l'action divisé par le cash libre par action : 121 veut dire que tu paies 121 années du cash actuel. Pour comparaison, mon critère de valorisation raisonnable est de moins de 25. Mon modèle, qui projette le cash à cinq ans avec des hypothèses prudentes puis le ramène à aujourd'hui, donne un prix d'achat raisonnable de 71,30 dollars : le cours le dépasse de près de 60 %. Dans l'historique propre de Shopify, la valorisation se situe au 68e percentile, ce qui veut dire qu'elle a été plus basse environ deux fois sur trois."
+        },
+        {
+          "type": "p",
+          "text": "Faut-il vendre tout ? Je ne le crois pas, et c'est une nuance que beaucoup d'investisseurs ratent. Quand la qualité reste intacte, un prix trop élevé n'est pas une preuve que la thèse est fausse : c'est une alerte sur ce que le marché a déjà intégré. Dans ce cas, je pense en termes de taille de position. Si Shopify pèse trop dans le portefeuille, j'allège, je prends une partie des gains et je garde le reste, parce que je n'ai aucune raison de vendre un business qui accélère. Si je n'en détiens pas, j'attends mon prix, sans courir après."
+        },
+        {
+          "type": "p",
+          "text": "Le piège, ici, serait de confondre deux erreurs. La première est de vendre tout dès que le prix dépasse mon seuil : l'histoire de la bourse regorge d'entreprises exceptionnelles qui sont restées « trop chères » pendant dix ans. La seconde est de dire « c'est une grande entreprise, le prix n'a aucune importance ». À 121 fois le cash libre, il faut que la croissance se maintienne très longtemps pour que l'investisseur d'aujourd'hui soit payé de son risque. Le bon réflexe est entre les deux : alléger quand l'écart devient extrême, garder un noyau, et accepter de ne pas avoir un timing parfait."
+        },
+        {
+          "type": "h2",
+          "text": "Troisième signal : le cash a une meilleure place ailleurs"
+        },
+        {
+          "type": "p",
+          "text": "Le dernier motif de vente est moins spectaculaire, mais il est rationnel : le coût d'opportunité. Chaque euro immobilisé dans une action « correcte » est un euro qui ne finance pas une action « excellente et bon marché ». Si je tombe sur une société qui coche tous mes critères de qualité, qui se valorise nettement sous son prix d'achat raisonnable, et que mon portefeuille est plein, je peux vendre la plus faible de mes lignes pour financer la meilleure. Pas par panique, pas par ennui : par comparaison."
+        },
+        {
+          "type": "p",
+          "text": "Prenons Autodesk, le cas inverse de Shopify. Mon outil lui donne aussi 10 sur 10, et son cours de 244,84 dollars se situe nettement sous le prix d'achat raisonnable de 470,58 dollars calculé par mon modèle, avec une valorisation d'environ 26 fois son cash libre, au 23e percentile de son propre historique, donc plus basse que dans plus des trois quarts du temps. Ici, rien ne me pousse à vendre, au contraire. Si je détenais Autodesk et qu'elle avait baissé de 20 % sans que ses marges ou son cash ne bougent, la bonne réaction serait de garder, voire de renforcer."
+        },
+        {
+          "type": "p",
+          "text": "C'est la ligne que je tiens à tracer entre le signal et le bruit. Une baisse du cours n'est jamais, à elle seule, un signal de vente. Ce qui compte, c'est ce qui s'est passé dans l'entreprise. Si les chiffres sont stables et que le prix baisse, l'action devient plus intéressante, pas moins. Si les chiffres se dégradent et que le prix baisse, ce n'est pas une aubaine, c'est ce qu'on appelle un piège à valeur, comme je l'explique dans [mon article sur les pièges de valeur](/blog/piege-de-valeur-value-trap-comment-le-reperer-methode-lubin). Dans les deux cas, le cours ne t'apprend rien : lis le cash."
+        },
+        {
+          "type": "h2",
+          "text": "Le piège qui coûte le plus cher : vendre sur la peur ou sur le gain"
+        },
+        {
+          "type": "p",
+          "text": "Les trois signaux précédents ont un point commun : ils partent des chiffres de l'entreprise. Les deux mauvaises raisons de vendre, elles, partent de toi. La première est la peur : le marché chute de 10 %, les titres rouges s'enchaînent, et l'on vend un excellent business parce que l'écran est rouge. La seconde est l'envie de « sécuriser un gain » : l'action a pris 40 %, on vend pour ne pas voir le gain disparaître, alors que rien dans la qualité de l'entreprise n'a changé. Dans les deux cas, on prend une décision financière sur la base d'une émotion."
+        },
+        {
+          "type": "p",
+          "text": "Le calcul est simple et brutal. Une action qui perd 30 % doit ensuite gagner environ 43 % pour revenir à son point de départ. Celui qui vend en bas fige la perte, et il lui faudra ensuite avoir raison deux fois : sur le moment de sortie, puis sur le moment de rentrée. Presque personne n'y arrive. Garder une entreprise dont le cash n'a pas bougé, c'est refuser de payer ce péage."
+        },
+        {
+          "type": "p",
+          "text": "Pour me protéger de moi-même, je me suis fixé un protocole. Avant toute vente, je relis la thèse d'achat et je vérifie trois chiffres : la marge de cash libre est-elle plus basse qu'il y a deux ans, le nombre d'actions augmente-t-il, la dette a-t-elle gonflé. Si la réponse est non partout, je ne vends pas, quoi que dise le cours. Si elle est oui sur deux, je vends, même si l'action a monté la veille. Ce protocole n'est pas parfait. Il est simplement stable, et c'est ce qu'il faut face à des émotions qui, elles, ne le sont jamais."
+        },
+        {
+          "type": "p",
+          "text": "Une dernière précision sur l'impôt et les frais. Vendre a un coût : fiscalité sur la plus-value, frais de courtage, et parfois un écart entre prix d'achat et de vente. Cela ne doit pas t'empêcher de sortir d'une thèse cassée, mais cela renforce l'idée qu'on ne vend pas pour « faire quelque chose ». Le coût de l'inaction sur une bonne entreprise est souvent plus faible que celui d'un aller-retour inutile. Pour approfondir la logique de prix, relis [ma méthode sur la marge de sécurité](/blog/marge-securite-prix-achat-raisonnable-methode-lubin) et, pour comprendre la façon dont j'évalue la qualité, [la méthodologie complète](/methodologie)."
+        },
+        {
+          "type": "p",
+          "text": "C'est précisément ce suivi, vérifier une thèse avec les mêmes critères le jour de l'achat et le jour du doute, que j'ai voulu pouvoir faire pour n'importe quelle action. Tu peux le tester sur [la fiche de Nike](/analyse/NKE) ou sur [celle de Shopify](/analyse/SHOP) : tu verras si leur thèse tient encore, critère par critère. Pour fonder ta propre règle de décision, les travaux d'[Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/) sur la valorisation sont une excellente base de lecture."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quand faut-il vendre une action ?",
+          "a": "Quand la thèse d'achat est cassée de façon durable : marges et cash libre qui reculent sur plusieurs années, endettement qui gonfle, nombre d'actions qui augmente. Un prix trop élevé justifie plutôt d'alléger que de tout vendre. Une simple baisse du cours n'est pas un motif de vente."
+        },
+        {
+          "q": "Faut-il vendre une action qui a beaucoup monté ?",
+          "a": "Pas automatiquement. Si la qualité et la croissance du cash restent intactes, une hausse n'invalide pas la thèse. Mais si le prix dépasse nettement la valeur que le business justifie, il est raisonnable d'alléger pour réduire le poids de la ligne et de garder un noyau."
+        },
+        {
+          "q": "Faut-il vendre une action qui baisse ?",
+          "a": "Seulement si ses chiffres se dégradent aussi. Si le cash libre, les marges et la dette sont stables, une baisse rend l'action plus intéressante. Si les chiffres se détériorent en même temps, c'est un piège de valeur et la vente se justifie."
+        }
+      ],
+      "tags": [
+        "quand vendre une action",
+        "vendre une action",
+        "stratégie d'investissement",
+        "analyse fondamentale",
+        "Nike",
+        "Shopify",
+        "cash libre",
+        "valorisation"
+      ],
+      "disclaimer": "Analyse à visée informative et éducative, pas un conseil en investissement personnalisé. Les performances passées ne garantissent pas les résultats futurs. Chiffres au 22 octobre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "When to Sell a Stock: Three Signals, One Trap",
+      "excerpt": "Everyone explains when to buy, almost nobody when to sell. Here are the three situations where I sell or trim, and the reflex I avoid: selling just because the price is falling.",
+      "metaDescription": "When should you sell a stock? Three signals I watch (broken thesis, price too far ahead, better use for the cash) and the trap to avoid, with Nike and Shopify.",
+      "answer": "I sell a stock when the thesis that made me buy it is broken, which shows up as a lasting deterioration in the numbers. I trim when the price runs far beyond what the business justifies. I never sell just because the price drops: a drop alone says nothing about quality.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Almost everything written about the stock market is about buying. Which stock to pick, at what price, in which sector. Selling gets little attention, yet that is where a good part of individual investors' money is lost. They hold bad companies out of pride, or they sell very good ones out of fear at the worst moment."
+        },
+        {
+          "type": "p",
+          "text": "The question \"when to sell a stock\" has no universal answer, but it has a method. Mine fits in one sentence: I don't sell a price, I sell (or keep) a thesis. When I buy, I can write in three lines why: the company earns money durably, it reinvests it well, and the price paid leaves a margin of safety. Selling means noticing that one of those three lines is no longer true. Nothing else."
+        },
+        {
+          "type": "p",
+          "text": "I will show you what that looks like with three real companies, with figures from my tool as of October 22, 2026. One whose thesis is crumbling (Nike), one whose business is superb but whose price has run too far ahead (Shopify), and one that shows the opposite case, where you definitely do not sell (Autodesk)."
+        },
+        {
+          "type": "h2",
+          "text": "First signal: the thesis is broken"
+        },
+        {
+          "type": "p",
+          "text": "This is the only signal that justifies a full sale, and the hardest to accept, because it usually hits a company you know well and like. Nike is a textbook case. For years it was the perfect machine: a global brand, high margins, generous cash. Today my ten-criteria grid gives it 4 out of 10."
+        },
+        {
+          "type": "p",
+          "text": "Look at the trajectory, not the snapshot. According to my tool's series, Nike's free cash flow (the money that really stays in the till after paying salaries, inventory, factories and taxes) was $6.6 billion for the fiscal year ended May 2024. It fell to $3.3 billion a year later, then to $2.2 billion for the year ended May 2026. Over the same period revenue went from $51.4 billion to $46.4 billion. On $100 of sales, Nike kept nearly $13 of free cash two years ago. Today it keeps a little under $5."
+        },
+        {
+          "type": "p",
+          "text": "The mechanism is classic. When sales stall, fixed costs (stores, marketing, logistics) do not shrink as fast: the margin gets squeezed, and the cash with it. My tool sums it up: free cash flow per share is down about 16% a year over five years, return on invested capital (what each dollar put into the business earns) has fallen to 7.4% when I look for more than 15%, and costs are growing faster than revenue."
+        },
+        {
+          "type": "p",
+          "text": "Should you sell everything at the first bad quarter? No, and this is where nuance matters. On October 1, 2026, Nike published quarterly results with real positives: [the press release for the first quarter of fiscal 2027](https://about.nike.com/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results) shows gross margin up 0.6 points to 42.8%, earnings per share of $0.48 (above expectations) and the launch of a cost program called Pace, targeting about $2.5 billion over several years. But the same release shows sales down 4%, Converse falling 28% and the direct channel down 8%."
+        },
+        {
+          "type": "p",
+          "text": "That is the right way to treat a break signal: I don't ask \"was this quarter good?\", I ask \"has the underlying trend changed?\". A gross margin that recovers thanks to lower logistics costs is a relief, not a turnaround. As long as sales do not pick up and free cash flow does not recover durably, the company worth holding is no longer the one I bought. For a stock already in the portfolio, this is the time to exit, or at least cut sharply, without waiting for the \"confirmation quarter\" that never arrives on time."
+        },
+        {
+          "type": "p",
+          "text": "A simple test I apply: I write down on a sheet why I bought, then reread it with today's numbers. If two of the three lines of my thesis are false (profitability, cash growth, debt), I sell. If only one is false, I watch, read the results, and set a date by which I decide. This discipline avoids the worst error, rewriting the thesis to justify the position (\"I keep it because the brand is still strong\") when the numbers are what count."
+        },
+        {
+          "type": "h2",
+          "text": "Second signal: the price has run too far ahead"
+        },
+        {
+          "type": "p",
+          "text": "This second case is subtler, because the company is doing very well. Shopify scores 10 out of 10 in my grid, the maximum. Its revenue has grown about 26% a year over five years, its free cash flow went from $905 million in 2023 to $1.6 billion in 2024, then $2.0 billion in 2025, and it has no net debt. In [its second quarter 2026 release](https://www.shopify.com/news/shopify-q2-2026-financial-results), published August 5, Shopify reports revenue of $3.58 billion (+34%) and a free cash flow margin of 18%, versus 16% a year earlier. A business in excellent health."
+        },
+        {
+          "type": "p",
+          "text": "And yet the question of selling arises, because quality is never the price. At $174.29, Shopify is valued at about 121 times its annual free cash flow. The P/FCF is the share price divided by free cash flow per share: 121 means you pay for 121 years of today's cash. For comparison, my reasonable valuation criterion is below 25. My model, which projects cash five years out with prudent assumptions and brings it back to today, gives a reasonable buy price of $71.30: the price exceeds it by nearly 60%. Against Shopify's own history, the valuation sits at the 68th percentile, meaning it has been lower about two times out of three."
+        },
+        {
+          "type": "p",
+          "text": "Should you sell it all? I don't think so, and this is a nuance many investors miss. When quality stays intact, a high price is not proof that the thesis is wrong: it is a warning about what the market has already priced in. In that case I think in terms of position size. If Shopify weighs too much in the portfolio, I trim, take part of the gains and keep the rest, because I have no reason to sell a business that is accelerating. If I don't own it, I wait for my price and don't chase."
+        },
+        {
+          "type": "p",
+          "text": "The trap here would be to confuse two errors. The first is to sell everything as soon as the price passes my threshold: market history is full of exceptional companies that stayed \"too expensive\" for ten years. The second is to say \"it's a great company, the price doesn't matter\". At 121 times free cash flow, growth has to last a very long time for today's investor to be paid for the risk. The right reflex sits in between: trim when the gap becomes extreme, keep a core, and accept not having perfect timing."
+        },
+        {
+          "type": "h2",
+          "text": "Third signal: the cash has a better home elsewhere"
+        },
+        {
+          "type": "p",
+          "text": "The last reason to sell is less spectacular but rational: opportunity cost. Every euro tied up in a \"decent\" stock is a euro that does not fund an \"excellent and cheap\" one. If I find a company that ticks all my quality criteria, is valued clearly below its reasonable buy price, and my portfolio is full, I can sell the weakest of my holdings to fund the best. Not out of panic, not out of boredom: by comparison."
+        },
+        {
+          "type": "p",
+          "text": "Take Autodesk, the opposite of Shopify. My tool also gives it 10 out of 10, and its price of $244.84 sits well below the reasonable buy price of $470.58 computed by my model, with a valuation of about 26 times free cash flow, at the 23rd percentile of its own history, so lower than it has been in more than three quarters of the time. Nothing pushes me to sell here, quite the opposite. If I owned Autodesk and it had fallen 20% without its margins or cash moving, the right reaction would be to hold, or even add."
+        },
+        {
+          "type": "p",
+          "text": "That is the line I want to draw between signal and noise. A falling price is never, on its own, a sell signal. What matters is what happened inside the company. If the numbers are stable and the price falls, the stock becomes more attractive, not less. If the numbers deteriorate and the price falls, that is not a bargain, it is what is called a value trap, as I explain in [my article on value traps](/blog/piege-de-valeur-value-trap-comment-le-reperer-methode-lubin). In both cases the price teaches you nothing: read the cash."
+        },
+        {
+          "type": "h2",
+          "text": "The costliest trap: selling on fear or on gains"
+        },
+        {
+          "type": "p",
+          "text": "The three signals above have one thing in common: they start from the company's numbers. The two bad reasons to sell start from you. The first is fear: the market drops 10%, red headlines pile up, and you sell an excellent business because the screen is red. The second is the urge to \"lock in a gain\": the stock is up 40%, you sell so as not to watch the gain vanish, although nothing in the company's quality has changed. In both cases you make a financial decision based on an emotion."
+        },
+        {
+          "type": "p",
+          "text": "The math is simple and brutal. A stock that loses 30% must then gain about 43% to get back to its starting point. Whoever sells at the bottom locks in the loss, and then has to be right twice: on the exit and on the re-entry. Almost nobody manages it. Keeping a company whose cash has not moved means refusing to pay that toll."
+        },
+        {
+          "type": "p",
+          "text": "To protect myself from myself, I set a protocol. Before any sale I reread the buying thesis and check three numbers: is the free cash flow margin lower than two years ago, is the share count rising, has debt swollen. If the answer is no on all three, I don't sell, whatever the price says. If it is yes on two, I sell, even if the stock rose the day before. This protocol is not perfect. It is simply stable, which is what you need against emotions that never are."
+        },
+        {
+          "type": "p",
+          "text": "One last point on taxes and fees. Selling has a cost: tax on the gain, brokerage fees, and sometimes a gap between buy and sell prices. That should not stop you from leaving a broken thesis, but it reinforces the idea that you don't sell to \"do something\". The cost of doing nothing on a good company is often lower than that of a pointless round trip. To go deeper on price logic, reread [my method on the margin of safety](/blog/marge-securite-prix-achat-raisonnable-methode-lubin) and, to understand how I assess quality, [the full methodology](/methodologie)."
+        },
+        {
+          "type": "p",
+          "text": "This is exactly the follow-up, checking a thesis with the same criteria on the day of purchase and the day of doubt, that I wanted to be able to do for any stock. You can test it on [the Nike page](/analyse/NKE) or [the Shopify one](/analyse/SHOP): you will see whether their thesis still holds, criterion by criterion. To build your own decision rule, the valuation work of [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/) is an excellent reading base."
+        }
+      ],
+      "faq": [
+        {
+          "q": "When should you sell a stock?",
+          "a": "When the buying thesis is broken for the long term: margins and free cash flow falling over several years, debt swelling, share count rising. A price that is too high is a reason to trim rather than sell everything. A simple price drop is not a reason to sell."
+        },
+        {
+          "q": "Should you sell a stock that has risen a lot?",
+          "a": "Not automatically. If quality and cash growth stay intact, a rise does not invalidate the thesis. But if the price clearly exceeds the value the business justifies, it is reasonable to trim to reduce the weight of the position and keep a core."
+        },
+        {
+          "q": "Should you sell a stock that is falling?",
+          "a": "Only if its numbers are deteriorating too. If free cash flow, margins and debt are stable, a drop makes the stock more attractive. If the numbers worsen at the same time, it is a value trap and selling is justified."
+        }
+      ],
+      "tags": [
+        "when to sell a stock",
+        "selling a stock",
+        "investment strategy",
+        "fundamental analysis",
+        "Nike",
+        "Shopify",
+        "free cash flow",
+        "valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of October 22, 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Cuándo vender una acción: tres señales y una trampa",
+      "excerpt": "Todos explican cuándo comprar, casi nadie cuándo vender. Estas son las tres situaciones en las que vendo o reduzco, y el reflejo que evito: vender solo porque el precio baja.",
+      "metaDescription": "¿Cuándo vender una acción? Tres señales que vigilo (tesis rota, precio adelantado, mejor uso del dinero) y la trampa que evito, con Nike y Shopify.",
+      "answer": "Vendo una acción cuando la tesis que me hizo comprarla está rota, algo que se lee en el deterioro duradero de las cifras. Reduzco cuando el precio supera con mucho lo que justifica el negocio. Nunca vendo solo porque la cotización baja: una caída por sí sola no dice nada sobre la calidad.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Casi todo lo que se escribe sobre la bolsa trata de comprar. Qué acción elegir, a qué precio, en qué sector. De vender se habla poco, y sin embargo ahí se pierde buena parte del dinero de los inversores particulares. Mantienen malas empresas por orgullo, o venden muy buenas por miedo en el peor momento."
+        },
+        {
+          "type": "p",
+          "text": "La pregunta «cuándo vender una acción» no tiene una respuesta universal, pero sí un método. El mío cabe en una frase: no vendo un precio, vendo (o conservo) una tesis. Cuando compro, puedo escribir en tres líneas por qué: la empresa gana dinero de forma duradera, lo reinvierte bien y el precio pagado deja un margen de seguridad. Vender es constatar que una de esas tres líneas ya no es cierta. Nada más."
+        },
+        {
+          "type": "p",
+          "text": "Te voy a mostrar cómo funciona con tres empresas reales, con cifras de mi herramienta a 22 de octubre de 2026. Una cuya tesis se desmorona (Nike), una cuyo negocio es magnífico pero cuyo precio se ha adelantado demasiado (Shopify), y una que muestra el caso inverso, aquel en el que desde luego no se vende (Autodesk)."
+        },
+        {
+          "type": "h2",
+          "text": "Primera señal: la tesis está rota"
+        },
+        {
+          "type": "p",
+          "text": "Es la única señal que justifica una venta completa, y la más difícil de aceptar, porque suele aparecer en una empresa que conoces bien y te gusta. Nike es un caso de manual. Durante años fue la máquina perfecta: una marca mundial, márgenes altos, caja generosa. Hoy mi rejilla de diez criterios le da 4 sobre 10."
+        },
+        {
+          "type": "p",
+          "text": "Mira la trayectoria, no la foto. Según las series de mi herramienta, el flujo de caja libre de Nike (el dinero que realmente queda en caja tras pagar salarios, inventario, fábricas e impuestos) fue de 6.600 millones de dólares en el ejercicio cerrado en mayo de 2024. Cayó a 3.300 millones un año después y a 2.200 millones en el ejercicio cerrado en mayo de 2026. Mientras tanto, las ventas pasaron de 51.400 a 46.400 millones. De cada 100 dólares de ventas, Nike conservaba casi 13 de caja libre hace dos años. Hoy conserva algo menos de 5."
+        },
+        {
+          "type": "p",
+          "text": "El mecanismo es clásico. Cuando las ventas se estancan, los costes fijos (tiendas, marketing, logística) no bajan tan rápido: el margen se aplasta, y con él la caja. Mi herramienta lo resume así: el flujo de caja libre por acción retrocede alrededor de un 16 % anual a cinco años, la rentabilidad del capital invertido (lo que rinde cada dólar puesto en la empresa) ha caído al 7,4 % cuando busco más del 15 %, y los costes crecen más rápido que los ingresos."
+        },
+        {
+          "type": "p",
+          "text": "¿Hay que venderlo todo al primer mal trimestre? No, y aquí importa el matiz. El 1 de octubre de 2026, Nike publicó resultados trimestrales con verdaderas señales positivas: [el comunicado del primer trimestre de su ejercicio 2027](https://about.nike.com/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results) indica un margen bruto al alza de 0,6 puntos hasta el 42,8 %, un beneficio por acción de 0,48 dólares (por encima de lo esperado) y el lanzamiento de un plan de ahorro llamado Pace, de unos 2.500 millones de dólares a varios años. Pero el mismo comunicado muestra ventas a la baja un 4 %, Converse cayendo un 28 % y el canal directo un 8 % menos."
+        },
+        {
+          "type": "p",
+          "text": "Esa es la buena manera de tratar una señal de ruptura: no pregunto «¿ha sido bueno este trimestre?», pregunto «¿ha cambiado la tendencia de fondo?». Un margen bruto que sube gracias a menores costes logísticos es un alivio, no un giro. Mientras las ventas no repunten y la caja libre no suba de forma duradera, la empresa que valía la pena mantener ya no es la que compré. Para una acción ya en cartera, es el momento de salir, o al menos de reducir con fuerza, sin esperar el trimestre «de confirmación» que nunca llega a tiempo."
+        },
+        {
+          "type": "p",
+          "text": "Una prueba sencilla que aplico: escribo en una hoja por qué compré y luego releo ese texto con las cifras de hoy. Si dos de las tres líneas de mi tesis son falsas (rentabilidad, crecimiento de la caja, deuda), vendo. Si solo una es falsa, vigilo, leo los resultados y fijo una fecha para decidir. Esta disciplina evita el peor error, reescribir la tesis para justificar la posición («la mantengo porque la marca sigue siendo fuerte») cuando lo que cuentan son las cifras."
+        },
+        {
+          "type": "h2",
+          "text": "Segunda señal: el precio se ha adelantado demasiado"
+        },
+        {
+          "type": "p",
+          "text": "Este segundo caso es más sutil, porque la empresa va muy bien. Shopify obtiene 10 sobre 10 en mi rejilla, el máximo. Sus ventas crecen alrededor de un 26 % anual a cinco años, su caja libre pasó de 905 millones de dólares en 2023 a 1.600 millones en 2024 y a 2.000 millones en 2025, y no tiene deuda neta. En [su comunicado del segundo trimestre de 2026](https://www.shopify.com/news/shopify-q2-2026-financial-results), publicado el 5 de agosto, Shopify anuncia ingresos de 3.580 millones de dólares (+34 %) y un margen de caja libre del 18 %, frente al 16 % un año antes. Un negocio en plena salud."
+        },
+        {
+          "type": "p",
+          "text": "Y sin embargo la cuestión de vender se plantea, porque la calidad nunca es el precio. A 174,29 dólares, Shopify se valora en unas 121 veces su caja libre anual. El P/FCF es el precio de la acción dividido por la caja libre por acción: 121 significa que pagas 121 años de la caja actual. A modo de comparación, mi criterio de valoración razonable es inferior a 25. Mi modelo, que proyecta la caja a cinco años con hipótesis prudentes y la trae al presente, da un precio de compra razonable de 71,30 dólares: la cotización lo supera en casi un 60 %. En el historial propio de Shopify, la valoración se sitúa en el percentil 68, es decir, ha sido más baja unas dos de cada tres veces."
+        },
+        {
+          "type": "p",
+          "text": "¿Hay que venderlo todo? No lo creo, y es un matiz que muchos inversores pasan por alto. Cuando la calidad sigue intacta, un precio demasiado alto no prueba que la tesis sea falsa: es una alerta sobre lo que el mercado ya ha descontado. En ese caso pienso en términos de tamaño de posición. Si Shopify pesa demasiado en la cartera, reduzco, recojo parte de las ganancias y conservo el resto, porque no tengo motivo para vender un negocio que se acelera. Si no la tengo, espero mi precio sin correr tras ella."
+        },
+        {
+          "type": "p",
+          "text": "La trampa aquí sería confundir dos errores. El primero es vender todo en cuanto el precio pasa mi umbral: la historia de la bolsa está llena de empresas excepcionales que siguieron «demasiado caras» durante diez años. El segundo es decir «es una gran empresa, el precio no importa». A 121 veces la caja libre, el crecimiento debe mantenerse muchísimo tiempo para que el inversor de hoy cobre su riesgo. El buen reflejo está en medio: reducir cuando la brecha se vuelve extrema, conservar un núcleo y aceptar no tener un momento perfecto."
+        },
+        {
+          "type": "h2",
+          "text": "Tercera señal: el dinero tiene mejor sitio en otra parte"
+        },
+        {
+          "type": "p",
+          "text": "El último motivo de venta es menos espectacular pero racional: el coste de oportunidad. Cada euro inmovilizado en una acción «correcta» es un euro que no financia una acción «excelente y barata». Si encuentro una empresa que cumple todos mis criterios de calidad, se valora claramente por debajo de su precio de compra razonable y mi cartera está llena, puedo vender la más débil de mis posiciones para financiar la mejor. No por pánico ni por aburrimiento: por comparación."
+        },
+        {
+          "type": "p",
+          "text": "Tomemos Autodesk, el caso inverso de Shopify. Mi herramienta también le da 10 sobre 10, y su cotización de 244,84 dólares queda muy por debajo del precio de compra razonable de 470,58 dólares calculado por mi modelo, con una valoración de unas 26 veces su caja libre, en el percentil 23 de su propio historial, es decir, más baja que en más de tres cuartas partes del tiempo. Aquí nada me empuja a vender, todo lo contrario. Si tuviera Autodesk y hubiera caído un 20 % sin que sus márgenes ni su caja se movieran, la buena reacción sería mantener, o incluso reforzar."
+        },
+        {
+          "type": "p",
+          "text": "Esa es la línea que quiero trazar entre señal y ruido. Una caída de la cotización nunca es, por sí sola, una señal de venta. Lo que cuenta es lo que ha pasado dentro de la empresa. Si las cifras son estables y el precio baja, la acción se vuelve más interesante, no menos. Si las cifras se deterioran y el precio baja, no es una ganga, es lo que se llama una trampa de valor, como explico en [mi artículo sobre las trampas de valor](/blog/piege-de-valeur-value-trap-comment-le-reperer-methode-lubin). En ambos casos la cotización no te enseña nada: lee la caja."
+        },
+        {
+          "type": "h2",
+          "text": "La trampa más cara: vender por miedo o por ganancia"
+        },
+        {
+          "type": "p",
+          "text": "Las tres señales anteriores tienen algo en común: parten de las cifras de la empresa. Las dos malas razones para vender parten de ti. La primera es el miedo: el mercado cae un 10 %, se encadenan los titulares en rojo y vendes un negocio excelente porque la pantalla está roja. La segunda es el deseo de «asegurar una ganancia»: la acción ha subido un 40 %, vendes para no ver desaparecer la ganancia, aunque nada en la calidad de la empresa haya cambiado. En ambos casos tomas una decisión financiera basada en una emoción."
+        },
+        {
+          "type": "p",
+          "text": "La cuenta es simple y brutal. Una acción que pierde un 30 % debe ganar después alrededor de un 43 % para volver a su punto de partida. Quien vende en el suelo fija la pérdida y luego tiene que acertar dos veces: en la salida y en la reentrada. Casi nadie lo consigue. Mantener una empresa cuya caja no se ha movido es negarse a pagar ese peaje."
+        },
+        {
+          "type": "p",
+          "text": "Para protegerme de mí mismo, me he fijado un protocolo. Antes de cualquier venta releo la tesis de compra y compruebo tres cifras: ¿el margen de caja libre es más bajo que hace dos años?, ¿aumenta el número de acciones?, ¿se ha hinchado la deuda? Si la respuesta es no en las tres, no vendo, diga lo que diga la cotización. Si es sí en dos, vendo, aunque la acción haya subido la víspera. Este protocolo no es perfecto. Es simplemente estable, que es lo que hace falta frente a unas emociones que nunca lo son."
+        },
+        {
+          "type": "p",
+          "text": "Una última precisión sobre impuestos y comisiones. Vender tiene un coste: fiscalidad sobre la plusvalía, comisiones de corretaje y a veces una diferencia entre precio de compra y de venta. Eso no debe impedirte salir de una tesis rota, pero refuerza la idea de que no se vende para «hacer algo». El coste de no hacer nada con una buena empresa suele ser menor que el de una ida y vuelta inútil. Para profundizar en la lógica del precio, relee [mi método sobre el margen de seguridad](/blog/marge-securite-prix-achat-raisonnable-methode-lubin) y, para entender cómo evalúo la calidad, [la metodología completa](/methodologie)."
+        },
+        {
+          "type": "p",
+          "text": "Es precisamente ese seguimiento, comprobar una tesis con los mismos criterios el día de la compra y el día de la duda, lo que quise poder hacer con cualquier acción. Puedes probarlo en [la ficha de Nike](/analyse/NKE) o en [la de Shopify](/analyse/SHOP): verás si su tesis sigue en pie, criterio por criterio. Para construir tu propia regla de decisión, los trabajos de [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/) sobre valoración son una excelente base de lectura."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuándo hay que vender una acción?",
+          "a": "Cuando la tesis de compra se rompe de forma duradera: márgenes y caja libre que retroceden durante varios años, deuda que se hincha, número de acciones que aumenta. Un precio demasiado alto justifica más bien reducir que venderlo todo. Una simple caída de la cotización no es un motivo de venta."
+        },
+        {
+          "q": "¿Hay que vender una acción que ha subido mucho?",
+          "a": "No automáticamente. Si la calidad y el crecimiento de la caja siguen intactos, una subida no invalida la tesis. Pero si el precio supera claramente el valor que justifica el negocio, es razonable reducir para bajar el peso de la posición y conservar un núcleo."
+        },
+        {
+          "q": "¿Hay que vender una acción que cae?",
+          "a": "Solo si sus cifras también se deterioran. Si la caja libre, los márgenes y la deuda son estables, una caída hace la acción más interesante. Si las cifras empeoran a la vez, es una trampa de valor y la venta se justifica."
+        }
+      ],
+      "tags": [
+        "cuándo vender una acción",
+        "vender una acción",
+        "estrategia de inversión",
+        "análisis fundamental",
+        "Nike",
+        "Shopify",
+        "flujo de caja libre",
+        "valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 22 de octubre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
