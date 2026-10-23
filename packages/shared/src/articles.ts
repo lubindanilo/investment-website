@@ -100311,7 +100311,637 @@ const articleQuandVendre2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026];
+const articleEspagne2026: Article = {
+  "slug": "actions-espagnoles-amadeus-aena-devant-inditex-2026",
+  "date": "2026-10-23",
+  "updated": "2026-10-23",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Actions espagnoles : Amadeus et Aena devant Inditex",
+      "excerpt": "Inditex et Santander sont les noms que tout le monde connaît à Madrid. J'ai passé onze valeurs espagnoles au crible : la qualité est ailleurs, et les électriciens déçoivent.",
+      "metaDescription": "Actions espagnoles en bourse : j'ai analysé onze valeurs de Madrid. Qui passe le test de qualité, qui est déjà cher, et pourquoi les électriciens déçoivent.",
+      "answer": "En Espagne, Amadeus (10 sur 10), Aena (8 sur 10) et Ferrovial (7 sur 10) ressortent. Aena et Ferrovial cotent de peu sous mon seuil d'achat, alors que celui d'Amadeus est 37 % sous son cours et celui d'Inditex 66 %. Les électriciens Iberdrola et Endesa ne valident que 4 critères sur 10. Les banques passent mal ma méthode de prix.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Quand on parle d'actions espagnoles à un investisseur français, il répond Inditex, la maison mère de Zara, puis Santander. Madrid reste une place que l'on connaît par deux logos et un électricien. Pourtant, c'est un des marchés les plus étonnants d'Europe : un vendeur de billets d'avion, un gestionnaire d'aéroports et un constructeur d'autoroutes y côtoient des électriciens très endettés."
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé onze valeurs de Madrid dans ma grille. Elle juge d'abord la qualité d'une entreprise (marges, croissance, cash généré, dette, nombre d'actions), sur 10 critères, séparément du prix. Puis elle compare le cours au cash libre produit, c'est-à-dire l'argent qui reste une fois les investissements payés, pour estimer un seuil d'achat raisonnable. Voici ce que ça donne."
+        },
+        {
+          "type": "h2",
+          "text": "Quelle société espagnole passe le mieux le test de qualité ?"
+        },
+        {
+          "type": "p",
+          "text": "Amadeus, et de loin : 10 critères sur 10. C'est la société qui fait fonctionner les réservations des agences de voyages et des compagnies aériennes. Chaque fois qu'un billet est réservé via ce système, elle touche une petite commission, ce qui produit un flux de revenus régulier, qui ne dépend pas de la météo ni du prix du kérosène."
+        },
+        {
+          "type": "p",
+          "text": "Les chiffres sont ceux d'une machine bien huilée : 21,3 % des ventes finissent en cash libre, le rendement du capital investi dépasse 37 %, et le nombre d'actions baisse d'environ 1,6 % par an grâce aux rachats. Le cash libre par action progresse d'environ 18 % par an sur cinq ans. Attention à un piège de lecture : la croissance des ventes de 25 % par an sur la période part d'un creux, celui de la crise sanitaire, et ne se reproduira pas."
+        },
+        {
+          "type": "h2",
+          "text": "Amadeus est-elle trop chère après la secousse du Moyen-Orient ?"
+        },
+        {
+          "type": "p",
+          "text": "Le 31 juillet 2026, Amadeus a publié un premier semestre plus calme : [des ventes de 3,33 Md€ en hausse de 5,1 % à taux de change constants](https://amadeus.com/en/newsroom/press-releases/amadeus-h1-2026-resilient-performance), un cash libre de 472 M€ (+0,8 %), et un rachat d'actions de 500 M€ mené à terme en juin. Le groupe attribue le ralentissement au conflit au Moyen-Orient : le trafic aérien mondial a reculé en avril et en mai, une première en quinze ans hors période Covid. Il a vu de premiers signes de reprise en juillet, mais prévient que ses objectifs peuvent ne pas tenir si la situation se dégrade."
+        },
+        {
+          "type": "p",
+          "text": "Côté prix, l'action se valorise 17,5 fois son cash libre. Mon modèle, volontairement prudent, place mon seuil d'achat à 34,6 €, soit 37 % sous le cours de 54,8 €. Le marché paie donc déjà la reprise. Je n'ai pas de série d'historique exploitable pour comparer ce multiple à son propre passé, je ne prétends donc pas que l'action est chère par rapport à elle-même, seulement qu'elle est au dessus de ce que ma méthode accepte. J'ai déjà détaillé son modèle d'affaires dans [mon analyse d'Amadeus](/blog/amadeus-ams-mc-analyse-action-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Aena : un aéroport peut-il être un bon placement ?"
+        },
+        {
+          "type": "p",
+          "text": "Oui, quand il est géré comme Aena, qui exploite la quasi totalité des aéroports espagnols. Le mécanisme est simple : les compagnies paient des redevances à chaque passager et à chaque atterrissage, et les boutiques et parkings s'y ajoutent. Les tarifs sont encadrés par un régulateur sur plusieurs années, donc la visibilité est grande, mais la marge de manœuvre limitée."
+        },
+        {
+          "type": "p",
+          "text": "[Au premier semestre 2026](https://www.eldiario.es/economia/aena-gana-12-supera-1-000-millones-primer-semestre_1_13413980.html), Aena a gagné 1 002 M€ (+12,1 %) pour des revenus de 3,30 Md€ (+10,1 %), avec une marge d'EBITDA de 54,5 % et 190 millions de passagers (+3,9 %). Une partie de cette hausse vient d'un report temporaire de voyageurs vers l'Espagne, vu comme destination sûre : c'est un coup de pouce que la société elle-même ne traite pas comme durable, et elle table sur environ 3 % de trafic en plus pour l'année."
+        },
+        {
+          "type": "p",
+          "text": "Ma grille donne 8 critères sur 10. 27,5 % des ventes deviennent du cash libre et celui-ci progresse d'environ 23 % par an sur cinq ans. La dette nette représente environ trois ans de cash libre, ce qui est confortable pour un exploitant d'infrastructures. Seule vraie réserve : le chiffre d'affaires par salarié progresse moins vite que mon seuil. Sur le prix, l'action se valorise 22,8 fois son cash libre et se trouve environ 3 % sous mon seuil d'achat : c'est correct, pas bradé."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrovial : pourquoi le bénéfice peut-il baisser de moitié sans être grave ?"
+        },
+        {
+          "type": "p",
+          "text": "Le 28 juillet, [Ferrovial a annoncé un bénéfice net de 258 M€](https://static.newsroom.ferrovial.com/wp-content/uploads/2026/07/28212654/nota-de-prensa-resultados-financieros-1s-2026.pdf), en baisse de 52 %. Titre alarmant, mais la raison est comptable : le premier semestre 2025 contenait de grosses plus-values de ventes d'actifs. Hors cet effet, l'EBITDA ajusté a progressé de 14 % à 746 M€ et le carnet de commandes de la construction atteint 18 Md€."
+        },
+        {
+          "type": "p",
+          "text": "Ferrovial gère des autoroutes à péage (dont la 407 ETR, près de Toronto) et des participations aéroportuaires, puis construit des infrastructures. Dans ma grille, elle obtient 7 critères sur 10. Le cash libre par action progresse d'environ 21 % par an et la marge atteint 18 %, mais le chiffre d'affaires par salarié recule, ce qui reflète l'importance de la construction, un métier de main-d'œuvre. Elle se valorise 19,2 fois son cash libre, environ 3 % sous mon seuil d'achat."
+        },
+        {
+          "type": "h2",
+          "text": "Inditex vaut-elle son prix de reine ?"
+        },
+        {
+          "type": "p",
+          "text": "Inditex est une très belle entreprise : 8 critères sur 10, un rendement du capital de 31 %, et une trésorerie nette de 10,4 Md€ au premier semestre de son exercice, qui s'est terminé fin juillet. Ses ventes y ont atteint 19,76 Md€ (+7,6 %, +9,2 % hors effets de change) et son bénéfice 2,98 Md€ (+6,8 %). Elle ferme aussi des magasins : 5 444 points de vente, contre 5 528 un an plus tôt, au profit de surfaces plus grandes et du digital."
+        },
+        {
+          "type": "p",
+          "text": "Son problème est le prix. L'action se valorise 26,4 fois son cash libre et mon seuil d'achat, à 18,6 €, est 66 % sous le cours de 55,2 €. Ce seuil est sévère parce que mon modèle suppose que le cash libre par action, aujourd'hui élevé, revienne vers sa moyenne des dernières années. Cela peut se discuter pour une marque qui allonge les bonnes années, mais la méthode reste la même pour toutes les sociétés. La croissance du cash libre, d'environ 6 % par an, est aussi sous mon seuil de 10 %."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi les électriciens déçoivent-ils malgré des bénéfices en hausse ?"
+        },
+        {
+          "type": "p",
+          "text": "Iberdrola a annoncé le 22 juillet [un bénéfice net en hausse de 22 % à 4,34 Md€](https://www.iberdrola.com/documents/20125/6089933/260722-inversiones-redes-r-unido-ee-uu-brasil-impulsan-beneficio-neto-iberdrola-junio-hasta-4340-millones-22.pdf). Mais une plus-value d'environ 953 M€ sur la vente de son activité au Mexique explique une bonne part de cette hausse, et le bénéfice ajusté ne progresse que de 7,8 %. Surtout, ses investissements ont bondi de 25 % à environ 7 Md€ sur le semestre et sa dette nette ajustée atteint 54 Md€."
+        },
+        {
+          "type": "p",
+          "text": "Voilà la mécanique des électriciens : ils construisent des réseaux et des centrales, dépensent presque tout leur cash dans ces chantiers, et leurs actionnaires attendent des années pour en voir le rendement. Résultat dans ma grille : 4 critères sur 10 pour Iberdrola comme pour Endesa. Le cash libre par action d'Iberdrola recule d'environ 5 % par an et son action se valorise 44 fois son cash libre. Cellnex, qui loue des tours de télécommunications, obtient 5 critères sur 10 avec une dette égale à près de 39 ans de cash libre. Cela ne veut pas dire que ces sociétés sont mal gérées, seulement qu'elles ne cochent pas ce que je cherche."
+        },
+        {
+          "type": "h2",
+          "text": "Et les banques, Santander et BBVA ?"
+        },
+        {
+          "type": "p",
+          "text": "Santander obtient 6 critères sur 10 et BBVA 7. Elles semblent attirantes, BBVA se valorisant moins de 10 fois son cash libre. Mais pour une banque, les dépôts des clients figurent au bilan comme une dette, et le cash libre est brouillé par les mouvements de prêts. Mon seuil d'achat n'est donc pas exploitable pour elles, et je ne le cite pas. J'ai expliqué cette limite dans [mon article sur la valorisation des banques](/blog/valorisation-banques-pourquoi-differente-methode-lubin)."
+        },
+        {
+          "type": "h2",
+          "text": "Que montre le tableau ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Critères validés",
+            "Cash libre pour 100 € de ventes",
+            "Valorisation (fois le cash libre)",
+            "Cours face à mon seuil d'achat"
+          ],
+          "rows": [
+            [
+              "Amadeus (AMS)",
+              "10 sur 10",
+              "21 €",
+              "17,5",
+              "Seuil 37 % sous le cours"
+            ],
+            [
+              "Aena (AENA)",
+              "8 sur 10",
+              "27 €",
+              "22,8",
+              "Cours 3 % sous le seuil"
+            ],
+            [
+              "Inditex (ITX)",
+              "8 sur 10",
+              "16 €",
+              "26,4",
+              "Seuil 66 % sous le cours"
+            ],
+            [
+              "Ferrovial (FER)",
+              "7 sur 10",
+              "18 €",
+              "19,2",
+              "Cours 3 % sous le seuil"
+            ],
+            [
+              "BBVA (BBVA)",
+              "7 sur 10",
+              "non comparable",
+              "9,9",
+              "Non exploitable (banque)"
+            ],
+            [
+              "Cellnex (CLNX)",
+              "5 sur 10",
+              "13 €",
+              "34,4",
+              "Dette 39 ans de cash libre"
+            ],
+            [
+              "Iberdrola (IBE)",
+              "4 sur 10",
+              "8 €",
+              "44,1",
+              "Seuil 84 % sous le cours"
+            ],
+            [
+              "Endesa (ELE)",
+              "4 sur 10",
+              "10 €",
+              "20,1",
+              "Seuil 75 % sous le cours"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La lecture est franche : la qualité espagnole se trouve dans les services à péage et à abonnement, pas dans l'énergie. Aena et Ferrovial sont aujourd'hui les deux seules des onze valeurs à cumuler une note solide et un cours sous mon seuil d'achat, de peu. Amadeus est la plus belle des sociétés, mais attend un meilleur point d'entrée."
+        },
+        {
+          "type": "h2",
+          "text": "Comment je résume l'Espagne ?"
+        },
+        {
+          "type": "p",
+          "text": "Pour moi, Madrid est une place où le nom le plus connu, Inditex, n'est pas le meilleur pari, et où les électriciens, très présents dans les portefeuilles français, sont ceux qui passent le plus mal le test. Si tu veux creuser, la [fiche d'Amadeus](/analyse/AMS.MC) et celle d'[Aena](/analyse/AENA.MC) détaillent chaque critère, et ma [méthodologie complète](/methodologie) explique comment les notes sont construites. C'est ce que j'ai voulu pouvoir faire pour n'importe quelle place boursière, et pourquoi j'ai construit mon site. Pour situer l'Espagne face au reste du continent, relis aussi [mon étude sur l'Europe](/blog/actions-europeennes-qualite-prix-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelle est la meilleure action espagnole selon ta méthode ?",
+          "a": "Amadeus est la mieux notée, avec 10 critères sur 10. Mais son cours est au dessus de mon seuil d'achat. Aena et Ferrovial sont aujourd'hui juste sous leur seuil, avec 8 et 7 critères sur 10."
+        },
+        {
+          "q": "Pourquoi Inditex n'est-elle pas en tête ?",
+          "a": "Parce que sa qualité est élevée (8 sur 10) mais que son prix l'est aussi : son cours est très au dessus de mon seuil d'achat, calculé de façon prudente."
+        },
+        {
+          "q": "Les actions espagnoles sont-elles éligibles au PEA ?",
+          "a": "Une société cotée à Madrid et dont le siège est dans l'Espace économique européen est en principe éligible, mais vérifie toujours auprès de ton courtier : chaque cas dépend du siège de l'émetteur."
+        }
+      ],
+      "tags": [
+        "actions espagnoles",
+        "bourse de Madrid",
+        "Amadeus",
+        "Aena",
+        "Inditex",
+        "analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à visée informative et éducative, pas un conseil en investissement personnalisé. Les performances passées ne garantissent pas les résultats futurs. Chiffres au 23 octobre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Spanish stocks: Amadeus and Aena ahead of Inditex",
+      "excerpt": "Inditex and Santander are the names everyone knows in Madrid. I ran eleven Spanish stocks through my grid: quality is elsewhere, and utilities disappoint.",
+      "metaDescription": "Spanish stocks: I analyzed eleven Madrid listed companies. Which pass the quality test, which are already expensive, and why utilities disappoint.",
+      "answer": "In Spain, Amadeus (10 of 10), Aena (8 of 10) and Ferrovial (7 of 10) stand out. Aena and Ferrovial trade narrowly below my buying threshold, while Amadeus's threshold is 37% under its price and Inditex's 66%. The utilities Iberdrola and Endesa meet only 4 criteria out of 10. Banks fit my pricing method poorly.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Ask a French investor about Spanish stocks and he answers Inditex, the parent of Zara, then Santander. Madrid is a market people know through two logos and a utility. Yet it is one of the most surprising markets in Europe: a travel booking system, an airport operator and a toll road builder sit next to heavily indebted electricity groups."
+        },
+        {
+          "type": "p",
+          "text": "I ran eleven Madrid stocks through my grid. It first judges a company's quality (margins, growth, cash generated, debt, share count) on 10 criteria, separately from the price. Then it compares the share price with the free cash flow produced, meaning the money left once investments are paid, to estimate a reasonable buying threshold. Here is the result."
+        },
+        {
+          "type": "h2",
+          "text": "Which Spanish company passes the quality test best?"
+        },
+        {
+          "type": "p",
+          "text": "Amadeus, by a wide margin: 10 criteria out of 10. It runs the reservation systems of travel agencies and airlines. Each time a ticket is booked through the system, it collects a small fee, which creates a steady revenue stream that does not depend on the weather or on jet fuel prices."
+        },
+        {
+          "type": "p",
+          "text": "The numbers are those of a well oiled machine: 21.3% of sales end up as free cash flow, return on invested capital is above 37%, and the share count falls by about 1.6% a year thanks to buybacks. Free cash flow per share grows about 18% a year over five years. One reading trap: the 25% yearly sales growth over the period starts from a trough, the health crisis, and will not repeat."
+        },
+        {
+          "type": "h2",
+          "text": "Is Amadeus too expensive after the Middle East shock?"
+        },
+        {
+          "type": "p",
+          "text": "On July 31, 2026, Amadeus published a calmer first half: [sales of €3.33bn, up 5.1% at constant exchange rates](https://amadeus.com/en/newsroom/press-releases/amadeus-h1-2026-resilient-performance), free cash flow of €472m (+0.8%), and a €500m buyback completed in June. The group blames the slowdown on the Middle East conflict: global air traffic fell in April and May, a first in fifteen years outside Covid. It saw early signs of recovery in July but warns its targets may not hold if the situation worsens."
+        },
+        {
+          "type": "p",
+          "text": "On price, the stock is valued at 17.5 times its free cash flow. My deliberately cautious model puts my buying threshold at €34.6, which is 37% below the €54.8 share price. The market is already paying for the recovery. I have no usable valuation history to compare this multiple with its own past, so I do not claim the stock is expensive against itself, only above what my method accepts. I covered its business model in [my Amadeus analysis](/blog/amadeus-ams-mc-analyse-action-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Aena: can an airport be a good investment?"
+        },
+        {
+          "type": "p",
+          "text": "Yes, when it is run like Aena, which operates almost all Spanish airports. The mechanism is simple: airlines pay fees for each passenger and each landing, and shops and car parks add to it. Tariffs are set by a regulator over several years, so visibility is high but room to maneuver is limited."
+        },
+        {
+          "type": "p",
+          "text": "[In the first half of 2026](https://www.eldiario.es/economia/aena-gana-12-supera-1-000-millones-primer-semestre_1_13413980.html), Aena earned €1,002m (+12.1%) on revenue of €3.30bn (+10.1%), with a 54.5% EBITDA margin and 190 million passengers (+3.9%). Part of this rise comes from a temporary shift of travelers toward Spain, seen as a safe destination: the company itself does not treat it as lasting, and expects about 3% more traffic for the year."
+        },
+        {
+          "type": "p",
+          "text": "My grid gives 8 criteria out of 10. 27.5% of sales become free cash flow and it grows about 23% a year over five years. Net debt is about three years of free cash flow, comfortable for an infrastructure operator. The one real reservation: revenue per employee grows more slowly than my threshold. On price, the stock is valued at 22.8 times its free cash flow and sits about 3% below my buying threshold: fair, not cheap."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrovial: how can profit halve without being a problem?"
+        },
+        {
+          "type": "p",
+          "text": "On July 28, [Ferrovial reported net profit of €258m](https://static.newsroom.ferrovial.com/wp-content/uploads/2026/07/28212654/nota-de-prensa-resultados-financieros-1s-2026.pdf), down 52%. An alarming headline, but the reason is accounting: the first half of 2025 included large gains from asset sales. Without that effect, adjusted EBITDA rose 14% to €746m and the construction order book reached €18bn."
+        },
+        {
+          "type": "p",
+          "text": "Ferrovial runs toll roads (including the 407 ETR near Toronto) and airport stakes, then builds infrastructure. In my grid it gets 7 criteria out of 10. Free cash flow per share grows about 21% a year and the margin reaches 18%, but revenue per employee falls, which reflects the weight of construction, a labor heavy trade. It is valued at 19.2 times its free cash flow, about 3% below my buying threshold."
+        },
+        {
+          "type": "h2",
+          "text": "Is Inditex worth its premium price?"
+        },
+        {
+          "type": "p",
+          "text": "Inditex is a very fine company: 8 criteria out of 10, a 31% return on capital, and €10.4bn of net cash at the first half of its fiscal year, which ended in late July. Sales there reached €19.76bn (+7.6%, +9.2% excluding currency effects) and profit €2.98bn (+6.8%). It is also closing stores: 5,444 outlets against 5,528 a year earlier, in favor of larger sites and digital."
+        },
+        {
+          "type": "p",
+          "text": "Its problem is the price. The stock is valued at 26.4 times its free cash flow and my buying threshold, at €18.6, is 66% below the €55.2 share price. The threshold is harsh because my model assumes free cash flow per share, high today, drifts back toward its average of recent years. That is debatable for a brand that stretches good years, but the method is the same for every company. Free cash flow growth, about 6% a year, is also below my 10% bar."
+        },
+        {
+          "type": "h2",
+          "text": "Why do utilities disappoint despite rising profits?"
+        },
+        {
+          "type": "p",
+          "text": "On July 22, Iberdrola announced [net profit up 22% to €4.34bn](https://www.iberdrola.com/documents/20125/6089933/260722-inversiones-redes-r-unido-ee-uu-brasil-impulsan-beneficio-neto-iberdrola-junio-hasta-4340-millones-22.pdf). But a gain of about €953m on the sale of its Mexican business explains much of the rise, and adjusted profit grows only 7.8%. Above all, investment jumped 25% to about €7bn over the half and adjusted net debt reaches €54bn."
+        },
+        {
+          "type": "p",
+          "text": "That is the mechanics of utilities: they build grids and plants, spend almost all their cash on these projects, and shareholders wait years to see the return. Result in my grid: 4 criteria out of 10 for Iberdrola and for Endesa. Iberdrola's free cash flow per share falls about 5% a year and the stock is valued at 44 times its free cash flow. Cellnex, which rents telecom towers, gets 5 criteria out of 10 with debt equal to nearly 39 years of free cash flow. That does not mean these companies are badly run, only that they do not tick what I look for."
+        },
+        {
+          "type": "h2",
+          "text": "What about the banks, Santander and BBVA?"
+        },
+        {
+          "type": "p",
+          "text": "Santander gets 6 criteria out of 10 and BBVA 7. They look attractive, BBVA being valued at under 10 times its free cash flow. But for a bank, customer deposits sit on the balance sheet as debt, and free cash flow is blurred by loan movements. My buying threshold is therefore not usable for them, and I do not quote it. I explained this limit in [my article on bank valuation](/blog/valorisation-banques-pourquoi-differente-methode-lubin)."
+        },
+        {
+          "type": "h2",
+          "text": "What does the table show?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Criteria met",
+            "Free cash per €100 of sales",
+            "Valuation (times free cash flow)",
+            "Price versus my buying threshold"
+          ],
+          "rows": [
+            [
+              "Amadeus (AMS)",
+              "10 of 10",
+              "€21",
+              "17.5",
+              "Threshold 37% below price"
+            ],
+            [
+              "Aena (AENA)",
+              "8 of 10",
+              "€27",
+              "22.8",
+              "Price 3% below threshold"
+            ],
+            [
+              "Inditex (ITX)",
+              "8 of 10",
+              "€16",
+              "26.4",
+              "Threshold 66% below price"
+            ],
+            [
+              "Ferrovial (FER)",
+              "7 of 10",
+              "€18",
+              "19.2",
+              "Price 3% below threshold"
+            ],
+            [
+              "BBVA (BBVA)",
+              "7 of 10",
+              "not comparable",
+              "9.9",
+              "Not usable (bank)"
+            ],
+            [
+              "Cellnex (CLNX)",
+              "5 of 10",
+              "€13",
+              "34.4",
+              "Debt of 39 years of free cash"
+            ],
+            [
+              "Iberdrola (IBE)",
+              "4 of 10",
+              "€8",
+              "44.1",
+              "Threshold 84% below price"
+            ],
+            [
+              "Endesa (ELE)",
+              "4 of 10",
+              "€10",
+              "20.1",
+              "Threshold 75% below price"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The reading is blunt: Spanish quality sits in toll and subscription style services, not in energy. Aena and Ferrovial are today the only two of the eleven stocks combining a solid score and a price below my buying threshold, narrowly. Amadeus is the finest company but awaits a better entry point."
+        },
+        {
+          "type": "h2",
+          "text": "How do I sum up Spain?"
+        },
+        {
+          "type": "p",
+          "text": "To me, Madrid is a market where the best known name, Inditex, is not the best bet, and where utilities, widely held in French portfolios, are the ones that fare worst in the test. To dig deeper, the [Amadeus page](/analyse/AMS.MC) and the one for [Aena](/analyse/AENA.MC) detail each criterion, and my [full methodology](/methodologie) explains how scores are built. That is what I wanted to be able to do for any stock market, and why I built my site. To place Spain against the rest of the continent, read [my study on Europe](/blog/actions-europeennes-qualite-prix-2026) too."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the best Spanish stock according to your method?",
+          "a": "Amadeus scores highest, with 10 criteria out of 10. But its price is above my buying threshold. Aena and Ferrovial currently sit just under theirs, with 8 and 7 criteria out of 10."
+        },
+        {
+          "q": "Why is Inditex not on top?",
+          "a": "Because its quality is high (8 of 10) but so is its price: the share price is far above my buying threshold, which is built cautiously."
+        },
+        {
+          "q": "Are Spanish stocks eligible for the French PEA account?",
+          "a": "A company listed in Madrid with its head office in the European Economic Area is in principle eligible, but always check with your broker: each case depends on the issuer's head office."
+        }
+      ],
+      "tags": [
+        "Spanish stocks",
+        "Madrid stock exchange",
+        "Amadeus",
+        "Aena",
+        "Inditex",
+        "fundamental analysis"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of October 23, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing it."
+    },
+    "es": {
+      "title": "Acciones españolas: Amadeus y Aena por delante de Inditex",
+      "excerpt": "Inditex y Santander son los nombres que todos conocen en Madrid. He pasado once valores españoles por mi rejilla: la calidad está en otra parte y las eléctricas decepcionan.",
+      "metaDescription": "Acciones españolas en bolsa: analicé once valores de Madrid. Cuáles superan la prueba de calidad, cuáles ya son caras y por qué decepcionan las eléctricas.",
+      "answer": "En España destacan Amadeus (10 de 10), Aena (8 de 10) y Ferrovial (7 de 10). Aena y Ferrovial cotizan por poco bajo mi umbral de compra, mientras que el de Amadeus está un 37 % bajo su cotización y el de Inditex un 66 %. Las eléctricas Iberdrola y Endesa solo cumplen 4 criterios de 10. Los bancos encajan mal en mi método de precio.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Si preguntas a un inversor francés por las acciones españolas, responde Inditex, la matriz de Zara, y luego Santander. Madrid es una plaza que se conoce por dos logotipos y una eléctrica. Sin embargo, es uno de los mercados más sorprendentes de Europa: un sistema de reservas de viajes, un gestor de aeropuertos y un constructor de autopistas conviven con eléctricas muy endeudadas."
+        },
+        {
+          "type": "p",
+          "text": "He pasado once valores de Madrid por mi rejilla. Primero juzga la calidad de una empresa (márgenes, crecimiento, caja generada, deuda, número de acciones) con 10 criterios, por separado del precio. Después compara la cotización con el flujo de caja libre producido, es decir, el dinero que queda una vez pagadas las inversiones, para estimar un umbral de compra razonable. Este es el resultado."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué empresa española supera mejor la prueba de calidad?"
+        },
+        {
+          "type": "p",
+          "text": "Amadeus, con diferencia: 10 criterios de 10. Gestiona los sistemas de reserva de agencias de viajes y aerolíneas. Cada vez que se reserva un billete a través del sistema, cobra una pequeña comisión, lo que genera un flujo de ingresos regular que no depende del clima ni del precio del queroseno."
+        },
+        {
+          "type": "p",
+          "text": "Las cifras son las de una máquina bien engrasada: el 21,3 % de las ventas termina como flujo de caja libre, la rentabilidad del capital invertido supera el 37 % y el número de acciones baja alrededor de un 1,6 % al año gracias a las recompras. El flujo de caja libre por acción crece cerca de un 18 % anual en cinco años. Ojo a una trampa de lectura: el crecimiento de ventas del 25 % anual en el periodo parte de un mínimo, el de la crisis sanitaria, y no se repetirá."
+        },
+        {
+          "type": "h2",
+          "text": "¿Es Amadeus demasiado cara tras la sacudida de Oriente Medio?"
+        },
+        {
+          "type": "p",
+          "text": "El 31 de julio de 2026, Amadeus publicó un primer semestre más tranquilo: [ventas de 3.330 M€, un 5,1 % más a tipos de cambio constantes](https://amadeus.com/en/newsroom/press-releases/amadeus-h1-2026-resilient-performance), flujo de caja libre de 472 M€ (+0,8 %) y una recompra de 500 M€ completada en junio. El grupo atribuye la desaceleración al conflicto de Oriente Medio: el tráfico aéreo mundial cayó en abril y mayo, algo que no ocurría en quince años fuera del Covid. Vio primeras señales de recuperación en julio, pero avisa de que sus objetivos podrían no cumplirse si la situación empeora."
+        },
+        {
+          "type": "p",
+          "text": "En precio, la acción se valora a 17,5 veces su flujo de caja libre. Mi modelo, deliberadamente prudente, fija mi umbral de compra en 34,6 €, un 37 % por debajo de la cotización de 54,8 €. El mercado ya paga la recuperación. No tengo un historial de valoración utilizable para comparar este múltiplo con su propio pasado, así que no afirmo que esté cara frente a sí misma, solo por encima de lo que acepta mi método. Ya conté su modelo de negocio en [mi análisis de Amadeus](/blog/amadeus-ams-mc-analyse-action-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Aena: ¿puede un aeropuerto ser una buena inversión?"
+        },
+        {
+          "type": "p",
+          "text": "Sí, cuando se gestiona como Aena, que explota casi todos los aeropuertos españoles. El mecanismo es sencillo: las aerolíneas pagan tasas por cada pasajero y cada aterrizaje, y se suman tiendas y aparcamientos. Las tarifas las fija un regulador para varios años, así que la visibilidad es grande pero el margen de maniobra limitado."
+        },
+        {
+          "type": "p",
+          "text": "[En el primer semestre de 2026](https://www.eldiario.es/economia/aena-gana-12-supera-1-000-millones-primer-semestre_1_13413980.html), Aena ganó 1.002 M€ (+12,1 %) con unos ingresos de 3.300 M€ (+10,1 %), un margen de EBITDA del 54,5 % y 190 millones de pasajeros (+3,9 %). Parte de la subida procede de un desvío temporal de viajeros hacia España, considerada destino seguro: la propia compañía no lo trata como duradero y prevé alrededor de un 3 % más de tráfico en el año."
+        },
+        {
+          "type": "p",
+          "text": "Mi rejilla da 8 criterios de 10. El 27,5 % de las ventas se convierte en flujo de caja libre, que crece cerca de un 23 % anual en cinco años. La deuda neta equivale a unos tres años de flujo de caja libre, cómoda para un operador de infraestructuras. La única reserva real: la facturación por empleado crece menos que mi umbral. En precio, la acción se valora a 22,8 veces su flujo de caja libre y está un 3 % por debajo de mi umbral de compra: correcto, no barato."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrovial: ¿cómo puede caer a la mitad el beneficio sin que sea grave?"
+        },
+        {
+          "type": "p",
+          "text": "El 28 de julio, [Ferrovial anunció un beneficio neto de 258 M€](https://static.newsroom.ferrovial.com/wp-content/uploads/2026/07/28212654/nota-de-prensa-resultados-financieros-1s-2026.pdf), un 52 % menos. Titular alarmante, pero la razón es contable: el primer semestre de 2025 incluía grandes plusvalías por venta de activos. Sin ese efecto, el EBITDA ajustado subió un 14 % hasta 746 M€ y la cartera de construcción alcanzó los 18.000 M€."
+        },
+        {
+          "type": "p",
+          "text": "Ferrovial gestiona autopistas de peaje (entre ellas la 407 ETR, cerca de Toronto) y participaciones en aeropuertos, y además construye infraestructuras. En mi rejilla obtiene 7 criterios de 10. El flujo de caja libre por acción crece cerca de un 21 % anual y el margen llega al 18 %, pero la facturación por empleado retrocede, reflejo del peso de la construcción, un oficio intensivo en mano de obra. Se valora a 19,2 veces su flujo de caja libre, un 3 % por debajo de mi umbral de compra."
+        },
+        {
+          "type": "h2",
+          "text": "¿Vale Inditex su precio de reina?"
+        },
+        {
+          "type": "p",
+          "text": "Inditex es una empresa magnífica: 8 criterios de 10, una rentabilidad del capital del 31 % y 10.400 M€ de caja neta en el primer semestre de su ejercicio, cerrado a finales de julio. Las ventas alcanzaron 19.755 M€ (+7,6 %, +9,2 % sin efecto divisa) y el beneficio 2.980 M€ (+6,8 %). También cierra tiendas: 5.444 puntos de venta frente a 5.528 un año antes, a favor de superficies mayores y de lo digital."
+        },
+        {
+          "type": "p",
+          "text": "Su problema es el precio. La acción se valora a 26,4 veces su flujo de caja libre y mi umbral de compra, 18,6 €, está un 66 % por debajo de la cotización de 55,2 €. El umbral es severo porque mi modelo supone que el flujo de caja libre por acción, hoy alto, vuelve hacia su media de los últimos años. Es discutible para una marca que alarga los buenos años, pero el método es el mismo para todas. El crecimiento del flujo de caja libre, cerca de un 6 % anual, también queda bajo mi listón del 10 %."
+        },
+        {
+          "type": "h2",
+          "text": "¿Por qué decepcionan las eléctricas pese a beneficios en alza?"
+        },
+        {
+          "type": "p",
+          "text": "El 22 de julio, Iberdrola anunció [un beneficio neto un 22 % mayor, de 4.340 M€](https://www.iberdrola.com/documents/20125/6089933/260722-inversiones-redes-r-unido-ee-uu-brasil-impulsan-beneficio-neto-iberdrola-junio-hasta-4340-millones-22.pdf). Pero una plusvalía de unos 953 M€ por la venta de su negocio en México explica buena parte de la subida, y el beneficio ajustado solo crece un 7,8 %. Sobre todo, las inversiones se dispararon un 25 % hasta cerca de 7.000 M€ en el semestre y la deuda neta ajustada llega a 54.000 M€."
+        },
+        {
+          "type": "p",
+          "text": "Esa es la mecánica de las eléctricas: construyen redes y centrales, gastan casi toda su caja en esas obras y los accionistas esperan años para ver el retorno. Resultado en mi rejilla: 4 criterios de 10 para Iberdrola y para Endesa. El flujo de caja libre por acción de Iberdrola cae cerca de un 5 % anual y la acción se valora a 44 veces su flujo de caja libre. Cellnex, que alquila torres de telecomunicaciones, obtiene 5 criterios de 10 con una deuda de casi 39 años de flujo de caja libre. No significa que estén mal gestionadas, solo que no cumplen lo que busco."
+        },
+        {
+          "type": "h2",
+          "text": "¿Y los bancos, Santander y BBVA?"
+        },
+        {
+          "type": "p",
+          "text": "Santander obtiene 6 criterios de 10 y BBVA 7. Parecen atractivos, con BBVA valorado en menos de 10 veces su flujo de caja libre. Pero para un banco, los depósitos de los clientes figuran en el balance como deuda, y el flujo de caja libre se distorsiona por los movimientos de préstamos. Mi umbral de compra no es utilizable para ellos y no lo cito. Expliqué este límite en [mi artículo sobre la valoración de los bancos](/blog/valorisation-banques-pourquoi-differente-methode-lubin)."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué muestra la tabla?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Criterios cumplidos",
+            "Caja libre por cada 100 € de ventas",
+            "Valoración (veces el flujo de caja libre)",
+            "Cotización frente a mi umbral de compra"
+          ],
+          "rows": [
+            [
+              "Amadeus (AMS)",
+              "10 de 10",
+              "21 €",
+              "17,5",
+              "Umbral 37 % bajo la cotización"
+            ],
+            [
+              "Aena (AENA)",
+              "8 de 10",
+              "27 €",
+              "22,8",
+              "Cotización 3 % bajo el umbral"
+            ],
+            [
+              "Inditex (ITX)",
+              "8 de 10",
+              "16 €",
+              "26,4",
+              "Umbral 66 % bajo la cotización"
+            ],
+            [
+              "Ferrovial (FER)",
+              "7 de 10",
+              "18 €",
+              "19,2",
+              "Cotización 3 % bajo el umbral"
+            ],
+            [
+              "BBVA (BBVA)",
+              "7 de 10",
+              "no comparable",
+              "9,9",
+              "No utilizable (banco)"
+            ],
+            [
+              "Cellnex (CLNX)",
+              "5 de 10",
+              "13 €",
+              "34,4",
+              "Deuda de 39 años de caja libre"
+            ],
+            [
+              "Iberdrola (IBE)",
+              "4 de 10",
+              "8 €",
+              "44,1",
+              "Umbral 84 % bajo la cotización"
+            ],
+            [
+              "Endesa (ELE)",
+              "4 de 10",
+              "10 €",
+              "20,1",
+              "Umbral 75 % bajo la cotización"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La lectura es clara: la calidad española está en los servicios de peaje y de tipo suscripción, no en la energía. Aena y Ferrovial son hoy las dos únicas de los once valores que combinan una nota sólida y una cotización bajo mi umbral de compra, por poco. Amadeus es la mejor empresa, pero espera un mejor punto de entrada."
+        },
+        {
+          "type": "h2",
+          "text": "¿Cómo resumo España?"
+        },
+        {
+          "type": "p",
+          "text": "Para mí, Madrid es una plaza donde el nombre más conocido, Inditex, no es la mejor apuesta, y donde las eléctricas, muy presentes en las carteras francesas, son las que peor pasan la prueba. Si quieres profundizar, la [ficha de Amadeus](/analyse/AMS.MC) y la de [Aena](/analyse/AENA.MC) detallan cada criterio, y mi [metodología completa](/methodologie) explica cómo se construyen las notas. Es lo que quise poder hacer con cualquier bolsa, y por eso construí mi sitio. Para situar España frente al resto del continente, lee también [mi estudio sobre Europa](/blog/actions-europeennes-qualite-prix-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuál es la mejor acción española según tu método?",
+          "a": "Amadeus es la mejor puntuada, con 10 criterios de 10. Pero su cotización está por encima de mi umbral de compra. Aena y Ferrovial están ahora justo por debajo del suyo, con 8 y 7 criterios de 10."
+        },
+        {
+          "q": "¿Por qué Inditex no está en cabeza?",
+          "a": "Porque su calidad es alta (8 de 10) pero su precio también: la cotización está muy por encima de mi umbral de compra, calculado con prudencia."
+        },
+        {
+          "q": "¿Son elegibles las acciones españolas para el PEA francés?",
+          "a": "Una sociedad cotizada en Madrid con sede en el Espacio Económico Europeo es en principio elegible, pero consulta siempre con tu bróker: cada caso depende de la sede del emisor."
+        }
+      ],
+      "tags": [
+        "acciones españolas",
+        "bolsa de Madrid",
+        "Amadeus",
+        "Aena",
+        "Inditex",
+        "análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 23 de octubre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
