@@ -240,7 +240,7 @@ export function WatchlistPage() {
                     <tr key={w.ticker} className={w.opportunity ? 'is-opp' : undefined} onClick={() => navigate(`/analyse/${w.ticker}`)}>
                       <td style={{ maxWidth: 340 }}>
                         <div className="tbl-soc-cell">
-                          <span className="tbl-soc-logo" aria-hidden="true"><CompanyLogo ticker={w.ticker} /></span>
+                          <span className="tbl-soc-logo" aria-hidden="true"><CompanyLogo ticker={w.ticker} name={w.name} /></span>
                           <div className="tbl-soc">
                             <span className="num tbl-soc-ticker row gap-6">{w.ticker}{w.opportunity && <OpportunityBadge compact />}</span>
                             <span className="tbl-soc-name">{w.name}</span>

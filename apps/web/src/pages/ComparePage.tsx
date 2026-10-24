@@ -403,7 +403,7 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
       <div className="card cmp-thcard" style={{ justifyContent: 'center' }}>
         {removable && <button className="cmp-thcard-x" onClick={() => onRemove(company.ticker)} aria-label="x"><Icon name="x" size={13} /></button>}
         <div className="col gap-4" style={{ alignItems: 'flex-start' }}>
-          <span className="cmp-logo" aria-hidden="true"><CompanyLogo ticker={company.ticker} /></span>
+          <span className="cmp-logo" aria-hidden="true"><CompanyLogo ticker={company.ticker} name={company.ticker} /></span>
           <span className="num" style={{ fontWeight: 800, fontSize: 15 }}>{company.ticker}</span>
           <span className="tiny muted">—</span>
         </div>
