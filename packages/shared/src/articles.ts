@@ -100941,7 +100941,595 @@ const articleEspagne2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026];
+const articleUSSousEvaluees2026: Article = {
+  "slug": "actions-americaines-sous-evaluees-trois-vraies-trois-reserves-2026",
+  "date": "2026-10-26",
+  "updated": "2026-10-26",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Actions américaines sous-évaluées : 3 vraies, 3 réserves",
+      "excerpt": "Wall Street est rarement bradée. J'ai cherché les valeurs américaines de grande qualité qui cotent bas, puis trié les vraies occasions de celles qui cachent un défaut.",
+      "metaDescription": "Actions américaines sous-évaluées : quelles valeurs de qualité à bas prix sont de vraies occasions, lesquelles cachent un défaut ? Étude chiffrée.",
+      "answer": "Aux États-Unis, la bonne affaire existe, mais elle cache souvent un défaut qu'il faut savoir lire. Parmi les valeurs de qualité qui cotent bas, Booking, Mercury General et Deckers ressortent comme de vraies occasions. Firstcash, Autoliv et Las Vegas Sands ont chacune une faille chiffrée qui explique leur décote.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Pourquoi presque rien n'est bradé à Wall Street"
+        },
+        {
+          "type": "p",
+          "text": "Le marché américain est le plus scruté du monde. Quand une entreprise gagne beaucoup d'argent, année après année, des milliers d'analystes l'ont déjà repérée et son cours en tient compte. C'est pourquoi une action américaine de grande qualité se valorise rarement bas. Quand elle le fait, il y a presque toujours une raison, et tout le travail consiste à la trouver."
+        },
+        {
+          "type": "p",
+          "text": "Je juge deux choses séparément. D'abord la qualité du business, une note sur 10 critères : marges, croissance des ventes et du cash par action, rachats d'actions, dette, rendement du capital. Ensuite le prix, mesuré par le P/FCF : le prix de l'action divisé par le free cash flow, c'est-à-dire l'argent réellement disponible une fois toutes les factures payées. Un P/FCF de 10 veut dire que tu paies dix années de ce cash. J'ai pris les valeurs américaines notées 9 ou 10 sur 10 que mon outil signale comme des opportunités, et j'ai comparé chaque prix à l'historique de la même action. Le dernier critère se lit ainsi : « 2 % les plus bas » signifie que son prix n'a été plus bas que dans 2 % des cas passés."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Action",
+            "Note qualité",
+            "P/FCF",
+            "Position dans son historique",
+            "Taille (Md$)"
+          ],
+          "rows": [
+            [
+              "Booking (BKNG)",
+              "10 sur 10",
+              "13,4",
+              "2 % les plus bas",
+              "117"
+            ],
+            [
+              "Mercury General (MCY)",
+              "10 sur 10",
+              "4,0",
+              "7 % les plus bas",
+              "6"
+            ],
+            [
+              "Deckers (DECK)",
+              "9 sur 10",
+              "10,5",
+              "6 % les plus bas",
+              "12"
+            ],
+            [
+              "Firstcash (FCFS)",
+              "9 sur 10",
+              "11,7",
+              "2 % les plus bas",
+              "8"
+            ],
+            [
+              "Autoliv (ALV)",
+              "9 sur 10",
+              "11,3",
+              "7 % les plus bas",
+              "8"
+            ],
+            [
+              "Las Vegas Sands (LVS)",
+              "9 sur 10",
+              "9,0",
+              "6 % les plus bas",
+              "25"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Les trois vraies occasions"
+        },
+        {
+          "type": "p",
+          "text": "Booking ([sa fiche](/analyse/BKNG)) fait tout bien sur le papier : le free cash flow par action progresse de 24 % par an sur cinq ans et le nombre d'actions baisse de 6,5 % par an grâce aux rachats. Le modèle explique pourquoi : le voyageur paie à la réservation, l'hôtel est réglé plus tard, donc la société encaisse avant de payer. Au deuxième trimestre 2026, son free cash flow atteint 3,6 Md$, en hausse de 16 % selon [le communiqué déposé à la SEC](https://www.sec.gov/Archives/edgar/data/0001075531/000107553126000036/q2-26bkngearningsrelease.htm). Attention à un piège de lecture : le cours d'environ 156 $ paraît minuscule face aux 4 100 $ d'avant, mais c'est le fractionnement 25 pour 1 du 2 avril 2026, pas une promotion."
+        },
+        {
+          "type": "p",
+          "text": "Ce que le marché punit, c'est le cycle du voyage : le patron Glenn Fogel parle lui-même d'incertitude géopolitique et macroéconomique. Ma lecture : la décote est en partie méritée pour une activité cyclique, mais son ampleur est excessive face à un cash qui continue de croître de 16 %."
+        },
+        {
+          "type": "p",
+          "text": "Mercury General ([fiche](/analyse/MCY)) se valorise 4 fois son free cash flow, ce qui paraît presque trop beau. Il faut comprendre le mécanisme : un assureur encaisse les primes tout de suite et paie les sinistres plus tard. Quand les primes progressent (+9,6 % au deuxième trimestre), ce décalage, le float, gonfle le cash libre sans qu'il soit entièrement gagné. Le bon test est le ratio combiné, qui additionne sinistres et frais rapportés aux primes : sous 100 %, l'assurance gagne de l'argent par elle-même. Mercury l'a ramené à 89,9 % contre 92,5 % un an plus tôt, selon [son communiqué du deuxième trimestre](https://www.sec.gov/Archives/edgar/data/0000064996/000119312526332781/d61051dex991.htm). Mais la comparaison profite d'une base faible, avec les incendies de Los Angeles qui avaient coûté environ 460 M$ au premier semestre 2025. Une vraie occasion, avec un cash moins bon marché qu'il n'y paraît."
+        },
+        {
+          "type": "p",
+          "text": "Deckers ([fiche](/analyse/DECK)), c'est Hoka et UGG. Son free cash flow par action croît de 49,6 % par an sur cinq ans et elle détient plus de trésorerie que de dette. Ce qui pèse : la croissance retombe. Au trimestre clos fin septembre, les ventes progressent de 3,5 % à 1,48 Md$, contre 15,7 % par an en moyenne sur cinq ans, avec des ventes en ligne et en boutique propres en baisse selon [le communiqué](https://www.sec.gov/Archives/edgar/data/0000910521/000091052126000028/deckex991pressrelease-9302.htm). Le marché paie une marque qui ralentit, pas une marque qui s'effondre. À 10,5 fois son cash, dans les 6 % les plus bas de son historique, je trouve le doute généreusement payé."
+        },
+        {
+          "type": "h2",
+          "text": "Les trois qui demandent une réserve"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Action",
+            "Ce qui est solide",
+            "Ce qui coince",
+            "Verdict"
+          ],
+          "rows": [
+            [
+              "Booking",
+              "Cash par action +24 %/an, rachats",
+              "Cycle du voyage",
+              "Occasion"
+            ],
+            [
+              "Mercury General",
+              "Ratio combiné 89,9 %",
+              "Cash gonflé par le float, incendies",
+              "Occasion nuancée"
+            ],
+            [
+              "Deckers",
+              "Cash par action +49,6 %/an, trésorerie nette",
+              "Ventes qui ralentissent à +3,5 %",
+              "Occasion"
+            ],
+            [
+              "Firstcash",
+              "Ventes +13,7 %/an, rachats",
+              "Dette de 3,3 ans de cash, seuil à 3",
+              "Réserve"
+            ],
+            [
+              "Autoliv",
+              "Rachats, cash par action +29 %/an",
+              "Marge de cash de 6,8 %, ventes +6,9 %/an",
+              "Réserve"
+            ],
+            [
+              "Las Vegas Sands",
+              "Rachats de 950 M$ au trimestre",
+              "Dette de 4,5 ans de cash, cash par action stable",
+              "Réserve"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Firstcash ([fiche](/analyse/FCFS)), le prêteur sur gages, publie des résultats records au troisième trimestre 2026, avec des prêts sur gages à un record de 908 M$ d'après [son communiqué](https://www.sec.gov/Archives/edgar/data/0000840489/000084048926000097/fcfs10222026exhibit991.htm). Le défaut est dans le bilan : sa dette représente 3,3 années de free cash flow, au-dessus de ma limite de 3 ans, et il faut 123 jours pour transformer ses stocks et prêts en cash. Un prêteur sur gages immobilise de l'argent dans ses prêts, ce qui explique ce délai, mais cela le rend plus fragile si le crédit se tend."
+        },
+        {
+          "type": "p",
+          "text": "Autoliv ([fiche](/analyse/ALV)) fabrique airbags et ceintures de sécurité. Son problème est la marge : sur 100 $ de ventes, 6,8 $ finissent en cash, contre plus de 31 $ chez Booking, parce que les constructeurs automobiles négocient les prix très durement. Ses ventes ne progressent que de 6,9 % par an. Elle coche encore la plupart de mes critères grâce aux rachats d'actions, mais son prix bas reflète une activité à faible marge liée au cycle de l'auto."
+        },
+        {
+          "type": "p",
+          "text": "Las Vegas Sands ([fiche](/analyse/LVS)) est le cas le plus instructif. À 9 fois son cash, elle paraît bon marché, pourtant son cours de 35,68 $ reste au-dessus de mon prix d'achat raisonnable de 25,61 $. Raison : son cash par action n'a presque pas bougé depuis cinq ans, et sa croissance de ventes de 33,8 % par an est gonflée par la reprise après le Covid. Au troisième trimestre, l'EBITDA de Marina Bay Sands à Singapour tombe à 590 M$ contre 743 M$, selon [le communiqué](https://www.sec.gov/Archives/edgar/data/0001300514/000130051426000099/lvs_ex991x09302026.htm), tandis que la société rachète 950 M$ d'actions. Un multiple bas sur un cash qui ne grandit pas n'est pas une occasion."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que cette liste ne dit pas"
+        },
+        {
+          "type": "p",
+          "text": "Elle ne dit pas d'acheter. Un prix bas pour la qualité est un point de départ : il faut ensuite savoir pourquoi il est bas, ce que j'ai fait ici cas par cas. Pour un autre angle sur le même univers, lis [les bonnes actions de Wall Street proches de leur plus bas historique](/blog/wall-street-bonnes-actions-plus-bas-de-leur-histoire-2026). Les cours bougent chaque jour : c'est pour pouvoir refaire ce tri sur n'importe quel marché que j'ai construit [mon screener](/screener), dont la logique est détaillée dans [la méthodologie](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi si peu d'actions américaines sont-elles sous-évaluées ?",
+          "a": "Parce que le marché américain est le plus suivi au monde : une entreprise de qualité y est vite repérée et son cours monte. Quand une valeur de qualité cote bas, il y a presque toujours une raison à comprendre, comme le cycle, la dette ou une marge fine."
+        },
+        {
+          "q": "Un P/FCF bas suffit-il pour dire qu'une action est sous-évaluée ?",
+          "a": "Non. Un P/FCF bas peut cacher un cash qui ne croît pas, une dette lourde ou un cash gonflé par un décalage temporaire, comme le float d'un assureur. Il faut le lire avec la qualité du business et la trajectoire du cash par action."
+        },
+        {
+          "q": "Mercury General à 4 fois son cash est-elle vraiment si bon marché ?",
+          "a": "Moins qu'il n'y paraît. Un assureur encaisse ses primes avant de payer les sinistres, ce qui gonfle le cash libre. Le ratio combiné, à 89,9 % au deuxième trimestre 2026, est un meilleur test de la rentabilité de l'assurance elle-même."
+        },
+        {
+          "q": "Booking est-elle devenue bon marché parce que son cours a été divisé par 25 ?",
+          "a": "Non. Le fractionnement 25 pour 1 du 2 avril 2026 a multiplié le nombre d'actions sans changer la valeur de l'entreprise. Ce qui compte est le P/FCF de 13,4, bas par rapport à l'historique de Booking."
+        }
+      ],
+      "tags": [
+        "actions américaines",
+        "sous-évaluées",
+        "Wall Street",
+        "Booking",
+        "Mercury General",
+        "Deckers",
+        "étude"
+      ],
+      "disclaimer": "Analyse à visée informative et éducative, pas un conseil en investissement personnalisé. Les performances passées ne garantissent pas les résultats futurs. Chiffres au 26 octobre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Undervalued US stocks: three real bargains, three caveats",
+      "excerpt": "Wall Street is rarely on sale. I looked for high-quality US stocks trading low, then separated the real opportunities from those hiding a flaw.",
+      "metaDescription": "Undervalued US stocks: among quality names trading low, which are real opportunities and which hide a flaw? A data-driven look at six US stocks.",
+      "answer": "In the US, bargains exist, but they often hide a flaw you need to know how to read. Among quality stocks trading low, Booking, Mercury General and Deckers stand out as real opportunities. Firstcash, Autoliv and Las Vegas Sands each carry a measurable weakness that explains their discount.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Why almost nothing is on sale on Wall Street"
+        },
+        {
+          "type": "p",
+          "text": "The US market is the most closely watched in the world. When a company earns a lot of money year after year, thousands of analysts have already spotted it and its price reflects that. This is why a high-quality US stock rarely trades at a low valuation. When it does, there is almost always a reason, and the whole job is to find it."
+        },
+        {
+          "type": "p",
+          "text": "I judge two things separately. First the quality of the business, a score out of 10 criteria: margins, growth in sales and cash per share, share buybacks, debt, return on capital. Then the price, measured by P/FCF: the share price divided by free cash flow, meaning the cash actually left once every bill is paid. A P/FCF of 10 means you pay ten years of that cash. I took US stocks scored 9 or 10 out of 10 that my tool flags as opportunities, and compared each price with the stock's own history. The last column reads like this: \"lowest 2 %\" means the price has been lower in only 2 % of past cases."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Stock",
+            "Quality score",
+            "P/FCF",
+            "Position in own history",
+            "Size ($bn)"
+          ],
+          "rows": [
+            [
+              "Booking (BKNG)",
+              "10 out of 10",
+              "13.4",
+              "Lowest 2 %",
+              "117"
+            ],
+            [
+              "Mercury General (MCY)",
+              "10 out of 10",
+              "4.0",
+              "Lowest 7 %",
+              "6"
+            ],
+            [
+              "Deckers (DECK)",
+              "9 out of 10",
+              "10.5",
+              "Lowest 6 %",
+              "12"
+            ],
+            [
+              "Firstcash (FCFS)",
+              "9 out of 10",
+              "11.7",
+              "Lowest 2 %",
+              "8"
+            ],
+            [
+              "Autoliv (ALV)",
+              "9 out of 10",
+              "11.3",
+              "Lowest 7 %",
+              "8"
+            ],
+            [
+              "Las Vegas Sands (LVS)",
+              "9 out of 10",
+              "9.0",
+              "Lowest 6 %",
+              "25"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "The three real opportunities"
+        },
+        {
+          "type": "p",
+          "text": "Booking ([its page](/analyse/BKNG)) does everything right on paper: free cash flow per share grows 24 % a year over five years and the share count falls 6.5 % a year thanks to buybacks. The model explains why: the traveler pays at booking, the hotel is paid later, so the company collects before it pays. In the second quarter of 2026 its free cash flow reached $3.6 billion, up 16 % according to [the release filed with the SEC](https://www.sec.gov/Archives/edgar/data/0001075531/000107553126000036/q2-26bkngearningsrelease.htm). Beware of a reading trap: the price of about $156 looks tiny next to the $4,100 of before, but that is the 25 for 1 split of April 2, 2026, not a sale."
+        },
+        {
+          "type": "p",
+          "text": "What the market punishes is the travel cycle: CEO Glenn Fogel himself cites geopolitical and macroeconomic uncertainty. My reading: the discount is partly deserved for a cyclical business, but its size is excessive against cash that keeps growing 16 %."
+        },
+        {
+          "type": "p",
+          "text": "Mercury General ([page](/analyse/MCY)) trades at 4 times its free cash flow, which looks almost too good. You need to understand the mechanism: an insurer collects premiums immediately and pays claims later. When premiums grow (+9.6 % in the second quarter), this gap, the float, inflates free cash without all of it being earned. The right test is the combined ratio, which adds claims and expenses relative to premiums: below 100 %, insurance makes money on its own. Mercury brought it down to 89.9 % from 92.5 % a year earlier, according to [its second quarter release](https://www.sec.gov/Archives/edgar/data/0000064996/000119312526332781/d61051dex991.htm). But the comparison benefits from a weak base, with the Los Angeles wildfires having cost about $460 million in the first half of 2025. A real opportunity, with cash less cheap than it looks."
+        },
+        {
+          "type": "p",
+          "text": "Deckers ([page](/analyse/DECK)) means Hoka and UGG. Its free cash flow per share grows 49.6 % a year over five years and it holds more cash than debt. What weighs on it: growth is fading. In the quarter ended in September, sales rose 3.5 % to $1.48 billion, against 15.7 % a year on average over five years, with its own online and store sales down according to [the release](https://www.sec.gov/Archives/edgar/data/0000910521/000091052126000028/deckex991pressrelease-9302.htm). The market is paying for a brand that is slowing, not one that is collapsing. At 10.5 times its cash, in the lowest 6 % of its history, I find the doubt generously priced in."
+        },
+        {
+          "type": "h2",
+          "text": "The three that call for a caveat"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Stock",
+            "What is solid",
+            "What holds it back",
+            "Verdict"
+          ],
+          "rows": [
+            [
+              "Booking",
+              "Cash per share +24 %/yr, buybacks",
+              "Travel cycle",
+              "Opportunity"
+            ],
+            [
+              "Mercury General",
+              "Combined ratio 89.9 %",
+              "Cash inflated by float, wildfires",
+              "Qualified opportunity"
+            ],
+            [
+              "Deckers",
+              "Cash per share +49.6 %/yr, net cash",
+              "Sales slowing to +3.5 %",
+              "Opportunity"
+            ],
+            [
+              "Firstcash",
+              "Sales +13.7 %/yr, buybacks",
+              "Debt of 3.3 years of cash, limit is 3",
+              "Caveat"
+            ],
+            [
+              "Autoliv",
+              "Buybacks, cash per share +29 %/yr",
+              "6.8 % cash margin, sales +6.9 %/yr",
+              "Caveat"
+            ],
+            [
+              "Las Vegas Sands",
+              "$950m buybacks in the quarter",
+              "Debt of 4.5 years of cash, flat cash per share",
+              "Caveat"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Firstcash ([page](/analyse/FCFS)), the pawn lender, posts record third quarter 2026 results, with pawn loans at a record $908 million according to [its release](https://www.sec.gov/Archives/edgar/data/0000840489/000084048926000097/fcfs10222026exhibit991.htm). The flaw is in the balance sheet: its debt equals 3.3 years of free cash flow, above my 3 year limit, and it takes 123 days to turn its inventory and loans into cash. A pawn lender ties money up in its loans, which explains that delay, but it makes the company more fragile if credit tightens."
+        },
+        {
+          "type": "p",
+          "text": "Autoliv ([page](/analyse/ALV)) makes airbags and seat belts. Its problem is margin: out of $100 of sales, $6.80 ends up as cash, against more than $31 at Booking, because automakers negotiate prices very hard. Its sales grow only 6.9 % a year. It still ticks most of my criteria thanks to buybacks, but its low price reflects a low margin business tied to the auto cycle."
+        },
+        {
+          "type": "p",
+          "text": "Las Vegas Sands ([page](/analyse/LVS)) is the most instructive case. At 9 times its cash it looks cheap, yet its price of $35.68 stays above my reasonable buy price of $25.61. The reason: its cash per share has barely moved in five years, and its 33.8 % annual sales growth is inflated by the post Covid recovery. In the third quarter, Marina Bay Sands EBITDA in Singapore fell to $590 million from $743 million, according to [the release](https://www.sec.gov/Archives/edgar/data/0001300514/000130051426000099/lvs_ex991x09302026.htm), while the company repurchased $950 million of shares. A low multiple on cash that does not grow is not an opportunity."
+        },
+        {
+          "type": "h2",
+          "text": "What this list does not say"
+        },
+        {
+          "type": "p",
+          "text": "It does not say to buy. A low price for the quality is a starting point: you then need to know why it is low, which I did case by case here. For another angle on the same universe, read [the good Wall Street stocks near their historical lows](/blog/wall-street-bonnes-actions-plus-bas-de-leur-histoire-2026). Prices move every day: I built [my screener](/screener) to redo this sort on any market, and its logic is detailed in [the methodology](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why are so few US stocks undervalued?",
+          "a": "Because the US market is the most followed in the world: a quality company is quickly spotted and its price rises. When a quality stock trades low, there is almost always a reason to understand, such as the cycle, debt or a thin margin."
+        },
+        {
+          "q": "Is a low P/FCF enough to call a stock undervalued?",
+          "a": "No. A low P/FCF can hide cash that does not grow, heavy debt, or cash inflated by a temporary gap such as an insurer's float. Read it alongside business quality and the trajectory of cash per share."
+        },
+        {
+          "q": "Is Mercury General at 4 times its cash really that cheap?",
+          "a": "Less than it looks. An insurer collects premiums before paying claims, which inflates free cash. The combined ratio, at 89.9 % in the second quarter of 2026, is a better test of the profitability of the insurance itself."
+        },
+        {
+          "q": "Did Booking become cheap because its price was divided by 25?",
+          "a": "No. The 25 for 1 split of April 2, 2026 multiplied the number of shares without changing the value of the company. What matters is the P/FCF of 13.4, low relative to Booking's own history."
+        }
+      ],
+      "tags": [
+        "US stocks",
+        "undervalued",
+        "Wall Street",
+        "Booking",
+        "Mercury General",
+        "Deckers",
+        "study"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. Figures as of October 26, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing it."
+    },
+    "es": {
+      "title": "Acciones de EE. UU. infravaloradas: 3 reales, 3 con reservas",
+      "excerpt": "Wall Street rara vez está de rebajas. Busqué acciones estadounidenses de gran calidad que cotizan bajo y separé las oportunidades reales de las que esconden un defecto.",
+      "metaDescription": "Acciones de EE. UU. infravaloradas: entre las de calidad que cotizan bajo, ¿cuáles son oportunidades reales y cuáles esconden un defecto? Estudio con datos.",
+      "answer": "En Estados Unidos las gangas existen, pero suelen esconder un defecto que hay que saber leer. Entre las acciones de calidad que cotizan bajo, Booking, Mercury General y Deckers destacan como oportunidades reales. Firstcash, Autoliv y Las Vegas Sands tienen cada una un fallo medible que explica su descuento.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Por qué casi nada está rebajado en Wall Street"
+        },
+        {
+          "type": "p",
+          "text": "El mercado estadounidense es el más vigilado del mundo. Cuando una empresa gana mucho dinero año tras año, miles de analistas ya la han detectado y su cotización lo refleja. Por eso una acción estadounidense de gran calidad rara vez cotiza barata. Cuando lo hace, casi siempre hay una razón, y todo el trabajo consiste en encontrarla."
+        },
+        {
+          "type": "p",
+          "text": "Juzgo dos cosas por separado. Primero la calidad del negocio, una nota sobre 10 criterios: márgenes, crecimiento de ventas y de caja por acción, recompras de acciones, deuda, rentabilidad del capital. Después el precio, medido con el P/FCF: el precio de la acción dividido por el flujo de caja libre, es decir, el dinero realmente disponible una vez pagadas todas las facturas. Un P/FCF de 10 significa que pagas diez años de esa caja. Tomé las acciones estadounidenses con nota 9 o 10 sobre 10 que mi herramienta marca como oportunidades y comparé cada precio con el historial de la propia acción. La última columna se lee así: «2 % más bajo» significa que su precio solo ha sido inferior en el 2 % de los casos pasados."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Acción",
+            "Nota de calidad",
+            "P/FCF",
+            "Posición en su historial",
+            "Tamaño (mm $)"
+          ],
+          "rows": [
+            [
+              "Booking (BKNG)",
+              "10 sobre 10",
+              "13,4",
+              "2 % más bajo",
+              "117"
+            ],
+            [
+              "Mercury General (MCY)",
+              "10 sobre 10",
+              "4,0",
+              "7 % más bajo",
+              "6"
+            ],
+            [
+              "Deckers (DECK)",
+              "9 sobre 10",
+              "10,5",
+              "6 % más bajo",
+              "12"
+            ],
+            [
+              "Firstcash (FCFS)",
+              "9 sobre 10",
+              "11,7",
+              "2 % más bajo",
+              "8"
+            ],
+            [
+              "Autoliv (ALV)",
+              "9 sobre 10",
+              "11,3",
+              "7 % más bajo",
+              "8"
+            ],
+            [
+              "Las Vegas Sands (LVS)",
+              "9 sobre 10",
+              "9,0",
+              "6 % más bajo",
+              "25"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Las tres oportunidades reales"
+        },
+        {
+          "type": "p",
+          "text": "Booking ([su ficha](/analyse/BKNG)) lo hace todo bien sobre el papel: el flujo de caja libre por acción crece un 24 % al año en cinco años y el número de acciones baja un 6,5 % anual gracias a las recompras. El modelo lo explica: el viajero paga al reservar, el hotel cobra después, así que la empresa cobra antes de pagar. En el segundo trimestre de 2026 su flujo de caja libre alcanzó 3.600 millones de dólares, un 16 % más según [el comunicado presentado a la SEC](https://www.sec.gov/Archives/edgar/data/0001075531/000107553126000036/q2-26bkngearningsrelease.htm). Cuidado con una trampa de lectura: la cotización de unos 156 $ parece minúscula frente a los 4.100 $ de antes, pero es el desdoblamiento 25 por 1 del 2 de abril de 2026, no una rebaja."
+        },
+        {
+          "type": "p",
+          "text": "Lo que castiga el mercado es el ciclo de los viajes: el consejero delegado Glenn Fogel habla él mismo de incertidumbre geopolítica y macroeconómica. Mi lectura: el descuento es en parte merecido para un negocio cíclico, pero su tamaño es excesivo frente a una caja que sigue creciendo un 16 %."
+        },
+        {
+          "type": "p",
+          "text": "Mercury General ([ficha](/analyse/MCY)) cotiza a 4 veces su flujo de caja libre, lo que parece casi demasiado bueno. Hay que entender el mecanismo: una aseguradora cobra las primas de inmediato y paga los siniestros más tarde. Cuando las primas crecen (+9,6 % en el segundo trimestre), ese desfase, el float, infla la caja libre sin que toda sea ganada. La prueba correcta es el ratio combinado, que suma siniestros y gastos sobre las primas: por debajo del 100 %, el seguro gana dinero por sí solo. Mercury lo bajó al 89,9 % desde el 92,5 % de un año antes, según [su comunicado del segundo trimestre](https://www.sec.gov/Archives/edgar/data/0000064996/000119312526332781/d61051dex991.htm). Pero la comparación se beneficia de una base débil: los incendios de Los Ángeles costaron unos 460 millones de dólares en el primer semestre de 2025. Una oportunidad real, con una caja menos barata de lo que parece."
+        },
+        {
+          "type": "p",
+          "text": "Deckers ([ficha](/analyse/DECK)) es Hoka y UGG. Su flujo de caja libre por acción crece un 49,6 % anual en cinco años y tiene más tesorería que deuda. Lo que pesa: el crecimiento se frena. En el trimestre cerrado en septiembre, las ventas subieron un 3,5 % hasta 1.480 millones de dólares, frente al 15,7 % anual de media en cinco años, con las ventas directas en línea y en tienda a la baja según [el comunicado](https://www.sec.gov/Archives/edgar/data/0000910521/000091052126000028/deckex991pressrelease-9302.htm). El mercado paga una marca que se frena, no una que se hunde. A 10,5 veces su caja, entre el 6 % más bajo de su historial, creo que la duda está pagada con generosidad."
+        },
+        {
+          "type": "h2",
+          "text": "Las tres que piden una reserva"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Acción",
+            "Lo sólido",
+            "Lo que frena",
+            "Veredicto"
+          ],
+          "rows": [
+            [
+              "Booking",
+              "Caja por acción +24 %/año, recompras",
+              "Ciclo de viajes",
+              "Oportunidad"
+            ],
+            [
+              "Mercury General",
+              "Ratio combinado 89,9 %",
+              "Caja inflada por el float, incendios",
+              "Oportunidad matizada"
+            ],
+            [
+              "Deckers",
+              "Caja por acción +49,6 %/año, caja neta",
+              "Ventas que se frenan a +3,5 %",
+              "Oportunidad"
+            ],
+            [
+              "Firstcash",
+              "Ventas +13,7 %/año, recompras",
+              "Deuda de 3,3 años de caja, límite en 3",
+              "Reserva"
+            ],
+            [
+              "Autoliv",
+              "Recompras, caja por acción +29 %/año",
+              "Margen de caja del 6,8 %, ventas +6,9 %/año",
+              "Reserva"
+            ],
+            [
+              "Las Vegas Sands",
+              "Recompras de 950 M$ en el trimestre",
+              "Deuda de 4,5 años de caja, caja por acción estancada",
+              "Reserva"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Firstcash ([ficha](/analyse/FCFS)), el prestamista sobre prendas, publica resultados récord en el tercer trimestre de 2026, con préstamos sobre prendas en un récord de 908 millones de dólares según [su comunicado](https://www.sec.gov/Archives/edgar/data/0000840489/000084048926000097/fcfs10222026exhibit991.htm). El defecto está en el balance: su deuda equivale a 3,3 años de flujo de caja libre, por encima de mi límite de 3 años, y necesita 123 días para convertir sus existencias y préstamos en caja. Un prestamista sobre prendas inmoviliza dinero en sus préstamos, lo que explica ese plazo, pero lo hace más frágil si el crédito se tensa."
+        },
+        {
+          "type": "p",
+          "text": "Autoliv ([ficha](/analyse/ALV)) fabrica airbags y cinturones de seguridad. Su problema es el margen: de cada 100 $ de ventas, 6,8 $ acaban en caja, frente a más de 31 $ en Booking, porque los fabricantes de coches negocian los precios con dureza. Sus ventas solo crecen un 6,9 % al año. Aún cumple la mayoría de mis criterios gracias a las recompras, pero su precio bajo refleja un negocio de margen fino ligado al ciclo del automóvil."
+        },
+        {
+          "type": "p",
+          "text": "Las Vegas Sands ([ficha](/analyse/LVS)) es el caso más instructivo. A 9 veces su caja parece barata, pero su cotización de 35,68 $ sigue por encima de mi precio de compra razonable de 25,61 $. La razón: su caja por acción apenas se ha movido en cinco años, y su crecimiento de ventas del 33,8 % anual está inflado por la recuperación tras el Covid. En el tercer trimestre, el EBITDA de Marina Bay Sands en Singapur cayó a 590 millones de dólares desde 743 millones, según [el comunicado](https://www.sec.gov/Archives/edgar/data/0001300514/000130051426000099/lvs_ex991x09302026.htm), mientras la empresa recompraba 950 millones en acciones. Un múltiplo bajo sobre una caja que no crece no es una oportunidad."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que esta lista no dice"
+        },
+        {
+          "type": "p",
+          "text": "No dice que compres. Un precio bajo para la calidad es un punto de partida: después hay que saber por qué es bajo, lo que hice aquí caso por caso. Para otro ángulo sobre el mismo universo, lee [las buenas acciones de Wall Street cerca de sus mínimos históricos](/blog/wall-street-bonnes-actions-plus-bas-de-leur-histoire-2026). Los precios se mueven cada día: construí [mi screener](/screener) para repetir esta selección en cualquier mercado, y su lógica está detallada en [la metodología](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué hay tan pocas acciones estadounidenses infravaloradas?",
+          "a": "Porque el mercado estadounidense es el más seguido del mundo: una empresa de calidad se detecta rápido y su precio sube. Cuando una acción de calidad cotiza baja, casi siempre hay una razón que entender, como el ciclo, la deuda o un margen fino."
+        },
+        {
+          "q": "¿Basta un P/FCF bajo para decir que una acción está infravalorada?",
+          "a": "No. Un P/FCF bajo puede esconder una caja que no crece, una deuda pesada o una caja inflada por un desfase temporal, como el float de una aseguradora. Hay que leerlo junto a la calidad del negocio y la trayectoria de la caja por acción."
+        },
+        {
+          "q": "¿Mercury General a 4 veces su caja es de verdad tan barata?",
+          "a": "Menos de lo que parece. Una aseguradora cobra las primas antes de pagar los siniestros, lo que infla la caja libre. El ratio combinado, del 89,9 % en el segundo trimestre de 2026, es una mejor prueba de la rentabilidad del seguro en sí."
+        },
+        {
+          "q": "¿Booking se volvió barata porque su cotización se dividió entre 25?",
+          "a": "No. El desdoblamiento 25 por 1 del 2 de abril de 2026 multiplicó el número de acciones sin cambiar el valor de la empresa. Lo que cuenta es el P/FCF de 13,4, bajo respecto al historial de Booking."
+        }
+      ],
+      "tags": [
+        "acciones EE. UU.",
+        "infravaloradas",
+        "Wall Street",
+        "Booking",
+        "Mercury General",
+        "Deckers",
+        "estudio"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 26 de octubre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
