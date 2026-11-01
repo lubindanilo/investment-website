@@ -101533,6 +101533,507 @@ const articleUSSousEvaluees2026: Article = {
   }
 };
 
+const articleUPSvsFDX2026: Article = {
+  "slug": "ups-fedex-comparatif-dividende-scission-2026",
+  "date": "2026-11-01",
+  "updated": "2026-11-01",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "UPS ou FedEx (FDX) : le dividende contre la scission",
+      "excerpt": "Même résultat sur ma grille, deux histoires opposées : un dividende plus gros que le cash d'un côté, une scission qui fausse les chiffres de l'autre.",
+      "metaDescription": "UPS ou FedEx en bourse : l'une verse un dividende qui dépasse son cash, l'autre a perdu sa branche de transport routier. Comparaison chiffrée et prix demandé.",
+      "answer": "UPS et FedEx obtiennent la même note de 5 sur 10 sur ma grille, mais pour des raisons opposées. UPS verse un dividende de 6,1 % supérieur à son cash libre. FedEx rachète ses actions, mais sa décote apparente vient sans doute de la scission de FedEx Freight en juin 2026, pas d'une vraie bonne affaire.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Le 27 octobre 2026, UPS publie un trimestre à 22,9 Md$ de ventes, en hausse de 6,7 %, et relève ses prévisions de l'année : environ 92,6 Md$ de ventes et 6,1 Md$ de cash libre. L'action ne s'envole pas pour autant. Le marché a appris à se méfier d'un groupe qui choisit, en toute conscience, de livrer moins de colis pour Amazon, son plus gros client, parce que ces colis rapportent peu."
+        },
+        {
+          "type": "p",
+          "text": "Pendant ce temps, FedEx a fait l'inverse : elle a coupé en deux. Le 1er juin 2026, sa branche de transport routier de marchandises, FedEx Freight, est devenue une société cotée à part (FDXF). Chaque actionnaire de FedEx a reçu une action Freight pour deux actions FedEx détenues. Ce qui reste, c'est le colis et la logistique : le même métier qu'UPS, avec un chantier d'économies en cours."
+        },
+        {
+          "type": "p",
+          "text": "Les deux sociétés affichent la même note sur ma grille : 5 sur 10. J'ai voulu comprendre pourquoi, parce que derrière un score identique se cachent deux histoires qui n'ont presque rien en commun, et deux manières très différentes de se tromper en les achetant."
+        },
+        {
+          "type": "h2",
+          "text": "Deux transporteurs, deux trajectoires"
+        },
+        {
+          "type": "p",
+          "text": "Ma grille note une entreprise sur dix critères de qualité (croissance, marges, dette, transformation des bénéfices en cash, discipline sur le nombre d'actions), et traite le prix à part. Sur la qualité, UPS et FedEx ont le même profil de transporteur mûr : ventes qui ne croissent plus, marges qui se compriment (les coûts progressent plus vite que les revenus) et un rendement du capital investi sous mon seuil de 15 % (11,3 % pour UPS, 9,4 % pour FedEx)."
+        },
+        {
+          "type": "p",
+          "text": "La différence se joue sur la pente. Les ventes d'UPS sont passées de 100,3 Md$ en 2022 à 88,7 Md$ en 2025, et son cash libre, c'est-à-dire l'argent qui reste une fois payés les investissements nécessaires pour continuer à rouler, de 10,8 Md$ en 2021 à 4,8 Md$ en 2025. Ceux de FedEx ont remonté : cash libre de 3,0 Md$ en 2025 à 5,1 Md$ sur l'exercice clos en mai 2026, et un nombre d'actions ramené de 257 millions en 2023 à 239 millions."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicateur",
+            "UPS",
+            "FedEx"
+          ],
+          "rows": [
+            [
+              "Ventes",
+              "100,3 Md$ en 2022, 88,7 Md$ en 2025",
+              "87,7 Md$ sur l'exercice 2024, 94,7 Md$ sur 2026 (avant scission)"
+            ],
+            [
+              "Cash libre",
+              "10,8 Md$ en 2021, 4,8 Md$ en 2025",
+              "3,0 Md$ en 2025, 5,1 Md$ sur l'exercice 2026"
+            ],
+            [
+              "Cash libre par action",
+              "-16,4 % par an sur 5 ans",
+              "+19,6 % par an sur 5 ans"
+            ],
+            [
+              "Nombre d'actions",
+              "850 M en 2025, -0,9 % par an",
+              "239 M en 2026, -3,2 % par an"
+            ],
+            [
+              "Dette nette en années de cash libre",
+              "3,7 ans",
+              "2,1 ans"
+            ],
+            [
+              "Rendement du dividende",
+              "6,1 %, soit 121,9 % du bénéfice",
+              "1,6 %, soit 31,3 % du bénéfice"
+            ],
+            [
+              "Valorisation (prix / cash libre)",
+              "17,2 fois",
+              "14,1 fois"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Lecture simple : UPS est un groupe dont le cash fond et qui paie très cher ses actionnaires. FedEx est un groupe dont le cash remonte et qui paie peu. À ce stade, on serait tenté de dire que FedEx gagne haut la main. C'est là que les deux pièges commencent."
+        },
+        {
+          "type": "h2",
+          "text": "Le dividende d'UPS : généreux, mais financé par quoi ?"
+        },
+        {
+          "type": "p",
+          "text": "Un rendement de 6,1 %, c'est tentant : pour 108,25 $ investis, UPS verse 6,56 $ par an. Mais il faut regarder d'où vient l'argent. Le ratio de distribution (la part du bénéfice reversée aux actionnaires) atteint 121,9 %. Autrement dit, UPS verse plus que ce qu'elle gagne sur le papier. Et côté cash, le calcul est le même : 6,56 $ multipliés par environ 850 millions d'actions donnent près de 5,6 Md$ de dividendes, alors que le cash libre de 2025 n'était que de 4,8 Md$."
+        },
+        {
+          "type": "p",
+          "text": "Ce n'est pas encore une alarme, parce que la direction annonce un cash libre de 6,1 Md$ pour 2026, ce qui couvrirait à peine le dividende. Mais ce n'est pas non plus une marge de sécurité. Quand une entreprise verse tout ce qu'elle encaisse, et qu'elle doit en plus rembourser une dette de 3,7 années de cash libre, le moindre accident (un volume qui déçoit, une charge exceptionnelle comme les 182 M$ de dépréciation passés ce trimestre dans sa branche logistique) se paie sur le dividende ou sur le bilan."
+        },
+        {
+          "type": "p",
+          "text": "Le contexte compte aussi. Le recul volontaire des colis d'Amazon, que le [communiqué du troisième trimestre d'UPS](https://www.sec.gov/Archives/edgar/data/0001090727/000162828026067381/exhibit991-earningspressre.htm) assume, devrait faire baisser les volumes d'ensemble au quatrième trimestre malgré la saison des fêtes. UPS échange du chiffre d'affaires contre de la rentabilité, un pari raisonnable, mais dont le résultat se vérifiera sur plusieurs trimestres, pas sur un seul bon communiqué."
+        },
+        {
+          "type": "h2",
+          "text": "FedEx : la décote est-elle réelle ?"
+        },
+        {
+          "type": "p",
+          "text": "Sur le papier, FedEx a l'air d'une affaire : mon outil affiche un prix d'achat raisonnable de 661 $ contre un cours de 313 $, soit une décote de plus de 100 %. Quand un chiffre est aussi spectaculaire pour un transporteur mature, je me méfie avant de me réjouir. Et ici, je soupçonne une explication mécanique, que je n'ai pas pu confirmer ligne par ligne."
+        },
+        {
+          "type": "p",
+          "text": "Voici le raisonnement. La valorisation de 14,1 fois le cash libre revient à diviser la capitalisation actuelle de FedEx, environ 73,4 Md$, par un cash libre d'environ 5,2 Md$. Or ce cash libre couvre une période où FedEx Freight appartenait encore au groupe, alors que la capitalisation, elle, a été amputée de la valeur de Freight depuis le 1er juin. Si le chiffre du bas inclut Freight et celui du haut ne l'inclut plus, le ratio paraît artificiellement bas, et la projection du prix d'achat, qui part du cash libre par action, devient trop généreuse. C'est une inférence de ma part, pas une certitude : tant que les comptes ne sont pas retraités, la décote de FedEx est à prendre avec des pincettes."
+        },
+        {
+          "type": "p",
+          "text": "Le sujet de fond, lui, est plus rassurant. Selon la presse spécialisée, le plan « Network 2.0 » a déjà fermé plus de 150 sites et vise environ 2 Md$ d'économies cumulées d'ici fin 2027, et la direction rachète ses actions chaque année. Je n'ai pas trouvé de chiffres du dernier trimestre fiable à citer : les comptes de référence sont dans le [dépôt annuel de FedEx auprès de la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=FDX&type=10-K), et le recap de l'exercice précédent est dans [mon analyse des résultats de FedEx](/blog/fedex-fdx-resultats-q4-fy2026-analyse)."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que le prix demande à chacune"
+        },
+        {
+          "type": "p",
+          "text": "Pour UPS, mon modèle calcule un prix d'achat de 48 $ en partant d'un cash libre par action qui continuerait de baisser, contre un cours de 108 $. C'est volontairement sévère : il suppose que la pente des cinq dernières années se poursuit. Si le plan sur Amazon redresse les marges, ce modèle sera trop dur. Mais il dit une chose utile : à 17 fois son cash libre, soit exactement la médiane de sa propre histoire, UPS n'est ni bradée ni chère. Le marché paie le dividende, pas la croissance."
+        },
+        {
+          "type": "p",
+          "text": "Pour FedEx, c'est l'inverse : le prix semble très bas, mais il faut d'abord remettre les chiffres sur la même base. La bonne question n'est pas « la décote est-elle de 111 % ? » mais « combien de cash libre produit FedEx sans Freight ? ». Tant que cette réponse n'est pas claire, aucun chiffre de valorisation ne mérite qu'on lui fasse confiance."
+        },
+        {
+          "type": "h2",
+          "text": "Comment je les départage"
+        },
+        {
+          "type": "p",
+          "text": "Si je cherche un revenu, UPS est la seule des deux qui en offre un, mais je regarderais le cash libre de 2026 avant de compter dessus : un dividende qui dépasse le bénéfice est un dividende qui peut baisser. Si je cherche une entreprise dont les chiffres progressent, FedEx a la meilleure trajectoire, mais je ne regarderais son prix qu'une fois les comptes retraités de la scission."
+        },
+        {
+          "type": "p",
+          "text": "Ma conclusion : aucune des deux n'est un achat évident, et la même note de 5 sur 10 est honnête. Elles ne sont pas médiocres de la même façon. UPS risque de décevoir ceux qui achètent le dividende, FedEx de décevoir ceux qui achètent la décote. Pour comparer sereinement deux transporteurs, je préfère attendre le prochain cycle de résultats que de choisir sur un seul chiffre. Tu peux suivre l'évolution sur [la fiche d'UPS](/analyse/UPS) et [celle de FedEx](/analyse/FDX), construites pour ça avec la [méthodologie complète](/methodologie). Pour une autre comparaison de cycles et de cash, relis [Caterpillar contre Deere](/blog/caterpillar-deere-comparatif-cash-machines-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "UPS ou FedEx : laquelle verse le meilleur dividende ?",
+          "a": "UPS : 6,1 % de rendement contre 1,6 % pour FedEx. Mais le dividende d'UPS dépasse son bénéfice (121,9 %) et avoisine son cash libre, alors que celui de FedEx n'en représente que 31,3 % du bénéfice."
+        },
+        {
+          "q": "Pourquoi FedEx paraît-elle moins chère qu'elle ne l'est ?",
+          "a": "Probablement parce que son cash libre publié inclut encore FedEx Freight, scindée le 1er juin 2026, alors que le cours de l'action n'inclut plus cette branche. C'est une inférence à vérifier quand les comptes seront retraités."
+        },
+        {
+          "q": "Qu'est-ce que le cash libre ?",
+          "a": "L'argent que l'entreprise encaisse réellement, une fois payées les dépenses nécessaires pour continuer à exploiter ses camions, avions et entrepôts. C'est ce qui peut servir à payer un dividende, racheter des actions ou rembourser la dette."
+        },
+        {
+          "q": "Pourquoi UPS réduit-elle ses livraisons pour Amazon ?",
+          "a": "Parce que ces colis sont peu rentables. UPS préfère moins de volume et de meilleures marges, ce qui explique des volumes en baisse au quatrième trimestre malgré la période des fêtes."
+        }
+      ],
+      "tags": [
+        "UPS",
+        "FedEx",
+        "comparatif",
+        "dividende",
+        "scission",
+        "transport"
+      ],
+      "disclaimer": "Cet article est une analyse à but éducatif, pas un conseil en investissement personnalisé. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "UPS or FedEx (FDX): the dividend versus the spin-off",
+      "excerpt": "Same result on my scorecard, two opposite stories: a dividend bigger than the cash on one side, a spin-off that distorts the numbers on the other.",
+      "metaDescription": "UPS or FedEx stock: one pays a dividend above its cash, the other just lost its trucking arm. A numbers-based comparison and what the price implies.",
+      "answer": "UPS and FedEx get the same 5 out of 10 on my scorecard, for opposite reasons. UPS pays a 6.1% dividend that exceeds its free cash flow. FedEx buys back shares, but its apparent discount most likely comes from the June 2026 FedEx Freight spin-off, not from a real bargain.",
+      "body": [
+        {
+          "type": "p",
+          "text": "On October 27, 2026, UPS reported a quarter of $22.9 billion in revenue, up 6.7%, and raised its full-year outlook to about $92.6 billion in revenue and $6.1 billion of free cash flow. The stock did not soar. The market has learned to be wary of a group that deliberately chooses to deliver fewer packages for Amazon, its biggest customer, because those packages earn little."
+        },
+        {
+          "type": "p",
+          "text": "Meanwhile FedEx did the opposite: it cut itself in two. On June 1, 2026, its freight trucking arm, FedEx Freight, became a separately listed company (FDXF). Each FedEx shareholder received one Freight share for every two FedEx shares held. What remains is parcels and logistics: the same business as UPS, with a cost-cutting program under way."
+        },
+        {
+          "type": "p",
+          "text": "Both companies get the same score on my scorecard: 5 out of 10. I wanted to understand why, because behind an identical score sit two stories with almost nothing in common, and two very different ways of being wrong when buying them."
+        },
+        {
+          "type": "h2",
+          "text": "Two carriers, two trajectories"
+        },
+        {
+          "type": "p",
+          "text": "My scorecard rates a company on ten quality criteria (growth, margins, debt, how well profits turn into cash, discipline on share count) and treats the price separately. On quality, UPS and FedEx share the profile of a mature carrier: sales that no longer grow, margins that are compressing (costs rise faster than revenue) and a return on invested capital below my 15% threshold (11.3% for UPS, 9.4% for FedEx)."
+        },
+        {
+          "type": "p",
+          "text": "The difference is in the slope. UPS sales went from $100.3 billion in 2022 to $88.7 billion in 2025, and its free cash flow, the money left after paying the investments needed to keep running, from $10.8 billion in 2021 to $4.8 billion in 2025. FedEx moved the other way: free cash flow from $3.0 billion in 2025 to $5.1 billion in the fiscal year ended May 2026, and a share count down from 257 million in 2023 to 239 million."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Metric",
+            "UPS",
+            "FedEx"
+          ],
+          "rows": [
+            [
+              "Sales",
+              "$100.3B in 2022, $88.7B in 2025",
+              "$87.7B in fiscal 2024, $94.7B in 2026 (before the spin-off)"
+            ],
+            [
+              "Free cash flow",
+              "$10.8B in 2021, $4.8B in 2025",
+              "$3.0B in 2025, $5.1B in fiscal 2026"
+            ],
+            [
+              "Free cash flow per share",
+              "-16.4% a year over 5 years",
+              "+19.6% a year over 5 years"
+            ],
+            [
+              "Share count",
+              "850M in 2025, -0.9% a year",
+              "239M in 2026, -3.2% a year"
+            ],
+            [
+              "Net debt in years of free cash flow",
+              "3.7 years",
+              "2.1 years"
+            ],
+            [
+              "Dividend yield",
+              "6.1%, or 121.9% of earnings",
+              "1.6%, or 31.3% of earnings"
+            ],
+            [
+              "Valuation (price / free cash flow)",
+              "17.2 times",
+              "14.1 times"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Simple reading: UPS is a group whose cash is melting and which pays its shareholders very generously. FedEx is a group whose cash is rising and which pays little. At this point you might say FedEx wins hands down. That is where the two traps begin."
+        },
+        {
+          "type": "h2",
+          "text": "UPS's dividend: generous, but funded by what?"
+        },
+        {
+          "type": "p",
+          "text": "A 6.1% yield is tempting: for $108.25 invested, UPS pays $6.56 a year. But you have to look at where the money comes from. The payout ratio (the share of earnings paid out to shareholders) is 121.9%. In other words UPS pays out more than it earns on paper. And on the cash side the math is the same: $6.56 times roughly 850 million shares is close to $5.6 billion of dividends, while 2025 free cash flow was only $4.8 billion."
+        },
+        {
+          "type": "p",
+          "text": "It is not an alarm yet, because management guides to $6.1 billion of free cash flow for 2026, which would barely cover the dividend. But it is not a safety margin either. When a company pays out everything it collects, and must also repay debt worth 3.7 years of free cash flow, any accident (disappointing volumes, a one-off charge like the $182 million impairment booked this quarter in its logistics arm) gets paid for by the dividend or the balance sheet."
+        },
+        {
+          "type": "p",
+          "text": "Context matters too. The deliberate pullback of Amazon packages, which the [UPS third-quarter release](https://www.sec.gov/Archives/edgar/data/0001090727/000162828026067381/exhibit991-earningspressre.htm) acknowledges, should push overall volumes down in the fourth quarter despite the holiday season. UPS is trading revenue for profitability, a reasonable bet, but one that will be proven over several quarters, not on a single good release."
+        },
+        {
+          "type": "h2",
+          "text": "FedEx: is the discount real?"
+        },
+        {
+          "type": "p",
+          "text": "On paper FedEx looks like a bargain: my tool shows a reasonable buy price of $661 against a share price of $313, a discount of more than 100%. When a figure is that spectacular for a mature carrier, I get suspicious before I get excited. And here I suspect a mechanical explanation that I could not confirm line by line."
+        },
+        {
+          "type": "p",
+          "text": "Here is the reasoning. The valuation of 14.1 times free cash flow comes from dividing FedEx's current market value, about $73.4 billion, by free cash flow of about $5.2 billion. But that free cash flow covers a period when FedEx Freight still belonged to the group, while the market value has been stripped of Freight's value since June 1. If the bottom number includes Freight and the top one no longer does, the ratio looks artificially low, and the buy-price projection, which starts from free cash flow per share, becomes too generous. This is my inference, not a certainty: until the accounts are restated, FedEx's discount deserves a grain of salt."
+        },
+        {
+          "type": "p",
+          "text": "The underlying story is more reassuring. According to trade press, the Network 2.0 plan has already closed more than 150 sites and targets about $2 billion of cumulative savings by the end of 2027, and management buys back shares every year. I did not find reliable figures for the latest quarter to cite: the reference accounts are in [FedEx's annual filing with the SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=FDX&type=10-K), and the previous fiscal year's recap is in [my analysis of FedEx's results](/blog/fedex-fdx-resultats-q4-fy2026-analyse), and the [spin-off announcement](https://newsroom.fedex.com/newsroom/global-english/fedex-completes-spin-off-of-fedex-freight) gives the terms."
+        },
+        {
+          "type": "h2",
+          "text": "What the price asks of each"
+        },
+        {
+          "type": "p",
+          "text": "For UPS, my model computes a buy price of $48 assuming free cash flow per share keeps falling, against a price of $108. It is deliberately harsh: it assumes the last five years' slope continues. If the Amazon plan restores margins, the model will be too tough. But it says one useful thing: at 17 times free cash flow, exactly the median of its own history, UPS is neither cheap nor expensive. The market pays for the dividend, not for growth."
+        },
+        {
+          "type": "p",
+          "text": "For FedEx it is the opposite: the price looks very low, but the numbers first need to be put on the same basis. The right question is not \"is the discount 111%?\" but \"how much free cash flow does FedEx produce without Freight?\". Until that answer is clear, no valuation figure deserves trust."
+        },
+        {
+          "type": "h2",
+          "text": "How I split them"
+        },
+        {
+          "type": "p",
+          "text": "If I want income, UPS is the only one that offers it, but I would check 2026 free cash flow before counting on it: a dividend above earnings is a dividend that can be cut. If I want a company whose numbers are improving, FedEx has the better trajectory, but I would only look at its price once the accounts are restated for the spin-off."
+        },
+        {
+          "type": "p",
+          "text": "My conclusion: neither is an obvious buy, and the same 5 out of 10 is honest. They are not mediocre in the same way. UPS may disappoint those who buy the dividend, FedEx those who buy the discount. To compare two carriers calmly, I prefer waiting for the next results cycle over choosing on a single figure. You can follow both on [the UPS page](/analyse/UPS) and [the FedEx page](/analyse/FDX), built for this with the [full methodology](/methodologie). For another comparison of cycles and cash, read [Caterpillar versus Deere](/blog/caterpillar-deere-comparatif-cash-machines-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "UPS or FedEx: which pays the better dividend?",
+          "a": "UPS: a 6.1% yield against 1.6% for FedEx. But UPS's dividend exceeds its earnings (121.9%) and is close to its free cash flow, while FedEx's is only 31.3% of earnings."
+        },
+        {
+          "q": "Why does FedEx look cheaper than it is?",
+          "a": "Probably because its published free cash flow still includes FedEx Freight, spun off on June 1, 2026, while the share price no longer includes that arm. This is an inference to verify once the accounts are restated."
+        },
+        {
+          "q": "What is free cash flow?",
+          "a": "The money a company actually collects after paying the spending needed to keep running its trucks, planes and warehouses. It is what can fund a dividend, buy back shares or repay debt."
+        },
+        {
+          "q": "Why is UPS cutting deliveries for Amazon?",
+          "a": "Because those packages earn little. UPS prefers less volume and better margins, which explains lower fourth-quarter volumes despite the holiday season."
+        }
+      ],
+      "tags": [
+        "UPS",
+        "FedEx",
+        "comparison",
+        "dividend",
+        "spin-off",
+        "transport"
+      ],
+      "disclaimer": "This article is educational analysis, not personalised investment advice. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you this so you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "UPS o FedEx (FDX): el dividendo frente a la escisión",
+      "excerpt": "Mismo resultado en mi escala, dos historias opuestas: un dividendo mayor que el efectivo por un lado, una escisión que distorsiona las cifras por el otro.",
+      "metaDescription": "UPS o FedEx en bolsa: una paga un dividendo superior a su efectivo, la otra acaba de perder su rama de transporte por carretera. Comparación con cifras.",
+      "answer": "UPS y FedEx obtienen la misma nota de 5 sobre 10 en mi escala, por motivos opuestos. UPS paga un dividendo del 6,1 % superior a su flujo de caja libre. FedEx recompra acciones, pero su descuento aparente probablemente se debe a la escisión de FedEx Freight en junio de 2026, no a una ganga real.",
+      "body": [
+        {
+          "type": "p",
+          "text": "El 27 de octubre de 2026, UPS publicó un trimestre con 22.900 M$ de ventas, un 6,7 % más, y elevó sus previsiones del año a unos 92.600 M$ de ventas y 6.100 M$ de flujo de caja libre. La acción no se disparó. El mercado ha aprendido a desconfiar de un grupo que elige deliberadamente entregar menos paquetes a Amazon, su mayor cliente, porque esos paquetes dejan poco margen."
+        },
+        {
+          "type": "p",
+          "text": "Mientras tanto, FedEx hizo lo contrario: se partió en dos. El 1 de junio de 2026, su rama de transporte de carga por carretera, FedEx Freight, pasó a ser una sociedad cotizada aparte (FDXF). Cada accionista de FedEx recibió una acción de Freight por cada dos de FedEx. Lo que queda es el paquete y la logística: el mismo negocio que UPS, con un plan de ahorros en marcha."
+        },
+        {
+          "type": "p",
+          "text": "Las dos sociedades obtienen la misma nota en mi escala: 5 sobre 10. Quise entender por qué, porque detrás de una puntuación idéntica hay dos historias casi sin nada en común, y dos formas muy distintas de equivocarse al comprarlas."
+        },
+        {
+          "type": "h2",
+          "text": "Dos transportistas, dos trayectorias"
+        },
+        {
+          "type": "p",
+          "text": "Mi escala puntúa una empresa con diez criterios de calidad (crecimiento, márgenes, deuda, conversión de beneficios en efectivo, disciplina en el número de acciones) y trata el precio aparte. En calidad, UPS y FedEx comparten el perfil de un transportista maduro: ventas que ya no crecen, márgenes que se comprimen (los costes suben más rápido que los ingresos) y una rentabilidad del capital invertido por debajo de mi umbral del 15 % (11,3 % en UPS, 9,4 % en FedEx)."
+        },
+        {
+          "type": "p",
+          "text": "La diferencia está en la pendiente. Las ventas de UPS pasaron de 100.300 M$ en 2022 a 88.700 M$ en 2025, y su flujo de caja libre, el dinero que queda tras pagar las inversiones necesarias para seguir operando, de 10.800 M$ en 2021 a 4.800 M$ en 2025. El de FedEx subió: de 3.000 M$ en 2025 a 5.100 M$ en el ejercicio cerrado en mayo de 2026, y el número de acciones bajó de 257 millones en 2023 a 239 millones."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Indicador",
+            "UPS",
+            "FedEx"
+          ],
+          "rows": [
+            [
+              "Ventas",
+              "100.300 M$ en 2022, 88.700 M$ en 2025",
+              "87.700 M$ en el ejercicio 2024, 94.700 M$ en 2026 (antes de la escisión)"
+            ],
+            [
+              "Flujo de caja libre",
+              "10.800 M$ en 2021, 4.800 M$ en 2025",
+              "3.000 M$ en 2025, 5.100 M$ en el ejercicio 2026"
+            ],
+            [
+              "Flujo de caja libre por acción",
+              "-16,4 % anual en 5 años",
+              "+19,6 % anual en 5 años"
+            ],
+            [
+              "Número de acciones",
+              "850 M en 2025, -0,9 % anual",
+              "239 M en 2026, -3,2 % anual"
+            ],
+            [
+              "Deuda neta en años de flujo de caja libre",
+              "3,7 años",
+              "2,1 años"
+            ],
+            [
+              "Rentabilidad por dividendo",
+              "6,1 %, es decir 121,9 % del beneficio",
+              "1,6 %, es decir 31,3 % del beneficio"
+            ],
+            [
+              "Valoración (precio / flujo de caja libre)",
+              "17,2 veces",
+              "14,1 veces"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Lectura simple: UPS es un grupo cuyo efectivo se derrite y que paga muy generosamente a sus accionistas. FedEx es un grupo cuyo efectivo sube y que paga poco. Llegados aquí, uno diría que FedEx gana con claridad. Ahí empiezan las dos trampas."
+        },
+        {
+          "type": "h2",
+          "text": "El dividendo de UPS: generoso, pero ¿financiado con qué?"
+        },
+        {
+          "type": "p",
+          "text": "Una rentabilidad del 6,1 % es tentadora: por 108,25 $ invertidos, UPS paga 6,56 $ al año. Pero hay que mirar de dónde sale el dinero. El ratio de reparto (la parte del beneficio entregada a los accionistas) llega al 121,9 %. Es decir, UPS paga más de lo que gana sobre el papel. Y en efectivo el cálculo es el mismo: 6,56 $ por unos 850 millones de acciones son cerca de 5.600 M$ de dividendos, mientras que el flujo de caja libre de 2025 fue solo de 4.800 M$."
+        },
+        {
+          "type": "p",
+          "text": "Todavía no es una alarma, porque la dirección prevé 6.100 M$ de flujo de caja libre para 2026, que apenas cubrirían el dividendo. Pero tampoco es un margen de seguridad. Cuando una empresa reparte todo lo que cobra y además debe devolver una deuda de 3,7 años de flujo de caja libre, cualquier accidente (unos volúmenes decepcionantes, un cargo excepcional como los 182 M$ de deterioro de este trimestre en su rama logística) se paga con el dividendo o con el balance."
+        },
+        {
+          "type": "p",
+          "text": "El contexto también cuenta. La retirada voluntaria de paquetes de Amazon, que reconoce el [comunicado del tercer trimestre de UPS](https://www.sec.gov/Archives/edgar/data/0001090727/000162828026067381/exhibit991-earningspressre.htm), debería reducir los volúmenes globales en el cuarto trimestre pese a las fiestas. UPS cambia ingresos por rentabilidad, una apuesta razonable, pero cuyo resultado se verá en varios trimestres, no con un buen comunicado."
+        },
+        {
+          "type": "h2",
+          "text": "FedEx: ¿es real el descuento?"
+        },
+        {
+          "type": "p",
+          "text": "Sobre el papel, FedEx parece una ganga: mi herramienta muestra un precio de compra razonable de 661 $ frente a una cotización de 313 $, un descuento de más del 100 %. Cuando una cifra es tan espectacular en un transportista maduro, desconfío antes de alegrarme. Y aquí sospecho una explicación mecánica que no he podido confirmar línea por línea."
+        },
+        {
+          "type": "p",
+          "text": "Este es el razonamiento. La valoración de 14,1 veces el flujo de caja libre sale de dividir la capitalización actual de FedEx, unos 73.400 M$, entre un flujo de caja libre de unos 5.200 M$. Pero ese flujo cubre un periodo en que FedEx Freight aún pertenecía al grupo, mientras que la capitalización perdió el valor de Freight desde el 1 de junio. Si la cifra de abajo incluye Freight y la de arriba ya no, el ratio parece artificialmente bajo, y la proyección del precio de compra, que parte del flujo por acción, resulta demasiado generosa. Es una inferencia mía, no una certeza: hasta que se reexpresen las cuentas, el descuento de FedEx merece cautela."
+        },
+        {
+          "type": "p",
+          "text": "El fondo es más tranquilizador. Según la prensa especializada, el plan «Network 2.0» ya ha cerrado más de 150 centros y apunta a unos 2.000 M$ de ahorros acumulados a finales de 2027, y la dirección recompra acciones cada año. No encontré cifras fiables del último trimestre que citar: las cuentas de referencia están en la [memoria anual de FedEx ante la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=FDX&type=10-K), el resumen del ejercicio anterior en [mi análisis de los resultados de FedEx](/blog/fedex-fdx-resultats-q4-fy2026-analyse), y el [anuncio de la escisión](https://newsroom.fedex.com/newsroom/global-english/fedex-completes-spin-off-of-fedex-freight) detalla las condiciones."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que el precio exige a cada una"
+        },
+        {
+          "type": "p",
+          "text": "Para UPS, mi modelo calcula un precio de compra de 48 $ suponiendo que el flujo por acción siga cayendo, frente a una cotización de 108 $. Es deliberadamente severo: supone que la pendiente de los últimos cinco años continúa. Si el plan con Amazon recupera márgenes, el modelo será demasiado duro. Pero dice algo útil: a 17 veces su flujo de caja libre, justo la mediana de su propia historia, UPS no está ni barata ni cara. El mercado paga el dividendo, no el crecimiento."
+        },
+        {
+          "type": "p",
+          "text": "Para FedEx es lo contrario: el precio parece muy bajo, pero primero hay que poner las cifras en la misma base. La buena pregunta no es «¿el descuento es del 111 %?» sino «¿cuánto flujo de caja libre produce FedEx sin Freight?». Mientras esa respuesta no esté clara, ninguna cifra de valoración merece confianza."
+        },
+        {
+          "type": "h2",
+          "text": "Cómo las desempato"
+        },
+        {
+          "type": "p",
+          "text": "Si busco ingresos, UPS es la única que los ofrece, pero miraría el flujo de caja libre de 2026 antes de contar con ellos: un dividendo superior al beneficio es un dividendo que puede recortarse. Si busco una empresa cuyas cifras mejoran, FedEx tiene la mejor trayectoria, pero solo miraría su precio cuando las cuentas estén reexpresadas tras la escisión."
+        },
+        {
+          "type": "p",
+          "text": "Mi conclusión: ninguna es una compra evidente, y la misma nota de 5 sobre 10 es honesta. No son mediocres de la misma manera. UPS puede decepcionar a quien compra el dividendo, FedEx a quien compra el descuento. Para comparar con calma dos transportistas, prefiero esperar al próximo ciclo de resultados antes que elegir con una sola cifra. Puedes seguirlas en [la ficha de UPS](/analyse/UPS) y [la de FedEx](/analyse/FDX), con la [metodología completa](/methodologie). Para otra comparación de ciclos y efectivo, lee [Caterpillar frente a Deere](/blog/caterpillar-deere-comparatif-cash-machines-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "UPS o FedEx: ¿cuál paga mejor dividendo?",
+          "a": "UPS: 6,1 % de rentabilidad frente a 1,6 % de FedEx. Pero el dividendo de UPS supera su beneficio (121,9 %) y se acerca a su flujo de caja libre, mientras que el de FedEx es solo el 31,3 % del beneficio."
+        },
+        {
+          "q": "¿Por qué FedEx parece más barata de lo que es?",
+          "a": "Probablemente porque su flujo de caja libre publicado aún incluye FedEx Freight, escindida el 1 de junio de 2026, mientras que la cotización ya no incluye esa rama. Es una inferencia por verificar cuando se reexpresen las cuentas."
+        },
+        {
+          "q": "¿Qué es el flujo de caja libre?",
+          "a": "El dinero que la empresa cobra realmente tras pagar los gastos necesarios para seguir operando sus camiones, aviones y almacenes. Es lo que puede financiar un dividendo, recomprar acciones o devolver deuda."
+        },
+        {
+          "q": "¿Por qué UPS reduce sus entregas para Amazon?",
+          "a": "Porque esos paquetes dejan poco margen. UPS prefiere menos volumen y mejores márgenes, lo que explica volúmenes menores en el cuarto trimestre pese a las fiestas."
+        }
+      ],
+      "tags": [
+        "UPS",
+        "FedEx",
+        "comparativa",
+        "dividendo",
+        "escisión",
+        "transporte"
+      ],
+      "disclaimer": "Este artículo es un análisis educativo, no un consejo de inversión personalizado. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo dónde estoy."
+    }
+  }
+};
+
 export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
@@ -101545,6 +102046,6 @@ export function getArticleBySlug(slug: string): Article | undefined {
 
 /** Normalise une langue i18n quelconque vers une langue d'article supportée. */
 export function toArticleLang(lng: string | undefined | null): ArticleLang {
-  const base = (lng || 'fr').toLowerCase().split('-')[0];
+  const base = (lng || 'fr').toLowerCase().split('-')[0, articleUPSvsFDX2026];
   return base === 'en' ? 'en' : base === 'es' ? 'es' : 'fr';
 }
