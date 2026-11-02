@@ -102030,7 +102030,655 @@ const articleUPSvsFDX2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026];
+const articleAustralie2026: Article = {
+  "slug": "actions-australiennes-rea-resmed-devant-bhp-2026",
+  "date": "2026-11-02",
+  "updated": "2026-11-02",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Actions australiennes : REA et ResMed devant BHP",
+      "excerpt": "Pour un Français, l'Australie se résume à BHP et aux banques. J'ai passé trente-six valeurs de Sydney au crible : la qualité est dans les petites annonces et le médical, pas dans les mines.",
+      "metaDescription": "Actions australiennes en bourse : 36 valeurs de Sydney analysées. Où se cache la qualité, pourquoi mines et banques déçoivent, et qui est déjà trop cher.",
+      "answer": "En Australie, REA Group, ResMed et Fisher & Paykel ressortent avec 9 critères de qualité sur 10, mais aucune ne se négocie sous mon seuil d'achat : REA reste 15 % au dessus. Les mines pèsent lourd sur l'indice et déçoivent, et les banques échappent à ma méthode de prix.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Demande à un investisseur français de citer une action australienne : il répond BHP, parfois Commonwealth Bank, puis il hésite. La Bourse de Sydney est dominée par les mines et les banques, deux métiers dont la qualité se juge mal avec les outils habituels. J'ai voulu voir ce qu'il reste quand on regarde tout le reste."
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé trente-six valeurs cotées à Sydney dans ma grille (vingt-sept autres n'ont pas répondu à mes requêtes, je ne les cite donc pas). Elle juge la qualité sur 10 critères, séparément du prix : marges, croissance des ventes et du cash, nombre d'actions, dette, rendement du capital. Puis elle compare le cours au cash libre, c'est-à-dire l'argent qui reste une fois les investissements payés, pour fixer un seuil d'achat prudent. Aucune valeur n'obtient 10 sur 10."
+        },
+        {
+          "type": "h2",
+          "text": "Où se cache la qualité en Australie ?"
+        },
+        {
+          "type": "p",
+          "text": "Trois sociétés décrochent 9 critères sur 10 : REA Group, ResMed et Fisher & Paykel Healthcare. Aucune n'est un mineur, aucune n'est une banque. REA Group exploite le grand site d'annonces immobilières du pays. Son modèle est simple : le vendeur d'un bien paie pour que son annonce soit mise en avant, et REA relève le prix de ces formules plus vite que le nombre d'annonces ne bouge."
+        },
+        {
+          "type": "p",
+          "text": "Les résultats annuels publiés le 6 août 2026 le montrent : [le bénéfice de base progresse de 15 % à environ 650 M de dollars australiens](https://www.marketindex.com.au/news/rea-group-fy26-profit-up-15-dividends-beat-but-listings-growth-stalls), alors que la croissance du nombre d'annonces a calé. C'est ce qu'on appelle un pouvoir de prix : l'entreprise gagne plus sans vendre plus. Mes critères confirment la mécanique. 31,4 % des ventes deviennent du cash libre, le rendement du capital atteint 41,8 % (pour 100 dollars engagés dans l'activité, elle en sort environ 42 de cash chaque année), le cash libre par action croît de 20,6 % par an sur cinq ans et le nombre d'actions ne bouge pas. Le cash libre annuel est passé d'environ 480 M à environ 670 M de dollars australiens entre les exercices 2022 et 2025."
+        },
+        {
+          "type": "p",
+          "text": "Le bémol se trouve hors d'Australie. Le segment international, où pèse l'Inde, a perdu 38 M de dollars au niveau de l'EBITDA, et une dépréciation de 111 M sur REA India a alourdi le bénéfice comptable. Côté prix, REA se valorise 33,7 fois son cash libre. Mon seuil d'achat prudent est à 136,47 dollars australiens, soit 15 % sous le cours de 160,93. Je n'ai pas de série d'historique exploitable pour situer ce multiple dans son propre passé : je dis seulement que le marché paie déjà beaucoup de cette qualité."
+        },
+        {
+          "type": "h2",
+          "text": "ResMed et Fisher & Paykel : deux histoires voisines dans le médical"
+        },
+        {
+          "type": "p",
+          "text": "ResMed fabrique les appareils et les masques contre l'apnée du sommeil. C'est une société américaine dont les titres se négocient aussi à Sydney. Le modèle a un avantage rare : le patient change régulièrement de masque et d'accessoires, ce qui crée des ventes qui reviennent sans effort de vente. Sur quatre exercices, le chiffre d'affaires est passé d'environ 3,6 à 5,7 milliards de dollars américains et le cash libre d'environ 0,22 à 1,65 milliard, parti d'un point bas."
+        },
+        {
+          "type": "p",
+          "text": "Le trimestre publié le 29 octobre 2026 va dans le même sens : [chiffre d'affaires en hausse de 6 % à environ 1,4 milliard de dollars et marge brute de 61,5 %](https://mfn.se/all/a/resmed/resmed-inc-announces-results-for-the-first-quarter-of-fiscal-year-2027-3bb4e9d9), avec plus d'un milliard de dollars rendu aux actionnaires. Point de vigilance que la société signale elle-même : les ventes du respirateur Astral sont suspendues pour l'exercice 2027, soit environ 75 M de dollars de revenus en moins. ResMed valide 9 critères, se valorise 20,8 fois son cash libre et son cours reste 24 % au dessus de mon seuil. J'ai détaillé sa thèse dans [mon analyse de ResMed](/blog/resmed-rmd-10-sur-10-analyse-fondamentale-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Fisher & Paykel Healthcare, société néo-zélandaise cotée à Sydney, fabrique des systèmes d'assistance respiratoire pour l'hôpital et le domicile. Elle valide aussi 9 critères, avec une trésorerie nette. Un chiffre mérite une mise en garde : son cash libre par action affiche +175 % par an sur cinq ans. Ce n'est pas une performance de croisière, c'est un calcul qui part d'un creux : quand on divise par un chiffre proche de zéro, la croissance explose. Je lis plutôt le niveau actuel, et il est élevé : 57,9 fois le cash libre, avec un cours 36 % au dessus de mon seuil. La plus chère des trois."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi les mines, les banques et les assureurs déçoivent ma grille"
+        },
+        {
+          "type": "p",
+          "text": "BHP obtient 6 critères sur 10. Une société minière ne fixe pas ses prix : elle vend du minerai et du cuivre au cours du marché, alors que ses coûts, eux, ne baissent pas quand les prix reculent. Résultat, le cash suit le cycle plutôt que la qualité. Pour BHP, le cash libre est tombé d'environ 26 milliards de dollars à l'exercice 2022 à environ 11,5 milliards en 2026, alors que le chiffre d'affaires ne recule que de 65 à 59 milliards. Le cash libre par action baisse de 2,6 % par an sur cinq ans."
+        },
+        {
+          "type": "p",
+          "text": "Les résultats de l'exercice 2026, publiés le 18 août, sont pourtant bons : [le cuivre fournit 54 % de l'EBITDA, son prix réalisé a progressé de 35 % et le dividende de 1,72 dollar par action est le plus haut depuis quatre ans](https://www.miningweekly.com/article/bhp-bullish-on-copper-outlook-reports-highest-dividend-in-four-years-2026-08-18). Ma lecture : c'est un bon moment de cycle porté par un métal, pas la preuve d'un business qui s'améliore année après année. Mon seuil d'achat est à 26,68 dollars australiens pour un cours de 60,46. Fortescue illustre le piège du rendement : 7,6 % de dividende, mais un dividende qui recule d'environ 21 % par an sur cinq ans et un cash libre par action en baisse de 11 % par an. Rio Tinto n'obtient que 3 critères sur 10, avec un rendement du capital de 4,3 % et une dette de près de 3,7 ans de cash libre. Pour comprendre cette différence entre cycle et qualité, relis [ma lecture cyclique contre compounder](/blog/cyclique-ou-compounder-deux-facons-lire-action-methode-lubin)."
+        },
+        {
+          "type": "p",
+          "text": "Les banques posent un autre problème. Pour une banque, les dépôts des clients ne sont pas une dette au sens habituel, c'est sa matière première, et le cash libre est brouillé par les mouvements de prêts. Pour Commonwealth Bank, mon outil ne sort pas de seuil d'achat. Pour ANZ, il afficherait une décote de 150 %, un chiffre qui ne veut rien dire. Je ne les cite donc pas comme des bonnes affaires, comme je l'ai expliqué dans [mon article sur la valorisation des banques](/blog/valorisation-banques-pourquoi-differente-methode-lubin)."
+        },
+        {
+          "type": "p",
+          "text": "QBE, l'assureur, est un cas voisin. Il valide 8 critères et semble 80 % sous son seuil, avec seulement 6,9 fois son cash libre. Je m'en méfie. Un assureur encaisse les primes avant de payer les sinistres : une partie du cash libre qu'il affiche appartient en réalité aux sinistres à venir. Cette trésorerie flatte le multiple. Je retiens la qualité de QBE, pas la décote."
+        },
+        {
+          "type": "h2",
+          "text": "Que montre le tableau ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Critères validés",
+            "Cours (A$)",
+            "Seuil d'achat prudent (A$)",
+            "Lecture rapide"
+          ],
+          "rows": [
+            [
+              "REA Group",
+              "9 sur 10",
+              "160,93",
+              "136,47",
+              "Qualité rare, déjà payée"
+            ],
+            [
+              "ResMed",
+              "9 sur 10",
+              "33,46",
+              "25,43",
+              "Machine à cash, 24 % au dessus du seuil"
+            ],
+            [
+              "Fisher & Paykel Healthcare",
+              "9 sur 10",
+              "36,79",
+              "23,58",
+              "Excellente, la plus chère des trois"
+            ],
+            [
+              "Wesfarmers",
+              "8 sur 10",
+              "78,95",
+              "21,79",
+              "Solide, très au dessus du seuil"
+            ],
+            [
+              "Xero",
+              "8 sur 10",
+              "60,32",
+              "46,85",
+              "Dilution et marges sous pression"
+            ],
+            [
+              "Aristocrat Leisure",
+              "8 sur 10",
+              "65,01",
+              "35,42",
+              "Croissance sous mon seuil"
+            ],
+            [
+              "QBE Insurance",
+              "8 sur 10",
+              "25,82",
+              "46,55",
+              "Seuil flatté par la trésorerie d'assureur"
+            ],
+            [
+              "Fortescue",
+              "7 sur 10",
+              "14,27",
+              "3,56",
+              "Rendement élevé, cash par action en baisse"
+            ],
+            [
+              "BHP",
+              "6 sur 10",
+              "60,46",
+              "26,68",
+              "Le cuivre masque un cash en recul"
+            ],
+            [
+              "Rio Tinto",
+              "3 sur 10",
+              "145,59",
+              "19,14",
+              "Faible rendement du capital, dette lourde"
+            ],
+            [
+              "Commonwealth Bank",
+              "6 sur 10",
+              "155,39",
+              "Non exploitable (banque)",
+              "Ma méthode de prix ne s'applique pas"
+            ],
+            [
+              "ANZ",
+              "6 sur 10",
+              "40,56",
+              "Non exploitable (banque)",
+              "Idem"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Sur les sept sociétés à 8 ou 9 critères, aucune n'est sous son seuil d'achat, sauf QBE dont je discute la lecture. L'écart va de 15 % pour REA à 72 % pour Wesfarmers, dont la dette représente 3,8 ans de cash libre pour une marge de cash de 6,8 %. Xero, malgré une croissance de 20 % par an, voit son nombre d'actions augmenter de 3,1 % par an et ses marges se comprimer : la croissance est en partie payée par les actionnaires. Aristocrat, de son côté, croît à 7,4 % par an, sous mon seuil de 10 %."
+        },
+        {
+          "type": "h2",
+          "text": "Mon bilan sur Sydney"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "La qualité australienne est dans les modèles à pouvoir de prix (REA) et dans le médical (ResMed, Fisher & Paykel), pas dans les mines ni dans les banques.",
+            "Aucune des valeurs de qualité n'est sous mon seuil : la patience est la stratégie, avec REA à 15 % du seuil comme première à surveiller.",
+            "Un rendement ou une décote élevés sur une minière, une banque ou un assureur disent d'abord quelque chose du cycle ou de la comptabilité du secteur.",
+            "Un taux de croissance calculé depuis un creux (Fisher & Paykel) se lit avec prudence : regarde le niveau, pas seulement la pente."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Séparer la qualité du prix, puis expliquer pourquoi un chiffre est trompeur dans son secteur : c'est ce que j'ai voulu pouvoir faire pour n'importe quelle action, et c'est pour ça que j'ai construit mon site d'investissement. Tu peux relire [la méthodologie complète](/methodologie) et regarder [la fiche de REA Group](/analyse/REA.AX)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelle est la meilleure action australienne selon ta méthode ?",
+          "a": "REA Group, ResMed et Fisher & Paykel Healthcare sont les mieux notées, avec 9 critères sur 10. Mais toutes trois se négocient au dessus de mon seuil d'achat prudent : REA de 15 %, ResMed de 24 %, Fisher & Paykel de 36 %."
+        },
+        {
+          "q": "BHP est-elle chère en ce moment ?",
+          "a": "Son cours de 60,46 dollars australiens est environ 56 % au dessus de mon seuil de 26,68. Mais une société minière se juge mal sur un seul multiple : son cash suit le cycle du cuivre et du minerai de fer."
+        },
+        {
+          "q": "Les actions australiennes sont-elles éligibles au PEA ?",
+          "a": "Non. L'Australie est hors de l'Espace économique européen, ces titres passent par un compte titres ordinaire. Vérifie les frais de change et la fiscalité auprès de ton courtier."
+        }
+      ],
+      "tags": [
+        "actions australiennes",
+        "Bourse de Sydney",
+        "REA Group",
+        "ResMed",
+        "BHP",
+        "analyse fondamentale",
+        "cash libre"
+      ],
+      "disclaimer": "Analyse à visée informative et éducative, pas un conseil en investissement personnalisé. Les performances passées ne garantissent pas les résultats futurs. Chiffres au 2 novembre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Australian stocks: REA and ResMed ahead of BHP",
+      "excerpt": "For most investors, Australia means BHP and the banks. I ran thirty-six Sydney listed companies through my grid: quality sits in classified ads and medical devices, not in mining.",
+      "metaDescription": "Australian stocks: I analyzed 36 Sydney listed companies. Where quality hides, why miners and banks disappoint, and which names are already too expensive.",
+      "answer": "In Australia, REA Group, ResMed and Fisher & Paykel stand out with 9 of 10 quality criteria, yet none trades below my buying threshold: REA is still 15% above it. Miners weigh heavily on the index and disappoint, and banks escape my pricing method.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Ask an investor to name an Australian stock and the answer is BHP, sometimes Commonwealth Bank, then a pause. The Sydney market is dominated by miners and banks, two businesses whose quality is hard to judge with the usual tools. I wanted to see what is left when you look at everything else."
+        },
+        {
+          "type": "p",
+          "text": "I ran thirty-six Sydney listed companies through my grid (twenty-seven others did not answer my requests, so I leave them out). It judges quality on 10 criteria, separately from price: margins, growth in sales and cash, share count, debt, return on capital. Then it compares the share price with free cash flow, the money left once investments are paid, to set a prudent buying threshold. No company scores 10 out of 10."
+        },
+        {
+          "type": "h2",
+          "text": "Where does quality hide in Australia?"
+        },
+        {
+          "type": "p",
+          "text": "Three companies pass 9 criteria out of 10: REA Group, ResMed and Fisher & Paykel Healthcare. None is a miner, none is a bank. REA Group runs the country's leading property listings site. The model is simple: a seller pays to have a listing promoted, and REA raises the price of those packages faster than the number of listings moves."
+        },
+        {
+          "type": "p",
+          "text": "The annual results published on 6 August 2026 show it: [core profit rose 15% to about A$650 million](https://www.marketindex.com.au/news/rea-group-fy26-profit-up-15-dividends-beat-but-listings-growth-stalls), while growth in listings stalled. That is pricing power: the company earns more without selling more. My criteria confirm the mechanics. 31.4% of sales become free cash flow, return on capital reaches 41.8% (for every 100 dollars put into the business, about 42 come out as cash each year), free cash flow per share grows 20.6% a year over five years and the share count is flat. Annual free cash flow went from about A$480 million to about A$670 million between fiscal 2022 and 2025."
+        },
+        {
+          "type": "p",
+          "text": "The caveat lies outside Australia. The international segment, where India weighs, lost A$38 million at the EBITDA level, and an A$111 million write-down on REA India weighed on reported profit. On price, REA trades at 33.7 times its free cash flow. My prudent buying threshold is A$136.47, which is 15% below the A$160.93 price. I have no usable history to place that multiple against its own past: I only say the market already pays a lot for this quality."
+        },
+        {
+          "type": "h2",
+          "text": "ResMed and Fisher & Paykel: two neighbouring stories in medical devices"
+        },
+        {
+          "type": "p",
+          "text": "ResMed makes sleep apnea devices and masks. It is a US company whose shares also trade in Sydney. The model has a rare advantage: patients regularly replace masks and accessories, which creates sales that come back without selling effort. Over four fiscal years, revenue went from about US$3.6 billion to US$5.7 billion and free cash flow from about US$0.22 billion to US$1.65 billion, starting from a low point."
+        },
+        {
+          "type": "p",
+          "text": "The quarter published on 29 October 2026 points the same way: [revenue up 6% to about US$1.4 billion and a 61.5% gross margin](https://mfn.se/all/a/resmed/resmed-inc-announces-results-for-the-first-quarter-of-fiscal-year-2027-3bb4e9d9), with more than a billion dollars returned to shareholders. One warning the company itself gives: sales of the Astral ventilator are suspended for fiscal 2027, about US$75 million of revenue less. ResMed passes 9 criteria, trades at 20.8 times free cash flow and its price is 24% above my threshold. I detailed its case in [my ResMed analysis](/blog/resmed-rmd-10-sur-10-analyse-fondamentale-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Fisher & Paykel Healthcare, a New Zealand company listed in Sydney, makes respiratory support systems for hospitals and homes. It also passes 9 criteria, with net cash. One number deserves a warning: its free cash flow per share shows +175% a year over five years. That is not cruising speed, it is a calculation starting from a trough: divide by a figure close to zero and growth explodes. I read the current level instead, and it is high: 57.9 times free cash flow, with a price 36% above my threshold. The priciest of the three."
+        },
+        {
+          "type": "h2",
+          "text": "Why miners, banks and insurers disappoint my grid"
+        },
+        {
+          "type": "p",
+          "text": "BHP gets 6 criteria out of 10. A mining company does not set its prices: it sells ore and copper at market prices, while its costs do not fall when prices drop. As a result, cash follows the cycle rather than quality. For BHP, free cash flow fell from about US$26 billion in fiscal 2022 to about US$11.5 billion in 2026, while revenue only slipped from 65 to 59 billion. Free cash flow per share falls 2.6% a year over five years."
+        },
+        {
+          "type": "p",
+          "text": "The fiscal 2026 results, published on 18 August, are good all the same: [copper supplies 54% of EBITDA, its realised price rose 35% and the US$1.72 per share dividend is the highest in four years](https://www.miningweekly.com/article/bhp-bullish-on-copper-outlook-reports-highest-dividend-in-four-years-2026-08-18). My reading: a good moment in the cycle carried by one metal, not proof of a business improving year after year. My buying threshold is A$26.68 for a price of A$60.46. Fortescue illustrates the yield trap: a 7.6% dividend yield, but a dividend shrinking about 21% a year over five years and free cash flow per share down 11% a year. Rio Tinto only gets 3 criteria out of 10, with a 4.3% return on capital and debt of nearly 3.7 years of free cash flow. To grasp this gap between cycle and quality, read [my cyclical versus compounder lens](/blog/cyclique-ou-compounder-deux-facons-lire-action-methode-lubin)."
+        },
+        {
+          "type": "p",
+          "text": "Banks raise another problem. For a bank, customer deposits are not debt in the usual sense, they are raw material, and free cash flow is blurred by loan movements. For Commonwealth Bank, my tool produces no buying threshold. For ANZ, it would show a 150% discount, a number that means nothing. So I do not present them as bargains, as I explained in [my article on valuing banks](/blog/valorisation-banques-pourquoi-differente-methode-lubin)."
+        },
+        {
+          "type": "p",
+          "text": "QBE, the insurer, is a close case. It passes 8 criteria and looks 80% below its threshold, at only 6.9 times free cash flow. I distrust that. An insurer collects premiums before paying claims: part of the free cash flow it shows actually belongs to future claims. That float flatters the multiple. I keep QBE's quality, not the discount."
+        },
+        {
+          "type": "h2",
+          "text": "What does the table show?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Criteria passed",
+            "Price (A$)",
+            "Prudent buy threshold (A$)",
+            "Quick read"
+          ],
+          "rows": [
+            [
+              "REA Group",
+              "9 of 10",
+              "160.93",
+              "136.47",
+              "Rare quality, already paid for"
+            ],
+            [
+              "ResMed",
+              "9 of 10",
+              "33.46",
+              "25.43",
+              "Cash machine, 24% above threshold"
+            ],
+            [
+              "Fisher & Paykel Healthcare",
+              "9 of 10",
+              "36.79",
+              "23.58",
+              "Excellent, the priciest of the three"
+            ],
+            [
+              "Wesfarmers",
+              "8 of 10",
+              "78.95",
+              "21.79",
+              "Solid, far above threshold"
+            ],
+            [
+              "Xero",
+              "8 of 10",
+              "60.32",
+              "46.85",
+              "Dilution and margins under pressure"
+            ],
+            [
+              "Aristocrat Leisure",
+              "8 of 10",
+              "65.01",
+              "35.42",
+              "Growth below my bar"
+            ],
+            [
+              "QBE Insurance",
+              "8 of 10",
+              "25.82",
+              "46.55",
+              "Threshold flattered by insurer float"
+            ],
+            [
+              "Fortescue",
+              "7 of 10",
+              "14.27",
+              "3.56",
+              "High yield, falling cash per share"
+            ],
+            [
+              "BHP",
+              "6 of 10",
+              "60.46",
+              "26.68",
+              "Copper hides weaker cash"
+            ],
+            [
+              "Rio Tinto",
+              "3 of 10",
+              "145.59",
+              "19.14",
+              "Low return on capital, heavy debt"
+            ],
+            [
+              "Commonwealth Bank",
+              "6 of 10",
+              "155.39",
+              "Not usable (bank)",
+              "My pricing method does not apply"
+            ],
+            [
+              "ANZ",
+              "6 of 10",
+              "40.56",
+              "Not usable (bank)",
+              "Same"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Among the seven companies passing 8 or 9 criteria, none is below its buying threshold, except QBE whose reading I question. The gap runs from 15% for REA to 72% for Wesfarmers, whose debt equals 3.8 years of free cash flow for a cash margin of 6.8%. Xero, despite 20% annual growth, sees its share count rise 3.1% a year and its margins compress: growth is partly paid for by shareholders. Aristocrat grows 7.4% a year, below my 10% bar."
+        },
+        {
+          "type": "h2",
+          "text": "My verdict on Sydney"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Australian quality sits in pricing power models (REA) and medical devices (ResMed, Fisher & Paykel), not in mining or banks.",
+            "None of the quality names is below my threshold: patience is the strategy, with REA 15% from its threshold as the first to watch.",
+            "A high yield or a deep discount on a miner, a bank or an insurer first says something about the cycle or the sector's accounting.",
+            "A growth rate computed from a trough (Fisher & Paykel) deserves caution: look at the level, not only the slope."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Separating quality from price, then explaining why a number misleads in its sector: that is what I wanted to be able to do for any stock, and it is why I built my investing site. You can reread [the full methodology](/methodologie) and look at [the REA Group page](/analyse/REA.AX)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the best Australian stock according to your method?",
+          "a": "REA Group, ResMed and Fisher & Paykel Healthcare score best, with 9 criteria out of 10. All three trade above my prudent buying threshold: REA by 15%, ResMed by 24%, Fisher & Paykel by 36%."
+        },
+        {
+          "q": "Is BHP expensive right now?",
+          "a": "Its A$60.46 price is about 56% above my A$26.68 threshold. But a mining company is hard to judge on one multiple: its cash follows the copper and iron ore cycle."
+        },
+        {
+          "q": "Are Australian stocks eligible for a French PEA?",
+          "a": "No. Australia is outside the European Economic Area, so these shares go through an ordinary brokerage account. Check currency fees and taxation with your broker."
+        }
+      ],
+      "tags": [
+        "Australian stocks",
+        "Sydney stock exchange",
+        "REA Group",
+        "ResMed",
+        "BHP",
+        "fundamental analysis",
+        "free cash flow"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not guarantee future results. Figures as of 2 November 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that."
+    },
+    "es": {
+      "title": "Acciones australianas: REA y ResMed por delante de BHP",
+      "excerpt": "Para muchos inversores, Australia es BHP y los bancos. He pasado treinta y seis valores de Sídney por mi filtro: la calidad está en los anuncios clasificados y en lo médico, no en las minas.",
+      "metaDescription": "Acciones australianas en bolsa: analicé 36 valores de Sídney. Dónde está la calidad, por qué decepcionan minas y bancos, y cuáles ya son demasiado caras.",
+      "answer": "En Australia, REA Group, ResMed y Fisher & Paykel destacan con 9 criterios de calidad sobre 10, pero ninguna cotiza por debajo de mi umbral de compra: REA sigue un 15 % por encima. Las mineras pesan mucho en el índice y decepcionan, y los bancos escapan a mi método de precio.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Pide a un inversor que nombre una acción australiana: responde BHP, a veces Commonwealth Bank, y duda. La Bolsa de Sídney está dominada por mineras y bancos, dos negocios cuya calidad se juzga mal con las herramientas habituales. Quise ver qué queda cuando se mira todo lo demás."
+        },
+        {
+          "type": "p",
+          "text": "Pasé treinta y seis valores cotizados en Sídney por mi filtro (otros veintisiete no respondieron a mis consultas, así que no los cito). Juzga la calidad con 10 criterios, separada del precio: márgenes, crecimiento de ventas y de caja, número de acciones, deuda, rentabilidad del capital. Después compara el precio con el flujo de caja libre, el dinero que queda tras pagar las inversiones, para fijar un umbral de compra prudente. Ningún valor saca 10 sobre 10."
+        },
+        {
+          "type": "h2",
+          "text": "¿Dónde está la calidad en Australia?"
+        },
+        {
+          "type": "p",
+          "text": "Tres empresas cumplen 9 criterios sobre 10: REA Group, ResMed y Fisher & Paykel Healthcare. Ninguna es minera ni banco. REA Group explota el principal portal de anuncios inmobiliarios del país. Su modelo es simple: el vendedor paga para destacar su anuncio, y REA sube el precio de esas fórmulas más deprisa que el número de anuncios."
+        },
+        {
+          "type": "p",
+          "text": "Los resultados anuales publicados el 6 de agosto de 2026 lo muestran: [el beneficio base sube un 15 % hasta unos 650 millones de dólares australianos](https://www.marketindex.com.au/news/rea-group-fy26-profit-up-15-dividends-beat-but-listings-growth-stalls), mientras el crecimiento de anuncios se frenó. Eso es poder de fijación de precios: la empresa gana más sin vender más. Mis criterios confirman la mecánica. El 31,4 % de las ventas se convierte en caja libre, la rentabilidad del capital alcanza el 41,8 % (por cada 100 dólares puestos en el negocio, salen unos 42 de caja al año), la caja libre por acción crece un 20,6 % anual en cinco años y el número de acciones no se mueve. La caja libre anual pasó de unos 480 a unos 670 millones de dólares australianos entre los ejercicios 2022 y 2025."
+        },
+        {
+          "type": "p",
+          "text": "La pega está fuera de Australia. El segmento internacional, donde pesa la India, perdió 38 millones de dólares a nivel de EBITDA, y un deterioro de 111 millones en REA India lastró el beneficio contable. En precio, REA cotiza a 33,7 veces su caja libre. Mi umbral de compra prudente es 136,47 dólares australianos, un 15 % por debajo de los 160,93 del precio. No tengo un historial utilizable para situar ese múltiplo frente a su propio pasado: solo digo que el mercado ya paga mucho por esta calidad."
+        },
+        {
+          "type": "h2",
+          "text": "ResMed y Fisher & Paykel: dos historias vecinas en el sector médico"
+        },
+        {
+          "type": "p",
+          "text": "ResMed fabrica aparatos y mascarillas contra la apnea del sueño. Es una empresa estadounidense cuyas acciones también cotizan en Sídney. El modelo tiene una ventaja rara: el paciente cambia con regularidad de mascarilla y accesorios, lo que crea ventas que vuelven sin esfuerzo comercial. En cuatro ejercicios, la facturación pasó de unos 3.600 a 5.700 millones de dólares estadounidenses y la caja libre de unos 220 a 1.650 millones, partiendo de un punto bajo."
+        },
+        {
+          "type": "p",
+          "text": "El trimestre publicado el 29 de octubre de 2026 va en la misma línea: [ingresos un 6 % más altos, hasta unos 1.400 millones de dólares, y margen bruto del 61,5 %](https://mfn.se/all/a/resmed/resmed-inc-announces-results-for-the-first-quarter-of-fiscal-year-2027-3bb4e9d9), con más de mil millones de dólares devueltos a los accionistas. Un aviso que da la propia empresa: las ventas del respirador Astral están suspendidas durante el ejercicio 2027, unos 75 millones de dólares de ingresos menos. ResMed cumple 9 criterios, cotiza a 20,8 veces su caja libre y su precio está un 24 % por encima de mi umbral. Detallé su tesis en [mi análisis de ResMed](/blog/resmed-rmd-10-sur-10-analyse-fondamentale-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Fisher & Paykel Healthcare, empresa neozelandesa cotizada en Sídney, fabrica sistemas de apoyo respiratorio para hospital y domicilio. También cumple 9 criterios, con caja neta. Una cifra merece cautela: su caja libre por acción muestra +175 % anual en cinco años. No es velocidad de crucero, es un cálculo que parte de un mínimo: al dividir por una cifra cercana a cero, el crecimiento se dispara. Prefiero leer el nivel actual, y es alto: 57,9 veces la caja libre, con un precio un 36 % por encima de mi umbral. La más cara de las tres."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mineras, bancos y aseguradoras decepcionan a mi filtro"
+        },
+        {
+          "type": "p",
+          "text": "BHP obtiene 6 criterios sobre 10. Una minera no fija sus precios: vende mineral y cobre al precio de mercado, mientras sus costes no bajan cuando los precios caen. Resultado: la caja sigue el ciclo más que la calidad. En BHP, la caja libre cayó de unos 26.000 millones de dólares en el ejercicio 2022 a unos 11.500 millones en 2026, mientras la facturación solo baja de 65.000 a 59.000 millones. La caja libre por acción baja un 2,6 % anual en cinco años."
+        },
+        {
+          "type": "p",
+          "text": "Los resultados del ejercicio 2026, publicados el 18 de agosto, son buenos pese a todo: [el cobre aporta el 54 % del EBITDA, su precio realizado subió un 35 % y el dividendo de 1,72 dólares por acción es el más alto en cuatro años](https://www.miningweekly.com/article/bhp-bullish-on-copper-outlook-reports-highest-dividend-in-four-years-2026-08-18). Mi lectura: un buen momento de ciclo impulsado por un metal, no la prueba de un negocio que mejora año tras año. Mi umbral de compra es 26,68 dólares australianos para un precio de 60,46. Fortescue ilustra la trampa de la rentabilidad: 7,6 % de dividendo, pero un dividendo que cae cerca de un 21 % anual en cinco años y una caja libre por acción que baja un 11 % anual. Rio Tinto solo logra 3 criterios sobre 10, con una rentabilidad del capital del 4,3 % y una deuda de casi 3,7 años de caja libre. Para entender esta diferencia entre ciclo y calidad, lee [mi lectura de cíclica frente a compounder](/blog/cyclique-ou-compounder-deux-facons-lire-action-methode-lubin)."
+        },
+        {
+          "type": "p",
+          "text": "Los bancos plantean otro problema. Para un banco, los depósitos de los clientes no son deuda en el sentido habitual, son su materia prima, y la caja libre queda desdibujada por los movimientos de préstamos. Para Commonwealth Bank, mi herramienta no da umbral de compra. Para ANZ, mostraría un descuento del 150 %, una cifra que no significa nada. Por eso no los presento como gangas, como expliqué en [mi artículo sobre la valoración de bancos](/blog/valorisation-banques-pourquoi-differente-methode-lubin)."
+        },
+        {
+          "type": "p",
+          "text": "QBE, la aseguradora, es un caso cercano. Cumple 8 criterios y parece un 80 % por debajo de su umbral, con solo 6,9 veces su caja libre. Desconfío. Una aseguradora cobra las primas antes de pagar los siniestros: parte de la caja libre que muestra pertenece en realidad a siniestros futuros. Esa tesorería infla el múltiplo. Me quedo con la calidad de QBE, no con el descuento."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué muestra la tabla?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Criterios cumplidos",
+            "Precio (A$)",
+            "Umbral de compra prudente (A$)",
+            "Lectura rápida"
+          ],
+          "rows": [
+            [
+              "REA Group",
+              "9 de 10",
+              "160,93",
+              "136,47",
+              "Calidad rara, ya pagada"
+            ],
+            [
+              "ResMed",
+              "9 de 10",
+              "33,46",
+              "25,43",
+              "Máquina de caja, 24 % por encima del umbral"
+            ],
+            [
+              "Fisher & Paykel Healthcare",
+              "9 de 10",
+              "36,79",
+              "23,58",
+              "Excelente, la más cara de las tres"
+            ],
+            [
+              "Wesfarmers",
+              "8 de 10",
+              "78,95",
+              "21,79",
+              "Sólida, muy por encima del umbral"
+            ],
+            [
+              "Xero",
+              "8 de 10",
+              "60,32",
+              "46,85",
+              "Dilución y márgenes bajo presión"
+            ],
+            [
+              "Aristocrat Leisure",
+              "8 de 10",
+              "65,01",
+              "35,42",
+              "Crecimiento bajo mi listón"
+            ],
+            [
+              "QBE Insurance",
+              "8 de 10",
+              "25,82",
+              "46,55",
+              "Umbral inflado por la tesorería de aseguradora"
+            ],
+            [
+              "Fortescue",
+              "7 de 10",
+              "14,27",
+              "3,56",
+              "Rentabilidad alta, caja por acción a la baja"
+            ],
+            [
+              "BHP",
+              "6 de 10",
+              "60,46",
+              "26,68",
+              "El cobre oculta una caja más débil"
+            ],
+            [
+              "Rio Tinto",
+              "3 de 10",
+              "145,59",
+              "19,14",
+              "Baja rentabilidad del capital, deuda pesada"
+            ],
+            [
+              "Commonwealth Bank",
+              "6 de 10",
+              "155,39",
+              "No utilizable (banco)",
+              "Mi método de precio no se aplica"
+            ],
+            [
+              "ANZ",
+              "6 de 10",
+              "40,56",
+              "No utilizable (banco)",
+              "Igual"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "De las siete empresas con 8 o 9 criterios, ninguna está por debajo de su umbral de compra, salvo QBE, cuya lectura discuto. La distancia va del 15 % de REA al 72 % de Wesfarmers, cuya deuda equivale a 3,8 años de caja libre para un margen de caja del 6,8 %. Xero, pese a crecer un 20 % anual, ve subir un 3,1 % anual su número de acciones y comprimirse sus márgenes: el crecimiento lo pagan en parte los accionistas. Aristocrat crece un 7,4 % anual, por debajo de mi listón del 10 %."
+        },
+        {
+          "type": "h2",
+          "text": "Mi balance de Sídney"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "La calidad australiana está en los modelos con poder de precios (REA) y en lo médico (ResMed, Fisher & Paykel), no en minas ni bancos.",
+            "Ninguna de las empresas de calidad está bajo mi umbral: la paciencia es la estrategia, con REA a un 15 % de su umbral como primera a vigilar.",
+            "Una rentabilidad alta o un gran descuento en una minera, un banco o una aseguradora hablan primero del ciclo o de la contabilidad del sector.",
+            "Una tasa de crecimiento calculada desde un mínimo (Fisher & Paykel) se lee con cautela: mira el nivel, no solo la pendiente."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Separar la calidad del precio y luego explicar por qué una cifra engaña en su sector: eso es lo que quise poder hacer con cualquier acción, y por eso construí mi sitio de inversión. Puedes releer [la metodología completa](/methodologie) y mirar [la ficha de REA Group](/analyse/REA.AX)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuál es la mejor acción australiana según tu método?",
+          "a": "REA Group, ResMed y Fisher & Paykel Healthcare son las mejor valoradas, con 9 criterios sobre 10. Las tres cotizan por encima de mi umbral de compra prudente: REA un 15 %, ResMed un 24 %, Fisher & Paykel un 36 %."
+        },
+        {
+          "q": "¿Está cara BHP ahora mismo?",
+          "a": "Su precio de 60,46 dólares australianos está cerca de un 56 % por encima de mi umbral de 26,68. Pero una minera se juzga mal con un solo múltiplo: su caja sigue el ciclo del cobre y del mineral de hierro."
+        },
+        {
+          "q": "¿Son elegibles las acciones australianas para el PEA francés?",
+          "a": "No. Australia está fuera del Espacio Económico Europeo, así que estos valores van por una cuenta de valores ordinaria. Consulta con tu bróker las comisiones de cambio y la fiscalidad."
+        }
+      ],
+      "tags": [
+        "acciones australianas",
+        "Bolsa de Sídney",
+        "REA Group",
+        "ResMed",
+        "BHP",
+        "análisis fundamental",
+        "flujo de caja libre"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 2 de noviembre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
