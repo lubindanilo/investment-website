@@ -102682,7 +102682,613 @@ const articleAustralie2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026];
+const articleVisaMastercard2026: Article = {
+  "slug": "visa-mastercard-comparatif-meme-duopole-deux-verdicts-2026",
+  "date": "2026-11-03",
+  "updated": "2026-11-03",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Visa (V) ou Mastercard (MA) : deux verdicts en bourse",
+      "excerpt": "Même duopole des paiements, mêmes clients, mais l'une paraît chère et l'autre presque au bon prix. J'ai cherché d'où vient l'écart : une seule hypothèse pèse lourd.",
+      "metaDescription": "Visa ou Mastercard en bourse : même duopole des paiements, deux verdicts opposés. Ce que disent les derniers résultats et l'hypothèse qui explique l'écart.",
+      "answer": "Mastercard devance Visa sur la qualité mesurée : ventes en hausse de 14 % par an contre 11,6 %, et nettement plus de cash par dollar investi. Sur le prix, aucune n'est bon marché. L'écart de verdict vient d'une seule hypothèse, la croissance du cash : en l'échangeant, les deux seuils d'achat se rapprochent.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Visa et Mastercard font le même métier, dans le même ordre de grandeur, avec les mêmes clients. Pourtant mon outil rend deux verdicts opposés : Visa me paraît chère, Mastercard à peu près au bon prix. Cet écart m'a intrigué, parce qu'on ne devrait pas trouver deux réponses aussi différentes pour deux jumeaux. J'ai voulu comprendre d'où il vient, chiffres à l'appui."
+        },
+        {
+          "type": "h2",
+          "text": "Que font réellement Visa et Mastercard ?"
+        },
+        {
+          "type": "p",
+          "text": "Ni l'une ni l'autre ne prête d'argent. Quand tu paies un café par carte, ton banquier et celui du commerçant doivent se parler en quelques secondes : vérifier que ta carte est valide, que tu as les fonds, puis organiser le virement. Visa et Mastercard sont les rails sur lesquels circule cette conversation, et elles prélèvent une toute petite commission sur chaque paiement."
+        },
+        {
+          "type": "p",
+          "text": "Cette position vaut de l'or pour une raison simple : chaque nouveau commerçant et chaque nouveau porteur de carte rendent le réseau plus utile pour tous les autres. Un économiste appelle cela un effet de réseau. Le risque de crédit, lui, reste chez les banques émettrices : si tu ne rembourses pas ta carte, ce n'est pas le problème de Visa. D'où des marges nettes autour de 50 %, ce qui est exceptionnel."
+        },
+        {
+          "type": "h2",
+          "text": "Que disent leurs derniers résultats ?"
+        },
+        {
+          "type": "p",
+          "text": "Visa a publié le 27 octobre 2026 son quatrième trimestre d'exercice (clos fin septembre). Le [communiqué de Visa](https://s1.q4cdn.com/050606653/files/content_files/4Q26-Earnings-Release_vFINAL.pdf) fait état de 12,1 milliards de dollars de revenus (+13 %) et de 45,9 milliards sur l'exercice complet (+15 %). Le bénéfice par action ajusté ressort à 3,48 dollars, en hausse de 17 %. Le résultat comptable intègre une provision de 469 millions de dollars liée au contentieux sur les commissions d'interchange, et le dividende trimestriel augmente de 16 % pour atteindre 0,78 dollar."
+        },
+        {
+          "type": "p",
+          "text": "Mastercard a publié le 29 octobre 2026 son troisième trimestre. Selon son [communiqué de résultats](https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000122/ma09302026-exx991xearnings.htm), les revenus atteignent 9,807 milliards de dollars (+14 %), et le bénéfice par action ajusté 5,31 dollars. Le détail est plus parlant que le total : les services à valeur ajoutée (cybersécurité, données, lutte contre la fraude) grimpent de 19 % à 4,058 milliards, quand le réseau de paiement pur progresse de 11 %."
+        },
+        {
+          "type": "h2",
+          "text": "Laquelle grandit le plus vite sur cinq ans ?"
+        },
+        {
+          "type": "p",
+          "text": "Mastercard, et l'écart est net. Ses ventes progressent de 14,0 % par an sur cinq ans contre 11,6 % pour Visa. Le free cash flow par action, c'est à dire le cash réellement disponible pour l'actionnaire une fois toutes les dépenses payées, rapporté à une action, croît de 18,8 % par an chez Mastercard contre 12,2 % chez Visa. Sur les deux dernières années, la même mesure donne 25,5 % contre 12,7 %."
+        },
+        {
+          "type": "p",
+          "text": "Les deux rachètent aussi leurs propres actions, ce qui augmente mécaniquement la part de chaque actionnaire : le nombre d'actions baisse de 3,8 % par an chez Visa et de 2,3 % chez Mastercard. Visa rachète donc plus fort, ce qui compense en partie sa croissance plus faible, mais pas entièrement."
+        },
+        {
+          "type": "h2",
+          "text": "Quelle société transforme le mieux son capital en cash ?"
+        },
+        {
+          "type": "p",
+          "text": "Mastercard, encore. Le Cash ROCE, qui mesure le cash généré pour chaque dollar investi dans l'activité, atteint 96,5 % chez Mastercard contre 59,9 % chez Visa. Les deux chiffres sont énormes (beaucoup d'entreprises se contentent de 10 à 15 %), mais l'écart signale que Mastercard a besoin de moins de capital pour produire un dollar de cash."
+        },
+        {
+          "type": "p",
+          "text": "La tendance des marges va dans le même sens : mon outil classe les marges de Mastercard en expansion et celles de Visa en compression. C'est la nuance que le grand public ne voit pas. Visa reste plus grosse et plus rentable en valeur absolue (marge nette de 50,8 % contre 46,3 %), mais la dynamique favorise sa rivale."
+        },
+        {
+          "type": "h2",
+          "text": "Combien faut-il payer pour l'une ou l'autre ?"
+        },
+        {
+          "type": "p",
+          "text": "Aujourd'hui, le cours de Visa est de 425,51 dollars et celui de Mastercard de 658,10 dollars. Rapporté au cash généré, cela donne 43,2 fois le free cash flow pour Visa et 37,7 fois pour Mastercard. Autrement dit, tu paies l'équivalent de 43 années de cash chez Visa, 38 chez Mastercard. Pour situer : Visa est plus chère qu'environ 85 % de son propre historique, Mastercard qu'environ 75 % du sien."
+        },
+        {
+          "type": "p",
+          "text": "Les deux sont donc chères par rapport à elles-mêmes. Mais Visa l'est plus, alors que sa croissance est plus faible. Cela paraît cohérent avec mes deux verdicts, jusqu'à ce qu'on regarde comment je calcule un prix d'achat."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi deux verdicts si différents ?"
+        },
+        {
+          "type": "p",
+          "text": "Mon prix d'achat part du free cash flow par action actuel, le projette sur cinq ans avec un taux de croissance, applique un multiple de sortie (le nombre d'années de cash que le marché paiera alors), puis ramène le tout à aujourd'hui en exigeant 15 % de rendement annuel. Pour Visa, l'outil retient 10,7 % de croissance et un multiple de 34 : cela donne un prix d'achat de 276,62 dollars, soit 35 % sous le cours. Pour Mastercard, il retient 20 % de croissance et un multiple de 32 : 691,68 dollars, soit 5 % au dessus du cours actuel."
+        },
+        {
+          "type": "p",
+          "text": "Ces hypothèses ne sortent pas de nulle part : elles suivent la croissance passée de chaque société. Mais elles pèsent énormément. J'ai refait le calcul en échangeant seulement les taux de croissance. Avec 20 % pour Visa, son seuil d'achat monte de 277 à environ 414 dollars, presque le cours actuel. Avec 10,7 % pour Mastercard, le sien tombe de 692 à environ 462 dollars, soit 30 % sous le cours. Les deux verdicts se rapprochent presque complètement."
+        },
+        {
+          "type": "p",
+          "text": "Ce que ça m'apprend : l'écart entre « chère » et « au bon prix » ne tient pas à une différence de nature entre les deux sociétés, mais à une seule hypothèse, la croissance du cash pendant cinq ans. Si tu crois que Mastercard garde 20 % par an, elle est raisonnable. Si tu crois qu'elle ralentit vers le rythme de Visa, elle est aussi chère. C'est un calcul de ma part, pas une donnée publiée : une version prudente de la thèse ferait de Mastercard une valeur à surveiller, pas une aubaine."
+        },
+        {
+          "type": "h2",
+          "text": "Quels risques les deux partagent-elles ?"
+        },
+        {
+          "type": "p",
+          "text": "Le premier est judiciaire. Le ministère américain de la Justice a assigné Visa en septembre 2024, l'accusant de monopoliser le marché du débit aux États-Unis. Selon [la plainte](https://www.paymentsdive.com/news/doj-presses-visa-antitrust-case/808859/), Visa traiterait 60 % des transactions par carte de débit américaines, ce qui lui rapporterait plus de 7 milliards de dollars de frais par an. Visa conteste. Les derniers éléments que j'ai trouvés laissent entrevoir un procès en 2027 ou 2028 : à ma lecture, rien de tranché, et la date reste approximative. La provision de 469 millions de dollars du dernier trimestre vient d'un autre dossier, celui des commissions d'interchange payées par les commerçants."
+        },
+        {
+          "type": "p",
+          "text": "Le deuxième risque est la concurrence par le bas : mon outil note que les systèmes domestiques chinois comme UnionPay grignotent le volume international. Aucune des deux n'est menacée de disparition, mais cela peut peser sur la croissance que les prix actuels supposent."
+        },
+        {
+          "type": "h2",
+          "text": "Alors, laquelle regarder ?"
+        },
+        {
+          "type": "p",
+          "text": "Mon avis reste nuancé. Sur la qualité du business, Mastercard prend l'avantage par la vitesse de croissance, le cash par dollar investi et la tendance des marges. Sur le prix, aucune des deux n'est bon marché, et la différence de verdict repose sur une hypothèse de croissance que chacun peut contester. Je préfère noter les deux sur ma liste de surveillance et attendre un prix qui ne dépende pas d'un pari sur vingt pour cent."
+        },
+        {
+          "type": "p",
+          "text": "C'est le genre de lecture que je voulais pouvoir faire vite, pour n'importe quelle action : séparer la qualité du prix, et voir quelle hypothèse porte le verdict. C'est pour cela que j'ai construit mon site, avec une [fiche d'analyse de Visa](/analyse/V) et une [fiche d'analyse de Mastercard](/analyse/MA) que tu peux ouvrir côte à côte, et la [méthodologie complète](/methodologie) si tu veux voir comment je calcule."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Mesure",
+            "Visa (V)",
+            "Mastercard (MA)"
+          ],
+          "rows": [
+            [
+              "Cours (3 novembre 2026)",
+              "425,51 $",
+              "658,10 $"
+            ],
+            [
+              "Croissance des ventes sur 5 ans",
+              "11,6 % par an",
+              "14,0 % par an"
+            ],
+            [
+              "Croissance du cash par action sur 5 ans",
+              "12,2 % par an",
+              "18,8 % par an"
+            ],
+            [
+              "Baisse du nombre d'actions",
+              "3,8 % par an",
+              "2,3 % par an"
+            ],
+            [
+              "Marge nette",
+              "50,8 %",
+              "46,3 %"
+            ],
+            [
+              "Cash généré par dollar investi (Cash ROCE)",
+              "59,9 %",
+              "96,5 %"
+            ],
+            [
+              "Valorisation (fois le cash libre)",
+              "43,2",
+              "37,7"
+            ],
+            [
+              "Seuil d'achat de mon outil",
+              "276,62 $",
+              "691,68 $"
+            ],
+            [
+              "Croissance retenue pour ce seuil",
+              "10,7 % par an",
+              "20 % par an"
+            ],
+            [
+              "Seuil si on échange la croissance",
+              "environ 414 $",
+              "environ 462 $"
+            ]
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Visa ou Mastercard : laquelle est la meilleure action ?",
+          "a": "Sur la qualité mesurée, Mastercard est devant : croissance des ventes plus rapide, cash par dollar investi plus élevé, marges en expansion. Sur le prix, aucune des deux n'est bon marché. Le verdict dépend surtout de la croissance du cash que tu supposes pour les cinq prochaines années."
+        },
+        {
+          "q": "Pourquoi mon outil juge-t-il Visa chère et Mastercard non ?",
+          "a": "Parce que le calcul du prix d'achat retient 10,7 % de croissance annuelle du cash pour Visa et 20 % pour Mastercard. En échangeant seulement ces deux taux, les deux seuils se rapprochent presque du cours. C'est un calcul de ma part, pas une donnée publiée."
+        },
+        {
+          "q": "Où en est le procès du ministère de la Justice contre Visa ?",
+          "a": "Le dossier a été ouvert en septembre 2024. Les derniers éléments que j'ai trouvés évoquent un procès en 2027 ou 2028, sans date ferme ni décision. Visa conteste les accusations."
+        },
+        {
+          "q": "Qu'est-ce que le Cash ROCE ?",
+          "a": "C'est le cash généré par l'activité rapporté au capital investi dans l'entreprise. Un chiffre élevé signifie que la société produit beaucoup de cash avec peu de capital immobilisé."
+        }
+      ],
+      "tags": [
+        "Visa",
+        "Mastercard",
+        "paiements",
+        "comparatif",
+        "valorisation",
+        "duopole"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 3 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Visa (V) or Mastercard (MA): two verdicts for the stock",
+      "excerpt": "Same payments duopoly, same customers, yet one looks expensive and the other almost fairly priced. I looked for where the gap comes from: one assumption carries the weight.",
+      "metaDescription": "Visa or Mastercard stock: same payments duopoly, two opposite verdicts. What the latest results say and the single assumption that explains the gap.",
+      "answer": "Mastercard beats Visa on measured quality: sales up 14 % a year against 11.6 %, and much more cash per dollar invested. On price neither is cheap. The verdict gap comes from one assumption, cash growth: swap it and the two buy thresholds move close together.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Visa and Mastercard do the same job, at the same scale, for the same customers. Yet my tool returns two opposite verdicts: Visa looks expensive, Mastercard roughly fairly priced. That gap intrigued me, because two twins should not get such different answers. I wanted to find where it comes from, with the numbers in hand."
+        },
+        {
+          "type": "h2",
+          "text": "What do Visa and Mastercard actually do?"
+        },
+        {
+          "type": "p",
+          "text": "Neither lends any money. When you pay for a coffee by card, your bank and the merchant's bank must talk to each other within seconds: check that the card is valid, that you have the funds, then arrange the transfer. Visa and Mastercard are the rails that conversation runs on, and they take a tiny fee on every payment."
+        },
+        {
+          "type": "p",
+          "text": "That position is worth a fortune for a simple reason: each new merchant and each new cardholder make the network more useful for everyone else. Economists call this a network effect. Credit risk stays with the issuing banks: if you do not repay your card, that is not Visa's problem. Hence net margins around 50 %, which is exceptional."
+        },
+        {
+          "type": "h2",
+          "text": "What do their latest results say?"
+        },
+        {
+          "type": "p",
+          "text": "Visa reported its fiscal fourth quarter (ended in September) on 27 October 2026. The [Visa earnings release](https://s1.q4cdn.com/050606653/files/content_files/4Q26-Earnings-Release_vFINAL.pdf) shows revenue of 12.1 billion dollars (+13 %) and 45.9 billion for the full year (+15 %). Adjusted earnings per share came to 3.48 dollars, up 17 %. The reported result includes a 469 million dollar provision tied to the interchange fee litigation, and the quarterly dividend rises 16 % to 0.78 dollars."
+        },
+        {
+          "type": "p",
+          "text": "Mastercard reported its third quarter on 29 October 2026. According to its [earnings release](https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000122/ma09302026-exx991xearnings.htm), revenue reached 9.807 billion dollars (+14 %) and adjusted earnings per share 5.31 dollars. The detail says more than the total: value-added services (cybersecurity, data, fraud prevention) climbed 19 % to 4.058 billion, while the pure payment network grew 11 %."
+        },
+        {
+          "type": "h2",
+          "text": "Which one grows faster over five years?"
+        },
+        {
+          "type": "p",
+          "text": "Mastercard, and the gap is clear. Its sales grow 14.0 % a year over five years against 11.6 % for Visa. Free cash flow per share, meaning the cash really left for shareholders once all expenses are paid, divided by the number of shares, grows 18.8 % a year at Mastercard against 12.2 % at Visa. Over the last two years the same measure gives 25.5 % against 12.7 %."
+        },
+        {
+          "type": "p",
+          "text": "Both also buy back their own shares, which mechanically raises each shareholder's slice: the share count falls 3.8 % a year at Visa and 2.3 % at Mastercard. Visa buys back harder, which offsets part of its slower growth, but not all of it."
+        },
+        {
+          "type": "h2",
+          "text": "Which company turns capital into cash better?"
+        },
+        {
+          "type": "p",
+          "text": "Mastercard again. Cash ROCE, which measures the cash generated for each dollar invested in the business, reaches 96.5 % at Mastercard against 59.9 % at Visa. Both numbers are huge (many companies make do with 10 to 15 %), but the gap shows that Mastercard needs less capital to produce a dollar of cash."
+        },
+        {
+          "type": "p",
+          "text": "The margin trend points the same way: my tool classes Mastercard's margins as expanding and Visa's as compressing. That is the nuance the general public misses. Visa remains bigger and more profitable in absolute terms (net margin of 50.8 % against 46.3 %), but the momentum favours its rival."
+        },
+        {
+          "type": "h2",
+          "text": "How much do you have to pay for either?"
+        },
+        {
+          "type": "p",
+          "text": "Today Visa trades at 425.51 dollars and Mastercard at 658.10 dollars. Relative to the cash they generate, that is 43.2 times free cash flow for Visa and 37.7 times for Mastercard. In other words you pay for about 43 years of cash at Visa, 38 at Mastercard. For context: Visa is more expensive than about 85 % of its own history, Mastercard than about 75 % of its own."
+        },
+        {
+          "type": "p",
+          "text": "Both are therefore expensive relative to themselves. But Visa is more so, while its growth is lower. That seems consistent with my two verdicts, until you look at how I compute a buy price."
+        },
+        {
+          "type": "h2",
+          "text": "Why two such different verdicts?"
+        },
+        {
+          "type": "p",
+          "text": "My buy price starts from today's free cash flow per share, projects it over five years with a growth rate, applies an exit multiple (the number of years of cash the market will then pay for), then brings everything back to today while demanding a 15 % annual return. For Visa the tool uses 10.7 % growth and a multiple of 34: a buy price of 276.62 dollars, 35 % below the market price. For Mastercard it uses 20 % growth and a multiple of 32: 691.68 dollars, 5 % above the current price."
+        },
+        {
+          "type": "p",
+          "text": "These assumptions do not come from nowhere: they follow each company's past growth. But they weigh enormously. I redid the calculation swapping only the growth rates. With 20 % for Visa, its buy threshold rises from 277 to about 414 dollars, almost the current price. With 10.7 % for Mastercard, its threshold falls from 692 to about 462 dollars, 30 % below the price. The two verdicts almost fully converge."
+        },
+        {
+          "type": "p",
+          "text": "What this teaches me: the gap between expensive and fairly priced does not come from a difference in nature between the two companies, but from a single assumption, cash growth over five years. If you believe Mastercard keeps 20 % a year, it is reasonable. If you believe it slows toward Visa's pace, it is just as expensive. This is my own calculation, not published data: a cautious version of the thesis would make Mastercard a stock to watch, not a bargain."
+        },
+        {
+          "type": "h2",
+          "text": "Which risks do they share?"
+        },
+        {
+          "type": "p",
+          "text": "The first is legal. The US Department of Justice sued Visa in September 2024, accusing it of monopolising the US debit market. According to [the complaint](https://www.paymentsdive.com/news/doj-presses-visa-antitrust-case/808859/), Visa handles 60 % of US debit card transactions, earning it more than 7 billion dollars of fees a year. Visa denies it. The latest items I found point to a trial in 2027 or 2028: as I read it nothing is settled, and the date remains approximate. The 469 million dollar provision in the latest quarter comes from another case, the interchange fees paid by merchants."
+        },
+        {
+          "type": "p",
+          "text": "The second risk is competition from below: my tool notes that domestic Chinese systems such as UnionPay are nibbling at international volume. Neither is threatened with disappearance, but this can weigh on the growth that current prices assume."
+        },
+        {
+          "type": "h2",
+          "text": "So which one should you look at?"
+        },
+        {
+          "type": "p",
+          "text": "My view stays nuanced. On business quality, Mastercard has the edge through growth speed, cash per dollar invested and margin trend. On price, neither is cheap, and the verdict gap rests on a growth assumption anyone can challenge. I prefer to put both on my watch list and wait for a price that does not depend on a bet on twenty percent."
+        },
+        {
+          "type": "p",
+          "text": "This is the kind of reading I wanted to do quickly for any stock: separate quality from price, and see which assumption carries the verdict. That is why I built my site, with a [Visa analysis page](/analyse/V) and a [Mastercard analysis page](/analyse/MA) you can open side by side, and the [full methodology](/methodologie) if you want to see how I calculate."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "Visa (V)",
+            "Mastercard (MA)"
+          ],
+          "rows": [
+            [
+              "Share price (3 November 2026)",
+              "$425.51",
+              "$658.10"
+            ],
+            [
+              "Sales growth over 5 years",
+              "11.6 % a year",
+              "14.0 % a year"
+            ],
+            [
+              "Cash per share growth over 5 years",
+              "12.2 % a year",
+              "18.8 % a year"
+            ],
+            [
+              "Share count decline",
+              "3.8 % a year",
+              "2.3 % a year"
+            ],
+            [
+              "Net margin",
+              "50.8 %",
+              "46.3 %"
+            ],
+            [
+              "Cash generated per dollar invested (Cash ROCE)",
+              "59.9 %",
+              "96.5 %"
+            ],
+            [
+              "Valuation (times free cash flow)",
+              "43.2",
+              "37.7"
+            ],
+            [
+              "My tool's buy threshold",
+              "$276.62",
+              "$691.68"
+            ],
+            [
+              "Growth used for that threshold",
+              "10.7 % a year",
+              "20 % a year"
+            ],
+            [
+              "Threshold if growth is swapped",
+              "about $414",
+              "about $462"
+            ]
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Visa or Mastercard: which is the better stock?",
+          "a": "On measured quality Mastercard is ahead: faster sales growth, more cash per dollar invested, expanding margins. On price neither is cheap. The verdict mostly depends on the cash growth you assume for the next five years."
+        },
+        {
+          "q": "Why does my tool judge Visa expensive and Mastercard not?",
+          "a": "Because the buy price calculation uses 10.7 % annual cash growth for Visa and 20 % for Mastercard. Swapping just those two rates brings both thresholds close to the market price. That is my own calculation, not published data."
+        },
+        {
+          "q": "Where does the Department of Justice case against Visa stand?",
+          "a": "The case was filed in September 2024. The latest items I found point to a trial in 2027 or 2028, with no firm date or ruling. Visa denies the allegations."
+        },
+        {
+          "q": "What is Cash ROCE?",
+          "a": "It is the cash generated by the business divided by the capital invested in it. A high figure means the company produces a lot of cash with little capital tied up."
+        }
+      ],
+      "tags": [
+        "Visa",
+        "Mastercard",
+        "payments",
+        "comparison",
+        "valuation",
+        "duopoly"
+      ],
+      "disclaimer": "Educational analysis, not personalised investment advice. Past performance is no guarantee of future results. Figures as of 3 November 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Visa (V) o Mastercard (MA): dos veredictos en bolsa",
+      "excerpt": "El mismo duopolio de pagos, los mismos clientes, pero una parece cara y la otra casi a buen precio. Busqué de dónde viene la diferencia: una sola hipótesis pesa mucho.",
+      "metaDescription": "Visa o Mastercard en bolsa: el mismo duopolio de pagos, dos veredictos opuestos. Qué dicen los últimos resultados y la hipótesis que explica la diferencia.",
+      "answer": "Mastercard supera a Visa en calidad medida: ventas al 14 % anual frente al 11,6 %, y mucho más efectivo por dólar invertido. En precio, ninguna es barata. La diferencia de veredicto viene de una sola hipótesis, el crecimiento del efectivo: al intercambiarla, los dos umbrales de compra se acercan.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Visa y Mastercard hacen el mismo negocio, a la misma escala, con los mismos clientes. Sin embargo, mi herramienta da dos veredictos opuestos: Visa me parece cara, Mastercard más o menos a buen precio. Esa diferencia me intrigó, porque dos gemelas no deberían recibir respuestas tan distintas. Quise entender de dónde viene, con las cifras en la mano."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué hacen realmente Visa y Mastercard?"
+        },
+        {
+          "type": "p",
+          "text": "Ninguna presta dinero. Cuando pagas un café con tarjeta, tu banco y el del comercio deben hablar en pocos segundos: comprobar que la tarjeta es válida, que tienes fondos y organizar la transferencia. Visa y Mastercard son los raíles por los que circula esa conversación, y cobran una comisión minúscula por cada pago."
+        },
+        {
+          "type": "p",
+          "text": "Esa posición vale oro por una razón sencilla: cada nuevo comercio y cada nuevo titular de tarjeta hacen la red más útil para todos los demás. Los economistas lo llaman efecto de red. El riesgo de crédito se queda en los bancos emisores: si no pagas tu tarjeta, no es problema de Visa. De ahí unos márgenes netos en torno al 50 %, algo excepcional."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué dicen sus últimos resultados?"
+        },
+        {
+          "type": "p",
+          "text": "Visa publicó el 27 de octubre de 2026 su cuarto trimestre fiscal (cerrado en septiembre). El [comunicado de Visa](https://s1.q4cdn.com/050606653/files/content_files/4Q26-Earnings-Release_vFINAL.pdf) indica unos ingresos de 12.100 millones de dólares (+13 %) y 45.900 millones en el ejercicio completo (+15 %). El beneficio por acción ajustado fue de 3,48 dólares, un 17 % más. El resultado contable incluye una provisión de 469 millones de dólares por el litigio de las comisiones de intercambio, y el dividendo trimestral sube un 16 % hasta 0,78 dólares."
+        },
+        {
+          "type": "p",
+          "text": "Mastercard publicó el 29 de octubre de 2026 su tercer trimestre. Según su [comunicado de resultados](https://www.sec.gov/Archives/edgar/data/0001141391/000114139126000122/ma09302026-exx991xearnings.htm), los ingresos alcanzan 9.807 millones de dólares (+14 %) y el beneficio por acción ajustado 5,31 dólares. El detalle dice más que el total: los servicios de valor añadido (ciberseguridad, datos, lucha contra el fraude) suben un 19 % hasta 4.058 millones, mientras la red de pagos pura crece un 11 %."
+        },
+        {
+          "type": "h2",
+          "text": "¿Cuál crece más rápido en cinco años?"
+        },
+        {
+          "type": "p",
+          "text": "Mastercard, y la diferencia es clara. Sus ventas crecen un 14,0 % anual en cinco años frente a un 11,6 % de Visa. El free cash flow por acción, es decir, el efectivo realmente disponible para el accionista una vez pagados todos los gastos, dividido entre el número de acciones, crece un 18,8 % anual en Mastercard frente a un 12,2 % en Visa. En los dos últimos años, la misma medida da un 25,5 % frente a un 12,7 %."
+        },
+        {
+          "type": "p",
+          "text": "Ambas recompran también sus propias acciones, lo que aumenta mecánicamente la parte de cada accionista: el número de acciones baja un 3,8 % anual en Visa y un 2,3 % en Mastercard. Visa recompra con más fuerza, lo que compensa en parte su menor crecimiento, pero no del todo."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué empresa transforma mejor el capital en efectivo?"
+        },
+        {
+          "type": "p",
+          "text": "Mastercard, otra vez. El Cash ROCE, que mide el efectivo generado por cada dólar invertido en el negocio, alcanza el 96,5 % en Mastercard frente al 59,9 % en Visa. Ambas cifras son enormes (muchas empresas se conforman con un 10 a 15 %), pero la diferencia indica que Mastercard necesita menos capital para producir un dólar de efectivo."
+        },
+        {
+          "type": "p",
+          "text": "La tendencia de los márgenes va en el mismo sentido: mi herramienta clasifica los márgenes de Mastercard como en expansión y los de Visa como en compresión. Es el matiz que el gran público no ve. Visa sigue siendo más grande y más rentable en valor absoluto (margen neto del 50,8 % frente al 46,3 %), pero la dinámica favorece a su rival."
+        },
+        {
+          "type": "h2",
+          "text": "¿Cuánto hay que pagar por una u otra?"
+        },
+        {
+          "type": "p",
+          "text": "Hoy Visa cotiza a 425,51 dólares y Mastercard a 658,10 dólares. En relación con el efectivo que generan, son 43,2 veces el free cash flow para Visa y 37,7 veces para Mastercard. Dicho de otro modo, pagas unos 43 años de efectivo en Visa y 38 en Mastercard. Para situarlo: Visa es más cara que cerca del 85 % de su propio historial, Mastercard que cerca del 75 % del suyo."
+        },
+        {
+          "type": "p",
+          "text": "Las dos son, por tanto, caras respecto a sí mismas. Pero Visa lo es más, aunque su crecimiento sea menor. Parece coherente con mis dos veredictos, hasta que se mira cómo calculo un precio de compra."
+        },
+        {
+          "type": "h2",
+          "text": "¿Por qué dos veredictos tan distintos?"
+        },
+        {
+          "type": "p",
+          "text": "Mi precio de compra parte del free cash flow por acción actual, lo proyecta a cinco años con una tasa de crecimiento, aplica un múltiplo de salida (los años de efectivo que el mercado pagará entonces) y lo trae a hoy exigiendo un 15 % de rentabilidad anual. Para Visa, la herramienta usa un 10,7 % de crecimiento y un múltiplo de 34: un precio de compra de 276,62 dólares, un 35 % por debajo de la cotización. Para Mastercard usa un 20 % de crecimiento y un múltiplo de 32: 691,68 dólares, un 5 % por encima del precio actual."
+        },
+        {
+          "type": "p",
+          "text": "Estas hipótesis no salen de la nada: siguen el crecimiento pasado de cada empresa. Pero pesan muchísimo. Rehice el cálculo intercambiando solo las tasas de crecimiento. Con un 20 % para Visa, su umbral de compra sube de 277 a unos 414 dólares, casi la cotización actual. Con un 10,7 % para Mastercard, el suyo baja de 692 a unos 462 dólares, un 30 % por debajo de la cotización. Los dos veredictos casi convergen por completo."
+        },
+        {
+          "type": "p",
+          "text": "Lo que me enseña: la diferencia entre cara y a buen precio no se debe a una diferencia de naturaleza entre las dos empresas, sino a una sola hipótesis, el crecimiento del efectivo durante cinco años. Si crees que Mastercard mantiene un 20 % anual, es razonable. Si crees que se frena hacia el ritmo de Visa, es igual de cara. Es un cálculo mío, no un dato publicado: una versión prudente de la tesis haría de Mastercard un valor a vigilar, no una ganga."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué riesgos comparten?"
+        },
+        {
+          "type": "p",
+          "text": "El primero es judicial. El Departamento de Justicia de Estados Unidos demandó a Visa en septiembre de 2024, acusándola de monopolizar el mercado de débito. Según [la demanda](https://www.paymentsdive.com/news/doj-presses-visa-antitrust-case/808859/), Visa procesa el 60 % de las transacciones con tarjeta de débito estadounidenses, lo que le reportaría más de 7.000 millones de dólares anuales en comisiones. Visa lo niega. Los últimos datos que encontré apuntan a un juicio en 2027 o 2028: según mi lectura, nada está resuelto y la fecha sigue siendo aproximada. La provisión de 469 millones de dólares del último trimestre procede de otro expediente, el de las comisiones de intercambio que pagan los comercios."
+        },
+        {
+          "type": "p",
+          "text": "El segundo riesgo es la competencia desde abajo: mi herramienta señala que sistemas nacionales chinos como UnionPay recortan el volumen internacional. Ninguna está amenazada de desaparición, pero puede pesar sobre el crecimiento que suponen los precios actuales."
+        },
+        {
+          "type": "h2",
+          "text": "Entonces, ¿cuál mirar?"
+        },
+        {
+          "type": "p",
+          "text": "Mi opinión sigue matizada. En calidad del negocio, Mastercard tiene ventaja por velocidad de crecimiento, efectivo por dólar invertido y tendencia de márgenes. En precio, ninguna es barata, y la diferencia de veredicto descansa en una hipótesis de crecimiento que cualquiera puede discutir. Prefiero anotar las dos en mi lista de vigilancia y esperar un precio que no dependa de una apuesta por el veinte por ciento."
+        },
+        {
+          "type": "p",
+          "text": "Es el tipo de lectura que quería poder hacer rápido para cualquier acción: separar calidad y precio, y ver qué hipótesis sostiene el veredicto. Por eso construí mi sitio, con una [ficha de análisis de Visa](/analyse/V) y una [ficha de análisis de Mastercard](/analyse/MA) que puedes abrir una junto a otra, y la [metodología completa](/methodologie) si quieres ver cómo calculo."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Medida",
+            "Visa (V)",
+            "Mastercard (MA)"
+          ],
+          "rows": [
+            [
+              "Cotización (3 de noviembre de 2026)",
+              "425,51 $",
+              "658,10 $"
+            ],
+            [
+              "Crecimiento de las ventas en 5 años",
+              "11,6 % anual",
+              "14,0 % anual"
+            ],
+            [
+              "Crecimiento del efectivo por acción en 5 años",
+              "12,2 % anual",
+              "18,8 % anual"
+            ],
+            [
+              "Reducción del número de acciones",
+              "3,8 % anual",
+              "2,3 % anual"
+            ],
+            [
+              "Margen neto",
+              "50,8 %",
+              "46,3 %"
+            ],
+            [
+              "Efectivo generado por dólar invertido (Cash ROCE)",
+              "59,9 %",
+              "96,5 %"
+            ],
+            [
+              "Valoración (veces el efectivo libre)",
+              "43,2",
+              "37,7"
+            ],
+            [
+              "Umbral de compra de mi herramienta",
+              "276,62 $",
+              "691,68 $"
+            ],
+            [
+              "Crecimiento usado para ese umbral",
+              "10,7 % anual",
+              "20 % anual"
+            ],
+            [
+              "Umbral si se intercambia el crecimiento",
+              "unos 414 $",
+              "unos 462 $"
+            ]
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Visa o Mastercard: cuál es la mejor acción?",
+          "a": "En calidad medida, Mastercard va por delante: ventas que crecen más rápido, más efectivo por dólar invertido, márgenes en expansión. En precio, ninguna es barata. El veredicto depende sobre todo del crecimiento del efectivo que supongas para los próximos cinco años."
+        },
+        {
+          "q": "¿Por qué mi herramienta juzga cara a Visa y no a Mastercard?",
+          "a": "Porque el cálculo del precio de compra usa un 10,7 % de crecimiento anual del efectivo para Visa y un 20 % para Mastercard. Al intercambiar solo esas dos tasas, ambos umbrales se acercan a la cotización. Es un cálculo mío, no un dato publicado."
+        },
+        {
+          "q": "¿En qué punto está el caso del Departamento de Justicia contra Visa?",
+          "a": "El caso se abrió en septiembre de 2024. Los últimos datos que encontré apuntan a un juicio en 2027 o 2028, sin fecha firme ni resolución. Visa niega las acusaciones."
+        },
+        {
+          "q": "¿Qué es el Cash ROCE?",
+          "a": "Es el efectivo generado por el negocio dividido entre el capital invertido en él. Una cifra alta significa que la empresa produce mucho efectivo con poco capital inmovilizado."
+        }
+      ],
+      "tags": [
+        "Visa",
+        "Mastercard",
+        "pagos",
+        "comparativa",
+        "valoración",
+        "duopolio"
+      ],
+      "disclaimer": "Análisis educativo, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 3 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo dónde estoy."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
