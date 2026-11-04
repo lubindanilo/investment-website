@@ -103284,7 +103284,340 @@ const articleVisaMastercard2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026];
+const articleMcdSbux2026: Article = {
+  "slug": "mcdonalds-starbucks-comparatif-franchise-cafes-deux-modeles-2026",
+  "date": "2026-11-04",
+  "updated": "2026-11-04",
+  "readingTime": 5,
+  "content": {
+    "fr": {
+      "title": "McDonald's ou Starbucks : deux modèles en bourse",
+      "excerpt": "Deux chaînes que tout le monde connaît, mais l'une encaisse des loyers et l'autre sert des cafés. Cette différence de métier explique presque tout l'écart entre leurs chiffres.",
+      "metaDescription": "McDonald's ou Starbucks en bourse : l'une encaisse des loyers, l'autre emploie des armées de baristas. Ce que ce choix de modèle change pour le cash et le prix.",
+      "answer": "McDonald's gagne mieux sa vie : environ 27 % de ses ventes finissent en cash libre contre 8,5 % pour Starbucks, parce que McDonald's est surtout un bailleur qui touche des loyers et des redevances. Starbucks reprend de la vigueur, mais ni l'une ni l'autre n'est bon marché aujourd'hui.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Quand on compare McDonald's et Starbucks, on compare d'abord deux métiers que le grand public confond. Les deux vendent de la nourriture et des boissons à emporter, les deux ont des enseignes dans toutes les grandes villes. Mais l'une ressemble à une société immobilière qui loue des restaurants, l'autre à un employeur géant qui fait tourner ses propres cafés."
+        },
+        {
+          "type": "h2",
+          "text": "McDonald's, un bailleur qui vend des burgers"
+        },
+        {
+          "type": "p",
+          "text": "Fin 2025, McDonald's comptait 45 356 restaurants et environ 95 % d'entre eux étaient tenus par des franchisés, selon [son rapport annuel déposé à la SEC](https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm). Ces franchisés paient un loyer et une redevance proportionnels à leurs ventes : 10,4 milliards de dollars de loyers et 6,0 milliards de redevances en 2025. Le point clé est que ces sommes dépendent du chiffre d'affaires du restaurant, pas de son bénéfice. Le salaire des équipiers, le prix du bœuf, l'électricité : c'est le franchisé qui les encaisse."
+        },
+        {
+          "type": "p",
+          "text": "Voilà pourquoi la marge nette de McDonald's atteint 31,7 % et sa marge de cash libre 27,4 %. Le free cash flow, c'est l'argent qui reste une fois toutes les factures et les investissements payés. Sur 100 dollars de ventes, McDonald's en garde 27 environ, un niveau que presque aucune chaîne de restauration ne connaît. Le revers : la croissance est faible, 3,8 % par an sur cinq ans, et la dette représente 5,1 années de cash libre. Ce niveau d'endettement est élevé, et je le lis comme le choix d'un bailleur stable qui emprunte pour racheter ses actions (leur nombre baisse de 1,2 % par an). C'est ma lecture, pas un fait publié."
+        },
+        {
+          "type": "p",
+          "text": "Et le moteur ralentit. Au deuxième trimestre 2026, les ventes comparables américaines n'ont progressé que de 0,8 %, avec moins de clients et des prix plus hauts, d'après [le communiqué du 4 août](https://mcdonalds.mediaroom.com/2026-08-04-McDONALDS-REPORTS-SECOND-QUARTER-2026-RESULTS). Un bailleur dont les locataires vendent moins de menus finit par le sentir."
+        },
+        {
+          "type": "h2",
+          "text": "Starbucks, un employeur qui doit se réinventer"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks exploite lui-même beaucoup de ses cafés : le groupe emploie 381 000 personnes, contre 150 000 chez McDonald's. Chaque café ouvert est donc un poste de dépenses, pas un loyer encaissé. Résultat : une marge nette de 5,2 % et une marge de cash libre de 8,5 %. Le cash libre par action a même reculé de 5,2 % par an sur cinq ans, malgré des ventes en hausse de 4,8 % par an. En clair, la chaîne a vendu davantage en gagnant moins sur chaque vente."
+        },
+        {
+          "type": "p",
+          "text": "Le redressement est pourtant réel. Pour son quatrième trimestre fiscal 2026, clos le 27 septembre, Starbucks a annoncé des ventes comparables en hausse de 7,2 % dans le monde et de 7,9 % en Amérique du Nord, soit le cinquième trimestre de hausse d'affilée, et une marge d'exploitation de 10,8 % en progression de 7,9 points, selon [son communiqué du 29 octobre](https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Reports-Q4-and-Full-Fiscal-Year-2026-Results/default.aspx). Le chiffre d'affaires publié baisse de 4 % à 9,1 milliards de dollars, ce qui reflète la cession des activités en Chine. Le plan « Back to Starbucks » de Brian Niccol commence donc à produire, mais surtout en ventes et en marge d'exploitation, pas encore dans le cash par action."
+        },
+        {
+          "type": "p",
+          "text": "Un détail contre-intuitif : mon outil donne 6 sur 10 à Starbucks et 5 sur 10 à McDonald's. La note compte dix critères de qualité (croissance, marges, dette, rentabilité du capital). Starbucks marque des points avec une rentabilité du capital de 20,2 % et une dette de 3 ans de cash libre, McDonald's perd les siens sur la croissance et l'endettement. Une note n'est pas une préférence : elle ne dit rien du prix."
+        },
+        {
+          "type": "p",
+          "text": "Reste le prix. Starbucks se valorise 36,6 fois son cash libre, un niveau plus haut que 73 % de son propre historique. McDonald's se valorise 24,7 fois, plus haut que 64 % du sien. Le marché paie donc Starbucks pour un redressement qu'il anticipe, et McDonald's pour sa régularité. Mon avis : le premier prix est justifié seulement si le cash par action remonte vraiment, le second si les clients reviennent. Pour détailler chaque société, ma [fiche McDonald's](/analyse/MCD) et ma [fiche Starbucks](/analyse/SBUX) donnent les séries complètes, et ma [méthodologie](/methodologie) explique chaque critère. L'outil indique que McDonald's publie ses résultats du troisième trimestre ce 4 novembre : les chiffres ci-dessus sont donc ceux d'avant cette publication."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Mesure",
+            "McDonald's (MCD)",
+            "Starbucks (SBUX)"
+          ],
+          "rows": [
+            [
+              "Cours au 4 novembre 2026",
+              "263,04 $",
+              "104,77 $"
+            ],
+            [
+              "Marge nette",
+              "31,7 %",
+              "5,2 %"
+            ],
+            [
+              "Marge de cash libre",
+              "27,4 %",
+              "8,5 %"
+            ],
+            [
+              "Croissance des ventes sur 5 ans",
+              "3,8 % par an",
+              "4,8 % par an"
+            ],
+            [
+              "Cash libre par action sur 5 ans",
+              "+4,3 % par an",
+              "-5,2 % par an"
+            ],
+            [
+              "Dette en années de cash libre",
+              "5,1",
+              "3,0"
+            ],
+            [
+              "Valorisation en multiple du cash libre",
+              "24,7 fois",
+              "36,6 fois"
+            ],
+            [
+              "Rendement du dividende",
+              "2,9 %",
+              "2,4 %"
+            ]
+          ]
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "McDonald's",
+        "Starbucks",
+        "restauration",
+        "franchise",
+        "comparatif",
+        "valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 4 novembre 2026, avant la publication des résultats trimestriels de McDonald's. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "McDonald's or Starbucks: two business models in the stock market",
+      "excerpt": "Two chains everyone knows, but one collects rent and the other serves coffee. That difference in business explains most of the gap in their numbers.",
+      "metaDescription": "McDonald's or Starbucks as stocks: one collects rent, the other runs armies of baristas. What that choice of model changes for cash and price.",
+      "answer": "McDonald's earns a better living: about 27% of its sales end up as free cash against 8.5% for Starbucks, because McDonald's is mostly a landlord collecting rent and royalties. Starbucks is regaining strength, but neither stock is cheap today.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Comparing McDonald's and Starbucks means comparing two businesses the public tends to mix up. Both sell food and drinks to go, both have outlets in every big city. But one looks like a real estate company renting out restaurants, the other like a giant employer running its own cafés."
+        },
+        {
+          "type": "h2",
+          "text": "McDonald's, a landlord that sells burgers"
+        },
+        {
+          "type": "p",
+          "text": "At the end of 2025, McDonald's had 45,356 restaurants and about 95% were run by franchisees, according to [its annual report filed with the SEC](https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm). Franchisees pay rent and a royalty tied to their sales: $10.4 billion in rent and $6.0 billion in royalties in 2025. The key point is that these payments depend on a restaurant's revenue, not its profit. Crew wages, the price of beef, electricity: the franchisee absorbs them."
+        },
+        {
+          "type": "p",
+          "text": "That is why McDonald's net margin reaches 31.7% and its free cash margin 27.4%. Free cash flow is the money left after all bills and investments are paid. Out of $100 of sales, McDonald's keeps about $27, a level almost no restaurant chain reaches. The flip side: growth is slow, 3.8% a year over five years, and debt equals 5.1 years of free cash. That is a high level of debt, and I read it as the choice of a stable landlord that borrows to buy back shares (the count falls 1.2% a year). That is my reading, not a published fact."
+        },
+        {
+          "type": "p",
+          "text": "And the engine is slowing. In the second quarter of 2026, US comparable sales rose only 0.8%, with fewer guests and higher prices, according to [the August 4 release](https://mcdonalds.mediaroom.com/2026-08-04-McDONALDS-REPORTS-SECOND-QUARTER-2026-RESULTS). A landlord whose tenants sell fewer meals eventually feels it."
+        },
+        {
+          "type": "h2",
+          "text": "Starbucks, an employer that has to reinvent itself"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks runs many of its cafés itself: the group employs 381,000 people against 150,000 at McDonald's. Every café opened is a cost line, not rent collected. The result: a 5.2% net margin and an 8.5% free cash margin. Free cash per share even fell 5.2% a year over five years, despite sales growing 4.8% a year. In short, the chain sold more while earning less on each sale."
+        },
+        {
+          "type": "p",
+          "text": "The recovery is real, though. For its fiscal fourth quarter 2026, ended September 27, Starbucks reported comparable sales up 7.2% worldwide and 7.9% in North America, the fifth straight quarter of growth, and an operating margin of 10.8%, up 7.9 points, per [its October 29 release](https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Reports-Q4-and-Full-Fiscal-Year-2026-Results/default.aspx). Reported revenue fell 4% to $9.1 billion, reflecting the sale of its China business. Brian Niccol's \"Back to Starbucks\" plan is starting to deliver, but mostly in sales and operating margin, not yet in cash per share."
+        },
+        {
+          "type": "p",
+          "text": "One counterintuitive detail: my tool gives Starbucks 6 out of 10 and McDonald's 5 out of 10. The score counts ten quality criteria (growth, margins, debt, return on capital). Starbucks earns points with a 20.2% return on capital and debt of 3 years of free cash, McDonald's loses its points on growth and debt. A score is not a preference: it says nothing about price."
+        },
+        {
+          "type": "p",
+          "text": "Then there is price. Starbucks is valued at 36.6 times its free cash, higher than 73% of its own history. McDonald's is valued at 24.7 times, higher than 64% of its own. The market pays for Starbucks' expected recovery and for McDonald's consistency. My view: the first price is justified only if cash per share really rebounds, the second if customers come back. For the full series, see my [McDonald's page](/analyse/MCD) and [Starbucks page](/analyse/SBUX), and my [methodology](/methodologie) explains each criterion. The tool lists McDonald's third quarter results for November 4: the figures above are therefore from before that release."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Measure",
+            "McDonald's (MCD)",
+            "Starbucks (SBUX)"
+          ],
+          "rows": [
+            [
+              "Price on November 4, 2026",
+              "$263.04",
+              "$104.77"
+            ],
+            [
+              "Net margin",
+              "31.7%",
+              "5.2%"
+            ],
+            [
+              "Free cash margin",
+              "27.4%",
+              "8.5%"
+            ],
+            [
+              "Sales growth over 5 years",
+              "3.8% a year",
+              "4.8% a year"
+            ],
+            [
+              "Free cash per share over 5 years",
+              "+4.3% a year",
+              "-5.2% a year"
+            ],
+            [
+              "Debt in years of free cash",
+              "5.1",
+              "3.0"
+            ],
+            [
+              "Valuation as a multiple of free cash",
+              "24.7 times",
+              "36.6 times"
+            ],
+            [
+              "Dividend yield",
+              "2.9%",
+              "2.4%"
+            ]
+          ]
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "McDonald's",
+        "Starbucks",
+        "restaurants",
+        "franchise",
+        "comparison",
+        "valuation"
+      ],
+      "disclaimer": "Educational analysis, not personalised investment advice. Past performance is no guarantee of future results. Figures as of 4 November 2026, before McDonald's quarterly results. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "McDonald's o Starbucks: dos modelos de negocio en bolsa",
+      "excerpt": "Dos cadenas que todo el mundo conoce, pero una cobra alquileres y la otra sirve cafés. Esa diferencia de oficio explica casi toda la brecha entre sus cifras.",
+      "metaDescription": "McDonald's o Starbucks en bolsa: una cobra alquileres, la otra emplea ejércitos de baristas. Lo que esa elección de modelo cambia en caja y en precio.",
+      "answer": "McDonald's gana mejor: cerca del 27 % de sus ventas acaba como caja libre frente al 8,5 % de Starbucks, porque McDonald's es sobre todo un arrendador que cobra alquileres y regalías. Starbucks recupera fuerza, pero ninguna de las dos acciones está barata hoy.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Comparar McDonald's y Starbucks es comparar dos oficios que el gran público confunde. Las dos venden comida y bebida para llevar, las dos tienen locales en todas las grandes ciudades. Pero una se parece a una inmobiliaria que alquila restaurantes y la otra a un gigantesco empleador que gestiona sus propias cafeterías."
+        },
+        {
+          "type": "h2",
+          "text": "McDonald's, un arrendador que vende hamburguesas"
+        },
+        {
+          "type": "p",
+          "text": "A finales de 2025, McDonald's tenía 45.356 restaurantes y cerca del 95 % eran explotados por franquiciados, según [su informe anual presentado a la SEC](https://www.sec.gov/Archives/edgar/data/63908/000006390826000035/mcd-20251231.htm). Los franquiciados pagan un alquiler y una regalía proporcionales a sus ventas: 10.400 millones de dólares en alquileres y 6.000 millones en regalías en 2025. Lo esencial es que esos pagos dependen de la facturación del restaurante, no de su beneficio. Los sueldos, el precio de la carne, la electricidad: los asume el franquiciado."
+        },
+        {
+          "type": "p",
+          "text": "Por eso el margen neto de McDonald's llega al 31,7 % y su margen de caja libre al 27,4 %. El flujo de caja libre es el dinero que queda tras pagar todas las facturas e inversiones. De cada 100 dólares de ventas, McDonald's conserva unos 27, un nivel que casi ninguna cadena de restauración alcanza. La otra cara: el crecimiento es bajo, 3,8 % anual en cinco años, y la deuda equivale a 5,1 años de caja libre. Es un nivel de deuda alto, y lo leo como la elección de un arrendador estable que se endeuda para recomprar acciones (su número baja un 1,2 % al año). Es mi lectura, no un dato publicado."
+        },
+        {
+          "type": "p",
+          "text": "Y el motor se frena. En el segundo trimestre de 2026, las ventas comparables en Estados Unidos solo subieron un 0,8 %, con menos clientes y precios más altos, según [el comunicado del 4 de agosto](https://mcdonalds.mediaroom.com/2026-08-04-McDONALDS-REPORTS-SECOND-QUARTER-2026-RESULTS). Un arrendador cuyos inquilinos venden menos menús acaba notándolo."
+        },
+        {
+          "type": "h2",
+          "text": "Starbucks, un empleador que tiene que reinventarse"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks gestiona directamente muchas de sus cafeterías: el grupo emplea a 381.000 personas, frente a 150.000 en McDonald's. Cada cafetería abierta es un gasto, no un alquiler cobrado. Resultado: un margen neto del 5,2 % y un margen de caja libre del 8,5 %. La caja libre por acción incluso retrocedió un 5,2 % anual en cinco años, pese a unas ventas que crecieron un 4,8 % anual. En resumen, la cadena vendió más ganando menos por cada venta."
+        },
+        {
+          "type": "p",
+          "text": "La recuperación, sin embargo, es real. En su cuarto trimestre fiscal de 2026, cerrado el 27 de septiembre, Starbucks anunció ventas comparables al alza del 7,2 % en el mundo y del 7,9 % en Norteamérica, el quinto trimestre consecutivo de crecimiento, y un margen operativo del 10,8 %, 7,9 puntos más, según [su comunicado del 29 de octubre](https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Reports-Q4-and-Full-Fiscal-Year-2026-Results/default.aspx). La facturación publicada baja un 4 % hasta 9.100 millones de dólares, reflejo de la cesión de su negocio en China. El plan « Back to Starbucks » de Brian Niccol empieza a dar resultados, pero sobre todo en ventas y margen operativo, todavía no en caja por acción."
+        },
+        {
+          "type": "p",
+          "text": "Un detalle contraintuitivo: mi herramienta da 6 sobre 10 a Starbucks y 5 sobre 10 a McDonald's. La nota cuenta diez criterios de calidad (crecimiento, márgenes, deuda, rentabilidad del capital). Starbucks suma con una rentabilidad del capital del 20,2 % y una deuda de 3 años de caja libre, McDonald's pierde sus puntos en crecimiento y endeudamiento. Una nota no es una preferencia: no dice nada del precio."
+        },
+        {
+          "type": "p",
+          "text": "Queda el precio. Starbucks se valora en 36,6 veces su caja libre, por encima del 73 % de su propio historial. McDonald's, en 24,7 veces, por encima del 64 % del suyo. El mercado paga a Starbucks una recuperación que anticipa y a McDonald's su regularidad. Mi opinión: el primer precio solo se justifica si la caja por acción remonta de verdad, el segundo si los clientes vuelven. Para las series completas, mi [ficha de McDonald's](/analyse/MCD) y mi [ficha de Starbucks](/analyse/SBUX), y mi [metodología](/methodologie) explica cada criterio. La herramienta indica que McDonald's publica sus resultados del tercer trimestre el 4 de noviembre: las cifras de arriba son, pues, anteriores a esa publicación."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Medida",
+            "McDonald's (MCD)",
+            "Starbucks (SBUX)"
+          ],
+          "rows": [
+            [
+              "Cotización el 4 de noviembre de 2026",
+              "263,04 $",
+              "104,77 $"
+            ],
+            [
+              "Margen neto",
+              "31,7 %",
+              "5,2 %"
+            ],
+            [
+              "Margen de caja libre",
+              "27,4 %",
+              "8,5 %"
+            ],
+            [
+              "Crecimiento de ventas en 5 años",
+              "3,8 % anual",
+              "4,8 % anual"
+            ],
+            [
+              "Caja libre por acción en 5 años",
+              "+4,3 % anual",
+              "-5,2 % anual"
+            ],
+            [
+              "Deuda en años de caja libre",
+              "5,1",
+              "3,0"
+            ],
+            [
+              "Valoración en múltiplo de caja libre",
+              "24,7 veces",
+              "36,6 veces"
+            ],
+            [
+              "Rentabilidad por dividendo",
+              "2,9 %",
+              "2,4 %"
+            ]
+          ]
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "McDonald's",
+        "Starbucks",
+        "restauración",
+        "franquicia",
+        "comparativa",
+        "valoración"
+      ],
+      "disclaimer": "Análisis educativo, no un consejo de inversión personalizado. La rentabilidad pasada no garantiza resultados futuros. Cifras a 4 de noviembre de 2026, antes de los resultados trimestrales de McDonald's. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo dónde estoy."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
