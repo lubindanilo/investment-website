@@ -103621,7 +103621,541 @@ const articleMcdSbux2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026];
+const articleNkeLulu2026: Article = {
+  "slug": "nike-lululemon-comparatif-action-chere-action-bradee-2026",
+  "date": "2026-11-05",
+  "updated": "2026-11-05",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Nike ou Lululemon : l'action chère ou l'action bradée",
+      "excerpt": "Deux marques de sport que tout le monde connaît, et deux cours de bourse que tout oppose. L'une se négocie très cher pour un cash en chute, l'autre au plus bas de son histoire. Et la nouvelle patronne de la seconde vient de la première.",
+      "metaDescription": "Nike ou Lululemon en bourse : l'une est chère malgré un cash en recul, l'autre bradée. Ce qui les sépare, et pourquoi une ex-Nike dirige Lululemon.",
+      "answer": "Sur la qualité du business, Lululemon est devant : environ 11 % de ses ventes finissent en cash libre contre 3 % pour Nike, et elle n'a pas de dette nette. Sur le prix, l'écart est encore plus net. Mais ses ventes américaines reculent, et son nouveau patron est une ancienne dirigeante de Nike.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Nike et Lululemon vendent la même chose en apparence : des vêtements et des chaussures de sport, avec une image forte. Pourtant, en bourse, tout les oppose en ce moment. L'une est valorisée comme si le redressement était acquis, l'autre comme si elle était condamnée. Je mets leurs chiffres côte à côte, puis j'explique ce que chaque prix suppose."
+        },
+        {
+          "type": "h2",
+          "text": "Les chiffres côte à côte"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Critère",
+            "Nike (NKE)",
+            "Lululemon (LULU)"
+          ],
+          "rows": [
+            [
+              "Taille en bourse",
+              "53 Md$",
+              "11,9 Md$"
+            ],
+            [
+              "Note de qualité (sur 10 critères)",
+              "4 sur 10",
+              "8 sur 10"
+            ],
+            [
+              "Évolution des ventes sur 5 ans",
+              "-0,2 % par an",
+              "+14,8 % par an"
+            ],
+            [
+              "Cash libre en % des ventes",
+              "3,2 %",
+              "10,8 %"
+            ],
+            [
+              "Évolution du cash libre par action",
+              "-16,1 % par an",
+              "+21,3 % par an"
+            ],
+            [
+              "Rentabilité du capital investi (Cash ROCE)",
+              "7,4 %",
+              "23,0 %"
+            ],
+            [
+              "Dette nette en années de cash libre",
+              "0,26 an",
+              "aucune (trésorerie nette)"
+            ],
+            [
+              "Nombre d'actions",
+              "-2,2 % par an",
+              "-2,0 % par an"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le cash libre (free cash flow) est l'argent qui reste vraiment dans les caisses une fois les factures et les investissements payés. Chez Nike, il est passé de 6,6 milliards de dollars en 2024 à 2,2 milliards sur l'exercice clos fin mai 2026, alors que les ventes se sont à peine déplacées (46,4 milliards, contre 51,4 il y a deux ans). Autrement dit, la marque vend à peu près autant, mais garde trois fois moins. C'est le signe d'un business qui dépense davantage pour défendre ses ventes : remises, relance du marketing, refonte du réseau."
+        },
+        {
+          "type": "p",
+          "text": "Le Cash ROCE mesure ce que rapporte chaque dollar investi dans l'activité. Nike est à 7,4 %, loin du seuil de 15 % que je demande, alors que Lululemon à 23 % montre un modèle qui crée beaucoup de valeur avec peu de capital. Chez Lululemon, les ventes ont plus que doublé en cinq ans, de 4,4 à 11,1 milliards de dollars, et le nombre d'actions a baissé de 9 % grâce aux rachats."
+        },
+        {
+          "type": "h2",
+          "text": "Nike : une réorganisation payée par le cash"
+        },
+        {
+          "type": "p",
+          "text": "Pour son premier trimestre de l'exercice 2027, clos fin août, Nike a annoncé un chiffre d'affaires de 11,2 milliards de dollars, en baisse de 4 %, avec la vente directe (boutiques et site) en recul de 8 % et Converse en chute de 28 %, selon [son communiqué du 1er octobre](https://about.nike.com/en/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results). Le point positif est la marge brute, en hausse de 60 points de base à 42,8 %. Le point d'attention est la guidance : Nike s'attend à une baisse de ses ventes annuelles à un chiffre élevé, et lance un plan de transformation visant 2,5 milliards de dollars d'économies d'ici 2031, pour environ 1 milliard de charges de restructuration."
+        },
+        {
+          "type": "p",
+          "text": "C'est un redressement long, sous la direction d'Elliott Hill, et il est visible dans les chiffres : la marge se reconstruit, les ventes pas encore. Le prix, lui, est déjà ailleurs. Nike se valorise 40,9 fois son cash libre, plus cher que 71 % de son propre historique. Le marché paie donc aujourd'hui un retour à la normale qui n'est pas dans les comptes. Mon modèle, qui projette le cash libre par action sur la base des cinq dernières années, place le prix d'achat raisonnable très loin sous le cours actuel. Je ne tire pas de ce chiffre une prévision, seulement le constat que le cours anticipe beaucoup."
+        },
+        {
+          "type": "h2",
+          "text": "Lululemon : la décote d'une marque qui trébuche"
+        },
+        {
+          "type": "p",
+          "text": "Lululemon, c'est l'histoire inverse : un business de très bonne qualité, mais qui déçoit sur son marché principal. Au deuxième trimestre, clos début août, les ventes ont reculé de 4 % à 2,4 milliards de dollars et les ventes comparables de 9 %, avec un recul de 12 % en Amérique, d'après [le communiqué du 3 septembre](https://corporate.lululemon.com/newsroom/press-releases/2026/09-03-2026-210528733). L'international progresse de 4 %. La société a aussi abaissé sa prévision annuelle à 10,35 à 10,5 milliards de dollars, et attend une baisse de 10 à 11 % au troisième trimestre."
+        },
+        {
+          "type": "p",
+          "text": "Un détail change la lecture du bénéfice : le résultat par action de 2,92 dollars inclut 0,86 dollar de remboursements de droits de douane, qui ne se répéteront pas. Hors cet effet, on retombe à 2,06 dollars, et c'est ce chiffre que je retiens. Autre point à comprendre : le délai d'encaissement net de Lululemon est de 108 jours, ce qui est mauvais. Pour une marque de vêtements, il traduit surtout les stocks qui restent sur les étagères avant de se vendre, et c'est le premier endroit où le ralentissement se voit."
+        },
+        {
+          "type": "p",
+          "text": "Le prix reflète ce malaise : 10,7 fois le cash libre, plus bas que 99 % de son historique. C'est une très forte décote. Mais elle n'est pas gratuite : le cash libre par action a reculé de 20 % sur deux ans, et mon modèle fixe un prix d'achat raisonnable autour de 68 dollars, contre 112 dollars aujourd'hui. La décote est donc réelle, mais elle ne suffit pas encore pour que le prix soit raisonnable selon mes critères."
+        },
+        {
+          "type": "h2",
+          "text": "Le détail qui relie les deux entreprises"
+        },
+        {
+          "type": "p",
+          "text": "Le 22 avril 2026, Lululemon a nommé Heidi O'Neill directrice générale, selon [l'annonce de la société](https://www.businesswire.com/news/home/20260422757485/en/). Elle a passé plus de 25 ans chez Nike, où elle dirigeait le pôle consommateur, produit et marque. Elle a pris ses fonctions le 8 septembre, après le départ de Calvin McDonald en janvier et des mois d'intérim. Le fondateur Chip Wilson critique ouvertement la direction depuis un moment."
+        },
+        {
+          "type": "p",
+          "text": "Je lis ce choix comme un pari sur le produit : Lululemon cherche à retrouver des nouveautés qui font parler, ce que Nike sait faire quand il fonctionne. C'est mon interprétation, pas un fait publié. Le risque est qu'une nouvelle direction mette plusieurs trimestres à changer la trajectoire, et les prochains résultats arrivent vite : le 9 décembre pour Lululemon et le 16 décembre pour Nike. Pour aller plus loin sur chaque société, ma [fiche Nike](/analyse/NKE) et ma [fiche Lululemon](/analyse/LULU) donnent les séries complètes, et ma [méthodologie](/methodologie) explique les dix critères."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que je retiens du duel"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Question",
+            "Nike",
+            "Lululemon"
+          ],
+          "rows": [
+            [
+              "Qualité du business",
+              "Faible aujourd'hui, en reconstruction",
+              "Élevée, mais ventes américaines en recul"
+            ],
+            [
+              "Ce que le prix suppose",
+              "Un redressement complet",
+              "Une stagnation durable"
+            ],
+            [
+              "Ce qui doit se passer",
+              "Les ventes doivent repartir",
+              "Les Américains doivent revenir"
+            ],
+            [
+              "Mon verdict sur le prix",
+              "Cher",
+              "Bradé mais pas encore raisonnable selon mon modèle"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Si je devais décider entre les deux sur la seule question « où le prix est-il le plus prudent ? », la réponse serait Lululemon, parce que son prix suppose peu et que la qualité est là. Mais ce n'est pas une certitude : l'action peut rester bon marché tant que les ventes américaines reculent. Chez Nike, le risque est inverse : un très bon scénario est déjà dans le cours."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Nike ou Lululemon : laquelle a le meilleur business ?",
+          "a": "Lululemon sur les chiffres actuels : 10,8 % de cash libre sur les ventes contre 3,2 % pour Nike, un Cash ROCE de 23 % contre 7,4 % et aucune dette nette. Nike reste une marque bien plus grande et plus diversifiée, mais elle est en pleine reconstruction."
+        },
+        {
+          "q": "Lululemon est-elle vraiment moins chère que Nike ?",
+          "a": "Oui sur le cash libre : 10,7 fois contre 40,9 fois, et plus bas que 99 % de son propre historique. Mais mon modèle place le prix d'achat raisonnable de Lululemon autour de 68 dollars, sous les 112 dollars actuels, donc la décote ne suffit pas à elle seule."
+        },
+        {
+          "q": "Pourquoi une ancienne dirigeante de Nike dirige-t-elle Lululemon ?",
+          "a": "Heidi O'Neill, 25 ans chez Nike, a été nommée directrice générale de Lululemon le 22 avril 2026 pour remonter une marque dont les ventes américaines reculent. Son parcours est surtout celui d'une spécialiste du produit et de la marque."
+        }
+      ],
+      "tags": [
+        "Nike",
+        "Lululemon",
+        "sportswear",
+        "comparatif",
+        "valorisation",
+        "direction"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 5 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Nike or Lululemon: the pricey stock or the discounted one",
+      "excerpt": "Two sportswear brands everyone knows, and two share prices that could not be more different. One trades at a high price on falling cash, the other near the lowest valuation in its history. And the second one's new boss comes from the first.",
+      "metaDescription": "Nike or Lululemon as stocks: one is pricey despite falling cash, the other discounted. What sets them apart, and why an ex-Nike executive runs Lululemon.",
+      "answer": "On business quality, Lululemon is ahead: about 11% of its sales end up as free cash against 3% for Nike, and it has no net debt. On price the gap is even wider. But its US sales are falling, and its new chief executive is a former Nike executive.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Nike and Lululemon seem to sell the same thing: sports clothing and shoes with a strong image. Yet in the stock market everything sets them apart right now. One is priced as if the turnaround were guaranteed, the other as if it were doomed. I put their numbers side by side, then explain what each price assumes."
+        },
+        {
+          "type": "h2",
+          "text": "The numbers side by side"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterion",
+            "Nike (NKE)",
+            "Lululemon (LULU)"
+          ],
+          "rows": [
+            [
+              "Market value",
+              "$53bn",
+              "$11.9bn"
+            ],
+            [
+              "Quality score (10 criteria)",
+              "4 out of 10",
+              "8 out of 10"
+            ],
+            [
+              "Sales growth over 5 years",
+              "-0.2% a year",
+              "+14.8% a year"
+            ],
+            [
+              "Free cash as % of sales",
+              "3.2%",
+              "10.8%"
+            ],
+            [
+              "Free cash per share growth",
+              "-16.1% a year",
+              "+21.3% a year"
+            ],
+            [
+              "Return on invested capital (Cash ROCE)",
+              "7.4%",
+              "23.0%"
+            ],
+            [
+              "Net debt in years of free cash",
+              "0.26 year",
+              "none (net cash)"
+            ],
+            [
+              "Share count",
+              "-2.2% a year",
+              "-2.0% a year"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Free cash flow is the money that really stays in the till once bills and investments are paid. At Nike it fell from $6.6 billion in 2024 to $2.2 billion for the year ended May 2026, while sales barely moved ($46.4 billion, versus $51.4 billion two years ago). In other words the brand sells about as much but keeps three times less. That is the sign of a business spending more to defend its sales: discounts, marketing relaunch, a rebuilt network."
+        },
+        {
+          "type": "p",
+          "text": "Cash ROCE measures what each dollar invested in the business earns. Nike is at 7.4%, far from the 15% bar I ask for, while Lululemon at 23% shows a model that creates a lot of value with little capital. At Lululemon, sales more than doubled in five years, from $4.4 billion to $11.1 billion, and the share count fell 9% thanks to buybacks."
+        },
+        {
+          "type": "h2",
+          "text": "Nike: a reorganisation paid for with cash"
+        },
+        {
+          "type": "p",
+          "text": "For its fiscal 2027 first quarter, ended in August, Nike reported revenue of $11.2 billion, down 4%, with direct sales (stores and website) down 8% and Converse down 28%, according to [its October 1 release](https://about.nike.com/en/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results). The positive point is gross margin, up 60 basis points to 42.8%. The point to watch is guidance: Nike expects full-year sales to fall by a high single digit, and is launching a transformation plan targeting $2.5 billion of savings by 2031, for about $1 billion of restructuring charges."
+        },
+        {
+          "type": "p",
+          "text": "This is a long turnaround under Elliott Hill, and it shows in the numbers: margin is being rebuilt, sales not yet. The price, though, is already elsewhere. Nike is valued at 40.9 times its free cash flow, higher than 71% of its own history. The market is paying today for a return to normal that is not in the accounts. My model, which projects free cash per share from the last five years, puts a reasonable purchase price far below the current share price. I do not read a forecast into that figure, only the observation that the price anticipates a lot."
+        },
+        {
+          "type": "h2",
+          "text": "Lululemon: the discount of a brand that stumbled"
+        },
+        {
+          "type": "p",
+          "text": "Lululemon is the opposite story: a very good quality business that disappoints in its main market. In the second quarter, ended in early August, sales fell 4% to $2.4 billion and comparable sales fell 9%, with a 12% drop in the Americas, according to [the September 3 release](https://corporate.lululemon.com/newsroom/press-releases/2026/09-03-2026-210528733). International grew 4%. The company also cut its full-year outlook to $10.35 to $10.5 billion, and expects a 10 to 11% decline in the third quarter."
+        },
+        {
+          "type": "p",
+          "text": "One detail changes how to read earnings: the $2.92 earnings per share includes $0.86 of tariff refunds, which will not repeat. Without that effect it falls back to $2.06, and that is the figure I keep. Another point to understand: Lululemon's net cash conversion cycle is 108 days, which is poor. For an apparel brand it mostly reflects inventory sitting on shelves before it sells, and it is the first place a slowdown shows up."
+        },
+        {
+          "type": "p",
+          "text": "The price reflects that unease: 10.7 times free cash flow, lower than 99% of its history. That is a very large discount. But it is not free: free cash per share fell 20% over two years, and my model sets a reasonable purchase price around $68, against $112 today. The discount is real, but it is not yet enough to make the price reasonable under my criteria."
+        },
+        {
+          "type": "h2",
+          "text": "The detail that links the two companies"
+        },
+        {
+          "type": "p",
+          "text": "On April 22, 2026, Lululemon named Heidi O'Neill chief executive, according to [the company's announcement](https://www.businesswire.com/news/home/20260422757485/en/). She spent more than 25 years at Nike, where she ran the consumer, product and brand organisation. She started on September 8, after Calvin McDonald left in January and months of interim leadership. Founder Chip Wilson has openly criticised management for some time."
+        },
+        {
+          "type": "p",
+          "text": "I read this choice as a bet on product: Lululemon wants to find new releases that get people talking, which Nike knows how to do when it works. That is my interpretation, not a published fact. The risk is that a new leadership team takes several quarters to change the trajectory, and the next results come quickly: December 9 for Lululemon and December 16 for Nike. For more on each company, my [Nike page](/analyse/NKE) and my [Lululemon page](/analyse/LULU) give the full series, and my [methodology](/methodologie) explains the ten criteria."
+        },
+        {
+          "type": "h2",
+          "text": "What I take from the duel"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Question",
+            "Nike",
+            "Lululemon"
+          ],
+          "rows": [
+            [
+              "Business quality",
+              "Weak today, being rebuilt",
+              "High, but US sales falling"
+            ],
+            [
+              "What the price assumes",
+              "A full turnaround",
+              "A lasting stagnation"
+            ],
+            [
+              "What has to happen",
+              "Sales have to restart",
+              "Americans have to come back"
+            ],
+            [
+              "My verdict on price",
+              "Expensive",
+              "Discounted but not yet reasonable under my model"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "If I had to choose between the two on the single question \"where is the price most prudent?\", the answer would be Lululemon, because its price assumes little and the quality is there. But that is not a certainty: the stock can stay cheap as long as US sales keep falling. At Nike the risk is the reverse: a very good scenario is already in the share price."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Nike or Lululemon: which has the better business?",
+          "a": "Lululemon on current numbers: 10.8% free cash on sales against 3.2% for Nike, a Cash ROCE of 23% against 7.4% and no net debt. Nike is still a much larger and more diversified brand, but it is being rebuilt."
+        },
+        {
+          "q": "Is Lululemon really cheaper than Nike?",
+          "a": "Yes on free cash flow: 10.7 times against 40.9 times, and lower than 99% of its own history. But my model puts Lululemon's reasonable purchase price around $68, below the current $112, so the discount alone is not enough."
+        },
+        {
+          "q": "Why does a former Nike executive run Lululemon?",
+          "a": "Heidi O'Neill, 25 years at Nike, was named Lululemon chief executive on April 22, 2026 to fix a brand whose US sales are falling. Her background is mostly product and brand."
+        }
+      ],
+      "tags": [
+        "Nike",
+        "Lululemon",
+        "sportswear",
+        "comparison",
+        "valuation",
+        "leadership"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not predict future results. Figures as of November 5, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Nike o Lululemon: la acción cara o la acción rebajada",
+      "excerpt": "Dos marcas deportivas que todo el mundo conoce y dos cotizaciones que no se parecen en nada. Una cotiza cara con el efectivo en caída, la otra cerca de su valoración más baja. Y la nueva jefa de la segunda viene de la primera.",
+      "metaDescription": "Nike o Lululemon en bolsa: una es cara pese a su caja en retroceso, la otra rebajada. Qué las separa y por qué una ex Nike dirige Lululemon.",
+      "answer": "En calidad del negocio, Lululemon va por delante: alrededor del 11 % de sus ventas acaba en efectivo libre frente al 3 % de Nike, y no tiene deuda neta. En precio la diferencia es aún mayor. Pero sus ventas en Estados Unidos caen y su nueva directora viene de Nike.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Nike y Lululemon parecen vender lo mismo: ropa y calzado deportivo con una imagen fuerte. Sin embargo, en bolsa todo las separa ahora mismo. Una se valora como si la recuperación estuviera asegurada, la otra como si estuviera condenada. Pongo sus cifras una al lado de la otra y explico qué supone cada precio."
+        },
+        {
+          "type": "h2",
+          "text": "Las cifras lado a lado"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterio",
+            "Nike (NKE)",
+            "Lululemon (LULU)"
+          ],
+          "rows": [
+            [
+              "Tamaño en bolsa",
+              "53 mil M$",
+              "11,9 mil M$"
+            ],
+            [
+              "Nota de calidad (10 criterios)",
+              "4 sobre 10",
+              "8 sobre 10"
+            ],
+            [
+              "Evolución de ventas a 5 años",
+              "-0,2 % anual",
+              "+14,8 % anual"
+            ],
+            [
+              "Efectivo libre en % de ventas",
+              "3,2 %",
+              "10,8 %"
+            ],
+            [
+              "Evolución del efectivo libre por acción",
+              "-16,1 % anual",
+              "+21,3 % anual"
+            ],
+            [
+              "Rentabilidad del capital invertido (Cash ROCE)",
+              "7,4 %",
+              "23,0 %"
+            ],
+            [
+              "Deuda neta en años de efectivo libre",
+              "0,26 años",
+              "ninguna (caja neta)"
+            ],
+            [
+              "Número de acciones",
+              "-2,2 % anual",
+              "-2,0 % anual"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El efectivo libre (free cash flow) es el dinero que realmente queda en caja una vez pagadas las facturas y las inversiones. En Nike pasó de 6.600 millones de dólares en 2024 a 2.200 millones en el ejercicio cerrado en mayo de 2026, mientras que las ventas apenas se movieron (46.400 millones, frente a 51.400 hace dos años). Es decir, la marca vende casi lo mismo pero conserva tres veces menos. Es la señal de un negocio que gasta más para defender sus ventas: descuentos, relanzamiento del marketing, red reconstruida."
+        },
+        {
+          "type": "p",
+          "text": "El Cash ROCE mide lo que rinde cada dólar invertido en el negocio. Nike está en el 7,4 %, lejos del 15 % que exijo, mientras que Lululemon, con un 23 %, muestra un modelo que crea mucho valor con poco capital. En Lululemon las ventas más que se duplicaron en cinco años, de 4.400 a 11.100 millones de dólares, y el número de acciones bajó un 9 % gracias a las recompras."
+        },
+        {
+          "type": "h2",
+          "text": "Nike: una reorganización pagada con efectivo"
+        },
+        {
+          "type": "p",
+          "text": "En el primer trimestre del ejercicio 2027, cerrado en agosto, Nike anunció unas ventas de 11.200 millones de dólares, un 4 % menos, con la venta directa (tiendas y web) cayendo un 8 % y Converse un 28 %, según [su comunicado del 1 de octubre](https://about.nike.com/en/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results). Lo positivo es el margen bruto, que sube 60 puntos básicos hasta el 42,8 %. Lo que vigilar es la guía: Nike espera una caída de las ventas anuales de un dígito alto y lanza un plan de transformación con 2.500 millones de dólares de ahorros hasta 2031, por unos 1.000 millones de cargos de reestructuración."
+        },
+        {
+          "type": "p",
+          "text": "Es una recuperación larga bajo la dirección de Elliott Hill y se ve en las cifras: el margen se reconstruye, las ventas todavía no. El precio, en cambio, ya está en otro sitio. Nike se valora en 40,9 veces su efectivo libre, más caro que el 71 % de su propio historial. El mercado paga hoy un regreso a la normalidad que no está en las cuentas. Mi modelo, que proyecta el efectivo libre por acción a partir de los últimos cinco años, sitúa el precio de compra razonable muy por debajo de la cotización actual. No saco una previsión de esa cifra, solo la constatación de que el precio anticipa mucho."
+        },
+        {
+          "type": "h2",
+          "text": "Lululemon: el descuento de una marca que tropieza"
+        },
+        {
+          "type": "p",
+          "text": "Lululemon es la historia inversa: un negocio de muy buena calidad que decepciona en su mercado principal. En el segundo trimestre, cerrado a principios de agosto, las ventas cayeron un 4 % hasta 2.400 millones de dólares y las ventas comparables un 9 %, con un descenso del 12 % en América, según [el comunicado del 3 de septiembre](https://corporate.lululemon.com/newsroom/press-releases/2026/09-03-2026-210528733). Internacional crece un 4 %. La empresa también rebajó su previsión anual a entre 10.350 y 10.500 millones de dólares y espera una caída del 10 al 11 % en el tercer trimestre."
+        },
+        {
+          "type": "p",
+          "text": "Un detalle cambia la lectura del beneficio: los 2,92 dólares por acción incluyen 0,86 dólares de devoluciones de aranceles que no se repetirán. Sin ese efecto se queda en 2,06 dólares, y esa es la cifra que retengo. Otro punto que entender: el ciclo de conversión de efectivo neto de Lululemon es de 108 días, algo malo. En una marca de ropa refleja sobre todo el inventario que espera en las estanterías antes de venderse, y es el primer lugar donde se nota una desaceleración."
+        },
+        {
+          "type": "p",
+          "text": "El precio refleja esa inquietud: 10,7 veces el efectivo libre, más bajo que el 99 % de su historial. Es un descuento enorme. Pero no es gratis: el efectivo libre por acción retrocedió un 20 % en dos años y mi modelo fija un precio de compra razonable en torno a 68 dólares, frente a los 112 de hoy. El descuento es real, pero todavía no basta para que el precio sea razonable según mis criterios."
+        },
+        {
+          "type": "h2",
+          "text": "El detalle que une a las dos empresas"
+        },
+        {
+          "type": "p",
+          "text": "El 22 de abril de 2026, Lululemon nombró a Heidi O'Neill directora ejecutiva, según [el anuncio de la compañía](https://www.businesswire.com/news/home/20260422757485/en/). Pasó más de 25 años en Nike, donde dirigía el área de consumidor, producto y marca. Empezó el 8 de septiembre, tras la salida de Calvin McDonald en enero y meses de dirección interina. El fundador Chip Wilson critica abiertamente a la dirección desde hace tiempo."
+        },
+        {
+          "type": "p",
+          "text": "Leo esta elección como una apuesta por el producto: Lululemon busca recuperar novedades que den que hablar, algo que Nike sabe hacer cuando funciona. Es mi interpretación, no un hecho publicado. El riesgo es que un nuevo equipo tarde varios trimestres en cambiar la trayectoria, y los próximos resultados llegan pronto: el 9 de diciembre para Lululemon y el 16 de diciembre para Nike. Para profundizar en cada empresa, mi [ficha de Nike](/analyse/NKE) y mi [ficha de Lululemon](/analyse/LULU) dan las series completas, y mi [metodología](/methodologie) explica los diez criterios."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que me llevo del duelo"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Pregunta",
+            "Nike",
+            "Lululemon"
+          ],
+          "rows": [
+            [
+              "Calidad del negocio",
+              "Débil hoy, en reconstrucción",
+              "Alta, pero ventas en EE. UU. a la baja"
+            ],
+            [
+              "Lo que supone el precio",
+              "Una recuperación completa",
+              "Un estancamiento duradero"
+            ],
+            [
+              "Lo que tiene que pasar",
+              "Las ventas deben reactivarse",
+              "Los estadounidenses deben volver"
+            ],
+            [
+              "Mi veredicto sobre el precio",
+              "Caro",
+              "Rebajada pero aún no razonable según mi modelo"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Si tuviera que elegir entre las dos con la única pregunta « ¿dónde es más prudente el precio? », la respuesta sería Lululemon, porque su precio supone poco y la calidad está ahí. Pero no es una certeza: la acción puede seguir barata mientras las ventas en EE. UU. sigan cayendo. En Nike el riesgo es el contrario: un muy buen escenario ya está en la cotización."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Nike o Lululemon: ¿cuál tiene el mejor negocio?",
+          "a": "Lululemon con las cifras actuales: 10,8 % de efectivo libre sobre ventas frente al 3,2 % de Nike, un Cash ROCE del 23 % frente al 7,4 % y ninguna deuda neta. Nike sigue siendo una marca mucho mayor y más diversificada, pero está en plena reconstrucción."
+        },
+        {
+          "q": "¿Lululemon es realmente más barata que Nike?",
+          "a": "Sí en efectivo libre: 10,7 veces frente a 40,9 veces, y más baja que el 99 % de su propio historial. Pero mi modelo sitúa el precio de compra razonable de Lululemon en torno a 68 dólares, por debajo de los 112 actuales, así que el descuento por sí solo no basta."
+        },
+        {
+          "q": "¿Por qué una ex directiva de Nike dirige Lululemon?",
+          "a": "Heidi O'Neill, 25 años en Nike, fue nombrada directora ejecutiva de Lululemon el 22 de abril de 2026 para arreglar una marca cuyas ventas en EE. UU. caen. Su perfil es sobre todo de producto y marca."
+        }
+      ],
+      "tags": [
+        "Nike",
+        "Lululemon",
+        "ropa deportiva",
+        "comparativa",
+        "valoración",
+        "dirección"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Cifras a 5 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo desde dónde hablo."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
