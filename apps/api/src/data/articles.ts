@@ -104155,7 +104155,601 @@ const articleNkeLulu2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026];
+const articleChineQualite2026: Article = {
+  "slug": "actions-chinoises-catl-pop-mart-devant-tencent-2026",
+  "date": "2026-11-06",
+  "updated": "2026-11-06",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Actions chinoises : CATL et Pop Mart devant Tencent",
+      "excerpt": "La Chine boursière ne se résume pas à Alibaba et Tencent. J'ai passé huit valeurs au crible : deux ressortent, trois déçoivent, et le chiffre de valorisation de la plus brillante est en retard d'un trimestre.",
+      "metaDescription": "Actions chinoises : CATL, Pop Mart, Tencent, Alibaba, Moutai passés au crible. Qui allie vrai business et prix raisonnable, et pourquoi un chiffre peut tromper.",
+      "answer": "Parmi huit grandes valeurs chinoises, seules CATL et Pop Mart combinent une très bonne note qualité et un prix raisonnable pour ma méthode. Tencent et Moutai sont de bons business trop chers, Alibaba et BYD n'ont pas de cash libre positif. Et le prix de CATL est plus élevé qu'il n'y paraît.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Quand on me parle d'actions chinoises, je pense d'abord à deux réflexes opposés. Le premier : « c'est trop risqué, je n'y touche pas ». Le second : « tout est bradé, il suffit d'acheter Alibaba et Tencent ». Les deux évitent la même chose, regarder les entreprises une par une."
+        },
+        {
+          "type": "p",
+          "text": "J'ai donc pris huit valeurs chinoises connues, cotées à Hong Kong ou à Shenzhen, et je les ai passées dans la même grille que n'importe quelle action américaine ou européenne : la qualité du business d'un côté, le prix de l'autre. Pas de jugement sur la géopolitique, pas de prévision sur le yuan. Juste ce que l'entreprise gagne vraiment, et ce que le marché demande pour y entrer."
+        },
+        {
+          "type": "p",
+          "text": "Le résultat m'a surpris sur un point. Les deux noms que tout le monde cite, Tencent et Alibaba, ne sont pas ceux qui ressortent. Et la valeur qui ressort le plus nettement a un défaut de lecture que j'ai failli laisser passer."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que mon filtre garde, et ce qu'il écarte"
+        },
+        {
+          "type": "p",
+          "text": "Ma grille note chaque entreprise sur dix critères de qualité : des marges qui tiennent, des ventes et un cash libre par action qui progressent, peu de dette, un nombre d'actions qui ne gonfle pas, un cash qui correspond aux bénéfices. Le cash libre (free cash flow) est l'argent qui reste dans les caisses une fois les factures et les investissements payés. Ensuite, je juge le prix à part : je regarde combien d'années de ce cash libre il faut pour acheter l'entreprise (le P/FCF, ici « années de cash libre »), puis je projette le cash libre par action sur cinq ans. Mon prix d'achat est celui qui laisse de quoi doubler sur cette période, soit environ 15 % par an (calcul déduit des chiffres de chaque fiche)."
+        },
+        {
+          "type": "p",
+          "text": "Voici les huit valeurs, classées de la plus convaincante à la moins convaincante. Les chiffres viennent de mes fiches au 6 novembre 2026."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité (sur 10)",
+            "Années de cash libre pour l'acheter",
+            "Verdict prix"
+          ],
+          "rows": [
+            [
+              "Muyuan Foods (élevage porcin)",
+              "10",
+              "11,6",
+              "Décote de 6 %"
+            ],
+            [
+              "Hansoh Pharmaceutical",
+              "10",
+              "28,4",
+              "Décote de 5 %"
+            ],
+            [
+              "CATL (batteries)",
+              "9",
+              "13,0 affiché, environ 20 recalculé",
+              "Décote de 5 %, à nuancer"
+            ],
+            [
+              "Pop Mart (jouets de collection)",
+              "9",
+              "16,3",
+              "Décote de 6 %"
+            ],
+            [
+              "Kweichow Moutai (alcool de luxe)",
+              "8",
+              "31,2",
+              "Surcote de 59 %"
+            ],
+            [
+              "Tencent",
+              "7",
+              "17,4",
+              "Surcote de 45 %"
+            ],
+            [
+              "Alibaba",
+              "6",
+              "non calculable (cash libre négatif)",
+              "Données insuffisantes"
+            ],
+            [
+              "BYD",
+              "6",
+              "non calculable (cash libre négatif)",
+              "Données insuffisantes"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Un 10 sur 10 et une décote de 5 % ne veulent pas dire « achète ». Ça veut dire que, sur les chiffres, le business est solide et que le prix ne demande pas d'espérer un miracle. Muyuan et Hansoh sont dans ce cas, mais je les garde pour la fin, parce que ce sont deux histoires moins grand public. Je commence par celles que tu as probablement en tête."
+        },
+        {
+          "type": "h2",
+          "text": "CATL : la croissance est réelle, le chiffre de valorisation est en retard"
+        },
+        {
+          "type": "p",
+          "text": "CATL fabrique des batteries pour voitures électriques et pour le stockage d'électricité. Sur cinq ans, ses ventes progressent de 48 % par an, 21 % de ses ventes finissent en cash libre, elle n'a pas de dette nette et son capital investi rapporte 36 % de cash par an (le Cash ROCE : ce que rapporte chaque yuan investi dans l'activité). C'est ce qui lui vaut 9 sur 10. Le seul vrai bémol de qualité est un nombre d'actions qui gonfle de 1,4 % par an : les actionnaires existants sont un peu dilués."
+        },
+        {
+          "type": "p",
+          "text": "Le 20 octobre 2026, CATL a publié un troisième trimestre à 165,2 milliards de yuans de ventes, en hausse de 58,6 %, avec plus de 260 GWh de batteries livrées, soit 44 % de plus qu'un an plus tôt. Mais le bénéfice net n'a progressé que de 14,5 %, et sa marge nette est tombée à 12,9 %, le niveau le plus bas depuis début 2024, selon [la couverture des résultats par CnEVPost](https://cnevpost.com/2026/10/20/catl-q3-2026-earnings/). Autrement dit, elle vend énormément plus, en gagnant moins sur chaque unité."
+        },
+        {
+          "type": "p",
+          "text": "Voilà le point que j'ai failli rater. Mon outil affiche 13 années de cash libre pour acheter CATL. Mais ce chiffre repose sur les quatre trimestres de 2025, soit environ 91 milliards de yuans. Or, dans les données trimestrielles de 2026, le dernier trimestre est négatif : moins 15,7 milliards de yuans, alors que l'entreprise investit lourdement dans de nouvelles usines. En recalculant moi-même sur les quatre derniers trimestres, je trouve environ 60 milliards, soit autour de 20 années de cash libre. C'est un calcul de ma part, à prendre comme un ordre de grandeur, mais il change la lecture : CATL n'est plus « bon marché », elle est « raisonnable si la croissance continue ». Pour le suivre trimestre après trimestre, [la fiche de CATL](/analyse/300750.SZ) reste le point de départ."
+        },
+        {
+          "type": "h2",
+          "text": "Pop Mart : une machine à cash qui doit survivre à son héros"
+        },
+        {
+          "type": "p",
+          "text": "Pop Mart vend des figurines de collection vendues en boîtes surprises, dont la star mondiale est Labubu. Les chiffres sont vertigineux : les ventes sont passées de 6,3 milliards de yuans en 2023 à 37,1 milliards en 2025, et le cash libre de 1,6 à 9,9 milliards sur la même période. Environ 27 % des ventes se transforment en cash libre, la société n'a pas de dette nette, et son capital investi rapporte 63 % par an. Avec 16 années de cash libre pour l'acheter, le prix paraît raisonnable pour une telle machine."
+        },
+        {
+          "type": "p",
+          "text": "Le piège est ailleurs. Au premier semestre 2026, publié le 20 août, les ventes sont encore en hausse de 23,8 % à 17,2 milliards de yuans, mais la franchise Labubu recule de 7,5 % et ne pèse plus que 26 % du total, contre près de 35 % un an plus tôt. À l'étranger, les ventes baissent de 11 %, et c'est la Chine qui porte la croissance (plus 47 %), d'après [le résumé du semestre publié par FilingReader](https://filingreader.com/news-wire/hongkong/2026-08-20/pop-mart-reports-strong-first-half-growth-on-plush-demand). Dernier signal que je regarde de près : les stocks mettent 201 jours à s'écouler, contre 123 fin 2025. C'est du cash immobilisé, et c'est cohérent avec mon indicateur de conversion en cash, à 77 %, le plus faible de ma grille pour cette société."
+        },
+        {
+          "type": "p",
+          "text": "Ma lecture : le business est excellent aujourd'hui, mais c'est un business de mode. Une collection est un produit dont la demande peut s'éteindre vite, et le marché le sait. Une décote de 6 % ne laisse aucune marge si la franchise phare continue de reculer. [La fiche de Pop Mart](/analyse/9992.HK) permet de suivre ce point."
+        },
+        {
+          "type": "h2",
+          "text": "Tencent et Alibaba : quand l'IA mange le cash libre"
+        },
+        {
+          "type": "p",
+          "text": "Tencent est un très bon business : 25 % de ses ventes finissent en cash libre. Mais sa note est de 7 sur 10, parce que ses ventes ne progressent plus que de 7,6 % par an et que son capital investi ne rapporte que 14 %. Surtout, mon modèle projette un cash libre par action qui passe de 24 à 31 en cinq ans, trop peu pour justifier son prix actuel : d'où une surcote de 45 % alors que le titre vaut 17 années de cash libre."
+        },
+        {
+          "type": "p",
+          "text": "La raison est visible dans les résultats du deuxième trimestre, publiés le 12 août 2026. Les ventes grimpent de 11 % à 204,8 milliards de yuans, mais les investissements ont explosé de 176 % à 52,8 milliards, et le profit n'a progressé que de 0,7 %. La direction explique que, sans les coûts des nouveaux produits d'IA, le profit d'exploitation aurait gagné 19 %, d'après [l'analyse de ces résultats par Beancount](https://beancount.io/blog/2026/09/14/tencent-q2-2026-earnings-analysis). Une analyse tierce chiffre même le cash libre du trimestre en négatif, à environ moins 13,8 milliards. Je ne dis pas que le pari est mauvais. Je dis qu'il retire du cash libre aujourd'hui pour un rendement que personne ne peut encore mesurer, et que ma grille ne paie pas ce genre d'espoir."
+        },
+        {
+          "type": "p",
+          "text": "Alibaba est dans la même situation, en plus marquée. Sa marge de cash libre est négative (environ moins 5 %), ce qui rend le calcul du prix impossible : mon outil écrit « données insuffisantes » plutôt que d'inventer. La presse financière attribue ce cash libre négatif aux dépenses dans le cloud et l'IA, comme [le détaille cet article du Nasdaq](https://www.nasdaq.com/articles/babas-free-cash-flow-turns-negative-can-heavy-spending-pay). BYD souffre du même défaut, avec une marge de cash libre négative d'environ 12 % et une marge nette de 4 %. Ces trois géants dépensent beaucoup pour rester devant. C'est peut-être le bon choix stratégique, mais ce n'est pas un choix que mon filtre sait noter."
+        },
+        {
+          "type": "h2",
+          "text": "Muyuan, Hansoh et Moutai : le bon, le brillant et le cher"
+        },
+        {
+          "type": "p",
+          "text": "Muyuan élève des porcs à grande échelle : 10 sur 10, 11,6 années de cash libre, des ventes en hausse de 22 % par an et un cash libre par action qui progresse de 46 % par an. Mais le porc est un marché cyclique : quand le prix de la viande monte, tous les éleveurs produisent plus, l'offre déborde, le prix s'effondre, et les marges avec lui. Une note parfaite au sommet d'un cycle est une photo flatteuse, pas une promesse. C'est mon inférence, car l'historique de prix du porc ne fait pas partie de ma grille."
+        },
+        {
+          "type": "p",
+          "text": "Hansoh, laboratoire pharmaceutique, a une marge de cash libre de 42 %, un capital investi qui rapporte 147 % et une trésorerie nette. Son cash libre est passé de 2,1 à 6,3 milliards de yuans entre 2021 et 2025. Elle vaut 28 années de cash libre, ce qui paraît élevé, mais ma méthode l'accepte parce que le cash libre par action croît d'environ 35 % par an : c'est une hypothèse de croissance, pas un fait, et elle tient tant que cette cadence tient."
+        },
+        {
+          "type": "p",
+          "text": "Moutai, enfin, illustre l'autre face. C'est un business de grande qualité, mais ses marges se compriment, seuls 71 % de ses bénéfices deviennent du cash, et il demande 31 années de cash libre. Ma grille y voit 59 % trop cher. Quand une entreprise est connue et admirée, c'est le cas où le prix a le plus de chances d'avoir déjà tout payé."
+        },
+        {
+          "type": "h2",
+          "text": "Lire ce palmarès sans se tromper"
+        },
+        {
+          "type": "p",
+          "text": "Trois précautions avant de t'en servir. D'abord, huit valeurs ne sont pas la Chine : elles ont été choisies parce qu'elles sont connues et liquides, et ce choix lui-même est un biais. Ensuite, l'accès aux actions de Shenzhen et de Hong Kong dépend de ton courtier et de ton pays, à vérifier avant tout. Enfin, mes chiffres viennent de données publiques agrégées, avec les retards que j'ai montrés pour CATL : un trimestre de décalage peut changer le prix perçu de moitié."
+        },
+        {
+          "type": "p",
+          "text": "Si ce type de lecture t'intéresse, j'ai appliqué la même grille à [Taïwan et ses valeurs de l'IA](/blog/taiwan-actions-ia-qualite-prix-divergents-2026) et à [la bourse de Hong Kong elle-même](/blog/hong-kong-exchanges-clearing-0388-bourse-analyse). Pour comprendre les notes et les prix d'achat, [ma méthodologie](/methodologie) détaille chaque critère."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles actions chinoises ont une bonne note qualité ?",
+          "a": "Sur huit grandes valeurs étudiées, Muyuan Foods et Hansoh ont 10 sur 10, CATL et Pop Mart 9 sur 10. Tencent est à 7, Alibaba et BYD à 6 avec un cash libre négatif."
+        },
+        {
+          "q": "Tencent est-elle une action chère ?",
+          "a": "Pour ma méthode, oui : elle vaut environ 17 années de cash libre, mais ses investissements dans l'IA ont fait passer son cash libre trimestriel en négatif au deuxième trimestre 2026, et le prix d'achat qui en découle est inférieur de 45 % au cours."
+        },
+        {
+          "q": "Pourquoi le prix de CATL est-il plus élevé qu'affiché ?",
+          "a": "Le chiffre de 13 années de cash libre repose sur 2025. Le troisième trimestre 2026 est négatif à cause des investissements, et sur les quatre derniers trimestres je trouve environ 20 années. C'est un calcul approximatif de ma part."
+        }
+      ],
+      "tags": [
+        "actions chinoises",
+        "CATL",
+        "Pop Mart",
+        "Tencent",
+        "Alibaba",
+        "valorisation",
+        "palmarès"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 6 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Chinese stocks: CATL and Pop Mart ahead of Tencent",
+      "excerpt": "Chinese equities are more than Alibaba and Tencent. I screened eight names: two stand out, three disappoint, and the valuation figure of the brightest one is a quarter out of date.",
+      "metaDescription": "Chinese stocks: CATL, Pop Mart, Tencent, Alibaba and Moutai screened. Which ones pair a real business with a fair price, and why one number can mislead.",
+      "answer": "Among eight large Chinese stocks, only CATL and Pop Mart combine a very high quality score with a fair price under my method. Tencent and Moutai are good businesses that cost too much, Alibaba and BYD have no positive free cash flow. And CATL's price is higher than it looks.",
+      "body": [
+        {
+          "type": "p",
+          "text": "When people mention Chinese stocks, I hear two opposite reflexes. The first: \"too risky, I stay away\". The second: \"everything is cheap, just buy Alibaba and Tencent\". Both skip the same step, which is looking at companies one by one."
+        },
+        {
+          "type": "p",
+          "text": "So I took eight well known Chinese stocks listed in Hong Kong or Shenzhen and ran them through the same grid I use for any American or European stock: business quality on one side, price on the other. No view on geopolitics, no forecast on the yuan. Just what the company really earns and what the market asks to get in."
+        },
+        {
+          "type": "p",
+          "text": "One thing surprised me. The two names everyone quotes, Tencent and Alibaba, are not the ones that stand out. And the clearest standout has a reading flaw that I almost let through."
+        },
+        {
+          "type": "h2",
+          "text": "What my filter keeps, and what it drops"
+        },
+        {
+          "type": "p",
+          "text": "My grid scores each company on ten quality criteria: margins that hold, sales and free cash flow per share that grow, little debt, a share count that does not swell, cash that matches profits. Free cash flow is the money left in the till once bills and investments are paid. Then I judge price separately: how many years of that free cash flow it takes to buy the company (P/FCF, here \"years of free cash flow\"), and I project free cash flow per share over five years. My purchase price is the one that leaves room to double over that period, about 15% a year (my own calculation from each page's figures)."
+        },
+        {
+          "type": "p",
+          "text": "Here are the eight stocks, from most to least convincing. Figures come from my pages as of November 6, 2026."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score (out of 10)",
+            "Years of free cash flow to buy it",
+            "Price verdict"
+          ],
+          "rows": [
+            [
+              "Muyuan Foods (pig farming)",
+              "10",
+              "11.6",
+              "5.6% discount"
+            ],
+            [
+              "Hansoh Pharmaceutical",
+              "10",
+              "28.4",
+              "5% discount"
+            ],
+            [
+              "CATL (batteries)",
+              "9",
+              "13.0 displayed, about 20 recalculated",
+              "5% discount, to qualify"
+            ],
+            [
+              "Pop Mart (collectible toys)",
+              "9",
+              "16.3",
+              "6% discount"
+            ],
+            [
+              "Kweichow Moutai (luxury liquor)",
+              "8",
+              "31.2",
+              "59% premium"
+            ],
+            [
+              "Tencent",
+              "7",
+              "17.4",
+              "45% premium"
+            ],
+            [
+              "Alibaba",
+              "6",
+              "not computable (negative free cash flow)",
+              "Insufficient data"
+            ],
+            [
+              "BYD",
+              "6",
+              "not computable (negative free cash flow)",
+              "Insufficient data"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A 10 out of 10 and a 5% discount do not mean \"buy\". They mean that on the numbers the business is solid and the price does not require hoping for a miracle. Muyuan and Hansoh fit that, but I keep them for the end because they are less mainstream stories. I start with the ones you probably have in mind."
+        },
+        {
+          "type": "h2",
+          "text": "CATL: growth is real, the valuation figure is late"
+        },
+        {
+          "type": "p",
+          "text": "CATL makes batteries for electric cars and for power storage. Over five years its sales grew 48% a year, 21% of sales end up as free cash flow, it has no net debt and its invested capital earns 36% in cash a year (Cash ROCE: what each yuan invested in the business brings back). That earns it 9 out of 10. The one real quality caveat is a share count growing 1.4% a year: existing shareholders get diluted a little."
+        },
+        {
+          "type": "p",
+          "text": "On October 20, 2026 CATL published third quarter sales of 165.2 billion yuan, up 58.6%, with more than 260 GWh of batteries shipped, 44% more than a year earlier. But net profit grew only 14.5% and net margin fell to 12.9%, the lowest since early 2024, according to [CnEVPost's coverage of the results](https://cnevpost.com/2026/10/20/catl-q3-2026-earnings/). It sells far more while earning less on each unit."
+        },
+        {
+          "type": "p",
+          "text": "Here is what I almost missed. My tool shows 13 years of free cash flow to buy CATL. But that figure rests on the four quarters of 2025, about 91 billion yuan. In the 2026 quarterly data the latest quarter is negative: minus 15.7 billion yuan, as the company invests heavily in new plants. Recomputing myself over the last four quarters I get about 60 billion, around 20 years of free cash flow. That is my own calculation, an order of magnitude only, but it changes the reading: CATL is no longer \"cheap\", it is \"fair if growth continues\". To follow it quarter after quarter, [the CATL page](/analyse/300750.SZ) is the starting point."
+        },
+        {
+          "type": "h2",
+          "text": "Pop Mart: a cash machine that must outlive its hero"
+        },
+        {
+          "type": "p",
+          "text": "Pop Mart sells collectible figures in blind boxes, and its global star is Labubu. The numbers are dizzying: sales went from 6.3 billion yuan in 2023 to 37.1 billion in 2025, and free cash flow from 1.6 to 9.9 billion over the same period. About 27% of sales turn into free cash flow, there is no net debt, and invested capital earns 63% a year. At 16 years of free cash flow, the price looks fair for such a machine."
+        },
+        {
+          "type": "p",
+          "text": "The trap is elsewhere. In the first half of 2026, published August 20, sales are still up 23.8% at 17.2 billion yuan, but the Labubu franchise fell 7.5% and now weighs 26% of the total, against nearly 35% a year earlier. Overseas sales fell 11% and China carries the growth (plus 47%), per [FilingReader's half year summary](https://filingreader.com/news-wire/hongkong/2026-08-20/pop-mart-reports-strong-first-half-growth-on-plush-demand). One last signal I watch closely: inventory takes 201 days to sell, against 123 at the end of 2025. That is trapped cash, consistent with my cash conversion indicator at 77%, the weakest in the grid for this company."
+        },
+        {
+          "type": "p",
+          "text": "My reading: the business is excellent today, but it is a fashion business. A collection is a product whose demand can fade fast, and the market knows it. A 6% discount leaves no margin if the flagship franchise keeps shrinking. [The Pop Mart page](/analyse/9992.HK) lets you track this."
+        },
+        {
+          "type": "h2",
+          "text": "Tencent and Alibaba: when AI eats the free cash flow"
+        },
+        {
+          "type": "p",
+          "text": "Tencent is a very good business: 25% of its sales end up as free cash flow. But its score is 7 out of 10, because sales now grow only 7.6% a year and its invested capital earns only 14%. Above all my model projects free cash flow per share going from 24 to 31 in five years, too little to justify the current price: hence a 45% premium although the stock is worth 17 years of free cash flow."
+        },
+        {
+          "type": "p",
+          "text": "The reason shows in second quarter results, published August 12, 2026. Sales rise 11% to 204.8 billion yuan, but investment jumped 176% to 52.8 billion and profit grew only 0.7%. Management says that without the costs of new AI products operating profit would have gained 19%, per [Beancount's analysis of the results](https://beancount.io/blog/2026/09/14/tencent-q2-2026-earnings-analysis). A third party analysis even puts the quarter's free cash flow negative, at about minus 13.8 billion. I am not saying the bet is bad. I am saying it takes free cash flow away today for a return nobody can measure yet, and my grid does not pay for that kind of hope."
+        },
+        {
+          "type": "p",
+          "text": "Alibaba is in the same situation, more pronounced. Its free cash flow margin is negative (about minus 5%), which makes the price calculation impossible: my tool writes \"insufficient data\" rather than invent. The financial press attributes this negative free cash flow to cloud and AI spending, as [this Nasdaq article details](https://www.nasdaq.com/articles/babas-free-cash-flow-turns-negative-can-heavy-spending-pay). BYD has the same flaw, with a free cash flow margin around minus 12% and a net margin of 4%. These three giants spend heavily to stay ahead. It may be the right strategy, but it is not a choice my filter can score."
+        },
+        {
+          "type": "h2",
+          "text": "Muyuan, Hansoh and Moutai: the good, the brilliant and the expensive"
+        },
+        {
+          "type": "p",
+          "text": "Muyuan raises pigs at scale: 10 out of 10, 11.6 years of free cash flow, sales up 22% a year and free cash flow per share growing 46% a year. But pork is a cyclical market: when meat prices rise every farmer produces more, supply overflows, prices collapse and margins with them. A perfect score at the top of a cycle is a flattering snapshot, not a promise. That is my inference, as pork price history is not part of my grid."
+        },
+        {
+          "type": "p",
+          "text": "Hansoh, a drug maker, has a 42% free cash flow margin, invested capital earning 147% and net cash. Its free cash flow went from 2.1 to 6.3 billion yuan between 2021 and 2025. It costs 28 years of free cash flow, which looks high, but my method accepts it because free cash flow per share grows about 35% a year: that is a growth assumption, not a fact, and it holds only as long as that pace does."
+        },
+        {
+          "type": "p",
+          "text": "Moutai shows the other side. It is a high quality business, but its margins are compressing, only 71% of profits become cash, and it asks 31 years of free cash flow. My grid sees it 59% too expensive. When a company is famous and admired, that is where the price is most likely to have paid for everything already."
+        },
+        {
+          "type": "h2",
+          "text": "Reading this ranking without fooling yourself"
+        },
+        {
+          "type": "p",
+          "text": "Three precautions before using it. First, eight stocks are not China: they were picked because they are well known and liquid, and that choice is itself a bias. Second, access to Shenzhen and Hong Kong shares depends on your broker and country, to check first. Finally, my figures come from aggregated public data, with the lag I showed for CATL: one quarter of delay can halve the perceived price."
+        },
+        {
+          "type": "p",
+          "text": "If this kind of reading interests you, I applied the same grid to [Taiwan and its AI stocks](/blog/taiwan-actions-ia-qualite-prix-divergents-2026) and to [the Hong Kong exchange itself](/blog/hong-kong-exchanges-clearing-0388-bourse-analyse). To understand scores and purchase prices, [my methodology](/methodologie) details each criterion."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Which Chinese stocks have a good quality score?",
+          "a": "Among eight large stocks studied, Muyuan Foods and Hansoh score 10 out of 10, CATL and Pop Mart 9 out of 10. Tencent is at 7, Alibaba and BYD at 6 with negative free cash flow."
+        },
+        {
+          "q": "Is Tencent an expensive stock?",
+          "a": "Under my method, yes: it costs about 17 years of free cash flow, but its AI investment pushed quarterly free cash flow negative in Q2 2026, and the resulting purchase price is 45% below the market price."
+        },
+        {
+          "q": "Why is CATL's price higher than displayed?",
+          "a": "The 13 years of free cash flow figure rests on 2025. Q3 2026 is negative because of investment, and over the last four quarters I get about 20 years. That is my approximate calculation."
+        }
+      ],
+      "tags": [
+        "Chinese stocks",
+        "CATL",
+        "Pop Mart",
+        "Tencent",
+        "Alibaba",
+        "valuation",
+        "ranking"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not predict future results. Figures as of November 6, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Acciones chinas: CATL y Pop Mart por delante de Tencent",
+      "excerpt": "La bolsa china no se resume en Alibaba y Tencent. He analizado ocho valores: dos destacan, tres decepcionan, y la cifra de valoración de la más brillante va un trimestre retrasada.",
+      "metaDescription": "Acciones chinas: CATL, Pop Mart, Tencent, Alibaba y Moutai analizadas. Cuáles unen un buen negocio y un precio razonable, y por qué una cifra puede engañar.",
+      "answer": "De ocho grandes valores chinos, solo CATL y Pop Mart combinan una muy buena nota de calidad y un precio razonable según mi método. Tencent y Moutai son buenos negocios demasiado caros, Alibaba y BYD no tienen flujo de caja libre positivo. Y el precio de CATL es más alto de lo que parece.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Cuando me hablan de acciones chinas, oigo dos reflejos opuestos. El primero: «es demasiado arriesgado, no me acerco». El segundo: «todo está barato, basta con comprar Alibaba y Tencent». Ambos se saltan lo mismo: mirar las empresas una por una."
+        },
+        {
+          "type": "p",
+          "text": "Así que tomé ocho valores chinos conocidos, cotizados en Hong Kong o Shenzhen, y los pasé por la misma rejilla que cualquier acción estadounidense o europea: la calidad del negocio por un lado, el precio por otro. Sin opinión geopolítica ni previsión sobre el yuan. Solo lo que la empresa gana de verdad y lo que el mercado pide por entrar."
+        },
+        {
+          "type": "p",
+          "text": "Un punto me sorprendió. Los dos nombres que todo el mundo cita, Tencent y Alibaba, no son los que destacan. Y el que más destaca tiene un defecto de lectura que casi dejo pasar."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que mi filtro conserva y lo que descarta"
+        },
+        {
+          "type": "p",
+          "text": "Mi rejilla puntúa cada empresa con diez criterios de calidad: márgenes que aguantan, ventas y flujo de caja libre por acción que crecen, poca deuda, un número de acciones que no se infla, caja que corresponde a los beneficios. El flujo de caja libre (free cash flow) es el dinero que queda en caja tras pagar facturas e inversiones. Después juzgo el precio aparte: cuántos años de ese flujo hacen falta para comprar la empresa (el P/FCF, aquí «años de caja libre»), y proyecto el flujo por acción a cinco años. Mi precio de compra es el que deja margen para duplicar en ese plazo, unos 15 % anuales (cálculo propio a partir de las cifras de cada ficha)."
+        },
+        {
+          "type": "p",
+          "text": "Aquí van los ocho valores, del más al menos convincente. Las cifras salen de mis fichas a 6 de noviembre de 2026."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad (sobre 10)",
+            "Años de caja libre para comprarla",
+            "Veredicto de precio"
+          ],
+          "rows": [
+            [
+              "Muyuan Foods (cría de cerdos)",
+              "10",
+              "11,6",
+              "Descuento del 6 %"
+            ],
+            [
+              "Hansoh Pharmaceutical",
+              "10",
+              "28,4",
+              "Descuento del 5 %"
+            ],
+            [
+              "CATL (baterías)",
+              "9",
+              "13,0 mostrado, unos 20 recalculado",
+              "Descuento del 5 %, a matizar"
+            ],
+            [
+              "Pop Mart (juguetes de colección)",
+              "9",
+              "16,3",
+              "Descuento del 6 %"
+            ],
+            [
+              "Kweichow Moutai (licor de lujo)",
+              "8",
+              "31,2",
+              "Sobreprecio del 59 %"
+            ],
+            [
+              "Tencent",
+              "7",
+              "17,4",
+              "Sobreprecio del 45 %"
+            ],
+            [
+              "Alibaba",
+              "6",
+              "no calculable (caja libre negativa)",
+              "Datos insuficientes"
+            ],
+            [
+              "BYD",
+              "6",
+              "no calculable (caja libre negativa)",
+              "Datos insuficientes"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Un 10 sobre 10 y un descuento del 5 % no significan «compra». Significan que, según las cifras, el negocio es sólido y el precio no exige esperar un milagro. Muyuan y Hansoh encajan ahí, pero los dejo para el final porque son historias menos populares. Empiezo por las que probablemente tienes en mente."
+        },
+        {
+          "type": "h2",
+          "text": "CATL: el crecimiento es real, la cifra de valoración va con retraso"
+        },
+        {
+          "type": "p",
+          "text": "CATL fabrica baterías para coches eléctricos y para almacenar electricidad. En cinco años sus ventas crecen un 48 % anual, el 21 % de las ventas acaba en caja libre, no tiene deuda neta y su capital invertido rinde un 36 % anual en efectivo (el Cash ROCE: lo que devuelve cada yuan invertido en el negocio). Eso le da 9 sobre 10. La única pega real de calidad es un número de acciones que crece un 1,4 % al año: los accionistas actuales se diluyen un poco."
+        },
+        {
+          "type": "p",
+          "text": "El 20 de octubre de 2026, CATL publicó un tercer trimestre con 165.200 millones de yuanes de ventas, un 58,6 % más, y más de 260 GWh de baterías entregadas, un 44 % más que un año antes. Pero el beneficio neto solo subió un 14,5 % y su margen neto cayó al 12,9 %, el nivel más bajo desde principios de 2024, según [la cobertura de resultados de CnEVPost](https://cnevpost.com/2026/10/20/catl-q3-2026-earnings/). Vende muchísimo más ganando menos por unidad."
+        },
+        {
+          "type": "p",
+          "text": "Esto es lo que casi se me escapa. Mi herramienta muestra 13 años de caja libre para comprar CATL. Pero esa cifra se apoya en los cuatro trimestres de 2025, unos 91.000 millones de yuanes. En los datos trimestrales de 2026, el último trimestre es negativo: menos 15.700 millones de yuanes, porque la empresa invierte mucho en nuevas fábricas. Recalculando yo mismo sobre los cuatro últimos trimestres obtengo unos 60.000 millones, alrededor de 20 años de caja libre. Es un cálculo mío, un orden de magnitud, pero cambia la lectura: CATL ya no es «barata», es «razonable si el crecimiento continúa». Para seguirla trimestre a trimestre, [la ficha de CATL](/analyse/300750.SZ) es el punto de partida."
+        },
+        {
+          "type": "h2",
+          "text": "Pop Mart: una máquina de caja que debe sobrevivir a su héroe"
+        },
+        {
+          "type": "p",
+          "text": "Pop Mart vende figuras de colección en cajas sorpresa, y su estrella mundial es Labubu. Las cifras marean: las ventas pasaron de 6.300 millones de yuanes en 2023 a 37.100 millones en 2025, y la caja libre de 1.600 a 9.900 millones en el mismo periodo. Cerca del 27 % de las ventas se convierte en caja libre, no hay deuda neta y el capital invertido rinde un 63 % anual. Con 16 años de caja libre, el precio parece razonable para una máquina así."
+        },
+        {
+          "type": "p",
+          "text": "La trampa está en otro sitio. En el primer semestre de 2026, publicado el 20 de agosto, las ventas siguen subiendo un 23,8 % hasta 17.200 millones de yuanes, pero la franquicia Labubu cae un 7,5 % y pesa el 26 % del total, frente a casi el 35 % un año antes. En el extranjero las ventas bajan un 11 % y es China quien sostiene el crecimiento (más 47 %), según [el resumen del semestre de FilingReader](https://filingreader.com/news-wire/hongkong/2026-08-20/pop-mart-reports-strong-first-half-growth-on-plush-demand). Una última señal que vigilo: el inventario tarda 201 días en venderse, frente a 123 a finales de 2025. Es caja inmovilizada, coherente con mi indicador de conversión en caja, al 77 %, el más débil de la rejilla para esta empresa."
+        },
+        {
+          "type": "p",
+          "text": "Mi lectura: el negocio es excelente hoy, pero es un negocio de moda. Una colección es un producto cuya demanda puede apagarse rápido, y el mercado lo sabe. Un descuento del 6 % no deja margen si la franquicia estrella sigue cayendo. [La ficha de Pop Mart](/analyse/9992.HK) permite seguir este punto."
+        },
+        {
+          "type": "h2",
+          "text": "Tencent y Alibaba: cuando la IA se come la caja libre"
+        },
+        {
+          "type": "p",
+          "text": "Tencent es un negocio muy bueno: el 25 % de sus ventas acaba en caja libre. Pero su nota es 7 sobre 10, porque sus ventas solo crecen un 7,6 % anual y su capital invertido rinde un 14 %. Sobre todo, mi modelo proyecta un flujo por acción que pasa de 24 a 31 en cinco años, muy poco para justificar su precio actual: de ahí un sobreprecio del 45 % aunque la acción valga 17 años de caja libre."
+        },
+        {
+          "type": "p",
+          "text": "La razón se ve en los resultados del segundo trimestre, publicados el 12 de agosto de 2026. Las ventas suben un 11 % hasta 204.800 millones de yuanes, pero la inversión se disparó un 176 % hasta 52.800 millones y el beneficio solo creció un 0,7 %. La dirección explica que, sin los costes de los nuevos productos de IA, el beneficio operativo habría subido un 19 %, según [el análisis de Beancount](https://beancount.io/blog/2026/09/14/tencent-q2-2026-earnings-analysis). Un análisis de terceros incluso sitúa la caja libre del trimestre en negativo, unos menos 13.800 millones. No digo que la apuesta sea mala. Digo que resta caja libre hoy por un retorno que nadie puede medir aún, y mi rejilla no paga ese tipo de esperanza."
+        },
+        {
+          "type": "p",
+          "text": "Alibaba está en la misma situación, más marcada. Su margen de caja libre es negativo (unos menos 5 %), lo que hace imposible calcular el precio: mi herramienta escribe «datos insuficientes» en lugar de inventar. La prensa financiera atribuye esa caja libre negativa al gasto en nube e IA, como [detalla este artículo de Nasdaq](https://www.nasdaq.com/articles/babas-free-cash-flow-turns-negative-can-heavy-spending-pay). BYD tiene el mismo defecto, con un margen de caja libre de unos menos 12 % y un margen neto del 4 %. Estos tres gigantes gastan mucho para mantenerse por delante. Quizá sea la estrategia correcta, pero no es una elección que mi filtro sepa puntuar."
+        },
+        {
+          "type": "h2",
+          "text": "Muyuan, Hansoh y Moutai: el bueno, el brillante y el caro"
+        },
+        {
+          "type": "p",
+          "text": "Muyuan cría cerdos a gran escala: 10 sobre 10, 11,6 años de caja libre, ventas que suben un 22 % anual y flujo por acción que crece un 46 % anual. Pero el cerdo es un mercado cíclico: cuando sube el precio de la carne todos los criadores producen más, la oferta desborda, el precio se hunde y los márgenes con él. Una nota perfecta en lo alto de un ciclo es una foto favorecedora, no una promesa. Es una inferencia mía, porque el historial de precios del cerdo no forma parte de mi rejilla."
+        },
+        {
+          "type": "p",
+          "text": "Hansoh, laboratorio farmacéutico, tiene un margen de caja libre del 42 %, un capital invertido que rinde un 147 % y caja neta. Su caja libre pasó de 2.100 a 6.300 millones de yuanes entre 2021 y 2025. Cuesta 28 años de caja libre, que parece alto, pero mi método lo acepta porque el flujo por acción crece cerca de un 35 % anual: es una hipótesis de crecimiento, no un hecho, y se sostiene mientras se sostenga ese ritmo."
+        },
+        {
+          "type": "p",
+          "text": "Moutai muestra la otra cara. Es un negocio de gran calidad, pero sus márgenes se comprimen, solo el 71 % de sus beneficios se convierte en caja y pide 31 años de caja libre. Mi rejilla lo ve un 59 % demasiado caro. Cuando una empresa es famosa y admirada, es donde más probable es que el precio ya lo haya pagado todo."
+        },
+        {
+          "type": "h2",
+          "text": "Cómo leer este ranking sin engañarte"
+        },
+        {
+          "type": "p",
+          "text": "Tres precauciones antes de usarlo. Primero, ocho valores no son China: se eligieron por ser conocidos y líquidos, y esa elección es un sesgo. Segundo, el acceso a acciones de Shenzhen y Hong Kong depende de tu bróker y de tu país, a comprobar antes de nada. Por último, mis cifras vienen de datos públicos agregados, con el retraso que mostré en CATL: un trimestre de desfase puede cambiar a la mitad el precio percibido."
+        },
+        {
+          "type": "p",
+          "text": "Si este tipo de lectura te interesa, apliqué la misma rejilla a [Taiwán y sus valores de IA](/blog/taiwan-actions-ia-qualite-prix-divergents-2026) y a [la propia bolsa de Hong Kong](/blog/hong-kong-exchanges-clearing-0388-bourse-analyse). Para entender las notas y los precios de compra, [mi metodología](/methodologie) detalla cada criterio."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué acciones chinas tienen buena nota de calidad?",
+          "a": "De ocho grandes valores estudiados, Muyuan Foods y Hansoh tienen 10 sobre 10, CATL y Pop Mart 9 sobre 10. Tencent tiene 7, Alibaba y BYD 6 con caja libre negativa."
+        },
+        {
+          "q": "¿Es Tencent una acción cara?",
+          "a": "Para mi método, sí: vale unos 17 años de caja libre, pero su inversión en IA dejó la caja libre trimestral en negativo en el segundo trimestre de 2026, y el precio de compra resultante queda un 45 % por debajo de la cotización."
+        },
+        {
+          "q": "¿Por qué el precio de CATL es más alto de lo que se muestra?",
+          "a": "La cifra de 13 años de caja libre se basa en 2025. El tercer trimestre de 2026 es negativo por la inversión, y en los cuatro últimos trimestres obtengo unos 20 años. Es un cálculo aproximado mío."
+        }
+      ],
+      "tags": [
+        "acciones chinas",
+        "CATL",
+        "Pop Mart",
+        "Tencent",
+        "Alibaba",
+        "valoración",
+        "ranking"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 6 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo desde dónde hablo."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
