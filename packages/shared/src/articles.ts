@@ -104745,7 +104745,799 @@ const articleChineQualite2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026];
+const articleDefensivesStaples2026: Article = {
+  "slug": "actions-defensives-consommation-base-seulement-deux-bon-prix-2026",
+  "date": "2026-11-09",
+  "updated": "2026-11-09",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Actions défensives : seulement deux sont à bon prix",
+      "excerpt": "Seize valeurs de la consommation de base passées au crible : qualité d'un côté, prix de l'autre. Une seule coche presque tout, deux seulement sont bon marché, et l'une des deux est un piège possible.",
+      "metaDescription": "Actions défensives : seize valeurs de consommation de base jugées sur la qualité et le prix. Colgate brille, Church & Dwight est la vraie décote.",
+      "answer": "Sur seize grandes actions défensives (Colgate, Nestlé, Coca-Cola, Procter & Gamble, Danone…), seules deux passent mon test de prix : Church & Dwight et Smucker. Colgate a la meilleure qualité mais reste trop chère. La stabilité d'une action défensive est connue du marché, donc déjà payée.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Quand les marchés tremblent, tout le monde répète la même phrase : « passe sur les actions défensives ». Dentifrice, lessive, café, soda, chocolat : on en achète en récession comme en période faste, donc ces entreprises résistent. L'idée est juste. Ce qu'on oublie de demander, c'est combien coûte cette tranquillité."
+        },
+        {
+          "type": "p",
+          "text": "J'ai donc pris seize grandes valeurs de la consommation de base, américaines et européennes, et je les ai passées dans ma grille : la qualité du business d'un côté, le prix de l'autre, jugés séparément. Les chiffres viennent de mes fiches au 9 novembre 2026."
+        },
+        {
+          "type": "p",
+          "text": "Le résultat tient en une phrase : la stabilité se paie cher. Sur seize valeurs, quatorze sont plus chères que le prix que je me fixe, et les deux qui passent le test n'ont pas du tout le même profil."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi une action défensive est rarement bon marché"
+        },
+        {
+          "type": "p",
+          "text": "Une action défensive est une action dont les ventes bougent peu quand l'économie se retourne. C'est précieux, mais c'est aussi la raison pour laquelle le marché l'adore : en période de peur, les investisseurs se jettent dessus et font monter les prix. La stabilité n'est pas un secret, elle est affichée sur la façade."
+        },
+        {
+          "type": "p",
+          "text": "Ma grille contient dix critères de qualité : des marges rentables, des ventes et un cash libre par action qui progressent, peu de dette, un nombre d'actions stable ou en baisse, un capital investi qui rapporte. Le cash libre (free cash flow) est l'argent qui reste vraiment dans les caisses une fois les factures et les investissements payés. Un critère exige des ventes en hausse de plus de 10 % par an sur cinq ans. Aucune des seize valeurs ne le coche, par construction : vendre du dentifrice ne double pas en dix ans. Résultat, le plafond du secteur est bas : la meilleure note est 8 sur 10, et c'est Colgate."
+        },
+        {
+          "type": "p",
+          "text": "Le prix est jugé à part. Je projette le cash libre par action sur cinq ans, j'applique un multiple de sortie raisonnable et je calcule le prix qui laisse environ 15 % de rendement annuel. C'est mon prix d'achat. Un détail qui compte ici : quand le cash libre par action stagne ou recule, ce prix d'achat s'effondre. Mon modèle est donc très sévère avec les entreprises sans croissance, et c'est volontaire. Mais ça veut dire que les écarts de 70 ou 90 % affichés plus bas disent surtout « pas de croissance à ce prix », pas « l'action va chuter de 90 % »."
+        },
+        {
+          "type": "h2",
+          "text": "Les seize valeurs, de la meilleure qualité à la moins bonne"
+        },
+        {
+          "type": "p",
+          "text": "Dans ce tableau, « années de cash libre » indique combien d'années du cash généré par l'entreprise il faut pour acheter l'action : plus c'est bas, moins elle est chère. Le verdict compare le cours à mon prix d'achat."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité (sur 10)",
+            "Années de cash libre pour l'acheter",
+            "Verdict prix"
+          ],
+          "rows": [
+            [
+              "Colgate-Palmolive (CL)",
+              "8",
+              "21,3",
+              "Surcote de 29 %"
+            ],
+            [
+              "Church & Dwight (CHD)",
+              "7",
+              "15,8",
+              "Décote de 28 %"
+            ],
+            [
+              "Danone (BN)",
+              "7",
+              "16,1",
+              "Surcote de 52 %"
+            ],
+            [
+              "Coca-Cola (KO)",
+              "7",
+              "29,4",
+              "Surcote de 88 %"
+            ],
+            [
+              "Procter & Gamble (PG)",
+              "7",
+              "27,3",
+              "Surcote de 71 %"
+            ],
+            [
+              "Hershey (HSY)",
+              "6",
+              "16,2",
+              "Surcote de 18 %"
+            ],
+            [
+              "Nestlé (NESN)",
+              "6",
+              "20,1",
+              "Surcote de 44 %"
+            ],
+            [
+              "Unilever (ULVR)",
+              "6",
+              "18,1",
+              "Surcote de 74 %"
+            ],
+            [
+              "McCormick (MKC)",
+              "6",
+              "14,8",
+              "Surcote de 56 %"
+            ],
+            [
+              "Kimberly-Clark (KMB)",
+              "6",
+              "21,4",
+              "Surcote de 89 %"
+            ],
+            [
+              "Smucker (SJM)",
+              "6",
+              "8,9",
+              "Décote de 66 %"
+            ],
+            [
+              "PepsiCo (PEP)",
+              "5",
+              "19,1",
+              "Surcote de 48 %"
+            ],
+            [
+              "Mondelez (MDLZ)",
+              "5",
+              "29,0",
+              "Surcote de 68 %"
+            ],
+            [
+              "General Mills (GIS)",
+              "5",
+              "12,3",
+              "Surcote de 82 %"
+            ],
+            [
+              "Campbell's (CPB)",
+              "3",
+              "11,1",
+              "Surcote de 45 %"
+            ],
+            [
+              "Conagra (CAG)",
+              "3",
+              "8,8",
+              "Surcote de 80 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Un 8 sur 10 avec une surcote de 29 % ne veut pas dire « fuis ». Ça veut dire que le business est excellent et que le prix demande déjà d'y croire. Regardons les trois cas qui racontent le mieux le secteur."
+        },
+        {
+          "type": "h2",
+          "text": "Colgate : la meilleure machine du rayon, déjà payée"
+        },
+        {
+          "type": "p",
+          "text": "Colgate-Palmolive vend des dentifrices, des brosses à dents, des produits d'hygiène et, avec Hill's, de l'alimentation pour animaux. Sur chaque 100 dollars de ventes, 17 finissent en cash libre. Son capital investi rapporte 59 % par an en cash (le Cash ROCE : ce que rapporte chaque dollar réellement investi dans l'activité), un niveau exceptionnel que j'explique, c'est une inférence, par un modèle léger en capital : des marques mondiales qui se vendent seules, sans énormes usines à renouveler. Elle rachète en plus ses propres actions, dont le nombre baisse de 1,2 % par an : chaque actionnaire détient une part plus grosse du gâteau, sans rien faire."
+        },
+        {
+          "type": "p",
+          "text": "Les résultats du troisième trimestre 2026, publiés fin octobre, confirment la solidité sans enthousiasmer : les ventes ont progressé de 4,6 % à 5,37 milliards de dollars, dont 3,6 % de croissance organique (hors effet de change et acquisitions). Le détail est instructif : la croissance vient à peu près à parts égales de hausses de prix (2,0 %) et de volumes (1,7 %), l'Amérique du Nord recule, et Hill's progresse de 5,7 %, d'après [le communiqué du troisième trimestre déposé par Colgate auprès de la SEC](https://www.sec.gov/Archives/edgar/data/0000021665/000002166526000047/q32026pressreleasetables.htm). La direction relève sa prévision de croissance du bénéfice à 5 à 7 %."
+        },
+        {
+          "type": "p",
+          "text": "Mon verdict est simple : c'est la meilleure qualité de la liste, mais à 21 années de cash libre, le marché lui demande déjà de tenir ce rythme de 4 à 5 % de croissance pendant longtemps. Mon prix d'achat est de 68 dollars, le cours de 97. J'ai comparé Colgate à L'Oréal dans [un article dédié](/blog/colgate-palmolive-loreal-comparatif-consommation-2026), et le constat est le même : le prix de la qualité est élevé."
+        },
+        {
+          "type": "h2",
+          "text": "Church & Dwight : la seule vraie décote parmi les grandes marques"
+        },
+        {
+          "type": "p",
+          "text": "Church & Dwight, c'est Arm & Hammer (le bicarbonate), Oxiclean, Batiste et les préservatifs Trojan. Un portefeuille de marques moyennes et bien installées, plutôt que de géants mondiaux. Ce qui m'intéresse, c'est la solidité du cash : 26 % des ventes finissent en cash libre, le capital investi rapporte 35 % par an, et la dette nette représente à peine 1,2 année de cash libre (ce ratio mesure en combien d'années l'entreprise rembourserait sa dette avec son seul cash : plus c'est bas, plus elle respire). Le cash libre par action progresse de 16,5 % par an sur cinq ans, alors que les ventes n'augmentent que de 4,3 % : la différence vient des marges et des rachats d'actions, pas d'une croissance spectaculaire."
+        },
+        {
+          "type": "p",
+          "text": "Le 30 octobre 2026, la société a publié un troisième trimestre au-dessus de ses propres prévisions : ventes en hausse de 1,0 % à 1,6 milliard de dollars, croissance organique de 5,1 % contre 3 % annoncés, bénéfice ajusté par action de 0,92 dollar (en hausse de 13,6 %) et nouveau programme de rachat d'actions jusqu'à 1 milliard de dollars, selon [le communiqué déposé à la SEC](https://www.sec.gov/Archives/edgar/data/0000313927/000119312526439864/chd-ex99_1.htm). Deux nuances que je retiens : une partie de la marge du trimestre vient de remboursements de droits de douane, de l'ordre de 15 millions de dollars, qui doivent retomber à environ 5 millions au quatrième trimestre, et la croissance organique prévue pour la fin d'année ralentit autour de 4 %."
+        },
+        {
+          "type": "p",
+          "text": "Voilà pourquoi mon modèle y voit une décote de 28 % : au cours de 109 dollars, mon prix d'achat est de 140 dollars. Soyons honnêtes sur la fragilité de ce calcul. Il suppose que le cash libre par action continue de croître d'environ 15 % par an, ce qui est plus que ce que la croissance organique de 4 à 5 % laisse penser. Mon inférence : si ce rythme retombe vers 8 %, la décote fond de moitié ou plus. [La fiche de Church & Dwight](/analyse/CHD) permet de suivre ce point, et je signale aussi que sa note de résilience face à l'IA est modeste (2,5 sur 5), car ses produits restent très exposés à la pression des marques de distributeur et des grandes chaînes."
+        },
+        {
+          "type": "h2",
+          "text": "Smucker : une décote de 66 % qui doit se lire avec prudence"
+        },
+        {
+          "type": "p",
+          "text": "Smucker, c'est le café Folgers et Dunkin' en rayon, la confiture, le beurre de cacahuète Jif et, depuis son achat de Hostess, les gâteaux Twinkies. Sur le papier, l'action est la moins chère de la liste à 8,9 années de cash libre, avec 17 % de marge de cash libre et un capital qui rapporte 18 % par an. Mon modèle y voit une décote de 66 % : prix d'achat de 217 dollars pour un cours de 131."
+        },
+        {
+          "type": "p",
+          "text": "Mais cette décote repose sur une hypothèse que les faits contredisent. Mon modèle projette un cash libre par action qui croît de 20 % par an, la borne haute qu'il s'autorise, en extrapolant un historique de plus de 17 % par an. Or Smucker a pris, dans son troisième trimestre de l'exercice 2026, environ 962 millions de dollars de dépréciations sur Hostess : 507 millions sur l'écart d'acquisition (le surplus payé à l'achat par rapport à la valeur comptable) et 454 millions sur la marque elle-même. Autrement dit, l'entreprise a reconnu avoir surpayé ce rachat. Sa marge nette est de 2,5 % pour cette raison."
+        },
+        {
+          "type": "p",
+          "text": "Les perspectives de l'exercice 2027, d'après [le rapport annuel déposé à la SEC et les commentaires de la direction](https://www.sec.gov/Archives/edgar/data/0000091419/000009141926000050/sjm-20260430.htm), annoncent des ventes en baisse de 3 à 4 % et un cash libre d'environ 1,0 milliard de dollars, contre 1,2 milliard l'an dernier, avec 500 millions de dettes à rembourser. Un cash libre qui recule n'est pas compatible avec une croissance de 20 % par an. Ma lecture, qui reste une inférence : la vraie question n'est pas « Smucker est-elle bradée à 66 % » mais « le cash libre rebondira-t-il quand le café baisse et que Hostess se redresse ». Si oui, l'action est bon marché. Sinon, c'est un piège que le prix bas rend séduisant."
+        },
+        {
+          "type": "h2",
+          "text": "Le rayon des endettés : quand le défensif ne l'est plus"
+        },
+        {
+          "type": "p",
+          "text": "Au bas du tableau, trois noms partagent le même défaut : General Mills, Campbell's et Conagra. Leur dette nette représente entre 8,5 et 10,8 années de leur cash libre, alors que les ventes de General Mills et de Conagra reculent sur cinq ans (moins 0,5 % et moins 1,7 % par an). Une entreprise endettée dont les ventes ne progressent pas a un problème mécanique : une part croissante du cash sert à payer les intérêts, et il en reste moins pour investir dans les marques ou rémunérer les actionnaires."
+        },
+        {
+          "type": "p",
+          "text": "Leur valorisation basse, entre 8,8 et 12,3 années de cash libre, ressemble à une affaire. Ça ressemble surtout à ce que j'appelle un faux bon marché : le prix est bas parce que le marché anticipe un cash libre qui continue de s'éroder. Pour savoir faire la différence entre une vraie décote et un piège, [ma façon de traiter la dette](/blog/dette-dans-methode-lubin-filtre-bilan) est un bon point de départ."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qu'il faut garder de ce classement"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Sur seize actions défensives, quatorze sont plus chères que mon prix d'achat. La stabilité est connue, donc payée.",
+            "Colgate a la meilleure qualité (8 sur 10) mais demande déjà 21 années de cash libre.",
+            "Church & Dwight est la décote la plus crédible, à condition que son cash libre par action continue de croître nettement plus vite que ses ventes.",
+            "Smucker paraît la moins chère, mais sa décote suppose un rebond du cash libre que ses propres prévisions ne montrent pas encore.",
+            "Les endettés (General Mills, Campbell's, Conagra) paraissent bon marché pour une raison : le cash libre s'érode."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Ce classement est une photo de mes fiches au 9 novembre 2026, avec les limites que j'ai signalées : un modèle de prix très sévère pour les entreprises sans croissance, et des données publiques agrégées qui peuvent avoir un trimestre de retard. Pour aller plus loin sur les deux géants des boissons, j'ai détaillé [le duel Coca-Cola contre PepsiCo](/blog/coca-cola-pepsico-marche-tranche-2026). C'est exactement ce genre de lecture, qualité d'abord, prix ensuite, que je voulais pouvoir faire sur n'importe quelle action : [ma méthodologie](/methodologie) détaille chaque critère."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les meilleures actions défensives en 2026 ?",
+          "a": "Sur seize valeurs de la consommation de base, Colgate-Palmolive a la meilleure note qualité (8 sur 10), suivie de Church & Dwight, Danone, Coca-Cola et Procter & Gamble (7 sur 10). Mais seules Church & Dwight et Smucker sont sous mon prix d'achat."
+        },
+        {
+          "q": "Une action défensive est-elle forcément chère ?",
+          "a": "Pas forcément, mais le marché paie la stabilité. Sur seize valeurs étudiées au 9 novembre 2026, quatorze sont au-dessus de mon prix d'achat, parce que leur croissance est faible et que le prix suppose déjà qu'elle dure."
+        },
+        {
+          "q": "Pourquoi Smucker semble-t-elle si bon marché ?",
+          "a": "Elle vaut environ 9 années de cash libre et mon modèle y voit une décote de 66 %. Mais cette décote suppose un cash libre en hausse de 20 % par an, alors que la direction prévoit environ 1,0 milliard de dollars de cash libre en 2027, contre 1,2 milliard."
+        },
+        {
+          "q": "Church & Dwight est-elle vraiment sous-évaluée ?",
+          "a": "Mon modèle y voit une décote de 28 % avec un prix d'achat de 140 dollars pour un cours de 109. Elle repose sur un cash libre par action qui croît d'environ 15 % par an, une hypothèse qui doit rester vérifiée."
+        }
+      ],
+      "tags": [
+        "actions défensives",
+        "consommation de base",
+        "qualité",
+        "valorisation",
+        "Colgate",
+        "Church & Dwight",
+        "Smucker"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 9 novembre 2026. Fais tes propres recherches. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Defensive Stocks: Only Two Are Priced Right",
+      "excerpt": "Sixteen consumer staples stocks put through the same grid: quality on one side, price on the other. One ticks almost every box, only two are cheap, and one of those two may be a trap.",
+      "metaDescription": "Defensive stocks: sixteen consumer staples names judged on quality and price. Colgate shines, Church & Dwight is the real discount.",
+      "answer": "Of sixteen large defensive stocks (Colgate, Nestlé, Coca-Cola, Procter & Gamble, Danone…), only two pass my price test: Church & Dwight and Smucker. Colgate has the best quality but is still too expensive. The stability of a defensive stock is well known to the market, so it is already paid for.",
+      "body": [
+        {
+          "type": "p",
+          "text": "When markets wobble, everyone repeats the same sentence: \"move into defensive stocks\". Toothpaste, detergent, coffee, soda, chocolate: people buy them in a recession as in good times, so these companies hold up. The idea is right. What people forget to ask is how much that peace of mind costs."
+        },
+        {
+          "type": "p",
+          "text": "So I took sixteen large consumer staples companies, American and European, and ran them through my grid: business quality on one side, price on the other, judged separately. The figures come from my company pages as of November 9, 2026."
+        },
+        {
+          "type": "p",
+          "text": "The result fits in one sentence: stability is expensive. Out of sixteen stocks, fourteen cost more than the price I set for myself, and the two that pass the test have very different profiles."
+        },
+        {
+          "type": "h2",
+          "text": "Why a defensive stock is rarely cheap"
+        },
+        {
+          "type": "p",
+          "text": "A defensive stock is one whose sales move little when the economy turns. That is valuable, and it is also why the market loves it: when fear rises, investors rush in and push prices up. The stability is no secret, it is displayed on the front window."
+        },
+        {
+          "type": "p",
+          "text": "My grid has ten quality criteria: profitable margins, sales and free cash flow per share that grow, little debt, a stable or shrinking share count, a return on invested capital that holds up. Free cash flow is the money that really stays in the till once bills and investments are paid. One criterion demands sales growing by more than 10% a year over five years. None of the sixteen ticks it, by construction: selling toothpaste does not double in ten years. As a result the sector ceiling is low: the best score is 8 out of 10, and it belongs to Colgate."
+        },
+        {
+          "type": "p",
+          "text": "Price is judged separately. I project free cash flow per share over five years, apply a reasonable exit multiple and compute the price that leaves roughly 15% a year. That is my buy price. One detail matters here: when free cash flow per share stagnates or falls, that buy price collapses. My model is very harsh on companies without growth, on purpose. It also means the gaps of 70% or 90% shown below mostly say \"no growth at this price\", not \"the stock will fall 90%\"."
+        },
+        {
+          "type": "h2",
+          "text": "The sixteen stocks, from best quality to worst"
+        },
+        {
+          "type": "p",
+          "text": "In this table, \"years of free cash flow\" is how many years of the cash a company generates it takes to buy the stock: the lower, the cheaper. The verdict compares the share price with my buy price."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score (out of 10)",
+            "Years of free cash flow to buy it",
+            "Price verdict"
+          ],
+          "rows": [
+            [
+              "Colgate-Palmolive (CL)",
+              "8",
+              "21.3",
+              "29% above my buy price"
+            ],
+            [
+              "Church & Dwight (CHD)",
+              "7",
+              "15.8",
+              "28% discount"
+            ],
+            [
+              "Danone (BN)",
+              "7",
+              "16.1",
+              "52% above"
+            ],
+            [
+              "Coca-Cola (KO)",
+              "7",
+              "29.4",
+              "88% above"
+            ],
+            [
+              "Procter & Gamble (PG)",
+              "7",
+              "27.3",
+              "71% above"
+            ],
+            [
+              "Hershey (HSY)",
+              "6",
+              "16.2",
+              "18% above"
+            ],
+            [
+              "Nestlé (NESN)",
+              "6",
+              "20.1",
+              "44% above"
+            ],
+            [
+              "Unilever (ULVR)",
+              "6",
+              "18.1",
+              "74% above"
+            ],
+            [
+              "McCormick (MKC)",
+              "6",
+              "14.8",
+              "56% above"
+            ],
+            [
+              "Kimberly-Clark (KMB)",
+              "6",
+              "21.4",
+              "89% above"
+            ],
+            [
+              "Smucker (SJM)",
+              "6",
+              "8.9",
+              "66% discount"
+            ],
+            [
+              "PepsiCo (PEP)",
+              "5",
+              "19.1",
+              "48% above"
+            ],
+            [
+              "Mondelez (MDLZ)",
+              "5",
+              "29.0",
+              "68% above"
+            ],
+            [
+              "General Mills (GIS)",
+              "5",
+              "12.3",
+              "82% above"
+            ],
+            [
+              "Campbell's (CPB)",
+              "3",
+              "11.1",
+              "45% above"
+            ],
+            [
+              "Conagra (CAG)",
+              "3",
+              "8.8",
+              "80% above"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "An 8 out of 10 with a 29% premium does not mean \"run away\". It means the business is excellent and the price already asks you to believe. Let's look at the three cases that tell the sector's story best."
+        },
+        {
+          "type": "h2",
+          "text": "Colgate: the best machine on the shelf, already paid for"
+        },
+        {
+          "type": "p",
+          "text": "Colgate-Palmolive sells toothpaste, toothbrushes, hygiene products and, through Hill's, pet food. Out of every 100 dollars of sales, 17 end up as free cash flow. Its invested capital earns 59% a year in cash (Cash ROCE: what each dollar really invested in the business returns), an exceptional level that I explain, as an inference, by a capital-light model: global brands that sell themselves, without huge factories to renew. It also buys back its own shares, and the count falls by 1.2% a year: each shareholder owns a bigger slice of the pie without doing anything."
+        },
+        {
+          "type": "p",
+          "text": "The third quarter 2026 results, published at the end of October, confirm the solidity without thrilling: sales rose 4.6% to 5.37 billion dollars, including 3.6% organic growth (excluding currency and acquisitions). The detail is instructive: growth comes roughly equally from price increases (2.0%) and volume (1.7%), North America is shrinking, and Hill's grew 5.7%, according to [Colgate's third quarter release filed with the SEC](https://www.sec.gov/Archives/edgar/data/0000021665/000002166526000047/q32026pressreleasetables.htm). Management raised its earnings growth outlook to 5% to 7%."
+        },
+        {
+          "type": "p",
+          "text": "My verdict is simple: it is the best quality on the list, but at 21 years of free cash flow, the market already asks it to hold a 4% to 5% growth pace for a long time. My buy price is 68 dollars, the share price is 97. I compared Colgate with L'Oréal in [a dedicated article](/blog/colgate-palmolive-loreal-comparatif-consommation-2026), and the finding is the same: quality is priced high."
+        },
+        {
+          "type": "h2",
+          "text": "Church & Dwight: the one real discount among the big brands"
+        },
+        {
+          "type": "p",
+          "text": "Church & Dwight is Arm & Hammer (baking soda), Oxiclean, Batiste and Trojan condoms. A portfolio of mid-sized, well-established brands rather than global giants. What interests me is the cash: 26% of sales end up as free cash flow, invested capital earns 35% a year, and net debt is barely 1.2 years of free cash flow (this ratio measures how many years the company would need to repay its debt with its cash alone: the lower, the more room it has). Free cash flow per share grows 16.5% a year over five years while sales only grow 4.3%: the difference comes from margins and buybacks, not spectacular growth."
+        },
+        {
+          "type": "p",
+          "text": "On October 30, 2026, the company published a third quarter above its own guidance: sales up 1.0% to 1.6 billion dollars, organic growth of 5.1% against the 3% announced, adjusted earnings per share of 0.92 dollars (up 13.6%) and a new buyback program of up to 1 billion dollars, according to [the release filed with the SEC](https://www.sec.gov/Archives/edgar/data/0000313927/000119312526439864/chd-ex99_1.htm). Two caveats I keep in mind: part of the quarter's margin came from tariff refunds, around 15 million dollars, expected to fall to about 5 million in the fourth quarter, and organic growth guided for year-end slows to around 4%."
+        },
+        {
+          "type": "p",
+          "text": "That is why my model sees a 28% discount: at 109 dollars, my buy price is 140. Let's be honest about how fragile this calculation is. It assumes free cash flow per share keeps growing around 15% a year, more than 4% to 5% organic growth suggests. My inference: if that pace drops to 8%, the discount melts by half or more. [Church & Dwight's page](/analyse/CHD) lets you follow this point, and I note its resilience rating against AI is modest (2.5 out of 5), because its products remain very exposed to pressure from private labels and big retail chains."
+        },
+        {
+          "type": "h2",
+          "text": "Smucker: a 66% discount that deserves caution"
+        },
+        {
+          "type": "p",
+          "text": "Smucker is Folgers and Dunkin' coffee on the shelf, jam, Jif peanut butter and, since buying Hostess, Twinkies. On paper the stock is the cheapest on the list at 8.9 years of free cash flow, with a 17% free cash flow margin and capital earning 18% a year. My model sees a 66% discount: buy price of 217 dollars for a share price of 131."
+        },
+        {
+          "type": "p",
+          "text": "But this discount rests on an assumption the facts contradict. My model projects free cash flow per share growing 20% a year, the upper bound it allows itself, extrapolating a history of more than 17% a year. Yet in its third quarter of fiscal 2026 Smucker took about 962 million dollars in impairments on Hostess: 507 million on goodwill (the surplus paid at purchase over book value) and 454 million on the brand itself. In other words, the company acknowledged it overpaid for that acquisition. Its net margin is 2.5% for that reason."
+        },
+        {
+          "type": "p",
+          "text": "The fiscal 2027 outlook, according to [the annual report filed with the SEC and management's comments](https://www.sec.gov/Archives/edgar/data/0000091419/000009141926000050/sjm-20260430.htm), announces sales down 3% to 4% and free cash flow of about 1.0 billion dollars, against 1.2 billion last year, with 500 million of debt to repay. Falling free cash flow is not compatible with 20% annual growth. My reading, which remains an inference: the real question is not \"is Smucker bargain-priced at 66%\" but \"will free cash flow rebound when coffee prices fall and Hostess recovers\". If yes, the stock is cheap. If not, it is a trap made attractive by a low price."
+        },
+        {
+          "type": "h2",
+          "text": "The indebted aisle: when defensive stops being defensive"
+        },
+        {
+          "type": "p",
+          "text": "At the bottom of the table, three names share the same flaw: General Mills, Campbell's and Conagra. Their net debt equals between 8.5 and 10.8 years of free cash flow, while sales at General Mills and Conagra have fallen over five years (down 0.5% and 1.7% a year). An indebted company whose sales do not grow has a mechanical problem: a growing share of cash goes to interest, leaving less to invest in brands or reward shareholders."
+        },
+        {
+          "type": "p",
+          "text": "Their low valuation, between 8.8 and 12.3 years of free cash flow, looks like a bargain. It looks mostly like what I call a false bargain: the price is low because the market expects free cash flow to keep eroding. To tell a real discount from a trap, [how I treat debt](/blog/dette-dans-methode-lubin-filtre-bilan) is a good starting point."
+        },
+        {
+          "type": "h2",
+          "text": "What to keep from this ranking"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Out of sixteen defensive stocks, fourteen are above my buy price. Stability is known, so it is paid for.",
+            "Colgate has the best quality (8 out of 10) but already asks for 21 years of free cash flow.",
+            "Church & Dwight is the most credible discount, provided its free cash flow per share keeps growing clearly faster than its sales.",
+            "Smucker looks the cheapest, but its discount assumes a free cash flow rebound that its own guidance does not yet show.",
+            "The indebted names (General Mills, Campbell's, Conagra) look cheap for a reason: free cash flow is eroding."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This ranking is a snapshot of my pages as of November 9, 2026, with the limits I flagged: a price model that is very harsh on companies without growth, and aggregated public data that can lag by a quarter. To go further on the two beverage giants, I detailed [the Coca-Cola versus PepsiCo duel](/blog/coca-cola-pepsico-marche-tranche-2026). This is exactly the kind of reading, quality first, price second, that I wanted to be able to do on any stock: [my methodology](/methodologie) details each criterion."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the best defensive stocks in 2026?",
+          "a": "Out of sixteen consumer staples stocks, Colgate-Palmolive has the best quality score (8 out of 10), followed by Church & Dwight, Danone, Coca-Cola and Procter & Gamble (7 out of 10). But only Church & Dwight and Smucker are below my buy price."
+        },
+        {
+          "q": "Is a defensive stock always expensive?",
+          "a": "Not always, but the market pays for stability. Of sixteen stocks studied on November 9, 2026, fourteen are above my buy price, because growth is weak and the price already assumes it lasts."
+        },
+        {
+          "q": "Why does Smucker look so cheap?",
+          "a": "It trades at about 9 years of free cash flow and my model sees a 66% discount. But that discount assumes free cash flow growing 20% a year, while management expects about 1.0 billion dollars of free cash flow in fiscal 2027, against 1.2 billion."
+        },
+        {
+          "q": "Is Church & Dwight really undervalued?",
+          "a": "My model sees a 28% discount with a buy price of 140 dollars for a share price of 109. It relies on free cash flow per share growing about 15% a year, an assumption that must keep being checked."
+        }
+      ],
+      "tags": [
+        "defensive stocks",
+        "consumer staples",
+        "quality",
+        "valuation",
+        "Colgate",
+        "Church & Dwight",
+        "Smucker"
+      ],
+      "disclaimer": "For information and education only, not personalized investment advice. Past performance does not predict future results. Figures as of November 9, 2026. Do your own research. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you so that you read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Acciones defensivas: solo dos tienen buen precio",
+      "excerpt": "Dieciséis valores de consumo básico pasados por la misma rejilla: calidad por un lado, precio por otro. Una cumple casi todo, solo dos son baratas, y una de ellas puede ser una trampa.",
+      "metaDescription": "Acciones defensivas: dieciséis valores de consumo básico juzgados por calidad y precio. Colgate brilla, Church & Dwight es el verdadero descuento.",
+      "answer": "De dieciséis grandes acciones defensivas (Colgate, Nestlé, Coca-Cola, Procter & Gamble, Danone…), solo dos superan mi prueba de precio: Church & Dwight y Smucker. Colgate tiene la mejor calidad, pero sigue siendo cara. La estabilidad de una acción defensiva es conocida por el mercado, así que ya está pagada.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Cuando los mercados tiemblan, todos repiten la misma frase: \"pásate a las acciones defensivas\". Pasta de dientes, detergente, café, refrescos, chocolate: se compran en recesión igual que en épocas buenas, así que estas empresas resisten. La idea es correcta. Lo que se olvida preguntar es cuánto cuesta esa tranquilidad."
+        },
+        {
+          "type": "p",
+          "text": "Por eso tomé dieciséis grandes empresas de consumo básico, estadounidenses y europeas, y las pasé por mi rejilla: la calidad del negocio por un lado, el precio por otro, juzgados por separado. Las cifras vienen de mis fichas al 9 de noviembre de 2026."
+        },
+        {
+          "type": "p",
+          "text": "El resultado cabe en una frase: la estabilidad sale cara. De dieciséis valores, catorce cuestan más que el precio que me fijo, y los dos que pasan la prueba tienen perfiles muy distintos."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué una acción defensiva rara vez es barata"
+        },
+        {
+          "type": "p",
+          "text": "Una acción defensiva es aquella cuyas ventas se mueven poco cuando la economía gira. Es valioso, y es también la razón por la que el mercado la adora: cuando sube el miedo, los inversores se lanzan sobre ella y empujan los precios. La estabilidad no es un secreto, está en el escaparate."
+        },
+        {
+          "type": "p",
+          "text": "Mi rejilla tiene diez criterios de calidad: márgenes rentables, ventas y flujo de caja libre por acción que crecen, poca deuda, un número de acciones estable o a la baja, un capital invertido que rinde. El flujo de caja libre es el dinero que realmente queda en caja una vez pagadas las facturas y las inversiones. Un criterio exige ventas que crezcan más de un 10 % anual durante cinco años. Ninguno de los dieciséis lo cumple, por construcción: vender pasta de dientes no se duplica en diez años. Resultado, el techo del sector es bajo: la mejor nota es 8 sobre 10, y es de Colgate."
+        },
+        {
+          "type": "p",
+          "text": "El precio se juzga aparte. Proyecto el flujo de caja libre por acción a cinco años, aplico un múltiplo de salida razonable y calculo el precio que deja cerca de un 15 % anual. Es mi precio de compra. Un detalle que importa aquí: cuando el flujo de caja libre por acción se estanca o retrocede, ese precio de compra se desploma. Mi modelo es muy severo con las empresas sin crecimiento, a propósito. Pero significa que las diferencias del 70 o 90 % que aparecen abajo dicen sobre todo \"sin crecimiento a este precio\", no \"la acción caerá un 90 %\"."
+        },
+        {
+          "type": "h2",
+          "text": "Los dieciséis valores, de mejor a peor calidad"
+        },
+        {
+          "type": "p",
+          "text": "En esta tabla, \"años de flujo de caja libre\" indica cuántos años del dinero que genera la empresa hacen falta para comprar la acción: cuanto menos, más barata. El veredicto compara la cotización con mi precio de compra."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad (sobre 10)",
+            "Años de flujo de caja libre para comprarla",
+            "Veredicto de precio"
+          ],
+          "rows": [
+            [
+              "Colgate-Palmolive (CL)",
+              "8",
+              "21,3",
+              "29 % por encima"
+            ],
+            [
+              "Church & Dwight (CHD)",
+              "7",
+              "15,8",
+              "Descuento del 28 %"
+            ],
+            [
+              "Danone (BN)",
+              "7",
+              "16,1",
+              "52 % por encima"
+            ],
+            [
+              "Coca-Cola (KO)",
+              "7",
+              "29,4",
+              "88 % por encima"
+            ],
+            [
+              "Procter & Gamble (PG)",
+              "7",
+              "27,3",
+              "71 % por encima"
+            ],
+            [
+              "Hershey (HSY)",
+              "6",
+              "16,2",
+              "18 % por encima"
+            ],
+            [
+              "Nestlé (NESN)",
+              "6",
+              "20,1",
+              "44 % por encima"
+            ],
+            [
+              "Unilever (ULVR)",
+              "6",
+              "18,1",
+              "74 % por encima"
+            ],
+            [
+              "McCormick (MKC)",
+              "6",
+              "14,8",
+              "56 % por encima"
+            ],
+            [
+              "Kimberly-Clark (KMB)",
+              "6",
+              "21,4",
+              "89 % por encima"
+            ],
+            [
+              "Smucker (SJM)",
+              "6",
+              "8,9",
+              "Descuento del 66 %"
+            ],
+            [
+              "PepsiCo (PEP)",
+              "5",
+              "19,1",
+              "48 % por encima"
+            ],
+            [
+              "Mondelez (MDLZ)",
+              "5",
+              "29,0",
+              "68 % por encima"
+            ],
+            [
+              "General Mills (GIS)",
+              "5",
+              "12,3",
+              "82 % por encima"
+            ],
+            [
+              "Campbell's (CPB)",
+              "3",
+              "11,1",
+              "45 % por encima"
+            ],
+            [
+              "Conagra (CAG)",
+              "3",
+              "8,8",
+              "80 % por encima"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Un 8 sobre 10 con un 29 % de sobreprecio no significa \"huye\". Significa que el negocio es excelente y que el precio ya pide creer en él. Veamos los tres casos que mejor cuentan el sector."
+        },
+        {
+          "type": "h2",
+          "text": "Colgate: la mejor máquina del estante, ya pagada"
+        },
+        {
+          "type": "p",
+          "text": "Colgate-Palmolive vende pastas de dientes, cepillos, productos de higiene y, con Hill's, alimentación para mascotas. De cada 100 dólares de ventas, 17 acaban en flujo de caja libre. Su capital invertido rinde un 59 % anual en efectivo (el Cash ROCE: lo que rinde cada dólar realmente invertido en el negocio), un nivel excepcional que explico, es una inferencia, por un modelo ligero en capital: marcas mundiales que se venden solas, sin enormes fábricas que renovar. Además recompra sus propias acciones, cuyo número baja un 1,2 % al año: cada accionista posee una porción mayor del pastel sin hacer nada."
+        },
+        {
+          "type": "p",
+          "text": "Los resultados del tercer trimestre de 2026, publicados a finales de octubre, confirman la solidez sin entusiasmar: las ventas subieron un 4,6 % hasta 5.370 millones de dólares, con un 3,6 % de crecimiento orgánico (sin efecto de cambio ni adquisiciones). El detalle es instructivo: el crecimiento viene más o menos a partes iguales de subidas de precios (2,0 %) y de volumen (1,7 %), Norteamérica retrocede y Hill's avanza un 5,7 %, según [el comunicado del tercer trimestre presentado por Colgate a la SEC](https://www.sec.gov/Archives/edgar/data/0000021665/000002166526000047/q32026pressreleasetables.htm). La dirección eleva su previsión de crecimiento del beneficio al 5 a 7 %."
+        },
+        {
+          "type": "p",
+          "text": "Mi veredicto es simple: es la mejor calidad de la lista, pero a 21 años de flujo de caja libre, el mercado ya le pide mantener ese ritmo del 4 al 5 % durante mucho tiempo. Mi precio de compra es de 68 dólares, la cotización de 97. Comparé Colgate con L'Oréal en [un artículo dedicado](/blog/colgate-palmolive-loreal-comparatif-consommation-2026), y la conclusión es la misma: la calidad se paga cara."
+        },
+        {
+          "type": "h2",
+          "text": "Church & Dwight: el único descuento real entre las grandes marcas"
+        },
+        {
+          "type": "p",
+          "text": "Church & Dwight es Arm & Hammer (bicarbonato), Oxiclean, Batiste y los preservativos Trojan. Una cartera de marcas medianas y bien asentadas, más que de gigantes mundiales. Lo que me interesa es la solidez del efectivo: el 26 % de las ventas acaba en flujo de caja libre, el capital invertido rinde un 35 % anual y la deuda neta es apenas 1,2 años de flujo de caja libre (este ratio mide en cuántos años la empresa pagaría su deuda solo con su efectivo: cuanto menos, más respira). El flujo de caja libre por acción crece un 16,5 % anual en cinco años, mientras que las ventas solo suben un 4,3 %: la diferencia viene de los márgenes y las recompras, no de un crecimiento espectacular."
+        },
+        {
+          "type": "p",
+          "text": "El 30 de octubre de 2026, la empresa publicó un tercer trimestre por encima de sus propias previsiones: ventas en alza del 1,0 % hasta 1.600 millones de dólares, crecimiento orgánico del 5,1 % frente al 3 % anunciado, beneficio ajustado por acción de 0,92 dólares (un 13,6 % más) y un nuevo programa de recompra de hasta 1.000 millones de dólares, según [el comunicado presentado a la SEC](https://www.sec.gov/Archives/edgar/data/0000313927/000119312526439864/chd-ex99_1.htm). Dos matices que retengo: parte del margen del trimestre viene de reembolsos de aranceles, unos 15 millones de dólares, que deberían caer a unos 5 millones en el cuarto trimestre, y el crecimiento orgánico previsto para final de año se frena hacia el 4 %."
+        },
+        {
+          "type": "p",
+          "text": "Por eso mi modelo ve un descuento del 28 %: a 109 dólares, mi precio de compra es de 140. Seamos honestos sobre la fragilidad de este cálculo. Supone que el flujo de caja libre por acción sigue creciendo un 15 % anual, más de lo que sugiere el crecimiento orgánico del 4 al 5 %. Mi inferencia: si ese ritmo baja al 8 %, el descuento se reduce a la mitad o más. [La ficha de Church & Dwight](/analyse/CHD) permite seguir este punto, y señalo que su nota de resiliencia frente a la IA es modesta (2,5 sobre 5), porque sus productos siguen muy expuestos a la presión de las marcas blancas y de las grandes cadenas."
+        },
+        {
+          "type": "h2",
+          "text": "Smucker: un descuento del 66 % que hay que leer con cautela"
+        },
+        {
+          "type": "p",
+          "text": "Smucker es el café Folgers y Dunkin' en el estante, la mermelada, la crema de cacahuete Jif y, desde que compró Hostess, los pasteles Twinkies. Sobre el papel, la acción es la más barata de la lista, con 8,9 años de flujo de caja libre, un margen de flujo de caja libre del 17 % y un capital que rinde un 18 % anual. Mi modelo ve un descuento del 66 %: precio de compra de 217 dólares para una cotización de 131."
+        },
+        {
+          "type": "p",
+          "text": "Pero ese descuento descansa en una hipótesis que los hechos contradicen. Mi modelo proyecta un flujo de caja libre por acción que crece un 20 % anual, el límite superior que se permite, extrapolando un histórico de más del 17 % anual. Ahora bien, en su tercer trimestre del ejercicio 2026 Smucker registró unos 962 millones de dólares de deterioros sobre Hostess: 507 millones en el fondo de comercio (el sobreprecio pagado en la compra respecto al valor contable) y 454 millones en la propia marca. Dicho de otro modo, la empresa reconoció haber pagado de más por esa compra. Su margen neto es del 2,5 % por esa razón."
+        },
+        {
+          "type": "p",
+          "text": "Las perspectivas del ejercicio 2027, según [el informe anual presentado a la SEC y los comentarios de la dirección](https://www.sec.gov/Archives/edgar/data/0000091419/000009141926000050/sjm-20260430.htm), anuncian ventas a la baja del 3 al 4 % y un flujo de caja libre de unos 1.000 millones de dólares, frente a 1.200 millones el año pasado, con 500 millones de deuda por pagar. Un flujo de caja libre que retrocede no es compatible con un crecimiento del 20 % anual. Mi lectura, que sigue siendo una inferencia: la verdadera pregunta no es \"¿está Smucker rebajada un 66 %?\" sino \"¿rebotará el flujo de caja libre cuando baje el café y Hostess se recupere?\". Si es así, la acción es barata. Si no, es una trampa que el precio bajo vuelve atractiva."
+        },
+        {
+          "type": "h2",
+          "text": "El pasillo de los endeudados: cuando lo defensivo deja de serlo"
+        },
+        {
+          "type": "p",
+          "text": "En la parte baja de la tabla, tres nombres comparten el mismo defecto: General Mills, Campbell's y Conagra. Su deuda neta equivale a entre 8,5 y 10,8 años de flujo de caja libre, mientras que las ventas de General Mills y Conagra retroceden en cinco años (un 0,5 % y un 1,7 % anual). Una empresa endeudada cuyas ventas no crecen tiene un problema mecánico: una parte creciente del efectivo va a los intereses, y queda menos para invertir en marcas o remunerar a los accionistas."
+        },
+        {
+          "type": "p",
+          "text": "Su valoración baja, entre 8,8 y 12,3 años de flujo de caja libre, parece una ganga. Parece sobre todo lo que llamo una falsa ganga: el precio es bajo porque el mercado anticipa un flujo de caja libre que sigue erosionándose. Para distinguir un descuento real de una trampa, [cómo trato la deuda](/blog/dette-dans-methode-lubin-filtre-bilan) es un buen punto de partida."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que conviene guardar de esta clasificación"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "De dieciséis acciones defensivas, catorce están por encima de mi precio de compra. La estabilidad es conocida, así que está pagada.",
+            "Colgate tiene la mejor calidad (8 sobre 10) pero ya pide 21 años de flujo de caja libre.",
+            "Church & Dwight es el descuento más creíble, siempre que su flujo de caja libre por acción siga creciendo claramente más rápido que sus ventas.",
+            "Smucker parece la más barata, pero su descuento supone un rebote del flujo de caja libre que sus propias previsiones aún no muestran.",
+            "Los endeudados (General Mills, Campbell's, Conagra) parecen baratos por una razón: el flujo de caja libre se erosiona."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Esta clasificación es una foto de mis fichas al 9 de noviembre de 2026, con los límites que señalé: un modelo de precio muy severo con las empresas sin crecimiento, y datos públicos agregados que pueden ir un trimestre por detrás. Para profundizar en los dos gigantes de las bebidas, detallé [el duelo Coca-Cola contra PepsiCo](/blog/coca-cola-pepsico-marche-tranche-2026). Es exactamente el tipo de lectura, calidad primero, precio después, que quería poder hacer sobre cualquier acción: [mi metodología](/methodologie) detalla cada criterio."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las mejores acciones defensivas en 2026?",
+          "a": "De dieciséis valores de consumo básico, Colgate-Palmolive tiene la mejor nota de calidad (8 sobre 10), seguida de Church & Dwight, Danone, Coca-Cola y Procter & Gamble (7 sobre 10). Pero solo Church & Dwight y Smucker están por debajo de mi precio de compra."
+        },
+        {
+          "q": "¿Una acción defensiva es siempre cara?",
+          "a": "No siempre, pero el mercado paga la estabilidad. De dieciséis valores estudiados el 9 de noviembre de 2026, catorce están por encima de mi precio de compra, porque su crecimiento es débil y el precio ya supone que dura."
+        },
+        {
+          "q": "¿Por qué Smucker parece tan barata?",
+          "a": "Cotiza a unos 9 años de flujo de caja libre y mi modelo ve un descuento del 66 %. Pero ese descuento supone un flujo de caja libre que crece un 20 % anual, mientras que la dirección prevé unos 1.000 millones de dólares en 2027, frente a 1.200 millones."
+        },
+        {
+          "q": "¿Está Church & Dwight realmente infravalorada?",
+          "a": "Mi modelo ve un descuento del 28 % con un precio de compra de 140 dólares para una cotización de 109. Se apoya en un flujo de caja libre por acción que crece cerca de un 15 % anual, una hipótesis que debe seguir verificándose."
+        }
+      ],
+      "tags": [
+        "acciones defensivas",
+        "consumo básico",
+        "calidad",
+        "valoración",
+        "Colgate",
+        "Church & Dwight",
+        "Smucker"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras al 9 de noviembre de 2026. Haz tu propia investigación. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
