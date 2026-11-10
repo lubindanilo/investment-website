@@ -105537,7 +105537,691 @@ const articleDefensivesStaples2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026];
+const articleJeuxVideo2026: Article = {
+  "slug": "jeux-video-bourse-krafton-netease-devant-nintendo-2026",
+  "date": "2026-11-10",
+  "updated": "2026-11-10",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Jeux vidéo en bourse : Krafton et NetEase devant Nintendo",
+      "excerpt": "Neuf éditeurs de jeux vidéo passés au crible, la qualité d'un côté et le prix de l'autre. Les deux plus discrets sont les moins chers, les stars sont chères, et un titre à bas prix peut cacher un piège.",
+      "metaDescription": "Neuf éditeurs de jeux vidéo jugés sur la qualité et le prix : Krafton et NetEase sortent bon marché, Nintendo et Konami sont chers, Take-Two attend GTA VI.",
+      "answer": "Sur neuf éditeurs de jeux vidéo, seuls Krafton (PUBG) et NetEase se valorisent à environ dix fois leur cash libre, avec une qualité de 8 sur 10 et une décote de plus de 50 % selon ma grille. Nintendo, Konami et Roblox sont chers pour ce qu'ils rapportent, et Take-Two ne se note pas avant GTA VI.",
+      "body": [
+        {
+          "type": "h3",
+          "text": "Les jeux vidéo sont-ils chers en bourse ?"
+        },
+        {
+          "type": "p",
+          "text": "Quand on parle de jeux vidéo, on pense à Nintendo, à GTA ou à Ubisoft, des noms que tout le monde connaît. Le problème, c'est que les noms que tout le monde connaît sont aussi ceux dont le prix reflète déjà l'enthousiasme. J'ai donc passé neuf éditeurs cotés dans ma grille, en séparant toujours deux questions : le business est-il bon, et le prix est-il raisonnable ?"
+        },
+        {
+          "type": "p",
+          "text": "Le résultat est contre-intuitif. Les deux valeurs les moins chères, Krafton et NetEase, sont aussi parmi les mieux notées, et ce ne sont pas celles dont on parle le plus. Les stars du secteur, elles, te demandent de payer l'avenir d'avance."
+        },
+        {
+          "type": "h3",
+          "text": "Comment je juge un éditeur de jeux ?"
+        },
+        {
+          "type": "p",
+          "text": "La qualité d'abord, sur dix critères : des marges rentables, des ventes et un cash libre par action qui progressent, peu de dette, un nombre d'actions stable ou en baisse, un capital investi qui rapporte. Le cash libre (free cash flow), c'est l'argent qui reste vraiment dans les caisses une fois toutes les factures payées, y compris les studios qui coûtent des années avant de sortir un jeu."
+        },
+        {
+          "type": "p",
+          "text": "Le prix ensuite, séparément. Je compte en « années de cash libre » : le prix de l'action divisé par le cash libre par action. Dix, c'est dix années du cash que l'entreprise génère aujourd'hui. Pour obtenir mon prix d'achat, je projette ce cash sur cinq ans (avec une croissance plafonnée à 20 % par an), j'applique un multiple de sortie raisonnable, et je calcule le prix qui laisse environ 15 % de rendement annuel. Sous ce prix, c'est une décote ; au-dessus, une surcote."
+        },
+        {
+          "type": "p",
+          "text": "Dans le jeu vidéo, une précaution s'impose. Un éditeur dépense pendant quatre ou cinq ans avant de sortir un blockbuster, puis encaisse en quelques semaines. Le cash libre d'une seule année peut donc mentir dans les deux sens, et je regarde sa trajectoire plutôt que sa photo."
+        },
+        {
+          "type": "h3",
+          "text": "Que donne la grille sur neuf éditeurs ?"
+        },
+        {
+          "type": "p",
+          "text": "Voici les neuf valeurs, de la meilleure qualité à la moins bonne. Les chiffres viennent de mes fiches au 10 novembre 2026."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité (sur 10)",
+            "Années de cash libre pour l'acheter",
+            "Verdict prix"
+          ],
+          "rows": [
+            [
+              "Bandai Namco (7832)",
+              "9",
+              "36,2",
+              "décote de 3 %"
+            ],
+            [
+              "Krafton (259960)",
+              "8",
+              "10,3",
+              "décote de 55 %"
+            ],
+            [
+              "NetEase (NTES)",
+              "8",
+              "10,6",
+              "décote de 51 %"
+            ],
+            [
+              "Konami (9766)",
+              "8",
+              "44,7",
+              "surcote de 35 %"
+            ],
+            [
+              "Sony (6758)",
+              "7",
+              "16,7",
+              "décote de 3 %"
+            ],
+            [
+              "Roblox (RBLX)",
+              "6",
+              "73,4",
+              "surcote de 33 %"
+            ],
+            [
+              "Nintendo (7974)",
+              "5",
+              "36,2",
+              "surcote de 55 %"
+            ],
+            [
+              "Take-Two (TTWO)",
+              "5",
+              "cash libre négatif",
+              "non calculable"
+            ],
+            [
+              "Ubisoft (UBI)",
+              "4",
+              "2,4",
+              "décote de 141 %, à ne pas croire"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Deux lignes sortent du lot : Krafton et NetEase cumulent une note de 8 et un prix de moitié inférieur à mon prix d'achat. Bandai Namco est la meilleure note, mais payée à peu près à son juste prix. La dernière ligne, Ubisoft, est un faux ami, j'y reviens plus bas."
+        },
+        {
+          "type": "h3",
+          "text": "Pourquoi Krafton et NetEase sortent-ils si bon marché ?"
+        },
+        {
+          "type": "p",
+          "text": "Krafton, c'est l'éditeur coréen de PUBG. Au premier trimestre 2026, la licence PUBG a dépassé pour la première fois les 1 000 milliards de wons de ventes sur un trimestre, pour 1 370 milliards de wons de ventes totales, d'après [la présentation des résultats relayée par la presse coréenne](https://www.digitaltoday.co.kr/en/view/52290/krafton-pubg-ip-sales-top-1-trillion-won-expands-into-ai-and-autonomous-driving). Ça fait environ quatre cinquièmes du chiffre d'affaires sur un seul jeu (mon calcul). Côté qualité, [la fiche de Krafton](/analyse/259960.KS) montre des ventes en hausse de 15 % par an, un cash libre par action en hausse de 28 % par an et des actions rachetées. Un critère échoue : les marges se compriment."
+        },
+        {
+          "type": "p",
+          "text": "Cette concentration est le vrai risque : si PUBG s'essouffle, il n'y a pas de deuxième moteur aussi puissant, même si Subnautica 2 a, selon la presse spécialisée, dépassé cinq millions d'exemplaires en accès anticipé. Et la décote de 55 % suppose que le cash libre progresse de 20 % par an : c'est mon hypothèse, pas un fait. Les résultats du trimestre sont attendus ces jours-ci d'après ma base, et mes chiffres ne les intègrent pas."
+        },
+        {
+          "type": "p",
+          "text": "NetEase, c'est l'autre histoire. D'après ses séries, le cash libre est passé d'environ 15,7 milliards de yuans en 2019 à 48,7 milliards en 2025, soit trois fois plus, pendant que les ventes passaient de 59 à 113 milliards. La croissance vient de jeux installés comme Fantasy Westward Journey et de nouveautés comme Where Winds Meet, cités dans [ses communiqués trimestriels déposés auprès de la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001110646&type=6-K). L'ombre au tableau, c'est le risque chinois : une réglementation du jeu peut changer la donne du jour au lendemain, et les ventes ne progressent plus que de 5,5 % par an sur trois ans. J'ai développé ce risque dans mon étude sur [les actions chinoises](/blog/actions-chinoises-catl-pop-mart-devant-tencent-2026). Les résultats du troisième trimestre sont attendus vers le 19 novembre selon un calendrier boursier, date que je n'ai pas vue confirmée par NetEase."
+        },
+        {
+          "type": "h3",
+          "text": "Pourquoi Nintendo est-elle si chère pour une note de 5 ?"
+        },
+        {
+          "type": "p",
+          "text": "Nintendo coche cinq critères sur dix seulement. Sa marge nette de 18 % est excellente, mais son cash libre par action recule d'environ 7 % par an sur la période que je mesure, et son prix équivaut à 36 années de ce cash. Mon prix d'achat est de 3 662 yens, l'action cote 8 178 yens, soit une surcote de 55 %."
+        },
+        {
+          "type": "p",
+          "text": "Pourquoi le marché accepte-t-il ce prix ? Parce qu'il paie la licence (Mario, Zelda, Pokémon) et le cycle de la Switch 2, vendue à près de 20 millions d'exemplaires à fin mars 2026. Mais Nintendo a abaissé en mai sa prévision pour l'exercice clos en mars 2027, à 16,5 millions de consoles : un cycle de console enrichit beaucoup l'année du lancement, puis le rythme retombe. Payer 36 fois le cash d'aujourd'hui suppose que ce rythme reste élevé longtemps. Le pari est possible, mais c'est un pari."
+        },
+        {
+          "type": "h3",
+          "text": "Et Take-Two, avec GTA VI en ligne de mire ?"
+        },
+        {
+          "type": "p",
+          "text": "Take-Two ne se note pas : son cash libre est négatif sur douze mois, donc ni années de cash libre ni prix d'achat. Dans [son communiqué du deuxième trimestre](https://www.sec.gov/Archives/edgar/data/0000946581/000162828026072175/ttwo2q27earningsrelease.htm), publié le 9 novembre 2026, les « net bookings » (les ventes de la période, avant l'étalement comptable des contenus en ligne) reculent de 18 % à 1,60 milliard de dollars. L'entreprise maintient sa prévision annuelle de 8 à 8,2 milliards et la sortie de GTA VI le 19 novembre 2026, après plusieurs reports (fin 2025, puis mai 2026, puis novembre)."
+        },
+        {
+          "type": "p",
+          "text": "L'action vaut donc un pari sur un seul événement. Si le jeu est un triomphe, le cash libre bondit ; s'il est reporté une fois de plus ou déçoit, le prix a déjà intégré beaucoup d'attentes. Je ne peux pas chiffrer cet événement avec ma méthode, et je préfère le dire que l'habiller d'un score."
+        },
+        {
+          "type": "h3",
+          "text": "Ubisoft à deux années de cash libre : une affaire ou un piège ?"
+        },
+        {
+          "type": "p",
+          "text": "Sur le papier, Ubisoft est l'action la moins chère du secteur : 2,4 années de cash libre et une décote de 141 % à mon prix d'achat. Mais ses ventes reculent d'environ 10 % par an, sa marge nette est de moins 106 % et sa note de qualité est de 4. Un cash libre positif chez un éditeur qui perd autant d'argent en comptabilité, je ne le prends pas pour argent comptant : mon interprétation est que le prix bas signale une entreprise en déclin, pas une aubaine."
+        },
+        {
+          "type": "p",
+          "text": "Le contexte compte : Tencent a investi 1,16 milliard d'euros pour 25 % de Vantage Studios, la filiale qui regroupe Assassin's Creed, Far Cry et Rainbow Six. C'est un soutien financier réel, mais il ne règle pas la question des ventes qui reculent. Je ne tranche pas l'avenir d'Ubisoft ; je constate que ma grille ne lui donne pas la qualité qui rendrait un prix bas intéressant."
+        },
+        {
+          "type": "h3",
+          "text": "Et Konami, Sony, Bandai Namco et Roblox ?"
+        },
+        {
+          "type": "p",
+          "text": "Bandai Namco a la meilleure note du groupe (9 sur 10), mais elle est payée à peu près à mon prix d'achat, et ce prix suppose 20 % de croissance annuelle du cash libre : la marge de sécurité est mince. Konami (8 sur 10) affiche une surcote de 35 % pour un cash libre par action qui ne progresse que d'environ 4 % par an. Sony (7 sur 10) est à peu près à son prix d'achat, mais c'est un conglomérat (jeux, musique, capteurs d'image) : le comparer à un éditeur pur jeu est imparfait. J'ai déjà détaillé ce marché dans [mon étude sur les actions japonaises](/blog/japon-actions-qualite-ignorees-france-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Roblox, enfin, croît vite (ventes en hausse de 27 % par an), mais il faut 73 années de cash libre pour l'acheter, et le nombre d'actions augmente d'environ 5 % par an : chaque actionnaire est dilué. La croissance est réelle, le prix la paie déjà largement."
+        },
+        {
+          "type": "h3",
+          "text": "Qui ai-je laissé de côté, et pourquoi ?"
+        },
+        {
+          "type": "p",
+          "text": "Electronic Arts n'est plus cotée : le rachat par PIF, Silver Lake et Affinity Partners a été finalisé le 4 août 2026, à 210 dollars par action en numéraire, d'après [l'annonce d'EA](https://www.ea.com/news/ea-announces-completion-of-acquisition). Je laisse aussi de côté Capcom et Nexon, car les séries de cash libre de ma base y donnent des résultats incohérents entre elles (un prix de 97 années de cash libre pour Capcom ne colle pas avec ses derniers trimestres). Je préfère ne pas les classer plutôt que de publier un chiffre douteux."
+        },
+        {
+          "type": "h3",
+          "text": "Quelle valeur regarder en premier ?"
+        },
+        {
+          "type": "p",
+          "text": "Si tu veux creuser le secteur, commence par la fiche de [Krafton](/analyse/259960.KS), puis par celle de [NetEase](/analyse/NTES), en lisant leurs risques avant leurs ratios : la concentration sur PUBG pour l'une, la réglementation chinoise pour l'autre. Dans les deux cas, la décote repose sur une croissance de 20 % par an du cash libre qu'il faut vérifier. Et pour les stars comme [Nintendo](/analyse/7974.T), la question n'est pas la qualité du jeu, c'est le prix de l'attente."
+        },
+        {
+          "type": "p",
+          "text": "Séparer la qualité du prix, c'est exactement ce que j'ai voulu pouvoir faire pour n'importe quelle action ; ma [méthodologie complète](/methodologie) détaille chaque critère."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Quelles sont les actions de jeux vidéo les moins chères en 2026 ?",
+          "a": "Sur neuf valeurs étudiées au 10 novembre 2026, Krafton et NetEase se valorisent à environ dix fois leur cash libre, avec une note de 8 sur 10 et des décotes supérieures à 50 % selon ma grille. Ubisoft paraît encore moins chère, mais ses ventes reculent et sa qualité est faible."
+        },
+        {
+          "q": "Nintendo est-elle sous-évaluée ?",
+          "a": "Pas selon ma grille : elle obtient 5 sur 10, se valorise 36 fois son cash libre et affiche une surcote de 55 % par rapport à mon prix d'achat. Le marché paie la licence et le cycle de la Switch 2, pas le cash libre actuel."
+        },
+        {
+          "q": "Peut-on valoriser Take-Two avant la sortie de GTA VI ?",
+          "a": "Pas avec ma méthode : son cash libre est négatif sur douze mois. Les résultats du 9 novembre 2026 montrent des ventes de la période en recul de 18 %, et l'entreprise maintient une sortie de GTA VI au 19 novembre 2026."
+        },
+        {
+          "q": "Pourquoi Ubisoft semble-t-elle si bon marché ?",
+          "a": "Parce que son cash libre est positif alors que ses ventes reculent d'environ 10 % par an et que sa marge nette est très négative. Mon interprétation : un prix bas qui signale un déclin, pas une décote fiable."
+        }
+      ],
+      "tags": [
+        "jeux vidéo",
+        "Krafton",
+        "NetEase",
+        "Nintendo",
+        "Take-Two",
+        "valorisation",
+        "palmarès"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 10 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Video game stocks: Krafton and NetEase ahead of Nintendo",
+      "excerpt": "Nine video game publishers, judged on quality on one side and price on the other. The two quietest names are the cheapest, the stars are expensive, and a low price can hide a trap.",
+      "metaDescription": "Nine video game publishers judged on quality and price: Krafton and NetEase look cheap, Nintendo and Konami are expensive, Take-Two waits for GTA VI.",
+      "answer": "Out of nine video game publishers, only Krafton (PUBG) and NetEase trade at about ten times their free cash flow, with a quality score of 8 out of 10 and a discount of over 50% under my framework. Nintendo, Konami and Roblox are expensive for what they earn, and Take-Two cannot be scored before GTA VI.",
+      "body": [
+        {
+          "type": "h3",
+          "text": "Are video game stocks expensive?"
+        },
+        {
+          "type": "p",
+          "text": "Say video games and you think of Nintendo, GTA or Ubisoft, names everyone knows. The catch is that the names everyone knows are also the ones whose price already reflects the enthusiasm. So I ran nine listed publishers through my framework, always separating two questions: is the business good, and is the price reasonable?"
+        },
+        {
+          "type": "p",
+          "text": "The result is counterintuitive. The two cheapest stocks, Krafton and NetEase, are also among the best rated, and they are not the ones people talk about most. The sector's stars ask you to pay for the future in advance."
+        },
+        {
+          "type": "h3",
+          "text": "How do I judge a game publisher?"
+        },
+        {
+          "type": "p",
+          "text": "Quality first, on ten criteria: profitable margins, sales and free cash flow per share that grow, little debt, a stable or shrinking share count, and invested capital that earns a return. Free cash flow is the money that really stays in the till once every bill is paid, including studios that cost years before shipping a game."
+        },
+        {
+          "type": "p",
+          "text": "Then price, separately. I count in \"years of free cash flow\": the share price divided by free cash flow per share. Ten means ten years of the cash the company generates today. To get my buy price, I project that cash over five years (growth capped at 20% a year), apply a reasonable exit multiple, and compute the price that leaves about 15% annual return. Below that price it is a discount; above it, a premium."
+        },
+        {
+          "type": "p",
+          "text": "One caution in video games. A publisher spends four or five years before shipping a blockbuster, then collects in a few weeks. A single year of free cash flow can therefore lie in both directions, so I look at the trajectory rather than the snapshot."
+        },
+        {
+          "type": "h3",
+          "text": "What does the framework say on nine publishers?"
+        },
+        {
+          "type": "p",
+          "text": "Here are the nine stocks, from best quality to weakest. Figures come from my pages as of 10 November 2026."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score (out of 10)",
+            "Years of free cash flow to buy it",
+            "Price verdict"
+          ],
+          "rows": [
+            [
+              "Bandai Namco (7832)",
+              "9",
+              "36.2",
+              "3% discount"
+            ],
+            [
+              "Krafton (259960)",
+              "8",
+              "10.3",
+              "55% discount"
+            ],
+            [
+              "NetEase (NTES)",
+              "8",
+              "10.6",
+              "51% discount"
+            ],
+            [
+              "Konami (9766)",
+              "8",
+              "44.7",
+              "35% premium"
+            ],
+            [
+              "Sony (6758)",
+              "7",
+              "16.7",
+              "3% discount"
+            ],
+            [
+              "Roblox (RBLX)",
+              "6",
+              "73.4",
+              "33% premium"
+            ],
+            [
+              "Nintendo (7974)",
+              "5",
+              "36.2",
+              "55% premium"
+            ],
+            [
+              "Take-Two (TTWO)",
+              "5",
+              "negative free cash flow",
+              "cannot be computed"
+            ],
+            [
+              "Ubisoft (UBI)",
+              "4",
+              "2.4",
+              "141% discount, not to be trusted"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Two lines stand out: Krafton and NetEase combine a score of 8 with a price about half my buy price. Bandai Namco has the best score but is priced at roughly fair value. The last line, Ubisoft, is a false friend, more on that below."
+        },
+        {
+          "type": "h3",
+          "text": "Why do Krafton and NetEase look so cheap?"
+        },
+        {
+          "type": "p",
+          "text": "Krafton is the Korean publisher of PUBG. In the first quarter of 2026, the PUBG franchise passed 1,000 billion won in quarterly sales for the first time, out of 1,370 billion won of total sales, according to [the earnings presentation relayed by the Korean press](https://www.digitaltoday.co.kr/en/view/52290/krafton-pubg-ip-sales-top-1-trillion-won-expands-into-ai-and-autonomous-driving). That is roughly four fifths of revenue from one game (my calculation). On quality, [the Krafton page](/analyse/259960.KS) shows sales up 15% a year, free cash flow per share up 28% a year and shares being bought back. One criterion fails: margins are compressing."
+        },
+        {
+          "type": "p",
+          "text": "That concentration is the real risk: if PUBG runs out of steam there is no equally powerful second engine, even though Subnautica 2 reportedly passed five million copies in early access. And the 55% discount assumes free cash flow grows 20% a year: that is my assumption, not a fact. According to my database, quarterly results are due these days, and my figures do not include them."
+        },
+        {
+          "type": "p",
+          "text": "NetEase is a different story. Based on its series, free cash flow went from about 15.7 billion yuan in 2019 to 48.7 billion in 2025, three times more, while sales went from 59 to 113 billion. Growth comes from established games like Fantasy Westward Journey and new ones like Where Winds Meet, cited in [its quarterly filings with the SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001110646&type=6-K). The shadow is Chinese risk: gaming regulation can change overnight, and sales are only growing 5.5% a year over three years. I covered that risk in my study of [Chinese stocks](/blog/actions-chinoises-catl-pop-mart-devant-tencent-2026). Third-quarter results are expected around 19 November according to a market calendar, a date I have not seen confirmed by NetEase."
+        },
+        {
+          "type": "h3",
+          "text": "Why is Nintendo so expensive for a score of 5?"
+        },
+        {
+          "type": "p",
+          "text": "Nintendo ticks only five criteria out of ten. Its 18% net margin is excellent, but its free cash flow per share is shrinking by about 7% a year over the period I measure, and its price equals 36 years of that cash. My buy price is 3,662 yen, the stock trades at 8,178 yen, a 55% premium."
+        },
+        {
+          "type": "p",
+          "text": "Why does the market accept it? Because it pays for the franchises (Mario, Zelda, Pokémon) and the Switch 2 cycle, sold at nearly 20 million units by the end of March 2026. But Nintendo lowered its forecast in May for the year ending March 2027, to 16.5 million consoles: a console cycle enriches the launch year a lot, then the pace falls. Paying 36 times today's cash assumes that pace stays high for a long time. The bet is possible, but it is a bet."
+        },
+        {
+          "type": "h3",
+          "text": "And Take-Two, with GTA VI on the horizon?"
+        },
+        {
+          "type": "p",
+          "text": "Take-Two cannot be scored: its free cash flow is negative over twelve months, so no years of free cash flow and no buy price. In [its second-quarter release](https://www.sec.gov/Archives/edgar/data/0000946581/000162828026072175/ttwo2q27earningsrelease.htm), published on 9 November 2026, net bookings (the period's sales, before the accounting spreading of online content) fell 18% to 1.60 billion dollars. The company kept its full-year outlook of 8 to 8.2 billion and the GTA VI release on 19 November 2026, after several delays (late 2025, then May 2026, then November)."
+        },
+        {
+          "type": "p",
+          "text": "The stock is therefore a bet on a single event. If the game is a triumph, free cash flow jumps; if it is delayed again or disappoints, the price has already priced in a lot. I cannot quantify that event with my method, and I would rather say so than dress it up with a score."
+        },
+        {
+          "type": "h3",
+          "text": "Ubisoft at two years of free cash flow: a bargain or a trap?"
+        },
+        {
+          "type": "p",
+          "text": "On paper, Ubisoft is the cheapest stock in the sector: 2.4 years of free cash flow and a 141% discount to my buy price. But its sales are falling about 10% a year, its net margin is minus 106% and its quality score is 4. Positive free cash flow at a publisher losing that much on paper, I do not take at face value: my reading is that the low price signals a business in decline, not a bargain."
+        },
+        {
+          "type": "p",
+          "text": "Context matters: Tencent invested 1.16 billion euros for 25% of Vantage Studios, the subsidiary holding Assassin's Creed, Far Cry and Rainbow Six. It is real financial support, but it does not solve falling sales. I do not call Ubisoft's future; I note that my framework does not give it the quality that would make a low price interesting."
+        },
+        {
+          "type": "h3",
+          "text": "What about Konami, Sony, Bandai Namco and Roblox?"
+        },
+        {
+          "type": "p",
+          "text": "Bandai Namco has the group's best score (9 out of 10) but is priced at about my buy price, and that price assumes 20% annual free cash flow growth: the margin of safety is thin. Konami (8 out of 10) shows a 35% premium for free cash flow per share growing only about 4% a year. Sony (7 out of 10) is near its buy price, but it is a conglomerate (games, music, image sensors): comparing it to a pure game publisher is imperfect. I detailed that market in [my study of Japanese stocks](/blog/japon-actions-qualite-ignorees-france-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Roblox, finally, grows fast (sales up 27% a year), but it takes 73 years of free cash flow to buy it, and its share count rises about 5% a year: every shareholder gets diluted. The growth is real, and the price already pays for it generously."
+        },
+        {
+          "type": "h3",
+          "text": "Who did I leave out, and why?"
+        },
+        {
+          "type": "p",
+          "text": "Electronic Arts is no longer listed: the buyout by PIF, Silver Lake and Affinity Partners closed on 4 August 2026 at 210 dollars per share in cash, according to [EA's announcement](https://www.ea.com/news/ea-announces-completion-of-acquisition). I also leave out Capcom and Nexon, because the free cash flow series in my database give inconsistent results (a price of 97 years of free cash flow for Capcom does not match its recent quarters). I would rather not rank them than publish a doubtful number."
+        },
+        {
+          "type": "h3",
+          "text": "Which stock should you look at first?"
+        },
+        {
+          "type": "p",
+          "text": "If you want to dig into the sector, start with the page for [Krafton](/analyse/259960.KS), then [NetEase](/analyse/NTES), reading their risks before their ratios: concentration on PUBG for one, Chinese regulation for the other. In both cases the discount rests on 20% annual free cash flow growth that you need to check. And for stars like [Nintendo](/analyse/7974.T), the question is not game quality, it is the price of waiting."
+        },
+        {
+          "type": "p",
+          "text": "Separating quality from price is exactly what I wanted to be able to do for any stock; my [full methodology](/methodologie) details each criterion."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What are the cheapest video game stocks in 2026?",
+          "a": "Out of nine stocks studied on 10 November 2026, Krafton and NetEase trade at about ten times their free cash flow, with a score of 8 out of 10 and discounts above 50% under my framework. Ubisoft looks even cheaper, but its sales are falling and its quality is weak."
+        },
+        {
+          "q": "Is Nintendo undervalued?",
+          "a": "Not under my framework: it scores 5 out of 10, trades at 36 times its free cash flow and shows a 55% premium to my buy price. The market pays for the franchises and the Switch 2 cycle, not for current free cash flow."
+        },
+        {
+          "q": "Can Take-Two be valued before GTA VI?",
+          "a": "Not with my method: its free cash flow is negative over twelve months. The 9 November 2026 results show period sales down 18%, and the company keeps GTA VI on 19 November 2026."
+        },
+        {
+          "q": "Why does Ubisoft look so cheap?",
+          "a": "Because its free cash flow is positive while sales fall about 10% a year and its net margin is deeply negative. My reading: a low price signalling decline, not a reliable discount."
+        }
+      ],
+      "tags": [
+        "video games",
+        "Krafton",
+        "NetEase",
+        "Nintendo",
+        "Take-Two",
+        "valuation",
+        "ranking"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not guarantee future results. Figures as of 10 November 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so that you read this analysis with full knowledge."
+    },
+    "es": {
+      "title": "Videojuegos en bolsa: Krafton y NetEase antes que Nintendo",
+      "excerpt": "Nueve editoras de videojuegos analizadas por calidad por un lado y precio por otro. Las dos más discretas son las más baratas, las estrellas son caras y un precio bajo puede esconder una trampa.",
+      "metaDescription": "Nueve editoras de videojuegos juzgadas por calidad y precio: Krafton y NetEase salen baratas, Nintendo y Konami caras, y Take-Two espera a GTA VI.",
+      "answer": "De nueve editoras de videojuegos, solo Krafton (PUBG) y NetEase cotizan a unas diez veces su flujo de caja libre, con una calidad de 8 sobre 10 y un descuento superior al 50 % según mi método. Nintendo, Konami y Roblox son caras para lo que generan, y Take-Two no se puede puntuar antes de GTA VI.",
+      "body": [
+        {
+          "type": "h3",
+          "text": "¿Son caros los videojuegos en bolsa?"
+        },
+        {
+          "type": "p",
+          "text": "Cuando se habla de videojuegos se piensa en Nintendo, GTA o Ubisoft, nombres que todo el mundo conoce. El problema es que los nombres que todo el mundo conoce son también aquellos cuyo precio ya refleja el entusiasmo. Por eso pasé nueve editoras cotizadas por mi método, separando siempre dos preguntas: ¿el negocio es bueno y el precio es razonable?"
+        },
+        {
+          "type": "p",
+          "text": "El resultado es contraintuitivo. Las dos acciones más baratas, Krafton y NetEase, están también entre las mejor puntuadas, y no son de las que más se comentan. Las estrellas del sector te piden pagar el futuro por adelantado."
+        },
+        {
+          "type": "h3",
+          "text": "¿Cómo juzgo a una editora de juegos?"
+        },
+        {
+          "type": "p",
+          "text": "Primero la calidad, con diez criterios: márgenes rentables, ventas y flujo de caja libre por acción que crecen, poca deuda, un número de acciones estable o a la baja y un capital invertido que rinde. El flujo de caja libre (free cash flow) es el dinero que realmente queda en caja tras pagar todas las facturas, incluidos los estudios que cuestan años antes de lanzar un juego."
+        },
+        {
+          "type": "p",
+          "text": "Después el precio, por separado. Cuento en « años de flujo de caja libre »: el precio de la acción dividido entre el flujo de caja libre por acción. Diez son diez años del efectivo que la empresa genera hoy. Para obtener mi precio de compra proyecto ese efectivo a cinco años (con un crecimiento limitado al 20 % anual), aplico un múltiplo de salida razonable y calculo el precio que deja un 15 % de rentabilidad anual. Por debajo es un descuento; por encima, una sobrevaloración."
+        },
+        {
+          "type": "p",
+          "text": "En los videojuegos hay una precaución. Una editora gasta cuatro o cinco años antes de lanzar un éxito y luego cobra en pocas semanas. El flujo de caja libre de un solo año puede mentir en ambos sentidos, así que miro su trayectoria y no la foto."
+        },
+        {
+          "type": "h3",
+          "text": "¿Qué dice el método sobre nueve editoras?"
+        },
+        {
+          "type": "p",
+          "text": "Aquí están las nueve, de mejor a peor calidad. Las cifras proceden de mis fichas a 10 de noviembre de 2026."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad (sobre 10)",
+            "Años de flujo de caja libre para comprarla",
+            "Veredicto de precio"
+          ],
+          "rows": [
+            [
+              "Bandai Namco (7832)",
+              "9",
+              "36,2",
+              "descuento del 3 %"
+            ],
+            [
+              "Krafton (259960)",
+              "8",
+              "10,3",
+              "descuento del 55 %"
+            ],
+            [
+              "NetEase (NTES)",
+              "8",
+              "10,6",
+              "descuento del 51 %"
+            ],
+            [
+              "Konami (9766)",
+              "8",
+              "44,7",
+              "sobreprecio del 35 %"
+            ],
+            [
+              "Sony (6758)",
+              "7",
+              "16,7",
+              "descuento del 3 %"
+            ],
+            [
+              "Roblox (RBLX)",
+              "6",
+              "73,4",
+              "sobreprecio del 33 %"
+            ],
+            [
+              "Nintendo (7974)",
+              "5",
+              "36,2",
+              "sobreprecio del 55 %"
+            ],
+            [
+              "Take-Two (TTWO)",
+              "5",
+              "flujo de caja libre negativo",
+              "no calculable"
+            ],
+            [
+              "Ubisoft (UBI)",
+              "4",
+              "2,4",
+              "descuento del 141 %, no creerlo"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Dos líneas destacan: Krafton y NetEase suman una nota de 8 y un precio a la mitad de mi precio de compra. Bandai Namco tiene la mejor nota, pero se paga a un precio más o menos justo. La última línea, Ubisoft, es un falso amigo; vuelvo sobre ella más abajo."
+        },
+        {
+          "type": "h3",
+          "text": "¿Por qué Krafton y NetEase salen tan baratas?"
+        },
+        {
+          "type": "p",
+          "text": "Krafton es la editora coreana de PUBG. En el primer trimestre de 2026, la franquicia PUBG superó por primera vez el billón de wones en ventas trimestrales, sobre 1,37 billones de wones de ventas totales, según [la presentación de resultados recogida por la prensa coreana](https://www.digitaltoday.co.kr/en/view/52290/krafton-pubg-ip-sales-top-1-trillion-won-expands-into-ai-and-autonomous-driving). Son unas cuatro quintas partes de los ingresos con un solo juego (mi cálculo). En calidad, [la ficha de Krafton](/analyse/259960.KS) muestra ventas al alza un 15 % anual, flujo de caja libre por acción al alza un 28 % anual y recompras de acciones. Un criterio falla: los márgenes se comprimen."
+        },
+        {
+          "type": "p",
+          "text": "Esa concentración es el riesgo real: si PUBG pierde fuelle no hay un segundo motor igual de potente, aunque Subnautica 2 haya superado, según la prensa especializada, los cinco millones de copias en acceso anticipado. Y el descuento del 55 % supone que el flujo de caja libre crece un 20 % anual: es mi hipótesis, no un hecho. Según mi base, los resultados del trimestre se esperan estos días y mis cifras no los incluyen."
+        },
+        {
+          "type": "p",
+          "text": "NetEase es otra historia. Según sus series, el flujo de caja libre pasó de unos 15,7 mil millones de yuanes en 2019 a 48,7 mil millones en 2025, tres veces más, mientras las ventas pasaban de 59 a 113 mil millones. El crecimiento viene de juegos consolidados como Fantasy Westward Journey y de novedades como Where Winds Meet, citados en [sus comunicados trimestrales presentados ante la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001110646&type=6-K). La sombra es el riesgo chino: una regulación del juego puede cambiarlo todo de un día para otro, y las ventas solo crecen un 5,5 % anual en tres años. Traté ese riesgo en mi estudio de [las acciones chinas](/blog/actions-chinoises-catl-pop-mart-devant-tencent-2026). Los resultados del tercer trimestre se esperan hacia el 19 de noviembre según un calendario bursátil, fecha que no he visto confirmada por NetEase."
+        },
+        {
+          "type": "h3",
+          "text": "¿Por qué Nintendo es tan cara con una nota de 5?"
+        },
+        {
+          "type": "p",
+          "text": "Nintendo cumple solo cinco criterios de diez. Su margen neto del 18 % es excelente, pero su flujo de caja libre por acción retrocede un 7 % anual en el periodo que mido, y su precio equivale a 36 años de ese efectivo. Mi precio de compra es de 3 662 yenes, la acción cotiza a 8 178 yenes, un sobreprecio del 55 %."
+        },
+        {
+          "type": "p",
+          "text": "¿Por qué lo acepta el mercado? Porque paga las franquicias (Mario, Zelda, Pokémon) y el ciclo de la Switch 2, vendida en casi 20 millones de unidades a finales de marzo de 2026. Pero Nintendo rebajó en mayo su previsión para el ejercicio que termina en marzo de 2027, hasta 16,5 millones de consolas: un ciclo de consola enriquece mucho el año de lanzamiento y luego el ritmo cae. Pagar 36 veces el efectivo de hoy supone que ese ritmo se mantiene mucho tiempo. La apuesta es posible, pero es una apuesta."
+        },
+        {
+          "type": "h3",
+          "text": "¿Y Take-Two, con GTA VI en el horizonte?"
+        },
+        {
+          "type": "p",
+          "text": "Take-Two no se puntúa: su flujo de caja libre es negativo a doce meses, así que no hay años de flujo de caja libre ni precio de compra. En [su comunicado del segundo trimestre](https://www.sec.gov/Archives/edgar/data/0000946581/000162828026072175/ttwo2q27earningsrelease.htm), publicado el 9 de noviembre de 2026, los « net bookings » (las ventas del periodo, antes del reparto contable de los contenidos en línea) caen un 18 % hasta 1 600 millones de dólares. La empresa mantiene su previsión anual de 8 000 a 8 200 millones y el lanzamiento de GTA VI el 19 de noviembre de 2026, tras varios aplazamientos (finales de 2025, luego mayo de 2026, luego noviembre)."
+        },
+        {
+          "type": "p",
+          "text": "La acción es, por tanto, una apuesta a un único acontecimiento. Si el juego triunfa, el flujo de caja libre se dispara; si se aplaza otra vez o decepciona, el precio ya descuenta muchas expectativas. No puedo cuantificar ese hecho con mi método y prefiero decirlo a vestirlo con una nota."
+        },
+        {
+          "type": "h3",
+          "text": "Ubisoft a dos años de flujo de caja libre: ¿ganga o trampa?"
+        },
+        {
+          "type": "p",
+          "text": "Sobre el papel, Ubisoft es la acción más barata del sector: 2,4 años de flujo de caja libre y un descuento del 141 % respecto a mi precio de compra. Pero sus ventas caen cerca de un 10 % anual, su margen neto es de menos 106 % y su nota de calidad es 4. Un flujo de caja libre positivo en una editora que pierde tanto en contabilidad no me lo creo sin más: mi lectura es que el precio bajo señala un negocio en declive, no una ganga."
+        },
+        {
+          "type": "p",
+          "text": "El contexto importa: Tencent invirtió 1 160 millones de euros por el 25 % de Vantage Studios, la filial que reúne Assassin's Creed, Far Cry y Rainbow Six. Es un apoyo financiero real, pero no resuelve la caída de ventas. No pronostico el futuro de Ubisoft; constato que mi método no le da la calidad que haría interesante un precio bajo."
+        },
+        {
+          "type": "h3",
+          "text": "¿Y Konami, Sony, Bandai Namco y Roblox?"
+        },
+        {
+          "type": "p",
+          "text": "Bandai Namco tiene la mejor nota del grupo (9 sobre 10), pero se paga más o menos a mi precio de compra, y ese precio supone un 20 % de crecimiento anual del flujo de caja libre: el margen de seguridad es estrecho. Konami (8 sobre 10) muestra un sobreprecio del 35 % con un flujo de caja libre por acción que solo crece un 4 % anual. Sony (7 sobre 10) está cerca de su precio de compra, pero es un conglomerado (juegos, música, sensores de imagen): compararla con una editora pura es imperfecto. Ya detallé ese mercado en [mi estudio sobre las acciones japonesas](/blog/japon-actions-qualite-ignorees-france-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Roblox, por último, crece rápido (ventas al alza un 27 % anual), pero hacen falta 73 años de flujo de caja libre para comprarla y su número de acciones sube cerca de un 5 % anual: cada accionista se diluye. El crecimiento es real y el precio ya lo paga con holgura."
+        },
+        {
+          "type": "h3",
+          "text": "¿A quién he dejado fuera y por qué?"
+        },
+        {
+          "type": "p",
+          "text": "Electronic Arts ya no cotiza: la compra por PIF, Silver Lake y Affinity Partners se cerró el 4 de agosto de 2026 a 210 dólares por acción en efectivo, según [el anuncio de EA](https://www.ea.com/news/ea-announces-completion-of-acquisition). También dejo fuera a Capcom y Nexon, porque las series de flujo de caja libre de mi base dan resultados incoherentes entre sí (un precio de 97 años de flujo de caja libre para Capcom no cuadra con sus últimos trimestres). Prefiero no clasificarlas antes que publicar una cifra dudosa."
+        },
+        {
+          "type": "h3",
+          "text": "¿Qué acción mirar primero?"
+        },
+        {
+          "type": "p",
+          "text": "Si quieres profundizar en el sector, empieza por la ficha de [Krafton](/analyse/259960.KS) y luego por la de [NetEase](/analyse/NTES), leyendo sus riesgos antes que sus ratios: la concentración en PUBG en un caso, la regulación china en el otro. En ambos el descuento descansa en un crecimiento anual del 20 % del flujo de caja libre que hay que comprobar. Y para las estrellas como [Nintendo](/analyse/7974.T), la cuestión no es la calidad del juego, es el precio de la espera."
+        },
+        {
+          "type": "p",
+          "text": "Separar calidad y precio es justo lo que quise poder hacer con cualquier acción; mi [metodología completa](/methodologie) detalla cada criterio."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Cuáles son las acciones de videojuegos más baratas en 2026?",
+          "a": "De nueve valores estudiados a 10 de noviembre de 2026, Krafton y NetEase cotizan a unas diez veces su flujo de caja libre, con una nota de 8 sobre 10 y descuentos superiores al 50 % según mi método. Ubisoft parece aún más barata, pero sus ventas caen y su calidad es baja."
+        },
+        {
+          "q": "¿Está Nintendo infravalorada?",
+          "a": "No según mi método: obtiene 5 sobre 10, cotiza a 36 veces su flujo de caja libre y muestra un sobreprecio del 55 % sobre mi precio de compra. El mercado paga las franquicias y el ciclo de la Switch 2, no el flujo de caja actual."
+        },
+        {
+          "q": "¿Se puede valorar Take-Two antes de GTA VI?",
+          "a": "No con mi método: su flujo de caja libre es negativo a doce meses. Los resultados del 9 de noviembre de 2026 muestran ventas del periodo un 18 % a la baja, y la empresa mantiene GTA VI el 19 de noviembre de 2026."
+        },
+        {
+          "q": "¿Por qué Ubisoft parece tan barata?",
+          "a": "Porque su flujo de caja libre es positivo mientras sus ventas caen cerca de un 10 % anual y su margen neto es muy negativo. Mi lectura: un precio bajo que señala declive, no un descuento fiable."
+        }
+      ],
+      "tags": [
+        "videojuegos",
+        "Krafton",
+        "NetEase",
+        "Nintendo",
+        "Take-Two",
+        "valoración",
+        "ranking"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Rentabilidades pasadas no garantizan resultados futuros. Cifras a 10 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y una oferta de pago. Te lo digo para que leas este análisis con pleno conocimiento."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
