@@ -106221,7 +106221,625 @@ const articleJeuxVideo2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026];
+const articleXOMvsCVX2026: Article = {
+  "slug": "exxon-chevron-comparatif-meme-profil-pas-meme-prix-2026",
+  "date": "2026-11-11",
+  "updated": "2026-11-11",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Exxon (XOM) ou Chevron (CVX) : même profil, pas le même prix",
+      "excerpt": "Deux géants pétroliers américains que l'on met dans le même panier, la même note de qualité, et pourtant un écart de prix net pour le même cash. Ce qui les sépare, et ce que chaque cours suppose.",
+      "metaDescription": "Exxon ou Chevron en bourse : deux pétrolières au profil proche, mais l'une est bien plus chère pour le même cash. Les chiffres et ce qui les sépare.",
+      "answer": "Exxon et Chevron obtiennent la même note de qualité, mais pas le même prix. Chevron garde plus de cash par dollar de ventes, rachète davantage ses actions et se valorise 15,5 fois son cash libre, contre 22,5 fois pour Exxon. Les deux restent soumises au baril, dont dépend l'essentiel de leur cash.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Exxon et Chevron sont les deux géants pétroliers américains, et on les met souvent dans le même panier. Dans ma grille d'analyse, elles obtiennent d'ailleurs la même note : 5 critères validés sur 10. Pourtant, quand on regarde de près, elles ne coûtent pas la même chose pour le même cash, et leur route n'est plus la même depuis le rachat de Hess par Chevron. Voici les chiffres, puis ce que chaque prix suppose."
+        },
+        {
+          "type": "h2",
+          "text": "Les chiffres côte à côte"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Critère",
+            "Exxon (XOM)",
+            "Chevron (CVX)"
+          ],
+          "rows": [
+            [
+              "Taille en bourse",
+              "748 Md$",
+              "465 Md$"
+            ],
+            [
+              "Note de qualité (sur 10 critères)",
+              "5 sur 10",
+              "5 sur 10"
+            ],
+            [
+              "Évolution des ventes sur 5 ans",
+              "-1,8 % par an",
+              "-2,9 % par an"
+            ],
+            [
+              "Cash libre en % des ventes (12 mois)",
+              "8,3 %",
+              "12,5 %"
+            ],
+            [
+              "Évolution du cash libre par action sur 5 ans",
+              "-19,3 % par an",
+              "-12,7 % par an"
+            ],
+            [
+              "Rentabilité du capital investi (Cash ROCE)",
+              "8,2 %",
+              "9,6 %"
+            ],
+            [
+              "Dette nette en années de cash libre",
+              "0,72 an",
+              "1,06 an"
+            ],
+            [
+              "Nombre d'actions sur 5 ans",
+              "+0,1 % par an",
+              "-2,4 % par an"
+            ],
+            [
+              "Marges sur 5 ans",
+              "en expansion",
+              "en compression"
+            ],
+            [
+              "Valorisation (années de cash libre)",
+              "22,5",
+              "15,5"
+            ],
+            [
+              "Rendement du dividende",
+              "2,6 %",
+              "3,4 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le cash libre (free cash flow) est l'argent qui reste dans les caisses une fois les dépenses courantes et les investissements payés. C'est lui qui finance le dividende, les rachats d'actions et le remboursement de la dette. Sur douze mois, il atteint environ 33 milliards de dollars pour Exxon et 30 milliards pour Chevron (calcul de ma part, à partir de la valeur en bourse et de la valorisation affichée). Avec un chiffre d'affaires bien plus faible, Chevron en garde donc une plus grande part : 12,5 % de ses ventes, contre 8,3 % pour Exxon."
+        },
+        {
+          "type": "p",
+          "text": "Le Cash ROCE mesure ce que rapporte le capital réellement engagé dans l'activité : 8,2 % pour Exxon, 9,6 % pour Chevron, très loin des 15 % que je cherche. C'est logique dans un métier qui doit forer, raffiner et construire des plateformes avant de gagner un dollar, et c'est précisément pour cela qu'aucune des deux ne dépasse 5 sur 10. Les deux voient aussi leurs ventes reculer sur cinq ans et leur cash libre par action fondre, en partie parce que le point de départ, 2021 et 2022, était une période de pétrole très cher."
+        },
+        {
+          "type": "p",
+          "text": "Le bilan n'est pas le problème : la dette nette représente environ un an de cash libre pour Chevron (1,06 an) et moins d'un an pour Exxon (0,72 an). La vraie différence est ailleurs, dans le nombre d'actions. Un rachat d'actions, c'est l'entreprise qui rachète ses propres titres : chaque action restante pèse alors une part plus grande de l'entreprise. Chevron en a retiré 2,4 % par an en moyenne, même si 2025 l'a remonté d'environ 2 % à cause des actions émises pour payer Hess. Exxon reste stable, car ses rachats ont surtout servi à compenser les actions créées pour racheter Pioneer en 2024."
+        },
+        {
+          "type": "h2",
+          "text": "Un cash libre qui a perdu plus de la moitié en trois ans"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Année",
+            "Cash libre d'Exxon",
+            "Cash libre de Chevron"
+          ],
+          "rows": [
+            [
+              "2021",
+              "36,1 Md$",
+              "21,1 Md$"
+            ],
+            [
+              "2022",
+              "58,4 Md$",
+              "37,6 Md$"
+            ],
+            [
+              "2023",
+              "33,5 Md$",
+              "19,8 Md$"
+            ],
+            [
+              "2024",
+              "30,7 Md$",
+              "15,0 Md$"
+            ],
+            [
+              "2025",
+              "23,6 Md$",
+              "16,6 Md$"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le pétrole est un métier cyclique : le prix du baril décide de presque tout. 2022 a été l'année de tous les records, avec 58,4 milliards de dollars de cash libre chez Exxon et 37,6 chez Chevron. Trois ans plus tard, ce cash a reculé d'environ 60 % chez Exxon et de 56 % chez Chevron. Un trimestre ou une année à pétrole cher ne dit donc pas ce que sera une année ordinaire."
+        },
+        {
+          "type": "p",
+          "text": "Les investissements pèsent aussi. Ils ont plus que doublé depuis 2021 : de 12,1 à 28,4 milliards de dollars chez Exxon, de 8,1 à 17,3 milliards chez Chevron. Les deux groupes dépensent aujourd'hui pour produire demain, au Guyana, dans le Permien (le grand bassin pétrolier du Texas et du Nouveau-Mexique) et dans le gaz naturel liquéfié. Ce qui revient à l'actionnaire est ce qui reste, et cela ne se voit pas quand le baril monte, mais tout de suite quand il baisse."
+        },
+        {
+          "type": "p",
+          "text": "Le trimestre publié le 30 octobre a justement été porté par des prix élevés. Exxon a dégagé 19,1 milliards de dollars de cash libre sur le seul troisième trimestre et en a redistribué 9,4 (4,3 en dividendes, 5,1 en rachats), avec 20 milliards de rachats annoncés pour 2027, selon [son communiqué](https://boereport.com/2026/10/30/exxonmobil-announces-third-quarter-2026-results/). Chevron affiche 12,0 milliards de cash libre et une dette nette réduite de 7,8 milliards, selon [le sien](https://boereport.com/2026/10/30/chevron-reports-third-quarter-2026-results/amp/), mais sa production recule sur un an. Une partie de l'explication est un mécanisme de contrat : dans les contrats de partage de production, l'entreprise récupère ses coûts en barils, donc plus le prix monte, moins il lui en faut, et sa part de production diminue. Chevron cite aussi des perturbations liées au conflit au Moyen-Orient."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que chaque prix suppose"
+        },
+        {
+          "type": "p",
+          "text": "Se valoriser 15,5 fois son cash libre veut dire que la valeur en bourse équivaut à 15,5 années du cash libre actuel : plus le chiffre est bas, plus l'action est bon marché. Exxon se valorise 22,5 fois son cash libre, plus cher que 73 % de son propre historique. Chevron, à 15,5 fois, se situe au 53e centile : dans la moyenne de son histoire. Le marché récompense la croissance de volumes d'Exxon (le Permien, et le Guyana où elle opère le bloc Stabroek, avec 45 % du projet) et son programme de rachats. Il se montre plus prudent avec Chevron, dont les marges se compriment et qui digère encore Hess."
+        },
+        {
+          "type": "p",
+          "text": "Or Chevron a bouclé le rachat de Hess en juillet 2025, ce qui lui donne 30 % de ce même bloc Stabroek (détails dans [son dépôt 10-K](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=CVX&type=10-K) et dans [celui d'Exxon](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=XOM&type=10-K)). La meilleure histoire de croissance d'Exxon est donc aussi, en partie, celle de Chevron, sans que le marché lui fasse payer la même prime. Chevron tient sa journée investisseurs le 12 novembre : les objectifs de dépenses et de cash libre annoncés ce jour-là peuvent faire bouger l'écart."
+        },
+        {
+          "type": "p",
+          "text": "Mon modèle de valorisation, qui prolonge la tendance du cash libre par action des cinq dernières années, juge les deux actions chères : il ne trouverait de marge de sécurité qu'à 19 $ pour Exxon (cours actuel 164 $) et à 65 $ pour Chevron (cours actuel 211 $). Je ne lis pas ces chiffres comme des prévisions, car prolonger une baisse de 19 % par an sur un pétrolier cyclique est volontairement sévère. Je les lis comme un test de résistance : le prix actuel suppose un pétrole qui reste cher, et cette hypothèse pèse plus lourd sur Exxon, qui est environ 45 % plus chère par dollar de cash."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que je retiens du duel"
+        },
+        {
+          "type": "p",
+          "text": "Sur le business, l'écart est mince : même note, même faiblesse de croissance et de rentabilité du capital, et un cash qui dépend avant tout du baril. Chevron garde plus de cash par dollar de ventes, rachète davantage ses actions et verse un dividende plus élevé (3,4 % contre 2,6 %). Exxon a pour elle des marges qui s'élargissent, plus de taille et un projet de croissance mieux identifié. Sur le prix, l'écart est net : à cash égal, Exxon est plus chère."
+        },
+        {
+          "type": "p",
+          "text": "Ce qui changerait mon regard : pour Exxon, un baril qui recule alors que la prime de valorisation reste en place ; pour Chevron, des objectifs de cash libre décevants le 12 novembre ou des marges qui continuent de se comprimer. Ce n'est ni un conseil d'achat ni un conseil de vente, c'est une façon de comparer. Le même exercice côté européen se lit dans [TotalEnergies contre Shell](/blog/totalenergies-shell-comparatif-cash-petrole-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Cette comparaison, la qualité d'un côté et le prix de l'autre, c'est exactement ce que je voulais pouvoir faire pour n'importe quelle action, alors je l'ai construite. Tu retrouves le détail sur [la fiche d'Exxon](/analyse/XOM) et sur [celle de Chevron](/analyse/CVX), et la méthode dans [ma méthodologie](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Exxon ou Chevron : laquelle a le meilleur business ?",
+          "a": "Sur les chiffres actuels, l'écart est faible : les deux obtiennent 5 critères sur 10. Chevron garde 12,5 % de ses ventes en cash libre contre 8,3 % pour Exxon, mais les marges d'Exxon s'élargissent quand celles de Chevron se compriment."
+        },
+        {
+          "q": "Laquelle des deux est la moins chère ?",
+          "a": "Chevron : elle se valorise 15,5 fois son cash libre, contre 22,5 fois pour Exxon, et elle se situe dans la moyenne de son historique quand Exxon est plus chère que 73 % du sien."
+        },
+        {
+          "q": "Quel dividende verse chacune ?",
+          "a": "Chevron verse 7,12 $ par action et par an, soit un rendement de 3,4 %. Exxon verse 4,28 $, soit 2,6 %, avec un dividende de 1,07 $ par trimestre. Ces niveaux dépendent du cash libre, donc du baril."
+        },
+        {
+          "q": "Pourquoi le cash libre des pétrolières a-t-il autant baissé depuis 2022 ?",
+          "a": "Le baril est redescendu après le pic de 2022, et les investissements ont plus que doublé depuis 2021. Le cash libre d'Exxon est passé de 58,4 à 23,6 milliards de dollars, celui de Chevron de 37,6 à 16,6 milliards."
+        }
+      ],
+      "tags": [
+        "Exxon",
+        "Chevron",
+        "pétrole",
+        "comparatif",
+        "valorisation",
+        "cash libre"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 11 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Exxon (XOM) or Chevron (CVX): same profile, different price",
+      "excerpt": "Two American oil giants that investors often lump together, the same quality score, and yet a sharp price gap for the same cash. What separates them, and what each share price assumes.",
+      "metaDescription": "Exxon or Chevron stock: two oil majors with a similar profile, but one costs far more for the same cash. The numbers and what sets them apart.",
+      "answer": "Exxon and Chevron get the same quality score, but not the same price. Chevron keeps more cash per dollar of sales, buys back more of its shares and is valued at 15.5 times its free cash flow, against 22.5 times for Exxon. Both still depend on the price of a barrel of oil.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Exxon and Chevron are the two American oil giants, and they often end up in the same basket. In my analysis grid they even get the same score: 5 criteria passed out of 10. Yet up close they do not cost the same for the same cash, and their paths have diverged since Chevron bought Hess. Here are the numbers, then what each price assumes."
+        },
+        {
+          "type": "h2",
+          "text": "The numbers side by side"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterion",
+            "Exxon (XOM)",
+            "Chevron (CVX)"
+          ],
+          "rows": [
+            [
+              "Market value",
+              "$748bn",
+              "$465bn"
+            ],
+            [
+              "Quality score (out of 10 criteria)",
+              "5 out of 10",
+              "5 out of 10"
+            ],
+            [
+              "Sales over 5 years",
+              "-1.8% a year",
+              "-2.9% a year"
+            ],
+            [
+              "Free cash flow as % of sales (12 months)",
+              "8.3%",
+              "12.5%"
+            ],
+            [
+              "Free cash flow per share over 5 years",
+              "-19.3% a year",
+              "-12.7% a year"
+            ],
+            [
+              "Return on invested capital (Cash ROCE)",
+              "8.2%",
+              "9.6%"
+            ],
+            [
+              "Net debt in years of free cash flow",
+              "0.72 years",
+              "1.06 years"
+            ],
+            [
+              "Share count over 5 years",
+              "+0.1% a year",
+              "-2.4% a year"
+            ],
+            [
+              "Margins over 5 years",
+              "expanding",
+              "compressing"
+            ],
+            [
+              "Valuation (years of free cash flow)",
+              "22.5",
+              "15.5"
+            ],
+            [
+              "Dividend yield",
+              "2.6%",
+              "3.4%"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Free cash flow is the money left in the till once running costs and investments are paid. It funds the dividend, share buybacks and debt repayment. Over twelve months it comes to about $33bn for Exxon and $30bn for Chevron (my own calculation, from market value and the displayed valuation). With much lower sales, Chevron keeps a bigger share of them: 12.5% of sales, against 8.3% for Exxon."
+        },
+        {
+          "type": "p",
+          "text": "Cash ROCE measures what the capital actually put into the business earns: 8.2% for Exxon, 9.6% for Chevron, far from the 15% I look for. That is logical in a trade that has to drill, refine and build platforms before earning a dollar, and it is exactly why neither gets past 5 out of 10. Both also see their sales shrink over five years and their free cash flow per share melt, partly because the starting point, 2021 and 2022, was a period of very expensive oil."
+        },
+        {
+          "type": "p",
+          "text": "The balance sheet is not the problem: net debt is about one year of free cash flow for Chevron (1.06 years) and under a year for Exxon (0.72 years). The real difference lies in the share count. A buyback is a company purchasing its own shares: each remaining share then represents a bigger slice of the business. Chevron removed 2.4% a year on average, even though 2025 pushed the count back up by about 2% because of the shares issued to pay for Hess. Exxon is flat, as its buybacks mostly offset the shares created to buy Pioneer in 2024."
+        },
+        {
+          "type": "h2",
+          "text": "Free cash flow that lost more than half in three years"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Year",
+            "Exxon free cash flow",
+            "Chevron free cash flow"
+          ],
+          "rows": [
+            [
+              "2021",
+              "$36.1bn",
+              "$21.1bn"
+            ],
+            [
+              "2022",
+              "$58.4bn",
+              "$37.6bn"
+            ],
+            [
+              "2023",
+              "$33.5bn",
+              "$19.8bn"
+            ],
+            [
+              "2024",
+              "$30.7bn",
+              "$15.0bn"
+            ],
+            [
+              "2025",
+              "$23.6bn",
+              "$16.6bn"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Oil is a cyclical trade: the price of a barrel decides almost everything. 2022 was the year of all records, with $58.4bn of free cash flow at Exxon and $37.6bn at Chevron. Three years later that cash is down about 60% at Exxon and 56% at Chevron. A quarter or a year of expensive oil therefore does not tell you what an ordinary year looks like."
+        },
+        {
+          "type": "p",
+          "text": "Investment weighs too. It has more than doubled since 2021: from $12.1bn to $28.4bn at Exxon, from $8.1bn to $17.3bn at Chevron. Both groups are spending today to produce tomorrow, in Guyana, in the Permian (the big oil basin of Texas and New Mexico) and in liquefied natural gas. What reaches the shareholder is what is left, and you do not see it when oil rises, but you see it immediately when oil falls."
+        },
+        {
+          "type": "p",
+          "text": "The quarter reported on October 30 was precisely carried by high prices. Exxon generated $19.1bn of free cash flow in the third quarter alone and returned $9.4bn (4.3 in dividends, 5.1 in buybacks), with $20bn of buybacks announced for 2027, according to [its release](https://boereport.com/2026/10/30/exxonmobil-announces-third-quarter-2026-results/). Chevron reports $12.0bn of free cash flow and net debt cut by $7.8bn, according to [its own](https://boereport.com/2026/10/30/chevron-reports-third-quarter-2026-results/amp/), but its production is down year on year. Part of the explanation is a contract mechanism: under production-sharing contracts the company recovers its costs in barrels, so the higher the price, the fewer barrels it needs and the smaller its production share. Chevron also cites disruption linked to the conflict in the Middle East."
+        },
+        {
+          "type": "h2",
+          "text": "What each price assumes"
+        },
+        {
+          "type": "p",
+          "text": "Being valued at 15.5 times free cash flow means the market value equals 15.5 years of today's free cash flow: the lower the figure, the cheaper the share. Exxon is valued at 22.5 times its free cash flow, more expensive than 73% of its own history. Chevron, at 15.5 times, sits at the 53rd percentile: around the middle of its history. The market rewards Exxon's volume growth (the Permian, and Guyana where it operates the Stabroek block with a 45% stake) and its buyback programme. It is more cautious about Chevron, whose margins are compressing and which is still digesting Hess."
+        },
+        {
+          "type": "p",
+          "text": "Yet Chevron closed the Hess acquisition in July 2025, which gives it 30% of that same Stabroek block (details in [its 10-K filing](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=CVX&type=10-K) and in [Exxon's](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=XOM&type=10-K)). Exxon's best growth story is therefore partly Chevron's too, without the market charging it the same premium. Chevron holds its investor day on November 12: the spending and free cash flow targets announced that day could move the gap."
+        },
+        {
+          "type": "p",
+          "text": "My valuation model, which extends the trend in free cash flow per share over the last five years, judges both shares expensive: it would only find a margin of safety at $19 for Exxon (current price $164) and at $65 for Chevron (current price $211). I do not read these figures as forecasts, because extending a 19% yearly decline on a cyclical oil company is deliberately harsh. I read them as a stress test: today's price assumes oil stays expensive, and that assumption weighs more on Exxon, which is about 45% more expensive per dollar of cash."
+        },
+        {
+          "type": "h2",
+          "text": "What I take from the duel"
+        },
+        {
+          "type": "p",
+          "text": "On the business, the gap is thin: same score, same weakness in growth and return on capital, and cash that depends first of all on the barrel. Chevron keeps more cash per dollar of sales, buys back more of its shares and pays a higher dividend (3.4% against 2.6%). Exxon has expanding margins, more scale and a better identified growth project. On price, the gap is clear: for the same cash, Exxon is more expensive."
+        },
+        {
+          "type": "p",
+          "text": "What would change my view: for Exxon, a falling oil price while the valuation premium stays in place; for Chevron, disappointing free cash flow targets on November 12 or margins that keep compressing. This is neither a buy nor a sell recommendation, it is a way of comparing. The same exercise on the European side is in [TotalEnergies against Shell](/blog/totalenergies-shell-comparatif-cash-petrole-2026)."
+        },
+        {
+          "type": "p",
+          "text": "This comparison, quality on one side and price on the other, is exactly what I wanted to be able to do for any stock, so I built it. You can find the detail on [Exxon's page](/analyse/XOM) and on [Chevron's](/analyse/CVX), and the method in [my methodology](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Exxon or Chevron: which has the better business?",
+          "a": "On current numbers the gap is small: both pass 5 criteria out of 10. Chevron keeps 12.5% of its sales as free cash flow against 8.3% for Exxon, but Exxon's margins are expanding while Chevron's are compressing."
+        },
+        {
+          "q": "Which of the two is cheaper?",
+          "a": "Chevron: it is valued at 15.5 times its free cash flow, against 22.5 times for Exxon, and it sits around the middle of its own history while Exxon is more expensive than 73% of its own."
+        },
+        {
+          "q": "What dividend does each pay?",
+          "a": "Chevron pays $7.12 per share a year, a 3.4% yield. Exxon pays $4.28, or 2.6%, with a $1.07 quarterly dividend. These levels depend on free cash flow, so on the price of oil."
+        },
+        {
+          "q": "Why has oil majors' free cash flow fallen so much since 2022?",
+          "a": "Oil came down after the 2022 peak, and investment has more than doubled since 2021. Exxon's free cash flow went from $58.4bn to $23.6bn, Chevron's from $37.6bn to $16.6bn."
+        }
+      ],
+      "tags": [
+        "Exxon",
+        "Chevron",
+        "oil",
+        "comparison",
+        "valuation",
+        "free cash flow"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not predict future results. Figures as of November 11, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Exxon (XOM) o Chevron (CVX): mismo perfil, distinto precio",
+      "excerpt": "Dos gigantes petroleros estadounidenses que se suelen meter en el mismo saco, la misma nota de calidad y, sin embargo, una brecha de precio clara para el mismo efectivo. Qué las separa y qué supone cada cotización.",
+      "metaDescription": "Exxon o Chevron en bolsa: dos petroleras de perfil parecido, pero una cuesta mucho más por el mismo efectivo. Las cifras y lo que las separa.",
+      "answer": "Exxon y Chevron tienen la misma nota de calidad, pero no el mismo precio. Chevron conserva más efectivo por cada dólar de ventas, recompra más acciones y se valora en 15,5 veces su efectivo libre, frente a 22,5 veces de Exxon. Ambas siguen dependiendo del precio del barril.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Exxon y Chevron son los dos gigantes petroleros estadounidenses y a menudo se meten en el mismo saco. En mi sistema de análisis incluso obtienen la misma nota: 5 criterios cumplidos de 10. Sin embargo, de cerca no cuestan lo mismo por el mismo efectivo, y sus caminos ya no coinciden desde que Chevron compró Hess. Aquí van las cifras y luego lo que supone cada precio."
+        },
+        {
+          "type": "h2",
+          "text": "Las cifras lado a lado"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterio",
+            "Exxon (XOM)",
+            "Chevron (CVX)"
+          ],
+          "rows": [
+            [
+              "Tamaño en bolsa",
+              "748 mil M$",
+              "465 mil M$"
+            ],
+            [
+              "Nota de calidad (sobre 10 criterios)",
+              "5 sobre 10",
+              "5 sobre 10"
+            ],
+            [
+              "Evolución de las ventas a 5 años",
+              "-1,8 % anual",
+              "-2,9 % anual"
+            ],
+            [
+              "Efectivo libre en % de las ventas (12 meses)",
+              "8,3 %",
+              "12,5 %"
+            ],
+            [
+              "Evolución del efectivo libre por acción a 5 años",
+              "-19,3 % anual",
+              "-12,7 % anual"
+            ],
+            [
+              "Rentabilidad del capital invertido (Cash ROCE)",
+              "8,2 %",
+              "9,6 %"
+            ],
+            [
+              "Deuda neta en años de efectivo libre",
+              "0,72 años",
+              "1,06 años"
+            ],
+            [
+              "Número de acciones a 5 años",
+              "+0,1 % anual",
+              "-2,4 % anual"
+            ],
+            [
+              "Márgenes a 5 años",
+              "en expansión",
+              "en compresión"
+            ],
+            [
+              "Valoración (años de efectivo libre)",
+              "22,5",
+              "15,5"
+            ],
+            [
+              "Rentabilidad por dividendo",
+              "2,6 %",
+              "3,4 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El efectivo libre (free cash flow) es el dinero que queda en caja una vez pagados los gastos corrientes y las inversiones. Financia el dividendo, las recompras de acciones y el pago de la deuda. En doce meses ronda los 33 mil millones de dólares en Exxon y los 30 mil millones en Chevron (cálculo propio, a partir del valor en bolsa y de la valoración mostrada). Con unas ventas mucho menores, Chevron se queda con una parte mayor: el 12,5 % de sus ventas, frente al 8,3 % de Exxon."
+        },
+        {
+          "type": "p",
+          "text": "El Cash ROCE mide lo que rinde el capital realmente empleado en el negocio: 8,2 % en Exxon, 9,6 % en Chevron, muy lejos del 15 % que busco. Es lógico en un oficio que debe perforar, refinar y construir plataformas antes de ganar un dólar, y es justo por eso que ninguna pasa de 5 sobre 10. Las dos ven además caer sus ventas en cinco años y desvanecerse su efectivo libre por acción, en parte porque el punto de partida, 2021 y 2022, fue un periodo de petróleo muy caro."
+        },
+        {
+          "type": "p",
+          "text": "El balance no es el problema: la deuda neta equivale a cerca de un año de efectivo libre en Chevron (1,06 años) y a menos de un año en Exxon (0,72 años). La diferencia real está en el número de acciones. Una recompra es la empresa comprando sus propios títulos: cada acción restante pesa entonces una parte mayor del negocio. Chevron ha retirado un 2,4 % anual de media, aunque 2025 lo subió cerca de un 2 % por las acciones emitidas para pagar Hess. Exxon se mantiene estable, porque sus recompras han servido sobre todo para compensar las acciones creadas para comprar Pioneer en 2024."
+        },
+        {
+          "type": "h2",
+          "text": "Un efectivo libre que perdió más de la mitad en tres años"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Año",
+            "Efectivo libre de Exxon",
+            "Efectivo libre de Chevron"
+          ],
+          "rows": [
+            [
+              "2021",
+              "36,1 mil M$",
+              "21,1 mil M$"
+            ],
+            [
+              "2022",
+              "58,4 mil M$",
+              "37,6 mil M$"
+            ],
+            [
+              "2023",
+              "33,5 mil M$",
+              "19,8 mil M$"
+            ],
+            [
+              "2024",
+              "30,7 mil M$",
+              "15,0 mil M$"
+            ],
+            [
+              "2025",
+              "23,6 mil M$",
+              "16,6 mil M$"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El petróleo es un oficio cíclico: el precio del barril decide casi todo. 2022 fue el año de todos los récords, con 58,4 mil millones de dólares de efectivo libre en Exxon y 37,6 en Chevron. Tres años después, ese efectivo ha caído cerca de un 60 % en Exxon y un 56 % en Chevron. Un trimestre o un año de petróleo caro no dice, pues, cómo será un año normal."
+        },
+        {
+          "type": "p",
+          "text": "Las inversiones también pesan. Se han más que duplicado desde 2021: de 12,1 a 28,4 mil millones de dólares en Exxon, de 8,1 a 17,3 mil millones en Chevron. Ambos grupos gastan hoy para producir mañana, en Guyana, en el Pérmico (la gran cuenca petrolera de Texas y Nuevo México) y en el gas natural licuado. Lo que llega al accionista es lo que sobra, y no se nota cuando el barril sube, pero se nota enseguida cuando baja."
+        },
+        {
+          "type": "p",
+          "text": "El trimestre publicado el 30 de octubre estuvo precisamente impulsado por precios altos. Exxon generó 19,1 mil millones de dólares de efectivo libre solo en el tercer trimestre y devolvió 9,4 (4,3 en dividendos, 5,1 en recompras), con 20 mil millones de recompras anunciadas para 2027, según [su comunicado](https://boereport.com/2026/10/30/exxonmobil-announces-third-quarter-2026-results/). Chevron muestra 12,0 mil millones de efectivo libre y una deuda neta reducida en 7,8 mil millones, según [el suyo](https://boereport.com/2026/10/30/chevron-reports-third-quarter-2026-results/amp/), pero su producción baja en un año. Parte de la explicación es un mecanismo contractual: en los contratos de reparto de producción, la empresa recupera sus costes en barriles, así que cuanto más sube el precio, menos barriles necesita y menor es su parte de producción. Chevron cita también perturbaciones ligadas al conflicto en Oriente Medio."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que supone cada precio"
+        },
+        {
+          "type": "p",
+          "text": "Valorarse en 15,5 veces su efectivo libre significa que el valor en bolsa equivale a 15,5 años del efectivo libre actual: cuanto más bajo es el número, más barata es la acción. Exxon se valora en 22,5 veces su efectivo libre, más cara que el 73 % de su propio historial. Chevron, en 15,5 veces, está en el percentil 53: en la media de su historia. El mercado premia el crecimiento de volúmenes de Exxon (el Pérmico y Guyana, donde opera el bloque Stabroek con el 45 % del proyecto) y su programa de recompras. Es más prudente con Chevron, cuyos márgenes se comprimen y que aún digiere Hess."
+        },
+        {
+          "type": "p",
+          "text": "Pero Chevron cerró la compra de Hess en julio de 2025, lo que le da el 30 % de ese mismo bloque Stabroek (detalles en [su informe 10-K](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=CVX&type=10-K) y en [el de Exxon](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=XOM&type=10-K)). La mejor historia de crecimiento de Exxon es, por tanto, en parte también la de Chevron, sin que el mercado le cobre la misma prima. Chevron celebra su jornada de inversores el 12 de noviembre: los objetivos de gasto y de efectivo libre que anuncie ese día pueden mover la brecha."
+        },
+        {
+          "type": "p",
+          "text": "Mi modelo de valoración, que prolonga la tendencia del efectivo libre por acción de los últimos cinco años, ve caras las dos acciones: solo encontraría margen de seguridad a 19 $ en Exxon (cotización actual 164 $) y a 65 $ en Chevron (cotización actual 211 $). No leo estas cifras como previsiones, porque prolongar una caída del 19 % anual en una petrolera cíclica es deliberadamente severo. Las leo como una prueba de resistencia: el precio actual supone un petróleo que sigue caro, y esa hipótesis pesa más sobre Exxon, que es un 45 % más cara por dólar de efectivo."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que me llevo del duelo"
+        },
+        {
+          "type": "p",
+          "text": "En el negocio, la diferencia es escasa: misma nota, misma debilidad en crecimiento y rentabilidad del capital, y un efectivo que depende ante todo del barril. Chevron conserva más efectivo por dólar de ventas, recompra más acciones y paga un dividendo mayor (3,4 % frente al 2,6 %). Exxon tiene a su favor márgenes que se amplían, más tamaño y un proyecto de crecimiento mejor identificado. En el precio, la diferencia es clara: a igual efectivo, Exxon es más cara."
+        },
+        {
+          "type": "p",
+          "text": "Lo que cambiaría mi opinión: en Exxon, un barril que baja mientras la prima de valoración se mantiene; en Chevron, unos objetivos de efectivo libre decepcionantes el 12 de noviembre o unos márgenes que siguen comprimiéndose. No es una recomendación de compra ni de venta, es una forma de comparar. El mismo ejercicio en el lado europeo se lee en [TotalEnergies frente a Shell](/blog/totalenergies-shell-comparatif-cash-petrole-2026)."
+        },
+        {
+          "type": "p",
+          "text": "Esta comparación, la calidad por un lado y el precio por otro, es justo lo que quería poder hacer con cualquier acción, así que la construí. Encuentras el detalle en [la ficha de Exxon](/analyse/XOM) y en [la de Chevron](/analyse/CVX), y el método en [mi metodología](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Exxon o Chevron: ¿cuál tiene el mejor negocio?",
+          "a": "Con las cifras actuales la diferencia es pequeña: ambas cumplen 5 criterios de 10. Chevron conserva el 12,5 % de sus ventas como efectivo libre frente al 8,3 % de Exxon, pero los márgenes de Exxon se amplían mientras los de Chevron se comprimen."
+        },
+        {
+          "q": "¿Cuál de las dos es más barata?",
+          "a": "Chevron: se valora en 15,5 veces su efectivo libre, frente a 22,5 veces de Exxon, y está en la media de su historial mientras que Exxon es más cara que el 73 % del suyo."
+        },
+        {
+          "q": "¿Qué dividendo paga cada una?",
+          "a": "Chevron paga 7,12 $ por acción al año, una rentabilidad del 3,4 %. Exxon paga 4,28 $, un 2,6 %, con un dividendo de 1,07 $ por trimestre. Estos niveles dependen del efectivo libre y, por tanto, del barril."
+        },
+        {
+          "q": "¿Por qué ha caído tanto el efectivo libre de las petroleras desde 2022?",
+          "a": "El barril bajó tras el pico de 2022 y las inversiones se han más que duplicado desde 2021. El efectivo libre de Exxon pasó de 58,4 a 23,6 mil millones de dólares, el de Chevron de 37,6 a 16,6 mil millones."
+        }
+      ],
+      "tags": [
+        "Exxon",
+        "Chevron",
+        "petróleo",
+        "comparativa",
+        "valoración",
+        "efectivo libre"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Cifras a 11 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo desde dónde hablo."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
