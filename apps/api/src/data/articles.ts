@@ -106843,7 +106843,535 @@ const articleXOMvsCVX2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026];
+const articleChoisirAction2026: Article = {
+  "slug": "comment-choisir-une-action-cinq-questions-avant-acheter-2026",
+  "date": "2026-11-12",
+  "updated": "2026-11-12",
+  "readingTime": 7,
+  "content": {
+    "fr": {
+      "title": "Comment choisir une action : cinq questions avant d'acheter",
+      "excerpt": "Face à des milliers d'actions, par où commencer ? Cinq questions simples, appliquées à quatre entreprises connues, pour trier le solide du séduisant avant de regarder le cours.",
+      "metaDescription": "Comment choisir une action quand on débute ? Cinq questions simples, testées sur quatre entreprises connues, pour trier la qualité du prix.",
+      "answer": "Pour choisir une action, pose cinq questions dans l'ordre : l'entreprise gagne-t-elle vraiment de l'argent, grandit-elle par action, résisterait-elle à une mauvaise passe, qu'est-ce qui protège ses profits, et à quel prix par rapport à elle-même. La qualité se juge d'abord, le prix ensuite.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Imagine un dimanche soir. Tu ouvres ton application de courtage, et on te propose des milliers d'actions. Certaines ont fait la une cette semaine, d'autres ont doublé en un an, d'autres ont chuté de moitié. Chacune a sa petite histoire, son logo, son cours qui clignote en vert ou en rouge."
+        },
+        {
+          "type": "p",
+          "text": "Le réflexe, c'est de choisir celle dont on a entendu parler ou celle qui a le plus monté. Le problème, c'est que le cours raconte ce que les autres ont déjà fait, pas ce que l'entreprise vaut. Une action qui monte n'est pas une bonne entreprise, et une action qui baisse n'est pas une affaire."
+        },
+        {
+          "type": "p",
+          "text": "Il existe une façon plus calme de procéder : poser les mêmes cinq questions à n'importe quelle entreprise, dans le même ordre, et ne regarder le prix qu'à la fin. C'est la méthode que j'applique, et je la déroule ici sur quatre entreprises réelles : Intuit, Grainger, TJX et Old Dominion Freight Line. Les chiffres viennent de mon outil d'analyse à la date du 12 novembre 2026."
+        },
+        {
+          "type": "h2",
+          "text": "Question 1 : l'entreprise gagne-t-elle vraiment de l'argent ?"
+        },
+        {
+          "type": "p",
+          "text": "Le bénéfice comptable peut être arrangé : une provision ici, un amortissement là. Le cash libre (free cash flow) est plus difficile à maquiller. C'est l'argent qui reste dans les caisses une fois payés les salaires, les fournisseurs, les impôts et les machines. Une entreprise qui affiche des profits mais dont le cash libre est négatif année après année vit sur du crédit ou sur la patience de ses actionnaires."
+        },
+        {
+          "type": "p",
+          "text": "Je regarde deux choses : la marge nette (sur 100 € de ventes, combien de bénéfice) et la régularité du cash libre sur plusieurs années. Les quatre entreprises du test passent ce premier filtre sans difficulté : leurs marges nettes vont de 9,7 % pour TJX à 19,4 % pour Old Dominion. Cette première question élimine surtout les sociétés qui brûlent du cash en attendant un hypothétique avenir radieux."
+        },
+        {
+          "type": "h2",
+          "text": "Question 2 : grandit-elle, et est-ce que ça arrive jusqu'à toi ?"
+        },
+        {
+          "type": "p",
+          "text": "Une entreprise peut voir ses ventes croître tout en décevant ses actionnaires, si elle crée sans cesse de nouvelles actions pour se financer ou rémunérer ses dirigeants. Ton morceau du gâteau rétrécit alors même que le gâteau grossit. C'est pourquoi je regarde deux séries en parallèle : la croissance des ventes, et celle du cash libre par action sur cinq ans, avec le nombre d'actions."
+        },
+        {
+          "type": "p",
+          "text": "Intuit, l'éditeur de TurboTax et QuickBooks, a vu ses ventes progresser de 14,1 % par an et son cash libre par action de 21,4 % par an, avec un nombre d'actions quasi stable. TJX, la maison mère de T.J. Maxx et Marshalls, ne croît que de 5,9 % par an, mais son cash libre par action grimpe de 27,5 % par an, aidé par des rachats d'actions qui font baisser le nombre de titres de 1,4 % par an. Old Dominion, le transporteur routier, raconte l'inverse : ses ventes reculent de 2,5 % par an sur cinq ans, un signe de cycle difficile que les rachats ne suffisent pas à cacher."
+        },
+        {
+          "type": "p",
+          "text": "Toujours la trajectoire, jamais la photo : un chiffre isolé ne dit pas si la machine accélère ou s'essouffle."
+        },
+        {
+          "type": "h2",
+          "text": "Question 3 : que se passe-t-il si les temps durcissent, et qu'est-ce qui protège les profits ?"
+        },
+        {
+          "type": "p",
+          "text": "Deux idées dans une seule question, parce qu'elles se répondent. La première est financière : la dette. Je la mesure en années de cash libre nécessaires pour la rembourser. Une entreprise qui rembourserait toute sa dette nette en six mois de cash libre dort tranquille. Une autre qui en aurait besoin de huit ans devient fragile à la moindre récession. Intuit est à 0,52 an, Grainger à 1,26 an, et TJX comme Old Dominion n'ont pas de dette nette."
+        },
+        {
+          "type": "p",
+          "text": "La seconde est qualitative : le moat, ce fossé qui empêche un concurrent de venir prendre la place. Pour Intuit, ce sont des millions de déclarations d'impôts et de comptabilités d'entreprises déjà saisies dans ses logiciels : changer d'outil coûte cher en temps et en habitudes. Pour Grainger, c'est la logistique. Le groupe fournit les pièces de maintenance, les gants, les moteurs dont une usine ne peut pas se passer, livrés vite et sans erreur, ce qui justifie un prix que le client paie sans discuter."
+        },
+        {
+          "type": "p",
+          "text": "Cette protection se lit aussi dans la rentabilité du capital, que j'appelle Cash ROCE : combien de cash l'entreprise génère par euro réellement investi dans son activité. Intuit sort à 64,9 %, TJX à 29,3 %, Old Dominion à 22,2 % et Grainger à 21,2 %. Un score élevé et durable est rarement le fruit du hasard."
+        },
+        {
+          "type": "h2",
+          "text": "Question 4 : à quel prix, comparé à elle-même ?"
+        },
+        {
+          "type": "p",
+          "text": "C'est seulement ici que j'ouvre le cours. Le prix d'une action se compare au cash libre qu'elle produit : une valorisation de 20 signifie que tu paies 20 années du cash actuel. Un chiffre brut ne veut pas dire grand-chose seul. Ce qui compte, c'est où il se situe dans l'histoire de la même entreprise, et pourquoi il a bougé."
+        },
+        {
+          "type": "p",
+          "text": "Grainger, par exemple, se valorise 48,8 fois son cash libre, un niveau plus élevé que presque tout son passé récent, alors que son secteur, la distribution industrielle, tourne autour de 14. Le 4 novembre 2026, le groupe a pourtant publié un troisième trimestre solide : [des ventes de 5,2 milliards de dollars en hausse de 11,3 %](https://www.sec.gov/Archives/edgar/data/0000277135/000027713526000088/gww8kex991q32026.htm), un bénéfice par action ajusté de 12,54 dollars (+22,8 %), et une prévision annuelle relevée à 47 à 48 dollars. Une excellente entreprise, donc, mais le marché l'a déjà félicitée, et le prix intègre cette bonne nouvelle."
+        },
+        {
+          "type": "p",
+          "text": "Old Dominion illustre le piège inverse. Sa valorisation actuelle est plus basse que dans 91 % de son histoire, ce qui pourrait ressembler à une aubaine. Mais ses ventes reculent et ses marges se compriment : le marché paie moins parce que la croissance a disparu pour l'instant, pas par erreur. Un prix bas devient intéressant seulement si la qualité tient. C'est aussi le raisonnement de mon article sur [la façon de comparer une action chère à son propre passé](/blog/action-chere-comparer-a-sa-propre-histoire-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que donne le test sur quatre entreprises connues"
+        },
+        {
+          "type": "p",
+          "text": "Voici les quatre entreprises côte à côte. La note est le nombre de critères validés par ma grille sur dix, et la dernière colonne dit où se situe la valorisation actuelle dans l'histoire propre de chaque société."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Entreprise",
+            "Note de qualité",
+            "Ventes par an (5 ans)",
+            "Cash libre par action par an",
+            "Nombre d'actions par an",
+            "Dette nette en années de cash",
+            "Prix par rapport à son histoire"
+          ],
+          "rows": [
+            [
+              "Intuit (INTU)",
+              "10 sur 10",
+              "+14,1 %",
+              "+21,4 %",
+              "-0,1 %",
+              "0,52 an",
+              "Moins chère que 93 % de son passé"
+            ],
+            [
+              "Grainger (GWW)",
+              "8 sur 10",
+              "+6,3 %",
+              "+21,3 %",
+              "-2,1 %",
+              "1,26 an",
+              "Plus chère que 99 % de son passé"
+            ],
+            [
+              "TJX (TJX)",
+              "8 sur 10",
+              "+5,9 %",
+              "+27,5 %",
+              "-1,4 %",
+              "Aucune dette nette",
+              "Plus chère que 69 % de son passé"
+            ],
+            [
+              "Old Dominion (ODFL)",
+              "6 sur 10",
+              "-2,5 %",
+              "+9,5 %",
+              "-2,3 %",
+              "Aucune dette nette",
+              "Moins chère que 91 % de son passé"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La lecture est la suivante. Intuit coche la qualité et son prix est bas dans son propre historique : c'est le seul profil des quatre où les deux questions pointent dans le même sens, ce qui ne veut pas dire sans risque, l'intelligence artificielle étant le sujet que le marché surveille. Grainger et TJX sont de bonnes entreprises dont le prix demande déjà beaucoup. TJX a ainsi relevé son objectif de magasins et vu ses ventes comparables progresser de 4 % au deuxième trimestre de son exercice, avec une division Marmaxx plus faible à 1 %. Old Dominion est bon marché pour une raison précise."
+        },
+        {
+          "type": "p",
+          "text": "Mon intention n'est pas de te dire quoi acheter. C'est de te montrer que les mêmes cinq questions séparent des profils très différents, en quelques minutes, sans deviner. Les chiffres complets sont sur les fiches [d'Intuit](/analyse/INTU), [de Grainger](/analyse/GWW), [de TJX](/analyse/TJX) et [d'Old Dominion](/analyse/ODFL). Pour la logique d'ensemble, relis [ma méthodologie](/methodologie) : la qualité se juge d'abord, le prix ensuite. Si tu veux appliquer ce tri à des centaines de sociétés, c'est ce que fait [le screener](/screener), construit précisément parce que je ne voulais plus le faire à la main."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Par quoi commencer quand on débute en bourse ?",
+          "a": "Par la qualité du business, pas par le cours. Vérifie que l'entreprise génère du cash libre, que ce cash par action grandit et que sa dette reste raisonnable. Ensuite seulement, compare son prix à son propre historique."
+        },
+        {
+          "q": "Combien de critères faut-il regarder pour choisir une action ?",
+          "a": "Une poignée suffit si elle couvre l'essentiel : rentabilité, croissance par action, solidité financière, protection concurrentielle et valorisation. Au delà, on se noie dans les chiffres sans mieux décider."
+        },
+        {
+          "q": "Une action qui a beaucoup baissé est-elle une bonne affaire ?",
+          "a": "Pas automatiquement. Un prix bas peut refléter une croissance qui disparaît, comme pour un transporteur dont les ventes reculent. Le prix n'est intéressant que si la qualité de l'entreprise tient."
+        },
+        {
+          "q": "Ceci est-il un conseil d'investissement ?",
+          "a": "Non. C'est une méthode d'analyse à but éducatif. Les entreprises citées servent d'illustration, pas de recommandation, et tu dois faire tes propres recherches."
+        }
+      ],
+      "tags": [
+        "choisir une action",
+        "analyse fondamentale",
+        "débutant",
+        "cash libre",
+        "valorisation",
+        "qualité"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 12 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "How to Pick a Stock: Five Questions Before You Buy",
+      "excerpt": "Thousands of stocks, one question: where do you start? Five simple questions, applied to four well known companies, to separate the solid from the shiny before you look at the price.",
+      "metaDescription": "How do you pick a stock as a beginner? Five simple questions, tested on four well known companies, to separate quality from price.",
+      "answer": "To pick a stock, ask five questions in order: does the company really make money, does it grow per share, would it survive a bad patch, what protects its profits, and what is the price compared with its own history. Judge quality first, price second.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Picture a Sunday evening. You open your brokerage app and it offers thousands of stocks. Some made headlines this week, some doubled in a year, some fell by half. Each has its story, its logo, and a price flashing green or red."
+        },
+        {
+          "type": "p",
+          "text": "The instinct is to pick the one you have heard of, or the one that rose the most. The trouble is that the price tells you what others already did, not what the company is worth. A stock that rises is not a good business, and a stock that falls is not a bargain."
+        },
+        {
+          "type": "p",
+          "text": "There is a calmer way: ask the same five questions of any company, in the same order, and look at the price last. That is the method I use, and I run it here on four real companies: Intuit, Grainger, TJX and Old Dominion Freight Line. The figures come from my analysis tool as of November 12, 2026."
+        },
+        {
+          "type": "h2",
+          "text": "Question 1: does the company really make money?"
+        },
+        {
+          "type": "p",
+          "text": "Accounting profit can be arranged: a provision here, a depreciation there. Free cash flow is harder to dress up. It is the money left in the till after paying salaries, suppliers, taxes and machinery. A company showing profits but negative free cash flow year after year lives on credit or on its shareholders' patience."
+        },
+        {
+          "type": "p",
+          "text": "I look at two things: net margin (out of 100 dollars of sales, how much is profit) and how steady free cash flow is over several years. All four companies in the test pass this first filter easily: net margins run from 9.7% for TJX to 19.4% for Old Dominion. This question mostly eliminates companies that burn cash while waiting for a bright future."
+        },
+        {
+          "type": "h2",
+          "text": "Question 2: does it grow, and does that reach you?"
+        },
+        {
+          "type": "p",
+          "text": "A company can grow sales and still disappoint shareholders if it keeps issuing new shares to fund itself or pay executives. Your slice of the pie shrinks even as the pie grows. So I read two series side by side: sales growth, and free cash flow per share over five years, along with the share count."
+        },
+        {
+          "type": "p",
+          "text": "Intuit, the maker of TurboTax and QuickBooks, grew sales 14.1% a year and free cash flow per share 21.4% a year, with a nearly flat share count. TJX, parent of T.J. Maxx and Marshalls, grows sales only 5.9% a year, yet free cash flow per share climbs 27.5% a year, helped by buybacks that shrink the share count 1.4% a year. Old Dominion, the trucking carrier, tells the opposite story: sales have shrunk 2.5% a year over five years, a sign of a tough cycle that buybacks cannot hide."
+        },
+        {
+          "type": "p",
+          "text": "Always the trajectory, never the snapshot: a single figure does not say whether the machine is accelerating or running out of steam."
+        },
+        {
+          "type": "h2",
+          "text": "Question 3: what if times get hard, and what protects the profits?"
+        },
+        {
+          "type": "p",
+          "text": "Two ideas in one question, because they answer each other. The first is financial: debt. I measure it in years of free cash flow needed to repay it. A company that could repay all its net debt with six months of free cash flow sleeps well. One that needs eight years becomes fragile in any recession. Intuit sits at 0.52 years, Grainger at 1.26 years, and TJX and Old Dominion carry no net debt."
+        },
+        {
+          "type": "p",
+          "text": "The second is qualitative: the moat, the ditch that stops a rival from taking the place. For Intuit, it is millions of tax returns and company books already entered in its software: switching costs time and habits. For Grainger, it is logistics. The group supplies the maintenance parts, gloves and motors a plant cannot do without, delivered fast and without errors, which justifies a price customers pay without arguing."
+        },
+        {
+          "type": "p",
+          "text": "This protection also shows in the return on capital, which I call Cash ROCE: how much cash the business generates per dollar actually invested in it. Intuit comes out at 64.9%, TJX at 29.3%, Old Dominion at 22.2% and Grainger at 21.2%. A high and lasting score is rarely chance."
+        },
+        {
+          "type": "h2",
+          "text": "Question 4: at what price, compared with itself?"
+        },
+        {
+          "type": "p",
+          "text": "Only here do I open the price. A stock's price is compared with the free cash flow it produces: a valuation of 20 means you pay 20 years of today's cash. A raw number says little on its own. What matters is where it sits in the same company's history, and why it moved."
+        },
+        {
+          "type": "p",
+          "text": "Grainger, for instance, is valued at 48.8 times its free cash flow, higher than almost all of its recent past, while its sector, industrial distribution, sits around 14. On November 4, 2026 the group nonetheless posted a strong third quarter: [sales of 5.2 billion dollars, up 11.3%](https://www.sec.gov/Archives/edgar/data/0000277135/000027713526000088/gww8kex991q32026.htm), adjusted earnings per share of 12.54 dollars (up 22.8%), and full year guidance raised to 47 to 48 dollars. An excellent company, then, but the market has already congratulated it, and the price includes the good news."
+        },
+        {
+          "type": "p",
+          "text": "Old Dominion shows the opposite trap. Its current valuation is lower than in 91% of its history, which could look like a bargain. But sales are shrinking and margins are compressing: the market pays less because growth has gone for now, not by mistake. A low price only becomes interesting if quality holds. It is also the reasoning of my article on [comparing an expensive stock with its own past](/blog/action-chere-comparer-a-sa-propre-histoire-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "What the test gives on four well known companies"
+        },
+        {
+          "type": "p",
+          "text": "Here are the four side by side. The score is the number of criteria my grid validates out of ten, and the last column says where the current valuation stands in each company's own history."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score",
+            "Sales per year (5 years)",
+            "Free cash flow per share per year",
+            "Share count per year",
+            "Net debt in years of cash",
+            "Price versus its history"
+          ],
+          "rows": [
+            [
+              "Intuit (INTU)",
+              "10 out of 10",
+              "+14.1%",
+              "+21.4%",
+              "-0.1%",
+              "0.52 years",
+              "Cheaper than 93% of its past"
+            ],
+            [
+              "Grainger (GWW)",
+              "8 out of 10",
+              "+6.3%",
+              "+21.3%",
+              "-2.1%",
+              "1.26 years",
+              "Pricier than 99% of its past"
+            ],
+            [
+              "TJX (TJX)",
+              "8 out of 10",
+              "+5.9%",
+              "+27.5%",
+              "-1.4%",
+              "No net debt",
+              "Pricier than 69% of its past"
+            ],
+            [
+              "Old Dominion (ODFL)",
+              "6 out of 10",
+              "-2.5%",
+              "+9.5%",
+              "-2.3%",
+              "No net debt",
+              "Cheaper than 91% of its past"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The reading is this. Intuit ticks quality and its price is low in its own history: the only profile of the four where both questions point the same way, which does not mean risk free, since artificial intelligence is the topic the market watches. Grainger and TJX are good companies whose price already asks a lot. TJX, for example, raised its store target and saw comparable sales rise 4% in the second quarter of its fiscal year, with its Marmaxx division weaker at 1%. Old Dominion is cheap for a precise reason."
+        },
+        {
+          "type": "p",
+          "text": "My aim is not to tell you what to buy. It is to show that the same five questions separate very different profiles in minutes, without guessing. Full figures are on the pages for [Intuit](/analyse/INTU), [Grainger](/analyse/GWW), [TJX](/analyse/TJX) and [Old Dominion](/analyse/ODFL). For the overall logic, reread [my methodology](/methodologie): judge quality first, price second. If you want to apply this sort to hundreds of companies, that is what [the screener](/screener) does, built precisely because I no longer wanted to do it by hand."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Where should a beginner start when picking a stock?",
+          "a": "With the quality of the business, not the price. Check that the company generates free cash flow, that this cash per share is growing and that debt stays reasonable. Only then compare its price with its own history."
+        },
+        {
+          "q": "How many criteria should you look at to pick a stock?",
+          "a": "A handful is enough if it covers the essentials: profitability, per share growth, financial strength, competitive protection and valuation. Beyond that you drown in numbers without deciding better."
+        },
+        {
+          "q": "Is a stock that fell a lot a good deal?",
+          "a": "Not automatically. A low price can reflect vanishing growth, as with a carrier whose sales are shrinking. The price is only interesting if the quality of the company holds."
+        },
+        {
+          "q": "Is this investment advice?",
+          "a": "No. It is an educational analysis method. The companies named are illustrations, not recommendations, and you should do your own research."
+        }
+      ],
+      "tags": [
+        "pick a stock",
+        "fundamental analysis",
+        "beginner",
+        "free cash flow",
+        "valuation",
+        "quality"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not predict future results. Figures as of November 12, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Cómo elegir una acción: cinco preguntas antes de comprar",
+      "excerpt": "Miles de acciones y una duda: ¿por dónde empezar? Cinco preguntas sencillas, aplicadas a cuatro empresas conocidas, para separar lo sólido de lo llamativo antes de mirar el precio.",
+      "metaDescription": "¿Cómo elegir una acción si empiezas? Cinco preguntas sencillas, probadas en cuatro empresas conocidas, para separar la calidad del precio.",
+      "answer": "Para elegir una acción, hazte cinco preguntas en orden: si la empresa gana dinero de verdad, si crece por acción, si aguantaría una mala racha, qué protege sus beneficios y qué precio tiene frente a su propia historia. Primero se juzga la calidad, después el precio.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Imagina un domingo por la noche. Abres tu aplicación de bolsa y te ofrece miles de acciones. Algunas han sido noticia esta semana, otras se han duplicado en un año, otras han caído a la mitad. Cada una tiene su historia, su logotipo y su precio parpadeando en verde o en rojo."
+        },
+        {
+          "type": "p",
+          "text": "El reflejo es elegir la que conoces o la que más ha subido. El problema es que el precio cuenta lo que otros ya hicieron, no lo que vale la empresa. Una acción que sube no es un buen negocio, y una acción que baja no es una ganga."
+        },
+        {
+          "type": "p",
+          "text": "Hay una forma más tranquila: hacer las mismas cinco preguntas a cualquier empresa, en el mismo orden, y mirar el precio al final. Es el método que aplico, y aquí lo desarrollo con cuatro empresas reales: Intuit, Grainger, TJX y Old Dominion Freight Line. Las cifras proceden de mi herramienta de análisis a 12 de noviembre de 2026."
+        },
+        {
+          "type": "h2",
+          "text": "Pregunta 1: ¿la empresa gana dinero de verdad?"
+        },
+        {
+          "type": "p",
+          "text": "El beneficio contable se puede maquillar: una provisión aquí, una amortización allá. El flujo de caja libre es más difícil de disfrazar. Es el dinero que queda en caja después de pagar sueldos, proveedores, impuestos y maquinaria. Una empresa con beneficios pero con caja libre negativa año tras año vive del crédito o de la paciencia de sus accionistas."
+        },
+        {
+          "type": "p",
+          "text": "Miro dos cosas: el margen neto (de cada 100 dólares de ventas, cuánto es beneficio) y la regularidad de la caja libre durante varios años. Las cuatro empresas de la prueba superan este primer filtro con facilidad: sus márgenes netos van del 9,7 % de TJX al 19,4 % de Old Dominion. Esta pregunta elimina sobre todo a las que queman caja esperando un futuro brillante."
+        },
+        {
+          "type": "h2",
+          "text": "Pregunta 2: ¿crece, y eso llega hasta ti?"
+        },
+        {
+          "type": "p",
+          "text": "Una empresa puede aumentar sus ventas y aun así decepcionar a sus accionistas si emite acciones nuevas sin parar para financiarse o pagar a sus directivos. Tu trozo de tarta se encoge aunque la tarta crezca. Por eso leo dos series a la vez: el crecimiento de las ventas y el de la caja libre por acción a cinco años, junto con el número de acciones."
+        },
+        {
+          "type": "p",
+          "text": "Intuit, la empresa de TurboTax y QuickBooks, hizo crecer sus ventas un 14,1 % al año y su caja libre por acción un 21,4 % anual, con un número de acciones casi estable. TJX, matriz de T.J. Maxx y Marshalls, solo crece un 5,9 % anual, pero su caja libre por acción sube un 27,5 % al año, ayudada por recompras que reducen el número de títulos un 1,4 % anual. Old Dominion, el transportista por carretera, cuenta lo contrario: sus ventas caen un 2,5 % al año en cinco años, señal de un ciclo difícil que las recompras no logran ocultar."
+        },
+        {
+          "type": "p",
+          "text": "Siempre la trayectoria, nunca la fotografía: una cifra aislada no dice si la máquina acelera o se agota."
+        },
+        {
+          "type": "h2",
+          "text": "Pregunta 3: ¿qué pasa si vienen tiempos duros y qué protege los beneficios?"
+        },
+        {
+          "type": "p",
+          "text": "Dos ideas en una pregunta, porque se responden entre sí. La primera es financiera: la deuda. La mido en años de caja libre necesarios para devolverla. Una empresa que pagaría toda su deuda neta con seis meses de caja libre duerme tranquila. Otra que necesitara ocho años se vuelve frágil ante cualquier recesión. Intuit está en 0,52 años, Grainger en 1,26 años, y TJX y Old Dominion no tienen deuda neta."
+        },
+        {
+          "type": "p",
+          "text": "La segunda es cualitativa: el foso competitivo, lo que impide a un rival ocupar su lugar. En Intuit son millones de declaraciones de impuestos y contabilidades ya introducidas en sus programas: cambiar cuesta tiempo y costumbres. En Grainger es la logística. El grupo suministra las piezas de mantenimiento, guantes y motores sin los que una fábrica no funciona, entregados rápido y sin errores, lo que justifica un precio que el cliente paga sin discutir."
+        },
+        {
+          "type": "p",
+          "text": "Esta protección también se lee en la rentabilidad del capital, que llamo Cash ROCE: cuánta caja genera el negocio por cada dólar realmente invertido. Intuit sale en el 64,9 %, TJX en el 29,3 %, Old Dominion en el 22,2 % y Grainger en el 21,2 %. Una nota alta y duradera rara vez es casualidad."
+        },
+        {
+          "type": "h2",
+          "text": "Pregunta 4: ¿a qué precio, comparado con ella misma?"
+        },
+        {
+          "type": "p",
+          "text": "Solo aquí abro el precio. El precio de una acción se compara con la caja libre que produce: una valoración de 20 significa que pagas 20 años de la caja actual. Una cifra bruta dice poco por sí sola. Lo que importa es dónde se sitúa en la historia de la misma empresa y por qué se ha movido."
+        },
+        {
+          "type": "p",
+          "text": "Grainger, por ejemplo, se valora en 48,8 veces su caja libre, más que casi todo su pasado reciente, mientras que su sector, la distribución industrial, ronda las 14. El 4 de noviembre de 2026 el grupo publicó sin embargo un tercer trimestre sólido: [ventas de 5.200 millones de dólares, un 11,3 % más](https://www.sec.gov/Archives/edgar/data/0000277135/000027713526000088/gww8kex991q32026.htm), beneficio por acción ajustado de 12,54 dólares (+22,8 %) y previsión anual elevada a entre 47 y 48 dólares. Una empresa excelente, pues, pero el mercado ya la ha felicitado y el precio incluye la buena noticia."
+        },
+        {
+          "type": "p",
+          "text": "Old Dominion muestra la trampa contraria. Su valoración actual es más baja que en el 91 % de su historia, lo que podría parecer una ganga. Pero sus ventas retroceden y sus márgenes se comprimen: el mercado paga menos porque el crecimiento ha desaparecido por ahora, no por error. Un precio bajo solo es interesante si la calidad aguanta. Es también el razonamiento de mi artículo sobre [cómo comparar una acción cara con su propio pasado](/blog/action-chere-comparer-a-sa-propre-histoire-2026)."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que da la prueba en cuatro empresas conocidas"
+        },
+        {
+          "type": "p",
+          "text": "Aquí están las cuatro lado a lado. La nota es el número de criterios que valida mi cuadrícula sobre diez, y la última columna dice dónde se sitúa la valoración actual en la historia de cada empresa."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad",
+            "Ventas por año (5 años)",
+            "Caja libre por acción por año",
+            "Número de acciones por año",
+            "Deuda neta en años de caja",
+            "Precio frente a su historia"
+          ],
+          "rows": [
+            [
+              "Intuit (INTU)",
+              "10 sobre 10",
+              "+14,1 %",
+              "+21,4 %",
+              "-0,1 %",
+              "0,52 años",
+              "Más barata que el 93 % de su pasado"
+            ],
+            [
+              "Grainger (GWW)",
+              "8 sobre 10",
+              "+6,3 %",
+              "+21,3 %",
+              "-2,1 %",
+              "1,26 años",
+              "Más cara que el 99 % de su pasado"
+            ],
+            [
+              "TJX (TJX)",
+              "8 sobre 10",
+              "+5,9 %",
+              "+27,5 %",
+              "-1,4 %",
+              "Sin deuda neta",
+              "Más cara que el 69 % de su pasado"
+            ],
+            [
+              "Old Dominion (ODFL)",
+              "6 sobre 10",
+              "-2,5 %",
+              "+9,5 %",
+              "-2,3 %",
+              "Sin deuda neta",
+              "Más barata que el 91 % de su pasado"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La lectura es esta. Intuit cumple en calidad y su precio es bajo en su propia historia: el único perfil de los cuatro donde ambas preguntas apuntan en el mismo sentido, lo que no significa que no tenga riesgo, pues la inteligencia artificial es el tema que vigila el mercado. Grainger y TJX son buenas empresas cuyo precio ya exige mucho. TJX, por ejemplo, elevó su objetivo de tiendas y vio crecer sus ventas comparables un 4 % en el segundo trimestre de su ejercicio, con su división Marmaxx más débil, en un 1 %. Old Dominion es barata por un motivo preciso."
+        },
+        {
+          "type": "p",
+          "text": "Mi intención no es decirte qué comprar. Es mostrarte que las mismas cinco preguntas separan perfiles muy distintos en pocos minutos, sin adivinar. Las cifras completas están en las fichas de [Intuit](/analyse/INTU), [Grainger](/analyse/GWW), [TJX](/analyse/TJX) y [Old Dominion](/analyse/ODFL). Para la lógica de conjunto, relee [mi metodología](/methodologie): primero la calidad, después el precio. Si quieres aplicar este filtro a cientos de empresas, es lo que hace [el screener](/screener), creado justamente porque ya no quería hacerlo a mano."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por dónde debe empezar un principiante al elegir una acción?",
+          "a": "Por la calidad del negocio, no por el precio. Comprueba que la empresa genera caja libre, que esa caja por acción crece y que la deuda es razonable. Solo después compara su precio con su propia historia."
+        },
+        {
+          "q": "¿Cuántos criterios hay que mirar para elegir una acción?",
+          "a": "Basta un puñado si cubre lo esencial: rentabilidad, crecimiento por acción, solidez financiera, protección competitiva y valoración. Más allá, te ahogas en cifras sin decidir mejor."
+        },
+        {
+          "q": "¿Una acción que ha bajado mucho es una buena oportunidad?",
+          "a": "No automáticamente. Un precio bajo puede reflejar un crecimiento que desaparece, como en un transportista cuyas ventas retroceden. El precio solo interesa si la calidad de la empresa se mantiene."
+        },
+        {
+          "q": "¿Esto es un consejo de inversión?",
+          "a": "No. Es un método de análisis con fines educativos. Las empresas citadas son ilustraciones, no recomendaciones, y debes hacer tu propia investigación."
+        }
+      ],
+      "tags": [
+        "elegir una acción",
+        "análisis fundamental",
+        "principiantes",
+        "caja libre",
+        "valoración",
+        "calidad"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Cifras a 12 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo desde dónde hablo."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
