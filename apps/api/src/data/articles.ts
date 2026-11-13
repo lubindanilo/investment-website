@@ -107371,7 +107371,544 @@ const articleChoisirAction2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026];
+const articleAutosPeuCheres2026: Article = {
+  "slug": "actions-automobiles-pourquoi-si-peu-cheres-2026",
+  "date": "2026-11-13",
+  "updated": "2026-11-13",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Actions automobiles : pourquoi elles sont si peu chères",
+      "excerpt": "J'ai passé dix-huit constructeurs au crible de ma méthode. Aucun ne dépasse 8 sur 10, six brûlent du cash, et le bas prix cache presque toujours une raison.",
+      "metaDescription": "Mercedes, GM, Ford, Toyota, Ferrari : dix-huit constructeurs au crible. Pourquoi les actions automobiles paraissent bradées, et lesquelles font exception.",
+      "answer": "Les actions automobiles semblent bradées, mais le bas prix est surtout le reflet d'une qualité moyenne : sur dix-huit constructeurs testés, aucun ne dépasse 8 sur 10 et six brûlent du cash. Seuls Ferrari et Suzuki font exception, et leur cours est déjà proche du prix d'achat que je m'autorise.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Un secteur où personne n'obtient la note maximale"
+        },
+        {
+          "type": "p",
+          "text": "Quand on tape « actions automobiles » dans un moteur de recherche, on tombe vite sur la même impression : Mercedes, General Motors ou Ford se négocient à des prix qui paraissent ridicules par rapport à ce qu'elles gagnent. Alors j'ai fait ce que je fais pour tout secteur : j'ai passé dix-huit constructeurs cotés à travers ma grille, de Toyota à BYD, de Ferrari à Renault. Tesla est mise de côté, parce que son cours raconte une histoire de technologie plus que de voitures."
+        },
+        {
+          "type": "p",
+          "text": "Ma grille juge d'abord la qualité de l'entreprise, indépendamment de son prix : est-elle rentable, ses ventes et son cash par action progressent-ils, ses marges s'élargissent-elles, sa dette est-elle remboursable en quelques années ? Chaque critère rapporte un point, pour un maximum de 10. Ensuite seulement je regarde le prix, avec le free cash flow, c'est-à-dire l'argent qui reste vraiment dans les caisses une fois les usines entretenues et les factures payées. Le ratio « cours divisé par free cash flow » dit combien d'années de ce cash tu achètes : plus il est bas, plus l'action paraît bon marché."
+        },
+        {
+          "type": "p",
+          "text": "Résultat, et c'est le premier enseignement : aucun constructeur ne dépasse 8 sur 10. Seuls Ferrari et Suzuki l'atteignent. À l'autre bout, Mercedes plafonne à 3, Ford, Volkswagen, BMW et Kia à 4. Surtout, six des dix-huit ont un free cash flow négatif sur douze mois (Hyundai, BYD, Mazda, BMW, Renault et Volkswagen) : ils dépensent plus d'argent qu'ils n'en dégagent. Pour comparaison, dans le logiciel ou l'assurance, il est courant de trouver plusieurs sociétés à 9 ou 10."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Constructeur",
+            "Note qualité (sur 10)",
+            "Cours / free cash flow",
+            "Cours actuel",
+            "Prix d'achat de ma méthode"
+          ],
+          "rows": [
+            [
+              "Ferrari",
+              "8",
+              "45,8×",
+              "405 $",
+              "438 $"
+            ],
+            [
+              "Suzuki",
+              "8",
+              "14,2×",
+              "2 169 ¥",
+              "2 260 ¥"
+            ],
+            [
+              "General Motors",
+              "6",
+              "5,5×",
+              "86 $",
+              "157 $"
+            ],
+            [
+              "Porsche AG",
+              "5",
+              "11,8×",
+              "46,7 €",
+              "49,1 €"
+            ],
+            [
+              "Toyota",
+              "5",
+              "242× (non significatif)",
+              "3 338 ¥",
+              "304 ¥"
+            ],
+            [
+              "Ford",
+              "4",
+              "7,1×",
+              "11,9 $",
+              "16,6 $"
+            ],
+            [
+              "Mercedes-Benz",
+              "3",
+              "4,7×",
+              "40,7 €",
+              "106 €"
+            ],
+            [
+              "Volkswagen",
+              "4",
+              "cash flow négatif",
+              "69,6 €",
+              "non calculable"
+            ],
+            [
+              "BMW",
+              "4",
+              "cash flow négatif",
+              "57,5 €",
+              "non calculable"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Un mot sur la dernière colonne : le prix d'achat est celui que ma méthode calcule en supposant que le cash par action continue de progresser. Pour un fabricant de voitures, dont les bénéfices montent et descendent avec le cycle, c'est une hypothèse généreuse. Mercedes à 106 € de « prix d'achat » ou GM à 157 $ ne sont pas des promesses : ce sont les prix auxquels la thèse tiendrait si le cash restait au niveau actuel et grandissait. Garde cette nuance en tête pour la suite."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi le chiffre qui rassure est trompeur"
+        },
+        {
+          "type": "p",
+          "text": "Premier piège : la dette. Chez Mercedes, ma grille affiche une dette à rembourser en 8,5 ans de free cash flow ; chez Ford 20,8 ans ; chez Toyota 170 ans, avec un ratio cours sur cash de 242 qui ne veut plus rien dire. Ces chiffres font peur, et ils sont à moitié faux. La raison tient à un mécanisme propre à l'automobile : presque tous les constructeurs possèdent une banque captive, c'est-à-dire une filiale qui finance les voitures de leurs clients. Cette filiale emprunte des milliards sur les marchés pour prêter à ceux qui achètent à crédit ou louent. Dans les comptes consolidés, cette dette énorme s'ajoute à celle de l'usine, alors qu'elle est adossée à des prêts qui rapportent des intérêts."
+        },
+        {
+          "type": "p",
+          "text": "Autrement dit, comme pour une banque, une grosse dette n'est pas forcément un signal d'alarme : elle est le carburant d'un métier de prêteur. Mais elle brouille la lecture du cash. Le free cash flow consolidé de Mercedes, d'environ 8 Md€ sur douze mois selon ma base (un calcul que je déduis de la capitalisation et du ratio affiché), est bien plus généreux que le chiffre que le groupe publie pour sa seule activité industrielle : 5,4 Md€ en 2025. La différence vient précisément de la banque captive. Pour juger l'usine, c'est le second chiffre qu'il faut regarder, et je le préfère."
+        },
+        {
+          "type": "p",
+          "text": "Or ce second chiffre se dégrade. Dans son [rapport du troisième trimestre 2026](https://group.mercedes-benz.com/dokumente/investoren/berichte/zwischenberichte/q3/mercedes-benz-zwischenbericht-q3-2026.pdf), Mercedes indique un free cash flow industriel de 172 M€ sur le trimestre, contre 1 367 M€ un an plus tôt, soit une division par huit. Sur neuf mois, il atteint 3,1 Md€ contre 5,6 Md€, et encore avec le coup de pouce d'1 Md€ tiré de la vente d'une partie de sa participation dans Daimler Truck. Le groupe a revu à la baisse sa prévision annuelle : le cash industriel 2026 sera « nettement inférieur » à celui de 2025, et non plus « légèrement ». Un ratio de 4,7 fois le cash n'a donc rien d'une aubaine : le dénominateur est en train de fondre."
+        },
+        {
+          "type": "h2",
+          "text": "Ford, GM, Mercedes : trois façons d'être bon marché"
+        },
+        {
+          "type": "p",
+          "text": "General Motors est le cas le plus intéressant, parce que la qualité y est correcte (6 sur 10) et que le cash progresse : 17,6 Md$ de free cash flow en 2025 contre 9,3 Md$ en 2024, et un nombre d'actions qui baisse d'environ 12 % par an grâce aux rachats. GM a publié le 20 octobre 2026 un cash automobile ajusté de 5,9 Md$ sur le trimestre, relevé sa fourchette annuelle à 11,5 à 12,5 Md$ et annoncé un nouveau programme de rachat de 20 Md$ (communiqué disponible sur la [page investisseurs de GM](https://investor.gm.com/)). Le bémol : la direction elle-même attribue une partie de l'amélioration au calendrier des paiements de droits de douane et à des investissements reportés. C'est du cash décalé autant que du cash gagné. Et le cours actuel se situe à peine au-dessus du quart bas de son propre historique de valorisation : GM est bon marché pour elle-même, pas seulement face aux autres."
+        },
+        {
+          "type": "p",
+          "text": "Ford raconte l'histoire inverse. Dans son [communiqué du troisième trimestre 2026](https://www.sec.gov/Archives/edgar/data/0000037996/000003799626000190/exhibit99tooctober282026.htm), le constructeur a affiché 2,7 Md$ de résultat opérationnel ajusté et relevé le bas de sa fourchette annuelle à 10,5 à 11 Md$. Mais sa division électrique Model e a encore perdu 1,06 Md$ sur le trimestre, et Ford vise environ 4 Md$ de perte sur l'année, avec un retour à l'équilibre espéré seulement en 2029. Le groupe gagne beaucoup d'argent avec ses camionnettes et ses utilitaires, et le réinvestit dans une transition qui n'est pas encore rentable. Avec une marge nette négative (-3,9 %) et une dette de 20,8 ans de cash, la note de 4 sur 10 est cohérente. Et son ratio actuel place l'action dans le haut de sa fourchette historique : ce n'est pas un point bas, ce que les autres chiffres pourraient laisser croire."
+        },
+        {
+          "type": "p",
+          "text": "Mercedes complète le tableau : une marque de prestige, des marges autrefois enviées, et un chiffre d'affaires qui recule d'environ 4 % par an en moyenne sur cinq ans. Les 1,1 Md€ d'indemnités de départ du plan de réduction des coûts pèsent sur 2026, et la Chine, marché clé du haut de gamme, ralentit. Ma grille lui retire des points sur la croissance des ventes et du cash par action, sur les marges qui se compriment, sur le rendement du capital (4,8 %) et sur la dette. D'où la note de 3 sur 10, la plus basse de l'échantillon. Un cours de 40 € a l'air d'un plancher, mais il se justifie en partie par ce que l'entreprise est devenue."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrari et Suzuki : les deux exceptions, et ce qu'elles coûtent"
+        },
+        {
+          "type": "p",
+          "text": "Les deux seuls constructeurs à 8 sur 10 sont à l'opposé l'un de l'autre. Ferrari vend peu de voitures, très chères, et garde 19,3 % de ce qu'elle encaisse sous forme de free cash flow : sur 100 € de ventes, 19 restent dans la caisse, quand Ford en garde moins de 4. Son chiffre d'affaires progresse de 13 % par an depuis cinq ans. C'est un moat de rareté, expliqué dans mon article sur [le moat de Ferrari](/blog/ferrari-race-rarete-moat-durable) : elle limite volontairement ses livraisons pour que la liste d'attente reste plus longue que la production. Son seul critère raté est le prix, avec un cours de 45,8 fois le cash, dans le haut de sa propre histoire. Au cours de 405 $, l'action est toutefois légèrement sous le prix d'achat de 438 $ que ma méthode calcule, ce qui est rare dans ce secteur."
+        },
+        {
+          "type": "p",
+          "text": "Suzuki est la surprise. Le constructeur japonais, très présent en Inde, a une trésorerie nette positive (aucune dette nette à rembourser), des ventes qui progressent de 15 % par an et un cours à 14 fois le cash, juste sous mon prix d'achat. Mais sa qualité reste modeste : une marge de free cash flow de 4,7 %, un rendement du capital de 7,1 % et seulement 67 % de ses bénéfices transformés en cash. C'est une entreprise saine et mal rémunérée par son modèle, pas une machine à cash."
+        },
+        {
+          "type": "p",
+          "text": "Au fond, l'automobile est un métier où il faut investir beaucoup pour gagner peu, et où le cycle fait varier les résultats du simple au double. Les deux entreprises qui échappent à ce piège le font par la rareté (Ferrari) ou par la sobriété (Suzuki). Quand j'ai voulu pouvoir faire ce tri en quelques secondes pour n'importe quel secteur, j'ai construit mon site d'investissement : la qualité d'un côté, le prix de l'autre, [sur la fiche de chaque action](/analyse/RACE). Ma lecture reste prudente : dans ce secteur, bon marché ne veut presque jamais dire sous-évalué, et le seul vrai test est de savoir si le cash de demain ressemblera à celui d'aujourd'hui. Pour approfondir le contraste, relis aussi [les secteurs sans note parfaite](/blog/secteurs-sans-note-parfaite-banques-energie-distribution)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Les actions automobiles sont-elles sous-évaluées ?",
+          "a": "Pas dans l'ensemble. Elles ont l'air bon marché parce que leurs bénéfices sont cycliques et que leur cash se dégrade (Mercedes) ou dépend de décalages de calendrier (GM). Sur dix-huit constructeurs testés, aucun ne dépasse 8 sur 10 et six ont un free cash flow négatif."
+        },
+        {
+          "q": "Pourquoi la dette des constructeurs paraît-elle énorme ?",
+          "a": "Parce que leur banque captive, qui finance les ventes à crédit et les locations, est consolidée dans leurs comptes. Cette dette est adossée à des prêts qui rapportent des intérêts, et elle gonfle aussi le free cash flow affiché. Il vaut mieux regarder le cash du seul métier industriel."
+        },
+        {
+          "q": "Quelle action automobile ressort le mieux de la grille ?",
+          "a": "Ferrari et Suzuki, à 8 sur 10 chacune. Ferrari pour sa rareté et ses marges, Suzuki pour sa trésorerie nette et sa croissance. Ceci n'est pas un conseil en investissement : leurs cours sont déjà proches du prix d'achat de ma méthode."
+        }
+      ],
+      "tags": [
+        "actions automobiles",
+        "constructeurs automobiles",
+        "Ferrari",
+        "Mercedes-Benz",
+        "General Motors",
+        "Ford",
+        "banque captive",
+        "free cash flow"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date du 13 novembre 2026. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause."
+    },
+    "en": {
+      "title": "Car Stocks: Why Automakers Look So Cheap",
+      "excerpt": "I ran eighteen carmakers through my method. None scores above 8 out of 10, six burn cash, and the low price almost always hides a reason.",
+      "metaDescription": "Mercedes, GM, Ford, Toyota, Ferrari: eighteen carmakers put through the test. Why car stocks look cheap, and which ones are the exception.",
+      "answer": "Car stocks look cheap, but the low price mostly reflects average quality: of eighteen carmakers tested, none scores above 8 out of 10 and six burn cash. Only Ferrari and Suzuki stand out, and their share prices are already close to the buy price my method allows.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "A sector where nobody earns the top grade"
+        },
+        {
+          "type": "p",
+          "text": "Search for car stocks and you quickly get the same impression: Mercedes, General Motors or Ford trade at prices that look absurdly low compared with what they earn. So I did what I do for any sector: I ran eighteen listed carmakers through my grid, from Toyota to BYD, from Ferrari to Renault. Tesla is set aside, because its share price tells a technology story more than a car story."
+        },
+        {
+          "type": "p",
+          "text": "My grid judges the quality of the company first, separately from its price: is it profitable, are sales and cash per share growing, are margins widening, can its debt be repaid in a few years? Each criterion earns one point, for a maximum of 10. Only then do I look at the price, using free cash flow, the money that really stays in the till once the factories are maintained and the bills are paid. The ratio of share price to free cash flow tells you how many years of that cash you are buying: the lower it is, the cheaper the stock looks."
+        },
+        {
+          "type": "p",
+          "text": "The first lesson: no carmaker scores above 8 out of 10. Only Ferrari and Suzuki reach it. At the other end, Mercedes tops out at 3, and Ford, Volkswagen, BMW and Kia at 4. More striking, six of the eighteen have negative free cash flow over twelve months (Hyundai, BYD, Mazda, BMW, Renault and Volkswagen): they spend more than they generate. By comparison, in software or insurance it is common to find several companies at 9 or 10."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Carmaker",
+            "Quality score (out of 10)",
+            "Price / free cash flow",
+            "Current price",
+            "Buy price from my method"
+          ],
+          "rows": [
+            [
+              "Ferrari",
+              "8",
+              "45.8×",
+              "$405",
+              "$438"
+            ],
+            [
+              "Suzuki",
+              "8",
+              "14.2×",
+              "¥2,169",
+              "¥2,260"
+            ],
+            [
+              "General Motors",
+              "6",
+              "5.5×",
+              "$86",
+              "$157"
+            ],
+            [
+              "Porsche AG",
+              "5",
+              "11.8×",
+              "€46.7",
+              "€49.1"
+            ],
+            [
+              "Toyota",
+              "5",
+              "242× (not meaningful)",
+              "¥3,338",
+              "¥304"
+            ],
+            [
+              "Ford",
+              "4",
+              "7.1×",
+              "$11.9",
+              "$16.6"
+            ],
+            [
+              "Mercedes-Benz",
+              "3",
+              "4.7×",
+              "€40.7",
+              "€106"
+            ],
+            [
+              "Volkswagen",
+              "4",
+              "negative cash flow",
+              "€69.6",
+              "not computable"
+            ],
+            [
+              "BMW",
+              "4",
+              "negative cash flow",
+              "€57.5",
+              "not computable"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "A word on the last column: the buy price is what my method computes assuming cash per share keeps growing. For a carmaker, whose profits rise and fall with the cycle, that is a generous assumption. Mercedes at a €106 buy price or GM at $157 are not promises: they are the prices at which the thesis would hold if cash stayed at today's level and grew. Keep that nuance in mind for what follows."
+        },
+        {
+          "type": "h2",
+          "text": "Why the reassuring number is misleading"
+        },
+        {
+          "type": "p",
+          "text": "First trap: debt. At Mercedes, my grid shows debt that would take 8.5 years of free cash flow to repay; at Ford 20.8 years; at Toyota 170 years, with a price-to-cash ratio of 242 that no longer means anything. These figures look scary, and they are half wrong. The reason is a mechanism specific to autos: almost every carmaker owns a captive bank, a subsidiary that finances its customers' cars. That subsidiary borrows billions on the markets to lend to people who buy on credit or lease. In consolidated accounts, this huge debt is added to the factory's own, even though it is backed by loans that earn interest."
+        },
+        {
+          "type": "p",
+          "text": "In other words, as with a bank, a large debt is not necessarily an alarm signal: it is the fuel of a lending business. But it blurs the reading of cash. Mercedes' consolidated free cash flow, about €8 billion over twelve months in my database (a figure I infer from the market cap and the displayed ratio), is far more generous than the number the group publishes for its industrial business alone: €5.4 billion in 2025. The gap comes precisely from the captive bank. To judge the factory, the second number is the one to watch, and I prefer it."
+        },
+        {
+          "type": "p",
+          "text": "And that second number is deteriorating. In its [third quarter 2026 report](https://group.mercedes-benz.com/dokumente/investoren/berichte/zwischenberichte/q3/mercedes-benz-zwischenbericht-q3-2026.pdf), Mercedes reports industrial free cash flow of €172 million for the quarter, against €1,367 million a year earlier, an eightfold drop. Over nine months it reaches €3.1 billion against €5.6 billion, and that includes a €1 billion boost from selling part of its Daimler Truck stake. The group cut its annual outlook: 2026 industrial cash will be \"substantially\" below 2025, not just \"slightly\". A ratio of 4.7 times cash is no bargain: the denominator is melting."
+        },
+        {
+          "type": "h2",
+          "text": "Ford, GM, Mercedes: three ways to be cheap"
+        },
+        {
+          "type": "p",
+          "text": "General Motors is the most interesting case, because quality is decent (6 out of 10) and cash is growing: $17.6 billion of free cash flow in 2025 against $9.3 billion in 2024, and a share count falling about 12% a year thanks to buybacks. On October 20, 2026, GM posted adjusted automotive free cash flow of $5.9 billion for the quarter, raised its annual range to $11.5 to 12.5 billion and announced a new $20 billion buyback (release available on [GM's investor page](https://investor.gm.com/)). The caveat: management itself attributes part of the improvement to the timing of tariff payments and deferred spending. It is shifted cash as much as earned cash. And the current price sits barely above the lowest quarter of its own valuation history: GM is cheap against itself, not just against the others."
+        },
+        {
+          "type": "p",
+          "text": "Ford tells the opposite story. In its [third quarter 2026 release](https://www.sec.gov/Archives/edgar/data/0000037996/000003799626000190/exhibit99tooctober282026.htm), the company posted $2.7 billion of adjusted operating profit and raised the low end of its annual range to $10.5 to 11 billion. But its electric division Model e still lost $1.06 billion in the quarter, and Ford expects about a $4 billion loss for the year, with breakeven hoped for only in 2029. The group earns a lot with its pickups and vans and reinvests it in a transition that is not yet profitable. With a negative net margin (-3.9%) and debt of 20.8 years of cash, a 4 out of 10 is consistent. And its current ratio puts the stock in the upper part of its historical range: it is not a low point, which the other numbers might suggest."
+        },
+        {
+          "type": "p",
+          "text": "Mercedes completes the picture: a prestige brand, margins once envied, and revenue shrinking about 4% a year on average over five years. The €1.1 billion of severance payments from the cost-cutting plan weigh on 2026, and China, a key premium market, is slowing. My grid takes points off for sales and cash-per-share growth, compressing margins, return on capital (4.8%) and debt. Hence the 3 out of 10, the lowest in the sample. A €40 share price looks like a floor, but it is partly justified by what the company has become."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrari and Suzuki: the two exceptions, and what they cost"
+        },
+        {
+          "type": "p",
+          "text": "The only two carmakers at 8 out of 10 are opposites. Ferrari sells few, very expensive cars and keeps 19.3% of what it collects as free cash flow: out of 100 of sales, 19 stay in the till, while Ford keeps less than 4. Its revenue has grown 13% a year for five years. It is a scarcity moat, explained in my article on [Ferrari's moat](/blog/ferrari-race-rarete-moat-durable): it deliberately limits deliveries so the waiting list stays longer than production. Its only failed criterion is price, at 45.8 times cash, in the upper part of its own history. At $405, though, the stock is slightly below the $438 buy price my method computes, which is rare in this sector."
+        },
+        {
+          "type": "p",
+          "text": "Suzuki is the surprise. The Japanese carmaker, a major player in India, has positive net cash (no net debt to repay), sales growing 15% a year and a share price at 14 times cash, just under my buy price. But its quality remains modest: a 4.7% free cash flow margin, a 7.1% return on capital and only 67% of earnings converted to cash. It is a healthy company poorly rewarded by its model, not a cash machine."
+        },
+        {
+          "type": "p",
+          "text": "At bottom, autos is a business where you must invest a lot to earn little, and where the cycle makes results swing by a factor of two. The two companies that escape the trap do so through scarcity (Ferrari) or frugality (Suzuki). When I wanted to make this sorting possible in seconds for any sector, I built my investing site: quality on one side, price on the other, [on each stock's page](/analyse/RACE). My reading stays cautious: in this sector, cheap almost never means undervalued, and the only real test is whether tomorrow's cash will look like today's. For the contrast, also read [the sectors with no perfect score](/blog/secteurs-sans-note-parfaite-banques-energie-distribution)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Are car stocks undervalued?",
+          "a": "Not as a group. They look cheap because their profits are cyclical and their cash is deteriorating (Mercedes) or relies on timing effects (GM). Of eighteen carmakers tested, none scores above 8 out of 10 and six have negative free cash flow."
+        },
+        {
+          "q": "Why does carmakers' debt look so huge?",
+          "a": "Because their captive bank, which finances credit sales and leases, is consolidated in their accounts. That debt is backed by loans that earn interest, and it also inflates the displayed free cash flow. It is better to look at the cash of the industrial business alone."
+        },
+        {
+          "q": "Which car stock comes out best in the grid?",
+          "a": "Ferrari and Suzuki, at 8 out of 10 each. Ferrari for its scarcity and margins, Suzuki for its net cash and growth. This is not investment advice: their prices are already close to my method's buy price."
+        }
+      ],
+      "tags": [
+        "car stocks",
+        "carmakers",
+        "Ferrari",
+        "Mercedes-Benz",
+        "General Motors",
+        "Ford",
+        "captive bank",
+        "free cash flow"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalised investment advice. Past performance does not predict future results. Figures as of November 13, 2026. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing where I stand."
+    },
+    "es": {
+      "title": "Acciones de automóviles: por qué son tan baratas",
+      "excerpt": "Pasé dieciocho fabricantes por mi método. Ninguno supera 8 sobre 10, seis queman caja y el precio bajo casi siempre esconde una razón.",
+      "metaDescription": "Mercedes, GM, Ford, Toyota, Ferrari: dieciocho fabricantes bajo la lupa. Por qué las acciones de automóviles parecen baratas y cuáles son la excepción.",
+      "answer": "Las acciones de automóviles parecen baratas, pero el precio bajo refleja sobre todo una calidad mediocre: de dieciocho fabricantes analizados, ninguno supera 8 sobre 10 y seis queman caja. Solo Ferrari y Suzuki son la excepción, y su cotización ya está cerca del precio de compra que me permito.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Un sector donde nadie saca la nota máxima"
+        },
+        {
+          "type": "p",
+          "text": "Cuando buscas acciones de automóviles, enseguida aparece la misma impresión: Mercedes, General Motors o Ford cotizan a precios que parecen ridículos frente a lo que ganan. Así que hice lo que hago con cualquier sector: pasé dieciocho fabricantes cotizados por mi cuadrícula, de Toyota a BYD, de Ferrari a Renault. Tesla queda aparte, porque su cotización cuenta una historia de tecnología más que de coches."
+        },
+        {
+          "type": "p",
+          "text": "Mi cuadrícula juzga primero la calidad de la empresa, separada de su precio: ¿es rentable, crecen sus ventas y su caja por acción, se amplían sus márgenes, se puede pagar su deuda en pocos años? Cada criterio suma un punto, hasta un máximo de 10. Solo después miro el precio, con el free cash flow, el dinero que de verdad queda en caja una vez mantenidas las fábricas y pagadas las facturas. El ratio entre cotización y free cash flow dice cuántos años de esa caja compras: cuanto más bajo, más barata parece la acción."
+        },
+        {
+          "type": "p",
+          "text": "La primera lección: ningún fabricante supera 8 sobre 10. Solo Ferrari y Suzuki lo alcanzan. En el otro extremo, Mercedes se queda en 3, y Ford, Volkswagen, BMW y Kia en 4. Más llamativo aún, seis de los dieciocho tienen free cash flow negativo en doce meses (Hyundai, BYD, Mazda, BMW, Renault y Volkswagen): gastan más de lo que generan. En comparación, en software o seguros es habitual encontrar varias empresas con 9 o 10."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Fabricante",
+            "Nota de calidad (sobre 10)",
+            "Cotización / free cash flow",
+            "Cotización actual",
+            "Precio de compra de mi método"
+          ],
+          "rows": [
+            [
+              "Ferrari",
+              "8",
+              "45,8×",
+              "405 $",
+              "438 $"
+            ],
+            [
+              "Suzuki",
+              "8",
+              "14,2×",
+              "2.169 ¥",
+              "2.260 ¥"
+            ],
+            [
+              "General Motors",
+              "6",
+              "5,5×",
+              "86 $",
+              "157 $"
+            ],
+            [
+              "Porsche AG",
+              "5",
+              "11,8×",
+              "46,7 €",
+              "49,1 €"
+            ],
+            [
+              "Toyota",
+              "5",
+              "242× (no significativo)",
+              "3.338 ¥",
+              "304 ¥"
+            ],
+            [
+              "Ford",
+              "4",
+              "7,1×",
+              "11,9 $",
+              "16,6 $"
+            ],
+            [
+              "Mercedes-Benz",
+              "3",
+              "4,7×",
+              "40,7 €",
+              "106 €"
+            ],
+            [
+              "Volkswagen",
+              "4",
+              "caja negativa",
+              "69,6 €",
+              "no calculable"
+            ],
+            [
+              "BMW",
+              "4",
+              "caja negativa",
+              "57,5 €",
+              "no calculable"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Una palabra sobre la última columna: el precio de compra es el que calcula mi método suponiendo que la caja por acción sigue creciendo. Para un fabricante de coches, cuyos beneficios suben y bajan con el ciclo, es una hipótesis generosa. Mercedes con un «precio de compra» de 106 € o GM con 157 $ no son promesas: son los precios a los que la tesis se sostendría si la caja se mantuviera en el nivel actual y creciera. Ten presente este matiz en lo que sigue."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué la cifra tranquilizadora engaña"
+        },
+        {
+          "type": "p",
+          "text": "Primera trampa: la deuda. En Mercedes, mi cuadrícula muestra una deuda que requiere 8,5 años de free cash flow para saldarse; en Ford 20,8 años; en Toyota 170 años, con un ratio cotización sobre caja de 242 que ya no significa nada. Estas cifras asustan, y son medio falsas. La razón es un mecanismo propio del automóvil: casi todos los fabricantes tienen un banco cautivo, una filial que financia los coches de sus clientes. Esa filial se endeuda por miles de millones en los mercados para prestar a quienes compran a crédito o alquilan. En las cuentas consolidadas, esta deuda enorme se suma a la de la fábrica, aunque esté respaldada por préstamos que generan intereses."
+        },
+        {
+          "type": "p",
+          "text": "Dicho de otro modo, como en un banco, una deuda grande no es necesariamente una señal de alarma: es el combustible de un negocio de prestamista. Pero enturbia la lectura de la caja. El free cash flow consolidado de Mercedes, unos 8.000 millones de euros en doce meses según mi base (una cifra que deduzco de la capitalización y del ratio mostrado), es mucho más generoso que el que el grupo publica solo para su actividad industrial: 5.400 millones en 2025. La diferencia viene justamente del banco cautivo. Para juzgar la fábrica, hay que mirar la segunda cifra, y es la que prefiero."
+        },
+        {
+          "type": "p",
+          "text": "Y esa segunda cifra se deteriora. En su [informe del tercer trimestre de 2026](https://group.mercedes-benz.com/dokumente/investoren/berichte/zwischenberichte/q3/mercedes-benz-zwischenbericht-q3-2026.pdf), Mercedes indica un free cash flow industrial de 172 millones de euros en el trimestre, frente a 1.367 millones un año antes, una caída de ocho veces. En nueve meses llega a 3.100 millones frente a 5.600, y eso con el empujón de 1.000 millones procedente de la venta de parte de su participación en Daimler Truck. El grupo recortó su previsión anual: la caja industrial de 2026 será «muy inferior» a la de 2025, y no solo «ligeramente». Un ratio de 4,7 veces la caja no es ninguna ganga: el denominador se está derritiendo."
+        },
+        {
+          "type": "h2",
+          "text": "Ford, GM, Mercedes: tres maneras de ser barata"
+        },
+        {
+          "type": "p",
+          "text": "General Motors es el caso más interesante, porque la calidad es correcta (6 sobre 10) y la caja crece: 17.600 millones de dólares de free cash flow en 2025 frente a 9.300 en 2024, y un número de acciones que baja cerca de un 12 % anual gracias a las recompras. El 20 de octubre de 2026, GM publicó una caja automotriz ajustada de 5.900 millones en el trimestre, elevó su horquilla anual a 11.500 a 12.500 millones y anunció un nuevo programa de recompra de 20.000 millones (comunicado en la [página de inversores de GM](https://investor.gm.com/)). La pega: la propia dirección atribuye parte de la mejora al calendario de pagos de aranceles y a inversiones aplazadas. Es caja desplazada tanto como caja ganada. Y la cotización actual está apenas por encima del cuarto más bajo de su propio historial de valoración: GM es barata frente a sí misma, no solo frente a las demás."
+        },
+        {
+          "type": "p",
+          "text": "Ford cuenta la historia contraria. En su [comunicado del tercer trimestre de 2026](https://www.sec.gov/Archives/edgar/data/0000037996/000003799626000190/exhibit99tooctober282026.htm), la compañía anunció 2.700 millones de dólares de resultado operativo ajustado y elevó el extremo inferior de su horquilla anual a 10.500 a 11.000 millones. Pero su división eléctrica Model e perdió todavía 1.060 millones en el trimestre, y Ford prevé unos 4.000 millones de pérdida en el año, con el equilibrio esperado solo en 2029. El grupo gana mucho con sus pickups y furgonetas y lo reinvierte en una transición que aún no es rentable. Con un margen neto negativo (-3,9 %) y una deuda de 20,8 años de caja, un 4 sobre 10 es coherente. Y su ratio actual sitúa la acción en la parte alta de su rango histórico: no es un mínimo, lo que otras cifras podrían sugerir."
+        },
+        {
+          "type": "p",
+          "text": "Mercedes completa el cuadro: una marca de prestigio, márgenes antaño envidiados y unas ventas que retroceden cerca de un 4 % anual de media en cinco años. Los 1.100 millones de euros de indemnizaciones del plan de reducción de costes pesan sobre 2026, y China, mercado clave del alto de gama, se frena. Mi cuadrícula le resta puntos por el crecimiento de ventas y de caja por acción, por los márgenes que se comprimen, por el rendimiento del capital (4,8 %) y por la deuda. De ahí el 3 sobre 10, el más bajo de la muestra. Una cotización de 40 € parece un suelo, pero se explica en parte por lo que la empresa se ha vuelto."
+        },
+        {
+          "type": "h2",
+          "text": "Ferrari y Suzuki: las dos excepciones y lo que cuestan"
+        },
+        {
+          "type": "p",
+          "text": "Los dos únicos fabricantes con 8 sobre 10 son opuestos. Ferrari vende pocos coches, muy caros, y conserva el 19,3 % de lo que cobra en forma de free cash flow: de cada 100 de ventas, 19 se quedan en caja, mientras Ford conserva menos de 4. Sus ventas crecen un 13 % anual desde hace cinco años. Es un moat de escasez, explicado en mi artículo sobre [el moat de Ferrari](/blog/ferrari-race-rarete-moat-durable): limita adrede las entregas para que la lista de espera sea más larga que la producción. Su único criterio fallido es el precio, con una cotización de 45,8 veces la caja, en la parte alta de su propia historia. A 405 $, sin embargo, la acción está ligeramente por debajo del precio de compra de 438 $ que calcula mi método, algo raro en este sector."
+        },
+        {
+          "type": "p",
+          "text": "Suzuki es la sorpresa. El fabricante japonés, muy presente en India, tiene caja neta positiva (ninguna deuda neta que devolver), ventas que crecen un 15 % anual y una cotización a 14 veces la caja, justo por debajo de mi precio de compra. Pero su calidad sigue siendo modesta: un margen de free cash flow del 4,7 %, un rendimiento del capital del 7,1 % y solo el 67 % de sus beneficios convertidos en caja. Es una empresa sana y mal remunerada por su modelo, no una máquina de caja."
+        },
+        {
+          "type": "p",
+          "text": "En el fondo, el automóvil es un negocio donde hay que invertir mucho para ganar poco, y donde el ciclo hace variar los resultados del simple al doble. Las dos empresas que escapan a la trampa lo hacen por la escasez (Ferrari) o por la sobriedad (Suzuki). Cuando quise poder hacer esta clasificación en segundos para cualquier sector, construí mi sitio de inversión: la calidad por un lado, el precio por otro, [en la ficha de cada acción](/analyse/RACE). Mi lectura sigue siendo prudente: en este sector, barato casi nunca significa infravalorado, y la única prueba real es si la caja de mañana se parecerá a la de hoy. Para ver el contraste, lee también [los sectores sin nota perfecta](/blog/secteurs-sans-note-parfaite-banques-energie-distribution)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Están infravaloradas las acciones de automóviles?",
+          "a": "No en conjunto. Parecen baratas porque sus beneficios son cíclicos y su caja se deteriora (Mercedes) o depende de desfases de calendario (GM). De dieciocho fabricantes analizados, ninguno supera 8 sobre 10 y seis tienen free cash flow negativo."
+        },
+        {
+          "q": "¿Por qué la deuda de los fabricantes parece enorme?",
+          "a": "Porque su banco cautivo, que financia las ventas a crédito y los alquileres, está consolidado en sus cuentas. Esa deuda está respaldada por préstamos que generan intereses, y además infla el free cash flow mostrado. Conviene mirar la caja del negocio industrial por separado."
+        },
+        {
+          "q": "¿Qué acción de automóviles sale mejor en la cuadrícula?",
+          "a": "Ferrari y Suzuki, con 8 sobre 10 cada una. Ferrari por su escasez y márgenes, Suzuki por su caja neta y su crecimiento. No es un consejo de inversión: sus cotizaciones ya están cerca del precio de compra de mi método."
+        }
+      ],
+      "tags": [
+        "acciones de automóviles",
+        "fabricantes de coches",
+        "Ferrari",
+        "Mercedes-Benz",
+        "General Motors",
+        "Ford",
+        "banco cautivo",
+        "free cash flow"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Cifras a 13 de noviembre de 2026. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiendo desde dónde hablo."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
