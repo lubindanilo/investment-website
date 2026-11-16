@@ -107904,7 +107904,509 @@ const articleAutosPeuCheres2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026];
+const articleChimieMateriaux2026: Article = {
+  "slug": "actions-chimie-materiaux-seule-affaire-solide-2026",
+  "date": "2026-11-16",
+  "updated": "2026-11-16",
+  "readingTime": 5,
+  "ticker": "AVY",
+  "content": {
+    "fr": {
+      "title": "Actions chimie et matériaux : une seule affaire solide",
+      "excerpt": "J'ai passé 31 valeurs de la chimie et des matériaux au crible. Les bonnes sont presque toutes chères, une seule passe sous mon prix d'achat, avec une réserve.",
+      "metaDescription": "Chimie et matériaux : parmi 31 actions testées, une seule solide passe sous mon prix d'achat. Les autres exigent des baisses de 47 à 69 %.",
+      "answer": "Dans la chimie et les matériaux, la qualité existe (Sherwin-Williams, Ecolab, Givaudan, Avery Dennison), mais presque toutes ces actions sont chères : pour atteindre mon prix d'achat, quatre des cinq meilleures devraient baisser de 47 à 69 %. Seule Avery Dennison est à la fois bien notée et sous ce prix, avec une réserve que je détaille.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Des entreprises solides, presque toutes trop chères"
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé 31 valeurs de la chimie, des peintures, des gaz industriels et des emballages dans ma grille (deux autres, Air Products et Mosaic, n'ont pas assez de données pour être notées). Ma méthode juge d'abord la qualité de l'entreprise, sur dix critères : rentabilité, croissance des ventes et du cash par action, rachats d'actions, dette remboursable en quelques années. Ensuite seulement, je regarde le prix, avec un « prix d'achat » : le cours qui laisse un rendement visé de 15 % par an sur cinq ans, si le cash libre (ce qui reste vraiment dans les caisses une fois les factures payées) croît comme prévu."
+        },
+        {
+          "type": "p",
+          "text": "Premier constat : aucune action du secteur ne dépasse 7 sur 10, et seules cinq l'atteignent : Avery Dennison, Sherwin-Williams, Ecolab, Givaudan et RPM. Les autres sont freinées par la croissance (une chimie de base comme Dow, LyondellBasell ou BASF voit ses ventes reculer de 8 à 12 % par an) ou par la dette. Deuxième constat : parmi ces cinq, quatre se négocient à plus du double de mon prix d'achat. Le tableau montre l'écart."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité (sur 10)",
+            "Cours / cash libre",
+            "Cours actuel",
+            "Prix d'achat de ma méthode",
+            "Baisse nécessaire"
+          ],
+          "rows": [
+            [
+              "Avery Dennison",
+              "7",
+              "13,9×",
+              "188 $",
+              "249 $",
+              "Déjà sous ce prix"
+            ],
+            [
+              "Sherwin-Williams",
+              "7",
+              "28,0×",
+              "350 $",
+              "186 $",
+              "47 %"
+            ],
+            [
+              "Ecolab",
+              "7",
+              "50,3×",
+              "309 $",
+              "148 $",
+              "52 %"
+            ],
+            [
+              "Givaudan",
+              "7",
+              "31,5×",
+              "4 095 CHF",
+              "2 110 CHF",
+              "48 %"
+            ],
+            [
+              "RPM International",
+              "7",
+              "20,6×",
+              "104 $",
+              "32 $",
+              "69 %"
+            ],
+            [
+              "Sika",
+              "6",
+              "22,6×",
+              "188 CHF",
+              "59 CHF",
+              "69 %"
+            ],
+            [
+              "Symrise",
+              "6",
+              "23,9×",
+              "96 €",
+              "75 €",
+              "21 %"
+            ],
+            [
+              "Linde",
+              "5",
+              "49,4×",
+              "526 $",
+              "162 $",
+              "69 %"
+            ],
+            [
+              "Air Liquide",
+              "5",
+              "39,5×",
+              "183 €",
+              "66 €",
+              "64 %"
+            ],
+            [
+              "PPG Industries",
+              "5",
+              "20,1×",
+              "123 $",
+              "69 $",
+              "43 %"
+            ],
+            [
+              "Albemarle",
+              "5",
+              "9,8×",
+              "94 $",
+              "142 $",
+              "Déjà sous ce prix"
+            ],
+            [
+              "Smurfit Westrock",
+              "3",
+              "12,2×",
+              "42 $",
+              "103 $",
+              "Déjà sous ce prix"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le cas de Linde illustre le piège. Le leader des gaz industriels vend de l'oxygène et de l'azote via des usines installées chez ses clients, avec des contrats longs : c'est un excellent business. Mais son cash libre est passé de 6,6 milliards de dollars en 2021 à 5,1 milliards en 2025, soit 23 % de moins, alors que ses ventes ont augmenté de 10 %. Et l'action se valorise aujourd'hui 49 fois ce cash, plus cher que 98 % de son propre passé. Un bon business ne protège pas d'un prix qui a déjà tout anticipé."
+        },
+        {
+          "type": "p",
+          "text": "Sherwin-Williams raconte la même histoire en plus nuancé. Son cash libre était de 3,1 milliards de dollars en 2020 et de 2,65 milliards en 2025, pour des ventes passées de 18,4 à 23,6 milliards. Lors du [troisième trimestre 2026](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=SHW&type=8-K), publié le 27 octobre, les ventes ont gagné 7,9 % (6,86 milliards), mais le bénéfice ajusté par action n'a progressé que de 1,1 % (3,63 $) et la marge brute a reculé de 1,4 point, à 47,8 %. Hors l'acquisition de Suvinil au Brésil, la croissance tient surtout aux hausses de prix, et la direction prévoit une demande « plus faible, plus longtemps » jusqu'en 2027. Une action à 28 fois son cash libre n'a pas de marge d'erreur."
+        },
+        {
+          "type": "h2",
+          "text": "Avery Dennison : la seule sous son prix d'achat, avec une réserve"
+        },
+        {
+          "type": "p",
+          "text": "Avery Dennison fabrique les étiquettes adhésives et les matériaux d'emballage que tu vois sur presque chaque produit, ainsi que les étiquettes RFID (une puce qui permet de suivre un vêtement sans le scanner). Elle coche sept de mes dix critères : un cash ROCE de 27 % (le cash dégagé par dollar réellement investi dans l'activité), un nombre d'actions qui baisse de 1,6 % par an grâce aux rachats, et des marges qui s'élargissent. À 188 $, elle se valorise 13,9 fois son cash libre, un niveau plus bas que 77 % de son historique, contre 249 $ pour mon prix d'achat : 25 % de marge."
+        },
+        {
+          "type": "p",
+          "text": "Le [troisième trimestre](https://www.sec.gov/Archives/edgar/data/0000008818/000000881826000162/ex9918k10-29x26.htm), publié le 29 octobre, était solide : croissance organique de 3,7 % et bénéfice ajusté de 2,42 $ par action (+2,1 %), porté par un déstockage des clients plus lent que prévu. Mais la marge d'EBITDA ajustée a reculé à 15,8 % contre 16,5 % un an plus tôt, et le lancement des étiquettes RFID pour les produits frais de Walmart a pris du retard. Surtout, honnêteté oblige : mon prix d'achat suppose un cash libre par action qui croît de 13 % par an, alors que son rythme des cinq dernières années est de 6,4 %. Avec 6,4 %, le prix d'achat tombe vers 184 $, soit presque exactement le cours actuel. La décote n'est donc pas un cadeau : elle est le pari que la croissance accélère."
+        },
+        {
+          "type": "p",
+          "text": "Deux autres noms passent sous leur prix d'achat, mais par un chemin que je ne suis pas. Albemarle (lithium) et Smurfit Westrock (cartons) ont des notes de 5 et 3 : ventes en recul pour la première, cash libre par action en baisse de 29 % par an et actions plus nombreuses après la fusion pour la seconde. Quant à Dow, dont le [dividende a été divisé par deux en 2025](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=DOW&type=8-K), son faible multiple est le reflet d'une note de 2. Je garde ce secteur sous surveillance, en attendant que les prix reviennent à moi, sur [la fiche d'Avery Dennison](/analyse/AVY) comme sur [celle de Sherwin-Williams](/analyse/SHW). Si tu veux voir comment je construis ces notes, ma [méthodologie complète](/methodologie) est en ligne."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "actions chimie",
+        "actions matériaux",
+        "Avery Dennison",
+        "Sherwin-Williams",
+        "Linde",
+        "prix d'achat",
+        "cash libre"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Chiffres au 16 novembre 2026, susceptibles d'évoluer."
+    },
+    "en": {
+      "title": "Chemicals and materials stocks: only one solid bargain",
+      "excerpt": "I ran 31 chemicals and materials stocks through my grid. The good ones are almost all expensive, and only one falls below my buy price, with a caveat.",
+      "metaDescription": "Chemicals and materials: of 31 stocks tested, only one solid name falls below my buy price. The others would need to drop 47% to 69%.",
+      "answer": "Chemicals and materials have real quality (Sherwin-Williams, Ecolab, Givaudan, Avery Dennison), but almost every stock is expensive: four of the five best would need to fall 47% to 69% to reach my buy price. Only Avery Dennison is both well rated and below it, with a caveat I explain below.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Solid companies, almost all too expensive"
+        },
+        {
+          "type": "p",
+          "text": "I ran 31 stocks from chemicals, paints, industrial gases and packaging through my grid (two more, Air Products and Mosaic, lack the data to be scored). My method judges the quality of the business first, on ten criteria: profitability, growth of sales and of cash per share, share buybacks, and debt that can be repaid in a few years. Only then do I look at price, through a \"buy price\": the share price that leaves a target return of 15% a year over five years, if free cash flow (what is really left in the till after the bills are paid) grows as expected."
+        },
+        {
+          "type": "p",
+          "text": "First finding: no stock in the sector scores above 7 out of 10, and only five reach it: Avery Dennison, Sherwin-Williams, Ecolab, Givaudan and RPM. The others are held back by growth (commodity chemicals such as Dow, LyondellBasell or BASF see sales shrink 8% to 12% a year) or by debt. Second finding: among those five, four trade at more than double my buy price. The table shows the gap."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score (out of 10)",
+            "Price / free cash flow",
+            "Current price",
+            "My buy price",
+            "Drop needed"
+          ],
+          "rows": [
+            [
+              "Avery Dennison",
+              "7",
+              "13.9×",
+              "$188",
+              "$249",
+              "Already below"
+            ],
+            [
+              "Sherwin-Williams",
+              "7",
+              "28.0×",
+              "$350",
+              "$186",
+              "47 %"
+            ],
+            [
+              "Ecolab",
+              "7",
+              "50.3×",
+              "$309",
+              "$148",
+              "52 %"
+            ],
+            [
+              "Givaudan",
+              "7",
+              "31.5×",
+              "CHF 4,095",
+              "CHF 2,110",
+              "48 %"
+            ],
+            [
+              "RPM International",
+              "7",
+              "20.6×",
+              "$104",
+              "$32",
+              "69 %"
+            ],
+            [
+              "Sika",
+              "6",
+              "22.6×",
+              "CHF 188",
+              "CHF 59",
+              "69 %"
+            ],
+            [
+              "Symrise",
+              "6",
+              "23.9×",
+              "€96",
+              "€75",
+              "21 %"
+            ],
+            [
+              "Linde",
+              "5",
+              "49.4×",
+              "$526",
+              "$162",
+              "69 %"
+            ],
+            [
+              "Air Liquide",
+              "5",
+              "39.5×",
+              "€183",
+              "€66",
+              "64 %"
+            ],
+            [
+              "PPG Industries",
+              "5",
+              "20.1×",
+              "$123",
+              "$69",
+              "43 %"
+            ],
+            [
+              "Albemarle",
+              "5",
+              "9.8×",
+              "$94",
+              "$142",
+              "Already below"
+            ],
+            [
+              "Smurfit Westrock",
+              "3",
+              "12.2×",
+              "$42",
+              "$103",
+              "Already below"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Linde shows the trap. The industrial gas leader sells oxygen and nitrogen through plants built on its customers' sites, under long contracts: an excellent business. But its free cash flow went from $6.6 billion in 2021 to $5.1 billion in 2025, 23% lower, while sales rose 10%. And the stock now trades at 49 times that cash, more expensive than 98% of its own past. A good business does not protect you from a price that has already priced everything in."
+        },
+        {
+          "type": "p",
+          "text": "Sherwin-Williams tells the same story with more nuance. Its free cash flow was $3.1 billion in 2020 and $2.65 billion in 2025, on sales that grew from $18.4 billion to $23.6 billion. In its [third quarter of 2026](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=SHW&type=8-K), reported on October 27, sales rose 7.9% ($6.86 billion), but adjusted earnings per share grew only 1.1% ($3.63) and gross margin fell 1.4 points to 47.8%. Excluding the Suvinil acquisition in Brazil, growth comes mostly from price increases, and management expects demand to stay \"softer for longer\" into 2027. A stock at 28 times its free cash flow leaves no room for error."
+        },
+        {
+          "type": "h2",
+          "text": "Avery Dennison: the only one below my buy price, with a caveat"
+        },
+        {
+          "type": "p",
+          "text": "Avery Dennison makes the adhesive labels and packaging materials you see on almost every product, plus RFID tags (a chip that lets a retailer track a garment without scanning it). It passes seven of my ten criteria: a cash ROCE of 27% (the cash produced per dollar actually invested in the business), a share count shrinking 1.6% a year through buybacks, and widening margins. At $188 it trades at 13.9 times free cash flow, cheaper than 77% of its history, against $249 for my buy price: a 25% margin."
+        },
+        {
+          "type": "p",
+          "text": "The [third quarter](https://www.sec.gov/Archives/edgar/data/0000008818/000000881826000162/ex9918k10-29x26.htm), reported on October 29, was solid: 3.7% organic growth and adjusted earnings of $2.42 per share (+2.1%), helped by customer destocking that was slower than expected. But adjusted EBITDA margin slipped to 15.8% from 16.5% a year earlier, and the RFID rollout for Walmart's fresh products was delayed. Above all, to be honest: my buy price assumes free cash flow per share growing 13% a year, while the last five years delivered 6.4%. At 6.4%, the buy price falls to about $184, almost exactly today's price. So the discount is no gift: it is a bet that growth accelerates."
+        },
+        {
+          "type": "p",
+          "text": "Two other names sit below their buy price, but by a road I do not follow. Albemarle (lithium) and Smurfit Westrock (cardboard) score 5 and 3: shrinking sales for the first, free cash flow per share down 29% a year and more shares after the merger for the second. As for Dow, whose [dividend was cut in half in 2025](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=DOW&type=8-K), its low multiple reflects a score of 2. I keep the sector on watch, waiting for prices to come to me, on [Avery Dennison's page](/analyse/AVY) as on [Sherwin-Williams'](/analyse/SHW). If you want to see how I build these scores, my [full methodology](/methodologie) is online."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "chemicals stocks",
+        "materials stocks",
+        "Avery Dennison",
+        "Sherwin-Williams",
+        "Linde",
+        "buy price",
+        "free cash flow"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that. Figures as of November 16, 2026, subject to change."
+    },
+    "es": {
+      "title": "Acciones de química y materiales: una sola ganga sólida",
+      "excerpt": "Pasé 31 valores de química y materiales por mi cuadrícula. Las buenas son casi todas caras y solo una cae por debajo de mi precio de compra, con una salvedad.",
+      "metaDescription": "Química y materiales: de 31 acciones analizadas, solo una sólida cae por debajo de mi precio de compra. Las demás deberían bajar entre 47 % y 69 %.",
+      "answer": "En química y materiales hay calidad (Sherwin-Williams, Ecolab, Givaudan, Avery Dennison), pero casi todas las acciones son caras: cuatro de las cinco mejores deberían caer entre 47 % y 69 % para llegar a mi precio de compra. Solo Avery Dennison está bien puntuada y por debajo de ese precio, con una salvedad que explico.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Empresas sólidas, casi todas demasiado caras"
+        },
+        {
+          "type": "p",
+          "text": "Pasé 31 valores de química, pinturas, gases industriales y envases por mi cuadrícula (otros dos, Air Products y Mosaic, no tienen datos suficientes para puntuarse). Mi método juzga primero la calidad del negocio, con diez criterios: rentabilidad, crecimiento de las ventas y de la caja por acción, recompras de acciones y deuda que se pueda devolver en pocos años. Solo después miro el precio, con un «precio de compra»: la cotización que deja una rentabilidad objetivo de 15 % anual durante cinco años, si el flujo de caja libre (lo que realmente queda en caja tras pagar las facturas) crece como se espera."
+        },
+        {
+          "type": "p",
+          "text": "Primera conclusión: ninguna acción del sector supera 7 sobre 10, y solo cinco la alcanzan: Avery Dennison, Sherwin-Williams, Ecolab, Givaudan y RPM. Las demás se frenan por el crecimiento (una química de base como Dow, LyondellBasell o BASF ve caer sus ventas entre 8 % y 12 % al año) o por la deuda. Segunda conclusión: de esas cinco, cuatro cotizan a más del doble de mi precio de compra. La tabla muestra la brecha."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad (sobre 10)",
+            "Precio / caja libre",
+            "Cotización actual",
+            "Mi precio de compra",
+            "Caída necesaria"
+          ],
+          "rows": [
+            [
+              "Avery Dennison",
+              "7",
+              "13,9×",
+              "188 $",
+              "249 $",
+              "Ya por debajo"
+            ],
+            [
+              "Sherwin-Williams",
+              "7",
+              "28,0×",
+              "350 $",
+              "186 $",
+              "47 %"
+            ],
+            [
+              "Ecolab",
+              "7",
+              "50,3×",
+              "309 $",
+              "148 $",
+              "52 %"
+            ],
+            [
+              "Givaudan",
+              "7",
+              "31,5×",
+              "4 095 CHF",
+              "2 110 CHF",
+              "48 %"
+            ],
+            [
+              "RPM International",
+              "7",
+              "20,6×",
+              "104 $",
+              "32 $",
+              "69 %"
+            ],
+            [
+              "Sika",
+              "6",
+              "22,6×",
+              "188 CHF",
+              "59 CHF",
+              "69 %"
+            ],
+            [
+              "Symrise",
+              "6",
+              "23,9×",
+              "96 €",
+              "75 €",
+              "21 %"
+            ],
+            [
+              "Linde",
+              "5",
+              "49,4×",
+              "526 $",
+              "162 $",
+              "69 %"
+            ],
+            [
+              "Air Liquide",
+              "5",
+              "39,5×",
+              "183 €",
+              "66 €",
+              "64 %"
+            ],
+            [
+              "PPG Industries",
+              "5",
+              "20,1×",
+              "123 $",
+              "69 $",
+              "43 %"
+            ],
+            [
+              "Albemarle",
+              "5",
+              "9,8×",
+              "94 $",
+              "142 $",
+              "Ya por debajo"
+            ],
+            [
+              "Smurfit Westrock",
+              "3",
+              "12,2×",
+              "42 $",
+              "103 $",
+              "Ya por debajo"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Linde ilustra la trampa. El líder de los gases industriales vende oxígeno y nitrógeno desde plantas instaladas en las fábricas de sus clientes, con contratos largos: un negocio excelente. Pero su caja libre pasó de 6 600 millones de dólares en 2021 a 5 100 millones en 2025, un 23 % menos, mientras sus ventas subían un 10 %. Y la acción cotiza hoy a 49 veces esa caja, más cara que el 98 % de su propio pasado. Un buen negocio no protege de un precio que ya lo ha descontado todo."
+        },
+        {
+          "type": "p",
+          "text": "Sherwin-Williams cuenta lo mismo con más matices. Su caja libre fue de 3 100 millones de dólares en 2020 y de 2 650 millones en 2025, con ventas que pasaron de 18 400 a 23 600 millones. En el [tercer trimestre de 2026](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=SHW&type=8-K), publicado el 27 de octubre, las ventas subieron un 7,9 % (6 860 millones), pero el beneficio ajustado por acción solo creció un 1,1 % (3,63 $) y el margen bruto retrocedió 1,4 puntos hasta el 47,8 %. Sin la adquisición de Suvinil en Brasil, el crecimiento se debe sobre todo a subidas de precios, y la dirección espera una demanda «más débil durante más tiempo» hasta 2027. Una acción a 28 veces su caja libre no deja margen de error."
+        },
+        {
+          "type": "h2",
+          "text": "Avery Dennison: la única por debajo de mi precio de compra, con una salvedad"
+        },
+        {
+          "type": "p",
+          "text": "Avery Dennison fabrica las etiquetas adhesivas y los materiales de embalaje que ves en casi cualquier producto, además de etiquetas RFID (un chip que permite seguir una prenda sin escanearla). Cumple siete de mis diez criterios: un cash ROCE de 27 % (la caja generada por cada dólar realmente invertido en el negocio), un número de acciones que baja 1,6 % al año por las recompras y márgenes que se amplían. A 188 $ cotiza a 13,9 veces su caja libre, más barata que el 77 % de su historia, frente a 249 $ de mi precio de compra: un 25 % de margen."
+        },
+        {
+          "type": "p",
+          "text": "El [tercer trimestre](https://www.sec.gov/Archives/edgar/data/0000008818/000000881826000162/ex9918k10-29x26.htm), publicado el 29 de octubre, fue sólido: crecimiento orgánico de 3,7 % y beneficio ajustado de 2,42 $ por acción (+2,1 %), ayudado por un desabastecimiento de clientes más lento de lo previsto. Pero el margen EBITDA ajustado bajó a 15,8 % desde 16,5 % un año antes, y el despliegue de etiquetas RFID para los productos frescos de Walmart se retrasó. Sobre todo, con honestidad: mi precio de compra supone una caja libre por acción que crece 13 % al año, cuando los últimos cinco años dieron 6,4 %. Con 6,4 %, el precio de compra baja a unos 184 $, casi exactamente la cotización actual. El descuento no es un regalo: es la apuesta de que el crecimiento se acelere."
+        },
+        {
+          "type": "p",
+          "text": "Otros dos nombres están por debajo de su precio de compra, pero por un camino que no sigo. Albemarle (litio) y Smurfit Westrock (cartón) tienen notas de 5 y 3: ventas en retroceso la primera; caja libre por acción en caída de 29 % al año y más acciones tras la fusión la segunda. En cuanto a Dow, cuyo [dividendo se redujo a la mitad en 2025](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=DOW&type=8-K), su múltiplo bajo refleja una nota de 2. Mantengo el sector en vigilancia, esperando que los precios vengan a mí, tanto en [la ficha de Avery Dennison](/analyse/AVY) como en [la de Sherwin-Williams](/analyse/SHW). Si quieres ver cómo construyo estas notas, mi [metodología completa](/methodologie) está en línea."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "acciones de química",
+        "acciones de materiales",
+        "Avery Dennison",
+        "Sherwin-Williams",
+        "Linde",
+        "precio de compra",
+        "caja libre"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Cifras a 16 de noviembre de 2026, sujetas a cambios."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026, articleChimieMateriaux2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
