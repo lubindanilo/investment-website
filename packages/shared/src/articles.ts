@@ -108406,7 +108406,736 @@ const articleChimieMateriaux2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026, articleChimieMateriaux2026];
+const articleTelecoms2026: Article = {
+  "slug": "actions-telecoms-decote-hypothese-croissance-2026",
+  "date": "2026-11-17",
+  "updated": "2026-11-17",
+  "readingTime": 6,
+  "content": {
+    "fr": {
+      "title": "Actions télécoms : la décote tient à une hypothèse",
+      "excerpt": "J'ai passé dix opérateurs télécoms dans ma grille. Trois ne semblent bon marché que si leur cash croît de 20 % par an, ce que leurs ventes ne laissent pas espérer.",
+      "metaDescription": "Télécoms en bourse : dix actions passées au crible. Verizon, KDDI et Swisscom ne sont bon marché qu'avec 20 % de croissance du cash par an.",
+      "answer": "Dans les télécoms, la décote affichée dépend surtout de la croissance supposée du cash. Verizon, KDDI et Swisscom ne passent sous mon prix d'achat qu'avec 20 % de croissance par an ; à 5 %, il leur faudrait baisser de 34 à 44 %. Deutsche Telekom, T-Mobile et Comcast tiennent mieux.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Dix opérateurs, une grille, un piège caché"
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé dix grands opérateurs télécoms dans ma grille : Deutsche Telekom, Orange et Telefónica en Europe, Verizon, AT&T, T-Mobile US et Comcast aux États-Unis, BCE au Canada, KDDI au Japon et Swisscom en Suisse. Ma méthode juge d'abord la qualité de l'entreprise (dix critères : marges, croissance, dette, rendement du capital), puis, séparément, le prix. Pour le prix, je calcule un « prix d'achat » : le cours auquel l'action rapporterait 15 % par an si son cash libre par action (le cash qui reste après toutes les dépenses, investissements compris) progresse à un rythme donné pendant cinq ans, puis que l'action se revend à un multiple de sortie. Le « cours sur cash libre » du tableau se lit simplement : 10 veut dire que tu paies dix années de ce cash."
+        },
+        {
+          "type": "p",
+          "text": "Une seule note de 7 sur 10 (Swisscom), trois de 6 (Deutsche Telekom, T-Mobile et KDDI), et BCE ferme la marche à 2. Rien d'exceptionnel : c'est un secteur de capital lourd, où il faut sans cesse payer des fréquences et poser de la fibre, et où les ventes progressent de 1 à 3 % par an."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Note qualité (sur 10)",
+            "Cours / cash libre",
+            "Cours actuel",
+            "Prix d'achat calculé",
+            "Croissance du cash supposée"
+          ],
+          "rows": [
+            [
+              "Swisscom",
+              "7",
+              "12,4×",
+              "720 CHF",
+              "933 CHF",
+              "20 % par an"
+            ],
+            [
+              "Deutsche Telekom",
+              "6",
+              "5,9×",
+              "25,91 €",
+              "26,45 €",
+              "3,9 % par an"
+            ],
+            [
+              "T-Mobile US",
+              "6",
+              "10,4×",
+              "170 $",
+              "487 $",
+              "20 % par an"
+            ],
+            [
+              "KDDI",
+              "6",
+              "10,3×",
+              "2 955 ¥",
+              "3 564 ¥",
+              "20 % par an"
+            ],
+            [
+              "Comcast",
+              "5",
+              "5,0×",
+              "25,60 $",
+              "63,27 $",
+              "20 % par an"
+            ],
+            [
+              "AT&T",
+              "5",
+              "8,8×",
+              "22,36 $",
+              "8,35 $",
+              "recul de 3,7 % par an"
+            ],
+            [
+              "Orange",
+              "5",
+              "12,4×",
+              "15,49 €",
+              "3,80 €",
+              "recul de 11 % par an"
+            ],
+            [
+              "Verizon",
+              "4",
+              "9,0×",
+              "46,34 $",
+              "50,86 $",
+              "20 % par an"
+            ],
+            [
+              "Telefónica",
+              "3",
+              "4,2×",
+              "3,49 €",
+              "2,73 €",
+              "recul de 7,8 % par an"
+            ],
+            [
+              "BCE",
+              "2",
+              "8,6×",
+              "30,57 CAD",
+              "18,84 CAD",
+              "1,4 % par an"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Les deux colonnes de droite racontent déjà une histoire étrange. Pour cinq opérateurs, le prix d'achat dépasse largement le cours (487 $ pour une T-Mobile à 170 $) et la croissance supposée est toujours la même : 20 % par an. Ce n'est pas un hasard."
+        },
+        {
+          "type": "h2",
+          "text": "Le plafond de 20 % fait tout le travail"
+        },
+        {
+          "type": "p",
+          "text": "Ma règle part de la croissance récente du cash libre par action sur deux ans, enlève deux points de prudence et plafonne le résultat à 20 % par an. Or ces cinq entreprises ont toutes vu leur cash bondir : 25 % pour Verizon, 32 % pour Comcast, 34 % pour KDDI, d'après les séries utilisées. La raison est mécanique. Un opérateur dépense d'abord des fortunes (licences de fréquences, déploiement de la fibre et de la 5G), et le cash libre est ce qui reste une fois ces chantiers payés. Quand le cycle d'investissement se calme, le cash saute d'un coup, une seule fois. Chez Deutsche Telekom, les dépenses d'investissement en cash ont baissé de 20 % au troisième trimestre, surtout parce que les achats de fréquences ont été moindres selon l'analyse d'un tiers ; hors fréquences, elles sont stables, autour de 4 milliards d'euros."
+        },
+        {
+          "type": "p",
+          "text": "Prolonger ce bond pendant cinq ans, c'est prendre un effet de base pour de la croissance. Les ventes, elles, avancent de 0,7 % par an (Verizon) à 3,1 % (T-Mobile), et Swisscom, à 7,7 %, doit à mon sens une part de sa hausse à des acquisitions. J'ai donc refait le calcul avec la même formule et le même multiple de sortie, mais avec 0, 3 puis 5 % de croissance du cash par an. Ce recalcul est le mien (inféré), pas celui des fiches."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "Cours actuel",
+            "Prix d'achat avec 20 %",
+            "Avec 0 %",
+            "Avec 3 %",
+            "Avec 5 %",
+            "Baisse nécessaire à 5 %"
+          ],
+          "rows": [
+            [
+              "Verizon",
+              "46,34 $",
+              "50,86 $",
+              "20,40 $",
+              "23,70 $",
+              "26,10 $",
+              "44 %"
+            ],
+            [
+              "KDDI",
+              "2 955 ¥",
+              "3 564 ¥",
+              "1 432 ¥",
+              "1 661 ¥",
+              "1 828 ¥",
+              "38 %"
+            ],
+            [
+              "Swisscom",
+              "720 CHF",
+              "933 CHF",
+              "375 CHF",
+              "435 CHF",
+              "478 CHF",
+              "34 %"
+            ],
+            [
+              "Comcast",
+              "25,60 $",
+              "63,27 $",
+              "25,40 $",
+              "29,50 $",
+              "32,50 $",
+              "Déjà sous ce prix"
+            ],
+            [
+              "T-Mobile US",
+              "170 $",
+              "487 $",
+              "196 $",
+              "227 $",
+              "250 $",
+              "Déjà sous ce prix"
+            ],
+            [
+              "Deutsche Telekom (3,9 % retenu)",
+              "25,91 €",
+              "26,45 €",
+              "21,80 €",
+              "25,30 €",
+              "27,80 €",
+              "Déjà sous ce prix"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Verizon, KDDI et Swisscom changent de camp : celle qui passait sous son prix d'achat doit en réalité baisser d'un tiers à près de la moitié. Comcast, T-Mobile et Deutsche Telekom tiennent, avec des nuances que je détaille plus bas."
+        },
+        {
+          "type": "h2",
+          "text": "Trois qui tiennent, trois qui ne tiennent pas"
+        },
+        {
+          "type": "p",
+          "text": "Deutsche Telekom est le cas le plus propre, parce que le calcul n'a pas eu besoin du plafond : 3,9 % de croissance seulement. À 25,91 €, elle vaut 5,9 fois son cash libre, pour un prix d'achat de 26,45 €. Elle détient en outre la majorité de T-Mobile US, si bien que ce sont les résultats américains qui ont fait relever, le 5 novembre, [son objectif de cash libre après loyers à environ 20,1 milliards d'euros](https://www.telekom.com/en/newsroom/latest-updates/media-information/2026/11/more-growth-raised-guidance-record-dividend), contre 20,0 auparavant. Acheter l'une, c'est déjà acheter une bonne part de l'autre."
+        },
+        {
+          "type": "p",
+          "text": "T-Mobile a publié le 28 octobre [un trimestre](https://www.t-mobile.com/news/business/t-mobile-q3-2026-earnings) qui justifie son rang : revenus des abonnements mensuels (le postpayé) en hausse de 9 %, à 16,3 milliards de dollars, et objectif de cash libre 2026 relevé à 18,7 à 18,8 milliards. L'action vaut 10,4 fois son cash, moins que 92 % de son propre passé. Mais son prix d'achat de 487 $ suppose deux paris à la fois : 20 % de croissance et une revente à 24 fois le cash. Avec 5 % et 15 fois, il tombe à environ 156 $, un peu sous le cours de 170 $. La qualité est là, la marge de sécurité l'est moins. J'avais comparé la [paire T-Mobile et Verizon](/blog/tmobile-verizon-comparatif-telecoms-2026) en juillet ; ce recalcul confirme l'écart de qualité entre les deux."
+        },
+        {
+          "type": "p",
+          "text": "Verizon a livré le 26 octobre un [troisième trimestre](https://www.sec.gov/Archives/edgar/data/0000732712/000073271226000049/a2026q3exhibit99.htm) très solide : 406 000 nouveaux abonnés mobiles postpayés (44 000 un an plus tôt), cash libre de 7,8 milliards de dollars (+12 %) et objectif annuel relevé. Je ne le conteste pas. Je constate seulement que son taux de distribution atteint 72 %, que l'action est plus chère que 77 % de son propre passé, et qu'un bon trimestre ne fait pas une croissance de 20 % par an. Sa note qualité reste de 4 sur 10."
+        },
+        {
+          "type": "p",
+          "text": "Le reste du tableau confirme que la note compte. Orange a publié le 27 octobre un EBITDAaL (bénéfice d'exploitation avant amortissements, après loyers) en hausse de 4,6 % à périmètre comparable, et relevé son objectif annuel. Pourtant le cash libre par action recule sur deux ans, d'où un prix d'achat de 3,80 € face à un cours de 15,49 € : je veux voir ce cash remonter avant de trancher. AT&T est plus chère que 90 % de son passé. Telefónica verse un dividende égal à 250 % de son bénéfice avec des ventes en recul de 4,2 % par an, et BCE a besoin de 12,4 années de cash libre pour rembourser sa dette nette."
+        },
+        {
+          "type": "h2",
+          "text": "Comment j'utiliserais ce tableau"
+        },
+        {
+          "type": "p",
+          "text": "Quand une décote repose sur une hypothèse de croissance, je refais le calcul avec la mienne. Ici trois noms s'effondrent, deux résistent mais demandent un œil sur le multiple de revente, et Deutsche Telekom est la seule dont l'hypothèse reste modeste. Ce n'est pas un conseil : c'est une méthode que tu peux refaire sur [la fiche de Deutsche Telekom](/analyse/DTE.DE) ou celle de [T-Mobile](/analyse/TMUS), et que je décris dans ma [méthodologie](/methodologie). Chiffres au 17 novembre 2026."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "actions télécoms",
+        "Deutsche Telekom",
+        "Verizon",
+        "T-Mobile",
+        "Swisscom",
+        "prix d'achat",
+        "cash libre"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Chiffres au 17 novembre 2026, susceptibles d'évoluer."
+    },
+    "en": {
+      "title": "Telecom Stocks: The Discount Rests on One Assumption",
+      "excerpt": "I ran ten telecom operators through my grid. Three only look cheap if their cash grows 20% a year, which their sales give no reason to expect.",
+      "metaDescription": "Telecom stocks: ten run through my grid. Verizon, KDDI and Swisscom only look cheap if their cash grows 20% a year.",
+      "answer": "In telecoms, the displayed discount mostly depends on the assumed cash growth. Verizon, KDDI and Swisscom only fall below my buy price with 20% growth a year; at 5%, they would need to drop 34 to 44%. Deutsche Telekom, T-Mobile and Comcast hold up better.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ten operators, one grid, a hidden trap"
+        },
+        {
+          "type": "p",
+          "text": "I ran ten large telecom operators through my grid: Deutsche Telekom, Orange and Telefónica in Europe, Verizon, AT&T, T-Mobile US and Comcast in the United States, BCE in Canada, KDDI in Japan and Swisscom in Switzerland. My method first judges the quality of the business (ten criteria: margins, growth, debt, return on capital), then, separately, the price. For the price I compute a \"buy price\": the share price at which the stock would earn 15% a year if its free cash flow per share (the cash left after all spending, investment included) grows at a given pace for five years and the stock is then sold at an exit multiple. The \"price to free cash\" column reads simply: 10 means you pay ten years of that cash."
+        },
+        {
+          "type": "p",
+          "text": "Only one score of 7 out of 10 (Swisscom), three of 6 (Deutsche Telekom, T-Mobile and KDDI), and BCE closes the list at 2. Nothing exceptional: this is a capital-heavy sector, where operators keep paying for spectrum and laying fiber, and where sales grow 1 to 3% a year."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Quality score (out of 10)",
+            "Price / free cash",
+            "Current price",
+            "Computed buy price",
+            "Assumed cash growth"
+          ],
+          "rows": [
+            [
+              "Swisscom",
+              "7",
+              "12.4x",
+              "CHF 720",
+              "CHF 933",
+              "20% a year"
+            ],
+            [
+              "Deutsche Telekom",
+              "6",
+              "5.9x",
+              "€25.91",
+              "€26.45",
+              "3.9% a year"
+            ],
+            [
+              "T-Mobile US",
+              "6",
+              "10.4x",
+              "$170",
+              "$487",
+              "20% a year"
+            ],
+            [
+              "KDDI",
+              "6",
+              "10.3x",
+              "¥2,955",
+              "¥3,564",
+              "20% a year"
+            ],
+            [
+              "Comcast",
+              "5",
+              "5.0x",
+              "$25.60",
+              "$63.27",
+              "20% a year"
+            ],
+            [
+              "AT&T",
+              "5",
+              "8.8x",
+              "$22.36",
+              "$8.35",
+              "3.7% decline a year"
+            ],
+            [
+              "Orange",
+              "5",
+              "12.4x",
+              "€15.49",
+              "€3.80",
+              "11% decline a year"
+            ],
+            [
+              "Verizon",
+              "4",
+              "9.0x",
+              "$46.34",
+              "$50.86",
+              "20% a year"
+            ],
+            [
+              "Telefónica",
+              "3",
+              "4.2x",
+              "€3.49",
+              "€2.73",
+              "7.8% decline a year"
+            ],
+            [
+              "BCE",
+              "2",
+              "8.6x",
+              "CAD 30.57",
+              "CAD 18.84",
+              "1.4% a year"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The two right-hand columns already tell a strange story. For five operators, the buy price is far above the share price ($487 for a T-Mobile at $170) and the assumed growth is always the same: 20% a year. That is no coincidence."
+        },
+        {
+          "type": "h2",
+          "text": "The 20% cap does all the work"
+        },
+        {
+          "type": "p",
+          "text": "My rule starts from recent free cash flow per share growth over two years, removes two points of prudence and caps the result at 20% a year. All five of these companies saw their cash jump: 25% for Verizon, 32% for Comcast, 34% for KDDI, based on the series used. The reason is mechanical. An operator first spends fortunes (spectrum licences, fiber and 5G rollout), and free cash is what remains once those projects are paid. When the investment cycle calms down, cash jumps once, in one go. At Deutsche Telekom, cash capex fell 20% in the third quarter, mostly because spectrum purchases were lower according to a third-party analysis; excluding spectrum it is flat, around 4 billion euros."
+        },
+        {
+          "type": "p",
+          "text": "Extending that jump over five years takes a base effect for growth. Sales, meanwhile, advance 0.7% a year (Verizon) to 3.1% (T-Mobile), and Swisscom, at 7.7%, owes part of its rise to acquisitions in my view. So I redid the calculation with the same formula and the same exit multiple, but with 0, 3 then 5% cash growth a year. This recalculation is mine (inferred), not the stock pages'."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Current price",
+            "Buy price at 20%",
+            "At 0%",
+            "At 3%",
+            "At 5%",
+            "Drop needed at 5%"
+          ],
+          "rows": [
+            [
+              "Verizon",
+              "$46.34",
+              "$50.86",
+              "$20.40",
+              "$23.70",
+              "$26.10",
+              "44%"
+            ],
+            [
+              "KDDI",
+              "¥2,955",
+              "¥3,564",
+              "¥1,432",
+              "¥1,661",
+              "¥1,828",
+              "38%"
+            ],
+            [
+              "Swisscom",
+              "CHF 720",
+              "CHF 933",
+              "CHF 375",
+              "CHF 435",
+              "CHF 478",
+              "34%"
+            ],
+            [
+              "Comcast",
+              "$25.60",
+              "$63.27",
+              "$25.40",
+              "$29.50",
+              "$32.50",
+              "Already below"
+            ],
+            [
+              "T-Mobile US",
+              "$170",
+              "$487",
+              "$196",
+              "$227",
+              "$250",
+              "Already below"
+            ],
+            [
+              "Deutsche Telekom (3.9% used)",
+              "€25.91",
+              "€26.45",
+              "€21.80",
+              "€25.30",
+              "€27.80",
+              "Already below"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Verizon, KDDI and Swisscom switch sides: the one that looked below its buy price actually has to fall by a third to nearly half. Comcast, T-Mobile and Deutsche Telekom hold up, with nuances I detail below."
+        },
+        {
+          "type": "h2",
+          "text": "Three that hold up, three that do not"
+        },
+        {
+          "type": "p",
+          "text": "Deutsche Telekom is the cleanest case, because the calculation did not need the cap: only 3.9% growth. At €25.91 it trades at 5.9 times its free cash, for a buy price of €26.45. It also owns the majority of T-Mobile US, so it is the American results that led it to raise, on November 5, [its free cash flow after leases target to about 20.1 billion euros](https://www.telekom.com/en/newsroom/latest-updates/media-information/2026/11/more-growth-raised-guidance-record-dividend), up from 20.0. Buying one is already buying a good part of the other."
+        },
+        {
+          "type": "p",
+          "text": "T-Mobile published on October 28 [a quarter](https://www.t-mobile.com/news/business/t-mobile-q3-2026-earnings) that justifies its rank: monthly subscription revenue (postpaid) up 9% to $16.3 billion, and its 2026 free cash target raised to $18.7 to 18.8 billion. The stock trades at 10.4 times its cash, lower than 92% of its own past. But its $487 buy price assumes two bets at once: 20% growth and a resale at 24 times cash. With 5% and 15 times, it falls to about $156, a bit under the $170 price. The quality is there, the margin of safety less so. I compared the [T-Mobile and Verizon pair](/blog/tmobile-verizon-comparatif-telecoms-2026) in July; this recalculation confirms the quality gap between them."
+        },
+        {
+          "type": "p",
+          "text": "Verizon delivered a very solid [third quarter](https://www.sec.gov/Archives/edgar/data/0000732712/000073271226000049/a2026q3exhibit99.htm) on October 26: 406,000 new postpaid mobile subscribers (44,000 a year earlier), free cash of $7.8 billion (+12%) and a raised annual target. I do not dispute it. I only note that its payout ratio reaches 72%, that the stock is more expensive than 77% of its own past, and that one good quarter does not make 20% growth a year. Its quality score stays at 4 out of 10."
+        },
+        {
+          "type": "p",
+          "text": "The rest of the table confirms that the score matters. On October 27 Orange published EBITDAaL (operating profit before depreciation, after leases) up 4.6% on a comparable basis, and raised its annual target. Yet free cash per share fell over two years, hence a €3.80 buy price against a €15.49 share price: I want to see that cash rise before deciding. AT&T is more expensive than 90% of its past. Telefónica pays a dividend equal to 250% of its earnings with sales down 4.2% a year, and BCE needs 12.4 years of free cash to repay its net debt."
+        },
+        {
+          "type": "h2",
+          "text": "How I would use this table"
+        },
+        {
+          "type": "p",
+          "text": "When a discount rests on a growth assumption, I redo the calculation with my own. Here three names collapse, two hold but need an eye on the resale multiple, and Deutsche Telekom is the only one whose assumption stays modest. This is not advice: it is a method you can redo on [the Deutsche Telekom page](/analyse/DTE.DE) or the [T-Mobile one](/analyse/TMUS), and that I describe in my [methodology](/methodologie). Figures as of November 17, 2026."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "telecom stocks",
+        "Deutsche Telekom",
+        "Verizon",
+        "T-Mobile",
+        "Swisscom",
+        "buy price",
+        "free cash flow"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that. Figures as of November 17, 2026, subject to change."
+    },
+    "es": {
+      "title": "Acciones de telecos: el descuento depende de un supuesto",
+      "excerpt": "He pasado diez operadores de telecomunicaciones por mi cuadrícula. Tres solo parecen baratos si su caja crece un 20 % al año, algo que sus ventas no permiten esperar.",
+      "metaDescription": "Acciones de telecos: diez analizadas. Verizon, KDDI y Swisscom solo parecen baratas si su caja crece un 20 % al año.",
+      "answer": "En las telecos, el descuento que se ve depende sobre todo del crecimiento supuesto de la caja. Verizon, KDDI y Swisscom solo bajan de mi precio de compra con un 20 % anual; con un 5 %, tendrían que caer entre un 34 y un 44 %. Deutsche Telekom, T-Mobile y Comcast resisten mejor.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Diez operadores, una cuadrícula, una trampa escondida"
+        },
+        {
+          "type": "p",
+          "text": "He pasado diez grandes operadores de telecomunicaciones por mi cuadrícula: Deutsche Telekom, Orange y Telefónica en Europa, Verizon, AT&T, T-Mobile US y Comcast en Estados Unidos, BCE en Canadá, KDDI en Japón y Swisscom en Suiza. Mi método juzga primero la calidad de la empresa (diez criterios: márgenes, crecimiento, deuda, rentabilidad del capital) y, por separado, el precio. Para el precio calculo un «precio de compra»: la cotización a la que la acción rendiría un 15 % anual si su caja libre por acción (el efectivo que queda después de todos los gastos, inversiones incluidas) crece a un ritmo dado durante cinco años y luego se vende a un múltiplo de salida. La columna «precio sobre caja libre» se lee fácil: 10 significa que pagas diez años de esa caja."
+        },
+        {
+          "type": "p",
+          "text": "Solo una nota de 7 sobre 10 (Swisscom), tres de 6 (Deutsche Telekom, T-Mobile y KDDI), y BCE cierra la lista con 2. Nada excepcional: es un sector de capital intensivo, donde hay que pagar frecuencias y tender fibra sin parar, y donde las ventas crecen entre un 1 y un 3 % al año."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota de calidad (sobre 10)",
+            "Precio / caja libre",
+            "Cotización actual",
+            "Precio de compra calculado",
+            "Crecimiento de caja supuesto"
+          ],
+          "rows": [
+            [
+              "Swisscom",
+              "7",
+              "12,4×",
+              "720 CHF",
+              "933 CHF",
+              "20 % anual"
+            ],
+            [
+              "Deutsche Telekom",
+              "6",
+              "5,9×",
+              "25,91 €",
+              "26,45 €",
+              "3,9 % anual"
+            ],
+            [
+              "T-Mobile US",
+              "6",
+              "10,4×",
+              "170 $",
+              "487 $",
+              "20 % anual"
+            ],
+            [
+              "KDDI",
+              "6",
+              "10,3×",
+              "2955 ¥",
+              "3564 ¥",
+              "20 % anual"
+            ],
+            [
+              "Comcast",
+              "5",
+              "5,0×",
+              "25,60 $",
+              "63,27 $",
+              "20 % anual"
+            ],
+            [
+              "AT&T",
+              "5",
+              "8,8×",
+              "22,36 $",
+              "8,35 $",
+              "caída del 3,7 % anual"
+            ],
+            [
+              "Orange",
+              "5",
+              "12,4×",
+              "15,49 €",
+              "3,80 €",
+              "caída del 11 % anual"
+            ],
+            [
+              "Verizon",
+              "4",
+              "9,0×",
+              "46,34 $",
+              "50,86 $",
+              "20 % anual"
+            ],
+            [
+              "Telefónica",
+              "3",
+              "4,2×",
+              "3,49 €",
+              "2,73 €",
+              "caída del 7,8 % anual"
+            ],
+            [
+              "BCE",
+              "2",
+              "8,6×",
+              "30,57 CAD",
+              "18,84 CAD",
+              "1,4 % anual"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las dos columnas de la derecha ya cuentan algo raro. En cinco operadores, el precio de compra supera con creces la cotización (487 $ para una T-Mobile a 170 $) y el crecimiento supuesto es siempre el mismo: 20 % anual. No es casualidad."
+        },
+        {
+          "type": "h2",
+          "text": "El tope del 20 % hace todo el trabajo"
+        },
+        {
+          "type": "p",
+          "text": "Mi regla parte del crecimiento reciente de la caja libre por acción en dos años, resta dos puntos de prudencia y limita el resultado al 20 % anual. Pues bien, estas cinco empresas vieron saltar su caja: 25 % en Verizon, 32 % en Comcast, 34 % en KDDI, según las series utilizadas. La razón es mecánica. Un operador gasta primero fortunas (licencias de frecuencias, despliegue de fibra y 5G), y la caja libre es lo que queda tras pagar esas obras. Cuando el ciclo de inversión se calma, la caja salta de golpe, una sola vez. En Deutsche Telekom, la inversión en efectivo bajó un 20 % en el tercer trimestre, sobre todo porque se compraron menos frecuencias según el análisis de un tercero; sin frecuencias es estable, en torno a 4000 millones de euros."
+        },
+        {
+          "type": "p",
+          "text": "Prolongar ese salto cinco años es confundir un efecto de base con crecimiento. Las ventas, en cambio, avanzan del 0,7 % anual (Verizon) al 3,1 % (T-Mobile), y Swisscom, con un 7,7 %, debe a mi juicio parte de su subida a adquisiciones. Así que rehice el cálculo con la misma fórmula y el mismo múltiplo de salida, pero con un 0, un 3 y un 5 % de crecimiento anual de la caja. Este recálculo es mío (inferido), no el de las fichas."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Cotización actual",
+            "Precio de compra con 20 %",
+            "Con 0 %",
+            "Con 3 %",
+            "Con 5 %",
+            "Caída necesaria con 5 %"
+          ],
+          "rows": [
+            [
+              "Verizon",
+              "46,34 $",
+              "50,86 $",
+              "20,40 $",
+              "23,70 $",
+              "26,10 $",
+              "44 %"
+            ],
+            [
+              "KDDI",
+              "2955 ¥",
+              "3564 ¥",
+              "1432 ¥",
+              "1661 ¥",
+              "1828 ¥",
+              "38 %"
+            ],
+            [
+              "Swisscom",
+              "720 CHF",
+              "933 CHF",
+              "375 CHF",
+              "435 CHF",
+              "478 CHF",
+              "34 %"
+            ],
+            [
+              "Comcast",
+              "25,60 $",
+              "63,27 $",
+              "25,40 $",
+              "29,50 $",
+              "32,50 $",
+              "Ya por debajo"
+            ],
+            [
+              "T-Mobile US",
+              "170 $",
+              "487 $",
+              "196 $",
+              "227 $",
+              "250 $",
+              "Ya por debajo"
+            ],
+            [
+              "Deutsche Telekom (3,9 % usado)",
+              "25,91 €",
+              "26,45 €",
+              "21,80 €",
+              "25,30 €",
+              "27,80 €",
+              "Ya por debajo"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Verizon, KDDI y Swisscom cambian de bando: la que parecía por debajo de su precio de compra debe en realidad caer entre un tercio y casi la mitad. Comcast, T-Mobile y Deutsche Telekom resisten, con matices que detallo abajo."
+        },
+        {
+          "type": "h2",
+          "text": "Tres que resisten, tres que no"
+        },
+        {
+          "type": "p",
+          "text": "Deutsche Telekom es el caso más limpio, porque el cálculo no necesitó el tope: solo un 3,9 % de crecimiento. A 25,91 € vale 5,9 veces su caja libre, para un precio de compra de 26,45 €. Además posee la mayoría de T-Mobile US, así que fueron los resultados estadounidenses los que llevaron a subir, el 5 de noviembre, [su objetivo de caja libre tras alquileres a unos 20 100 millones de euros](https://www.telekom.com/en/newsroom/latest-updates/media-information/2026/11/more-growth-raised-guidance-record-dividend), frente a 20 000 antes. Comprar una es ya comprar buena parte de la otra."
+        },
+        {
+          "type": "p",
+          "text": "T-Mobile publicó el 28 de octubre [un trimestre](https://www.t-mobile.com/news/business/t-mobile-q3-2026-earnings) que justifica su puesto: ingresos de abonos mensuales (pospago) en alza del 9 %, hasta 16 300 millones de dólares, y objetivo de caja libre 2026 elevado a 18 700 a 18 800 millones. La acción vale 10,4 veces su caja, menos que el 92 % de su propio pasado. Pero su precio de compra de 487 $ supone dos apuestas a la vez: 20 % de crecimiento y una reventa a 24 veces la caja. Con un 5 % y 15 veces, baja a unos 156 $, algo por debajo de los 170 $ de cotización. La calidad está, el margen de seguridad menos. Comparé la [pareja T-Mobile y Verizon](/blog/tmobile-verizon-comparatif-telecoms-2026) en julio; este recálculo confirma la diferencia de calidad entre ambas."
+        },
+        {
+          "type": "p",
+          "text": "Verizon entregó el 26 de octubre un [tercer trimestre](https://www.sec.gov/Archives/edgar/data/0000732712/000073271226000049/a2026q3exhibit99.htm) muy sólido: 406 000 nuevos abonados móviles de pospago (44 000 un año antes), caja libre de 7800 millones de dólares (+12 %) y objetivo anual elevado. No lo discuto. Solo constato que su ratio de reparto llega al 72 %, que la acción es más cara que el 77 % de su propio pasado, y que un buen trimestre no hace un crecimiento del 20 % anual. Su nota de calidad sigue en 4 sobre 10."
+        },
+        {
+          "type": "p",
+          "text": "El resto de la tabla confirma que la nota cuenta. El 27 de octubre Orange publicó un EBITDAaL (beneficio operativo antes de amortizaciones, tras alquileres) en alza del 4,6 % en términos comparables, y elevó su objetivo anual. Sin embargo, la caja libre por acción cae en dos años, de ahí un precio de compra de 3,80 € frente a una cotización de 15,49 €: quiero ver subir esa caja antes de decidir. AT&T es más cara que el 90 % de su pasado. Telefónica paga un dividendo igual al 250 % de su beneficio con ventas en caída del 4,2 % anual, y BCE necesita 12,4 años de caja libre para devolver su deuda neta."
+        },
+        {
+          "type": "h2",
+          "text": "Cómo usaría esta tabla"
+        },
+        {
+          "type": "p",
+          "text": "Cuando un descuento descansa en un supuesto de crecimiento, rehago el cálculo con el mío. Aquí tres nombres se hunden, dos resisten pero piden vigilar el múltiplo de reventa, y Deutsche Telekom es la única cuyo supuesto sigue siendo modesto. No es un consejo: es un método que puedes repetir en [la ficha de Deutsche Telekom](/analyse/DTE.DE) o en la de [T-Mobile](/analyse/TMUS), y que describo en mi [metodología](/methodologie). Cifras a 17 de noviembre de 2026."
+        }
+      ],
+      "faq": [],
+      "tags": [
+        "acciones telecos",
+        "Deutsche Telekom",
+        "Verizon",
+        "T-Mobile",
+        "Swisscom",
+        "precio de compra",
+        "caja libre"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Cifras a 17 de noviembre de 2026, sujetas a cambios."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026, articleChimieMateriaux2026, articleTelecoms2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
