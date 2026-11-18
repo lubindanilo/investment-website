@@ -109139,7 +109139,427 @@ const articleTelecoms2026: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026, articleChimieMateriaux2026, articleTelecoms2026];
+const articleBaisseMalgreResultats2026: Article = {
+  "slug": "action-baisse-malgre-bons-resultats-trois-questions-2026",
+  "date": "2026-11-18",
+  "updated": "2026-11-18",
+  "readingTime": 7,
+  "content": {
+    "fr": {
+      "title": "Pourquoi une action baisse malgré de bons résultats",
+      "excerpt": "Apple et CVS ont dépassé les attentes début novembre 2026, puis l'action a reculé. Trois questions simples permettent de comprendre pourquoi, sans parler d'irrationalité.",
+      "metaDescription": "Apple et CVS ont battu les attentes début novembre, puis reculé en bourse. Prix déjà payé, prévisions, annonce : trois raisons de lire une baisse.",
+      "answer": "Une action baisse après de bons résultats quand son prix intégrait déjà la bonne nouvelle, quand les prévisions annoncent moins de marge ou de croissance, ou quand une annonce de structure éclipse le trimestre. Apple et CVS, début novembre 2026, illustrent deux de ces cas. La baisse d'un jour ne juge pas la qualité de l'entreprise.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Le 2 novembre, Apple publie un trimestre qui coche toutes les cases : 114,5 milliards de dollars de ventes, en hausse de 12 %, et un bénéfice par action de 2,10 $ contre 1,99 $ attendu par les analystes. Pendant la conférence qui suit, l'action recule jusqu'à 4,4 %."
+        },
+        {
+          "type": "p",
+          "text": "Deux jours plus tard, CVS Health fait mieux encore sur le papier : 2,09 $ de bénéfice par action contre 1,67 $ attendu, 108 milliards de dollars de ventes, des prévisions annuelles relevées à au moins 8,20 $. Le titre perd 12,5 % dans la journée, pendant que l'indice S&P 500 gagne 1,6 %."
+        },
+        {
+          "type": "p",
+          "text": "La réaction habituelle consiste à dire que le marché est irrationnel. C'est presque toujours une mauvaise réponse. Une baisse après de bons chiffres a le plus souvent une raison lisible, et je la cherche dans trois endroits : le prix déjà payé, ce que l'entreprise annonce pour la suite, et ce qui s'est passé d'autre le même jour."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix contient déjà les bonnes nouvelles"
+        },
+        {
+          "type": "p",
+          "text": "Une action n'est pas jugée sur ses résultats, mais sur l'écart entre ses résultats et ce que les investisseurs attendaient. Quand le cours monte pendant des mois, les attentes montent avec lui. Un bon trimestre ne fait alors que confirmer ce qui était déjà payé, et la moindre fausse note pèse double. C'est la logique que décrit Aswath Damodaran, professeur de finance à New York University, dans ses [cours sur la valorisation](https://pages.stern.nyu.edu/~adamodar/) : le prix reflète des anticipations, pas le passé."
+        },
+        {
+          "type": "p",
+          "text": "Pour mesurer ce que le marché a déjà payé, je regarde le P/FCF : le cours de l'action divisé par le cash libre (free cash flow, l'argent qui reste vraiment après les salaires, les usines et les impôts) qu'elle génère par action. Un P/FCF de 42 veut dire que tu paies d'un coup 42 années de ce cash. Je le situe ensuite dans l'historique de l'entreprise elle-même. Apple se valorise aujourd'hui environ 42 fois son cash libre, ce qui la place plus haut que dans près de 96 % de son propre passé. Le marché avait donc déjà payé presque tout ce qu'elle sait faire de mieux."
+        },
+        {
+          "type": "p",
+          "text": "Ce n'est pas un défaut de l'entreprise. Sur [la fiche d'Apple](/analyse/AAPL), 26 % des ventes finissent en cash libre, et le Cash ROCE (le cash généré rapporté au capital réellement engagé dans l'activité) dépasse 70 %. La qualité est là. Mais qualité et prix sont deux questions séparées : Apple répond oui à la première, et c'est la seconde qui a fait bouger le cours ce jour-là. Si tu veux voir ce que veut dire payer très cher une très bonne entreprise, j'en parle dans [cet article sur le P/FCF élevé](/blog/pfcf-eleve-quand-payer-20-fois-qualite)."
+        },
+        {
+          "type": "h2",
+          "text": "Apple : la phrase qui compte est dans les prévisions"
+        },
+        {
+          "type": "p",
+          "text": "Les résultats regardent derrière, le cours regarde devant. Dans son [communiqué du trimestre](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=AAPL&type=8-K), Apple a donné ses prévisions pour décembre : une marge brute de 45 à 46 %, contre 47,9 % auparavant, et une croissance des services de 8 à 9 %, quand les analystes en espéraient près de 10,7 %. La Chine, à 17,5 milliards de dollars, était aussi sous les 18,6 milliards attendus."
+        },
+        {
+          "type": "p",
+          "text": "La marge brute, c'est ce qui reste des ventes une fois payé le coût direct des produits. Les commentateurs relient cette baisse à la hausse du prix des puces mémoire, tirée par la demande des centres de données d'intelligence artificielle. Deux points de marge brute sur un trimestre de plus de 110 milliards de ventes, cela représente de l'ordre de 2 milliards de dollars de profit en moins : c'est mon calcul, à ventes comparables, pas un chiffre annoncé par Apple."
+        },
+        {
+          "type": "p",
+          "text": "Les services (abonnements, App Store, paiement) comptent plus que leur poids dans les ventes : ils rapportent bien plus par dollar que l'iPhone, et c'est ce qui justifie en partie le prix élevé de l'action. Qu'ils ralentissent, même à 8 ou 9 %, fragilise donc l'argument qui soutenait le multiple. Ma lecture : une baisse de quelques points sur une action à 42 fois son cash est une correction de prix, pas un jugement sur l'entreprise."
+        },
+        {
+          "type": "h2",
+          "text": "CVS : quand l'annonce éclipse les chiffres"
+        },
+        {
+          "type": "p",
+          "text": "Le cas CVS est l'inverse, et c'est pour cela que je le prends. À environ 10 fois son cash libre, l'action est au milieu de son historique (autour du 53ᵉ percentile), pas au sommet. L'explication « le prix intégrait tout » ne tient pas ici. Autre particularité : seulement 2,7 % des ventes finissent en cash libre, parce que CVS combine un assureur santé et des pharmacies, deux métiers à marges fines où quelques points de coûts médicaux changent beaucoup de choses."
+        },
+        {
+          "type": "p",
+          "text": "Le même matin, la direction a annoncé son intention de scinder le groupe en deux sociétés cotées et a donné un premier aperçu de 2027. Pendant ce temps, Elevance gagnait 4,9 % et UnitedHealth comme Cigna progressaient aussi. Les analystes cités n'identifient pas de cause unique, et je ne prétends pas en connaître une. Mon hypothèse, que je ne peux pas prouver : un trimestre excellent, mais une scission à digérer et une année 2027 encore floue, et les investisseurs ont préféré ne pas payer d'avance. Une scission (je l'explique dans [cet article sur les spin-offs](/blog/spin-off-bourse-bonne-mauvaise-nouvelle-methode-lubin)) change la structure du groupe, pas seulement un trimestre."
+        },
+        {
+          "type": "p",
+          "text": "L'enseignement est simple : un chiffre de trimestre est une photo, une annonce de structure change le film. Quand les deux arrivent le même jour, c'est le film qui se vend ou s'achète. Les chiffres détaillés sont dans le [dépôt de la société auprès de la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=CVS&type=8-K)."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Cas",
+            "Résultats contre attentes",
+            "Cours / cash libre",
+            "Position dans son historique",
+            "Ce qui a pesé"
+          ],
+          "rows": [
+            [
+              "Apple",
+              "2,10 $ contre 1,99 $ ; 114,5 Md$ de ventes",
+              "42 fois",
+              "Plus cher que près de 96 % de son passé",
+              "Marge brute prévue à 45 à 46 %, services à +8 à 9 %"
+            ],
+            [
+              "CVS Health",
+              "2,09 $ contre 1,67 $ ; 108 Md$ de ventes",
+              "10 fois",
+              "Autour du milieu (53ᵉ percentile)",
+              "Scission annoncée, premier aperçu de 2027"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Trois questions avant de conclure"
+        },
+        {
+          "type": "p",
+          "text": "Quand une action que tu suis recule après de bons chiffres, je te propose de poser trois questions, dans cet ordre. D'abord : à quel niveau de son propre historique se valorise-t-elle ? Plus elle est haut, plus la moindre déception se paie cher. Ensuite : que dit la direction de la suite, en marge, en croissance, en coûts ? C'est là que se cache presque toujours la raison. Enfin : s'est-il passé autre chose le même jour, une scission, un rachat, un changement de dirigeant ?"
+        },
+        {
+          "type": "p",
+          "text": "Si aucune des trois ne donne de réponse, c'est une information en soi : soit la baisse est du bruit de marché, soit le problème est ailleurs et il faut chercher plus loin. Dans les deux cas, ne confonds pas la baisse d'un jour avec un verdict sur l'entreprise. Apple reste une entreprise de très haute qualité, mais encore au-dessus du prix d'achat que je calcule. CVS recule fortement, obtient 5 sur 10 sur ma grille de qualité, et la baisse ne la rend pas intéressante pour autant."
+        },
+        {
+          "type": "h2",
+          "text": "Séparer la qualité du prix"
+        },
+        {
+          "type": "p",
+          "text": "C'est ce que j'ai voulu pouvoir faire en quelques secondes pour n'importe quelle action, et c'est pourquoi j'ai construit [ma méthodologie](/methodologie) : juger la qualité du business d'un côté, le prix de l'autre, puis seulement les rapprocher. Une baisse après de bons résultats devient alors une question précise, pas une énigme."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi une action baisse-t-elle après des résultats supérieurs aux attentes ?",
+          "a": "Le plus souvent pour l'une de trois raisons : son prix intégrait déjà la bonne nouvelle, les prévisions de la direction annoncent moins de marge ou de croissance, ou une annonce de structure (scission, rachat) éclipse le trimestre. Les chiffres passés comptent moins que ce que le marché attend pour la suite."
+        },
+        {
+          "q": "Qu'est-ce que le P/FCF ?",
+          "a": "Le P/FCF (price to free cash flow) rapporte le cours de l'action au cash libre qu'elle génère par action. Un P/FCF de 10 signifie que tu paies dix années de ce cash. Plus il est bas, moins l'action est chère, à qualité comparable."
+        },
+        {
+          "q": "Une baisse après de bons résultats est-elle une occasion d'achat ?",
+          "a": "Pas automatiquement. Elle l'est seulement si la qualité de l'entreprise tient et si le nouveau prix passe sous un niveau d'achat raisonnable. Une baisse n'est pas un prix bas : c'est un prix plus bas qu'hier. Ceci n'est pas un conseil en investissement."
+        }
+      ],
+      "tags": [
+        "résultats trimestriels",
+        "baisse après résultats",
+        "prix intégré",
+        "Apple",
+        "CVS Health",
+        "valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Chiffres au 18 novembre 2026, susceptibles d'évoluer."
+    },
+    "en": {
+      "title": "Why a Stock Falls Despite Good Earnings",
+      "excerpt": "Apple and CVS beat expectations in early November 2026, then their shares fell. Three simple questions explain why, without calling the market irrational.",
+      "metaDescription": "Apple and CVS beat expectations in early November, then fell. Price already paid, guidance, an announcement: three ways to read a drop.",
+      "answer": "A stock falls after good results when its price already included the good news, when guidance points to lower margins or slower growth, or when a structural announcement overshadows the quarter. Apple and CVS in early November 2026 show two of these cases. One day's drop does not judge a company's quality.",
+      "body": [
+        {
+          "type": "p",
+          "text": "On November 2, Apple reported a quarter that ticked every box: $114.5 billion in sales, up 12%, and earnings per share of $2.10 against $1.99 expected by analysts. During the call that followed, the shares fell as much as 4.4%."
+        },
+        {
+          "type": "p",
+          "text": "Two days later, CVS Health did even better on paper: $2.09 of earnings per share against $1.67 expected, $108 billion in sales, and full-year guidance raised to at least $8.20. The stock lost 12.5% that day while the S&P 500 gained 1.6%."
+        },
+        {
+          "type": "p",
+          "text": "The usual reaction is to say the market is irrational. That is almost always the wrong answer. A drop after good numbers usually has a readable cause, and I look for it in three places: the price already paid, what the company says about what comes next, and what else happened the same day."
+        },
+        {
+          "type": "h2",
+          "text": "The price already contains the good news"
+        },
+        {
+          "type": "p",
+          "text": "A stock is not judged on its results but on the gap between its results and what investors expected. When the price rises for months, expectations rise with it. A good quarter then only confirms what was already paid for, and the slightest miss counts double. This is the logic Aswath Damodaran, a finance professor at New York University, describes in his [valuation courses](https://pages.stern.nyu.edu/~adamodar/): price reflects expectations, not the past."
+        },
+        {
+          "type": "p",
+          "text": "To measure what the market has already paid, I look at the P/FCF: the share price divided by the free cash flow (the money that really remains after salaries, factories and taxes) generated per share. A P/FCF of 42 means you pay 42 years of that cash at once. I then place it within the company's own history. Apple is valued at about 42 times its free cash flow today, higher than in nearly 96% of its own past. The market had already paid for almost everything it does best."
+        },
+        {
+          "type": "p",
+          "text": "That is not a flaw of the company. On [Apple's page](/analyse/AAPL), 26% of sales end up as free cash flow, and Cash ROCE (cash generated relative to the capital actually committed to the business) is above 70%. The quality is there. But quality and price are two separate questions: Apple says yes to the first, and the second is what moved the share price that day. To see what paying a lot for a great company means, I discuss it in [this article on high P/FCF](/blog/pfcf-eleve-quand-payer-20-fois-qualite)."
+        },
+        {
+          "type": "h2",
+          "text": "Apple: the sentence that matters is in the guidance"
+        },
+        {
+          "type": "p",
+          "text": "Results look backward, the share price looks forward. In its [results release](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=AAPL&type=8-K), Apple guided December to a gross margin of 45 to 46%, against 47.9% before, and services growth of 8 to 9%, when analysts hoped for about 10.7%. China, at $17.5 billion, was also below the $18.6 billion expected."
+        },
+        {
+          "type": "p",
+          "text": "Gross margin is what remains of sales after the direct cost of products. Commentators link the decline to rising memory chip prices, driven by demand from artificial intelligence data centers. Two points of gross margin on a quarter of more than $110 billion in sales means roughly $2 billion less profit: that is my own calculation at comparable sales, not a figure Apple announced."
+        },
+        {
+          "type": "p",
+          "text": "Services (subscriptions, the App Store, payments) matter more than their share of sales: they earn far more per dollar than the iPhone, which partly justifies the high share price. If they slow, even to 8 or 9%, the argument supporting the multiple weakens. My reading: a drop of a few points on a stock at 42 times its cash is a price correction, not a verdict on the company."
+        },
+        {
+          "type": "h2",
+          "text": "CVS: when the announcement overshadows the numbers"
+        },
+        {
+          "type": "p",
+          "text": "The CVS case is the opposite, which is why I picked it. At about 10 times its free cash flow, the stock sits in the middle of its history (around the 53rd percentile), not at the top. The explanation \"the price included everything\" does not hold here. Another feature: only 2.7% of sales end up as free cash flow, because CVS combines a health insurer and pharmacies, two thin-margin businesses where a few points of medical costs change a lot."
+        },
+        {
+          "type": "p",
+          "text": "The same morning, management announced its intention to split the group into two listed companies and gave a first look at 2027. Meanwhile Elevance gained 4.9% and UnitedHealth and Cigna also rose. The analysts cited identify no single cause, and I do not claim to know one. My hypothesis, which I cannot prove: an excellent quarter, but a split to digest and a still blurry 2027, so investors preferred not to pay in advance. A split (I explain it in [this article on spin-offs](/blog/spin-off-bourse-bonne-mauvaise-nouvelle-methode-lubin)) changes the structure of the group, not just one quarter."
+        },
+        {
+          "type": "p",
+          "text": "The lesson is simple: a quarterly number is a photo, a structural announcement changes the film. When both arrive the same day, the film is what gets sold or bought. Detailed figures are in the [company's SEC filings](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=CVS&type=8-K)."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Case",
+            "Results vs expectations",
+            "Price / free cash flow",
+            "Position in its own history",
+            "What weighed"
+          ],
+          "rows": [
+            [
+              "Apple",
+              "$2.10 vs $1.99; $114.5B sales",
+              "42 times",
+              "Higher than nearly 96% of its past",
+              "Gross margin guided to 45 to 46%, services at +8 to 9%"
+            ],
+            [
+              "CVS Health",
+              "$2.09 vs $1.67; $108B sales",
+              "10 times",
+              "Around the middle (53rd percentile)",
+              "Split announced, first look at 2027"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Three questions before concluding"
+        },
+        {
+          "type": "p",
+          "text": "When a stock you follow falls after good numbers, I suggest three questions, in this order. First: where does it sit in its own history? The higher it is, the more any disappointment costs. Next: what does management say about what comes next, in margins, growth, costs? That is almost always where the reason hides. Finally: did anything else happen the same day, a split, a buyout, a change of CEO?"
+        },
+        {
+          "type": "p",
+          "text": "If none of the three gives an answer, that is information in itself: either the drop is market noise, or the problem lies elsewhere and you need to dig further. Either way, do not confuse a one day drop with a verdict on the company. Apple remains a very high quality company, but still above the buy price I calculate. CVS falls sharply, scores 5 out of 10 on my quality grid, and the drop does not make it attractive."
+        },
+        {
+          "type": "h2",
+          "text": "Separating quality from price"
+        },
+        {
+          "type": "p",
+          "text": "This is what I wanted to be able to do in seconds for any stock, and why I built [my methodology](/methodologie): judge the quality of the business on one side, the price on the other, and only then bring them together. A drop after good results then becomes a precise question, not a puzzle."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why does a stock fall after results beat expectations?",
+          "a": "Most often for one of three reasons: its price already included the good news, management guidance points to lower margins or growth, or a structural announcement (split, buyout) overshadows the quarter. Past numbers matter less than what the market expects next."
+        },
+        {
+          "q": "What is P/FCF?",
+          "a": "P/FCF (price to free cash flow) compares the share price to the free cash flow generated per share. A P/FCF of 10 means you pay ten years of that cash. The lower it is, the cheaper the stock, at comparable quality."
+        },
+        {
+          "q": "Is a drop after good results a buying opportunity?",
+          "a": "Not automatically. It is only one if the company's quality holds and the new price falls below a reasonable buy level. A drop is not a low price: it is a price lower than yesterday. This is not investment advice."
+        }
+      ],
+      "tags": [
+        "quarterly results",
+        "drop after earnings",
+        "priced in",
+        "Apple",
+        "CVS Health",
+        "valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that. Figures as of November 18, 2026, subject to change."
+    },
+    "es": {
+      "title": "Por qué una acción cae pese a buenos resultados",
+      "excerpt": "Apple y CVS superaron las expectativas a principios de noviembre de 2026 y luego sus acciones cayeron. Tres preguntas sencillas explican por qué, sin hablar de irracionalidad.",
+      "metaDescription": "Apple y CVS superaron lo esperado a principios de noviembre y luego cayeron en bolsa. Precio ya pagado, previsiones, anuncio: tres claves.",
+      "answer": "Una acción cae tras buenos resultados cuando su precio ya incluía la buena noticia, cuando las previsiones anuncian menos margen o crecimiento, o cuando un anuncio de estructura eclipsa el trimestre. Apple y CVS, a principios de noviembre de 2026, ilustran dos de estos casos. La caída de un día no juzga la calidad de la empresa.",
+      "body": [
+        {
+          "type": "p",
+          "text": "El 2 de noviembre, Apple publicó un trimestre que cumplía todas las casillas: 114 500 millones de dólares en ventas, un 12 % más, y un beneficio por acción de 2,10 $ frente a los 1,99 $ esperados por los analistas. Durante la conferencia posterior, la acción llegó a caer un 4,4 %."
+        },
+        {
+          "type": "p",
+          "text": "Dos días después, CVS Health hizo aún mejor sobre el papel: 2,09 $ de beneficio por acción frente a 1,67 $ esperados, 108 000 millones de dólares en ventas y previsiones anuales elevadas a al menos 8,20 $. El valor perdió un 12,5 % ese día, mientras el S&P 500 ganaba un 1,6 %."
+        },
+        {
+          "type": "p",
+          "text": "La reacción habitual es decir que el mercado es irracional. Casi siempre es una mala respuesta. Una caída tras buenas cifras suele tener una razón legible, y la busco en tres sitios: el precio ya pagado, lo que la empresa anuncia para lo que viene y qué más ocurrió ese mismo día."
+        },
+        {
+          "type": "h2",
+          "text": "El precio ya contiene las buenas noticias"
+        },
+        {
+          "type": "p",
+          "text": "Una acción no se juzga por sus resultados, sino por la diferencia entre sus resultados y lo que los inversores esperaban. Cuando el precio sube durante meses, las expectativas suben con él. Un buen trimestre solo confirma entonces lo que ya estaba pagado, y el menor tropiezo pesa el doble. Es la lógica que describe Aswath Damodaran, profesor de finanzas en la New York University, en sus [cursos de valoración](https://pages.stern.nyu.edu/~adamodar/): el precio refleja expectativas, no el pasado."
+        },
+        {
+          "type": "p",
+          "text": "Para medir lo que el mercado ya ha pagado, miro el P/FCF: el precio de la acción dividido por la caja libre (free cash flow, el dinero que realmente queda tras salarios, fábricas e impuestos) que genera por acción. Un P/FCF de 42 significa que pagas de golpe 42 años de esa caja. Después lo sitúo en el historial de la propia empresa. Apple se valora hoy unas 42 veces su caja libre, por encima de cerca del 96 % de su propio pasado. El mercado ya había pagado casi todo lo que mejor sabe hacer."
+        },
+        {
+          "type": "p",
+          "text": "No es un defecto de la empresa. En [la ficha de Apple](/analyse/AAPL), el 26 % de las ventas termina como caja libre y el Cash ROCE (la caja generada en relación con el capital realmente comprometido en el negocio) supera el 70 %. La calidad está ahí. Pero calidad y precio son dos preguntas separadas: Apple responde sí a la primera, y la segunda es la que movió la cotización ese día. Para ver qué significa pagar mucho por una gran empresa, hablo de ello en [este artículo sobre el P/FCF alto](/blog/pfcf-eleve-quand-payer-20-fois-qualite)."
+        },
+        {
+          "type": "h2",
+          "text": "Apple: la frase que importa está en las previsiones"
+        },
+        {
+          "type": "p",
+          "text": "Los resultados miran atrás, el precio mira adelante. En su [comunicado del trimestre](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=AAPL&type=8-K), Apple dio sus previsiones para diciembre: un margen bruto del 45 al 46 %, frente al 47,9 % anterior, y un crecimiento de los servicios del 8 al 9 %, cuando los analistas esperaban cerca del 10,7 %. China, con 17 500 millones de dólares, también quedó por debajo de los 18 600 millones esperados."
+        },
+        {
+          "type": "p",
+          "text": "El margen bruto es lo que queda de las ventas tras pagar el coste directo de los productos. Los comentaristas vinculan la bajada al encarecimiento de los chips de memoria, impulsado por la demanda de los centros de datos de inteligencia artificial. Dos puntos de margen bruto en un trimestre de más de 110 000 millones de ventas equivalen a unos 2000 millones de dólares menos de beneficio: es mi propio cálculo, con ventas comparables, no una cifra anunciada por Apple."
+        },
+        {
+          "type": "p",
+          "text": "Los servicios (suscripciones, App Store, pagos) pesan más que su parte en las ventas: ganan mucho más por dólar que el iPhone, y eso justifica en parte el precio elevado de la acción. Si se frenan, aunque sea al 8 o 9 %, el argumento que sostenía el múltiplo se debilita. Mi lectura: una caída de unos puntos en una acción a 42 veces su caja es una corrección de precio, no un juicio sobre la empresa."
+        },
+        {
+          "type": "h2",
+          "text": "CVS: cuando el anuncio eclipsa las cifras"
+        },
+        {
+          "type": "p",
+          "text": "El caso de CVS es el inverso, y por eso lo elijo. A unas 10 veces su caja libre, la acción está en el medio de su historial (alrededor del percentil 53), no en la cima. La explicación «el precio lo incluía todo» no vale aquí. Otra particularidad: solo el 2,7 % de las ventas termina como caja libre, porque CVS combina una aseguradora de salud y farmacias, dos negocios de márgenes finos donde unos puntos de costes médicos cambian mucho."
+        },
+        {
+          "type": "p",
+          "text": "Esa misma mañana, la dirección anunció su intención de dividir el grupo en dos sociedades cotizadas y dio un primer vistazo a 2027. Mientras tanto, Elevance subía un 4,9 % y UnitedHealth y Cigna también avanzaban. Los analistas citados no identifican una causa única, y no pretendo conocer ninguna. Mi hipótesis, que no puedo demostrar: un trimestre excelente, pero una escisión por digerir y un 2027 aún borroso, y los inversores prefirieron no pagar por adelantado. Una escisión (la explico en [este artículo sobre spin-offs](/blog/spin-off-bourse-bonne-mauvaise-nouvelle-methode-lubin)) cambia la estructura del grupo, no solo un trimestre."
+        },
+        {
+          "type": "p",
+          "text": "La enseñanza es simple: una cifra trimestral es una foto, un anuncio de estructura cambia la película. Cuando llegan el mismo día, se compra o se vende la película. Las cifras detalladas están en los [documentos de la sociedad ante la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=CVS&type=8-K)."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Caso",
+            "Resultados frente a expectativas",
+            "Precio / caja libre",
+            "Posición en su historial",
+            "Qué pesó"
+          ],
+          "rows": [
+            [
+              "Apple",
+              "2,10 $ frente a 1,99 $; 114 500 M$ de ventas",
+              "42 veces",
+              "Más caro que cerca del 96 % de su pasado",
+              "Margen bruto previsto del 45 al 46 %, servicios +8 a 9 %"
+            ],
+            [
+              "CVS Health",
+              "2,09 $ frente a 1,67 $; 108 000 M$ de ventas",
+              "10 veces",
+              "Hacia el medio (percentil 53)",
+              "Escisión anunciada, primer vistazo a 2027"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Tres preguntas antes de concluir"
+        },
+        {
+          "type": "p",
+          "text": "Cuando una acción que sigues cae tras buenas cifras, te propongo tres preguntas, en este orden. Primero: ¿en qué punto de su propio historial se valora? Cuanto más alto, más caro se paga cualquier decepción. Después: ¿qué dice la dirección sobre lo que viene, en margen, crecimiento y costes? Casi siempre ahí se esconde la razón. Por último: ¿pasó algo más ese día, una escisión, una compra, un cambio de directivo?"
+        },
+        {
+          "type": "p",
+          "text": "Si ninguna de las tres da respuesta, eso ya es información: o la caída es ruido de mercado, o el problema está en otra parte y hay que buscar más lejos. En ambos casos, no confundas la caída de un día con un veredicto sobre la empresa. Apple sigue siendo una empresa de calidad muy alta, pero todavía por encima del precio de compra que calculo. CVS cae con fuerza, obtiene 5 sobre 10 en mi cuadrícula de calidad, y la bajada no la vuelve atractiva."
+        },
+        {
+          "type": "h2",
+          "text": "Separar la calidad del precio"
+        },
+        {
+          "type": "p",
+          "text": "Eso es lo que quise poder hacer en segundos con cualquier acción, y por eso construí [mi metodología](/methodologie): juzgar la calidad del negocio por un lado, el precio por otro, y solo después juntarlos. Una caída tras buenos resultados se convierte entonces en una pregunta precisa, no en un enigma."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué cae una acción tras resultados superiores a lo esperado?",
+          "a": "Casi siempre por una de tres razones: su precio ya incluía la buena noticia, las previsiones de la dirección anuncian menos margen o crecimiento, o un anuncio de estructura (escisión, compra) eclipsa el trimestre. Las cifras pasadas importan menos que lo que el mercado espera después."
+        },
+        {
+          "q": "¿Qué es el P/FCF?",
+          "a": "El P/FCF (price to free cash flow) compara el precio de la acción con la caja libre que genera por acción. Un P/FCF de 10 significa que pagas diez años de esa caja. Cuanto más bajo, más barata la acción, a calidad comparable."
+        },
+        {
+          "q": "¿Una caída tras buenos resultados es una oportunidad de compra?",
+          "a": "No automáticamente. Solo lo es si la calidad de la empresa se mantiene y el nuevo precio baja de un nivel de compra razonable. Una caída no es un precio bajo: es un precio más bajo que ayer. Esto no es un consejo de inversión."
+        }
+      ],
+      "tags": [
+        "resultados trimestrales",
+        "caída tras resultados",
+        "precio descontado",
+        "Apple",
+        "CVS Health",
+        "valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Cifras a 18 de noviembre de 2026, sujetas a cambios."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026, articleChimieMateriaux2026, articleTelecoms2026, articleBaisseMalgreResultats2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
   return [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
