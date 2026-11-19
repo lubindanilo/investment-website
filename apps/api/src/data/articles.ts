@@ -109559,6 +109559,615 @@ const articleBaisseMalgreResultats2026: Article = {
   }
 };
 
+const articleLMTvsNOC2026: Article = {
+  "slug": "lockheed-martin-northrop-grumman-comparatif-cash-contre-prix-2026",
+  "date": "2026-11-19",
+  "updated": "2026-11-19",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Lockheed Martin (LMT) ou Northrop (NOC) : cash contre prix",
+      "excerpt": "Lockheed Martin et Northrop Grumman ont publié leurs résultats fin octobre 2026. L'une est moins chère, l'autre passe pourtant mon test de prix : voici pourquoi, et ce que ça vaut.",
+      "metaDescription": "Lockheed Martin ou Northrop Grumman après les résultats d'octobre 2026 : cash libre, contrats, prix. Laquelle est vraiment la moins chère, et pourquoi.",
+      "answer": "Lockheed Martin dégage presque deux fois plus de cash libre et sa valorisation est plus basse, mais Northrop Grumman passe mon test de prix et pas elle. Ce test suppose que le cash de Northrop croît vite, alors que sa direction le prévoit stable en 2026. Le meilleur prix apparent n'est pas le meilleur prix réel.",
+      "body": [
+        {
+          "type": "p",
+          "text": "Fin octobre 2026, les deux grands de la défense américaine ont publié leurs comptes à deux jours d'intervalle. Northrop Grumman le 20 octobre, Lockheed Martin le 22. Même client principal (le Pentagone), même vocabulaire (carnet de commandes record, prévisions relevées), même réaction rassurante des marchés. Sur le papier, deux dossiers jumeaux."
+        },
+        {
+          "type": "p",
+          "text": "Ils ne le sont pas. J'ai passé les deux sociétés dans ma grille d'analyse, qui juge séparément la qualité de l'entreprise (dix critères, notés sur dix) et le prix de l'action. Lockheed Martin obtient 6 sur 10, Northrop Grumman 7 sur 10. Et c'est la plus chère à première vue des deux, Northrop, qui passe mon test de prix, pas Lockheed. Ce paradoxe dit beaucoup sur la façon de lire un comparatif."
+        },
+        {
+          "type": "h2",
+          "text": "Deux profils de cash très différents"
+        },
+        {
+          "type": "p",
+          "text": "Le cash libre (free cash flow) est l'argent qui reste réellement dans l'entreprise après avoir payé les salaires, les usines et les impôts. C'est lui qui finance les dividendes, les rachats d'actions et les désendettements. Chez Lockheed Martin, il représente environ 11 % du chiffre d'affaires. Chez Northrop Grumman, environ 8 %. Sur 100 € de ventes, Lockheed en garde donc près de 3 de plus."
+        },
+        {
+          "type": "p",
+          "text": "Le rendement du capital investi, que je mesure avec le Cash ROCE (le cash généré rapporté au capital réellement engagé), creuse l'écart : 31 % pour Lockheed, 19 % pour Northrop. Autre signe : Lockheed transforme 133 % de son bénéfice comptable en cash, Northrop 78 %. Quand une entreprise encaisse plus qu'elle ne déclare, c'est en général que ses clients paient d'avance. Quand elle encaisse moins, son argent dort dans des programmes en cours de développement."
+        },
+        {
+          "type": "p",
+          "text": "Côté dette, Lockheed pourrait rembourser la sienne avec deux ans de cash libre, Northrop avec un peu plus de trois ans et demi. Rien d'alarmant dans les deux cas pour des fournisseurs d'un État, mais Lockheed a clairement plus de marge de manœuvre."
+        },
+        {
+          "type": "h2",
+          "text": "La pente du cash : Lockheed repart, Northrop stagne"
+        },
+        {
+          "type": "p",
+          "text": "Une photo ne suffit pas, il faut la pente. Le cash libre de Lockheed est passé de 7,7 milliards de dollars en 2021 à 5,3 en 2024, puis à 6,9 en 2025. Dans son [communiqué du troisième trimestre](https://news.lockheedmartin.com/2026-10-22-Lockheed-Martin-Reports-Third-Quarter-2026-Financial-Results), l'entreprise relève sa prévision 2026 à 7,8 à 8,0 milliards (contre 7,0 à 7,2 en juillet). Soit environ 14 % de plus qu'en 2025 au milieu de la fourchette, un calcul de ma part."
+        },
+        {
+          "type": "p",
+          "text": "Northrop raconte l'inverse. Son cash libre a plus que doublé entre 2022 (1,5 milliard) et 2025 (3,3 milliards), mais sa prévision 2026 reste à 3,1 à 3,5 milliards, donc stable. Et le chiffre du trimestre (1,81 milliard, en hausse de 44 %) est flatté par 371 millions de dollars encaissés sur la vente d'équipements à un client, que la société inclut dans sa mesure ajustée, comme le détaille son [rapport trimestriel déposé à la SEC](https://www.sec.gov/Archives/edgar/data/0001133421/000113342126000037/noc-09302026xearningsrelea.htm). Sans cet encaissement ponctuel, on tombe à environ 1,44 milliard, calcul de ma part."
+        },
+        {
+          "type": "p",
+          "text": "Le même trimestre, Lockheed affiche un cash libre de 3,0 milliards contre 3,3 un an plus tôt. La baisse vient surtout d'encaissements clients exceptionnellement élevés au troisième trimestre 2025, ce qui montre qu'un seul trimestre se lit mal : l'année, elle, progresse nettement."
+        },
+        {
+          "type": "h2",
+          "text": "Comment un contrat à prix fixe peut vider une année"
+        },
+        {
+          "type": "p",
+          "text": "Pour comprendre ces montagnes russes, il faut une mécanique du secteur. Un industriel de défense signe soit des contrats « coût plus marge » (l'État rembourse les dépenses et ajoute un bénéfice), soit des contrats à prix fixe (l'industriel s'engage sur un prix et supporte les dérapages). Sur un programme à prix fixe, quand les coûts dépassent le prix prévu, la comptabilité oblige à enregistrer d'un coup la perte attendue sur toute la durée du programme. On parle de « reach-forward loss »."
+        },
+        {
+          "type": "p",
+          "text": "Lockheed en a connu une grosse vague en 2025 : 1,6 milliard de dollars de pertes de ce type sur des programmes ciblés sur les neuf premiers mois, selon son communiqué. En 2026, aucune charge de cette taille. Chez Northrop, le programme du bombardier B-21 avait pesé avec une provision de perte de 477 millions de dollars sur les neuf premiers mois de 2025, sans équivalent cette année. Ces provisions expliquent une bonne part des creux de cash des années récentes, et le risque de rechute reste la question centrale sur les deux titres."
+        },
+        {
+          "type": "p",
+          "text": "Pour Lockheed, un point de vigilance est écrit noir sur blanc : sur l'avion de combat F-35, les coûts du contrat d'acquisition préalable du lot 20 ont commencé à dépasser l'autorisation et le financement obtenus, et la société prévient que sans fonds supplémentaires, ses résultats et son cash seront touchés. Le carnet de commandes, lui, est un record de 292 milliards de dollars, dont 52,5 milliards pour les missiles PAC-3. Un carnet de commandes (backlog) est le total des contrats signés mais pas encore livrés : il rassure sur la visibilité, il ne dit rien de la marge qui sera réellement gagnée dessus."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix en trois temps"
+        },
+        {
+          "type": "p",
+          "text": "Premier temps : où se situe la valorisation dans son propre historique ? Lockheed se valorise environ 16 fois son cash libre, pile au milieu de son passé (percentile 50). Northrop se valorise environ 22 fois, plus cher que 62 % de son passé. Autrement dit, Lockheed est au prix habituel, Northrop un peu au-dessus."
+        },
+        {
+          "type": "p",
+          "text": "Deuxième temps : pourquoi ? Le marché paie plus cher Northrop parce qu'il récompense la montée en cadence du B-21, l'élargissement de ses marges et un cash qui a rebondi vite depuis 2022. Il garde Lockheed au prix habituel parce que l'incertitude du F-35 et l'absence de rachats d'actions pèsent : Lockheed n'en a fait aucun sur les neuf premiers mois de 2026, contre 2,25 milliards un an plus tôt, tandis que Northrop n'en a fait que pour 68 millions (contre 1,17 milliard)."
+        },
+        {
+          "type": "p",
+          "text": "Troisième temps : est-ce justifié ? Sur le cash promis, rapporté à la taille de chaque société, Lockheed rapporte environ 5,8 % de sa valeur de marché avec sa prévision 2026, Northrop environ 4,3 % (calculs de ma part). Le prix de Northrop n'est donc pas justifié par le cash de l'année. Il l'est seulement si la croissance à venir est forte."
+        },
+        {
+          "type": "h2",
+          "text": "Là où mon test de prix atteint sa limite"
+        },
+        {
+          "type": "p",
+          "text": "Mon test calcule un prix d'achat : le cours qui permettrait d'espérer 15 % de rendement par an si le cash par action continue de croître comme dans le passé récent. Pour Northrop, cette croissance observée est de 20 % par an, un chiffre porté par le rebond depuis le creux de 2022. Le prix d'achat ressort à 550 $, juste au-dessus du cours de 543 $. Pour Lockheed, la croissance retenue est de 9,5 % par an, le prix d'achat tombe à 454 $ pour un cours de 578 $ : une surcote de 21 %."
+        },
+        {
+          "type": "p",
+          "text": "C'est là que je dois être honnête avec toi. Northrop passe mon test parce que son passé a été spectaculaire, pas parce que sa direction promet de le répéter : son cash libre prévu pour 2026 est stable. Si la croissance retenue tombe à la moitié, la conclusion s'inverse. La décote de 1,3 % de Northrop est donc fragile, et je la lis comme « au prix, sans marge de sécurité », pas comme « bon marché »."
+        },
+        {
+          "type": "p",
+          "text": "Lockheed, elle, ne passe pas le test, mais l'écart est de ceux qu'un cash prévu en hausse et la levée du doute sur le F-35 pourraient combler. Ce qui casserait la thèse : un financement du lot 20 refusé ou un nouveau programme à prix fixe en dérapage. Pour Northrop, ce serait un B-21 qui recoûte et un cash qui ne décolle pas."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Critère",
+            "Lockheed Martin (LMT)",
+            "Northrop Grumman (NOC)"
+          ],
+          "rows": [
+            [
+              "Cours au 19 novembre 2026",
+              "578 $",
+              "543 $"
+            ],
+            [
+              "Cash libre en pourcentage des ventes",
+              "10,9 %",
+              "8,2 %"
+            ],
+            [
+              "Cash ROCE (rendement du capital)",
+              "31 %",
+              "19 %"
+            ],
+            [
+              "Bénéfice transformé en cash",
+              "133 %",
+              "78 %"
+            ],
+            [
+              "Dette remboursable en",
+              "2,0 ans de cash libre",
+              "3,7 ans de cash libre"
+            ],
+            [
+              "Valorisation (cours / cash libre)",
+              "15,9 fois, au milieu de son passé",
+              "22,0 fois, plus cher que 62 % de son passé"
+            ],
+            [
+              "Cash libre par action, croissance sur 5 ans",
+              "-4,1 % par an",
+              "+24,3 % par an"
+            ],
+            [
+              "Cash libre prévu en 2026",
+              "7,8 à 8,0 Md$ (2025 : 6,9)",
+              "3,1 à 3,5 Md$ (2025 : 3,3)"
+            ],
+            [
+              "Prix d'achat de mon test",
+              "454 $ (cours 21 % trop haut)",
+              "550 $ (cours juste dessous)"
+            ],
+            [
+              "Dividende",
+              "2,5 %, 24ᵉ hausse de suite",
+              "1,8 %, versé à 30 % du bénéfice"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "L'essentiel en quelques lignes"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Lockheed Martin est la machine à cash la plus solide des deux : plus de marge de cash libre, un capital mieux rémunéré, moins de dette.",
+            "Northrop Grumman est la plus chère à première vue, mais son passage de mon test de prix repose sur une croissance passée que sa direction ne promet pas pour 2026.",
+            "Le vrai risque commun s'appelle contrat à prix fixe : une provision de perte peut effacer un an de cash sur un seul programme.",
+            "Aucune des deux n'est une affaire évidente : l'une est un peu chère pour de bonnes raisons, l'autre est au prix pour des raisons fragiles."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "C'est exactement le type de comparaison que je voulais pouvoir faire sans passer des soirées dans les rapports : c'est pour cela que j'ai construit mon outil. Tu peux refaire l'exercice sur [la fiche de Lockheed Martin](/analyse/LMT) et [celle de Northrop Grumman](/analyse/NOC), relire [mon étude du secteur de la défense](/blog/secteur-defense-lmt-noc-rtx-lhx-scores-screener-lubin), ou consulter le [dernier rapport annuel de Lockheed déposé à la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=LMT&type=10-K)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Lockheed Martin ou Northrop Grumman : laquelle est la moins chère ?",
+          "a": "Sur le cash libre, Lockheed Martin : environ 16 fois contre 22 pour Northrop, avec une valorisation au milieu de son historique. Mais mon test de prix, qui projette la croissance passée, classe Northrop juste sous son prix d'achat et Lockheed 21 % au-dessus du sien. Les deux lectures ne disent pas la même chose, et la seconde est fragile."
+        },
+        {
+          "q": "Qu'est-ce qu'une « reach-forward loss » dans la défense ?",
+          "a": "C'est une perte comptabilisée d'un coup, parce qu'un contrat à prix fixe va coûter plus cher que prévu sur toute sa durée. La société n'attend pas de livrer pour acter la perte, ce qui peut effacer une année de profit sur un seul programme."
+        },
+        {
+          "q": "Pourquoi le cash libre de Lockheed a-t-il baissé au troisième trimestre ?",
+          "a": "Il est passé de 3,3 à 3,0 milliards de dollars, selon le communiqué, surtout à cause d'encaissements clients exceptionnellement élevés au troisième trimestre 2025. Sur neuf mois, il progresse nettement : 5,6 milliards contre 4,2."
+        },
+        {
+          "q": "Peut-on acheter l'une des deux d'après cet article ?",
+          "a": "Cet article ne le dit pas, et il ne peut pas le faire : il compare deux entreprises, il ne tient pas compte de ta situation. Ce n'est pas un conseil en investissement. Compare toujours la qualité et le prix, puis décide avec ton propre horizon."
+        }
+      ],
+      "tags": [
+        "Lockheed Martin",
+        "Northrop Grumman",
+        "défense",
+        "comparatif",
+        "cash libre",
+        "valorisation"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Chiffres au 19 novembre 2026, susceptibles d'évoluer."
+    },
+    "en": {
+      "title": "Lockheed Martin (LMT) vs Northrop (NOC): Cash vs Price",
+      "excerpt": "Lockheed Martin and Northrop Grumman reported in late October 2026. One is cheaper, yet the other passes my price test. Here is why, and how much it is worth.",
+      "metaDescription": "Lockheed Martin or Northrop Grumman after the October 2026 results: free cash flow, contracts, price. Which one is really cheaper, and why.",
+      "answer": "Lockheed Martin generates almost twice the free cash flow and trades at a lower valuation, yet Northrop Grumman passes my price test and Lockheed does not. The test assumes Northrop's cash keeps growing fast, while its own management guides it flat for 2026. The best apparent price is not the best real price.",
+      "body": [
+        {
+          "type": "p",
+          "text": "In late October 2026, the two giants of US defense reported two days apart: Northrop Grumman on October 20, Lockheed Martin on October 22. Same main customer (the Pentagon), same vocabulary (record backlog, raised guidance), same reassuring market reaction. On paper, twin stories."
+        },
+        {
+          "type": "p",
+          "text": "They are not. I ran both through my analysis grid, which judges the quality of the business (ten criteria, scored out of ten) separately from the price of the stock. Lockheed Martin scores 6 out of 10, Northrop Grumman 7 out of 10. And it is the more expensive one at first glance, Northrop, that passes my price test, not Lockheed. That paradox says a lot about how to read a comparison."
+        },
+        {
+          "type": "h2",
+          "text": "Two very different cash profiles"
+        },
+        {
+          "type": "p",
+          "text": "Free cash flow is the money that really stays in the company after paying salaries, factories and taxes. It funds dividends, buybacks and debt reduction. At Lockheed Martin it is about 11% of revenue. At Northrop Grumman, about 8%. Out of every $100 of sales, Lockheed keeps almost $3 more."
+        },
+        {
+          "type": "p",
+          "text": "Return on invested capital, which I measure with Cash ROCE (cash generated divided by the capital actually tied up in the business), widens the gap: 31% for Lockheed, 19% for Northrop. Another sign: Lockheed turns 133% of its accounting profit into cash, Northrop 78%. When a company collects more than it reports, its customers usually pay in advance. When it collects less, its money sits in programs still under development."
+        },
+        {
+          "type": "p",
+          "text": "On debt, Lockheed could repay its own with two years of free cash flow, Northrop with a little over three and a half. Nothing alarming for suppliers to a government, but Lockheed clearly has more room to maneuver."
+        },
+        {
+          "type": "h2",
+          "text": "The cash slope: Lockheed recovers, Northrop stalls"
+        },
+        {
+          "type": "p",
+          "text": "A snapshot is not enough, you need the slope. Lockheed's free cash flow went from $7.7 billion in 2021 to $5.3 billion in 2024, then $6.9 billion in 2025. In its [third quarter release](https://news.lockheedmartin.com/2026-10-22-Lockheed-Martin-Reports-Third-Quarter-2026-Financial-Results), the company raises its 2026 guidance to $7.8 to $8.0 billion (from $7.0 to $7.2 billion in July). That is about 14% above 2025 at the midpoint, my own calculation."
+        },
+        {
+          "type": "p",
+          "text": "Northrop tells the opposite story. Its free cash flow more than doubled between 2022 ($1.5 billion) and 2025 ($3.3 billion), but its 2026 guidance stays at $3.1 to $3.5 billion, so flat. And the quarter's figure ($1.81 billion, up 44%) is flattered by $371 million received from selling equipment to a customer, which the company includes in its adjusted measure, as its [quarterly report filed with the SEC](https://www.sec.gov/Archives/edgar/data/0001133421/000113342126000037/noc-09302026xearningsrelea.htm) shows. Without that one-off receipt, it falls to about $1.44 billion, my calculation."
+        },
+        {
+          "type": "p",
+          "text": "The same quarter, Lockheed posts free cash flow of $3.0 billion versus $3.3 billion a year earlier. The drop comes mostly from unusually high customer receipts in the third quarter of 2025, which shows that a single quarter reads poorly: the year, for its part, is clearly rising."
+        },
+        {
+          "type": "h2",
+          "text": "How a fixed price contract can empty a year"
+        },
+        {
+          "type": "p",
+          "text": "To understand these swings you need a sector mechanic. A defense contractor signs either cost-plus contracts (the government reimburses spending and adds a profit) or fixed-price contracts (the contractor commits to a price and absorbs overruns). On a fixed-price program, when costs exceed the planned price, accounting rules require booking the expected loss over the whole program at once. It is called a reach-forward loss."
+        },
+        {
+          "type": "p",
+          "text": "Lockheed went through a big wave of them in 2025: $1.6 billion of such losses on select programs over the first nine months, according to its release. In 2026, no charge of that size. At Northrop, the B-21 bomber program weighed with a $477 million loss provision over the first nine months of 2025, with no equivalent this year. These provisions explain much of the recent cash troughs, and the risk of a relapse remains the central question on both stocks."
+        },
+        {
+          "type": "p",
+          "text": "For Lockheed, one watch point is written in black and white: on the F-35 fighter, costs under the Lot 20 advance acquisition contract began to exceed the authorization and funding received, and the company warns that without additional funds its results and cash will be hit. The backlog, meanwhile, is a record $292 billion, including $52.5 billion for PAC-3 missiles. A backlog is the total of contracts signed but not yet delivered: it gives visibility, but says nothing about the margin that will actually be earned on it."
+        },
+        {
+          "type": "h2",
+          "text": "The price in three steps"
+        },
+        {
+          "type": "p",
+          "text": "Step one: where does the valuation sit in its own history? Lockheed trades at about 16 times its free cash flow, right in the middle of its past (50th percentile). Northrop trades at about 22 times, more expensive than 62% of its past. In other words, Lockheed is at its usual price, Northrop a bit above."
+        },
+        {
+          "type": "p",
+          "text": "Step two: why? The market pays more for Northrop because it rewards the B-21 ramp up, wider margins and cash that rebounded fast since 2022. It keeps Lockheed at its usual price because F-35 uncertainty and the lack of buybacks weigh: Lockheed made none in the first nine months of 2026, versus $2.25 billion a year earlier, while Northrop made only $68 million (versus $1.17 billion)."
+        },
+        {
+          "type": "p",
+          "text": "Step three: is it justified? On promised cash relative to each company's size, Lockheed yields about 5.8% of its market value with its 2026 guidance, Northrop about 4.3% (my calculations). Northrop's price is therefore not justified by this year's cash. It is justified only if future growth is strong."
+        },
+        {
+          "type": "h2",
+          "text": "Where my price test reaches its limit"
+        },
+        {
+          "type": "p",
+          "text": "My test computes a buy price: the share price that would let you hope for a 15% annual return if cash per share keeps growing as in the recent past. For Northrop, that observed growth is 20% a year, a figure driven by the rebound from the 2022 trough. The buy price comes out at $550, just above the $543 share price. For Lockheed, the growth used is 9.5% a year, the buy price drops to $454 against a $578 share price: a 21% premium."
+        },
+        {
+          "type": "p",
+          "text": "Here I have to be honest with you. Northrop passes my test because its past was spectacular, not because its management promises to repeat it: its guided 2026 free cash flow is flat. If the growth used falls by half, the conclusion flips. Northrop's 1.3% discount is therefore fragile, and I read it as at the price, with no safety margin, not as cheap."
+        },
+        {
+          "type": "p",
+          "text": "Lockheed does not pass the test, but the gap is the kind that guided higher cash and clarity on the F-35 could close. What would break the thesis: a refused Lot 20 funding or a new fixed-price program running over. For Northrop, it would be a B-21 that costs more again and cash that does not take off."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterion",
+            "Lockheed Martin (LMT)",
+            "Northrop Grumman (NOC)"
+          ],
+          "rows": [
+            [
+              "Share price on November 19, 2026",
+              "$578",
+              "$543"
+            ],
+            [
+              "Free cash flow as a share of sales",
+              "10.9%",
+              "8.2%"
+            ],
+            [
+              "Cash ROCE (return on capital)",
+              "31%",
+              "19%"
+            ],
+            [
+              "Profit converted into cash",
+              "133%",
+              "78%"
+            ],
+            [
+              "Debt repayable in",
+              "2.0 years of free cash flow",
+              "3.7 years of free cash flow"
+            ],
+            [
+              "Valuation (price / free cash flow)",
+              "15.9 times, mid range of its past",
+              "22.0 times, above 62% of its past"
+            ],
+            [
+              "Free cash flow per share, 5 year growth",
+              "-4.1% a year",
+              "+24.3% a year"
+            ],
+            [
+              "Guided 2026 free cash flow",
+              "$7.8 to 8.0bn (2025: 6.9)",
+              "$3.1 to 3.5bn (2025: 3.3)"
+            ],
+            [
+              "Buy price from my test",
+              "$454 (price 21% too high)",
+              "$550 (price just below)"
+            ],
+            [
+              "Dividend",
+              "2.5%, 24th straight increase",
+              "1.8%, paid out at 30% of earnings"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "The essentials in a few lines"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Lockheed Martin is the sturdier cash machine of the two: more free cash margin, better paid capital, less debt.",
+            "Northrop Grumman is the more expensive at first glance, but its pass on my price test rests on past growth its management does not promise for 2026.",
+            "The shared real risk is called fixed-price contracts: a loss provision can wipe out a year of cash on a single program.",
+            "Neither is an obvious bargain: one is a bit expensive for good reasons, the other is at its price for fragile reasons."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "This is exactly the kind of comparison I wanted to run without spending evenings in annual reports: that is why I built my tool. You can redo the exercise on [the Lockheed Martin page](/analyse/LMT) and [the Northrop Grumman page](/analyse/NOC), reread [my study of the defense sector](/blog/secteur-defense-lmt-noc-rtx-lhx-scores-screener-lubin), or check [Lockheed's latest annual report filed with the SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=LMT&type=10-K)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Lockheed Martin or Northrop Grumman: which one is cheaper?",
+          "a": "On free cash flow, Lockheed Martin: about 16 times versus 22 for Northrop, with a valuation in the middle of its history. But my price test, which projects past growth, puts Northrop just under its buy price and Lockheed 21% above its own. The two readings do not say the same thing, and the second is fragile."
+        },
+        {
+          "q": "What is a reach-forward loss in defense?",
+          "a": "It is a loss booked all at once because a fixed-price contract will cost more than planned over its whole life. The company does not wait for delivery to record the loss, which can wipe out a year of profit on a single program."
+        },
+        {
+          "q": "Why did Lockheed's free cash flow fall in the third quarter?",
+          "a": "It went from $3.3 to $3.0 billion, according to the release, mostly because of unusually high customer receipts in the third quarter of 2025. Over nine months it is clearly up: $5.6 billion versus $4.2 billion."
+        },
+        {
+          "q": "Can you buy one of the two based on this article?",
+          "a": "This article does not say so, and it cannot: it compares two companies, it does not take your situation into account. This is not investment advice. Always compare quality and price, then decide with your own horizon."
+        }
+      ],
+      "tags": [
+        "Lockheed Martin",
+        "Northrop Grumman",
+        "defense",
+        "comparison",
+        "free cash flow",
+        "valuation"
+      ],
+      "disclaimer": "Analysis for information and education only, not personalized investment advice. Past performance does not guarantee future results. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I tell you so you can read this analysis knowing that. Figures as of November 19, 2026, subject to change."
+    },
+    "es": {
+      "title": "Lockheed Martin (LMT) o Northrop (NOC): caja o precio",
+      "excerpt": "Lockheed Martin y Northrop Grumman publicaron resultados a finales de octubre de 2026. Una es más barata, pero la otra pasa mi prueba de precio: te explico por qué y cuánto vale.",
+      "metaDescription": "Lockheed Martin o Northrop Grumman tras los resultados de octubre de 2026: caja libre, contratos, precio. Cuál es realmente más barata y por qué.",
+      "answer": "Lockheed Martin genera casi el doble de caja libre y cotiza a una valoración más baja, pero Northrop Grumman pasa mi prueba de precio y ella no. La prueba supone que la caja de Northrop sigue creciendo rápido, cuando su propia dirección la prevé estable en 2026. El mejor precio aparente no es el mejor precio real.",
+      "body": [
+        {
+          "type": "p",
+          "text": "A finales de octubre de 2026, los dos grandes de la defensa estadounidense publicaron sus cuentas con dos días de diferencia: Northrop Grumman el 20 de octubre y Lockheed Martin el 22. Mismo cliente principal (el Pentágono), mismo vocabulario (cartera de pedidos récord, previsiones al alza), misma reacción tranquilizadora del mercado. Sobre el papel, dos casos gemelos."
+        },
+        {
+          "type": "p",
+          "text": "No lo son. Pasé las dos empresas por mi rejilla de análisis, que juzga por separado la calidad del negocio (diez criterios, puntuados sobre diez) y el precio de la acción. Lockheed Martin obtiene 6 sobre 10, Northrop Grumman 7 sobre 10. Y la más cara a primera vista, Northrop, es la que pasa mi prueba de precio, no Lockheed. Esa paradoja dice mucho sobre cómo leer una comparación."
+        },
+        {
+          "type": "h2",
+          "text": "Dos perfiles de caja muy distintos"
+        },
+        {
+          "type": "p",
+          "text": "La caja libre (free cash flow) es el dinero que realmente queda en la empresa después de pagar salarios, fábricas e impuestos. Financia los dividendos, las recompras de acciones y la reducción de deuda. En Lockheed Martin representa cerca del 11 % de las ventas. En Northrop Grumman, cerca del 8 %. De cada 100 $ de ventas, Lockheed se queda con casi 3 más."
+        },
+        {
+          "type": "p",
+          "text": "El retorno del capital invertido, que mido con el Cash ROCE (la caja generada dividida por el capital realmente comprometido en el negocio), amplía la diferencia: 31 % para Lockheed, 19 % para Northrop. Otra señal: Lockheed convierte en caja el 133 % de su beneficio contable, Northrop el 78 %. Cuando una empresa cobra más de lo que declara, normalmente es que sus clientes pagan por adelantado. Cuando cobra menos, su dinero duerme en programas aún en desarrollo."
+        },
+        {
+          "type": "p",
+          "text": "En deuda, Lockheed podría devolver la suya con dos años de caja libre, Northrop con algo más de tres años y medio. Nada alarmante para proveedores de un Estado, pero Lockheed tiene claramente más margen de maniobra."
+        },
+        {
+          "type": "h2",
+          "text": "La pendiente de la caja: Lockheed repunta, Northrop se estanca"
+        },
+        {
+          "type": "p",
+          "text": "Una foto no basta, hace falta la pendiente. La caja libre de Lockheed pasó de 7.700 millones de dólares en 2021 a 5.300 en 2024 y luego a 6.900 en 2025. En su [comunicado del tercer trimestre](https://news.lockheedmartin.com/2026-10-22-Lockheed-Martin-Reports-Third-Quarter-2026-Financial-Results), la empresa eleva su previsión de 2026 a entre 7.800 y 8.000 millones (frente a 7.000 a 7.200 en julio). Eso es un 14 % más que en 2025 en el punto medio, cálculo mío."
+        },
+        {
+          "type": "p",
+          "text": "Northrop cuenta lo contrario. Su caja libre más que se duplicó entre 2022 (1.500 millones) y 2025 (3.300 millones), pero su previsión de 2026 sigue en 3.100 a 3.500 millones, es decir, estable. Y la cifra del trimestre (1.810 millones, un 44 % más) está inflada por 371 millones de dólares cobrados por la venta de equipos a un cliente, que la empresa incluye en su medida ajustada, como detalla su [informe trimestral presentado ante la SEC](https://www.sec.gov/Archives/edgar/data/0001133421/000113342126000037/noc-09302026xearningsrelea.htm). Sin ese cobro puntual, baja a unos 1.440 millones, cálculo mío."
+        },
+        {
+          "type": "p",
+          "text": "En el mismo trimestre, Lockheed registra una caja libre de 3.000 millones frente a 3.300 un año antes. La caída se debe sobre todo a cobros de clientes excepcionalmente altos en el tercer trimestre de 2025, lo que demuestra que un solo trimestre se lee mal: el año, en cambio, sube con claridad."
+        },
+        {
+          "type": "h2",
+          "text": "Cómo un contrato a precio fijo puede vaciar un año"
+        },
+        {
+          "type": "p",
+          "text": "Para entender estos vaivenes hace falta una mecánica del sector. Un contratista de defensa firma contratos de coste más margen (el Estado reembolsa los gastos y añade un beneficio) o contratos a precio fijo (el contratista se compromete a un precio y asume los sobrecostes). En un programa a precio fijo, cuando los costes superan el precio previsto, la contabilidad obliga a registrar de golpe la pérdida esperada en toda la duración del programa. Se llama reach-forward loss."
+        },
+        {
+          "type": "p",
+          "text": "Lockheed vivió una gran oleada en 2025: 1.600 millones de dólares de pérdidas de este tipo en programas concretos en los nueve primeros meses, según su comunicado. En 2026, ningún cargo de ese tamaño. En Northrop, el programa del bombardero B-21 pesó con una provisión de pérdida de 477 millones de dólares en los nueve primeros meses de 2025, sin equivalente este año. Estas provisiones explican buena parte de los valles de caja recientes, y el riesgo de recaída sigue siendo la pregunta central en ambos valores."
+        },
+        {
+          "type": "p",
+          "text": "Para Lockheed hay un punto de vigilancia escrito negro sobre blanco: en el caza F-35, los costes del contrato de adquisición anticipada del lote 20 empezaron a superar la autorización y la financiación obtenidas, y la empresa advierte de que sin fondos adicionales sus resultados y su caja se verán afectados. La cartera de pedidos, por su parte, es un récord de 292.000 millones de dólares, de los cuales 52.500 millones corresponden a misiles PAC-3. La cartera de pedidos (backlog) es el total de contratos firmados pero aún no entregados: da visibilidad, pero no dice nada del margen que se ganará realmente."
+        },
+        {
+          "type": "h2",
+          "text": "El precio en tres tiempos"
+        },
+        {
+          "type": "p",
+          "text": "Primer tiempo: ¿dónde está la valoración en su propio historial? Lockheed cotiza a unas 16 veces su caja libre, justo en el medio de su pasado (percentil 50). Northrop cotiza a unas 22 veces, más cara que el 62 % de su pasado. Es decir, Lockheed está a su precio habitual y Northrop algo por encima."
+        },
+        {
+          "type": "p",
+          "text": "Segundo tiempo: ¿por qué? El mercado paga más por Northrop porque premia el aumento de cadencia del B-21, la ampliación de márgenes y una caja que rebotó rápido desde 2022. Mantiene a Lockheed en su precio habitual porque pesan la incertidumbre del F-35 y la ausencia de recompras: Lockheed no hizo ninguna en los nueve primeros meses de 2026, frente a 2.250 millones un año antes, mientras que Northrop solo recompró por 68 millones (frente a 1.170 millones)."
+        },
+        {
+          "type": "p",
+          "text": "Tercer tiempo: ¿está justificado? Sobre la caja prometida en relación con el tamaño de cada empresa, Lockheed rinde cerca del 5,8 % de su valor de mercado con su previsión de 2026, Northrop cerca del 4,3 % (cálculos míos). El precio de Northrop no se justifica, pues, por la caja de este año. Solo se justifica si el crecimiento futuro es fuerte."
+        },
+        {
+          "type": "h2",
+          "text": "Donde mi prueba de precio llega a su límite"
+        },
+        {
+          "type": "p",
+          "text": "Mi prueba calcula un precio de compra: la cotización que permitiría esperar un 15 % de rentabilidad anual si la caja por acción sigue creciendo como en el pasado reciente. Para Northrop, ese crecimiento observado es del 20 % anual, una cifra impulsada por el rebote desde el mínimo de 2022. El precio de compra sale a 550 $, justo por encima de la cotización de 543 $. Para Lockheed, el crecimiento aplicado es del 9,5 % anual, el precio de compra baja a 454 $ con una cotización de 578 $: una sobrevaloración del 21 %."
+        },
+        {
+          "type": "p",
+          "text": "Aquí debo ser honesto contigo. Northrop pasa mi prueba porque su pasado fue espectacular, no porque su dirección prometa repetirlo: su caja libre prevista para 2026 es estable. Si el crecimiento aplicado cae a la mitad, la conclusión se invierte. El descuento del 1,3 % de Northrop es, por tanto, frágil, y lo leo como «al precio, sin margen de seguridad», no como «barata»."
+        },
+        {
+          "type": "p",
+          "text": "Lockheed no pasa la prueba, pero la brecha es de las que una caja prevista al alza y la aclaración del F-35 podrían cerrar. Lo que rompería la tesis: una financiación del lote 20 denegada o un nuevo programa a precio fijo con sobrecostes. Para Northrop, sería un B-21 que vuelve a costar más y una caja que no despega."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Criterio",
+            "Lockheed Martin (LMT)",
+            "Northrop Grumman (NOC)"
+          ],
+          "rows": [
+            [
+              "Cotización al 19 de noviembre de 2026",
+              "578 $",
+              "543 $"
+            ],
+            [
+              "Caja libre como porcentaje de las ventas",
+              "10,9 %",
+              "8,2 %"
+            ],
+            [
+              "Cash ROCE (retorno del capital)",
+              "31 %",
+              "19 %"
+            ],
+            [
+              "Beneficio convertido en caja",
+              "133 %",
+              "78 %"
+            ],
+            [
+              "Deuda reembolsable en",
+              "2,0 años de caja libre",
+              "3,7 años de caja libre"
+            ],
+            [
+              "Valoración (cotización / caja libre)",
+              "15,9 veces, en el medio de su pasado",
+              "22,0 veces, más cara que el 62 % de su pasado"
+            ],
+            [
+              "Caja libre por acción, crecimiento a 5 años",
+              "-4,1 % anual",
+              "+24,3 % anual"
+            ],
+            [
+              "Caja libre prevista en 2026",
+              "7.800 a 8.000 M$ (2025: 6.900)",
+              "3.100 a 3.500 M$ (2025: 3.300)"
+            ],
+            [
+              "Precio de compra de mi prueba",
+              "454 $ (cotización 21 % alta)",
+              "550 $ (cotización justo debajo)"
+            ],
+            [
+              "Dividendo",
+              "2,5 %, 24.ª subida seguida",
+              "1,8 %, pagado al 30 % del beneficio"
+            ]
+          ]
+        },
+        {
+          "type": "h2",
+          "text": "Lo esencial en pocas líneas"
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Lockheed Martin es la máquina de caja más sólida de las dos: más margen de caja libre, capital mejor remunerado, menos deuda.",
+            "Northrop Grumman es la más cara a primera vista, pero su aprobado en mi prueba de precio se apoya en un crecimiento pasado que su dirección no promete para 2026.",
+            "El riesgo real compartido se llama contrato a precio fijo: una provisión de pérdida puede borrar un año de caja en un solo programa.",
+            "Ninguna es una ganga evidente: una es algo cara por buenas razones, la otra está en su precio por razones frágiles."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Es exactamente el tipo de comparación que quería poder hacer sin pasar las tardes entre informes anuales: por eso construí mi herramienta. Puedes repetir el ejercicio en [la ficha de Lockheed Martin](/analyse/LMT) y [la de Northrop Grumman](/analyse/NOC), releer [mi estudio del sector de defensa](/blog/secteur-defense-lmt-noc-rtx-lhx-scores-screener-lubin) o consultar [el último informe anual de Lockheed presentado ante la SEC](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=LMT&type=10-K)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Lockheed Martin o Northrop Grumman: cuál es más barata?",
+          "a": "En caja libre, Lockheed Martin: unas 16 veces frente a 22 de Northrop, con una valoración en el medio de su historial. Pero mi prueba de precio, que proyecta el crecimiento pasado, sitúa a Northrop justo bajo su precio de compra y a Lockheed un 21 % por encima del suyo. Las dos lecturas no dicen lo mismo, y la segunda es frágil."
+        },
+        {
+          "q": "¿Qué es una «reach-forward loss» en defensa?",
+          "a": "Es una pérdida contabilizada de golpe porque un contrato a precio fijo costará más de lo previsto en toda su vida. La empresa no espera a entregar para reconocer la pérdida, lo que puede borrar un año de beneficio en un solo programa."
+        },
+        {
+          "q": "¿Por qué bajó la caja libre de Lockheed en el tercer trimestre?",
+          "a": "Pasó de 3.300 a 3.000 millones de dólares, según el comunicado, sobre todo por cobros de clientes excepcionalmente altos en el tercer trimestre de 2025. En nueve meses sube con claridad: 5.600 millones frente a 4.200."
+        },
+        {
+          "q": "¿Se puede comprar una de las dos a partir de este artículo?",
+          "a": "Este artículo no lo dice, y no puede hacerlo: compara dos empresas, no tiene en cuenta tu situación. No es un consejo de inversión. Compara siempre calidad y precio y decide con tu propio horizonte."
+        }
+      ],
+      "tags": [
+        "Lockheed Martin",
+        "Northrop Grumman",
+        "defensa",
+        "comparativa",
+        "caja libre",
+        "valoración"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Cifras a 19 de noviembre de 2026, sujetas a cambios."
+    }
+  }
+};
+
 export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026, articleHDvsLOW2026, articleHasbro2026, articleWallStreetPlusBas2026, articleSuisse2026, articleAllemagne2026, articleWalmartCostco2026, articleBookingAirbnb2026, articleAirbusBoeing2026, articleRoyaumeUni2026, articleActionChereHistoire2026, articleSuedeQualite2026, articleTotalShell2026, articleDanemarkQualite2026, articlePaysBas2026, articleCATvsDE2026, articleItalie2026, articleQuandVendre2026, articleEspagne2026, articleUSSousEvaluees2026, articleUPSvsFDX2026, articleAustralie2026, articleVisaMastercard2026, articleMcdSbux2026, articleNkeLulu2026, articleChineQualite2026, articleDefensivesStaples2026, articleJeuxVideo2026, articleXOMvsCVX2026, articleChoisirAction2026, articleAutosPeuCheres2026, articleChimieMateriaux2026, articleTelecoms2026, articleBaisseMalgreResultats2026];
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
@@ -109571,6 +110180,6 @@ export function getArticleBySlug(slug: string): Article | undefined {
 
 /** Normalise une langue i18n quelconque vers une langue d'article supportée. */
 export function toArticleLang(lng: string | undefined | null): ArticleLang {
-  const base = (lng || 'fr').toLowerCase().split('-')[0];
+  const base = (lng || 'fr').toLowerCase().split('-')[0, articleLMTvsNOC2026];
   return base === 'en' ? 'en' : base === 'es' ? 'es' : 'fr';
 }
