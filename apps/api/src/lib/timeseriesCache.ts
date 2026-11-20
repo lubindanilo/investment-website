@@ -77,8 +77,13 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  *     douze mois — P/FCF ASML.AS mesuré à 21,8× au lieu de 42,2× à la même date, exactement la
  *     divergence carte/graphe remontée en prod. Le fix change la valeur de `flow()` pour tout
  *     titre dont le store contient un tel outlier : bump obligatoire, pas facultatif.
+ * 11 = 20/11/2026, suite immédiate de la 10 : un trimestre outlier fait désormais basculer
+ *     TOUT le chemin intra-annuel sur l'annuel complet (pfcfHistory.ts), au lieu de juste
+ *     percer un trou dans la série — la génération 10 perçait un trou qui coupait le graphe
+ *     bien avant aujourd'hui (ASML.AS : s'arrêtait en avril 2025) dès que l'outlier touchait
+ *     la fenêtre la plus récente. Changement de valeur pour tout titre concerné : bump.
  */
-const CHART_STRATEGY_GENERATION = 10;
+const CHART_STRATEGY_GENERATION = 11;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /
