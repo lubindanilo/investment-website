@@ -74,6 +74,9 @@ function isCriteria(value: unknown): value is Criteria {
 
 const prisma = new PrismaClient();
 
+/** Renseigne des qu'une partie du travail n'a PAS ete faite : le job sortira en echec. */
+let incomplete: string | undefined;
+
 async function main() {
   const total = await prisma.resilienceStarScore.count();
   const rows = await prisma.resilienceStarScore.findMany({
@@ -122,6 +125,18 @@ async function main() {
       console.log(
         `  ${report.changed} phrases reaccentuees, ${report.rejected} refusees par l'invariant, ${report.failedBatches} lots perdus.`,
       );
+
+      // Un lot perdu laisse ses phrases FAUTIVES en base. Le run du 11/08/2026 en a perdu 63 sur
+      // 175 (plafond d'abonnement) et s'est affiche VERT : un tiers du travail manquant sous une
+      // coche verte, sans que personne ne le sache. Le job doit dire la verite sur ce qu'il a fait.
+      if (report.abortedAtBatch !== undefined) {
+        const doneTickers = Math.floor((report.abortedAtBatch * BATCH) / CRITERION_KEYS.length);
+        incomplete =
+          `Plafond atteint apres ~${doneTickers} tickers de cette tranche. ` +
+          `Les lignes deja relues sont ecrites ; reprendre plus tard avec --offset ${(OFFSET ?? 0) + doneTickers}.`;
+      } else if (report.failedBatches > 0) {
+        incomplete = `${report.failedBatches} lots perdus sur ${Math.ceil(pending.length / BATCH)} : autant de phrases laissees fautives.`;
+      }
     }
   }
 
@@ -168,6 +183,14 @@ async function main() {
 }
 
 main()
+  .then(() => {
+    // Les lignes relues sont TOUJOURS ecrites, meme quand la passe s'est arretee en route : ce qui
+    // a ete corrige est acquis. L'echec ne sert qu'a rendre l'incompletude visible dans l'onglet
+    // Actions, au lieu d'une coche verte qui laisse croire que la tranche est terminee.
+    if (!incomplete) return;
+    console.error(`::error::Rattrapage INCOMPLET. ${incomplete}`);
+    process.exitCode = 1;
+  })
   .catch(error => {
     console.error(error);
     process.exitCode = 1;
