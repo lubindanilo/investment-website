@@ -25,6 +25,7 @@
     "screener:drain": "tsx scripts/drainScreener.ts",
     "neon:status": "tsx scripts/neonStatus.ts",
     "pfcf:diag": "tsx scripts/pfcfHistoryDiag.ts",
+    "pfcf:raw-diag": "tsx scripts/pfcfRawDiag.ts",
     "stockanalysis:backfill": "tsx src/_backfill_stockanalysis.ts"
   },
   "dependencies": {

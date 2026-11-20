@@ -13,6 +13,10 @@ on:
         description: 'Tickers a verifier, separes par des virgules'
         required: false
         default: 'ASML,ASML.AS,LVMH.PA,MC.PA,AAPL'
+      raw_ticker:
+        description: 'Ticker pour le dump brut (pfcf:raw-diag) - vide = skip'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -26,6 +30,7 @@ jobs:
       DIRECT_URL: ${{ secrets.DATABASE_URL }}
       FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       PFCF_DIAG_TICKERS: ${{ inputs.tickers }}
+      PFCF_RAW_TICKER: ${{ inputs.raw_ticker }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -34,3 +39,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
       - run: pnpm --filter @lubin/api run pfcf:diag
+        if: inputs.tickers != ''
+      - run: pnpm --filter @lubin/api run pfcf:raw-diag
+        if: inputs.raw_ticker != ''
