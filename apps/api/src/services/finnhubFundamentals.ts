@@ -12,7 +12,8 @@ import { finnhubLimiter } from '../lib/limiter.js';
 import { fetchWithRetry } from '../lib/retry.js';
 import type { TimeseriesPoint } from '@lubin/shared';
 import { fetchSplitEvents, splitAdjustWithDiscontinuity, normalizeShareScale, type SplitEvent } from './yahooSplits.js';
-import { getEdgarQuarterlySeries } from './secEdgar.js';
+import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS } from './secEdgar.js';
+import { reconcileWithEdgar } from './edgarQuarterReconcile.js';
 import { readSeries, isFresh, appendMergePersist } from './fundamentalsStore.js';
 
 const BASE = 'https://finnhub.io/api/v1';
@@ -1246,8 +1247,17 @@ export async function getReportedTimeseries(
   // — sans toucher aux points Finnhub existants ni à aucune formule en aval.
   let windowed = filterWindow(points, buildYears);
   let usedEdgar = false;
-  if (freq === 'quarterly' && !ticker.includes('.') && hasQuarterlyGap(windowed)) {
-    const edgar = await getEdgarQuarterlySeries(ticker, metric).catch(() => [] as TimeseriesPoint[]);
+  // EDGAR sert à DEUX choses sur les flux US : combler les trous (comme avant) et RECOUPER les
+  // trimestres déjà présents (cf. edgarQuarterReconcile : T4 dérivé faux, T2 resté en cumul).
+  // Le recoupement ne vaut que pour les flux à concepts simples, ancrés sur le total du 10-K.
+  const isUsQuarterly = freq === 'quarterly' && !ticker.includes('.');
+  const reconcile = isUsQuarterly && EDGAR_ANNUAL_ANCHOR_METRICS.has(metric);
+  const wantEdgar = reconcile || (isUsQuarterly && hasQuarterlyGap(windowed));
+  const [edgar, edgarAnnual] = await Promise.all([
+    wantEdgar ? getEdgarQuarterlySeries(ticker, metric).catch(() => [] as TimeseriesPoint[]) : Promise.resolve([] as TimeseriesPoint[]),
+    reconcile ? getEdgarAnnualFlowCandidates(ticker, metric).catch(() => new Map<string, number[]>()) : Promise.resolve(new Map<string, number[]>()),
+  ]);
+  if (isUsQuarterly && hasQuarterlyGap(windowed)) {
     if (edgar.length > 0) {
       // Dédup par PROXIMITÉ (±20j) : les dates de fin de période Finnhub vs EDGAR peuvent
       // différer de quelques jours pour le même trimestre → un match exact créerait des doublons.
@@ -1262,13 +1272,31 @@ export async function getReportedTimeseries(
     }
   }
 
+  // ─── Recoupement EDGAR des flux (cf. edgarQuarterReconcile) ─────────────────
+  // Appliqué à la reconstruction ET au stock existant : le store est append-only, une valeur
+  // fausse déjà écrite n'en repartirait jamais sinon. Seule exception assumée à la règle
+  // « jamais d'écrasement » : un trimestre que la SEC contredit ET qui empêche l'exercice de
+  // boucler sur le 10-K est une erreur de calcul, pas une donnée point-in-time à préserver.
+  let stockToMerge = storedSeries;
+  if (reconcile && edgar.length > 0 && edgarAnnual.size > 0) {
+    const built = reconcileWithEdgar(windowed, edgar, edgarAnnual);
+    windowed = built.points;
+    const stock = storedSeries ? reconcileWithEdgar(storedSeries.points, edgar, edgarAnnual) : null;
+    if (stock && stock.corrections.length > 0) stockToMerge = { ...storedSeries!, points: stock.points };
+    const n = built.corrections.length + (stock?.corrections.length ?? 0);
+    if (n > 0) {
+      usedEdgar = true;
+      console.log(`[edgar ${ticker}/${metric}] ${n} trimestre(s) corrigé(s) par recoupement SEC`);
+    }
+  }
+
   // ─── Persistance store (append-only) ────────────────────────────────────────
   // `windowed` = série reconstruite (pré-split, fenêtre pleine). On la fusionne append-only
   // dans le store (n'ajoute que les trimestres absents, jamais d'écrasement), puis on sert la
   // série EFFECTIVE tranchée à `cap` et ajustée splits à la lecture.
   if (useStore) {
     const source = windowed.length === 0 ? 'finnhub-empty' : (usedEdgar ? 'finnhub+edgar' : 'finnhub');
-    const effective = await appendMergePersist(ticker, metric, storedSeries, windowed, source, Date.now());
+    const effective = await appendMergePersist(ticker, metric, stockToMerge, windowed, source, Date.now());
     return splitAdjustIfNeeded(filterWindow(effective, cap), ticker, metric);
   }
   return splitAdjustIfNeeded(filterWindow(windowed, cap), ticker, metric);

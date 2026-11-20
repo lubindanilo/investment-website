@@ -866,3 +866,38 @@ export async function getEdgarQuarterlySeries(ticker: string, metric: MetricKey)
   if (all.length === 0) return [];
   return cfg.cumulative ? decumulateFlow(all) : pointInTime(all, isShares);
 }
+
+/** Métriques de flux dont les concepts EDGAR sont « simples » (pas de composition calculée). */
+export const EDGAR_ANNUAL_ANCHOR_METRICS: ReadonlySet<MetricKey> = new Set<MetricKey>(['revenue', 'netIncome', 'cfo', 'costOfRevenue']);
+
+/**
+ * Valeurs ANNUELLES (10-K, exercice plein 330-400 j) d'une métrique de flux, par date de fin
+ * d'exercice, TOUS concepts candidats confondus (un déposant peut publier `Revenues` ET
+ * `RevenueFromContractWithCustomer…`, ou changer de tag dans le temps). Sert d'ancre au
+ * recoupement des trimestres (edgarQuarterReconcile) : on garde toutes les variantes et c'est
+ * l'appelant qui retient celle qui boucle l'exercice. Map vide si non-US, métrique hors
+ * EDGAR_ANNUAL_ANCHOR_METRICS ou rien chez EDGAR. Best-effort, jamais de throw.
+ */
+export async function getEdgarAnnualFlowCandidates(ticker: string, metric: MetricKey): Promise<Map<string, number[]>> {
+  const out = new Map<string, number[]>();
+  if (!EDGAR_ANNUAL_ANCHOR_METRICS.has(metric)) return out;
+  const cfg = METRICS[metric];
+  if (!cfg?.cumulative) return out;
+  const cik = await getCik(ticker);
+  if (!cik) return out;
+  for (const raw of cfg.concepts.filter(c => !c.startsWith('__'))) {
+    const [taxonomy, ...rest] = raw.split('_');
+    const concept = rest.join('_');
+    if (!taxonomy || !concept) continue;
+    const entries = await fetchConcept(cik, taxonomy, concept, 'USD').catch(() => null);
+    for (const e of entries ?? []) {
+      if (!e.start || !e.end || !Number.isFinite(e.val) || !/^10-K/.test(e.form ?? '')) continue;
+      const dur = daysBetween(e.start, e.end);
+      if (dur < 330 || dur > 400) continue;
+      const vals = out.get(e.end) ?? [];
+      if (!vals.includes(e.val)) vals.push(e.val);
+      out.set(e.end, vals);
+    }
+  }
+  return out;
+}

@@ -18,6 +18,7 @@ import {
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import { api, ApiError } from '../lib/api.js';
+import { currentLocale } from '../i18n/index.js';
 import './HistogramModal.css';
 
 interface CccHistoryPoint {
@@ -156,7 +157,7 @@ export function CccChartModal({ ticker, onClose }: Props) {
                       if (n === 'CCC') return [`${v} j`, t('ccc.chart.ccc')];
                       return [`${v}`, n];
                     }}
-                    labelFormatter={d => formatQuarter(String(d))}
+                    labelFormatter={d => t('chart.tooltipQuarter', { period: formatQuarter(String(d)) })}
                   />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   <ReferenceLine y={0} stroke="var(--text2)" strokeWidth={1.5} />
@@ -217,10 +218,10 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
   );
 }
 
+/** Mois de clôture du trimestre (« juil. 2026 »), pas un « Qn » civil : cf. HistogramModal.formatPeriod. */
 function formatQuarter(isoDate: string): string {
   const m = isoDate.match(/^(\d{4})-(\d{2})/);
   if (!m) return isoDate;
-  const month = parseInt(m[2]!, 10);
-  const q = month <= 3 ? 'Q1' : month <= 6 ? 'Q2' : month <= 9 ? 'Q3' : 'Q4';
-  return `${q} ${m[1]}`;
+  return new Date(Date.UTC(Number(m[1]), parseInt(m[2]!, 10) - 1, 15))
+    .toLocaleDateString(currentLocale(), { month: 'short', year: 'numeric', timeZone: 'UTC' });
 }

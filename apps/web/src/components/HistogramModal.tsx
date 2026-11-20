@@ -259,7 +259,7 @@ export function HistogramModal({ ticker, config, currency = 'USD', onClose }: Pr
 
             {stats && (
               <div className="hist-stats">
-                <Stat label={t(LAST_PERIOD_KEY[freq])} value={`${formatFull(stats.latest.value, config.unit, currency)} (${formatPeriod(stats.latest.date, freq)})`} />
+                <Stat label={t(LAST_PERIOD_KEY[freq])} value={`${formatFull(stats.latest.value, config.unit, currency)} (${freq === 'quarterly' ? t('chart.periodEnded', { period: formatPeriod(stats.latest.date, freq) }) : formatPeriod(stats.latest.date, freq)})`} />
                 <Stat label={t('chart.stat.avg')} value={formatFull(stats.avg, config.unit, currency)} />
                 {stats.cagr !== null && (
                   <Stat label={t('chart.stat.cagr')} value={(stats.cagr * 100).toFixed(2) + t('chart.perYear')} accent={stats.cagr >= 0 ? 'green' : 'red'} />
@@ -307,9 +307,15 @@ function formatFull(v: number, unit: CriterionHistogram['unit'], currency = 'USD
 }
 
 /**
- * Étiquette une date de fin de période selon la granularité SERVIE : « Q3 2025 », « S1 2025 »
- * ou « 2025 ». Un émetteur semestriel (Vinci, LVMH…) clôture ses semestres en juin et décembre :
- * les annoncer « Q2 » / « Q4 » ferait croire à des trimestres dont trois quarts manqueraient.
+ * Étiquette une date de fin de période selon la granularité SERVIE : « juil. 2025 » (mois de
+ * clôture du trimestre), « S1 2025 » ou « 2025 ». Un émetteur semestriel (Vinci, LVMH…) clôture
+ * ses semestres en juin et décembre : les annoncer « Q2 » / « Q4 » ferait croire à des trimestres
+ * dont trois quarts manqueraient.
+ *
+ * Trimestres : le MOIS de clôture et non un « Qn » civil. Beaucoup d'exercices sont décalés
+ * (Intuit clôt fin juillet, Apple fin septembre, Nvidia fin janvier) : le trimestre de juillet
+ * d'Intuit est son T4 fiscal, l'appeler « Q3 2026 » ne correspondait ni à son exercice ni à un
+ * vrai trimestre civil (mai-juillet), et faisait lire la saison des impôts comme un « Q2 ».
  */
 function formatPeriod(isoDate: string, freq: TimeseriesFreq): string {
   const m = isoDate.match(/^(\d{4})-(\d{2})/);
@@ -317,6 +323,6 @@ function formatPeriod(isoDate: string, freq: TimeseriesFreq): string {
   if (freq === 'annual') return m[1]!;
   const month = parseInt(m[2]!, 10);
   if (freq === 'semiannual') return `${month <= 6 ? 'S1' : 'S2'} ${m[1]}`;
-  const q = month <= 3 ? 'Q1' : month <= 6 ? 'Q2' : month <= 9 ? 'Q3' : 'Q4';
-  return `${q} ${m[1]}`;
+  return new Date(Date.UTC(Number(m[1]), month - 1, 15))
+    .toLocaleDateString(currentLocale(), { month: 'short', year: 'numeric', timeZone: 'UTC' });
 }
