@@ -3,8 +3,14 @@
  * d'un ticker dans le temps. Cliquable depuis le critère "P/FCF actuel".
  *
  * Le P/FCF est calculé côté API par join (price × shares / TTM_FCF). Les points
- * où le ratio n'est pas pertinent (FCF négatif, données manquantes) sont déjà
- * filtrés par l'API — donc la ligne aura des "gaps" naturels là où le FCF était négatif.
+ * où le ratio n'est pas rapporté comme FCF négatif (déjà ombré via `intervals`) sont
+ * simplement ABSENTS de `data` — ex NVDA : des trimestres manquants chez Finnhub cassent
+ * le FCF glissant sur 12 mois sur plusieurs mois d'affilée, bien au-delà du plafond
+ * XBRL/EDGAR (~2009-2012) qui limite déjà la profondeur en tête de fenêtre. Sans détection,
+ * `<Line>` relie ces deux points par une droite qui fait croire à une donnée continue qui
+ * n'existe pas → `gapZones` détecte ces trous INTERNES (écart bien au-delà de la cadence
+ * attendue pour la fenêtre) et les hachure, exactement comme `noDataZone` le fait déjà pour
+ * le trou en tête. On ne recalcule rien côté FCF : seulement l'honnêteté visuelle du graphe.
  *
  * UX miroir de HistogramModal :
  *   - Sélecteur de période 1Y / 5Y / 10Y / 20Y / All
@@ -23,6 +29,20 @@ import { api, ApiError } from '../lib/api.js';
 import './PfcfChartModal.css';
 
 const PERIODS: TimeseriesPeriod[] = ['1Y', '5Y', '10Y', '20Y', 'All'];
+
+/**
+ * Tolérance de cadence entre deux points RÉELS consécutifs, selon la fenêtre demandée —
+ * même résolution que `pfcfInterval` côté API (apps/api/src/services/pfcfHistory.ts) :
+ * quotidien ≤1 an, hebdo ≤5 ans, mensuel au-delà. Un écart au-delà signale un vrai trou de
+ * DONNÉES, pas un week-end ou un jour férié groupé (Thanksgiving, Noël…) — d'où une marge
+ * large sur le quotidien plutôt qu'un simple multiple de la cadence.
+ */
+function pfcfGapToleranceMs(years: number): number {
+  const DAY = 24 * 3600 * 1000;
+  if (years <= 1) return 6 * DAY;
+  if (years <= 5) return 15 * DAY;
+  return 50 * DAY;
+}
 
 interface Props {
   ticker: string;
@@ -79,10 +99,29 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
     return { median, min, max, latest, percentile };
   }, [data]);
 
+  // Trous INTERNES entre deux points RÉELS : écart bien au-delà de la cadence attendue pour
+  // la fenêtre (cf `pfcfGapToleranceMs`) → vrai manque de donnée, pas juste un FCF négatif
+  // (déjà couvert par `intervals`, donc pas de double-ombrage sur le même intervalle).
+  const gapZones = useMemo<{ from: number; to: number }[]>(() => {
+    if (!data || data.length < 2) return [];
+    const tol = pfcfGapToleranceMs(PERIOD_YEARS[period]);
+    const sorted = [...data].sort((a, b) => a.date.localeCompare(b.date));
+    const out: { from: number; to: number }[] = [];
+    for (let i = 1; i < sorted.length; i++) {
+      const a = Date.parse(sorted[i - 1]!.date);
+      const b = Date.parse(sorted[i]!.date);
+      if (b - a <= tol) continue;
+      if (intervals.some(iv => Date.parse(iv.from) <= b && Date.parse(iv.to) >= a)) continue;
+      out.push({ from: a, to: b });
+    }
+    return out;
+  }, [data, intervals, period]);
+
   // Données du graphe : axe X en timestamps (échelle de temps) pour que la fenêtre couvre AUSSI
   // les périodes à FCF négatif (souvent hors de la plage des points tracés). On insère un point
-  // `pfcf: null` à chaque borne de zone négative → la ligne ne traverse pas la zone (connectNulls
-  // = false) et l'axe s'étend pour la rendre visible/ombrable.
+  // `pfcf: null` à chaque borne de zone négative ET de trou interne (±1ms pour ne pas écraser le
+  // point réel au même timestamp) → la ligne ne traverse pas la zone (connectNulls = false) et
+  // l'axe s'étend pour la rendre visible/ombrable.
   const chartData = useMemo(() => {
     if (!data) return [];
     const pts: { ts: number; pfcf: number | null }[] = data.map(p => ({ ts: Date.parse(p.date), pfcf: p.pfcf }));
@@ -90,8 +129,12 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
       pts.push({ ts: Date.parse(iv.from), pfcf: null });
       pts.push({ ts: Date.parse(iv.to), pfcf: null });
     }
+    for (const gz of gapZones) {
+      pts.push({ ts: gz.from + 1, pfcf: null });
+      pts.push({ ts: gz.to - 1, pfcf: null });
+    }
     return pts.sort((a, b) => a.ts - b.ts);
-  }, [data, intervals]);
+  }, [data, intervals, gapZones]);
 
   // Domaine X = la FENÊTRE demandée (5Y = 5 ans, 10Y = 10 ans…), pas juste l'étendue des points.
   // Sinon 5Y/10Y/All rendent à l'identique quand l'historique est court (ex SHOP, données depuis
@@ -206,6 +249,18 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                       ifOverflow="hidden"
                     />
                   )}
+                  {/* Trous internes (hachurés, même motif que noDataZone) : pas de FCF négatif
+                      ici, juste une absence de point calculable (trimestres manquants…). */}
+                  {gapZones.map((gz, i) => (
+                    <ReferenceArea
+                      key={`gap-${i}`}
+                      x1={gz.from}
+                      x2={gz.to}
+                      fill="url(#pfcf-nodata-hatch)"
+                      strokeOpacity={0}
+                      ifOverflow="hidden"
+                    />
+                  ))}
                   {/* Zones à FCF négatif : P/FCF non calculable → ombrées (≠ trou de données) */}
                   {intervals.map((iv, i) => (
                     <ReferenceArea
@@ -261,7 +316,7 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
               </div>
             )}
 
-            {noDataZone && (
+            {(noDataZone || gapZones.length > 0) && (
               <div className="pfcf-legend-neg">
                 <span className="pfcf-legend-swatch pfcf-legend-swatch--hatch" aria-hidden />
                 {t('chart.pfcfNoDataZone')}
