@@ -945,6 +945,16 @@ export async function getSectors(): Promise<{ sector: string; count: number }[]>
 const SECTOR_BENCH_MIN_PEERS = 5;
 
 /**
+ * Au-delà, un pair n'a pas été ré-attempté depuis trop longtemps pour peser dans la médiane
+ * sectorielle : son `pfcfTTM` peut dater d'avant le bug Neon du 12/11 ou d'un titre
+ * délisté/jamais repris. Volontairement LARGE (180j, le double du plus long palier normal —
+ * `RESCORE_TTL_SMALL_MS`, 60j — cf. `pickDueTickers`) pour ne retirer que les cas vraiment
+ * abandonnés, pas les titres EU dont la cadence est légitimement plus lente (Finnhub ne publie
+ * aucune date de résultats pour la plupart des valeurs européennes).
+ */
+const SECTOR_BENCH_STALE_MS = 180 * 24 * 3600 * 1000;
+
+/**
  * Benchmark sectoriel du P/FCF : médiane (+ percentile du titre) parmi les sociétés cotées
  * suivies de la MÊME industrie. `tickerPfcf` situe le titre vs ses pairs (percentile bas = moins
  * cher). Renvoie null si l'industrie est inconnue ou compte trop peu de pairs valides.
@@ -955,7 +965,10 @@ export async function getSectorPfcfBenchmark(
 ): Promise<{ sector: string; medianPfcf: number; meanPfcf: number; count: number; percentile: number | null; peers: { ticker: string; name: string | null; pfcf: number }[] } | null> {
   if (!sector) return null;
   const rows = await prisma.screenerTicker.findMany({
-    where: { status: 'scored', sector, pfcfTTM: { gt: 0 } },
+    where: {
+      status: 'scored', sector, pfcfTTM: { gt: 0 },
+      lastAttemptAt: { gte: new Date(Date.now() - SECTOR_BENCH_STALE_MS) },
+    },
     select: { ticker: true, name: true, pfcfTTM: true },
   });
   const peers = rows
