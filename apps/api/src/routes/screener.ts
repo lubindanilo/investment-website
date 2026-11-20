@@ -19,9 +19,9 @@ import { decodeScreenerCursor, seedRegion, tick, getTop, getTopPage, getStats, g
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
 import { getResilienceStars } from '../services/resilienceStars.js';
-import { getProfile2 } from '../services/finnhub.js';
+import { getProfile2, getQuote } from '../services/finnhub.js';
 import { getAssetProfileYahoo } from '../services/yahoo.js';
-import { getCachedSnapshot } from '../services/quantCache.js';
+import { getCachedSnapshot, computeLivePfcf } from '../services/quantCache.js';
 import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import { parseLang, type Lang } from '../i18n/index.js';
 import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
@@ -571,9 +571,26 @@ screenerRouter.get('/ticker/:ticker', asyncHandler(async (req: Request, res: Res
     getPublishedResilienceSummaries([ticker]),
     getResilienceStars([ticker]),
   ]);
+  // ⚠ COHÉRENCE anonyme ↔ connecté (20/11/2026) : ce socle lisait `price`/`pfcfTTM` figés au
+  // dernier scoring, pendant que /api/analyze (vu par un visiteur connecté sur la MÊME URL
+  // /analyse/:ticker) rafraîchit le prix en direct à chaque GET. Constaté en prod sur MSFT :
+  // 521,91 ici vs 498,30 côté analyze, P/FCF 81,8x vs 78,3x — un visiteur qui se connecte en
+  // cours de session voyait le prix et la valorisation changer sous ses yeux. On recalcule donc
+  // en direct, même recette que watchlist.ts (getQuote + computeLivePfcf) ; repli silencieux sur
+  // les valeurs figées si le cache quant ou la cotation live manquent.
+  let price = row.price;
+  let pfcfTTM = row.pfcfTTM;
+  const snap = await getCachedSnapshot(ticker).catch(() => null);
+  if (snap?.sharesOutstanding != null && snap.adjFcfTtm != null) {
+    const live = await getQuote(ticker).catch(() => null);
+    if (live?.c) {
+      price = live.c;
+      pfcfTTM = computeLivePfcf(live.c, snap.sharesOutstanding, snap.adjFcfTtm, snap.fcfFxToQuote) ?? pfcfTTM;
+    }
+  }
   // Socle public d'une fiche, appelé par le SPA à chaque ouverture de /analyse/:ticker. Porte un
   // prix → TTL court. Posé ici et pas plus haut : le 404 « ticker non couvert » ne doit pas être
   // figé par le CDN, un titre non scoré aujourd'hui le sera demain.
   res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.quotes));
-  res.json({ ...row, resilience: resiliences.get(ticker) ?? null, resilienceStars: resilienceStars.get(ticker) ?? null });
+  res.json({ ...row, price, pfcfTTM, resilience: resiliences.get(ticker) ?? null, resilienceStars: resilienceStars.get(ticker) ?? null });
 }));
