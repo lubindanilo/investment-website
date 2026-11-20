@@ -46,6 +46,40 @@ export const DEFINITION_TOLERANCE = 0.02;
 export const MIN_INTRA_POINTS = 3;
 
 /**
+ * Multiplicateur au-delà de la médiane (en valeur absolue) à partir duquel une période est un
+ * outlier de magnitude, pas une vraie volatilité trimestrielle.
+ *
+ * Mesuré en prod le 20/11/2026 sur le FCF trimestriel d'ASML (stockanalysis.com) : la case du
+ * dernier trimestre de CHAQUE exercice (quelle que soit sa date exacte — 2026-09-27, 2025-12-31,
+ * 2024-12-31, 2022-12-31…) contient en réalité le total ANNUEL complet, pas la seule contribution
+ * du trimestre — marge FCF/CA mesurée à 95-113 % sur ces lignes contre 3-40 % ailleurs dans la
+ * même série, impossible pour un vrai trimestre. Sans filtre, `rollingYearSum` fait entrer ce
+ * point dans la fenêtre glissante de 4 trimestres et DOUBLE le FCF douze mois dès qu'il y entre —
+ * exactement au moment le plus visible : le point le plus récent du graphe (P/FCF ASML.AS mesuré
+ * à 21,8× au lieu de 42,2× à la même date). 4× la médiane laisse passer une vraie trimestre
+ * exceptionnelle (observé jusqu'à ~3× ailleurs dans la même série) tout en écartant un total
+ * annuel glissé dans une case trimestrielle (qui pèse structurellement ~4 fois un trimestre
+ * moyen, logiquement).
+ */
+const MAGNITUDE_OUTLIER_FACTOR = 4;
+
+/**
+ * Écarte les périodes dont la magnitude est un outlier statistique vis-à-vis du reste de LA
+ * MÊME série — cf. `MAGNITUDE_OUTLIER_FACTOR`. Sous 6 points la médiane n'est pas assez stable
+ * pour juger, donc on ne filtre rien (mieux vaut une série courte intacte qu'un filtre aveugle).
+ * Le point écarté laisse un TROU que `rollingYearSum` traite déjà comme tel (cf `maxTtmGapMs`) :
+ * aucune fenêtre glissante ne l'enjambe, on perd juste les quelques trimestres autour de lui au
+ * lieu d'afficher un chiffre faux.
+ */
+export function dropMagnitudeOutliers(points: TimeseriesPoint[]): TimeseriesPoint[] {
+  if (points.length < 6) return points;
+  const abs = points.map(p => Math.abs(p.value)).sort((a, b) => a - b);
+  const median = abs[Math.floor(abs.length / 2)]!;
+  if (median <= 0) return points;
+  return points.filter(p => Math.abs(p.value) <= MAGNITUDE_OUTLIER_FACTOR * median);
+}
+
+/**
  * Somme glissante sur DOUZE MOIS, quelle que soit la cadence : 4 trimestres, ou 2 SEMESTRES.
  *
  * Même garde-fou de contiguïté que finnhubFundamentals.rollingTtmSum (cf `maxTtmGapMs`) : un
@@ -53,7 +87,7 @@ export const MIN_INTRA_POINTS = 3;
  * ça, une série trouée produirait des « douze mois » étalés sur vingt-quatre.
  */
 export function rollingYearSum(points: TimeseriesPoint[], periods: number): TimeseriesPoint[] {
-  const s = [...points].sort((a, b) => a.date.localeCompare(b.date));
+  const s = dropMagnitudeOutliers(points).sort((a, b) => a.date.localeCompare(b.date));
   const maxGap = maxTtmGapMs(s);
   const gaps: number[] = [0];
   for (let i = 1; i < s.length; i++) gaps.push(Date.parse(s[i]!.date) - Date.parse(s[i - 1]!.date));

@@ -69,8 +69,16 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  *     cf. getPfcfHistoryAnnualYahoo). Sans ce bump, NVDA et tout titre déjà en cache avant ce
  *     correctif aurait continué de servir l'ancien graphe pauvre jusqu'à expiration du TTL
  *     (jusqu'à 35j) — exactement le symptôme remonté en prod sur Nvidia le jour même du fix.
+ * 10 = 20/11/2026, `rollingYearSum` (intraYearStore.ts) écarte désormais les outliers de
+ *     magnitude avant de sommer : stockanalysis.com glisse le total ANNUEL complet dans la case
+ *     du dernier trimestre de chaque exercice pour le FCF d'ASML (et probablement d'autres
+ *     titres) — marge FCF/CA à 95-113 % sur ces lignes, impossible pour un vrai trimestre. Sans
+ *     filtre, ce point entrait dans la fenêtre glissante de 4 trimestres et DOUBLAIT le FCF
+ *     douze mois — P/FCF ASML.AS mesuré à 21,8× au lieu de 42,2× à la même date, exactement la
+ *     divergence carte/graphe remontée en prod. Le fix change la valeur de `flow()` pour tout
+ *     titre dont le store contient un tel outlier : bump obligatoire, pas facultatif.
  */
-const CHART_STRATEGY_GENERATION = 9;
+const CHART_STRATEGY_GENERATION = 10;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /

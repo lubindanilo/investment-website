@@ -7,7 +7,7 @@
  * contigus », et « cette série recomposée dit-elle la même chose que la carte ».
  */
 import { describe, it, expect } from 'vitest';
-import { rollingYearSum, seriesDeviation, agreesWithAnnual } from './intraYearStore.js';
+import { rollingYearSum, seriesDeviation, agreesWithAnnual, dropMagnitudeOutliers } from './intraYearStore.js';
 
 describe('rollingYearSum', () => {
   it('somme 4 trimestres et date le point sur le dernier', () => {
@@ -53,6 +53,55 @@ describe('rollingYearSum', () => {
   it('renvoie une série vide quand il n’y a pas assez de périodes', () => {
     expect(rollingYearSum([{ date: '2025-12-31', value: 1 }], 2)).toEqual([]);
     expect(rollingYearSum([], 4)).toEqual([]);
+  });
+
+  /**
+   * ASML, mesuré en prod le 20/11/2026 (valeurs réelles, en M€) : la case du dernier trimestre
+   * de CHAQUE exercice contient le total ANNUEL (≈11 Md€), pas la seule contribution du
+   * trimestre (le vrai Q4 serait du même ordre que les autres, quelques centaines de M€). Sans
+   * filtre, ce point double le FCF douze mois dès qu'il entre dans la fenêtre glissante — le
+   * P/FCF ASML.AS mesuré à 21,8× au lieu de 42,2× à la même date vient exactement de là.
+   */
+  it('écarte un total annuel glissé dans une case trimestrielle avant de sommer (ASML)', () => {
+    const q = [
+      { date: '2025-03-30', value: -473.6 }, { date: '2025-06-29', value: 332.9 },
+      { date: '2025-09-28', value: 263.2 },  { date: '2025-12-31', value: 10_962.4 }, // ← total annuel, pas Q4
+      { date: '2026-03-29', value: -2_588 }, { date: '2026-06-28', value: 1_403.6 },
+      { date: '2026-09-27', value: 11_384.3 }, // ← idem, dernier trimestre connu
+    ];
+    const out = rollingYearSum(q, 4);
+    // Aucun point ne doit sommer un total annuel : toute fenêtre à ≥ 4 Md€ serait fausse.
+    for (const p of out) expect(Math.abs(p.value)).toBeLessThan(4_000);
+  });
+});
+
+describe('dropMagnitudeOutliers', () => {
+  it('écarte les périodes > 4x la médiane, garde les autres', () => {
+    const q = [
+      { date: '2025-01-01', value: 100 }, { date: '2025-02-01', value: 120 },
+      { date: '2025-03-01', value: 90 },  { date: '2025-04-01', value: 110 },
+      { date: '2025-05-01', value: 80 },  { date: '2025-06-01', value: 1_200 }, // outlier
+    ];
+    const out = dropMagnitudeOutliers(q);
+    expect(out.map(p => p.value)).toEqual([100, 120, 90, 110, 80]);
+  });
+
+  it('ne filtre rien sous 6 points (médiane pas assez stable)', () => {
+    const q = [
+      { date: '2025-01-01', value: 10 }, { date: '2025-02-01', value: 10 },
+      { date: '2025-03-01', value: 10 }, { date: '2025-04-01', value: 10 },
+      { date: '2025-05-01', value: 9_999 },
+    ];
+    expect(dropMagnitudeOutliers(q)).toHaveLength(5);
+  });
+
+  it('ne touche pas une série légitimement volatile (3x la médiane, sous le seuil)', () => {
+    const q = [
+      { date: '2025-01-01', value: 100 }, { date: '2025-02-01', value: 100 },
+      { date: '2025-03-01', value: 100 }, { date: '2025-04-01', value: 100 },
+      { date: '2025-05-01', value: 100 }, { date: '2025-06-01', value: 300 },
+    ];
+    expect(dropMagnitudeOutliers(q)).toHaveLength(6);
   });
 });
 
