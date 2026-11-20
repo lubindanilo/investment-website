@@ -16,7 +16,6 @@ vi.mock('../db/client.js', () => ({
 
 vi.mock('./resilienceSummary.js', () => ({
   getPublishedResilienceSummaries: vi.fn(async () => new Map()),
-  resilienceAllowsOpportunity: vi.fn(() => true),
 }));
 
 vi.mock('./resilienceStars.js', () => ({

@@ -60,7 +60,7 @@ export function buildMcpServer(ctx: McpContext): McpServer {
 
   server.registerTool('analyze_stock', {
     title: 'Analyser un titre',
-    description: "Analyse quantitative compacte : note /10, 10 critères qualité (pass/warn/fail), P/FCF, prix d'achat « juste » (Buffett), percentile de valorisation, flag opportunité et grade de résilience.",
+    description: "Analyse quantitative compacte : note /10, 10 critères qualité (pass/warn/fail), P/FCF, prix d'achat « juste » (Buffett), percentile de valorisation, flag opportunité et résilience en étoiles (/5).",
     inputSchema: { ticker: TickerSchema, lang: LangSchema },
     annotations: READ_ONLY,
   }, async ({ ticker, lang }) => {

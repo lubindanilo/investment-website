@@ -24,7 +24,7 @@ import type {
 import type { Prisma } from '@prisma/client';
 import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
-import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
+import { getPublishedResilienceSummaries } from './resilienceSummary.js';
 import { getResilienceStars } from './resilienceStars.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { isNonOperatingVehicle } from '../lib/nonOperatingVehicle.js';
@@ -869,16 +869,11 @@ export async function getTopPage(opts: GetTopOptions = {}): Promise<TopPage> {
     getPublishedResilienceSummaries(tickers),
     getResilienceStars(tickers),
   ]);
-  const withRes = rows.map(r => {
-    const resilience = resiliences.get(r.ticker) ?? null;
-    // Opportunité du moment : on refuse en plus les résiliences fragiles (D/E) — cf. resilienceAllowsOpportunity.
-    const opportunity = r.opportunity && resilienceAllowsOpportunity(resilience?.grade);
-    return { ...r, resilience, resilienceStars: stars.get(r.ticker) ?? null, opportunity };
-  });
-  // Quand on ne veut que les opportunités, on retire celles recalées par la résilience.
-  // Le flag SQL est volontairement plus large ; ce dernier garde-fou peut donc raccourcir une
-  // page. Le curseur reste celui de la derniere ligne SQL consommee pour ne jamais boucler.
-  const pageRows = onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
+  const pageRows = rows.map(r => ({
+    ...r,
+    resilience: resiliences.get(r.ticker) ?? null,
+    resilienceStars: stars.get(r.ticker) ?? null,
+  }));
   return {
     rows: pageRows,
     nextCursor: hasMore && rows.length > 0 ? encodeScreenerCursor(rows[rows.length - 1]!.ticker) : null,

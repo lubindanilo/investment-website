@@ -14,7 +14,7 @@ import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot, getCachedSnapshot, getCachedSnapshotsBatch } from '../services/quantCache.js';
 import { buildQuantitativeCriteria, buildValuation } from '../services/derivedMetrics.js';
 import { getTop, refreshOpportunitiesLive } from '../services/screener.js';
-import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
+import { getResilienceStars } from '../services/resilienceStars.js';
 import { PUBLISHED_RESILIENCE_VERSION, isPublishedResilienceAnalysis } from '../services/resiliencePublished.js';
 import { computeAndCache, FREE_WATCHLIST_LIMIT } from '../services/watchlistSnapshot.js';
 
@@ -116,20 +116,23 @@ async function buildCompactQuant(ticker: string, lang: Lang): Promise<CompactQua
   return quant ? toCompactQuant(quant, ticker, lang) : null;
 }
 
-/** analyze_stock — bloc quant compact + résumé de résilience publié. */
-export async function analyzeStock(ticker: string, lang: Lang): Promise<(CompactQuant & { resilience: { grade: string; score: number } | null }) | null> {
+/** Résilience en étoiles (total /5), null si le titre n'est pas encore noté. */
+type WithStars = { resilienceStars: number | null };
+
+/** analyze_stock — bloc quant compact + résilience en étoiles. */
+export async function analyzeStock(ticker: string, lang: Lang): Promise<(CompactQuant & WithStars) | null> {
   const base = await buildCompactQuant(ticker, lang);
   if (!base) return null;
-  const res = await getPublishedResilienceSummaries([ticker]);
-  return { ...base, resilience: res.get(ticker) ?? null };
+  const stars = await getResilienceStars([ticker]);
+  return { ...base, resilienceStars: stars.get(ticker.toUpperCase())?.total ?? null };
 }
 
-/** compare_stocks — plusieurs blocs compacts + résilience, prêts à mettre côte à côte. */
-export async function compareStocks(tickers: string[], lang: Lang): Promise<Array<CompactQuant & { resilience: { grade: string; score: number } | null }>> {
+/** compare_stocks — plusieurs blocs compacts + résilience en étoiles, prêts à mettre côte à côte. */
+export async function compareStocks(tickers: string[], lang: Lang): Promise<Array<CompactQuant & WithStars>> {
   const rows = (await Promise.all(tickers.map(t => buildCompactQuant(t, lang).catch(() => null))))
     .filter((r): r is CompactQuant => r != null);
-  const res = await getPublishedResilienceSummaries(rows.map(r => r.ticker));
-  return rows.map(r => ({ ...r, resilience: res.get(r.ticker) ?? null }));
+  const stars = await getResilienceStars(rows.map(r => r.ticker));
+  return rows.map(r => ({ ...r, resilienceStars: stars.get(r.ticker.toUpperCase())?.total ?? null }));
 }
 
 /** get_resilience — analyse de résilience publiée, texte localisé (grade, verdict, 6 critères). */
@@ -287,9 +290,9 @@ export async function getWatchlist(userId: string) {
   const tickers = entries.map(e => e.ticker);
   if (!tickers.length) return { count: 0, holdings: [] };
 
-  const [cache, resilience] = await Promise.all([
+  const [cache, stars] = await Promise.all([
     getCachedSnapshotsBatch(tickers),
-    getPublishedResilienceSummaries(tickers),
+    getResilienceStars(tickers),
   ]);
 
   return {
@@ -307,7 +310,7 @@ export async function getWatchlist(userId: string) {
         priceAtLastCompute: round2(s?.metrics.price),
         pfcfAtLastCompute: round2(s?.metrics.pfcfTTM),
         nextEarningsDate: s?.nextEarningsDate ?? null,
-        resilience: resilience.get(e.ticker) ?? null,
+        resilienceStars: stars.get(e.ticker.toUpperCase())?.total ?? null,
         analyzed: s != null,
       };
     }),
@@ -388,7 +391,7 @@ export type WatchlistDetail = 'compact' | 'complet';
 /** Seuils des heuristiques de synthèse, exposés dans la réponse (transparence). */
 const T = {
   weakNote10: 5, // note < 5/10 = maillon faible
-  fragileGrades: 'D ou E',
+  fragileStars: 2.5, // résilience < 2,5/5 étoiles = fragile (même bande que le filtre du screener)
   dilutionPctPerYear: 2.5, // au-delà = dilution (seuil « warn » du critère shareCount5y)
 };
 
@@ -420,13 +423,11 @@ export async function analyzeWatchlist(userId: string, lang: Lang, detail: Watch
     return { ticker, covered: true as const, quant: q, trend: toTrend(quant, ticker) };
   });
 
-  const resilience = await getPublishedResilienceSummaries(
-    built.filter(b => b.covered).map(b => b.ticker),
-  );
+  const stars = await getResilienceStars(built.filter(b => b.covered).map(b => b.ticker));
 
   const notCovered = built.filter(b => !b.covered).map(b => b.ticker);
   const holdings = built.filter((b): b is Extract<typeof b, { covered: true }> => b.covered).map(b => {
-    const r = resilience.get(b.ticker) ?? null;
+    const resilienceStars = stars.get(b.ticker.toUpperCase())?.total ?? null;
     const t = b.trend;
 
     // Signaux de dégradation (chacun est un fait mesuré, pas une opinion).
@@ -438,14 +439,14 @@ export async function analyzeWatchlist(userId: string, lang: Lang, detail: Watch
 
     const weakReasons: string[] = [];
     if (b.quant.note10 < T.weakNote10) weakReasons.push(`note ${b.quant.note10}/10 sous ${T.weakNote10}`);
-    if (r && !resilienceAllowsOpportunity(r.grade)) weakReasons.push(`résilience fragile (${r.grade})`);
+    if (resilienceStars != null && resilienceStars < T.fragileStars) weakReasons.push(`résilience fragile (${resilienceStars}/5 étoiles)`);
 
     return {
       ticker: b.ticker,
       company: b.quant.company,
       sector: b.quant.sector,
       note10: b.quant.note10,
-      resilience: r,
+      resilienceStars,
       price: b.quant.price,
       buyPrice: b.quant.buyPrice,
       discountToBuyPricePct: b.quant.discountToBuyPricePct,
@@ -462,7 +463,7 @@ export async function analyzeWatchlist(userId: string, lang: Lang, detail: Watch
   const summary = {
     analyzed: holdings.length,
     averageNote10: notes.length ? Math.round((notes.reduce((a, b) => a + b, 0) / notes.length) * 10) / 10 : null,
-    weakLinks: holdings.filter(h => h.weakReasons.length).map(h => ({ ticker: h.ticker, note10: h.note10, grade: h.resilience?.grade ?? null, reasons: h.weakReasons })),
+    weakLinks: holdings.filter(h => h.weakReasons.length).map(h => ({ ticker: h.ticker, note10: h.note10, resilienceStars: h.resilienceStars, reasons: h.weakReasons })),
     deteriorating: holdings.filter(h => h.deterioratingSignals.length).map(h => ({ ticker: h.ticker, signals: h.deterioratingSignals })),
     aboveFairPrice: holdings
       .filter(h => h.discountToBuyPricePct != null && h.discountToBuyPricePct < 0)
@@ -477,7 +478,7 @@ export async function analyzeWatchlist(userId: string, lang: Lang, detail: Watch
     truncated: skipped.length > 0,
     ...(skipped.length ? { skippedForLimit: skipped, limit: ANALYZE_WATCHLIST_MAX } : {}),
     thresholds: {
-      maillonFaible: `note < ${T.weakNote10}/10 ou résilience ${T.fragileGrades}`,
+      maillonFaible: `note < ${T.weakNote10}/10 ou résilience < ${T.fragileStars}/5 étoiles`,
       dégradation: `CA ou FCF/action en recul, ou dilution > ${T.dilutionPctPerYear} %/an`,
       auDessusDuJustePrix: 'cours > prix d\'achat « juste » (hypothèse 15 %/an, style Buffett)',
     },
@@ -491,7 +492,7 @@ export async function analyzeWatchlist(userId: string, lang: Lang, detail: Watch
       ticker: h.ticker,
       company: h.company,
       note10: h.note10,
-      grade: h.resilience?.grade ?? null,
+      resilienceStars: h.resilienceStars,
       opportunity: h.opportunity,
       ...(h.weakReasons.length ? { weakReasons: h.weakReasons } : {}),
       ...(h.deterioratingSignals.length ? { deterioratingSignals: h.deterioratingSignals } : {}),

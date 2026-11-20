@@ -27,7 +27,7 @@ import { getQuote } from '../services/finnhub.js';
 import { getNextEarningsDate } from '../services/earnings.js';
 import { getEarningsInfoYahoo } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
-import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
+import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
 import { getResilienceStars } from '../services/resilienceStars.js';
 import {
   getCachedSnapshot, getCachedSnapshotsBatch, writeCachedSnapshot, computeLivePfcf,
@@ -171,8 +171,8 @@ async function refreshStaleEarnings(
 // Lecture pure : liste des tickers de l'user × cache global TickerQuantSnapshot.
 // Aucun recompute. Seul le prix est rafraîchi en live.
 /**
- * Attache le résumé de résilience publié (batch, 1 requête) à des lignes watchlist, et applique
- * la règle « opportunité du moment » : une résilience fragile (D/E) retire le statut opportunité.
+ * Attache le résumé de résilience publié et les étoiles (batch, 1 requête chacun) à des lignes
+ * watchlist. La résilience ne touche pas au statut opportunité.
  */
 async function attachResilience(entries: WatchlistEntry[]): Promise<void> {
   if (!entries.length) return;
@@ -185,7 +185,6 @@ async function attachResilience(entries: WatchlistEntry[]): Promise<void> {
     const r = summaries.get(e.ticker) ?? null;
     e.resilience = r;
     e.resilienceStars = stars.get(e.ticker) ?? null;
-    if (e.opportunity && !resilienceAllowsOpportunity(r?.grade)) e.opportunity = false;
   }
 }
 

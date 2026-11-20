@@ -34,7 +34,6 @@ import {
   isPublishedResilienceAnalysis,
   PUBLISHED_RESILIENCE_VERSION,
 } from '../services/resiliencePublished.js';
-import { resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
 import { getResilienceStarsForTicker } from '../services/resilienceStars.js';
 import { getLocalizedBusinessDescription } from '../services/translate.js';
 
@@ -169,9 +168,9 @@ function buildResponse(args: {
   const chiffresEval = fundamentalsAvailable ? chiffres : chiffres.filter(c => c.valeur !== 'N/A');
   const chiffresScore = chiffresEval.filter(c => c.statut === 'pass').length + Math.round(chiffresEval.filter(c => c.statut === 'warn').length * 0.5);
   const chiffresScore10 = chiffresEval.length > 0 ? Math.round((chiffresScore / chiffresEval.length) * 10) : 0;
+  // La résilience n'entre PAS dans l'opportunité : elle s'affiche à côté, en étoiles.
   const opportunity = (args.opportunity ?? false)
-    && chiffresScore10 >= PFCF_OPP_MIN_SCORE10
-    && resilienceAllowsOpportunity(resilience?.grade);
+    && chiffresScore10 >= PFCF_OPP_MIN_SCORE10;
 
   return {
     ticker,

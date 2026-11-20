@@ -242,7 +242,7 @@ screenerRouter.get('/search', asyncHandler(async (req: Request, res: Response) =
 
 // ── GET /showcase ─────────────────────────────────────────────────────────────
 // Vitrine de la landing : LE titre mis en avant du moment (meilleure opportunité), avec le
-// détail de ses 10 critères et son grade de résilience, pour montrer la vraie fiche produit
+// détail de ses 10 critères et ses étoiles de résilience, pour montrer la vraie fiche produit
 // dès le hero. Volontairement limité à UN ticker choisi par le serveur : le détail par
 // critère d'un ticker ARBITRAIRE reste derrière l'inscription (cf. /ticker/:ticker).
 // Résultat mémoïsé 10 min (une page d'accueil ne doit pas taper la DB à chaque visite).
@@ -257,7 +257,7 @@ const SHOWCASE_TTL_MS = 10 * 60 * 1000;
  * Trois sociétés DIFFÉRENTES : voir le même titre partout donnait l'impression d'un catalogue
  * d'un seul nom. On privilégie donc des noms que le grand public suit en bourse, tout en
  * exigeant des données complètes (cf. isShowcaseEligible) : sans percentile de P/FCF la jauge
- * de valorisation disparaît, et sans résilience publiée il manque un des deux scores.
+ * de valorisation disparaît, et sans étoiles de résilience il manque un des deux scores.
  */
 const SHOWCASE_TICKERS = [
   'V', 'NFLX', 'BKNG', 'SPGI', 'MCO', 'CME', 'CRM', 'MA', 'ADBE', 'INTU', 'UBER', 'ADSK',
@@ -265,9 +265,10 @@ const SHOWCASE_TICKERS = [
 ];
 /** Combien d'emplacements la landing sait remplir. */
 const SHOWCASE_COUNT = 3;
-/** Seuils de la vitrine : au moins 8/10 de qualité ET une résilience publiée A ou B. */
+/** Seuils de la vitrine : au moins 8/10 de qualité ; le hero exige en plus une résilience « solide ». */
 const SHOWCASE_MIN_NOTE10 = 8;
-const SHOWCASE_GRADES = new Set(['A', 'B']);
+/** Résilience « solide » = au moins 4 étoiles sur 5 (même bande que le filtre du screener). */
+const SHOWCASE_HERO_MIN_STARS = 4;
 /**
  * P/FCF au-delà duquel on n'affiche pas le titre en vitrine : soit la donnée est fausse
  * (TSMC ressort à 2,2x, ce qui impliquerait 980 Md$ de free cash-flow), soit le multiple est si
@@ -311,22 +312,17 @@ function note10Of(row: { scoreChiffres: number | null; scoreChiffresMax: number 
 }
 
 /**
- * Titre de la vitrine : au moins 8/10, résilience publiée A ou B, et si possible un nom
- * que tout le monde reconnaît. On tente d'abord la liste éditoriale, puis les plus grosses
- * capitalisations bien notées ; à défaut de résilience publiée, la meilleure note l'emporte.
- */
-/**
  * Un titre est présentable en vitrine s'il a TOUT ce que la landing affiche : les deux scores,
  * les dix critères et une jauge de valorisation.
  *
- * `strictGrade` distingue les deux usages. La fiche du HERO exige une résilience A ou B : c'est
- * la première chose que voit un visiteur, elle doit montrer le produit à son meilleur. Les autres
- * emplacements se contentent d'une résilience PUBLIÉE, quelle qu'elle soit, ce qui laisse entrer
- * des noms que le public suit vraiment (Netflix, Booking) au lieu de n'afficher que des A.
+ * `hero` distingue les deux usages. La fiche du HERO exige au moins 4 étoiles de résilience :
+ * c'est la première chose que voit un visiteur, elle doit montrer le produit à son meilleur. Les
+ * autres emplacements se contentent d'étoiles PUBLIÉES, quel qu'en soit le nombre, ce qui laisse
+ * entrer des noms que le public suit vraiment (Netflix, Booking).
  */
-function isShowcaseEligible(row: ShowcaseRow, grade: string | undefined, strictGrade: boolean): boolean {
+function isShowcaseEligible(row: ShowcaseRow, stars: number | undefined, hero: boolean): boolean {
   if (note10Of(row) < SHOWCASE_MIN_NOTE10) return false;
-  if (strictGrade ? !SHOWCASE_GRADES.has(grade ?? '') : !grade) return false;
+  if (stars == null || (hero && stars < SHOWCASE_HERO_MIN_STARS)) return false;
   if (row.pfcfPercentile == null) return false;        // sans percentile, pas de jauge
   const pfcf = row.pfcfTTM;
   return pfcf != null && pfcf > SHOWCASE_PFCF_RANGE.min && pfcf < SHOWCASE_PFCF_RANGE.max;
@@ -361,14 +357,15 @@ async function pickShowcaseRows(count: number): Promise<ShowcaseRow[]> {
     return true;
   });
 
-  const resiliences = await getPublishedResilienceSummaries(candidates.map(r => r.ticker));
+  const stars = await getResilienceStars(candidates.map(r => r.ticker));
+  const starsOf = (t: string) => stars.get(t.toUpperCase())?.total;
   const rank = (t: string) => {
     const i = SHOWCASE_TICKERS.indexOf(t);
     return i < 0 ? SHOWCASE_TICKERS.length : i;
   };
   const byEditorialOrder = (a: ShowcaseRow, b: ShowcaseRow) =>
     rank(a.ticker) - rank(b.ticker)
-    || (resiliences.get(b.ticker)?.score ?? 0) - (resiliences.get(a.ticker)?.score ?? 0)
+    || (starsOf(b.ticker) ?? 0) - (starsOf(a.ticker) ?? 0)
     || Number(b.marketCapUsd ?? 0) - Number(a.marketCapUsd ?? 0);
 
   // Une même société cotée deux fois (GOOG/GOOGL, BRK.A/BRK.B) ferait doublon à l'écran.
@@ -384,13 +381,13 @@ async function pickShowcaseRows(count: number): Promise<ShowcaseRow[]> {
 
   // Emplacement 1 (le hero) : exigence maximale sur la résilience.
   const hero = dedupeByCompany(
-    candidates.filter(r => isShowcaseEligible(r, resiliences.get(r.ticker)?.grade, true)).sort(byEditorialOrder),
+    candidates.filter(r => isShowcaseEligible(r, starsOf(r.ticker), true)).sort(byEditorialOrder),
   )[0];
-  // Emplacements suivants : toute résilience publiée, pour laisser entrer les noms suivis.
+  // Emplacements suivants : toutes étoiles publiées, pour laisser entrer les noms suivis.
   const rest = dedupeByCompany(
     candidates
       .filter(r => r.ticker !== hero?.ticker)
-      .filter(r => isShowcaseEligible(r, resiliences.get(r.ticker)?.grade, false))
+      .filter(r => isShowcaseEligible(r, starsOf(r.ticker), false))
       .sort(byEditorialOrder),
   );
   const distinct = dedupeByCompany([...(hero ? [hero] : []), ...rest]);
