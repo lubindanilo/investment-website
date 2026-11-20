@@ -63,8 +63,14 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  * 8 = effectifs profonds via la cotation US des dual-listed : l'enrichissement arrive par le
  *     STORE (retro-upgrade paresseux à la lecture), donc AUCUN mécanisme ne purge les entrées
  *     de graphe déjà réchauffées — même famille d'événement de donnée que la génération 6.
+ * 9 = 20/11/2026, résolution du graphe P/FCF passée en quotidien (≤1 an) / hebdo (≤5 ans) au lieu
+ *     de hebdo/mensuel, ET le chemin de repli annuel EU/ADR corrigé (il ne posait qu'UN point par
+ *     exercice fiscal — litt. 4-5 points sur tout l'historique — au lieu d'un point par prix,
+ *     cf. getPfcfHistoryAnnualYahoo). Sans ce bump, NVDA et tout titre déjà en cache avant ce
+ *     correctif aurait continué de servir l'ancien graphe pauvre jusqu'à expiration du TTL
+ *     (jusqu'à 35j) — exactement le symptôme remonté en prod sur Nvidia le jour même du fix.
  */
-const CHART_STRATEGY_GENERATION = 8;
+const CHART_STRATEGY_GENERATION = 9;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /
