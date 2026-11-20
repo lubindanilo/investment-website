@@ -15,7 +15,7 @@ name: Screener drain (pending)
 # compute mesuree, et s'arrete des que sa part est consommee. Sans NEON_API_KEY il se plafonne a
 # 60 min (drainer a l'aveugle est ce qui a suspendu la base le 20/07/2026).
 #
-# Secrets requis : DATABASE_URL, NEON_API_KEY, FINNHUB_API_KEY (+ MAIL_PASSWORD pour l'alerte).
+# Secrets requis : DATABASE_URL, NEON_API_KEY, FINNHUB_API_KEY.
 # Variable optionnelle : NEON_PROJECT_ID (inutile si la cle ne voit qu'un projet).
 
 on:
@@ -127,27 +127,8 @@ jobs:
       - name: Drain
         run: pnpm --filter @lubin/api run screener:drain
 
-      # Meme canal d'alerte que screener-cron.yml : action pinnee sur son SHA de release.
-      - name: Alerte e-mail en cas d echec
-        if: failure()
-        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59 # v18
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: lubindanilo2@gmail.com
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: Screener Drain <lubindanilo2@gmail.com>
-          to: lubindanilo2@gmail.com
-          subject: "[Lubin Investment] Drain Screener en ECHEC"
-          body: |
-            Le drain des titres pending a echoue (scoring degrade ou erreur du run).
-
-            Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            Declencheur : ${{ github.event_name }}
-
-      # Second canal, SANS AUCUN SECRET (08/08/2026) : le mot de passe d'application Gmail partage
-      # par les trois crons etait invalide, donc l'unique canal d'alerte etait mort en silence.
+      # Alerte via issue GitHub, SANS AUCUN SECRET (20/11/2026 : retire l'ancien canal e-mail SMTP
+      # Gmail — mot de passe d'application invalide depuis des mois, canal mort en silence).
       - name: Ouvrir une issue en cas d echec
         if: failure()
         env:

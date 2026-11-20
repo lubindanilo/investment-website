@@ -144,31 +144,11 @@ jobs:
           echo "Shard ${SHARD} : ${RESILIENCE_STARS_DAILY_CAP} entreprises a partir du rang ${RESILIENCE_STARS_OFFSET}."
           pnpm --filter @lubin/api run resilience:stars:backfill
 
-      # Meme canal d'alerte que les autres crons : action pinnee sur son SHA de release.
-      - name: Alerte e-mail en cas d echec
-        if: failure()
-        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59 # v18
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: lubindanilo2@gmail.com
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: Resilience Backfill <lubindanilo2@gmail.com>
-          to: lubindanilo2@gmail.com
-          subject: "[Lubin Investment] Backfill Resilience en ECHEC (shard ${{ matrix.shard }})"
-          body: |
-            Le backfill du score de resilience a echoue sur le shard ${{ matrix.shard }} :
-            aucune entreprise notee par ce shard cette nuit. Les autres shards ont pu aboutir.
-
-            Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            Declencheur : ${{ github.event_name }}
-
-      # Second canal, SANS AUCUN SECRET (08/08/2026) : le mot de passe d'application Gmail du
-      # step ci-dessus etait invalide (`530-5.7.0 Authentication Required` cote screener), donc
-      # le canal unique d'alerte etait mort sans que rien ne le signale. Une issue GitHub ne
-      # depend que de `github.token`. Un seul fil pour les 4 shards : le 1er shard en echec ouvre
-      # l'issue, les suivants commentent.
+      # Alerte via issue GitHub, SANS AUCUN SECRET (20/11/2026 : retire l'ancien canal e-mail
+      # SMTP Gmail — mort depuis des mois, `530-5.7.0 Authentication Required` sur CHAQUE run,
+      # sans que rien ne le signale puisque c'etait le seul canal). Une issue GitHub ne depend
+      # que de `github.token`, donc elle ne peut pas expirer. Un seul fil pour les 4 shards : le
+      # 1er shard en echec ouvre l'issue, les suivants commentent.
       - name: Ouvrir une issue en cas d echec
         if: failure()
         env:

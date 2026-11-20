@@ -7,10 +7,15 @@ name: Screener scoring
 #
 # Alerte (point 3) : le job ECHOUE bruyamment si l'endpoint est injoignable, si le token est
 # rejete, ou si le scoreur ne traite plus rien (garde anti-stall) — c'est exactement la panne
-# silencieuse du 9 juin 2026. En cas d'echec, un e-mail est envoye a lubindanilo2@gmail.com
-# via SMTP Gmail (necessite le secret MAIL_PASSWORD = mot de passe d'application Gmail).
-# NB : GitHub desactive un workflow planifie apres 60 j d'INACTIVITE du repo — ici le repo
-# est actif quotidiennement (PR SEO), donc ce risque ne s'applique pas en pratique.
+# silencieuse du 9 juin 2026. En cas d'echec, une issue GitHub est ouverte (aucun secret requis,
+# cf. step dediee plus bas) — l'ancien canal e-mail SMTP Gmail a ete retire le 20/11/2026, mort
+# en silence depuis des mois (mot de passe d'application invalide).
+#
+# ⚠️ NB (20/11/2026) : GitHub desactive un workflow PLANIFIE apres 60 j sans aucune activite de
+# push sur le repo. Jusqu'ici ce risque etait neutralise par les PR seo/* quotidiennes (retirees
+# ce jour, generation de blog arretee) — sans autre source de commits reguliers, si le depot
+# reste inactif 60 jours, CE cron (et screener-drain.yml, resilience-cron.yml) s'auto-desactivent
+# silencieusement. A surveiller si aucun commit humain ne survient pendant 2 mois.
 
 on:
   workflow_dispatch:
@@ -246,36 +251,12 @@ jobs:
             exit 1
           fi
 
-      # Alerte e-mail (point 3) : envoi direct a lubindanilo2@gmail.com via SMTP Gmail.
-      # Un seul secret requis : MAIL_PASSWORD = mot de passe d'application Gmail du compte
-      # lubindanilo2@gmail.com (Google Account -> Securite -> Validation en 2 etapes ->
-      # Mots de passe des applications). L'action tierce est pinnee sur son SHA de release.
-      - name: Alerte e-mail en cas d echec
-        if: failure()
-        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59 # v18
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: lubindanilo2@gmail.com
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: Screener Cron <lubindanilo2@gmail.com>
-          to: lubindanilo2@gmail.com
-          subject: "[Lubin Investment] Cron Screener scoring en ECHEC"
-          body: |
-            Le cron de notation du screener a echoue.
-            La notation risque d'etre a l'arret (rappel : panne silencieuse du 9 juin 2026).
-
-            Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            Declencheur : ${{ github.event_name }}
-
-      # Second canal, SANS AUCUN SECRET (08/08/2026). L'e-mail ci-dessus est un point de
-      # defaillance unique, et il ETAIT tombe : le run du 08/08 a echoue puis n'a pas pu alerter
-      # (`530-5.7.0 Authentication Required` — mot de passe d'application Gmail invalide). La
-      # panne existait, personne ne l'a su : exactement le scenario que ce workflow existe pour
-      # rendre impossible. Une issue GitHub ne depend que de `github.token`, donc elle ne peut pas
-      # expirer, et elle notifie par les abonnements du repo. Idempotente : si une issue du meme
-      # titre est deja ouverte, on y ajoute un commentaire au lieu d'en empiler une par nuit.
+      # Alerte via issue GitHub, SANS AUCUN SECRET (retire le 20/11/2026 l'ancien canal e-mail
+      # SMTP Gmail : mot de passe d'application invalide depuis des mois, panne tombee en
+      # silence — exactement le scenario que ce workflow existe pour rendre impossible. Une
+      # issue GitHub ne depend que de `github.token`, donc elle ne peut pas expirer, et elle
+      # notifie par les abonnements du repo. Idempotente : si une issue du meme titre est deja
+      # ouverte, on y ajoute un commentaire au lieu d'en empiler une par nuit.
       - name: Ouvrir une issue en cas d echec
         if: failure()
         env:
