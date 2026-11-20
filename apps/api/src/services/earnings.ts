@@ -176,6 +176,18 @@ export async function getNextEarningsDate(ticker: string): Promise<string | null
   return info.next?.date ?? null;
 }
 
+/**
+ * Plafond du TTL chart (ChartCache, DB-backed donc SURVIT aux cold starts, contrairement à
+ * `earningsCache` ci-dessus qui est en mémoire et se vide à chaque nouvelle instance de lambda).
+ * Durci de 100 à 35 jours le 20/11/2026 : une `nextDate` erronément lointaine (calendrier
+ * Finnhub qui n'a pas encore publié le bon trimestre, cf. le trou de couverture documenté dans
+ * screener.ts) verrouillait un graphe jusqu'à 100 jours — suspecté d'expliquer un P/FCF figé
+ * depuis mi-octobre sur un titre comme ASML sans qu'aucun cron n'ait pu le détecter. 35 jours
+ * reste cohérent avec `RESCORE_TTL_MID_MS` (screener.ts, même ordre de grandeur pour une
+ * fraîcheur "earnings inconnus").
+ */
+const MAX_TTL_MS = 35 * 24 * 60 * 60 * 1000;
+
 /** TTL en ms basé sur la prochaine date d'earnings. Fallback 24h. */
 export function ttlUntilNextEarnings(nextDate: string | null): number {
   const FALLBACK = 24 * 60 * 60 * 1000;
@@ -183,5 +195,5 @@ export function ttlUntilNextEarnings(nextDate: string | null): number {
   const nextTs = Date.parse(nextDate + 'T12:00:00Z');
   if (Number.isNaN(nextTs)) return FALLBACK;
   const ttl = (nextTs - Date.now()) + 24 * 60 * 60 * 1000;
-  return Math.max(60 * 60 * 1000, Math.min(ttl, 100 * 24 * 60 * 60 * 1000));
+  return Math.max(60 * 60 * 1000, Math.min(ttl, MAX_TTL_MS));
 }
