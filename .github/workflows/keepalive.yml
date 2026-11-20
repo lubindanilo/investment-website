@@ -1,0 +1,38 @@
+name: Keepalive (empeche la desactivation des crons)
+
+# GitHub desactive AUTOMATIQUEMENT tout workflow planifie d'un repo public des que le repo n'a
+# connu AUCUNE activite (push) pendant 60 jours (doc officielle :
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule).
+#
+# Jusqu'au 20/11/2026 ce risque etait neutralise par les PR seo/* quotidiennes du bot de blog
+# (desormais arretees, cf. commit 535416e). Sans activite de remplacement, screener-drain.yml,
+# screener-cron.yml et resilience-cron.yml s'auto-desactiveraient en silence dans ~2 mois — la
+# panne la plus difficile a diagnostiquer, puisqu'aucune des 3 n'echouerait : elles ne se
+# declencheraient simplement plus, sans run, sans erreur, sans alerte.
+#
+# Ce workflow fait un commit vide mensuel (rien a committer = rien a relire), largement sous le
+# seuil de 60 j, pour que le repo reste "actif" aux yeux de GitHub. Autorise explicitement par
+# Lubin le 20/11/2026.
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Le 1er de chaque mois a 03:00 UTC, loin des crons data (01:00 drain, 06:00 tick, 21:37
+    # resilience) pour ne jamais se chevaucher avec un run qui tape la base.
+    - cron: '0 3 1 * *'
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Commit vide pour garder le repo actif
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "chore: keepalive mensuel (evite la desactivation des crons par GitHub apres 60j d inactivite)"
+          git push
