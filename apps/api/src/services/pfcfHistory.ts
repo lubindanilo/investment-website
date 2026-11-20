@@ -298,10 +298,29 @@ function negativeRuns(series: TimeseriesPoint[], windowStartMs: number): Negativ
     .map(r => ({ from: r.from < startIso ? startIso : r.from, to: r.to }));
 }
 
-/** Path US : Finnhub quarterly + TTM rolling, ~60-240 points selon l'interval. */
+/**
+ * Résolution du graphe P/FCF selon la fenêtre demandée (20/11/2026).
+ *
+ * Était hebdo (1Y) / mensuel (au-delà) depuis le début : un graphe à 52 points sur un an pour
+ * l'indicateur phare du site (ratio cours/FCF) ne montre ni les gaps d'entrée ni la vraie
+ * respiration du cours — Yahoo sert le quotidien en un seul appel, au même coût réseau qu'une
+ * résolution plus large (`fetchPriceHistory` ne fait qu'un seul fetch, quel que soit `interval`),
+ * donc rien ne justifiait de s'en priver sur les fenêtres courtes. Le `findLatestAsOf` qui
+ * recroise chaque point de prix avec le FCF/shares le plus récent connu est un lookup en mémoire,
+ * pas une requête réseau ou DB supplémentaire par point.
+ *
+ * Plafonné à l'hebdo au-delà de 5 ans : le quotidien sur 10-50 ans (jusqu'à ~12 500 points) n'
+ * apporterait rien de visible à cette échelle de zoom et alourdirait la réponse pour rien.
+ */
+function pfcfInterval(years: number): '1d' | '1wk' | '1mo' {
+  if (years <= 1) return '1d';
+  if (years <= 5) return '1wk';
+  return '1mo';
+}
+
+/** Path US : Finnhub quarterly + TTM rolling, résolution via `pfcfInterval`. */
 async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHistoryPoint[]> {
-  // Choix de résolution : 1Y = weekly (52 pts), au-delà = monthly (60-600 pts)
-  const interval: '1d' | '1wk' | '1mo' = years <= 1 ? '1wk' : '1mo';
+  const interval = pfcfInterval(years);
 
   // Fenêtre FCF : besoin de 1 an supplémentaire pour calculer le TTM du premier point
   const fcfYears = years + 1;
@@ -394,7 +413,7 @@ async function getPfcfHistoryIntraYear(
     loadIntraYearSet(ticker, 'fcf', ['shares'], W),
     getYahooAnnualBatchCached(ticker, yahooSymbol, ['annualFreeCashFlow'], Date.now()),
     fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
-    fetchPriceHistory(yahooSymbol, years, years <= 1 ? '1wk' : '1mo'),
+    fetchPriceHistory(yahooSymbol, years, pfcfInterval(years)),
   ]);
   if (!set || prices.length === 0) return null;
   const fcfYear = set.flow('fcf');
@@ -466,10 +485,15 @@ async function getPfcfHistoryAnnualYahoo(ticker: string, yahooSymbol: string, ye
   const [batch, currencyProbe, prices] = await Promise.all([
     getYahooAnnualBatchCached(ticker, yahooSymbol, ['annualFreeCashFlow', 'annualDilutedAverageShares'], Date.now()),
     fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
-    fetchPriceHistory(yahooSymbol, Math.max(years, 5), '1mo'),
+    // La fenêtre FETCHÉE est déjà plafonnée à 5 ans minimum (cf. `cutoffIso` plus bas) : la
+    // résolution doit suivre CETTE fenêtre-là, pas `years` brut — sinon un visiteur sur l'onglet
+    // "1Y" d'un titre en repli annuel recevrait 5 ans de quotidien (~1250 pts) au lieu des ~250
+    // pts cohérents avec une fenêtre de 5 ans.
+    fetchPriceHistory(yahooSymbol, Math.max(years, 5), pfcfInterval(Math.max(years, 5))),
   ]);
-  const fcfPts = batch?.get('annualFreeCashFlow') ?? [];
-  const sharesPts = batch?.get('annualDilutedAverageShares') ?? [];
+  // Triées ASC : condition de `findLatestAsOf`, pas garantie par `getYahooAnnualBatchCached`.
+  const fcfPts = [...(batch?.get('annualFreeCashFlow') ?? [])].sort((a, b) => a.date.localeCompare(b.date));
+  const sharesPts = [...(batch?.get('annualDilutedAverageShares') ?? [])].sort((a, b) => a.date.localeCompare(b.date));
   if (fcfPts.length === 0 || sharesPts.length === 0 || prices.length === 0) {
     console.warn(`[pfcf ${yahooSymbol}] EU pas assez de données (fcf=${fcfPts.length}, shares=${sharesPts.length}, prices=${prices.length})`);
     return [];
@@ -497,40 +521,32 @@ async function getPfcfHistoryAnnualYahoo(ticker: string, yahooSymbol: string, ye
       )
     : 1;
 
-  // Index par année
-  const fcfByYear: Record<string, number> = {};
-  const sharesByYear: Record<string, number> = {};
-  for (const p of fcfPts) fcfByYear[p.date.slice(0, 4)] = p.value;
-  for (const p of sharesPts) sharesByYear[p.date.slice(0, 4)] = p.value;
-
   // Fenêtre demandée : avec la profondeur EDGAR, la série peut couvrir 15+ exercices — on ne
   // trace que ceux de la période (plancher 5 ans, comme le reste du chemin annuel).
   const cutoffIso = new Date(Date.now() - Math.max(years, 5) * 365.25 * 24 * 3600 * 1000).toISOString().slice(0, 10);
 
-  // Pour chaque année où on a (FCF, shares), on trouve le prix de fin d'année correspondant
+  // Un point par PRIX (quotidien/hebdo/mensuel selon `pfcfInterval`), pas un point par exercice
+  // (20/11/2026) : l'ancienne version ne posait QUE le prix de fin d'année de chaque exercice —
+  // avec 4-5 exercices disponibles, ça donnait littéralement 4-5 points sur tout l'historique,
+  // quelle que soit la résolution du prix pourtant déjà récupéré en mensuel. Le FCF/actions ne
+  // change qu'une fois par an (`findLatestAsOf`, tolérance 400j pour couvrir le délai de
+  // publication), donc la courbe reste en escalier sur le ratio, mais l'axe prix respire
+  // vraiment — même principe que les chemins US et EU intra-annuel juste au-dessus.
   const points: PfcfHistoryPoint[] = [];
-  const annualDates = fcfPts.map(p => p.date).filter(d => d >= cutoffIso).sort();
-  for (const yearEnd of annualDates) {
-    const yr = yearEnd.slice(0, 4);
-    const fcf = fcfByYear[yr];
-    const sh = sharesByYear[yr];
-    if (fcf == null || fcf <= 0 || sh == null || sh <= 0) continue;
-    // Le prix de la fin d'année : on cherche le price le plus proche (≤) de yearEnd
-    let priceAt: number | null = null;
-    for (const p of prices) {
-      if (p.date <= yearEnd) priceAt = p.value;
-      else break;
-    }
-    if (priceAt == null) continue;
-    const fx = fxAt(fxSeries, yearEnd);
+  for (const p of prices) {
+    if (p.date < cutoffIso) continue;
+    const fcf = findLatestAsOf(fcfPts, p.date, 400);
+    const sh = findLatestAsOf(sharesPts, p.date, 400);
+    if (!fcf || fcf.value <= 0 || !sh || sh.value <= 0) continue;
+    const fx = fxAt(fxSeries, p.date);
     if (fx == null) continue;
-    const marketCap = (priceAt * sh) / scale;
-    const pfcf = marketCap / (fcf * fx);
+    const marketCap = (p.value * sh.value) / scale;
+    const pfcf = marketCap / (fcf.value * fx);
     if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
-    points.push({ date: yearEnd, pfcf: Math.round(pfcf * 100) / 100 });
+    points.push({ date: p.date, pfcf: Math.round(pfcf * 100) / 100 });
   }
 
-  console.log(`[pfcf ${yahooSymbol}] EU ${points.length} pts annual — fcf=${fcfPts.length} shares=${sharesPts.length}${reporting && reporting !== quoteCurrency ? ` (FCF ${reporting} → ${quoteCurrency})` : ''}`);
+  console.log(`[pfcf ${yahooSymbol}] EU ${points.length} pts annual (${pfcfInterval(Math.max(years, 5))}) — fcf=${fcfPts.length} shares=${sharesPts.length}${reporting && reporting !== quoteCurrency ? ` (FCF ${reporting} → ${quoteCurrency})` : ''}`);
   return points;
 }
 
