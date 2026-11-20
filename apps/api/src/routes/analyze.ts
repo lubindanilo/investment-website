@@ -28,6 +28,7 @@ import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
 import { optionalAuth, requireAuth } from '../middleware/auth.js';
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 import { requirePro } from '../middleware/subscription.js';
 import {
   isPublishedResilienceAnalysis,
@@ -344,6 +345,14 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   // TickerQuantSnapshot (sauf chemin rapide : le cache est déjà frais, pas de réécriture).
   // La watchlist lit ce cache tel quel → score identique, divergence impossible.
   if (!servable) await persistQuantCache(ticker, quant, response);
+
+  // CDN public UNIQUEMENT pour les visiteurs anonymes : `response.inWatchlist` n'existe que
+  // si `userId` est défini (cf. ci-dessus), donc la réponse anonyme ne contient aucune donnée
+  // par utilisateur — `public` ne peut pas faire fuiter l'état d'un visiteur à un autre. Même
+  // idiome que GET /api/screener/top (screener.ts). Route la plus visitée du site (chaque
+  // fiche ticker) sans aucun Cache-Control jusqu'ici → gros contributeur du transfert réseau
+  // Neon (quota mensuel approché mi-novembre 2026).
+  res.setHeader('Cache-Control', userId ? 'private, no-store' : publicCacheControl(CDN_TTL.quotes));
 
   res.json(response);
 }));
