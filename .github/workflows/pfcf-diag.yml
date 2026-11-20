@@ -1,0 +1,36 @@
+name: Diagnostic P/FCF (densite du graphe)
+
+# Diagnostic READ-ONLY : appelle getPfcfHistory() directement (sans la route HTTP Pro-only) pour
+# verifier en conditions reelles le nombre de points et la resolution du graphe apres le fix du
+# 20/11/2026 (resolution quotidienne/hebdo + correction du chemin de repli annuel qui ne posait
+# qu'un point par exercice). N'ecrit rien en base, ne consomme que des lectures Finnhub/Yahoo deja
+# budgetees ailleurs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: 'Tickers a verifier, separes par des virgules'
+        required: false
+        default: 'ASML,ASML.AS,LVMH.PA,MC.PA,AAPL'
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DIRECT_URL: ${{ secrets.DATABASE_URL }}
+      FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      PFCF_DIAG_TICKERS: ${{ inputs.tickers }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+      - run: pnpm --filter @lubin/api run pfcf:diag

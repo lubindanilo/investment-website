@@ -24,6 +24,7 @@
     "resilience:stars:reaccent": "tsx scripts/resilienceStarsReaccent.ts",
     "screener:drain": "tsx scripts/drainScreener.ts",
     "neon:status": "tsx scripts/neonStatus.ts",
+    "pfcf:diag": "tsx scripts/pfcfHistoryDiag.ts",
     "stockanalysis:backfill": "tsx src/_backfill_stockanalysis.ts"
   },
   "dependencies": {
