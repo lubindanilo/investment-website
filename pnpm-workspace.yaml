@@ -3,6 +3,18 @@ packages:
   - 'packages/*'
   - 'cron'
 
+# Correctifs de securite transitifs (pnpm 11 : les overrides vivent ici, plus dans
+# package.json). proxy-addr 2.0.7 est vulnerable au spoofing d'IP (GHSA-jqcg-44mw-7w3h,
+# CRITIQUE) via X-Forwarded-For, exploitable ici car `app.set('trust proxy', true)` est
+# actif (apps/api/src/server.ts) pour que les rate-limiters lisent la bonne IP derriere
+# Vercel — donc le chemin vulnerable est reellement emprunte. body-parser a deux versions
+# transitives (1.x via express@4, 2.x via express@5 d'@modelcontextprotocol/sdk), toutes
+# deux avant leur patch DoS (GHSA-27r3-jxmh-p828).
+overrides:
+  proxy-addr: '^2.0.8'
+  body-parser@1: '^1.20.9'
+  body-parser@2: '^2.4.0'
+
 # pnpm 11 demande explicitement d'approuver les scripts d'install (sécurité)
 allowBuilds:
   '@prisma/client': true
