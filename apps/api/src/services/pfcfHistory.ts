@@ -26,7 +26,7 @@ import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundame
 import { getSecReportingCurrency } from './secEdgar.js';
 import { normalizeShareScale } from './yahooSplits.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
-import { loadIntraYearSet, agreesWithAnnual, seriesDeviation, MIN_INTRA_POINTS } from './intraYearStore.js';
+import { loadIntraYearSet, agreesWithAnnual, seriesDeviation, dropMagnitudeOutliers, MIN_INTRA_POINTS } from './intraYearStore.js';
 import { getFxSeries, fxAt } from './fx.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { getYahooMarketCap } from './yahoo.js';
@@ -416,6 +416,22 @@ async function getPfcfHistoryIntraYear(
     fetchPriceHistory(yahooSymbol, years, pfcfInterval(years)),
   ]);
   if (!set || prices.length === 0) return null;
+
+  // Garde-fou de FIABILITÉ de la source (20/11/2026), AVANT tout calcul : si le store contient
+  // un trimestre dont la magnitude est un outlier statistique (cf `dropMagnitudeOutliers`),
+  // `rollingYearSum` l'écarte déjà en aval — mais ça laisse un TROU au milieu de la série, qui
+  // coupe le graphe avant aujourd'hui dès que le trou touche la fenêtre la plus récente (constaté
+  // sur ASML.AS : le trimestre « dernier connu » de stockanalysis.com contient le total ANNUEL
+  // complet, pas la seule contribution du trimestre — répété à chaque exercice). Un graphe
+  // troué qui s'arrête un an avant aujourd'hui est PIRE que l'annuel complet : on bascule donc
+  // franchement sur le chemin annuel dès qu'UN SEUL trimestre brut est douteux, plutôt que de
+  // rafistoler une série qu'on ne peut plus garantir fraîche.
+  const rawFcf = set.snapshot('fcf');
+  if (dropMagnitudeOutliers(rawFcf).length < rawFcf.length) {
+    console.log(`[pfcf ${ticker}] EU store douteux (trimestre outlier détecté) → chemin annuel`);
+    return null;
+  }
+
   const fcfYear = set.flow('fcf');
   // normalizeShareScale : les sources publient par intermittence un nombre d'actions ÷1000 ou
   // ×1e6. Sur un multiple, un tel glitch ne fait pas un point aberrant qu'on écarterait — il fait
