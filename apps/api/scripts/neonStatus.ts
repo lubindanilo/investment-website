@@ -18,6 +18,10 @@ interface NeonProject {
   created_at?: string;
   compute_time_seconds?: number;
   active_time_seconds?: number;
+  /** Octets transférés hors de Neon (proxy), cumul de la période de facturation courante. */
+  data_transfer_bytes?: number;
+  /** Octets écrits, cumul de la période de facturation courante. */
+  written_data_bytes?: number;
 }
 
 interface NeonBranch {
@@ -65,11 +69,21 @@ async function main(): Promise<void> {
   const projects = await listAllProjects(apiKey);
   console.log(`${projects.length} projet(s) Neon visible(s) avec cette clé.\n`);
 
-  for (const p of projects) {
+  for (const p0 of projects) {
+    // La liste /projects ne porte pas toujours data_transfer_bytes/written_data_bytes :
+    // on relit le détail /projects/{id} pour les avoir de façon fiable.
+    const detail = await get<{ project?: NeonProject }>(apiKey, `/projects/${encodeURIComponent(p0.id)}`)
+      .then(r => r.project ?? p0)
+      .catch(() => p0);
+    const p = { ...p0, ...detail };
     const cuH = (p.compute_time_seconds ?? 0) / 3600;
+    const transferGb = (p.data_transfer_bytes ?? 0) / 1_000_000_000;
+    const writtenGb = (p.written_data_bytes ?? 0) / 1_000_000_000;
     console.log(`--- ${p.name ?? '(sans nom)'}  [id: ${p.id}]`);
     console.log(`    créé le        : ${p.created_at ?? '?'}`);
     console.log(`    compute ce mois: ${cuH.toFixed(2)} CU-h`);
+    console.log(`    transfert réseau ce mois : ${transferGb.toFixed(3)} Go (plafond Free ≈ 5 Go)`);
+    console.log(`    données écrites ce mois  : ${writtenGb.toFixed(3)} Go`);
 
     const branches = await get<{ branches?: NeonBranch[] }>(apiKey, `/projects/${encodeURIComponent(p.id)}/branches`)
       .catch((e: Error) => ({ branches: [] as NeonBranch[], error: e.message }));
