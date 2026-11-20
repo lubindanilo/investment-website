@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { listArticles, toArticleLang } from '@lubin/shared';
@@ -130,6 +130,12 @@ export function AnalysePage() {
   // et 429 QUOTA_EXCEEDED (10 analyses/jour atteint). Le contenu varie selon la cause.
   const [upgrade, setUpgrade] = useState<{ feature: string; detail?: string } | null>(null);
   const [showSignupModal, setShowSignupModal] = useState(false);
+  // Dernier ticker DEMANDÉ (pas affiché) : garde contre la course entre deux `run` concurrents.
+  // Sans elle, un premier fetch lent (ex. AAPL) qui résout APRÈS qu'on a déjà navigué vers un
+  // second ticker (MSFT, plus rapide) écrasait l'analyse de MSFT avec les chiffres d'AAPL —
+  // l'URL et le titre affichaient MSFT pendant que tous les chiffres de la fiche étaient ceux
+  // d'AAPL. Aucun AbortController ici : l'appel API est déjà parti, juste son résultat est jeté.
+  const latestTickerRef = useRef('');
 
   useEffect(() => { setInWatchlist(new Set()); }, [user]);
 
@@ -138,14 +144,18 @@ export function AnalysePage() {
   const run = useCallback(async (tk: string) => {
     if (!tk.trim()) return;
     const cleaned = tk.trim().toUpperCase();
+    latestTickerRef.current = cleaned;
     setLoading(true); setError(null); setAnalysis(null); setPreview(null); setLastTicker(cleaned);
     window.scrollTo({ top: 0 });
     try {
       // L'analyse quantitative complète est servie à TOUS (connecté ou non). Le backend
       // (optionalAuth) renvoie la fiche complète ; le Pro reste gated sur le qualitatif et
       // les graphes détaillés (côté composant via isPro). Plus de mur d'inscription ici.
-      setAnalysis(await api.analyze(cleaned));
+      const data = await api.analyze(cleaned);
+      if (latestTickerRef.current !== cleaned) return; // un ticker plus récent a déjà été demandé
+      setAnalysis(data);
     } catch (e) {
+      if (latestTickerRef.current !== cleaned) return; // idem : résultat/erreur périmés
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
       // Anonyme : au lieu d'une redirection sèche vers /signup (qui crée un cloaking, le bot
       // voit l'analyse pré-rendue mais pas l'humain), on affiche l'APERÇU PUBLIC du ticker
@@ -175,7 +185,8 @@ export function AnalysePage() {
       }
       setError(err);
     } finally {
-      setLoading(false);
+      // Idem : un `run` plus récent est peut-être encore en vol, ne pas éteindre SON spinner.
+      if (latestTickerRef.current === cleaned) setLoading(false);
     }
   }, [navigate, toast, user, t]);
 
