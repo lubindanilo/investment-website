@@ -343,11 +343,16 @@ que les termes métier) et que la FAQ est le correctif anti-hallucination.
 **Fichiers :** `HUB_COPY` et `renderTickerHtml` pour les titres de fiche, plus la règle éditoriale
 du playbook de l'agent.
 **Temps :** 2 heures de décision, puis appliqué à la génération.
-**État : FAIT le 4 août 2026.** La règle n'est pas seulement documentée, elle est **exécutoire** :
-`scripts/check-article-titles.mjs` (check requis `title-jargon`) refuse désormais tout titre
-d'article qui reprend le gabarit des fiches, dans les trois langues, avec un message qui donne
-l'angle de remplacement. Le check reste en diff-only, donc les 348 articles existants ne sont pas
-re-jugés et la CI ne casse pas rétroactivement.
+**État : FAIT le 4 août 2026.** La règle n'était pas seulement documentée, elle était **exécutoire** :
+`scripts/check-article-titles.mjs` (check requis `title-jargon`) refusait tout titre
+d'article qui reprenait le gabarit des fiches, dans les trois langues, avec un message qui donnait
+l'angle de remplacement. Le check restait en diff-only, donc les 348 articles existants n'étaient pas
+re-jugés et la CI ne cassait pas rétroactivement.
+
+**Mise à jour du 20/11/2026 :** la génération automatique d'articles (bot second-brain, PR `seo/*`)
+a été arrêtée côté ce repo. `check-article-titles.mjs` et `title-lint.yml` ont été supprimés — ils
+ne gardaient que des titres écrits par le bot. La règle éditoriale reste valable si des articles
+sont encore écrits à la main, mais n'est plus imposée par la CI.
 
 Règle proposée, à graver :
 
@@ -396,8 +401,9 @@ le 4 août : les données d'avant et d'après ne forment pas une seule série. L
 façon illisible, 220 impressions sur 28 jours et 5 requêtes.
 
 Le titre actuel de MSFT contient « note de qualité 8/10 » et « valorisation P/FCF 51.1× ». Le
-garde-fou `title-lint.yml` interdit déjà ce jargon sur les articles ; il faut l'étendre au
-pré-rendu, sinon la règle protège 348 pages et laisse passer 5 000. Le titre doit garder ses trois
+garde-fou `title-lint.yml` interdisait ce jargon sur les articles générés (workflow supprimé le
+20/11/2026, cf. Q5) ; il faudrait l'étendre au pré-rendu si cette règle doit encore s'appliquer,
+sinon la règle protège 348 pages et laisse passer 5 000. Le titre doit garder ses trois
 ou quatre intentions et sa longueur, en remplaçant le jargon par du langage humain : « qualité du
 business notée sur 10 critères », « valorisation face à son historique », « prix d'achat conseillé ».
 
@@ -1087,4 +1093,5 @@ résultat.
 - Code concerné : `vercel.json` (liste d'autorisation des robots),
   `apps/api/src/routes/seoPrerender.ts` (pré-rendu, hubs, pages statiques),
   `apps/api/src/routes/sitemap.ts` (sitemaps), `apps/web/public/robots.txt`,
-  `.github/workflows/title-lint.yml` et `content-lint.yml` (garde-fous éditoriaux).
+  `content-lint.yml` (garde-fou anti-crash ; `title-lint.yml` et `auto-merge-seo.yml`,
+  propres à la génération auto, supprimés le 20/11/2026).

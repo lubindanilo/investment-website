@@ -1,13 +1,9 @@
-name: Content lint articles (tirets et ordre des declarations)
+name: Content lint articles (anti-crash)
 
-# Garde-fous déterministes sur les fichiers d'articles. Deux invariants dans le MÊME job
-# `no-dashes` (required check de la protection de branche `main`), donc les deux bloquent
-# l'auto-merge des PR `seo/*` :
-#   1. AUCUN tiret long (—) ni moyen (–) (préférence éditoriale Lubin : deux-points/virgule).
-#   2. `export const ARTICLES = [...]` déclaré APRÈS toutes ses consts (sinon TDZ =>
-#      crash de la fonction Vercel à l'import, HTTP 500 sur tout le site : incident 2026-07-15).
-#   3. Le title de la home n'est PAS modifié (décision produit verrouillée, cf.
-#      scripts/check-home-title.mjs) : empêche les agents SEO de le raccourcir/réécrire.
+# Garde-fou anti-crash (PAS un lint éditorial - la génération auto d'articles a été retirée) :
+# `export const ARTICLES = [...]` doit être déclaré APRÈS toutes ses consts, sinon TDZ =>
+# crash de la fonction Vercel à l'import, HTTP 500 sur tout le site (incident 2026-07-15).
+# Reste utile tant qu'articles.ts peut être édité à la main.
 #
 # Tourne sur TOUTES les PRs (pas de filtre de chemin) pour toujours reporter un statut.
 on:
@@ -15,19 +11,9 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  no-dashes:
+  articles-order:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Interdire les tirets longs/moyens dans les articles
-        run: |
-          FILES="packages/shared/src/articles.ts apps/api/src/data/articles.ts"
-          if grep -nP '[\x{2014}\x{2013}]' $FILES; then
-            echo "::error::Tiret long (—) ou moyen (–) détecté dans un article. Remplace par ':' , ',' ou coupe la phrase."
-            exit 1
-          fi
-          echo "✅ Aucun tiret long/moyen dans les articles."
       - name: Vérifier l'ordre des déclarations d'articles (anti-TDZ)
         run: node scripts/check-articles-order.mjs
-      - name: 🔒 Verrouiller le title de la home (décision produit, non modifiable par les agents)
-        run: node scripts/check-home-title.mjs

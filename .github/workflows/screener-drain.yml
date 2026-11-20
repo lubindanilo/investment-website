@@ -89,7 +89,12 @@ jobs:
       DRAIN_MINUTES: ${{ inputs.minutes || vars.DRAIN_MINUTES || '120' }}
       DRAIN_REGION: ${{ inputs.region }}
       DRAIN_MAX_TICKERS: ${{ inputs.max_tickers || '5000' }}
-      DRAIN_REQUEUE_ABANDONED: ${{ inputs.requeue_abandoned || '0' }}
+      # Défaut '1' (20/11/2026) : un titre en `error` >= 5 tentatives (ex. ASML, coincé depuis
+      # mi-octobre) n'était JAMAIS redonné au pipeline sans ce flag, qui n'était positionné sur
+      # AUCUN run planifié. requeueAbandoned() se contente de repasser status='pending',
+      # attempts=0 — sans risque, re-protégé par le budget Neon et le MAX_ATTEMPTS habituel si le
+      # titre échoue encore (renommé/délisté).
+      DRAIN_REQUEUE_ABANDONED: ${{ inputs.requeue_abandoned || '1' }}
       # Reglages de debit, ajustables SANS deploiement : inputs pour un run ponctuel, variables de
       # repo pour la valeur par defaut des runs planifies. Les defauts du script viennent de la
       # mesure du canari du 04/08 : concurrence 2, 240 s par titre.
