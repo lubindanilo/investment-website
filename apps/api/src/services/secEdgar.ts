@@ -12,6 +12,7 @@
  * US uniquement (EDGAR ne couvre que les émetteurs SEC). Non-US → renvoie [] (le caller garde Finnhub/Yahoo).
  */
 import type { TimeseriesPoint } from '@lubin/shared';
+import { secLimiter } from '../lib/limiter.js';
 import {
   METRICS,
   computeCashAndEquivalents,
@@ -24,6 +25,12 @@ import {
 } from './finnhubFundamentals.js';
 
 const UA = 'lubin-investment (admin@hyperstack.studio)'; // SEC exige un User-Agent identifiable
+
+/** Toutes les requêtes SEC passent par le limiteur (10 req/s max côté SEC, cf. secLimiter). */
+const secFetch = (url: string) => secLimiter.schedule(() => fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } }));
+let throttledResponses = 0;
+/** Nombre de réponses 429/403 (bridage SEC) vues par ce process : un script long s'arrête dessus. */
+export function edgarThrottledCount(): number { return throttledResponses; }
 const CONCEPT_BASE = 'https://data.sec.gov/api/xbrl/companyconcept';
 const TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
 
@@ -35,7 +42,7 @@ async function loadCikMap(): Promise<Map<string, string>> {
   if (cikMap) return cikMap;
   if (!cikMapPromise) {
     cikMapPromise = (async () => {
-      const res = await fetch(TICKERS_URL, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+      const res = await secFetch(TICKERS_URL);
       if (!res.ok) throw new Error(`SEC tickers HTTP ${res.status}`);
       const data = await res.json() as Record<string, { cik_str: number; ticker: string }>;
       const m = new Map<string, string>();
@@ -104,7 +111,14 @@ async function fetchConceptUnits(cik: string, taxonomy: string, concept: string,
   if (unitsCache.has(key)) return unitsCache.get(key)!;
   try {
     const url = `${CONCEPT_BASE}/CIK${cik}/${taxonomy}/${encodeURIComponent(concept)}.json`;
-    const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+    const res = await secFetch(url);
+    if (res.status === 429 || res.status === 403) {
+      // Bridage SEC : ce n'est PAS « concept absent ». On ne met rien en cache (une requête
+      // ultérieure doit pouvoir réussir) et on compte, pour que les scripts longs s'arrêtent.
+      throttledResponses++;
+      if (opts?.failHard) throw new Error(`EDGAR ${concept} HTTP ${res.status} (bridage SEC)`);
+      return null;
+    }
     if (!res.ok) {
       // 404 = concept réellement absent chez ce déposant : une vraie réponse, cachée même en
       // failHard. Tout autre statut est un échec de sonde (throttle, 5xx) : en failHard on le

@@ -51,8 +51,17 @@ export const yahooLimiter = new Bottleneck({
   maxConcurrent: 3,
 });
 
+/**
+ * SEC EDGAR (data.sec.gov) : « fair access » = 10 requêtes/s max par client, au-delà la SEC
+ * répond 429 et bloque l'IP ~10 minutes. Constaté le 20/11/2026 : un script de réparation à 3
+ * workers a déclenché le blocage, et chaque 429 était lu comme « concept absent ». Le
+ * recoupement des trimestres appelle EDGAR à chaque reconstruction d'un flux US : on espace
+ * donc les appels à 8/s, par process (comme les autres réservoirs).
+ */
+export const secLimiter = new Bottleneck({ minTime: 125, maxConcurrent: 4 });
+
 // Pour logguer les saturations en dev
-[finnhubLimiter, fmpLimiter, openaiLimiter, yahooLimiter].forEach(l => {
+[finnhubLimiter, fmpLimiter, openaiLimiter, yahooLimiter, secLimiter].forEach(l => {
   l.on('depleted', () => console.warn('[limiter] reservoir empty — requests will queue'));
   l.on('error', (e) => console.error('[limiter] error', e));
 });

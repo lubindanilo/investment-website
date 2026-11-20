@@ -25,7 +25,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import type { TimeseriesPoint } from '@lubin/shared';
 import { prisma } from '../src/db/client.js';
-import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS } from '../src/services/secEdgar.js';
+import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS, edgarThrottledCount } from '../src/services/secEdgar.js';
 import { reconcileWithEdgar } from '../src/services/edgarQuarterReconcile.js';
 import type { MetricKey } from '../src/services/finnhubFundamentals.js';
 
@@ -33,6 +33,7 @@ const args = new Map(process.argv.slice(2).map(a => { const [k, v] = a.replace(/
 const APPLY = args.has('apply');
 const BACKUP = args.get('backup');
 const LIMIT = args.has('limit') ? Number(args.get('limit')) : Infinity;
+const START = Number(args.get('start') ?? 0);
 const MIN_CAP = args.has('min-cap') ? Number(args.get('min-cap')) : 0;
 const CONCURRENCY = Math.max(1, Number(args.get('concurrency') ?? 3));
 const METRICS = (args.get('metrics')?.split(',') ?? [...EDGAR_ANNUAL_ANCHOR_METRICS]).filter(m => EDGAR_ANNUAL_ANCHOR_METRICS.has(m as MetricKey)) as MetricKey[];
@@ -51,7 +52,7 @@ async function main(): Promise<void> {
   const tickers = [...new Set(rows.map(r => r.ticker))]
     .filter(t => (caps.get(t) ?? 0) >= MIN_CAP)
     .sort((a, b) => (caps.get(b) ?? 0) - (caps.get(a) ?? 0))
-    .slice(0, LIMIT);
+    .slice(START, START + LIMIT);
   const rank = new Map(tickers.map((t, i) => [t, i]));
   const todo = rows.filter(r => rank.has(r.ticker)).sort((a, b) => rank.get(a.ticker)! - rank.get(b.ticker)!);
   console.log(`${todo.length} séries (${tickers.length} tickers, métriques ${METRICS.join(',')}) — ${APPLY ? 'APPLY' : 'dry-run'}`);
@@ -64,6 +65,9 @@ async function main(): Promise<void> {
   let next = 0;
   const worker = async (): Promise<void> => {
   while (next < todo.length) {
+    // Bridage SEC : une réponse 429 serait lue comme « pas de donnée » → on s'arrête net plutôt
+    // que de parcourir le reste à vide. Le script est idempotent : relancer avec --start=<rang>.
+    if (edgarThrottledCount() > 0) throw new Error(`bridage SEC (429) vers la série ${next}/${todo.length} — relancer dans 10 min avec --start=${START + (rank.get(todo[next]!.ticker) ?? 0)}`);
     const r = todo[next++]!;
     seen++;
     const points = (r.points as unknown as TimeseriesPoint[]) ?? [];
