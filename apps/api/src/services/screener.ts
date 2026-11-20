@@ -33,7 +33,7 @@ import { computeLivePfcf } from './quantCache.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
 import { getPfcfHistory, pfcfPercentile, pfcfDecileThreshold, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
 import { getYahooBatchQuotes, getYahooMarketCap } from './yahoo.js';
-import { ttlUntilNextEarnings } from './earnings.js';
+import { ttlForPfcfSeries } from './earnings.js';
 import { marketCapToUsd, DAYAFTER_CAP_USD, MID_CAP_USD, HIGH_SCORE_RATIO } from './marketTiers.js';
 import { resolveMarketCap } from './marketCapResolve.js';
 import * as chartCache from '../lib/timeseriesCache.js';
@@ -300,7 +300,7 @@ async function computeOpportunityAtScore(
   }
   const pts = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
   if (!pts.length) return { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
-  const ttl = ttlUntilNextEarnings(nextEarningsDate);
+  const ttl = ttlForPfcfSeries(nextEarningsDate);
   await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', `computed-adj-${chartCache.FCF_CHART_GENERATION}`, OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   // On classe le P/FCF COURANT (cohérent, fourni par le caller) contre la distribution historique —
   // et non le dernier point de l'historique (close mensuel), pour que le gate < 25 et le percentile

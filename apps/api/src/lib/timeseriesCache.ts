@@ -82,8 +82,12 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  *     percer un trou dans la série — la génération 10 perçait un trou qui coupait le graphe
  *     bien avant aujourd'hui (ASML.AS : s'arrêtait en avril 2025) dès que l'outlier touchait
  *     la fenêtre la plus récente. Changement de valeur pour tout titre concerné : bump.
+ * 12 = 20/11/2026, chemin US du P/FCF : le nombre d'actions est toléré jusqu'à 400 jours (au
+ *     lieu de 200), le 4e trimestre fiscal manquant toujours dans la série. Sans ça chaque
+ *     titre perdait ses dernières semaines de graphe une fois par an (INTU coupé au 16/11).
+ *     Les entrées déjà en cache, posées pour 35 jours, garderaient la courbe tronquée : bump.
  */
-const CHART_STRATEGY_GENERATION = 11;
+const CHART_STRATEGY_GENERATION = 12;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /

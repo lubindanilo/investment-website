@@ -197,3 +197,15 @@ export function ttlUntilNextEarnings(nextDate: string | null): number {
   const ttl = (nextTs - Date.now()) + 24 * 60 * 60 * 1000;
   return Math.max(60 * 60 * 1000, Math.min(ttl, MAX_TTL_MS));
 }
+
+/**
+ * TTL des séries P/FCF mises en cache (graphe + distribution de l'opportunité).
+ *
+ * Contrairement aux histogrammes de fondamentaux, ces séries dépendent du COURS, qui bouge
+ * chaque jour : les caler sur le prochain earnings figeait la courbe jusqu'à 35 jours (INTU,
+ * 20/11/2026 : graphe arrêté au 16/11 en pleine chute de −22 %). Plafond à 24 h : un
+ * recalcul à froid coûte 0,1 à 2 s (fondamentaux mémoïsés dans le store + un appel Yahoo).
+ */
+export function ttlForPfcfSeries(nextDate: string | null): number {
+  return Math.min(ttlUntilNextEarnings(nextDate), 24 * 60 * 60 * 1000);
+}

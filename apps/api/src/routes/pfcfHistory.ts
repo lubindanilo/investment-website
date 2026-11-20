@@ -12,7 +12,7 @@ import { asyncHandler, ApiError } from '../middleware/error.js';
 import { requireAuth } from '../middleware/auth.js';
 import { requirePro } from '../middleware/subscription.js';
 import { getPfcfHistory, getPfcfNegativeIntervals } from '../services/pfcfHistory.js';
-import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
+import { getNextEarningsDate, ttlForPfcfSeries } from '../services/earnings.js';
 import * as cache from '../lib/timeseriesCache.js';
 
 export const pfcfHistoryRouter: Router = Router();
@@ -86,9 +86,9 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   const negativeFcfIntervals = coverLeadingGap(rawIntervals, points);
   const elapsedMs = Date.now() - startedAt;
 
-  // 3. TTL basé sur le prochain earnings — un nouveau Q recalcule TTM_FCF
+  // 3. TTL : prochain earnings (nouveau TTM_FCF) ET 24 h max, la courbe suivant le cours.
   const nextEarnings = await earningsPromise;
-  const ttlMs = ttlUntilNextEarnings(nextEarnings);
+  const ttlMs = ttlForPfcfSeries(nextEarnings);
   // Adaptation au cache typé TimeseriesPoint : on stocke pfcf dans value
   await cache.set(
     key,

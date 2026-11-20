@@ -51,6 +51,8 @@ export const PFCF_OPP_PERCENTILE = 10;
 export const PFCF_OPP_MAX = 25;
 /** Note quantitative minimale (sur 10) pour qualifier d'« opportunité du moment ». */
 export const PFCF_OPP_MIN_SCORE10 = 8;
+/** Ancienneté max du nombre d'actions croisé avec un cours (cf. getPfcfHistoryUs). */
+const SHARES_MAX_STALENESS_DAYS = 400;
 /** Historique minimal (points) pour un percentile fiable (~3 ans de trimestres). */
 const PFCF_PERCENTILE_MIN_POINTS = 12;
 
@@ -368,7 +370,13 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
   const points: PfcfHistoryPoint[] = [];
   for (const p of prices) {
     const ttm = findLatestAsOf(adjFcfTtm, p.date);   // {date, value} = FCF ajusté TTM
-    const sh = findLatestAsOf(sharesQ, p.date);
+    // Shares : tolérance plus large que le FCF. La série trimestrielle n'a JAMAIS le point du
+    // 4e trimestre fiscal (le 10-K ne publie qu'un nombre annuel) : entre la fin du T3 et le
+    // 10-Q du T1 suivant il s'écoule ~230 jours, donc à 200 jours chaque titre perdait, une
+    // fois par an, ses 2 à 4 dernières semaines de graphe (INTU coupé au 16/11/2026 alors que
+    // Yahoo avait les cours jusqu'au 20/11). Le nombre d'actions bouge lentement : 400 jours,
+    // comme le chemin annuel ci-dessous.
+    const sh = findLatestAsOf(sharesQ, p.date, SHARES_MAX_STALENESS_DAYS);
     if (!ttm || !sh) continue;
     if (ttm.value <= 0 || sh.value <= 0) continue;   // FCF ajusté ≤ 0 → P/FCF non pertinent (omis)
     const fx = fxAt(fxSeries, p.date);

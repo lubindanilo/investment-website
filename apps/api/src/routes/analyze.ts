@@ -22,7 +22,7 @@ import { fetchBusinessAnalysis, fetchManagementAnalysis, fetchMarketShare } from
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
 import { writeCachedSnapshot, getServableSnapshot, computeLivePfcf, extractLivePfcfInputs, type CachedQuantSnapshot } from '../services/quantCache.js';
 import { pfcfPercentile, pfcfMedian, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
-import { ttlUntilNextEarnings } from '../services/earnings.js';
+import { ttlForPfcfSeries } from '../services/earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
@@ -235,7 +235,7 @@ async function computeOpportunity(
   } else {
     points = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
     if (points.length) {
-      await chartCache.set(key, points.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttlUntilNextEarnings(nextEarningsDate)).catch(() => {});
+      await chartCache.set(key, points.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttlForPfcfSeries(nextEarningsDate)).catch(() => {});
     }
   }
   // Repli ultime : pas d'historique → colonnes pré-calculées par la veille.

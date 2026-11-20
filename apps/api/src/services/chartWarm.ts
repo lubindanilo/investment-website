@@ -9,7 +9,7 @@ import * as cache from '../lib/timeseriesCache.js';
 import { getPfcfHistory } from './pfcfHistory.js';
 import { getCashRoceHistory } from './cashRoceHistory.js';
 import { getReportedTimeseries, type MetricKey } from './finnhubFundamentals.js';
-import { ttlUntilNextEarnings } from './earnings.js';
+import { ttlForPfcfSeries, ttlUntilNextEarnings } from './earnings.js';
 
 const YEARS = 5;
 /** Profondeur « All » du sélecteur du graphe P/FCF (cf. PERIOD_YEARS.All). */
@@ -23,6 +23,8 @@ const HISTO_METRICS: MetricKey[] = ['netIncome', 'revenue', 'fcf', 'shares', 'op
  */
 export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: string | null): Promise<void> {
   const ttl = ttlUntilNextEarnings(nextEarningsDate);
+  // Les séries P/FCF suivent le cours : 24 h max (cf. ttlForPfcfSeries).
+  const pfcfTtl = ttlForPfcfSeries(nextEarningsDate);
   // P/FCF (5 ans = vue par défaut du graphe, + 50 ans = vue « All » et calcul opportunité)
   // + Cash ROCE. Les services gèrent US (Finnhub) et EU/Asie (Yahoo) en interne.
   const [pfcf, pfcfAll, croce] = await Promise.all([
@@ -30,8 +32,8 @@ export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: 
     getPfcfHistory(ticker, OPP_YEARS).catch(() => []),
     getCashRoceHistory(ticker, YEARS).catch(() => ({ points: [], freq: 'quarterly' as const })),
   ]);
-  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', pfcfTtl).catch(() => {});
+  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', pfcfTtl).catch(() => {});
   // Clé + méta alignées sur la route /api/cash-roce-history (même génération partagée, servedFreq
   // porte annualOnly) — sinon le warm remplirait une clé que la route ne lit pas. C'est
   // exactement ce qui s'est produit tant que les générations étaient écrites en dur des deux
