@@ -17,6 +17,10 @@ on:
         description: 'Ticker pour le dump brut (pfcf:raw-diag) - vide = skip'
         required: false
         default: ''
+      windows:
+        description: 'Fenetres en annees a tester, separees par des virgules'
+        required: false
+        default: '1,5'
 
 permissions:
   contents: read
@@ -31,6 +35,7 @@ jobs:
       FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       PFCF_DIAG_TICKERS: ${{ inputs.tickers }}
       PFCF_RAW_TICKER: ${{ inputs.raw_ticker }}
+      PFCF_DIAG_WINDOWS: ${{ inputs.windows || '1,5' }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

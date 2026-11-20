@@ -11,7 +11,7 @@
 import { getPfcfHistory } from '../src/services/pfcfHistory.js';
 
 const TICKERS = (process.env.PFCF_DIAG_TICKERS ?? 'ASML,ASML.AS,LVMH.PA,MC.PA,AAPL').split(',');
-const WINDOWS = [1, 5];
+const WINDOWS = (process.env.PFCF_DIAG_WINDOWS ?? '1,5').split(',').map(Number);
 
 async function main(): Promise<void> {
   for (const ticker of TICKERS) {
