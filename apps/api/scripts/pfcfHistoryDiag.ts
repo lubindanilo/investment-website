@@ -22,10 +22,12 @@ async function main(): Promise<void> {
         const gapDays = points.length >= 2
           ? (new Date(dates[dates.length - 1]!).getTime() - new Date(dates[dates.length - 2]!).getTime()) / 86_400_000
           : null;
+        const last = points[points.length - 1];
         console.log(
           `${ticker.padEnd(10)} ${years}Y → ${points.length} pts` +
           (points.length > 0 ? ` [${dates[0]} .. ${dates[dates.length - 1]}]` : '') +
-          (gapDays != null ? `  dernier écart=${gapDays.toFixed(0)}j` : ''),
+          (gapDays != null ? `  dernier écart=${gapDays.toFixed(0)}j` : '') +
+          (last ? `  DERNIER pfcf=${last.pfcf}` : ''),
         );
       } catch (e) {
         console.log(`${ticker.padEnd(10)} ${years}Y → ERREUR : ${(e as Error).message}`);
