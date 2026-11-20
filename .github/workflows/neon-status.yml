@@ -1,0 +1,28 @@
+name: Neon status (diagnostic manuel)
+
+# Diagnostic READ-ONLY : liste les projets Neon visibles par NEON_API_KEY et leur stockage
+# (logical_size, la metrique du plafond 512 Mo du plan Free). N'ouvre aucune connexion Postgres,
+# ne consomme aucun compute Neon. Pas de `schedule` : declenchement manuel uniquement.
+#
+# Ne a servi a trancher l'ambiguite du 12/11/2026 (drainScreener.ts refusant de choisir entre deux
+# projets Neon visibles, cf. NEON_PROJECT_ID dans neonBudget.ts).
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile --filter @lubin/api...
+      - run: pnpm --filter @lubin/api exec tsx scripts/neonStatus.ts

@@ -23,6 +23,7 @@
     "resilience:stars:homonyms": "tsx scripts/resilienceStarsHomonymAudit.ts",
     "resilience:stars:reaccent": "tsx scripts/resilienceStarsReaccent.ts",
     "screener:drain": "tsx scripts/drainScreener.ts",
+    "neon:status": "tsx scripts/neonStatus.ts",
     "stockanalysis:backfill": "tsx src/_backfill_stockanalysis.ts"
   },
   "dependencies": {
