@@ -14,6 +14,14 @@ overrides:
   proxy-addr: '^2.0.8'
   body-parser@1: '^1.20.9'
   body-parser@2: '^2.4.0'
+  # ip-address (via express-rate-limit, qui calcule des plages d'IP de confiance) :
+  # confusion decimal/octal sur les octets a zero de tete (GHSA-wvvh-g6qh-rrvq), SSRF
+  # potentiel. ws (via @vercel/functions) : epuisement memoire par fragments minuscules
+  # (GHSA-3h5v-q93c-6h6q). form-data (dev-only, supertest) : injection CRLF — patch
+  # trivial pris au passage, aucun risque de regression.
+  ip-address: '^10.3.1'
+  ws: '^8.21.0'
+  form-data: '^4.0.6'
 
 # pnpm 11 demande explicitement d'approuver les scripts d'install (sécurité)
 allowBuilds:
