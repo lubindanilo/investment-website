@@ -27,6 +27,7 @@ import { analyzeLimiter } from '../middleware/rateLimit.js';
 import { optionalAuth } from '../middleware/auth.js';
 import { isProActive } from '../services/stripe.js';
 import { prisma } from '../db/client.js';
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 
 export const compareRouter: Router = Router();
 
@@ -187,5 +188,15 @@ compareRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const fcfIdx = criteria.findIndex(c => c.key === 'fcfMargin');
   criteria.splice(fcfIdx < 0 ? criteria.length : fcfIdx, 0, { key: rpeDef.key as string, label: rpeDef.nom, target: rpeDef.cible });
   const response: CompareResponse = { tickers, criteria };
+  // CDN public UNIQUEMENT quand le contenu est garanti identique pour tout le monde : à
+  // FREE_MAX_COMPARE_TICKERS (2) ou moins, aucune différence Free/Pro/anonyme n'existe dans la
+  // réponse. Au-delà, SEUL un Pro peut obtenir un 200 (403 sinon) — cacher publiquement cette
+  // réponse ferait servir par le CDN un contenu Pro à un visiteur Free qui tape la même URL
+  // (contournement de paywall). Donc jamais `public` au-delà de 2 tickers, quel que soit le
+  // tier du REQUÊTEUR courant (l'URL peut être rejouée par n'importe qui ensuite).
+  res.setHeader(
+    'Cache-Control',
+    parsed.length <= FREE_MAX_COMPARE_TICKERS ? publicCacheControl(CDN_TTL.quotes) : 'private, no-store',
+  );
   res.json(response);
 }));
