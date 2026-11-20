@@ -3,7 +3,6 @@ import { Link, NavLink, Navigate, Route, Routes, useLocation } from 'react-route
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from './components/ui/LangSwitcher.js';
 import { HomePage } from './pages/HomePage.js';
-import { AnalysePage } from './pages/AnalysePage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
 import { useSubscription } from './contexts/SubscriptionContext.js';
@@ -27,6 +26,12 @@ function userInitials(u: { firstName?: string | null; lastName?: string | null; 
 // ── Pages lazy-loadées : routes secondaires, on évite de gonfler le bundle critique.
 // La forme `.then(m => ({ default: m.X }))` est nécessaire car ces modules exportent
 // des named exports (et non un default export).
+//
+// AnalysePage était importée STATIQUEMENT (20/11/2026 : seule exception du fichier) alors
+// qu'elle tire `ARTICLES` de @lubin/shared (articles liés, ~l.364) — le fichier d'articles
+// fait plusieurs Mo (406 articles). Résultat mesuré : le chunk principal pesait 11,8 Mo
+// (3,75 Mo gzippé), téléchargés sur CHAQUE page, pas seulement /analyse/:ticker.
+const AnalysePage = lazy(() => import('./pages/AnalysePage.js').then((m) => ({ default: m.AnalysePage })));
 const WatchlistPage = lazy(() => import('./pages/WatchlistPage.js').then((m) => ({ default: m.WatchlistPage })));
 const ScreenerPage = lazy(() => import('./pages/ScreenerPage.js').then((m) => ({ default: m.ScreenerPage })));
 const ComparePage = lazy(() => import('./pages/ComparePage.js').then((m) => ({ default: m.ComparePage })));
