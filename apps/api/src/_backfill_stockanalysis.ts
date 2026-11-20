@@ -63,16 +63,31 @@ const candidates = await withRetry(() => prisma.screenerTicker.findMany({
 }));
 console.log(`${candidates.length} tickers non-US à backfiller${ONLY_PFCF_OPP_CANDIDATES ? ' (filtre: opp candidates note ≥ 8)' : ''}`);
 
+// Profondeur minimale pour qu'un graphe intra-annuel soit UTILE (pas juste au-dessus du
+// plancher technique MIN_INTRA_POINTS=3 d'intraYearStore.ts, qui ne garantit qu'un graphe
+// « possible », pas un vrai historique). 8 points = ~2 ans de trimestriel ou ~4 ans de
+// semestriel. Trouvé le 20/11/2026 : `isFresh` (fundamentalsStore.ts) ne regarde QUE la date
+// d'expiration (cadence ~120j depuis le dernier trimestre connu), jamais le nombre de points
+// déjà accumulés. Un ticker dont le premier fetch n'a capté que 1-2 périodes (page
+// stockanalysis incomplète ce jour-là, ou run précédent interrompu) reste donc SKIPPÉ pendant
+// ~120j à chaque relance du backfill, même si une page bien plus profonde est disponible
+// aujourd'hui — symptôme rapporté : graphe P/FCF à 1-2 points/an sur LVMH et d'autres titres EU
+// malgré le backfill du 11/08/2026. `accumulateStockanalysisQuarterly` récupère TOUT
+// l'historique disponible en UN SEUL fetch (pas paginé), donc retenter un ticker superficiel
+// coûte le même 1 appel réseau qu'un ticker déjà profond — aucune raison de s'en priver.
+const MIN_USEFUL_DEPTH = 8;
+
 const now = Date.now();
 let ok = 0, skip = 0, noData = 0, err = 0;
 const t0 = Date.now();
 
 for (const c of candidates) {
   try {
-    // Skip si le revenu trimestriel/semestriel est déjà frais pour ce ticker
-    // (= store FundamentalsSeries.expiresAt > now). Repère honnête de progression.
+    // Skip si le revenu trimestriel/semestriel est déjà frais ET suffisamment profond pour ce
+    // ticker (= store FundamentalsSeries.expiresAt > now ET assez de points). Repère honnête de
+    // progression.
     const stored = await withRetry(() => readSeries(c.ticker, 'revenue'));
-    const intraFresh = stored && isFresh(stored, now)
+    const intraFresh = stored && isFresh(stored, now) && stored.points.length >= MIN_USEFUL_DEPTH
       && (stored.source === 'stockanalysis' || stored.source === 'finnhub+edgar');
     // Passe ANNUELLE dans tous les cas (y compris quand l'intra-annuel est déjà frais) : elle
     // alimente d'autres clés de store (annualXxx) et s'auto-gate sur la profondeur déjà atteinte,
