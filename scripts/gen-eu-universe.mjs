@@ -44,6 +44,17 @@ const OTHER_LABELS = {
 };
 const TICKER_RE = /^[A-Z0-9.\-]{1,15}$/;
 
+// Cotations alternatives SIX d'une même société (ligne EUR ou autre classe). Le screener est
+// centré sur l'entreprise, pas sur chaque ligne de négociation : on conserve donc uniquement la
+// cotation canonique et la plus liquide (ALC.SW pour Alcon, SCHP.SW pour Schindler). Garder cette
+// exclusion dans le générateur empêche le prochain refresh de réintroduire les doublons.
+const EXCLUDED_DUPLICATE_LISTINGS = new Set([
+  'ALCE.SW',
+  'SCHN.SW',
+  'SCHNE.SW',
+  'SCHPE.SW',
+]);
+
 async function fetchExchange(seg) {
   const url = `https://stockanalysis.com/_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country,revenue&f=exchangeCode-is-${seg}`;
   let lastErr;
@@ -67,7 +78,7 @@ function toYahoo(ex, rows) {
     const dash = r.s.indexOf('-');
     if (dash < 0) continue;
     const yahoo = (r.s.slice(dash + 1) + ex.suffix).toUpperCase();
-    if (TICKER_RE.test(yahoo)) out.push(yahoo);
+    if (TICKER_RE.test(yahoo) && !EXCLUDED_DUPLICATE_LISTINGS.has(yahoo)) out.push(yahoo);
     if (out.length >= CAP) break;
   }
   return out;

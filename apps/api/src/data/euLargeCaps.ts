@@ -274,9 +274,9 @@ export const EU_LARGE_CAPS: string[] = [
   'VCT.L', 'VID.L', 'VIP.L', 'VLX.L', 'VOD.L', 'VP.L', 'VSVS.L', 'VTY.L', 'WEIR.L', 'WFR.L',
   'WIL.L', 'WIX.L', 'WKP.L', 'WOSG.L', 'WTB.L', 'WWH.L', 'XAR.L', 'XPS.L', 'YNGA.L', 'YNGN.L',
   'ZEG.L', 'ZIG.L', 'ZTF.L',
-  // — SIX Swiss Exchange (.SW) · 218 —
+  // — SIX Swiss Exchange (.SW) · 214 —
   'ABBN.SW', 'ABBNE.SW', 'ACLN.SW', 'ACLNE.SW', 'ADEN.SW', 'ADVN.SW', 'ADXN.SW', 'AERO.SW', 'AEVS.SW', 'ALC.SW',
-  'ALCE.SW', 'ALLN.SW', 'ALPN.SW', 'ALPNE.SW', 'ALSN.SW', 'AMRZ.SW', 'AMRZE.SW', 'APGN.SW', 'ARBN.SW', 'ARYN.SW',
+  'ALLN.SW', 'ALPN.SW', 'ALPNE.SW', 'ALSN.SW', 'AMRZ.SW', 'AMRZE.SW', 'APGN.SW', 'ARBN.SW', 'ARYN.SW',
   'ASCN.SW', 'ASCNE.SW', 'ASWN.SW', 'AUTN.SW', 'AVOL.SW', 'BAER.SW', 'BANB.SW', 'BARN.SW', 'BBN.SW', 'BCGE.SW',
   'BCHN.SW', 'BCJ.SW', 'BCVN.SW', 'BEAN.SW', 'BEKN.SW', 'BELL.SW', 'BIOV.SW', 'BKW.SW', 'BLKB.SW', 'BOSN.SW',
   'BRKN.SW', 'BSKP.SW', 'BSLN.SW', 'BUCN.SW', 'BVZN.SW', 'BYS.SW', 'CALN.SW', 'CCAP.SW', 'CFR.SW', 'CFT.SW',
@@ -290,7 +290,7 @@ export const EU_LARGE_CAPS: string[] = [
   'LUKN.SW', 'MCHN.SW', 'MED.SW', 'MEDX.SW', 'METN.SW', 'MIKN.SW', 'MMTX.SW', 'MOBN.SW', 'MOLN.SW', 'MOVE.SW',
   'MOZN.SW', 'MTG.SW', 'NBEN.SW', 'NEAG.SW', 'NESN.SW', 'NOVN.SW', 'NOVNEE.SW', 'NREN.SW', 'OERL.SW', 'OFN.SW',
   'ORON.SW', 'PEAN.SW', 'PEDU.SW', 'PEHN.SW', 'PGHN.SW', 'PLAN.SW', 'PMN.SW', 'PPGN.SW', 'PSPN.SW', 'REHN.SW',
-  'RIEN.SW', 'RO.SW', 'ROP.SW', 'RSGN.SW', 'SANN.SW', 'SCHN.SW', 'SCHNE.SW', 'SCHP.SW', 'SCHPE.SW', 'SCMN.SW',
+  'RIEN.SW', 'RO.SW', 'ROP.SW', 'RSGN.SW', 'SANN.SW', 'SCHP.SW', 'SCMN.SW',
   'SDZ.SW', 'SENS.SW', 'SFPN.SW', 'SFSN.SW', 'SFZN.SW', 'SGKN.SW', 'SGSN.SW', 'SIGN.SW', 'SIKA.SW', 'SKAN.SW',
   'SLHN.SW', 'SMG.SW', 'SNBN.SW', 'SOON.SW', 'SPSN.SW', 'SQL.SW', 'SQN.SW', 'SRAIL.SW', 'SREN.SW', 'SRENE.SW',
   'STGN.SW', 'STMN.SW', 'STRN.SW', 'SUN.SW', 'SUNN.SW', 'SWON.SW', 'SWTQ.SW', 'TECN.SW', 'TEMN.SW', 'TIBN.SW',
