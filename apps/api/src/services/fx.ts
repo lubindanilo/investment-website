@@ -95,7 +95,7 @@ async function getMajorFxSeries(f: string, t: string): Promise<TimeseriesPoint[]
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json() as {
         chart?: { result?: Array<{
-          meta?: { regularMarketPrice?: number };
+          meta?: { regularMarketPrice?: number; priceHint?: number };
           timestamp?: number[];
           indicators?: { quote?: Array<{ close?: (number | null)[] }> };
         }> };
@@ -111,8 +111,13 @@ async function getMajorFxSeries(f: string, t: string): Promise<TimeseriesPoint[]
         }
       }
       // Le dernier close mensuel peut manquer en début de mois → on ancre sur le spot.
-      const spot = r?.meta?.regularMarketPrice;
-      if (typeof spot === 'number' && spot > 0) {
+      // ⚠ Yahoo ARRONDIT ce spot à `priceHint` décimales (4 pour les paires) : 0,0007 pour KRW→USD
+      // au lieu de 0,000743 (−6 %), 0,0001 pour IDR→USD au lieu de 0,0000548 (+83 %), 0,0 pour
+      // VND. Les clôtures, elles, sont en pleine précision. Un spot à moins de 4 chiffres
+      // significatifs est donc remplacé par l'inverse du spot de la paire opposée (USD→KRW =
+      // 1 346,13, précis), et à défaut on s'en tient à la dernière clôture mensuelle.
+      const spot = await preciseSpot(r?.meta?.regularMarketPrice, r?.meta?.priceHint, f, t);
+      if (spot != null) {
         const today = new Date().toISOString().slice(0, 10);
         if (series.length === 0 || series[series.length - 1]!.date < today) series.push({ date: today, value: spot });
       }
@@ -132,6 +137,30 @@ async function getMajorFxSeries(f: string, t: string): Promise<TimeseriesPoint[]
   })();
   inflight.set(key, promise);
   return promise;
+}
+
+/** Nombre de chiffres significatifs en deçà duquel un spot arrondi n'est pas exploitable. */
+const MIN_SPOT_SIGNIFICANT = 1000;
+
+/** Le spot porte-t-il au moins 4 chiffres significatifs une fois arrondi à `priceHint` décimales ? */
+export function isPreciseSpot(spot: number, priceHint: number | undefined): boolean {
+  if (priceHint == null) return true; // pas d'arrondi annoncé
+  return Math.round(spot * 10 ** priceHint) >= MIN_SPOT_SIGNIFICANT;
+}
+
+/** Spot `f`→`t` fiable, ou null (la série garde alors sa dernière clôture). Cf getMajorFxSeries. */
+async function preciseSpot(spot: number | undefined, priceHint: number | undefined, f: string, t: string): Promise<number | null> {
+  if (typeof spot === 'number' && spot > 0 && isPreciseSpot(spot, priceHint)) return spot;
+  try {
+    const res = await fetch(`${CHART_BASE}/${encodeURIComponent(`${t}${f}=X`)}?range=5d&interval=1d`, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+    if (!res.ok) return null;
+    const data = await res.json() as { chart?: { result?: Array<{ meta?: { regularMarketPrice?: number; priceHint?: number } }> } };
+    const m = data.chart?.result?.[0]?.meta;
+    const inv = m?.regularMarketPrice;
+    return typeof inv === 'number' && inv > 0 && isPreciseSpot(inv, m?.priceHint) ? 1 / inv : null;
+  } catch {
+    return null;
+  }
 }
 
 /**

@@ -40,6 +40,9 @@ import { resolveReportingCurrency } from './reportingCurrency.js';
 import { getYahooMarketCap } from './yahoo.js';
 import { secReportingProfile } from './secEdgar.js';
 
+/** Écart (×) au-delà duquel deux capitalisations ne décrivent pas la même chose (cf reconcileAdsMarketCap). */
+const MCAP_CONTRADICTION = 1.4;
+
 export interface QuantData {
   metrics: DerivedMetrics;
   company: string;
@@ -239,6 +242,25 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       const published = await getYahooMarketCap(ticker).catch(() => null);
       if (published && (published.currency == null || published.currency === currency) && published.marketCap > 0) {
         marketCapQuoteAbsolute = published.marketCap;
+      }
+    }
+    // Même devise des deux côtés, mais capitalisation Finnhub hors d'échelle : SQM et LTM (comptes
+    // en USD, cotés à New York) ont une `marketCapitalization` Finnhub en PESOS CHILIENS — 15,6 T
+    // pour 13,4 Md$ — et la note divisait cette capi en CLP par un FCF en dollars : 14 427× et
+    // 6 152×. On ne paie l'appel Yahoo que si la capi Finnhub contredit prix × actions (signal
+    // gratuit), et on ne retient Yahoo que s'il contredit lui aussi Finnhub : chez HUBG c'est le
+    // nombre d'actions qui est en milliers, la capi Finnhub est juste et reste en place.
+    if (marketCapQuoteAbsolute == null) {
+      const fhMcap = (metric?.metric?.marketCapitalization as number | undefined) ?? null;
+      const implied = quote?.c && fhCapEmp.sharesLatest ? quote.c * fhCapEmp.sharesLatest : null;
+      const off = (a: number, b: number) => Math.max(a, b) / Math.min(a, b) > MCAP_CONTRADICTION;
+      if (fhMcap != null && fhMcap > 0 && implied != null && implied > 0 && off(fhMcap * 1e6, implied)) {
+        const published = await getYahooMarketCap(ticker).catch(() => null);
+        if (published && (published.currency == null || published.currency === currency)
+          && published.marketCap > 0 && off(fhMcap * 1e6, published.marketCap)) {
+          if (log) console.warn(`[quant ${ticker}] capi Finnhub ${(fhMcap / 1e3).toFixed(1)} Md hors d'échelle vs Yahoo ${(published.marketCap / 1e9).toFixed(1)} Md ${currency} → capi Yahoo retenue`);
+          marketCapQuoteAbsolute = published.marketCap;
+        }
       }
     }
 

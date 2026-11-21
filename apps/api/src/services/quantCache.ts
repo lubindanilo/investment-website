@@ -113,8 +113,12 @@ export interface CachedQuantSnapshot {
  * 9 — devise des comptes du chemin Finnhub : sonde Yahoo quand la SEC n'a pas de profil. Les ADR
  *     sans bilan XBRL (SKHY, KB, TLK, CIB, EC…) gardaient un facteur de change de 1 : leur P/FCF
  *     live (watchlist, screener, percentile) et leur courbe sortaient à ~0,01×.
+ * 10 — anomalies du scan carte ↔ live du 21/11/2026 : spot de change Yahoo arrondi (KRW −6 %,
+ *     IDR +83 %), devise SEC lue sur les faits les plus RÉCENTS (YPF ARS → USD : 32 045× pour
+ *     ~18×), capi Finnhub hors d'échelle remplacée par Yahoo (SQM/LTM en pesos : 14 427×), et
+ *     nombre d'actions live implicite de la note (HUBG/NTNX en milliers : 0,017× pour 17,7×).
  */
-export const SNAPSHOT_LOGIC_VERSION = 9;
+export const SNAPSHOT_LOGIC_VERSION = 10;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
@@ -161,7 +165,18 @@ export function extractLivePfcfInputs(quant: {
   fcfFxToQuote: number | null;
 }): { adjFcfTtm: number | null; sharesOutstanding: number | null } {
   if (quant.fundamentalsSource === 'finnhub' && quant.rawFhFcfAdj && quant.rawFhCapEmp) {
-    return { adjFcfTtm: quant.rawFhFcfAdj.ttmFcfAdj, sharesOutstanding: quant.rawFhCapEmp.sharesLatest };
+    const adjFcfTtm = quant.rawFhFcfAdj.ttmFcfAdj;
+    // Nombre d'actions IMPLICITE de la note : celui qui, au prix du scoring, redonne exactement son
+    // P/FCF. `sharesLatest` (financials-reported) n'est pas dans la convention du prix chez une
+    // partie des déposants — en MILLIERS chez HUBG (60 321) et NTNX (291 992), en actions
+    // ordinaires face à un prix par ADS chez les ADR — et le P/FCF live sortait 1 000× trop bas
+    // (HUBG 0,017× pour 17,7× sur sa propre fiche). La note, elle, est calculée sur la capi.
+    const m = quant.metrics;
+    const fx = (quant.fcfFxToQuote != null && Number.isFinite(quant.fcfFxToQuote) && quant.fcfFxToQuote > 0)
+      ? quant.fcfFxToQuote : 1;
+    const implied = (m.pfcfTTM != null && m.pfcfTTM > 0 && adjFcfTtm != null && adjFcfTtm > 0 && m.price != null && m.price > 0)
+      ? (m.pfcfTTM * adjFcfTtm * fx) / m.price : null;
+    return { adjFcfTtm, sharesOutstanding: implied ?? quant.rawFhCapEmp.sharesLatest };
   }
   if (quant.fundamentalsSource === 'yahoo') {
     const m = quant.metrics;

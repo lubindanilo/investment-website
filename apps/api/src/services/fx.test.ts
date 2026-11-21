@@ -10,7 +10,7 @@
  * porte la décision « taux historique et pas taux du jour ».
  */
 import { describe, it, expect } from 'vitest';
-import { fxAt, getFxSeries, getFxRateNow, __resetFxCache, __primeFxSeriesForTests } from './fx.js';
+import { fxAt, getFxSeries, getFxRateNow, isPreciseSpot, __resetFxCache, __primeFxSeriesForTests } from './fx.js';
 import { beforeEach } from 'vitest';
 
 // CNY→USD, quelques points mensuels réels (Yahoo CNYUSD=X).
@@ -102,5 +102,20 @@ describe('sous-unités de cotation (GBp, ZAc, ILA) — le bug des multiples lond
     expect(s?.map(p => p.date)).toEqual(['2020-01-01', '2026-01-01']);
     expect(s![0]!.value).toBeCloseTo(0.013, 10);
     expect(s![1]!.value).toBeCloseTo(0.0127, 10);
+  });
+});
+
+describe('isPreciseSpot — spot Yahoo arrondi à priceHint décimales', () => {
+  it('rejette les spots à moins de 4 chiffres significatifs (KRW, IDR, VND, JPY)', () => {
+    expect(isPreciseSpot(0.0007, 4)).toBe(false);   // KRW→USD réel 0,000743 (−6 %)
+    expect(isPreciseSpot(0.0001, 4)).toBe(false);   // IDR→USD réel 0,0000548 (+83 %)
+    expect(isPreciseSpot(0.0, 4)).toBe(false);      // VND→USD
+    expect(isPreciseSpot(0.0063, 4)).toBe(false);   // JPY→USD réel 0,006261
+  });
+
+  it('accepte les spots précis', () => {
+    expect(isPreciseSpot(0.1498, 4)).toBe(true);    // CNY→USD
+    expect(isPreciseSpot(1346.13, 4)).toBe(true);   // USD→KRW (sert à inverser)
+    expect(isPreciseSpot(0.0007, undefined)).toBe(true); // pas d'arrondi annoncé
   });
 });

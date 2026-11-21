@@ -479,9 +479,15 @@ describe('P/FCF et devise de reporting (fcfFxToQuote) — chemin Finnhub', () =>
     expect(m.pfcfTTM).toBeCloseTo(10.14, 1);
   });
 
-  it('sans conversion en jeu, l ancre est ignorée et rien ne change pour un émetteur américain', () => {
-    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4e9, marketCapQuoteAbsolute: 999e9 });
+  it('sans ancre ni conversion, la métrique Finnhub sert telle quelle (émetteur américain)', () => {
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4e9 });
     expect(m.pfcfTTM).toBeCloseTo(60_019_470e6 / 4e9, 3);
+  });
+
+  it('ancre sans conversion : honorée (capi Finnhub hors d échelle, SQM en pesos chiliens)', () => {
+    // L'appelant ne pose l'ancre que si la capi Finnhub contredit prix × actions ET Yahoo.
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4e9, marketCapQuoteAbsolute: 13.4e9 });
+    expect(m.pfcfTTM).toBeCloseTo(13.4e9 / 4e9, 3);
   });
 
   it('sans facteur, comportement historique : taux 1', () => {

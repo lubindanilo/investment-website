@@ -194,9 +194,11 @@ export function computeDerivedMetrics(input: {
   const fcfFx = input.fcfFxToQuote === undefined ? 1 : input.fcfFxToQuote;
   const fxUnknown = fcfFx == null || !Number.isFinite(fcfFx) || fcfFx <= 0;
   const fxNeeded = fcfFx !== 1;
-  // Ancre Yahoo (devise de cotation) : retenue seulement quand une conversion est en jeu, pour ne
-  // rien changer aux titres qui publient dans leur devise de cotation (la quasi-totalité).
-  const anchor = fxNeeded && input.marketCapQuoteAbsolute != null && input.marketCapQuoteAbsolute > 0
+  // Ancre Yahoo (devise de cotation) : l'appelant ne la pose que quand une conversion est en jeu
+  // ou que la capi Finnhub est hors d'échelle (SQM/LTM : capi en pesos chiliens face à des comptes
+  // en dollars). Les titres qui publient dans leur devise de cotation, avec une capi cohérente (la
+  // quasi-totalité), n'en reçoivent pas et ne changent pas.
+  const anchor = input.marketCapQuoteAbsolute != null && input.marketCapQuoteAbsolute > 0
     ? input.marketCapQuoteAbsolute : null;
   if (input.adjFcfTtm != null && input.adjFcfTtm > 0 && (anchor != null || (mcap != null && mcap > 0))) {
     const mcapAbsolute = anchor ?? mcap! * 1_000_000;

@@ -102,7 +102,29 @@ const unitsCache = new Map<string, Record<string, ConceptEntry[]> | null>();
 export function foreignReportingCurrency(units: Record<string, unknown>): string | null {
   // Les clés d'unité XBRL sont soit un code ISO 4217 ('USD', 'CNY'), soit 'shares',
   // 'pure', 'USD/shares'… Seules les monnaies pures nous intéressent.
-  return Object.keys(units).find(k => k !== 'USD' && /^[A-Z]{3}$/.test(k)) ?? null;
+  //
+  // Devise de la publication la PLUS RÉCENTE, pas « une devise ≠ USD présente quelque part » :
+  // un émetteur qui a CHANGÉ de devise de présentation garde ses anciens faits. YPF publie en ARS
+  // jusqu'à l'exercice 2021 puis en USD : lue comme ARS, sa note divisait une capi convertie en
+  // dollars par un FCF déjà en dollars × 0,00063, soit 32 045× pour ~18× réels. À date égale
+  // (traduction de convenance en USD du dernier exercice : TM, TCOM), la devise native l'emporte.
+  const latestEnd = (k: string): string => {
+    const arr = units[k];
+    if (!Array.isArray(arr)) return '';
+    let max = '';
+    for (const e of arr) {
+      const end = (e as { end?: unknown })?.end;
+      if (typeof end === 'string' && end > max) max = end;
+    }
+    return max;
+  };
+  const monies = Object.keys(units).filter(k => /^[A-Z]{3}$/.test(k));
+  const foreign = monies.filter(k => k !== 'USD');
+  if (foreign.length === 0) return null;
+  const best = foreign.reduce((a, b) => (latestEnd(b) > latestEnd(a) ? b : a));
+  // Sans dates exploitables (données de test minimales), on garde l'ancien comportement.
+  if (!monies.includes('USD') || latestEnd(best) === '' || latestEnd('USD') === '') return best;
+  return latestEnd('USD') > latestEnd(best) ? null : best;
 }
 
 /** Toutes les unités d'un concept, mémoïsées (un seul download par concept et par process). */

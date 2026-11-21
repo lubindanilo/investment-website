@@ -146,6 +146,41 @@ describe('extractLivePfcfInputs', () => {
     expect(out.sharesOutstanding).toBe(1e9);
   });
 
+  it('chemin Finnhub : actions IMPLICITES de la note quand sharesLatest est en milliers (HUBG)', () => {
+    // HUBG : prix 27,38 $, P/FCF 17,7×, FCF 94,7 M$, sharesLatest 60 321 (en milliers).
+    const out = extractLivePfcfInputs({
+      fundamentalsSource: 'finnhub',
+      metrics: { marketCap: 1676.8, price: 27.38, pfcfTTM: 17.7 },
+      rawFhFcfAdj: { ttmFcfAdj: 94_724_000 },
+      rawFhCapEmp: { sharesLatest: 60_321 },
+      fcfFxToQuote: 1,
+    });
+    expect(computeLivePfcf(27.38, out.sharesOutstanding, out.adjFcfTtm, 1)).toBeCloseTo(17.7, 6);
+    expect(computeLivePfcf(30.118, out.sharesOutstanding, out.adjFcfTtm, 1)).toBeCloseTo(17.7 * 1.1, 6);
+  });
+
+  it('chemin Finnhub ADR : le facteur de change entre dans les actions implicites', () => {
+    const out = extractLivePfcfInputs({
+      fundamentalsSource: 'finnhub',
+      metrics: { marketCap: null as unknown as number, price: 103.57, pfcfTTM: 11.44 },
+      rawFhFcfAdj: { ttmFcfAdj: 91.18e12 },
+      rawFhCapEmp: { sharesLatest: 7.1e9 },
+      fcfFxToQuote: 0.000743,
+    });
+    expect(computeLivePfcf(103.57, out.sharesOutstanding, out.adjFcfTtm, 0.000743)).toBeCloseTo(11.44, 6);
+  });
+
+  it('chemin Finnhub sans P/FCF publié : repli sur sharesLatest', () => {
+    const out = extractLivePfcfInputs({
+      fundamentalsSource: 'finnhub',
+      metrics: { marketCap: 1e6, price: 100, pfcfTTM: null as unknown as number },
+      rawFhFcfAdj: { ttmFcfAdj: -5e9 },
+      rawFhCapEmp: { sharesLatest: 1e9 },
+      fcfFxToQuote: 1,
+    });
+    expect(out.sharesOutstanding).toBe(1e9);
+  });
+
   it('chemin Yahoo fx=1 : rétro-dérivation inchangée (comportement historique)', () => {
     // capi 1 Md, prix 100 → 10 M d'actions ; P/FCF 20× → FCF 50 M
     const out = extractLivePfcfInputs(yahooQuant({ marketCap: 1e9, price: 100, pfcfTTM: 20, fx: 1 }));
