@@ -86,8 +86,11 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  *     lieu de 200), le 4e trimestre fiscal manquant toujours dans la série. Sans ça chaque
  *     titre perdait ses dernières semaines de graphe une fois par an (INTU coupé au 16/11).
  *     Les entrées déjà en cache, posées pour 35 jours, garderaient la courbe tronquée : bump.
+ * 13 = 20/11/2026, trimestres de flux faux réparés dans le store par recoupement SEC (CA,
+ *     résultat net, CFO : cf. edgarQuarterReconcile). Les ratios (marges) et le P/FCF (via le
+ *     CFO) en dépendent : bump pour ne pas servir les courbes calculées sur les valeurs fausses.
  */
-const CHART_STRATEGY_GENERATION = 12;
+const CHART_STRATEGY_GENERATION = 13;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /

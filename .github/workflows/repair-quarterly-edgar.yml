@@ -23,10 +23,10 @@ on:
         required: false
         default: false
       metrics:
-        description: 'Metriques (JSON), parmi revenue, netIncome, cfo, costOfRevenue.'
+        description: 'Metriques (JSON), parmi revenue, netIncome, cfo.'
         type: string
         required: false
-        default: '["revenue","netIncome","cfo","costOfRevenue"]'
+        default: '["revenue","netIncome","cfo"]'
       start:
         description: 'Rang de depart (reprise apres bridage), commun a toutes les metriques.'
         type: string

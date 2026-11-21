@@ -23,7 +23,14 @@
  *      la valeur EDGAR est exactement celle qui boucle l'exercice ;
  *   3. la somme stockée actuelle, elle, ne boucle PAS l'exercice (sinon rien à corriger) ;
  *   4. les autres trimestres stockés de l'exercice qui ont un équivalent EDGAR le recoupent
- *      (même agrégat chez les deux sources — écarte les banques et les changements de tag).
+ *      (même agrégat chez les deux sources — écarte les banques et les changements de tag) ;
+ *   5. pour une grandeur qui ne peut pas être négative (CA), la valeur retenue est ≥ 0.
+ *
+ * Bilan de la réparation du 21/11/2026 : la condition 5 manquait et 6 CA sur 308 corrections
+ * étaient passés en négatif (GEN 2014 : 1,05 Md$ → −0,87 ; CUZ 2014-2015) — une variante
+ * annuelle du 10-K bouclait l'exercice par hasard. Le coût des ventes a été retiré du
+ * périmètre : ses tags XBRL varient trop d'un déposant à l'autre (20 corrections négatives
+ * sur 220).
  */
 import type { TimeseriesPoint } from '@lubin/shared';
 
@@ -69,6 +76,7 @@ export function reconcileWithEdgar(
   points: TimeseriesPoint[],
   edgarQ: TimeseriesPoint[],
   annual: Map<string, number[]>,
+  opts: { nonNegative?: boolean } = {},
 ): { points: TimeseriesPoint[]; corrections: QuarterCorrection[] } {
   if (points.length === 0 || edgarQ.length === 0 || annual.size === 0) return { points, corrections: [] };
   const ts = points.map(p => Date.parse(p.date));
@@ -87,6 +95,7 @@ export function reconcileWithEdgar(
     for (const i of idx) {
       const e = nearest(edgarQ, ts[i]!);
       if (!e || !differs(points[i]!.value, e.value)) continue;          // 1.
+      if (opts.nonNegative && e.value < 0) continue;                    // 5.
       const others = idx.filter(j => j !== i);
       const othersSum = others.reduce((s, j) => s + points[j]!.value, 0);
       if (!totals.some(t => !differs(t - othersSum, e.value))) continue;  // 2.

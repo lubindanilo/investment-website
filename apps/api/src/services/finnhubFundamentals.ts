@@ -12,7 +12,7 @@ import { finnhubLimiter } from '../lib/limiter.js';
 import { fetchWithRetry } from '../lib/retry.js';
 import type { TimeseriesPoint } from '@lubin/shared';
 import { fetchSplitEvents, splitAdjustWithDiscontinuity, normalizeShareScale, type SplitEvent } from './yahooSplits.js';
-import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS } from './secEdgar.js';
+import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS, NON_NEGATIVE_FLOW_METRICS } from './secEdgar.js';
 import { reconcileWithEdgar } from './edgarQuarterReconcile.js';
 import { readSeries, isFresh, appendMergePersist } from './fundamentalsStore.js';
 
@@ -1279,9 +1279,10 @@ export async function getReportedTimeseries(
   // boucler sur le 10-K est une erreur de calcul, pas une donnée point-in-time à préserver.
   let stockToMerge = storedSeries;
   if (reconcile && edgar.length > 0 && edgarAnnual.size > 0) {
-    const built = reconcileWithEdgar(windowed, edgar, edgarAnnual);
+    const sign = { nonNegative: NON_NEGATIVE_FLOW_METRICS.has(metric) };
+    const built = reconcileWithEdgar(windowed, edgar, edgarAnnual, sign);
     windowed = built.points;
-    const stock = storedSeries ? reconcileWithEdgar(storedSeries.points, edgar, edgarAnnual) : null;
+    const stock = storedSeries ? reconcileWithEdgar(storedSeries.points, edgar, edgarAnnual, sign) : null;
     if (stock && stock.corrections.length > 0) stockToMerge = { ...storedSeries!, points: stock.points };
     const n = built.corrections.length + (stock?.corrections.length ?? 0);
     if (n > 0) {

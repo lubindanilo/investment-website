@@ -881,8 +881,15 @@ export async function getEdgarQuarterlySeries(ticker: string, metric: MetricKey)
   return cfg.cumulative ? decumulateFlow(all) : pointInTime(all, isShares);
 }
 
-/** Métriques de flux dont les concepts EDGAR sont « simples » (pas de composition calculée). */
-export const EDGAR_ANNUAL_ANCHOR_METRICS: ReadonlySet<MetricKey> = new Set<MetricKey>(['revenue', 'netIncome', 'cfo', 'costOfRevenue']);
+/**
+ * Métriques de flux recoupées sur le total annuel du 10-K (cf. edgarQuarterReconcile). Seules
+ * celles dont les tags XBRL candidats désignent quasiment le même agrégat : le coût des ventes
+ * en a été retiré le 21/11/2026 (CostOfRevenue / CostOfGoodsSold… trop hétérogènes, 20
+ * corrections négatives sur 220).
+ */
+export const EDGAR_ANNUAL_ANCHOR_METRICS: ReadonlySet<MetricKey> = new Set<MetricKey>(['revenue', 'netIncome', 'cfo']);
+/** Grandeurs qui ne peuvent pas être négatives : une correction négative est forcément fausse. */
+export const NON_NEGATIVE_FLOW_METRICS: ReadonlySet<MetricKey> = new Set<MetricKey>(['revenue']);
 
 /**
  * Valeurs ANNUELLES (10-K, exercice plein 330-400 j) d'une métrique de flux, par date de fin

@@ -25,7 +25,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import type { TimeseriesPoint } from '@lubin/shared';
 import { prisma } from '../src/db/client.js';
-import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS, edgarThrottledCount } from '../src/services/secEdgar.js';
+import { getEdgarQuarterlySeries, getEdgarAnnualFlowCandidates, EDGAR_ANNUAL_ANCHOR_METRICS, NON_NEGATIVE_FLOW_METRICS, edgarThrottledCount } from '../src/services/secEdgar.js';
 import { reconcileWithEdgar } from '../src/services/edgarQuarterReconcile.js';
 import type { MetricKey } from '../src/services/finnhubFundamentals.js';
 
@@ -75,7 +75,7 @@ async function main(): Promise<void> {
       getEdgarQuarterlySeries(r.ticker, r.metric as MetricKey).catch(() => [] as TimeseriesPoint[]),
       getEdgarAnnualFlowCandidates(r.ticker, r.metric as MetricKey).catch(() => new Map<string, number[]>()),
     ]);
-    const { points: fixed, corrections } = reconcileWithEdgar(points, edgar, annual);
+    const { points: fixed, corrections } = reconcileWithEdgar(points, edgar, annual, { nonNegative: NON_NEGATIVE_FLOW_METRICS.has(r.metric as MetricKey) });
     if (corrections.length) {
       for (const c of corrections) changes.push({ ticker: r.ticker, metric: r.metric, ...c });
       if (APPLY) {

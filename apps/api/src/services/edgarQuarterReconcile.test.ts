@@ -57,3 +57,13 @@ describe('reconcileWithEdgar', () => {
     expect(reconcileWithEdgar(stored, edgar, fy([['2024-12-31', 3.9, 4.6]])).corrections).toHaveLength(1);
   });
 });
+
+describe('reconcileWithEdgar — garde-fou de signe', () => {
+  it("refuse une correction negative pour une grandeur positive (cas GEN 2014 : 1,05 Md$ -> -0,87)", () => {
+    const stored = pts([['2013-06-28', 1.65], ['2013-09-27', 1.62], ['2013-12-27', 1.7], ['2014-03-28', 1.05]]);
+    const edgar = pts([['2013-06-28', 1.65], ['2013-09-27', 1.62], ['2013-12-27', 1.7], ['2014-03-28', -0.868]]);
+    const annual = fy([['2014-03-28', 4.102]]);
+    expect(reconcileWithEdgar(stored, edgar, annual).corrections).toHaveLength(1);
+    expect(reconcileWithEdgar(stored, edgar, annual, { nonNegative: true }).corrections).toEqual([]);
+  });
+});

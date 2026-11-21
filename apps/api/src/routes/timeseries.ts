@@ -88,8 +88,12 @@ const MATERIAL_COVERAGE_GAP_MS = 365 * 24 * 3600 * 1000;
  * fenêtres voisines 4Y et 6Y, froides, servaient déjà la bonne réponse. Toute vérification
  * repeuple le cache : un changement de stratégie qui la suit exige donc son propre bump, même
  * quand une purge vient d'avoir lieu.
+ *
+ * 'g5' (20/11/2026) : trimestres faux du store réparés par recoupement SEC (T4 dérivé trop haut,
+ * T2 resté en cumul semestriel — cf. services/edgarQuarterReconcile.ts et le script
+ * repairQuarterlyFromEdgar). Les histogrammes déjà en cache montreraient encore les pics faux.
  */
-const CACHE_GEN = 'g4';
+const CACHE_GEN = 'g5';
 
 /**
  * Repli ADR étranger (déposant 20-F : NVO, OMAB, ASML, NSRGY…) : Finnhub n'a aucun
