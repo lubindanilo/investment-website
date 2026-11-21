@@ -91,6 +91,51 @@ export function appendOnlyMerge(existing: TimeseriesPoint[], built: TimeseriesPo
   return dedupeByDate([...clean, ...fresh].sort(byDate));
 }
 
+/**
+ * Écart relatif en deçà duquel une révision n'est pas prise en compte : arrondis et petits
+ * écarts entre sources (Yahoo-Q vs stockanalysis) ne justifient pas de réécrire le stock.
+ */
+const REVISION_TOLERANCE = 0.005;
+
+/**
+ * Comme appendOnlyMerge, mais les `reviseLast` périodes LES PLUS RÉCENTES de `built` remplacent
+ * la valeur stockée à la même date quand elles en diffèrent au-delà de REVISION_TOLERANCE.
+ *
+ * Pourquoi : la première version d'un trimestre fraîchement publié est parfois fausse chez la
+ * source, puis corrigée quelques jours plus tard. En pur append-only, cette première version
+ * restait figée pour toujours. Cas mesuré : SK Hynix (000660.KS) T2 2026, capté avec un CFO de
+ * -20,2 T₩ et des fonds propres de 4,4 T₩, corrigés depuis par stockanalysis à +65,4 et 262,7.
+ * Le FCF du graphe tombait à -30,9 T₩ au lieu de +54,7, et le P/FCF TTM était ~3× trop haut.
+ *
+ * La fenêtre reste courte (les dernières périodes seulement) : l'historique ancien garde sa
+ * stabilité point-in-time, et une date absente du stock est ajoutée comme avant.
+ */
+export function mergeWithRecentRevisions(
+  existing: TimeseriesPoint[],
+  built: TimeseriesPoint[],
+  reviseLast: number,
+): TimeseriesPoint[] {
+  const merged = appendOnlyMerge(existing, built);
+  if (reviseLast <= 0 || built.length === 0) return merged;
+  const recent = [...built].sort(byDate).slice(-reviseLast);
+  for (const b of recent) {
+    const t = Date.parse(b.date);
+    // Point stocké le plus proche de cette période (même tolérance de dates que la fusion).
+    let idx = -1;
+    let best = Infinity;
+    merged.forEach((p, i) => {
+      const d = Math.abs(Date.parse(p.date) - t);
+      if (d < PROXIMITY_MS && d < best) { best = d; idx = i; }
+    });
+    if (idx < 0) continue;
+    const old = merged[idx]!.value;
+    const scale = Math.max(Math.abs(old), Math.abs(b.value));
+    if (scale === 0 || Math.abs(old - b.value) / scale <= REVISION_TOLERANCE) continue;
+    merged[idx] = b;
+  }
+  return dedupeByDate(merged.sort(byDate));
+}
+
 const byDate = (a: TimeseriesPoint, b: TimeseriesPoint) => a.date.localeCompare(b.date);
 
 /** Supprime les points à date EXACTEMENT identique (garde le 1er rencontré). */
@@ -118,6 +163,9 @@ export interface PersistOpts {
   /** Si true, persiste même une série VIDE (avec expiry) → évite de re-fetcher en boucle un
    *  type qu'une source ne fournit pas (cache négatif borné). Utilisé pour le batch annuel Yahoo. */
   persistEmpty?: boolean;
+  /** Nombre de périodes les plus récentes de `built` autorisées à RÉVISER le stock (défaut 0 =
+   *  append-only strict). Cf mergeWithRecentRevisions. */
+  reviseLast?: number;
 }
 
 export async function appendMergePersist(
@@ -132,7 +180,7 @@ export async function appendMergePersist(
   const freq = opts.freq ?? 'quarterly';
   const cadence = opts.cadence ?? QUARTERLY_CADENCE;
   const existing = stored?.points ?? [];
-  const merged = appendOnlyMerge(existing, built);
+  const merged = mergeWithRecentRevisions(existing, built, opts.reviseLast ?? 0);
   const lastEnd = merged.length > 0 ? merged[merged.length - 1]!.date : null;
   const expiresAt = computeExpiry(lastEnd, nowMs, cadence);
   // Série vide et rien à persister : on n'écrit que si persistEmpty (cache négatif borné).

@@ -312,11 +312,14 @@ export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: nu
   for (const [metricKey, pts] of batch.series) {
     if (!pts.length) continue;
     const stored = await readSeries(ticker, metricKey);
-    await appendMergePersist(ticker, metricKey, stored, pts, 'stockanalysis', nowMs, { freq: batch.freq });
+    // reviseLast : stockanalysis corrige parfois un trimestre quelques jours après sa première
+    // publication (SK Hynix T2 2026). Les 2 dernières périodes peuvent donc réviser le stock ;
+    // Yahoo-Q reste en append-only strict, sans quoi les deux sources se réécriraient en boucle.
+    await appendMergePersist(ticker, metricKey, stored, pts, 'stockanalysis', nowMs, { freq: batch.freq, reviseLast: 2 });
     metricsStored++;
   }
   if (metricsStored > 0) {
-    console.log(`[sa Q-accum ${ticker}] ${metricsStored} métriques accumulées (freq=${batch.freq}, append-only)`);
+    console.log(`[sa Q-accum ${ticker}] ${metricsStored} métriques accumulées (freq=${batch.freq}, 2 dernières périodes révisables)`);
     await purgeChartsOf(ticker);
   }
   return metricsStored;
