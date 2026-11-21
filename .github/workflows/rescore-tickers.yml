@@ -1,0 +1,68 @@
+name: Renotation immediate d'une liste de titres
+
+# Renote tout de suite une liste de titres (note /10, criteres, opportunite) sans attendre leurs
+# prochains resultats : apps/api/scripts/rescoreTickers.ts.
+#
+# POURQUOI CE WORKFLOW EXISTE (21/11/2026). Apres une correction de donnees en base (ex. la
+# reparation des trimestres de flux US par recoupement SEC), les notes ne reprennent les valeurs
+# corrigees qu'a la notation suivante. La cle Finnhub ne vit que dans les secrets du depot.
+#
+# GARDE-FOUS. Duree plafonnee (compute Neon compte, cf. screener-drain.yml), concurrence 2,
+# jamais de degradation d'un titre deja note si la donnee manque.
+#
+# Secrets requis : DATABASE_URL, FINNHUB_API_KEY.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: 'Tickers separes par des virgules ou des espaces.'
+        type: string
+        required: true
+      max_minutes:
+        description: 'Plafond de duree en minutes.'
+        type: string
+        required: false
+        default: '120'
+      concurrency:
+        description: 'Titres notes de front (1-2 recommande, reservoirs partages).'
+        type: string
+        required: false
+        default: '2'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rescore-tickers
+  cancel-in-progress: false
+
+jobs:
+  rescore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      DIRECT_URL: ${{ secrets.DATABASE_URL }}
+      FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      YAHOO_RPM: ${{ vars.YAHOO_RPM }}
+      RESCORE_TICKERS: ${{ inputs.tickers }}
+      RESCORE_MAX_MINUTES: ${{ inputs.max_minutes }}
+      RESCORE_CONCURRENCY: ${{ inputs.concurrency }}
+    steps:
+      - name: Garde-fou secrets
+        run: |
+          if [ -z "${DATABASE_URL:-}" ] || [ -z "${FINNHUB_API_KEY:-}" ]; then
+            echo "::error::Les secrets DATABASE_URL et FINNHUB_API_KEY sont requis."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+      - name: Renotation
+        working-directory: apps/api
+        run: pnpm exec tsx scripts/rescoreTickers.ts
