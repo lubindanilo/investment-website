@@ -84,8 +84,7 @@
     "croceVerdictHigh": "Cash ROCE durablement au-dessus de 15 % ({{n}}/{{total}} périodes), création de valeur opérationnelle constante.",
     "croceVerdictMid": "Cash ROCE au-dessus du seuil sur {{n}}/{{total}} périodes, qualité moyenne, à surveiller.",
     "croceVerdictLow": "Cash ROCE rarement au-dessus de 15 % ({{n}}/{{total}} périodes), création de valeur opérationnelle faible.",
-    "tooltipQuarter": "Trimestre clos en {{period}}",
-    "periodEnded": "clos en {{period}}",
+    "tooltipQuarter": "{{period}}",
     "tooltipSemester": "Semestre {{period}}",
     "tooltipYear": "Année {{period}}",
     "stat": {
