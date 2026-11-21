@@ -10,7 +10,7 @@ describe('reconcileWithEdgar', () => {
     const stored = pts([['2025-04-30', 9.83], ['2025-07-31', 10.24], ['2025-10-31', 10.26], ['2026-01-31', 13.62]]);
     const edgar = pts([['2025-04-30', 9.83], ['2025-07-31', 10.24], ['2025-10-31', 10.26], ['2026-01-31', 11.2]]);
     const { points, corrections } = reconcileWithEdgar(stored, edgar, fy([['2026-01-31', 41.53]]));
-    expect(corrections).toEqual([{ date: '2026-01-31', from: 13.62 * B, to: 11.2 * B, fiscalYearEnd: '2026-01-31' }]);
+    expect(corrections).toEqual([{ date: '2026-01-31', from: 13.62 * B, to: 11.2 * B, fiscalYearEnd: '2026-01-31', kind: 'edgar' }]);
     expect(points.map(p => p.value / B)).toEqual([9.83, 10.24, 10.26, 11.2]);
   });
 
@@ -65,5 +65,31 @@ describe('reconcileWithEdgar — garde-fou de signe', () => {
     const annual = fy([['2014-03-28', 4.102]]);
     expect(reconcileWithEdgar(stored, edgar, annual).corrections).toHaveLength(1);
     expect(reconcileWithEdgar(stored, edgar, annual, { nonNegative: true }).corrections).toEqual([]);
+  });
+});
+
+describe('reconcileWithEdgar — trimestre deduit du 10-K', () => {
+  const stored = pts([['2024-03-31', 6.32], ['2024-06-30', 6.62], ['2024-09-30', 6.79], ['2024-12-31', 8.51]]);
+  const edgar = pts([['2024-03-31', 6.32], ['2024-06-30', 6.62], ['2024-09-30', 6.79], ['2024-12-31', 5.88]]);
+  const annual = fy([['2024-12-31', 25.455]]);
+
+  it('corrige quand le trimestre EDGAR est lui-meme decale (cas FCX T4 2024 : 8,51 -> 5,725)', () => {
+    const { corrections } = reconcileWithEdgar(stored, edgar, annual);
+    expect(corrections).toHaveLength(1);
+    expect(corrections[0]!.kind).toBe('annual');
+    expect(corrections[0]!.to / B).toBeCloseTo(5.725, 3);
+  });
+
+  it("refuse si un autre trimestre de l'exercice n'a pas d'equivalent EDGAR", () => {
+    expect(reconcileWithEdgar(stored, edgar.filter(p => !p.date.startsWith('2024-06')), annual).corrections).toEqual([]);
+  });
+
+  it('refuse si la valeur deduite est trop loin du trimestre EDGAR', () => {
+    expect(reconcileWithEdgar(stored, edgar, fy([['2024-12-31', 27.5]])).corrections).toEqual([]);
+  });
+
+  it('refuse si deux trimestres divergent dans le meme exercice', () => {
+    const e2 = edgar.map(p => (p.date.startsWith('2024-06') ? { ...p, value: 5 * B } : p));
+    expect(reconcileWithEdgar(stored, e2, annual).corrections).toEqual([]);
   });
 });
