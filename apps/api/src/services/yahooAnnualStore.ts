@@ -15,7 +15,7 @@ import type { TimeseriesPoint } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, appendOnlyMerge, type ExpiryCadence } from './fundamentalsStore.js';
 import { getYahooQuarterlyBatch } from './yahoo.js';
 import { getEdgarAnnualNative, EDGAR_ANNUAL_TYPES } from './secEdgar.js';
-import { getStockanalysisQuarterlyBatch, getStockanalysisAnnualBatch } from './stockanalysisFundamentals.js';
+import { getStockanalysisQuarterlyBatch, getStockanalysisAnnualBatch, deriveMissingQ4, q4GapCandidates, SA_FLOW_METRICS } from './stockanalysisFundamentals.js';
 import { purgeTicker } from '../lib/timeseriesCache.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
@@ -308,10 +308,28 @@ export async function accumulateYahooQuarterly(ticker: string, symbol: string, n
 export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: number): Promise<number> {
   const batch = await getStockanalysisQuarterlyBatch(ticker).catch(() => null);
   if (!batch || batch.series.size === 0) return 0;
+  // T4 absents des flux (émetteurs coréens : cf deriveMissingQ4). La page annuelle (3 requêtes)
+  // n'est chargée que si un trou est effectivement reconstituable, dans le stock ou dans le lot.
+  const storedBy = new Map<string, Awaited<ReturnType<typeof readSeries>>>();
+  for (const k of batch.series.keys()) storedBy.set(k, await readSeries(ticker, k));
+  const union = (k: string) => [...(storedBy.get(k)?.points ?? []), ...(batch.series.get(k) ?? [])];
+  const needsQ4 = batch.freq === 'quarterly'
+    && [...batch.series.keys()].some(k => SA_FLOW_METRICS.has(k) && q4GapCandidates(union(k)).length > 0);
+  const annual = needsQ4 ? await getStockanalysisAnnualBatch(ticker).catch(() => null) : null;
   let metricsStored = 0;
-  for (const [metricKey, pts] of batch.series) {
+  for (const [metricKey, raw] of batch.series) {
+    let pts = raw;
+    const annualPts = annual?.freq === 'annual' ? annual.series.get(metricKey) : undefined;
+    if (annualPts?.length && SA_FLOW_METRICS.has(metricKey)) {
+      const derived = deriveMissingQ4(union(metricKey), annualPts)
+        .filter(p => !union(metricKey).some(u => u.date === p.date));
+      if (derived.length) {
+        console.log(`[sa Q-accum ${ticker}] ${metricKey} : T4 reconstitué(s) ${derived.map(p => p.date).join(', ')}`);
+        pts = [...raw, ...derived].sort((x, y) => x.date.localeCompare(y.date));
+      }
+    }
     if (!pts.length) continue;
-    const stored = await readSeries(ticker, metricKey);
+    const stored = storedBy.get(metricKey) ?? null;
     // reviseLast : stockanalysis corrige parfois un trimestre quelques jours après sa première
     // publication (SK Hynix T2 2026). Les 2 dernières périodes peuvent donc réviser le stock ;
     // Yahoo-Q reste en append-only strict, sans quoi les deux sources se réécriraient en boucle.

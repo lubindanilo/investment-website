@@ -403,6 +403,58 @@ export function deriveFcf(series: Map<string, TimeseriesPoint[]>): void {
   if (pts.length) series.set('fcf', pts);
 }
 
+// ─── T4 manquants (émetteurs qui ne publient pas le 4e trimestre de leurs flux) ─────────
+//
+// Les émetteurs coréens (SK Hynix, Samsung…) publient leur tableau de flux en cumul annuel au
+// T4 : stockanalysis n'a alors AUCUN point au 31/12 pour le CFO, le capex et le FCF, alors que
+// son CA trimestriel est complet. Le graphe FCF de SK Hynix sautait donc chaque fin d'année
+// (2021, 2022, 2023) et la somme glissante douze mois ne pouvait pas enjamber le trou.
+// La page ANNUELLE de la même source, elle, a l'exercice — et la même définition : recoupé sur
+// SK Hynix, la somme des 4 trimestres retombe à l'unité près sur l'annuel (FCF 2024 : 13,850 T₩
+// des deux côtés). T4 = exercice − (T1 + T2 + T3).
+
+/** Séries de FLUX (additives sur l'exercice). Les postes de bilan sont des snapshots : exclus. */
+export const SA_FLOW_METRICS: ReadonlySet<string> = new Set(['revenue', 'operatingIncome', 'netIncome', 'cfo', 'capex', 'sbc', 'fcf']);
+
+const DAY = 86_400_000;
+const near = (a: number, b: number, tolDays: number) => Math.abs(a - b) <= tolDays * DAY;
+
+/**
+ * Dates de fin de T4 qu'on POURRAIT reconstituer : trois trimestres consécutifs (~91 j d'écart)
+ * suivis d'un trou d'environ six mois. Un dernier T3 sans successeur n'en fait pas partie (le T4
+ * n'est simplement pas encore publié). Sert à ne payer la page annuelle que lorsqu'elle servira.
+ */
+export function q4GapCandidates(points: TimeseriesPoint[]): number[] {
+  const t = [...new Set(points.map(p => Date.parse(p.date)))].sort((a, b) => a - b);
+  const out: number[] = [];
+  for (let i = 2; i < t.length - 1; i++) {
+    const quarterly = near(t[i]! - t[i - 1]!, 91 * DAY, 25) && near(t[i - 1]! - t[i - 2]!, 91 * DAY, 25);
+    if (quarterly && near(t[i + 1]! - t[i]!, 182 * DAY, 30)) out.push(t[i]! + 92 * DAY);
+  }
+  return out;
+}
+
+/**
+ * Ajoute à `quarterly` les T4 absents reconstituables depuis `annual` (même source, même
+ * définition). Un T4 n'est dérivé que si les trois trimestres précédents de l'exercice sont
+ * présents et qu'aucun point n'existe déjà à la clôture. Renvoie une nouvelle série triée.
+ */
+export function deriveMissingQ4(quarterly: TimeseriesPoint[], annual: TimeseriesPoint[]): TimeseriesPoint[] {
+  const q = [...quarterly].sort((a, b) => a.date.localeCompare(b.date));
+  const ts = q.map(p => Date.parse(p.date));
+  const added: TimeseriesPoint[] = [];
+  for (const a of annual) {
+    const end = Date.parse(a.date);
+    if (!Number.isFinite(end) || !Number.isFinite(a.value)) continue;
+    if (ts.some(t => near(t, end, 20))) continue; // T4 déjà là
+    const parts = [273, 182, 91].map(back => q.find((_, i) => near(ts[i]!, end - back * DAY, 20)));
+    if (parts.some(p => p == null)) continue;
+    const nineMonths = parts.reduce((s, p) => s + p!.value, 0);
+    added.push({ date: a.date, value: a.value - nineMonths });
+  }
+  return added.length ? [...q, ...added].sort((a, b) => a.date.localeCompare(b.date)) : q;
+}
+
 // ─── Historique du nombre d'employés ─────────────────────────────────────────
 //
 // stockanalysis expose une page /employees/ distincte des financials, avec l'historique
