@@ -17,6 +17,7 @@ import { getSectorPfcfBenchmark } from '../services/screener.js';
 import { getDividendInfoYahoo, getAssetProfileYahoo } from '../services/yahoo.js';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
 import { getMetric, getQuote } from '../services/finnhub.js';
+import { getLiveQuote } from '../services/liveQuote.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis, fetchMarketShare } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
@@ -258,7 +259,7 @@ async function computeOpportunity(
   //    • Repli : dernier point historique (déjà sur la bonne base, mais pas du jour).
   let current = points[points.length - 1]?.pfcf ?? null;
   if (adjFcfTtm != null && adjFcfTtm !== 0 && sharesOutstanding != null) {
-    const live = await getQuote(ticker).catch(() => null);
+    const live = await getLiveQuote(ticker).catch(() => null);
     const p = computeLivePfcf(live?.c ?? null, sharesOutstanding, adjFcfTtm, fcfFxToQuote);
     if (p != null) current = p;
   } else if (cachedPfcf != null && cachedPfcf > 0) {

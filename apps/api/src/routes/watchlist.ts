@@ -23,7 +23,7 @@ import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import type { WatchlistEntry } from '@lubin/shared';
 import { prisma } from '../db/client.js';
-import { getQuote } from '../services/finnhub.js';
+import { getLiveQuote } from '../services/liveQuote.js';
 import { getNextEarningsDate } from '../services/earnings.js';
 import { getEarningsInfoYahoo } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
@@ -82,13 +82,13 @@ function emptyEntry(ticker: string): WatchlistEntry {
  *   - SI le snapshot est vide (cache miss) → laisse pfcfTTM null, mais affiche au moins
  *     le prix actuel pour que la ligne ne soit pas N/A partout
  *
- * Coût : ~100-300 ms par ticker via Finnhub /quote, parallélisé.
+ * Coût : ~100-300 ms par ticker (Finnhub /quote aux US, Yahoo ailleurs — cf liveQuote), parallélisé.
  */
 async function enrichWithLivePrice(entries: WatchlistEntry[]): Promise<WatchlistEntry[]> {
   return Promise.all(
     entries.map(async snap => {
       try {
-        const q = await getQuote(snap.ticker);
+        const q = await getLiveQuote(snap.ticker);
         const livePrice = q?.c;
         if (!livePrice || livePrice <= 0) return snap;
         // Price toujours mis à jour, même sans cache

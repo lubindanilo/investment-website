@@ -81,8 +81,9 @@ interface YahooChartResponse {
   };
 }
 
-/** Probe Yahoo avec UN symbol candidat. Renvoie le résultat ou null si Yahoo ne le connaît pas. */
-async function probeOne(symbol: string): Promise<ResolveResult | null> {
+/** Probe Yahoo avec UN symbol candidat. Renvoie le résultat ou null si Yahoo ne le connaît pas.
+ *  Exporté pour le prix en direct des titres hors US (cf liveQuote.ts). */
+export async function probeOne(symbol: string): Promise<ResolveResult | null> {
   // On demande 7 jours d'historique daily — suffit pour valider que Yahoo a la donnée
   // sans grosse charge. period1 = now - 7j pour minimiser le payload.
   const now = Math.floor(Date.now() / 1000);

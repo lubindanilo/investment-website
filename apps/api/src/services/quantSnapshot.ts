@@ -13,6 +13,7 @@
  * Avec ce service partagé : impossible de diverger, c'est mathématique.
  */
 import { getMetric, getProfile2, getQuote, getCompanyNews, type FinnhubNewsItem } from './finnhub.js';
+import { getLiveQuote } from './liveQuote.js';
 import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr, computeFcfPerShareGrowth2Y, getEarningsInfoYahoo, getAssetProfileYahoo } from './yahoo.js';
 import {
   computeFcfPerShareCagrFromQuarterlies,
@@ -117,7 +118,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   if (cached && cached.fundamentalsAvailable) {
     if (log) console.log(`[quant ${ticker}] FAST PATH (cache servable) — fondamentaux réutilisés`);
     const [quote, rawNews, earnings] = await Promise.all([
-      timed('finnhub quote', getQuote(ticker)).catch(() => null),
+      timed('live quote', getLiveQuote(ticker)).catch(() => null),
       includeNews ? timed('finnhub news', getCompanyNews(ticker)).catch(() => [] as FinnhubNewsItem[]) : Promise.resolve([] as FinnhubNewsItem[]),
       fetchEarnings(),
     ]);
