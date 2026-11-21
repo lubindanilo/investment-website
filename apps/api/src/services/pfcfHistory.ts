@@ -26,7 +26,7 @@ import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundame
 import { getSecReportingCurrency } from './secEdgar.js';
 import { normalizeShareScale } from './yahooSplits.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
-import { loadIntraYearSet, agreesWithAnnual, seriesDeviation, dropMagnitudeOutliers, MIN_INTRA_POINTS } from './intraYearStore.js';
+import { loadIntraYearSet, agreesWithAnnual, latestYearAgrees, seriesDeviation, dropMagnitudeOutliers, MIN_INTRA_POINTS } from './intraYearStore.js';
 import { getFxSeries, fxAt } from './fx.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { getYahooMarketCap } from './yahoo.js';
@@ -418,7 +418,7 @@ async function getPfcfHistoryIntraYear(
 ): Promise<PfcfHistoryPoint[] | null> {
   const W = years + 1; // +1 an pour amorcer le premier douze mois glissant
   const [set, batch, currencyProbe, prices] = await Promise.all([
-    loadIntraYearSet(ticker, 'fcf', ['shares'], W),
+    loadIntraYearSet(ticker, 'fcf', ['shares', 'revenue'], W),
     getYahooAnnualBatchCached(ticker, yahooSymbol, ['annualFreeCashFlow'], Date.now()),
     fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
     fetchPriceHistory(yahooSymbol, years, pfcfInterval(years)),
@@ -435,7 +435,9 @@ async function getPfcfHistoryIntraYear(
   // franchement sur le chemin annuel dès qu'UN SEUL trimestre brut est douteux, plutôt que de
   // rafistoler une série qu'on ne peut plus garantir fraîche.
   const rawFcf = set.snapshot('fcf');
-  if (dropMagnitudeOutliers(rawFcf).length < rawFcf.length) {
+  // Le CA du même trimestre départage un total annuel glissé (ASML) d'une vraie croissance
+  // explosive (SK Hynix 2026) : cf PLAUSIBLE_REVENUE_SHARE.
+  if (dropMagnitudeOutliers(rawFcf, set.snapshot('revenue')).length < rawFcf.length) {
     console.log(`[pfcf ${ticker}] EU store douteux (trimestre outlier détecté) → chemin annuel`);
     return null;
   }
@@ -449,7 +451,7 @@ async function getPfcfHistoryIntraYear(
 
   // Contrôle de définition contre la référence annuelle qui alimente la carte.
   const annualFcf = batch?.get('annualFreeCashFlow') ?? [];
-  if (!agreesWithAnnual(fcfYear, annualFcf)) {
+  if (!agreesWithAnnual(fcfYear, annualFcf) && !latestYearAgrees(fcfYear, annualFcf)) {
     const dev = seriesDeviation(fcfYear, annualFcf);
     console.log(`[pfcf ${ticker}] EU profondeur abandonnée : FCF du store à ${dev == null ? 'écart invérifiable' : (dev * 100).toFixed(1) + ' % de l\'annuel'} → chemin annuel`);
     return null;

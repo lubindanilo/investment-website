@@ -71,12 +71,34 @@ const MAGNITUDE_OUTLIER_FACTOR = 4;
  * aucune fenêtre glissante ne l'enjambe, on perd juste les quelques trimestres autour de lui au
  * lieu d'afficher un chiffre faux.
  */
-export function dropMagnitudeOutliers(points: TimeseriesPoint[]): TimeseriesPoint[] {
+export function dropMagnitudeOutliers(points: TimeseriesPoint[], revenue?: TimeseriesPoint[]): TimeseriesPoint[] {
   if (points.length < 6) return points;
   const abs = points.map(p => Math.abs(p.value)).sort((a, b) => a - b);
   const median = abs[Math.floor(abs.length / 2)]!;
   if (median <= 0) return points;
-  return points.filter(p => Math.abs(p.value) <= MAGNITUDE_OUTLIER_FACTOR * median);
+  return points.filter(p =>
+    Math.abs(p.value) <= MAGNITUDE_OUTLIER_FACTOR * median || plausibleAgainstRevenue(p, revenue));
+}
+
+/**
+ * Part maximale du CA du MÊME trimestre qu'un flux peut représenter pour rester crédible malgré
+ * une magnitude hors norme.
+ *
+ * Le seul test de magnitude confond deux situations : un total annuel glissé dans une case
+ * trimestrielle (ASML : FCF à 95-113 % du CA du trimestre) et une vraie croissance explosive.
+ * Mesuré sur SK Hynix (000660.KS) en 2026 : FCF trimestriel de 54,7 puis 40,8 T₩ pour une médiane
+ * historique de ~4 T₩ — 10 à 14 fois la médiane, mais 69 % et 39 % du CA du trimestre, cohérent
+ * avec un supercycle mémoire. Sans ce recoupement, le graphe P/FCF et la carte retombaient sur le
+ * FCF de l'exercice 2025 (24,8 T₩) et affichaient ~41× pour un P/FCF réel de ~8×.
+ */
+const PLAUSIBLE_REVENUE_SHARE = 0.9;
+
+/** Le point a-t-il un CA à la même date (±20 j) dont il reste une part crédible ? */
+function plausibleAgainstRevenue(p: TimeseriesPoint, revenue?: TimeseriesPoint[]): boolean {
+  if (!revenue?.length) return false;
+  const t = Date.parse(p.date);
+  const rev = revenue.find(r => Math.abs(Date.parse(r.date) - t) < 20 * 24 * 3600 * 1000);
+  return rev != null && rev.value > 0 && Math.abs(p.value) <= PLAUSIBLE_REVENUE_SHARE * rev.value;
 }
 
 /**
@@ -86,8 +108,8 @@ export function dropMagnitudeOutliers(points: TimeseriesPoint[]): TimeseriesPoin
  * écart anormal entre deux points de la fenêtre → ce n'est pas douze mois, pas de point. Sans
  * ça, une série trouée produirait des « douze mois » étalés sur vingt-quatre.
  */
-export function rollingYearSum(points: TimeseriesPoint[], periods: number): TimeseriesPoint[] {
-  const s = dropMagnitudeOutliers(points).sort((a, b) => a.date.localeCompare(b.date));
+export function rollingYearSum(points: TimeseriesPoint[], periods: number, revenue?: TimeseriesPoint[]): TimeseriesPoint[] {
+  const s = dropMagnitudeOutliers(points, revenue).sort((a, b) => a.date.localeCompare(b.date));
   const maxGap = maxTtmGapMs(s);
   const gaps: number[] = [0];
   for (let i = 1; i < s.length; i++) gaps.push(Date.parse(s[i]!.date) - Date.parse(s[i - 1]!.date));
@@ -143,6 +165,29 @@ export function agreesWithAnnual(
   const dev = seriesDeviation(intra, annual);
   if (dev == null) return annual.length < MIN_INTRA_POINTS;
   return dev <= tolerance;
+}
+
+/**
+ * Le DERNIER exercice annuel est-il recoupé par la série intra-annuelle à sa date de clôture ?
+ *
+ * Voie d'acceptation complémentaire d'`agreesWithAnnual` : sur deux exercices communs, l'écart
+ * « médian » de celle-ci est en fait le PIRE des deux, et un exercice ancien où les sources
+ * comptent le capex un peu différemment suffit à tout rejeter. SK Hynix : FCF 2025 recoupé à
+ * 0,0 %, 2024 à 5,5 % (13,9 T₩ chez stockanalysis contre 13,1 chez Yahoo) → série écartée, et
+ * avec elle les deux trimestres records de 2026. Quand c'est l'exercice le plus récent qui
+ * concorde à la tolérance de définition, les deux sources décrivent bien la même ligne au moment
+ * qui compte pour un multiple actuel.
+ */
+export function latestYearAgrees(
+  intra: TimeseriesPoint[],
+  annual: TimeseriesPoint[],
+  tolerance = DEFINITION_TOLERANCE,
+): boolean {
+  const last = [...annual].sort((a, b) => a.date.localeCompare(b.date)).at(-1);
+  if (!last || last.value === 0) return false;
+  const t = Date.parse(last.date);
+  const match = intra.find(p => Math.abs(Date.parse(p.date) - t) < 20 * 24 * 3600 * 1000);
+  return match != null && Math.abs(match.value - last.value) / Math.abs(last.value) <= tolerance;
 }
 
 /** Fenêtre une série sur les `years` dernières années, triée ASC. */
@@ -208,9 +253,39 @@ export async function loadIntraYearSet(
     flow: (metric: string) => {
       const hit = flowCache.get(metric);
       if (hit) return hit;
-      const out = rollingYearSum(byMetric.get(metric) ?? [], periods);
+      // Le CA chargé dans le même jeu sert de recoupement aux magnitudes hors norme des AUTRES
+      // flux (cf PLAUSIBLE_REVENUE_SHARE) ; le CA lui-même n'a pas de référence.
+      const revenue = metric === 'revenue' ? undefined : byMetric.get('revenue');
+      const out = rollingYearSum(byMetric.get(metric) ?? [], periods, revenue);
       flowCache.set(metric, out);
       return out;
     },
   };
+}
+
+/**
+ * Flux DOUZE MOIS GLISSANTS le plus récent du store pour `metric` (FCF de la carte P/FCF des
+ * titres non-US), ou null si on ne peut pas le garantir. Mêmes garde-fous que le graphe P/FCF
+ * (pfcfHistory.getPfcfHistoryIntraYear), pour que la carte et la fin de la courbe disent la
+ * même chose :
+ *   1. aucune période brute aberrante (magnitude hors norme ET non crédible face au CA) ;
+ *   2. la série recomposée recoupe l'annuel (agreesWithAnnual ou latestYearAgrees) ;
+ *   3. le dernier point est frais (relève attendue : ~200 j en trimestriel, ~400 en semestriel).
+ */
+export async function latestStoreTtm(
+  ticker: string,
+  metric: string,
+  annual: TimeseriesPoint[],
+  nowMs: number,
+): Promise<TimeseriesPoint | null> {
+  const set = await loadIntraYearSet(ticker, metric, ['revenue'], 4);
+  if (!set) return null;
+  const raw = set.snapshot(metric);
+  if (dropMagnitudeOutliers(raw, set.snapshot('revenue')).length < raw.length) return null;
+  const flow = set.flow(metric);
+  if (!agreesWithAnnual(flow, annual) && !latestYearAgrees(flow, annual)) return null;
+  const last = flow.at(-1);
+  if (!last) return null;
+  const staleness = (set.freq === 'semiannual' ? 400 : 200) * 24 * 3600 * 1000;
+  return nowMs - Date.parse(last.date) <= staleness ? last : null;
 }

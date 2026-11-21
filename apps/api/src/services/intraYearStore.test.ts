@@ -7,7 +7,7 @@
  * contigus », et « cette série recomposée dit-elle la même chose que la carte ».
  */
 import { describe, it, expect } from 'vitest';
-import { rollingYearSum, seriesDeviation, agreesWithAnnual, dropMagnitudeOutliers } from './intraYearStore.js';
+import { rollingYearSum, seriesDeviation, agreesWithAnnual, latestYearAgrees, dropMagnitudeOutliers } from './intraYearStore.js';
 
 describe('rollingYearSum', () => {
   it('somme 4 trimestres et date le point sur le dernier', () => {
@@ -178,5 +178,43 @@ describe('agreesWithAnnual', () => {
   it('accepte quand le recoupement est impossible et que l’annuel ne suffit pas', () => {
     expect(agreesWithAnnual(pts({ 2025: 12 }), pts({ 2025: 11 }))).toBe(true);
     expect(agreesWithAnnual(pts({ 2024: 11, 2025: 12 }), [])).toBe(true);
+  });
+});
+
+describe('dropMagnitudeOutliers — recoupement par le CA', () => {
+  const d = (date: string, value: number) => ({ date, value });
+  // FCF SK Hynix (T₩) : historique ~2-9, puis deux trimestres records en 2026.
+  const fcf = [d('2024-03-31', 2.3), d('2024-06-30', 3.6), d('2024-09-30', 4.3), d('2024-12-31', 3.7),
+    d('2025-03-31', 2.6), d('2025-06-30', 4.5), d('2025-09-30', 9.1), d('2025-12-31', 8.6),
+    d('2026-03-31', 18.5), d('2026-06-30', 54.7), d('2026-09-30', 40.8)];
+  const revenue = [d('2026-03-31', 52.6), d('2026-06-30', 79.3), d('2026-09-30', 104.6)];
+
+  it('sans CA, les trimestres records passent pour des outliers', () => {
+    expect(dropMagnitudeOutliers(fcf).length).toBeLessThan(fcf.length);
+  });
+
+  it('avec le CA du trimestre, une croissance explosive crédible est conservée', () => {
+    expect(dropMagnitudeOutliers(fcf, revenue)).toHaveLength(fcf.length);
+  });
+
+  it('un total annuel glissé dans un trimestre (FCF ≈ CA) reste écarté', () => {
+    const glissé = [...fcf.slice(0, 9), d('2026-06-30', 85)];
+    expect(dropMagnitudeOutliers(glissé, revenue).map(p => p.date)).not.toContain('2026-06-30');
+  });
+});
+
+describe('latestYearAgrees', () => {
+  const d = (date: string, value: number) => ({ date, value });
+  const annual = [d('2024-12-31', 13.1), d('2025-12-31', 24.8)];
+
+  it('accepte quand le dernier exercice concorde, même si un ancien diverge', () => {
+    const intra = [d('2024-12-31', 13.9), d('2025-12-31', 24.79)];
+    expect(agreesWithAnnual(intra, annual)).toBe(false);
+    expect(latestYearAgrees(intra, annual)).toBe(true);
+  });
+
+  it('refuse quand le dernier exercice diverge ou manque', () => {
+    expect(latestYearAgrees([d('2025-12-31', 26)], annual)).toBe(false);
+    expect(latestYearAgrees([d('2024-12-31', 13.1)], annual)).toBe(false);
   });
 });

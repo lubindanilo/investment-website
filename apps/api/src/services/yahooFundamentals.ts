@@ -26,6 +26,7 @@ import { yahooLimiter } from '../lib/limiter.js';
 import { computeExcessCash } from './finnhubFundamentals.js';
 import { computeFcfPerShareCagr as computeFcfPerShareCagrYahoo, getYahooMarketCap } from './yahoo.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
+import { latestStoreTtm } from './intraYearStore.js';
 import { getSecReportingCurrency } from './secEdgar.js';
 import { getFxRateNow } from './fx.js';
 import { reconcileAdsMarketCap, IMPLIED_SHARE_COUNT_MIN, IMPLIED_SHARE_COUNT_MAX } from './marketCapResolve.js';
@@ -316,7 +317,7 @@ export async function getYahooFundamentals(
         : null;
       const nwc = currentRatio != null ? (currentRatio < 1 ? -1 : 1) : null;
 
-      // P/FCF TTM = market_cap / FCF (dernier exercice, strict — pas de fallback).
+      // P/FCF TTM = market_cap / FCF (12 mois glissants si garantis, sinon dernier exercice).
       //
       // ⚠ SEUL ratio de cette fonction à croiser deux devises : `price` est en devise de
       // COTATION (celle de resolveYahooTicker) alors que `latestFcf` est en devise de
@@ -383,18 +384,31 @@ export async function getYahooFundamentals(
         }
       }
 
+      // FCF du multiple : douze mois GLISSANTS du store intra-annuel quand il est garanti (mêmes
+      // garde-fous que le graphe P/FCF, cf latestStoreTtm) et plus récent que le dernier
+      // exercice ; sinon le dernier exercice, comme avant. Sans ça le multiple d'un titre non-US
+      // retardait jusqu'à un an sur ses résultats : SK Hynix affichait ~41× sur le FCF 2025
+      // (24,8 T₩) quand ses quatre derniers trimestres en faisaient 122,6 — P/FCF réel ~8×.
+      // Seul le multiple change : marge FCF, dette nette/FCF, CCR et Cash ROCE restent annuels.
+      const storeTtm = await latestStoreTtm(ticker, 'fcf', batch.get('annualFreeCashFlow') ?? [], nowMs).catch(() => null);
+      const ttmIsNewer = storeTtm != null
+        && (!latestFcf || Date.parse(storeTtm.date) > Date.parse(latestFcf.date) + 20 * 24 * 3600 * 1000);
+      const pfcfFcf = ttmIsNewer ? storeTtm : latestFcf;
+      const pfcfPeriod = ttmIsNewer ? 'les douze derniers mois' : 'le dernier exercice';
+
       let pfcfTTM: number | null = null;
       if (!marketCap) reasons.pfcfTTM = reasons.marketCap ?? 'Market cap non calculable';
-      else if (!latestFcf) reasons.pfcfTTM = 'FCF indisponible';
-      else if (latestFcf.value <= 0) reasons.pfcfTTM = 'FCF négatif sur le dernier exercice';
+      else if (!pfcfFcf) reasons.pfcfTTM = 'FCF indisponible';
+      else if (pfcfFcf.value <= 0) reasons.pfcfTTM = `FCF négatif sur ${pfcfPeriod}`;
       else {
         // On convertit le FCF vers la devise de cotation (et pas l'inverse) pour laisser
         // `marketCap` et `price` cohérents entre eux dans la payload exposée.
         if (fx == null) {
           reasons.pfcfTTM = `Taux de change ${reporting}→${currency} indisponible — un P/FCF mélangeant deux devises serait faux`;
         } else {
-          pfcfTTM = marketCap / (latestFcf.value * fx);
-          if (fx !== 1) console.log(`[yahoo fund ${yahooSymbol}] P/FCF converti : FCF en ${reporting} × ${fx} → ${currency} (multiple ${pfcfTTM.toFixed(2)}× au lieu de ${(marketCap / latestFcf.value).toFixed(2)}×)`);
+          pfcfTTM = marketCap / (pfcfFcf.value * fx);
+          if (ttmIsNewer) console.log(`[yahoo fund ${yahooSymbol}] P/FCF sur 12 mois glissants au ${pfcfFcf.date} (${pfcfTTM.toFixed(2)}×)`);
+          if (fx !== 1) console.log(`[yahoo fund ${yahooSymbol}] P/FCF converti : FCF en ${reporting} × ${fx} → ${currency} (multiple ${pfcfTTM.toFixed(2)}× au lieu de ${(marketCap / pfcfFcf.value).toFixed(2)}×)`);
         }
       }
 

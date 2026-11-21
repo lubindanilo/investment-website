@@ -106,8 +106,12 @@ export interface CachedQuantSnapshot {
  *     comme le chemin live. Sans invalidation, 400 titres londoniens garderaient un P/FCF
  *     ×100 (Halma 3 427× pour ~34×) et les ADR en devise locale un P/FCF ÷ taux (KB 0,01×),
  *     avec les prix d'achat et flags d'opportunité qui en découlent, jusqu'au prochain earnings.
+ * 8 — P/FCF des titres non-US sur douze mois GLISSANTS du store intra-annuel quand il est garanti
+ *     (latestStoreTtm), au lieu du dernier exercice. Sans invalidation, SK Hynix garderait ~41×
+ *     sur son FCF 2025 pour un P/FCF réel de ~8× sur ses quatre derniers trimestres, et tous les
+ *     titres hors US un multiple en retard de jusqu'à un an jusqu'au prochain earnings.
  */
-export const SNAPSHOT_LOGIC_VERSION = 7;
+export const SNAPSHOT_LOGIC_VERSION = 8;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
