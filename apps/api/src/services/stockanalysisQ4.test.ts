@@ -46,3 +46,16 @@ describe('q4GapCandidates', () => {
     expect(q4GapCandidates(FCF_Q.slice(6))).toEqual([]);
   });
 });
+
+import { parseSaCurrency } from './stockanalysisFundamentals.js';
+
+describe('parseSaCurrency', () => {
+  it('lit la devise affichée par la page (ENIC converti en USD, BSAC en CLP)', () => {
+    expect(parseSaCurrency('<span>Financials in millions USD. Fiscal year is January - December.</span>')).toBe('USD');
+    expect(parseSaCurrency('<div>Financials in millions CLP</div>')).toBe('CLP');
+    expect(parseSaCurrency('{currency:"KRW",fiscalYear:"Jan"}')).toBe('KRW');
+  });
+  it('rien de reconnaissable → null (on ne convertit pas à l’aveugle)', () => {
+    expect(parseSaCurrency('<html>no marker</html>')).toBeNull();
+  });
+});

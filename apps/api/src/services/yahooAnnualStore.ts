@@ -15,7 +15,9 @@ import type { TimeseriesPoint } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, appendOnlyMerge, type ExpiryCadence } from './fundamentalsStore.js';
 import { getYahooQuarterlyBatch } from './yahoo.js';
 import { getEdgarAnnualNative, EDGAR_ANNUAL_TYPES } from './secEdgar.js';
-import { getStockanalysisQuarterlyBatch, getStockanalysisAnnualBatch, deriveMissingQ4, q4GapCandidates, SA_FLOW_METRICS } from './stockanalysisFundamentals.js';
+import { getStockanalysisQuarterlyBatch, getStockanalysisAnnualBatch, deriveMissingQ4, q4GapCandidates, SA_FLOW_METRICS, type StockanalysisBatch } from './stockanalysisFundamentals.js';
+import { resolveReportingCurrency } from './reportingCurrency.js';
+import { getFxSeries, fxAt } from './fx.js';
 import { purgeTicker } from '../lib/timeseriesCache.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
@@ -305,8 +307,36 @@ export async function accumulateYahooQuarterly(ticker: string, symbol: string, n
  * Best-effort : ~3 fetches par ticker (income, cash-flow, balance-sheet), throttle 1 req/s.
  * Renvoie le nb de métriques accumulées (0 = source indisponible pour ce ticker).
  */
+/**
+ * Ramène un lot stockanalysis dans la devise des COMPTES du titre, celle que tout le reste du
+ * pipeline suppose pour le store (le facteur `fcfFxToQuote` part de là).
+ *
+ * La page /stocks/ d'un ADR est parfois déjà convertie en dollars : ENIC (Enel Chile, comptes en
+ * CLP) arrivait en USD, puis le P/FCF lui appliquait le taux CLP→USD une seconde fois — 7 553×
+ * pour ~7,5× réels. Conversion point par point au taux de sa date. Taux introuvable → null : on
+ * n'écrit rien plutôt que d'écrire dans la mauvaise devise.
+ */
+export async function alignToReportingCurrency(ticker: string, batch: StockanalysisBatch): Promise<StockanalysisBatch | null> {
+  if (!batch.currency) return batch;
+  const rc = await resolveReportingCurrency(ticker, ticker, batch.currency).catch(() => null);
+  const target = rc?.currency ?? batch.currency;
+  if (target === batch.currency) return batch;
+  const fx = await getFxSeries(batch.currency, target).catch(() => null);
+  if (fx == null) {
+    console.warn(`[sa ${ticker}] montants en ${batch.currency}, comptes en ${target}, taux indisponible → lot ignoré`);
+    return null;
+  }
+  const series = new Map<string, TimeseriesPoint[]>();
+  for (const [k, pts] of batch.series) {
+    series.set(k, pts.map(p => ({ date: p.date, value: p.value * (fxAt(fx, p.date) ?? NaN) })).filter(p => Number.isFinite(p.value)));
+  }
+  console.log(`[sa ${ticker}] montants convertis ${batch.currency} → ${target} (devise des comptes, source ${rc?.source ?? '?'})`);
+  return { ...batch, currency: target, series };
+}
+
 export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: number): Promise<number> {
-  const batch = await getStockanalysisQuarterlyBatch(ticker).catch(() => null);
+  const fetched = await getStockanalysisQuarterlyBatch(ticker).catch(() => null);
+  const batch = fetched ? await alignToReportingCurrency(ticker, fetched) : null;
   if (!batch || batch.series.size === 0) return 0;
   // T4 absents des flux (émetteurs coréens : cf deriveMissingQ4). La page annuelle (3 requêtes)
   // n'est chargée que si un trou est effectivement reconstituable, dans le stock ou dans le lot.
@@ -315,7 +345,8 @@ export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: nu
   const union = (k: string) => [...(storedBy.get(k)?.points ?? []), ...(batch.series.get(k) ?? [])];
   const needsQ4 = batch.freq === 'quarterly'
     && [...batch.series.keys()].some(k => SA_FLOW_METRICS.has(k) && q4GapCandidates(union(k)).length > 0);
-  const annual = needsQ4 ? await getStockanalysisAnnualBatch(ticker).catch(() => null) : null;
+  const annualRaw = needsQ4 ? await getStockanalysisAnnualBatch(ticker).catch(() => null) : null;
+  const annual = annualRaw ? await alignToReportingCurrency(ticker, annualRaw) : null;
   let metricsStored = 0;
   for (const [metricKey, raw] of batch.series) {
     let pts = raw;
@@ -393,11 +424,13 @@ export async function accumulateStockanalysisAnnual(ticker: string, nowMs: numbe
   const pivot = await readSeries(ticker, 'annualTotalRevenue');
   if ((pivot?.points.length ?? 0) >= SA_ANNUAL_DEPTH_TARGET) return 0;
 
-  const batch = await getStockanalysisAnnualBatch(ticker).catch(() => null);
-  if (!batch || batch.series.size === 0) {
+  const fetched = await getStockanalysisAnnualBatch(ticker).catch(() => null);
+  if (!fetched || fetched.series.size === 0) {
     saAnnualNone.add(ticker);
     return 0;
   }
+  const batch = await alignToReportingCurrency(ticker, fetched);
+  if (!batch) return 0;
   // Une page annuelle qui se lit comme du trimestriel signalerait un mauvais parsing (ou une
   // page servie dans la mauvaise périodicité) : on préfère ne rien écrire.
   if (batch.freq !== 'annual') {

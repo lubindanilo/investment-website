@@ -333,6 +333,12 @@ const FIELDS_BALANCE: Record<string, string> = {
 
 export interface StockanalysisBatch {
   freq: 'quarterly' | 'semiannual' | 'annual';
+  /**
+   * Devise des montants, lue sur la page (« Financials in millions USD »). PAS forcément celle des
+   * comptes : la page /stocks/ d'un ADR est parfois convertie en dollars (ENIC, Enel Chile, publie
+   * en CLP), parfois non (BSAC en CLP, TSM en TWD). null = marqueur introuvable.
+   */
+  currency: string | null;
   /** Métriques disponibles → série {date, value}, ordre chronologique croissant. */
   series: Map<string, TimeseriesPoint[]>;
 }
@@ -378,7 +384,14 @@ async function getStockanalysisBatch(yahooTicker: string, period: SaPeriod): Pro
   addSeries(series, parsedBalance,  FIELDS_BALANCE);
   deriveFcf(series);
 
-  return { freq, series };
+  return { freq, series, currency: parseSaCurrency(incomeHtml ?? cfHtml ?? bsHtml ?? '') };
+}
+
+/** Devise des montants d'une page financials (« Financials in millions USD », ou `currency:"USD"`). Exporté pour tests. */
+export function parseSaCurrency(html: string): string | null {
+  return html.match(/Financials in [a-z ]+ ([A-Z]{3})\b/)?.[1]
+    ?? html.match(/currency:"([A-Z]{3})"/)?.[1]
+    ?? null;
 }
 
 /**
