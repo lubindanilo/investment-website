@@ -110,8 +110,11 @@ export interface CachedQuantSnapshot {
  *     (latestStoreTtm), au lieu du dernier exercice. Sans invalidation, SK Hynix garderait ~41×
  *     sur son FCF 2025 pour un P/FCF réel de ~8× sur ses quatre derniers trimestres, et tous les
  *     titres hors US un multiple en retard de jusqu'à un an jusqu'au prochain earnings.
+ * 9 — devise des comptes du chemin Finnhub : sonde Yahoo quand la SEC n'a pas de profil. Les ADR
+ *     sans bilan XBRL (SKHY, KB, TLK, CIB, EC…) gardaient un facteur de change de 1 : leur P/FCF
+ *     live (watchlist, screener, percentile) et leur courbe sortaient à ~0,01×.
  */
-export const SNAPSHOT_LOGIC_VERSION = 8;
+export const SNAPSHOT_LOGIC_VERSION = 9;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.

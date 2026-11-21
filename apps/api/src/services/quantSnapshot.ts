@@ -223,7 +223,13 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     // /financials-reported publie en devise de REPORTING (KRW pour KB Financial, INR pour Wipro)
     // quand la capitalisation Finnhub est en dollars : le facteur doit entrer dans le P/FCF ici,
     // comme il entrait déjà dans le recompute live — sinon liste et fiche se contredisent.
-    reportingCurrency = secProfile?.currency ?? null;
+    // Sans profil SEC (ADR fraîchement coté sans bilan XBRL, SEC indisponible), on sonde Yahoo
+    // comme le chemin non-US. Avant, la devise restait vide → facteur 1 → le FCF en wons de SKHY
+    // (SK Hynix, Nasdaq) était lu comme des dollars par le graphe P/FCF, la watchlist et le
+    // screener : 0,008× au lieu de ~11×. Même trou chez KB, TLK, CIB, EC, BMA, HMC, INFY…
+    reportingCurrency = secProfile?.currency
+      ?? (await resolveReportingCurrency(ticker, ticker, currency, null).catch(() => null))?.currency
+      ?? null;
     let marketCapQuoteAbsolute: number | null = null;
     if (reportingCurrency && reportingCurrency !== currency) {
       fcfFxToQuote = await getFxRateNow(reportingCurrency, currency).catch(() => null);

@@ -23,7 +23,8 @@
  *   - Pas assez de quarters pour calculer TTM (besoin ≥ 4)
  */
 import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
-import { getSecReportingCurrency } from './secEdgar.js';
+import { secReportingProfile } from './secEdgar.js';
+import { resolveReportingCurrency } from './reportingCurrency.js';
 import { normalizeShareScale } from './yahooSplits.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { loadIntraYearSet, agreesWithAnnual, latestYearAgrees, seriesDeviation, dropMagnitudeOutliers, MIN_INTRA_POINTS } from './intraYearStore.js';
@@ -350,7 +351,15 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
   // Pour un ADR (TCOM/CNY, FUTU/HKD…) les deux diffèrent et le multiple serait divisé par le
   // taux. On convertit au taux de CHAQUE point, pas au taux du jour : le prix de 2020 doit
   // rencontrer le FCF de 2020 au taux de 2020 (le drift JPY/USD atteint −34 % sur la période).
-  const reporting = await getSecReportingCurrency(ticker).catch(() => null);
+  // Devise des comptes : SEC, sinon sonde Yahoo (ADR sans bilan XBRL — SKHY, coté au Nasdaq en
+  // 2026, sortait à 0,008× : son FCF en wons était divisé tel quel dans un prix en dollars).
+  // Même résolution que la note (quantSnapshot), pour que courbe et carte parlent la même devise.
+  // La sonde ne part QUE sans profil SEC : un émetteur qui publie en USD a un profil, pas d'appel.
+  const secCurrency = (await secReportingProfile(ticker).catch(() => null))?.currency ?? null;
+  const reportingRaw = secCurrency
+    ?? (await resolveReportingCurrency(ticker, ticker, quoteCurrency, null).catch(() => null))?.currency
+    ?? null;
+  const reporting = reportingRaw && reportingRaw !== quoteCurrency && reportingRaw !== 'USD' ? reportingRaw : null;
   const fxSeries = reporting ? await getFxSeries(reporting, quoteCurrency) : [];
   if (reporting && fxSeries == null) {
     console.warn(`[pfcf ${ticker}] taux ${reporting}→${quoteCurrency} indisponible → série omise plutôt que fausse`);
